@@ -1,0 +1,157 @@
+\subsection{FUNKCIJSKA ZAPOREDJA IN VRSTE}
+\begin{enumerate}
+    \item Funkcijska zaporedja
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Funkcijsko zaporedje. Konvergenca po točkah. Limitna funkcija.
+        \item \colorbox{yellow!30}{\emph{Zgled.}} Določi limitno funkcijo. 
+        \begin{itemize}
+            \item $f_n(x) = x^n, \ n \in \NN$ na $[0,1]$. Ali je limitna funkcija zvezna?
+            \item Naj bo $g$ zvezna funkcija na $\RR$, $g \equiv 0$ na $\RR \setminus (0,1)$ in $\displaystyle \int_{0}^{1} g(x) \,dx  \neq 0$: $g_n(x) = ng(nx), \ n \in \NN$. 
+            
+            Ali je $\lim_{n \to \infty} \int_{0}^{1} g_n(x) \, dx = \int_{0}^{1} \lim_{n \to \infty}  g_n(x) \, dx$?
+        \end{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Enakomerna konvergenca.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali je vsako enakomerno konvergentno funkcijsko zaporedje tudi konvergira po točkah?
+        \item \colorbox{yellow!30}{\emph{Primer.}} $f_n(x) = \frac{x}{n}, \ n \in \NN$ na $\RR$. Ali je konvergenca enakomerna? Kaj če gledamo $f_n$ na omejeni podmnožici $D \subset \RR$?
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Ekvivalentni pogoj za enakomerno konvergenco (zapordje $(d_\infty(f_n, f))_n$).
+        \item \colorbox{yellow!30}{\emph{Primer.}} $f_n(x) = x^n, \ n \in \NN$ na $[0,1]$. Ali je konvergenca enakomerna?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Enakomerno Cauchyjevo funkcijsko zaporedje.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Karakterizacija enakomerne konvergence.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Ideja dokaza.}} Kot za zaporedja.
+        \end{itemize} 
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Zadosten pogoj za zveznost limitne funkcije.        
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Definicija zveznosti v točki.
+        \end{itemize} 
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali je dovolj konvergence po točkah?
+    \end{itemize}
+    \item Funkcijske vrste
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Funkcijska vrsta. Konvergenca po točkah. Vsota funkcijske vrste. Enakomerna konvergenca.
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Zadosten pogoj za zveznost vsote funkcijske vrste.
+        \item \colorbox{yellow!30}{\emph{Primer.}} Dana vrsta: $f(x) = \sum_{n=1}^{\infty}x^n(1-x^n)$.
+        \begin{itemize}
+            \item Dokaži, da vrsta konvergira po točkah na $[0,1]$.
+            \item Določi predpis za $f$.
+            \item Ali vrsta enakomerno konvergira na $D_f$? (Pomagaj si z zveznostjo).
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Weierstrassov kriterij. M-test za enakomerno konvergenco vrst.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Pokažemo, da je vrsta enakomerno Cauchyjeva.
+        \end{itemize}         
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Zadosten pogoj za enakomerno konvergenco vrst $\sum_{n=1}^{\infty} a_n \sin (nx)$ in $\sum_{n=1}^{\infty} a_n \cos (nx)$.
+    \end{itemize}
+    \item Integriranje in odvajanje funkcijskih zaporedij in vrst
+    \begin{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Zadosten pogoj za zamenjavo vrstnega reda integriranja in limite pri integriranju funkcijskih zaporedij.     
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Po definiciji pokažemo, da je integral na desni res limita številskega zaporedja.
+        \end{itemize} 
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali je dovolj konvergence po točkah?        
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Zadosten pogoj za zamenjavo vrstnega reda integriranja in vsote pri integriranju funkcijskih vrst.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Zadosten pogoj za odvedljivost limitne funkcije funkcijskega zaporedja. Kaj velja za njen odvod?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Osnovni izrek analize + Newton-Leibnizova formula.
+        \end{itemize} 
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Zadosten pogoj za odvedljivost vsote funkcijske vrste. Kaj velja za njen odvod?  
+    \end{itemize}
+    \item Potenčne vrste
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Potenčna vrsta s središčem v $c$.
+        \item \colorbox{yellow!30}{\emph{Primer.}} Geometrijska vrsta $\sum_{n=0}^{\infty} x^n$. Kje konvergira?
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Obstoj konvergenčnega polmera. \textbf{Konvergenčni polmer.}
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Naj bo $c = 0$. Recimo, da potenčna vrsta konvergira v $x = x_0 \neq 0$. Naj bo $r \in (0, |x_0|)$. Pokažemo, da je vrsta absolutno in enakomerno konvergira na $[-r, r]$. 
+            
+            Definiramo $R = \sup \set{|x_0|; \text{ vrsta konvergira v } x_0}$.
+        \end{itemize} 
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Kaj lahko povemo o vsote potenčne vrste s konvergenčnim polmerom $R>0$?
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Formuli za izračun konvergenčnega polmera.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Absolutna konvergenca in kvocientni kriterij.
+        \end{itemize} 
+        \item \colorbox{yellow!30}{\emph{Primer.}} Določi konvergenčno območje!
+        \begin{itemize}
+            \item $\sum_{n=1}^{\infty} \frac{x^n}{n}$.
+            \item $\sum_{n=1}^{\infty} n^n x^n$.
+        \end{itemize}
+
+        \newpage
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Cauchy-Hadamardov izrek o konvergenčnem polmeru.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Naj bo $c=0$ in $a = \limsup_{n \to \infty} \sqrt[n]{|a_n|}$. Ločimo primeri:
+            
+            1) $a = 0$. Pokažemo, da je $R = 0$ (izberimo $x \neq 0$ in pokažemo, da vrsta divergira, ker členi ne grejo proti $0$).
+
+            2) $a \in [0, \infty)$. Pokažemo, da vrsta konvergira za vse $|x| < \frac{1}{a}$ (absolutna konvergenca) in divergira za vse $|x| > \frac{1}{a}$ (členi ne grejo prito $0$).
+        \end{itemize} 
+        \item \colorbox{yellow!30}{\emph{Primer.}} Določi konvergenčno območje vrste $\sum_{n=1}^{\infty} n! \, x^{n!}$.
+        \item \colorbox{blue!30}{\textbf{Abelov izrek.}}  Zadosten pogoj za zveznost potenčne vrste v kraišču definicijskega območja. \textcolor{red}{[brez dokaza]}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Odvajanje in integriranje potenčnih vrst.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Dovolj, da pokažemo, da konvergenčni polmer pri odvajanju in integriranju ne spremeni.
+        \end{itemize} 
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Kaj lahko povemo o odvedljivosti vsote potenčne vrste?
+        \item \colorbox{yellow!30}{\emph{Primer.}} Seštej!
+        \begin{itemize}
+            \item $f(x) = \sum_{n=1}^{\infty} \frac{x^n}{n}$.
+            \item $f(x) = \sum_{n=1}^{\infty} n(x-1)^n$.
+        \end{itemize}
+    \end{itemize}
+    
+    \item Taylorjeva formula in Taylorjeva vrsta
+    \begin{itemize}
+        \item Naj bo $p \in \RR_n[x]$ in naj bosta $a, h \in \RR$. Izračunaj $p(a+h)$. Kaj če v ta enakost vstavimo $x = a + h$? 
+        \item \colorbox{purple!30}{\textbf{Definicija.}} $n$-ti Taylorjev polinom funkcije $f$ pri točke $a$. Oznaka.        
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Naj bo $f$ polinom stopnje $n$. Ali je $T_{n,a}(x) = f(x)$? Ali enakost velja v šplošnem (če $f$ ni polinom)? \textbf{Ostanek} pri aproksimaciji $f$ s Taylorjevim polinomom. Zapis.        
+        \item \colorbox{blue!30}{\textbf{Taylorjev izrek.}} Velikost ostanka.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Najprej pokažemo, da $R_{n,a}^{(k)}(a) = 0$ za $0 \leq k \leq n$. Fiksiramo $x \in I$ in pišemo: 
+            
+            $R_{n,a}(x) = s(x-a)^{n+1}$ za nek $s \in \RR$. Za funkcijo $g(y) = R_{n,a}(y) - s(y-a)^{n+1}$ $n$-krat uporabimo Rollov izrek na intervalu med $x$ in $a$ in dobimo izraz za $s$.
+        \end{itemize} 
+        \item \colorbox{yellow!30}{\emph{Primer.}} Približno izračunaj $\sqrt{1.1}$ in oceni napako s $T_1$.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Taylorjeva vrsta.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Kaj se lahko zgodi s prirejeno Taylorjevo vrsto funkcije $f$?
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Denimo, da je funkcija $f$ vsota konvergenčne potenčne vrste z konvergenčnim polmerom $R>0$. Ali je potem funkcija $f$ enaka svoje prirejene Taylorjeve vrste v točke $a, \ |a| < R$?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Vrsto $\sum_{n=0}^{\infty}c_n x^n$ radi bi s pomočjo binomske formule uredili po potencah $x-a$ in s pomočjo odvodov izračunali koeficienti.
+        \end{itemize} 
+        \item \colorbox{yellow!30}{\emph{Primer.}} $f(x) = \begin{cases}
+            \exp (-\frac{1}{x}), & x > 0; \\
+            0, & x \leq 0.
+        \end{cases}$. Ali je $f$ enaka vsoti prirejene Taylorjeve vrste na kakšnem intervalu, ki vsebuje $0$?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Realno analitična funkcija $f$ na odprtem intervalu $I$. Oznaka.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali je $f$ vsota prirejene Taylorjeve vrste? Kakšna zveza med množico realno analitičnih funkcij na $I$ in $C^{\infty}(I)$?
+        \item \colorbox{blue!30}{\textbf{Taylorjev izrek.}} Splošna oblika ostanka.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Naj bo $b, x \in I$ in $p \in \NN$. Definiramo $F(x) = T_{n,x}(b) + \big(\frac{b-x}{b-a}\big)^p R_{n, a}(b)$. Uporabimo Rollov izrek na intervalu med $a$ in $b$.
+        \end{itemize} 
+    \end{itemize}
+    \item Taylorjeve vrste osnovnih funkcij
+    \begin{itemize}
+        \item Eksponentna funkcija (središče v $0$).
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Izpeljava.}} Izračunamo odvodi in ocenimo ostanek. 
+        \end{itemize} 
+        \item Sinus (središče v $0$). Cosinus (središče v $0$).
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Izpeljava.}} Sinus: Izračunamo odvodi in ocenimo ostanek.             
+            Cosinus: $\cos x = (\sin x)'$.
+        \end{itemize} 
+        \item Logaritem $\ln (x+1)$ (središče v $0$).
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Izpeljava.}} Enkrat odvajamo in zapišemo rezultat kot vsoto geometrijske vrste, nato integriramo po členih.
+        \end{itemize} 
+        \item \textbf{Posplošeni binomski koeficient.} Binomska vrsta (središče v $0$). 
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Izpeljava.}} Izračunamo odvodi in ocenimo ostanek. 
+            
+            Za $x \in (0, 1)$ uporabimo običajno formulo za ostanek.
+
+            Za $x \in (-1, 0)$ uporabimo pošplošeno formulo z $p = 1$: ocenimo vsak člen posebej, to, da zaporedje $(a_k(x))_k$ konvergira proti $0$ pokažemo s tem, da vrsta $\sum_{k=1}^{\infty}a_k(x)$ konvergira.
+        \end{itemize} 
+        \item Koren $\sqrt{1+x}$ (središče v $0$).
+    \end{itemize}
+\end{enumerate}

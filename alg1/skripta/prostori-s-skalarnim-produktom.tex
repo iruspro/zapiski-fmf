@@ -1,0 +1,105 @@
+\section{PROSTORI S SKALARNIM PRODUKTOM}
+Prevzemimo $\FF \in \set{\RR, \CC}$.
+\begin{enumerate}
+    \item Osnovni lastnosti
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Naj bo $V$ vektorski prostor nad $\FF$. Skalarni produkt na $V$. Oznaka.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Vektorski prostor s skalarnim produktom. Evklidski prostor. Unitaren prostor.
+        \item \colorbox{blue!30}{\textbf{Lema.}} Kaj velja v vektorskem prostoru s skalarnim produktom (3 lastnosti)?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Poračunamo po definiciji.
+        \end{itemize} 
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Ali je skalarni produkt v evklidkem prosotru bilinearen funkcional? Kaj pa v unitarnem? 
+        \item \colorbox{yellow!30}{\emph{Primer.}}         
+        \begin{itemize}
+            \item \textbf{Stadnardni skalarni produkt na $\RR^n$}.
+            \item \textbf{Stadnardni skalarni produkt na $\CC^n$}.
+            \item Naj bo $V = C[a,b]$. Skalarni produkt definiramo s predpisom $\left\langle f,g \right\rangle = \int_{a}^{b}f(x)g(x) \, dx$. Kje potrebujemo zveznost?
+        \end{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Norma vektorja $x$.        
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Neenakost Cauchy, Schwarz, Bunjakovskega.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Naj bo $\alpha, \beta \in \FF$. Izračunamo $\left\langle \alpha x + \beta y, \ \alpha x + \beta y \right\rangle$ in vstavimo $\alpha = ||y||^2, \ \beta = -\left\langle x, y\right\rangle$.
+        \end{itemize} 
+        \item \colorbox{yellow!30}{\emph{Primer.}}         
+        \begin{itemize}
+            \item CSB v $\FF^n$ s standardnim skalarnim produktom.
+            \item CSB v $C[a,b]$ s $\left\langle f,g \right\rangle = \int_{a}^{b}f(x)g(x) \, dx$.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Trditev.}} 3 lastnosti norme.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Račun + CSB.
+        \end{itemize} 
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Normiran prostor.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali je vektorski prostor s skalarnim produktom normiran, če normo definiramo kot $||x|| = \sqrt{\left\langle x, x\right\rangle }$?
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Pitagorov izrek in paralelogramska enakost v prostoru s skalarnom produktom.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Račun.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Kadar lahko v normiran prostor definiramo skalarni produkt, da bo $||x|| = \sqrt{\left\langle x, x\right\rangle }$?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Razdalja.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} 3 lastnosti za razdaljo.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Metrični prostor.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Naj bo $V$ evklidski prostor s skalarnim produktom in $x, y \in V$ neničelna vektorja. Kot med vektorjama $x$ in $y$.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Zakaj definicija dobra?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Pravokotna (ortogonalna) vektorja $x, y \in V$.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Recimo, da je $\left\langle x, y\right\rangle = 0$ za vse $y$ iz $V$. Kaj potem $x$?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Ortogonalna množica.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Kaj lahko povemo o ortogonalni množici, ki ne vsebuje $0$?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Enostavno.
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Recimo, da $\dim V = n$ in $M \subseteq V$ ortogonalna. Koliko potem lahko ima $M$ elementov?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Ortonormirana množica.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Naj bo $M$ ortogonalna množica in $0 \notin M$. Kako dobimo ortonormirano množico?
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Recimo, da $\dim V = n$ in $M \subseteq V$ ortonormirana. Koliko potem lahko ima $M$ elementov?
+    \end{itemize}
+    \item Ortogonalizacija
+    \begin{itemize}
+        \item Naj bo $x_1, \ x_2$ linearno neodvisni. Določi ortogonalno množico $\set{y_1, y_2}$, da bo $\Lin(\set{x_1, x_2}) = \Lin(\set{y_1, y_2})$. 
+        
+        \textbf{Pravokotna projekcija} vektorja $x_2$ na vektor $y_1$.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Gram-Schmidtova ortogonalizacija.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Z indukcijo na število linearno neodvisnih vektorjev $x_1, \ldots, x_k$.             
+            Vektor $y_{k+1}$ dobimo na podoben način kot v primeru za $k=2$.
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Naj bodo $x_1, \ldots, x_m$ linearno neodvisni. Ali obstaja ortonormirana množica $M$, 
+        
+        da $\Lin \set{x_1, \ldots, x_m} = \Lin M$?
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Ali vsak končnorazsežen vektorski prostor ima ONB?
+        \item \colorbox{orange!30}{\textbf{Posledica.}}  Ali lahko vsako ortonormirano množico dopolnimo do ONB (ortonormirane baze)?
+        \newpage
+        \item \colorbox{blue!30}{\textbf{Lema.}} Naj bo $x, y \in V$ in $\set{v_1, \ldots, v_n}$ ONB prostora. Kako razvijemo $x$ po tej bazi? 
+        
+        Čemu je enak $\left\langle x, y \right\rangle$?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} (1) Razvijemo $x$ po ONB in skalarno pomnožimo enačbo z $v_j, \ j \in \set{1, \ldots, n}$.
+            
+            (2) Izračunamo.
+        \end{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Izomorfnost vektorskih prostorov s skalarnim produktom.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Naj bo $V$ $n$-razsežen vektorski prostor s skalarnim produktom. Ali je potem izomorfen $\FF^n$ s standardnim skalarnim produktom?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Izberimo ONB bazo in definiramo izomorfizem $F: V \to \FF^n$ kot v poglavju o Bazi in razsežnosti. Treba preveriti enakost skalarnih produktov (uporabimo lemo).
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali je izomorfnost vektorskih prostorov s skalarnim produktom ekvivalenčna relacija?
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Karakterizacija izomorfnosti vektorskih prostorov s skalarnim produktom.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Pravokotni podmnožici. Pravokotna vsota podprostorov. Oznaka.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Ali je pravokotna vsota direktna?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Treba pokazati, da vsak vektor iz $x$ lahko na enoličen način zapišemo kot linearno kombinacijo elementov iz podprostorov $V_1, V_2, \ldots, V_k$.
+        \end{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Ortogonalni (pravokotni) komplement množice $M \subseteq V$. Oznaka.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Recimo, da $M \subseteq N$. Kaj lahko povemo o vsebovanosti $N^\perp$ in $M^\perp$? Ali je $M^\perp$ vektorski podprostor?
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Naj bo $\set{v_1, \ldots, v_n}$ ONB za $V$, $1 \leq m \leq n$, $V_1 =  \Lin \set{v_1, \ldots, v_m}$ in $V_2 = \Lin \set{v_m, \ldots, v_{m+1}}$. Ali je $V$ pravokotna vsota prostorov $V_1$ in $V_2$? Kako sta med sabo povezana prostora $V_1$ in $V_2$?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} (1) Definicija pravokotne vsote.
+            
+            (2) Razvijemo vektor $z \in V_1^\perp$ po bazi z uporabo leme.
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Naj bo $W \leq V$. Kako zapišemo $V$ kot pravokotno vsoto? Čemu je enako $W^{\perp \perp}$?
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Čemu je enako $W^{\perp \perp}$, če $W$ ni vektorski podprostor?
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Čemu je enaka $\dim V$ (ustrezna pravokotna vsota)?
+    \end{itemize}
+\end{enumerate}

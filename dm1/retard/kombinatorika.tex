@@ -1,0 +1,323 @@
+\section{Kombinatorika}
+\subsection{Osnovna načela kombinatorike}
+\begin{trditev}[Načelo produkta]
+    Če sta $A, B$ končni množici, potem je $$|A \times B| = |A| \cdot |B|.$$
+\end{trditev}
+
+\begin{trditev}[Posplošeno načelo produkta]
+    Če so $A_1, \ldots, A_k$ končne, potem je $$|\Pi_{i=1}^k A_i| = \Pi_{i=1}^k |A_i|.$$
+\end{trditev}
+
+\begin{trditev}[Načelo vsote]
+    Če sta $A$ in $B$ končni in disjunktni množici, potem je $$|A \cup B| = |A| + |B|.$$
+\end{trditev}
+
+\begin{trditev}[Posplošeno načelo vsote]
+    Če so $A_1, \ldots, A_k$ končne, paroma disjunktne množice, potem je $$\bigcup_{i=1}^k A_i = \sum_{i=1}^{k} |A_i|.$$
+\end{trditev}
+
+\begin{trditev}[Načelo enakosti]
+    Če obstaja bijekcija $A \to B$, potem je $$|A|=|B|.$$
+\end{trditev}
+
+Označimo z $[k] = \set{1, 2, \ldots, k}$.
+
+\begin{primer}
+    Naj bo $A$ končna množica, $|A| = n$, $A = \set{a_1, a_2, \ldots, a_n}$. Naj bo $2^A$ potenčna množica. Določi moč $2^A$.
+\end{primer}
+
+\begin{trditev}[Načelo dvojnega preštevanja]
+    Z njim pokažemo, da sta dva izraza/formuli enaka, če z obema na različna načina preštejemo elemente iste množice.
+\end{trditev}
+
+\begin{primer}[Eulorjeva funkcija $\phi$]
+    Za $n \in \NN$ definiramo $\phi(n) = \text{število števil iz } [n], \text{ ki so tuji z } n.$ Določi $\sum_{d | n} \phi(d)$.
+\end{primer}
+
+\begin{trditev}[Dirichletovo načelo]
+    Če sta $n, m \in \NN$ in je $n > m$, potem ne obstaja injektivna preslikava $[n] \to [m]$.
+\end{trditev}
+
+\begin{opomba}[Kombinatorična interpretacija]
+    Če $n$ predmetov razporedimo v $m$ predalov in je $n > m$, potem sta vsak v enem predalu vsaj dva predmeta.
+\end{opomba}
+
+\begin{primer}
+    Naj bo $X \subset [100], \ |X|=10$. Pokaži, da $X$ vsebuje dve disjunktni podmnožici z isto vsoto.
+\end{primer}
+
+\subsection{Število preslikav}
+\begin{definicija}
+    Množica $B^A = \set{f: A \to B}$ je \emph{množica vseh preslikav iz $A$ v $B$}.
+\end{definicija}
+
+\begin{definicija} Definiramo:
+    \begin{itemize}
+        \item $n^{\underline{k}} = \underbrace{n(n-1) \ldots (n-k+1)}_\text{$k$ faktorjev}$ je \emph{padajoča potenca.}
+        \item $n^{\overline{k}} = n(n+1) \ldots (n+k-1)$ je \emph{naraščajoča potenca.}
+        \item $n! = ^{\underline{n}}$ je \emph{$n$ fakulteta}.
+        \item Množica z $n$ elementi se imenuje \emph{$n$-množica.}
+    \end{itemize}
+\end{definicija}
+
+\begin{trditev}
+    Naj bosta $N$ in $K$ končni množici z $|N| = n, \ |K| = k$. Tedaj velja:
+    \begin{enumerate}
+        \item $|K^N| = k^n$.
+        \item Število injektivnih preslikav iz $N$ v $K$ je $k^{\underline{n}}$.
+        \item Število bijekcij iz $N$ v $K$ je $n!$, če $n = k$ in je $0$ sicer.
+    \end{enumerate} 
+\end{trditev}
+
+\begin{proof}
+    Za 1. in 2. točko uporabimo načelo enakosti. V 3. točki upoštevamo, kadar je preslikava iz končne množice v končno množico bijektivna.
+\end{proof}
+
+\newpage
+\subsection{Binomski koeficienti in binomski izrek}
+\begin{definicija}
+    Naj bo $x \in \CC$. Naj bo $k \in \NN_0 = \set{1, 2, \ldots}$. Definiramo $\binom{x}{k} = \frac{x^{\underline{k}}}{k!} = \frac{x(x-1)\ldots (x-k+1)}{k!}$. 
+    
+    Števila $\binom{x}{k}$ so \emph{binomski koeficienti.}
+    Če je $k \notin \NN_0$ definiramo $\binom{x}{k} = 0$.
+\end{definicija}
+
+\begin{trditev}
+    Če je $n \in \NN_0$ in $k \leq n, \ k \in \NN_0$, potem je 
+    $$\binom{n}{k} = \frac{n!}{k!(n-k)!}.$$
+
+    Števila $\binom{n}{k}$ so \emph{binomska števila.}
+\end{trditev}
+
+\begin{proof}
+    Definicija binomskega koeficienta.
+\end{proof}
+
+\begin{opomba}
+    Tudi $\binom{0}{0} = 1$. Razlaga: $0! = 1$ je število bijektivnih preslikav iz $\emptyset$ v $\emptyset$.
+\end{opomba}
+
+\begin{opomba}
+    Če je $0 \leq k \leq n$, potem $\binom{n}{k} = \binom{n}{n-k}$.
+\end{opomba}
+
+\begin{definicija}
+    Definiramo $\binom{N}{k} = \set{A: A \subseteq N, \ |A| = k}$.
+\end{definicija}
+
+\begin{trditev}
+    Če je $N$ $n$-množica in je $0 \leq k \leq n$, potem je 
+    $$\left| \binom{N}{k} \right| = \binom{n}{k}.$$
+\end{trditev}
+
+\begin{proof}
+    Definiramo $X = \set{(n_1, n_2, \ldots, n_k); \ n_i \in \NN \text{ paroma različni}}$. Označimo $X_{n,k} = \left| \binom{N}{k} \right|$. Preštejemo elementi množici $X$ na 2 načina.
+\end{proof}
+
+\begin{trditev}
+    Za $n \in \NN$ in $1 \leq k \leq n$ velja:
+    $$\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}.$$
+\end{trditev}
+
+\begin{proof}
+    Naj bo $N$ $n$-množica. Naj bo $x \in N$ poljuben fiksen element. 
+    
+    Definiramo $\mathcal{A} = \set{A \in \binom{N}{k}; \ x \in A}$ in $\mathcal{B} = \set{B \in \binom{N}{k}; \ x \notin B}$. Potem $\binom{N}{k} = \mathcal{A} \cup \mathcal{B}$. Uporabimo prejšnjo trditev in načelo vsote.
+\end{proof}
+
+\begin{definicija} 
+    \emph{Pascalov trikotnik} je trikotnik oblike
+    \[
+    \setcounter{MaxMatrixCols}{20}   
+    \begin{matrix}
+        &&&&& 1 \\
+        &&&& 1 && 1 \\
+        &&& 1 && 2 && 1 \\
+        && 1 && 3 && 3 && 1 \\
+        & 1 && 4 && 6 && 4 && 1 \\
+        1 && 5 && 10 && 10 && 5 && 1 
+
+    \end{matrix}
+    \]
+\end{definicija}
+
+\begin{opomba}
+    S pomočjo Paskalovega trikotnika se lahko spomnimo rekurzivno formulo za $\binom{n}{k}$ ($n$ je številka vrstice, $k$ je številka diagonale, ki jo gledamo z leve proti desni).
+\end{opomba}
+
+\begin{izrek}[Binomski izrek]
+    Za vsak $n \in \NN_0$ velja:
+    $$(a+b)^n = \sum_{k=0}^{n} \binom{n}{k}a^kb^{n-k}.$$
+\end{izrek}
+
+\begin{proof}
+    Izberimo $k$-krat $a$ izmed $n$ oklepajev.
+\end{proof}
+
+\newpage
+\subsection{Izbori}
+Naj bo $N$ $n$-mnižica. Opazujemo izbori $k$-elementov.
+\begin{enumerate}
+    \item Izbor je urejen (važno v kakšnem vrstnem redu izberimo elementi):
+    \begin{enumerate}
+        \item Elementi si lahko ponavljajo: $n^k$.
+        \item Elementi se ne smejo ponavljati: $n^{\underline{k}}$.
+    \end{enumerate}
+    \item Izbor je neurejen:
+    \begin{enumerate}
+        \item Elementi si lahko ponavljajo [trditev]: $\binom{n+k-1}{k}$.
+        \item Elementi se ne smejo ponavljati: $\binom{n}{k}$.
+    \end{enumerate}
+\end{enumerate}
+
+\begin{trditev}
+    Število neurejenih izborov s ponavljanjem dolžine $k$ iz $n$-množice $N$ je 
+    $$\binom{n+k-1}{k}.$$
+\end{trditev}
+
+\begin{proof}
+    Naj bo $N = \set{x_1, x_2, \ldots, x_n}$. 
+    
+    Neurejenemu izboru $\underbrace{x_1\ldots x_1}_{k_1} \underbrace{x_2 \ldots x_2}_{k_2} \ldots \underbrace{x_n \ldots x_n}_{k_n}$ priredimo niz $\underbrace{1 \ldots 1}_{k_1} 0 \underbrace{1 \ldots 1}_{k_2} 0 \ldots 0 \underbrace{1 \ldots 1}_{k_n}$.
+\end{proof}
+
+\subsection{Permutacije in permutacije s ponavljanjem}
+\begin{definicija}
+    Naj bo $A$ $n$-množica. \emph{Permutacija množice $A$} je bijektivna preslikava $\pi: A \to A$.
+
+    Množico vseh permutacij velikosti $n$ (permutacij na $[n]$) označimo z $S_n$. 
+    Množico vseh permutacij množice $A$ označimo z $S_A$.
+\end{definicija}
+
+\begin{trditev}
+    $|S_n| = n!$.
+\end{trditev}
+
+\begin{proof}
+    Z indukcijo pokažemo, da je $|S_n| = n|S_{n-1}|$ in $|S_1| = 1$.
+\end{proof}
+
+\begin{trditev}
+    Vsako permutacijo lahko zapišemo kot produkt disjunknih ciklov.
+\end{trditev}
+
+\begin{definicija}
+    Naj bo $\pi \in S_n$. Par je \emph{inverzija}, če velja: $i < j$ in $\pi(i) > \pi(j)$.
+\end{definicija}
+
+\begin{definicija}
+    Permutacija $\pi \in S_n$ je \emph{soda} (oz. \emph{liha}), če ima sodo mnogo inverzij (oz. liho mnogo inverzij).
+\end{definicija}
+
+\subsubsection{Multimnožice}
+\begin{definicija}
+    \emph{Multimnožica z elementi v množici $S$} je preslikava $\mu: S \to \NN_0$. Pri tem številu $\mu(a), a \in S$, rečemo \emph{kratnost elementa $a$ v multimnožici $\mu$}, vsoti $\sum_{a \in S} \mu(a)$ pa \emph{moč multimnožice $\mu$}. Multimnožica je \emph{končna}, če je njena moč končna.
+\end{definicija}
+
+\begin{opomba}
+    Multimnožico $M$ formalno podamo z urejenim parom $(S, \mu)$. Namesto da elemente zapišemo večkrat, lahko kratnost označimo tudi s formalno potenco: $M = \set{a, a, b, c, c, c} = \set{a^2, b, c^3}$.
+
+    Multimnožica je isto kot neurejen izbor s ponavljanjem. Tojer obstaja $\binom{n+k-1}{k}$ $k$-elementnih multimnožic v množici z $n$ elementi.
+\end{opomba}
+
+\subsubsection{Permutacije multimnožic}
+Permutacija multimnožice $M = (S, \mu)$ moči $n$ je zaporedje $(x_1, \ldots, x_n)$, kjer je $x_i \in S$ in se vsak $a \in S$ v zaporedju pojavi $\mu(a)$-krat.
+
+\begin{trditev}
+    Število permutacij multimnožice $M=\set{1^{\alpha_1}, 2^{\alpha_2}, \ldots, k^{\alpha_k}}$ moči $n = \alpha_1 + \ldots + \alpha_k$ je 
+    $$\frac{n!}{\alpha_1!\alpha_2!\ldots\alpha_k!}.$$
+\end{trditev}
+
+\begin{proof}
+    Najprej izberimo položaje elementa 1, nato izberimo položaje elementa 2 itd.
+\end{proof}
+
+\begin{definicija}
+    Številu $\frac{n!}{\alpha_1! \alpha_2! \ldots \alpha_k!}$ rečemo \emph{multinomski koeficient} in ga označimo z $\binom{n}{\alpha_1, \alpha_2, \ldots, \alpha_k}$.
+\end{definicija}
+
+\begin{opomba}
+    Multinomski koeficient je posplošitev binomskega koeficienta.
+\end{opomba}
+
+\begin{trditev}[Multinomski izrek]
+    Velja 
+    $$(x_1 + \ldots + x_k)^n = \sum \binom{n}{\alpha_1, \alpha_2, \ldots, \alpha_k}x_1^{\alpha_1} \ldots x_k^{\alpha_k},$$
+    kjer vsota teče po vseh izbirah naravnih števil $\alpha_1, \ldots, \alpha_k$, katerih vsota je $n$.
+\end{trditev}
+
+\begin{proof}
+    Število permutacij multimnožice moči $n$, kjer je $S$ množica indeksov.
+\end{proof}
+
+\subsection{Kompozicije naravnega števila}
+\begin{definicija}
+    \emph{Kompožicija naravnega števila $n$} je zaporedje pozitivnih naravnih števil $\lambda = (\lambda_1, \ldots, \lambda_l)$, za katero velja $\lambda_1 + \ldots + \lambda_l = n$. \emph{Dolžina} kompozicije $\lambda$, $l(\lambda)$ je število elemetnov zaporedja, številu $n$ pa rečemo \emph{velikost kompozicije}. Števila $\lambda_1, \ldots, \lambda_l$ imenujemo \emph{členi kompozicije}.
+\end{definicija}
+
+\begin{trditev}
+    Naj bo $n \geq 1$.
+    \begin{enumerate}
+        \item Število kompožicij števila $n$ je enako $2^{n-1}$.
+        \item Število kompožicij dolžine $k$ števila $n$ je enako $\binom{n-1}{k-1}$.
+    \end{enumerate}
+\end{trditev}
+
+\begin{proof}
+    Število $n$ lahko si predstavljamo kot zaporedje $n$ kgoglic, kompozicijo pa s pregradami med kroglicami: $\bullet~|~\bullet~\bullet~|~\bullet$.
+\end{proof}
+
+\begin{opomba}
+    Lahko razumemo kompozicijo števila $n$ s $k$ členi kot rešitev enačbe $x_1 + \ldots + x_k = n$, kjer so $x_i \in \NN$.
+\end{opomba}
+
+\subsubsection{Šibke kompozicije}
+\emph{Šibka kompozicija števila $n$} ima isto definicijo kot kompozicija, le da dovolimo med členi tudi ničle.
+
+\begin{trditev}
+    Število šibkih kompozicij števila $n$ s $k$ členi je $\binom{n+k-1}{k-1} = \binom{n+k-1}{n}$.
+\end{trditev}
+
+\begin{proof}
+    1. način. Rešujemo enačbo $x_1 + \ldots + x_k = n$, kjer so $x_i \in \NN_0$.
+
+    2. način. Kroglice in pregrade.
+
+    3. način. Neurejeni izbori s ponavljanjem.
+\end{proof}
+
+\subsection{Razčlenitve naravnega števila}
+\begin{definicija}
+    \emph{Razčlenitev naravnega števila $n$} je zaporedoje pozitivnih naravnih števil $\lambda = (\lambda_1, \ldots, \lambda_l)$, kjer je $\lambda_1 \geq \ldots \lambda_l$ in $\lambda_1 + \ldots + \lambda_l = n$. \emph{Dolžina} razčlenitve $\lambda$, $l(\lambda)$ je število elemetnov zaporedja, številu $n$ pa rečemo \emph{velikost razčlenitve}. Števila $\lambda_1, \ldots, \lambda_l$ imenujemo \emph{členi razčlenitve}. Razčlenitvam rečemo tudi \emph{particije}.
+\end{definicija}
+
+Uvedemo oznake:
+\begin{itemize}
+    \item $p(n)$ je število razčlenitev števila $n$. Funkciji $p(n)$ rečemo tudi \emph{razčlenitvena funkcija}.
+    \item $p_k(n)$ je število razčlenitev števila $n$ s $k$ členi.
+    \item $\overline{p}_k(n)$ je število razčlenitev števila $n$ z največ $k$ členi.
+\end{itemize}
+
+\begin{trditev}
+    Za naravni števili $n$ in $k$ velja:
+    \begin{enumerate}
+        \item $p_k(n) = p_{k-1}(n-1) + p_k(n-k)$.
+        \item $p_k(n) = \overline{p}_k(n-k)$.
+        \item $\overline{p}_k(n) = \overline{p}_{k-1}(n) + \overline{p}_k(n-k)$.
+    \end{enumerate}
+\end{trditev}
+
+\begin{proof}
+    Gledamo padajoči trikotnik:
+    \begin{align*}
+        &\lambda_1 \ \Box \Box \Box \Box \Box \\
+        &\lambda_2  \  \Box \Box \Box \Box  \\
+        &\vdots  \\
+        &\lambda_k \ \Box  \\
+    \end{align*}
+    1. Razbijemo razčlinitve na tiste, ki vsebujejo $1$ in tiste, ki jo ne vsebujejo.
+    
+    2. Odštejemo od prvega stolpca $1$.
+
+    3. Razčlenitev $n$ z največ $k$ členi ima bodisi natanko $k$ členov bodisi kvečjemi $k-1$ členov.
+\end{proof}

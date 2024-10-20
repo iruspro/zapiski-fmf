@@ -1,0 +1,295 @@
+\section{STRUKTURA ENDOMORFIZMOV}
+
+\textbf{Problem.} Naj bo $\mathcal{A}$ endomorfizem prostora $V$. Kakšno bazo $\mathcal{B}$ prostora $V$ moramo izbrati, da bo matrika $\mathcal{A}_{\mathcal{B},\mathcal{B}}$ čim bolj enostavna?
+
+\begin{enumerate}
+
+    \item Lastne vrednosti in lastni vektorji
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Kadar endomorfizem $\Aa \in L(V)$ se da diagonalizirati? \textcolor{red}{[Ponovitev]}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Naj bo $\Aa \in L(V)$. Lastni vektor endomorfizma $\Aa$. Lastna vrednost endomorfizma $\Aa$ za lastni vektor $v$. \textcolor{red}{[Ponovitev]}
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Koliko lastnih vrednosti pripadajo lastnemu vektorju? Koliko lastnih vektorjev pripadajo lastni vrednosti? \textcolor{red}{[Ponovitev]}
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Ali je množica $\set{x \in V; \mathcal{A} x = \lambda x}$, kjer $\lambda$ lastna vrednost endomorfizma $\mathcal{A} \in L(V)$, vektorski podprostor prostora $V$?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Pokažemo, da $Ax = \lambda x \Leftrightarrow x \in \ker (\Aa - \lambda \id)$.
+        \end{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Lastni podprostor endomorfizma $\mathcal{A}$ za lastno vrednost $\lambda$. Geometrijska večkratnost lastne vrednosti $\lambda$.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Čemu je enak lastni podprostor endomorfizma $\mathcal{A}$ za lastno vrednost $\lambda?$ Kaj ga sestavljajo?
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Karakterizicija lastne vrednosti.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Pokažemo, da $\lambda$ je lastna vrednost endomorfizma $\Aa \Leftrightarrow \det (\Aa_{B,B} - \lambda I) = 0$.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Primer.}} Poišči lastne vrednosti in lastne vektorji matrike $\begin{bmatrix}
+            -1 & -2 & -2 \\
+            -2 & -1 & -2 \\
+            2 & 2 & 3
+        \end{bmatrix}$.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Karakterizacija diagonalizacije endomorfizma (baza prostora $V$).
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Po definiciji matrike linearne preslikave, diagonalizaciji endomorfizma, lastnih vektorjev in lastnih vrednosti.
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Karakterizacija diagonalizacije endomorfizma (število linearno neodvisnih lastnih vektorjev).
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Recimo, da se endomorfizem da diagonalizirati. Kaj so členi pripadajoče diagonalne matrike?
+        \item \colorbox{yellow!30}{\emph{Primer.}} Naj bo $A \in \CC^{n \times n}$ matrika, ki jo identificiramo s preslikavo $\CC^n \to \CC^n, \ x \mapsto Ax$. \textbf{Kadar matrika se da diagonalizirati?}  Recimo, da je $A = PDP^{-1}$ za neko diagonalno matriko $D$ in neko obrnljivo matriko $P$. Kaj so diagonalni členi matrike $D$? Kaj je $P$?        
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Izračunamo $A = PDP^{-1} \Leftrightarrow AP = DP \Leftrightarrow \text{ za vsak } i = 1, \ldots, n \text{ velja: } APe_i = PDe_i$.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Ali so linearno neodvisni lastni vektorji, ki pripadajo različnim lastnim vrednostim?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} S protislovjem pokažemo, da je eden izmed lastnih vektorjev ničeln.
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Kaj velja, če ima endomorfizem prostora $V$, za kateri velja $\dim V = n$, $n$ različnih lastnih vrednosti?
+    \end{itemize}
+
+    \item Karakteristični in minimalni polinom
+    \begin{itemize}
+        \item Naj bo $\Aa \in L(V)$ endomorfizem in $A = \Aa_{B, B}$ matrika tega enodmorfizma glede na neko bazo $B$ prostora $V$. 
+        
+        Ali je $\det (A - \lambda I)$ polinom v $\lambda$? Kakšne stopnje, kaj je vodilni koeficient in kaj je konstantni člen?
+        
+        \textbf{Kroneckerjev delta.}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Karakteristični polinom matrike $A$. Oznaka.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Ali podobne matrike imata enak karakteristični polinom?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Naj bo $B = P^{-1}AP$. Izračunamo $\Delta_B(\lambda)$.
+        \end{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Karakteristični polinom endomorfizma $\Aa \in L(V)$. Ali je definicija smiselna?
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Kako povezane lastne vrednosti endomorfizma $\Aa \in L(V)$ in njegov karakteristini polinom?
+        \item \colorbox{yellow!30}{\emph{Primer.}} $V = \RR^2, \ \Aa: \RR^2 \to \RR^2$ rotacija za $\pi/2$ v pozitivni smeri. Kaj je lastni vektorji? Kaj so ničle karakterističnega polinoma?
+        \item[\textbf{!}] Od zdaj naprej in do konca poglavja o strukturi endomorfizmov bomo predpostavili, da je $\FF = \CC$. 
+        
+        Zakaj to smiselno?
+        \item \colorbox{blue!30}{\textbf{Osnovni izrek algebre.}} \textcolor{red}{[Dokaz pri Analize 2]}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Kakšne je oblike vsak nekonstanten polinom $p \in \CC[\lambda]$?
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Kadaj je $\alpha \in \CC$ lastna vrednost endomorfizma $\Aa \in L(V)$?
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Nad kakšnim poljem bomo obravnavali matrike?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Lastne vrednosti matrike $A$. 
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali lastne vrednosti matrike je lastne vrednoti nekega endomorfizma?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Algebraične večkratnosti lastnih vrednosti. Spekter matrike/endomorfizma. 
+        Oznaka.  
+        
+        \newpage
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Kadar matrika $A$ se da diagonalizirati?
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Karakterizacija diagonalizacije matrike. (Ali mora biti podobna neke diagonalne?) Kaj je v tem primeru na diagonali matrike $D$? Kaj so stolpce matrike $P$?
+        \item \colorbox{blue!30}{\textbf{Trditev.}} (1) Kakšna zveza med algebraično in geometrično večkratnostjo lastne vrednosti matrike $A$?
+        
+        (2) Karakterizacija diagonalizaciji matrike $A$.        
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} (1) Naj bo $m = \dim(\ker(A- \alpha I))$ geometrična večkratnost lastne vrednosti $\alpha$. Dopolnimo bazo $\ker(A- \alpha I)$ do baze $B$ za $\CC^n$ in z pomočjo matrike $A_{B, B}$ izračunamo $\Delta_A(\lambda)$.
+            
+            (2) $(\Rightarrow)$ Naj bodo $\alpha_1, \ldots, \alpha_k$ vse različne lastne vrednosti matrike $A$, $n_1, \ldots, n_k$ algebraične večkratnosti in $m_1, \ldots, m_k$ geometrične večkratnosti. Ocenimo zgoraj in spodaj izraz $n_1 + \ldots + n_k$ (koliko linearno neodvisnih lastnih vektorjev ima matrika $A$, če se da diagonalizirati?).
+
+            $(\Leftarrow)$ Za vsak $i$ izberimo bazo jedra $\ker(A - \alpha_i I): \set{v_{i,1}, v_{i, 2}, \ldots, v_{i, n_i}}$. Pokažemo, da so vektorji $v_{ij}$ tvorijo bazo prostora $\CC^n$.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali enako velja za endomorfizmi?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Vrednost polinoma $p \in \CC[\lambda]$ v matrike $A \in F^{n \times n}$. 
+        
+        Vrednost polinoma $p \in \CC[\lambda]$ v endomorfizmu $\Aa \in L(V)$.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Matrični polinom.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Cayley-Hamiltonov izrek.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Za vsak $\lambda \in \CC$ naj bo $B(\lambda) = \widetilde{A - \lambda I}$ prirejenka matrike $A - \lambda I$.
+            
+            Vemo: $B(\lambda)^T \cdot (A - \lambda I) = \det (A - \lambda I) \cdot I = \Delta_A(\lambda) \cdot I$ za vsak $\lambda \in \CC$. Z primejavo koeficientov matričnih polinomov pri posameznih potencah pridemo do rezultata.
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Naj bo $A \in \CC^{n \times n}$ obrnljiva. Ali obstaja polinom $p$, da je $A^{-1} = p(A)$. Kakšne stopnje ta polinom?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Z uporabo prejšnjega izreka dobimo $A^{-1}$.
+        \end{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Minimalni polinom matrike $A \in \CC^{n \times n}$.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali je minimalni polinom obstaja? Ali je enoličen?
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Ali podobni matriki imata enak minimalni polinom?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Naj bo $B = P^{-1}AP$ in $p(\lambda) = a_m\lambda^m + a_{m-1}\lambda^{m-1}+ \ldots + a_1 + \lambda a_0$ poljuben polinom. Z~izračunom $p(B)$ pokažemo, da je $p(A) = 0 \Leftrightarrow p(B) = 0$.
+        \end{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Minimalni polinom endomorfizma $\Aa \in L(V)$.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali je definicja dobra? Zakaj?
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Opis minimalnega polinoma endomorfizma $\Aa \in L(V)$.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Najprej pokažemo, da za poljuben polinom $p \in \CC[\lambda]$ velja: $\Phi(p(\Aa)) = p(\Phi(\Aa))$. Nato pokažemo, da ima minimalni polinom vodilni koeficient $1$, $\Aa$ za ničlo in, da minimalne možne stopnje med vsemi neničelnimi polinomi.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali vse, kar velja za minimalni polinomi matrik, velja tudi za minimalne polinome endomorfizmov, in obratno?
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Osnovni izrek o deljenju polinomov. \textbf{Kvocient} in \textbf{ostanek}. \textcolor{red}{[Dokaz v gimnaziji]}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Naj bo $A \in \CC^{n \times n}$ in $p \in \CC[\lambda]$ tak polinom, da $p(A) = 0$. V kakšni zvezi sta $p$ in $m_A$?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Po osnovnemu izreku o deljenju polinomov obstajata $k, r \in \CC[\lambda]$, da $p(\lambda) = k(\lambda) \cdot m_A(\lambda) + r(\lambda)$. Treba je dokazati, da $r \equiv 0$, zato poglejmo vrednost v matrike $A$.
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Ali $m_A \, | \, \Delta_a$?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Prejšnja trditev + Cayley-Hamiltonov izrek.
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Ali vse ničle minimalnega polinoma so tudi ničle karakterističnega polinoma?
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Ali vse ničle karakterističnega polinoma so tudi ničle minimalnega polinoma?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Naj bo $\alpha$ ničla $\Delta_A(\lambda)$. Po osnovnemu izreku o deljenju polinomov, obstajata $k, c \in \CC[\lambda]$, da $m_A(\lambda) = k(\lambda) \cdot (\lambda - \alpha) + c$. Radi bi pokazali, da je $c = 0$. Zato poglejmo vrednost polinomov v matriki $A$ in upoštevamo, da je $\alpha$ lastna vrednost matrike $A$.
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Naj bo $A \in \CC^{n \times n}$ kakšne oblike je njen karakteristični in kakšne oblike je njen minimalni polinom?
+        \item \colorbox{yellow!30}{\emph{Primer.}} Poišči minimalni polinom matrike $\begin{bmatrix}
+            1 & 0 & 0 & 0 \\
+            0 & 0 & 1 & 0 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0
+        \end{bmatrix}$.
+    \end{itemize}
+
+    \newpage
+    \item Korenski podprostori
+    
+    V nadaljevanju bomo poiskali lepo matriko, ki pripada endomorfizmu, v primeru, ko se endomorfizem ne da diagonalizirati. Za začetek bomo pokazali, da endomorfizmu vedno pripada bločno diagonalna matrika, kjer ima vsak blok le eno lastno vrednost.
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Naj bo $\Aa \in L(V)$. Invarianten podprostor za endomorfizem $\Aa$.
+        \item \colorbox{yellow!30}{\emph{Primer.}} Ugotovi, ali je podprostor invarianten.
+        \begin{itemize}
+            \item $\set{0}, V$ za poljuben endomorfizem $\Aa \in L(V)$.
+            \item $\ker \Aa$ in $\im \Aa$ za poljuben endomorfizem $\Aa \in L(V)$.
+            \item Lastni podprostori.
+            \item Naj bo $V = \RR^3$ in $\Aa: \RR^3 \to \RR^3$ naj bo rotacija za $\frac{\pi}{2}$ okrog $z$-osi. Ali je $z$-os invarianten podprostor? Ali je ravnina $z=0$ invarianten podprostor? Ali je lastni podprostor?
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Naj bo $\Aa \in L(V)$ in $U \leq V$. Ali zožitev $A|_U \in L(U, V)$? Kaj če je $U$ invarianten za $\Aa$?
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Naj bo $U \subseteq V$ invarianten podprostor za endomorfizem $\Aa \in L(V)$ in naj bo $B_U = \set{u_1, \ldots, u_m}$ baza prostora $U$. Dopolnimo jo do baze $B = \set{u_1, \ldots, u_m, v_1, \ldots v_k}$ prostora $V$. Kakšne oblike potem $A_{B, B}$?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Napišemo matriko $\Aa_{B, B}$. Lahko si pomagamo z matriko zožitve $\Aa|_U$ glede na bazo $B_U$.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Primer.}} Naj bo $V$ prostor polinomov stopnje največ $2$ in $\Aa \in L(V)$ odvajanje. $\Lin \set{1}$ je jedro, torej je invarianten podprostor. Baza jedra je $\set{1}$, ki jo dopolnimo do baze $B = \set{1, x, x^2}$ prostora $V$. Ali je matrika $\Aa_{B, B}$ res bločno zgornje trikotna? 
+        \item \colorbox{yellow!30}{\emph{Primer.}} Naj bo $V = \RR^3$, $\Aa \in L(V)$ rotacija za $\frac{\pi}{2}$ okrog $z$-osi. netrivialna invariantna podprostora: $U_1 = z \text{-os}$, $U_2 = \text{ravnina } z = 0$. Naj bodo $B_1 = \set{(0, 0, 1)}, \ B_2 = \set{(1, 0, 0), (0, 1, 0)}$. Potem $B = B_1 \cup B_2$ baza za $\RR^3$. Določi $(\Aa|_{U_1})_{B_1, B_1}$, $(\Aa|_{U_2})_{B_2, B_2}$ in $\Aa_{B, B}$.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Naj bo $\Aa \in L(V)$ in naj bo $V = V_1 \oplus V_2 \oplus \ldots \oplus V_k$, kjer so $V_1, \ldots, V_k$ invariantni za $\Aa$. Kakšne oblike potem $A_{B, B}$ glede na neko bazo $B$ prostora $V$? \textbf{Direktna vsota matrik}
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Napišemo matriko $\Aa_{B, B}$. Lahko si pomagamo z matrikami zožitev $\Aa|_{V_i}$ glede na bazo $B_i$.
+        \end{itemize}
+        \item[\textbf{!}] Do konca poglavja o korenskih podprostorov fiksiramo naslednje oznake:
+        
+        $V$ naj bo $n$-razsežen vektorski prostor nad $\CC$. $\Aa \in L(V)$ naj bo endomorfizem prostora $V$.
+
+        $\lambda_1, \ldots, \lambda_2$ naj bodo vse različne lastne vrednosti endomorfizma $\Aa$.
+
+        $\Delta_{\Aa}(\lambda) = (-1)^n(\lambda - \lambda_1)^{n_1}(\lambda - \lambda_2)^{n_2} \ldots (\lambda - \lambda_k)^{n_k}$.
+
+        $m_{\Aa}(\lambda) = (\lambda - \lambda_1)^{m_1}(\lambda - \lambda_2)^{m_2} \ldots (\lambda - \lambda_k)^{m_k}$.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Korenski podprostor za endomorfizem $\Aa$, ki pripada lastne vrednosti $\lambda_j$.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali je korenski podprostor res vektorski podprostor $V$? Ali je korenski podprostor, ki pripada lastne vrednosti $\lambda_j$, vsebuje ustrezni lastni podprostor? Ali je vsak korenski podprostor netrivialen?
+    \end{itemize}
+    Radi bi uporabili prejšnjo trditev, kjer bomo za podprostore $V_j$ vzeli korenske podprostore.
+    \begin{itemize}
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali polinomi v istem endomorfizmu komutirata?
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Ali je vsak korenski podprostor $W_j$ invarianten za endomorfizem $\Aa$?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Pokažemo, da endomorfizmi $\Aa$ in $(\Aa - \lambda_j \id)^{m_j}$ komutirata (glavni argument: 
+            
+            $\Aa^k \circ \Aa^m = \Aa^m \circ \Aa^k$).
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Naj bo $\FF$ poljubno polje in $d(\lambda)$ največji skupni delitelj polinomov $p_1(\lambda), \ldots, p_k(\lambda) \in \FF[\lambda]$. Kaj potem lahko zapišemo $d(\lambda)$? \textcolor{red}{[Dokaz pri Algebra 2]}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Ali je prostor $V$ je direktna vsota korenskih podprostorov?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Za vsak $i = 1, \ldots, k$, definiramo $p_j(\lambda) = \Pi_{i \neq j}(\lambda - \lambda_i)^{m_i} \in \CC[\lambda]$. Pokažemo, da obstajajo polinomi $q_1(\lambda), \ldots, q_k(\lambda)$, da velja: $p_1(\lambda)q_1(\lambda) + \ldots + p_k(\lambda)q_k(\lambda) = 1$ in vstavimo v ta enakost $\Aa$, dobimo enakost (*).
+            
+            Obstoj zapisa: Naj bo $x \in V$. Definiramo $x_j = p_j(\Aa)q_j(\Aa)x$. Izračunamo $x_1+x_2 + \ldots + x_k$ in pokažemo, da $x_j \in W_j$ za vsak $j = 1, \ldots, k$.
+
+            Enoličnost: Recimo, da $x_1 + \ldots + x_k = y_1 + \ldots + y_k$. Definiramo $z_i = y_i - z_i$. Pokažemo, da je $z_i = 0$, zato izračunamo $p_j(\Aa)z_i, \ i \neq j$ in $p_j(\Aa)z_j$. Nato v enakost (*) vstavimo $z_i$.
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Ali je v neki bazi prostora $V$ endomorfizmu $\Aa$ pripada bločno diagonalna matrika $[A_j]$, kjer je za vsak $j$, $A_j$ matrika, ki pripada zožitvi $\Aa|_{W_j}$ glede na neko bazo podprostra $W_j$? 
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Za vsak $j = 1, \ldots, k$ naj bo $\Aa_j = \Aa|_{W_j}$. Kaj potem $\Delta_{\Aa_j}(\lambda)$ in $m_{\Aa_j}(\lambda)$?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Vemo, da $\Delta_{\Aa_j}(\lambda) = \Delta_{A_j}(\lambda)$. Izračunamo $\Delta_\Aa(\lambda)$ (*).
+            
+            Pokažemo, da je $A_j$ ničla polinoma $(\lambda - \lambda_j)^{m_j}$. Dobimo obliko karakteristinega in minimalnega polinoma.
+
+            S pomočjo (*) pokažemo enakost za karakteristični polinom. 
+            
+            S pomočjo polinoma $p(\lambda) = (\lambda - \lambda_1)^{s_j} \ldots (\lambda - \lambda_k)^{s_k}$ pokažemo enakost za minimalni polinom.
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Kakšne velikosti so matrike $A_j$?
+        \newpage
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Kadar endomorfizem $A \in L(V)$ se da diagonalizirati (ničle polinoma $m_{\Aa}(\lambda)$)? 
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} $(\Rightarrow)$ Naj bodo $A$ pripadajoča diagonalna matrika in $\lambda_1, \ldots, \lambda_k$ vse različne lastne vrednosti. Definiramo $p(\lambda) = (\lambda - \lambda_1) \ldots (\lambda - \lambda_k)$ in pokažemo, da $m_{\Aa}(\lambda) \, | \, p(\lambda)$ in $p(\lambda) \, | \, m_{\Aa}(\lambda)$.
+            
+            $(\Leftarrow)$ Naj bo $\Aa_j = \Aa|_{W_j}$. Pokažemo, da $A_j$ se da diagonalizirati za vsak $j = 1, \ldots, k$.
+        \end{itemize}       
+    \end{itemize}
+
+    \item Jordanova kanonična forma
+    
+    Vsaka matrika podobna neki bločno diagonalni matriki, kjer ima vsak diagonalni blok le eno lastno vrednost. CIlj tega poglavja je najti čim enostavnejšo obliko teh diagonalnih blokov.
+
+    \item[$\circ$] Enodmorfizmi z eno samo lastno vrednostjo
+    
+    $V$ naj bo $n$-razsežen vektorski prostor nad $\CC$ in $\Aa \in L(V)$ naj bo endomorfizem z eno samo lastno vrednostjo $\rho$. Potem $\Delta_{\Aa}(\lambda) = (-1)^n (\lambda - \rho)^n$. Minimalni polinom je oblike $m_{\Aa} (\lambda) = (\lambda - \rho)^r$ za nek $r$. 
+    
+    Velja: $(\Aa - \rho \id)^r = 0$ in $(\Aa - \rho \id)^{r-1} \neq 0$. Od $\Aa$ odštejemo $\rho \id$ in definiramo endomorfizem $\mathcal{N} = \Aa - \rho \id$. Velja: $\mathcal{N}^r = 0$ in $\mathcal{N}^{r-1} \neq 0$.
+
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Nilpotenten endomorfizem. Indeks nilpotentnosti.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Recimo, da je $N$ matrika za $\mathcal{N}$ glede na neko bazo. Kaj potem $N - \rho I$?
+        \item \colorbox{blue!30}{\textbf{Lema.}} Naj bo $\mathcal{N}$ nilpotenten endomorfizem in naj bo $V_j = \ker \mathcal{N}^j$ za vsak $j \in \NN_0$. 3 lastnosti $V_j$.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Enostavno.
+        \end{itemize}     
+        \item \colorbox{blue!30}{\textbf{Lema.}} Naj bo $j \geq 2$ in naj bo $B = \set{v_1, \ldots, v_k} \subseteq V_j$ linearno neodvisna množica za katero velja 
+        
+        $(\Lin B) \cap V_{j-1} = \set{0}$. Kaj potem velja za množico $\mathcal{N}(B) = \set{\mathcal{N}v_1, \ldots, \mathcal{N}v_k}$?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Enostavno z uporabo prejšnje leme.
+        \end{itemize}   
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Ali je vsebovanost v predprejšnje leme stroga?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Z obratno indukcijo pokažemo, da za vsak $j = 1, \ldots, r$ obstaja linearno neodvisna množica $B_j \subseteq V_j$, da je $(\Lin B_j) \cap V_{j-1} = \set{0}$.
+        \end{itemize} 
+    \end{itemize}
+
+    \item[$\circ$] Konstrukcija Jordanove baze
+    \begin{itemize}
+        \item Naj bo $\mathcal{N} \in L(V)$ nilpotenten endomorfizem z indeksom nilpotentnosti $r$ in naj bo $V_j = \ker \mathcal{N}^j$ za vsak $j \geq 0$.  Konstrukcija Jordanove baze za nilpotentne endomorfizme. 
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Ideja.}} Za vsak $j = 1, \ldots, r$ najdemo $B_j \subseteq V_j$, kjer $B_j = \set{v_1^{j}, \ldots, v_{s_j}^j}$ taka linearno neodvisna podmnožica, da velja $U_j = \Lin B_j$ in $V_j = U_j \oplus V_{j-1}$. To lahko naredimo z obratno indukcijo z uporabo lem.
+        \end{itemize} 
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Naj bo $\mathcal{N} \in L(V)$ nilpotenten endomorfizem Jordanova baza in Jordanova matrika enodmorfizma $\mathcal{N}$. Jordanova celica reda $t$. Oznaka.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Kakšne oblike je $J(\mathcal{N})$? Ali je $J(\mathcal{N})$ neka direktna vsota? 
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Kaj lahko povemo o velikosti Jordanovih celic? Čemu je enaka velikost največje celice? Čemu je enako število celic?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Naj bo $\Aa \in L(V)$ endomorfizem z eno samo lastno vrednostjo $\rho$. Jordanova baza in Jordanova matrika endomorfizma $\Aa$. Jordanova celica za lastno vrednost $\rho$.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Čemu je enako število Jordanovih celic? Čemu je enaka velikost največje celice?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Naj bo $\Aa \in L(V)$ enodmorfizem. Jordanova baza in Jordanova matrika endomorfizma $\Aa$.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Jordanova baza in Jordanova matrika matrike $A \in \CC^{n \times n}$.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali je $J(A)$ neka direktna vsota?
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Naj bo $\lambda_i$ neka lastna vrednost matrike $A$. Koliko krat pojavi $\lambda_i$ da diagonali? Čemu je enaka velikost največje celice $J_t(\lambda_i)$ za fiksen $i$? Čemu je enako število celic $J_t(\lambda_i)$ za fiksen $i$?
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali je Jordanova baza enolična? Ali je Jordanova matrika enolična? \textbf{Jordanova kanonična forma.}
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Čemu je enako število Jordanovih celic v $J(\Aa)$, ki pripada lastne vrednosti $\lambda_i$, velikosti vsaj $t \times t$? 
+        \item \colorbox{yellow!30}{\emph{Primer.}} Določi Jordanovo formo in Jordanovo bazo matrike $\begin{bmatrix}
+            0 & 0 & 0 & 1 & 1 & 1 \\
+            1 & 0 & 0 & -1 & 0 & 0 \\
+            -1 & 0 & 0 & -1 & -3 & -3 \\
+            1 & 0 & 1 & 1 & 2 & 1 \\
+            1 & 0 & 0 & 0 & 2 & 2 \\
+            -1 & 0 & 0 & 0 & -1 & -1
+        \end{bmatrix}$
+    \end{itemize}
+
+    \newpage
+    \item Funkcije matrik 
+    \begin{itemize}
+        \item Naj bo $q$ polinom in $A \in \CC^{n \times n}$ matrika. Naj bo $J(A)$ Jordanova matrika matrike $A$ in $P$ prehodna matrika, da je $A = P J(A) P^{-1}$. Kaj potem $q(A)$? Ali je matrika $q(J(A))$ bločno diagonalna? Kaj potrebno vedeti, da bi znali izračunati $q(J(A))$ in $q(A)$?
+        \item Kako zgleda polinom v Jordanovi celici $q(J_t(\rho))$?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Ideja.}} Jordanovo celico $J_t(\rho) \in \CC^{t \times t}$ pišemo v obliki $J_t(\rho) = \rho I + N$, kjer je $N$ nilpotentna Jordanova celica velikosti $t \times t$. Polinom $q$ zapišemo v bazi $\set{1, \lambda - \rho, (\lambda - \rho)^2, \ldots, (\lambda - \rho)^k}$ in izračunamo koeficiente $a_0, a_1, \ldots, a_k$ (kot pri razvoju v $n$-ti Taylorjevi polinom).
+        \end{itemize}         
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Analitična funkcija $f: D \to \CC$ v Jordanovi celici: $f(J_t(\rho))$.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Analitična funkcija $f: D \to \CC$ v matriki: $f(A)$.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali se ta definicija ujema z definicijo polinoma v matriki? 
+        
+        Ali za vsako (lepo) funkcijo $f$ obstaja polinom $q$ (odvisen of $f$ in od $A$), da je $f(A) = q(A)$?
+
+        Jordanova baza ni enolična. Ali je definicija dobra?
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Naj bo $\mathcal{F}$ algebra vseh kompleksnih funkcij. ki jih mogoče v okolici spektra fiksne matrike $A$ razviti v Taylorjevo vrsto, in naj bo $\Phi: \ \mathcal{F} \to \CC^{n \times n}, \ \Phi(f) = f(A)$. Kaj potem velja za $\Phi$?
+        \item \colorbox{yellow!30}{\emph{Primer.}} Naj bo $J = \begin{bmatrix}
+            0 & 1 & 0 \\
+            0 & 0 & 1 \\
+            0 & 0 & 0
+        \end{bmatrix}, \ f(z) = \sin z, \ g(z) = \cos z$. Izračunaj $f(J), \ g(J)$ in $f^2(J) + g^2(J)$.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Izrek o preslikave spektra.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Zaradi enakosti $f(A) = Pf(J(A))P^{-1}$ dovolj, da izrek dokažemo za vse Jordanove matrike. Kaj je $f(J(A))$?
+        \end{itemize} 
+    \end{itemize}    
+\end{enumerate}
+
+\newpage
+\

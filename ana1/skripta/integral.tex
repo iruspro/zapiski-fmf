@@ -1,0 +1,341 @@
+\subsection{NEDOLOČENI INTEGRAL}
+Vsaka odvedljiva funkcija $f$ na intervalu $I$ določa funkcijo $f'$ na $I$. Denimo, da je poznamo predpis za funkcijo $f'$. Kako dobimo predpis za $f$? Ali je vsaka funkcija $g$ na $I$ odvod kakšne funkcije $f$ na $I$?
+\begin{enumerate}
+    \item Primitivna funkcija in nedoločeni integral
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Primitivna funkcija.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} (1) Recimo, da je $F$ primitivna funkcija od $f$ na množici $I$. Kako dobimo novo primitivno funkcijo?
+        
+        (2) Recimo, da sta $F$ in $G$ primitivni funkciji na intervalu $I$. Kaj lahko povemo o teh funkcijiah?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Nedoločeni integral funkcije $f$. Integrand. Oznaka.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Recimo, da je $F$ primitivna funkcija od $f$ na intervalu $I$. Kaj je njen nedoločeni integral?
+        \item \colorbox{yellow!30}{\emph{Opomba.}} (1) Kako razumemo zapis nedoločenega integrala?
+        
+        (2) Kakšna je nasprotna operacija integriranja?
+        \item \colorbox{yellow!30}{\emph{Primer.}} Funkcija, ki nima primitivne funkcije.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Z protislovjem.
+        \end{itemize}
+    \end{itemize}
+
+    \item Pravila za integriranje
+    \begin{itemize}
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Osnovne računske operaciji z integrali.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Enostavno.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Uvedba nove spremenljivke v nedoločeni integral.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Odvod kompozicije.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Integracija po delih.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Odvod produkta.
+        \end{itemize}
+    \end{itemize}
+\end{enumerate}
+
+\subsection{DOLOČENI INTEGRAL}
+Naj bo $f: [a, b] \to \RR$ nenagitivna funkcija. Potem graf funkcije $f$ omejuje območje $A$ nad intervalom $[a, b]$. Če je $f$ konstanta znamo izračunati ploščino $A$. Kaj če je $f$ ni konstanta?
+\begin{enumerate}
+        \item Riemannova vsota in Riemannov integral
+    \begin{itemize}   
+        \item Kako v splošnem izračanumo ploščino lika $A$?     
+        \item \colorbox{yellow!30}{\emph{Primer.}} Izračunaj ploščino pod grafom $f(x) = x^2$ na $[0,1]$.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Delitev $D$ intervala $[a,b]$. Oznaka za dolžino $i$-tega podintervala. Velikost delitve. Testna točka. Usklajena izbira testnih točk $T_D$. 
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Riemannova vsota funkcije $f$ na $[a,b]$ pridružena delitvi $D$ in usklajeni izbiri testnih točk $T_D$.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Riemannov integral funkcije $f$ na $[a,b]$. Določeni integral funkcije $f$ na $[a, b]$. Kako pravimo funkcije, če integral obstaja? Oznaka. 
+        \item \colorbox{yellow!30}{\emph{Primer.}} Integrabilnost konstante.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Izračunamo $R(f, D, T_D)$.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Potreben pogoj za integrabilnost.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Recimo, da $f$ ni omejena. Potem vsaj na enem izmed podintervalov delitve neomejena. Na tem intervalu lahko za vsak $n \in \NN$ najdemo testno točko $t_j^m$, da $f(t_j^m) \geq n$. Izračunamo $R(f, D, T_D^m)$ in upoštevamo definicijo Riemannova integrala.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali v prejšni trditvi velja implikacija v obratno smer?
+        \item \colorbox{yellow!30}{\emph{Primer.}} Omejena funkcija, ki ni Riemannovo integrabilna.
+    \end{itemize}
+    \item Darbouxove vsote in Darbouxov integral.
+    \begin{itemize}
+        \item Predpostavka o funkcije, ki jo potrebujem. Oznake, ki jih potrebujemo (infumumi in supremumi). Kaj velja za te oznake?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Spodnja Darbouxova vsota prirejena delitvi $D$. Zgornja Darbouxova vsota prirejena delitvi $D$.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Kakšna zveza med $s(D), \ S(D)$ in $R(f, D, T_D)$? Ali velja še več?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Finejša delitev od delitve $D$.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Kako so povezane Darbouxove vsote od delitve $D$ in od finejše delitve $D'$ od delitve $D$?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Dovolj je dokazati za primer $D' = D \cup \set{y}$. Recimo, da je $y \in [x_j - x_{j-1}]$. Definiramo $m_j'$ in $m_j''$. V kakšni zvezi $m_j'$, $m_j''$ in $m_j$? Izračunamo $s(D)$.             
+            Za $S(D)$ podobno.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Kako sta povezana spodnja in zgornja Darbouxove vsote od poljubnih delitev $D_1$, $D_2$?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Delitev $D_1 \cup D_2$ je finejša od obeh. Uporabimo prejšnjo trditev.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali obstajata $\sup$ množice spodnjih Darbouxovih vsot in $\inf$  množice zgornjih Darbouxovih vsot?
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Kaj pove prejšnja trditev o številah iz prejšnje opombe?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Darbouxovo integrabilna funkcija $f$ na $[a, b]$. Darbouxov integral funkcije $f$ na $[a, b]$.
+        
+        \newpage
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Karakterizacija Darbouxove integrabilnosti.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} $(\Rightarrow)$ Izberimo $\epsilon > 0$ in uporabimo lastnosti števil $s$ in $S$. Dobimo delitve $D_1$ in $D_2$. Delitev $D_1 \cup D_2$ je finejša od obeh. Pokažemo, da $S(D_1 \cup D_2) - s(D_1 \cup D_2) < \epsilon$.
+            
+            $(\Leftarrow)$ Uporabimo predpostavke in definiciji števil $s$ in $S$ za oceno izraza $S - s$.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Ali je vsaka zvezna funkcija $f$ na $[a,b]$ Darbouxovo integrabilna?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Karakterizacija. Delitev dobimo iz dejstva, da $f$ enakomerno zvezna na $[a,b]$.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Recimo, da je $f: [a,b] \to R$ omejena funkcija, ki je zvezna samo na intervalu $(a, b)$. Ali je Darbouxovo integrabilna?
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Ali je vsaka monotona funkcija $f$ na $[a,b]$ Darbouxovo integrabilna?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Karakterizacija. Vzemimo ekvidistančno delitev (vsi intervali so enako dolgi).
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Aditivnost domene.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} ($\Rightarrow$) Karakterizacija. Vzemimo $\overline{D} = D \cup \set{c}$. Izračunamo $S(\overline{D}) - s (\overline{D})$.            
+            
+            ($\Leftarrow$) Karakterizacija. $D = D_1 \cup D_2$ je delitev $[a, b]$.
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Naj bo $f$ omejena na $[a,b]$ in denimo, da za $r \in \NN$ obstajajo $c_0, c_1, c_2, \ldots, c_r$, da je $a = c_0 < c_1 < c_2 < \ldots < c_r = b$, da je funkcija $f$ na $(c_{i-1}, c_i)$ zvezna za vse $i = 1, \ldots, r$. Ali je $f$ Darbouxovo integrabilna?
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Ali je vsaka odsekoma zvezna funkcija na $[a, b]$ je Darbouxovo integrabilna?
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Naj bo funkcija $f$ Darbouxovo integrabilna na $[a, b]$. Kaj lahko povemo o dovolj majhnih delitvah?
+        \begin{itemize}
+            \item \colorbox{green!50}{\textbf{Dokaz!}} Predpostavimo $M-m \neq 0$. Naj bo $\epsilon > 0$. Obstaja delitev $D_0 = \set{x_0, x_1, \ldots, x_r}: \\ S(D_0)~-~s(D_0) < \frac{\epsilon}{2}$. Definiramo $\delta = \frac{\epsilon}{2r(M-m)}$. Vzemimo delitev $D$, za katero velja $\delta(D) < \delta$ in razbijemo vsoto $S(D) - s(D)$ na vsoto po členih delitve $D$, ki ne vsebujejo nobene od točk delitve $D_0$ v svoji notranosti (ocenimo jo z finejšo delitvo $D_0 \cup D$) in vsote vseh ostalih členov. Ocenimo vsako vsoto po sebej.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Riemannova in Darbouxova integrabilnost. Zveza.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} $(\Rightarrow)$ Karakterizacija. Za vsak $i = 1, \ldots, n$ obstaja $t_i, s_i: \ 0 \leq M_i - f(t_i) < \frac{\epsilon}{b-a}$ in 
+            
+            $0 \leq f(s_i) - m_i < \frac{\epsilon}{b-a}$. Ocenimo $|S(D) - I|$ in $|s(D) - I|$ (prištejemo in odštejemo ustrezno $R(f, D, T_d))$.
+
+            ($\Leftarrow$) Delto dobimo iz prejšnje trditve. Uporabimo oceno za $R(f, D, T_d)$ z Darbouxovami vsoti.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Kadar je kompozitum $F = g \circ f$ integrabilen?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Naj bo $\epsilon > 0$. Iz enakomerne zveznosti $g$ dobimo $\delta > 0$. Iz integrabilnosti $f$ dobimo tako delitev $D$, da $S_f(D) - s_d(d) < \epsilon \delta$. Razbijemo vsoto $S_f(D) - s_f(d)$ na $\Sigma'$, kjer $M_i - m_i < \delta$ in $\Sigma''$, kjer $M_i - m_i \geq \delta$. Isto naredimo z vsoto $S_{g \circ f}(D) - s_{g \circ f}(D)$ in jo ocenimo.
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Naj bo $f$ integrabilna na $[a,b]$. Integrabilnost $|f|$ in $f^n, \ n \in \NN$ na $[a,b]$
+    \end{itemize}
+
+    \item[$\circ$] Lastnosti določenega integrala
+    \begin{itemize}
+        \item \colorbox{blue!30}{\textbf{Trditev.}} 6 lastnosti določenega integrala. Dogovora.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Vsota, razlika, množenje s skalarji: Riemannov integral (vsota).
+            
+            Produkt: $f^2, \ g^2, \ (f+g)^2$ so integrabilni.
+
+            Monotonost: Riemannove vsote (podobno kot za limite).
+
+            Trikotniška neenakost: $-|f(x)| \leq f(x) \leq |f(x)|$ za vse $x \in [a, b]$.
+        \end{itemize}
+    \end{itemize}
+
+    \item Osnovni izrek analize
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Integral kot funkcija zgornje meje.
+        \item \colorbox{blue!30}{\textbf{Osnovni izrek analize.}} 
+        \begin{itemize}
+            \item \colorbox{green!50}{\textbf{Dokaz!}} (1) Naj bo $x, x' \in [a,b]$. Z oceno za $|F(x) - F(x')|$ pokažemo, da je $F$ enakomerno zvezna na $[a,b]$ (Lipschitzeva).
+            
+            (2) Po definicije limite z upoštevanjem zveznosti $f$ v točki $x$ pokažemo, da $\displaystyle \lim_{h \to 0} \frac{F(x+h) - F(x)}{h} = f(x)$.
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Ali vsaka zvezna funkcija na $[a,b]$ ima primitivno funkcijo?
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali vsaka integabilna funkcija ima primitivno funkcio?
+        \item \colorbox{blue!30}{\textbf{Osnovni izrek integralnega računa. Leibnizova formula.}}
+        \begin{itemize}
+            \item \colorbox{green!50}{\textbf{Dokaz!}} $f$ je zvezna, potem integral kot funkcija zgornje meje je primitivna funkcija od $f$. Izrek sledi.
+            
+            V spolšnem: Izberimo poljubno delitev $D$ in uporabimo Lagrangeev izrek na intervalu $[x_{i-1}, x_i]$ za izračun $F(x_{i}) - F(x_{i - 1})$ ter seštejemo.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali zgornji izrek velja za vse zvezne funkcije?
+        \item \colorbox{yellow!30}{\emph{Primer.}} Nezvezna integrabilna funkcija, ki ima primitivno funkcijo: $F(x) = x^2\sin \frac{1}{x}, \ F(0) = 0$.
+    \end{itemize}
+    
+    \newpage
+    \item Uvedba nove spremenljivke in integracija po delih v določenem integralu
+    \begin{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Naj bo $\phi$ zvezno odvedljiva funkcija na $[a,b]$ in $f$ zvezna funkcija na $Z_\phi$. Uvedba nove spremenljivke v določenem integralu.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Osnovni izrek analize, odvod komozicije in Leibnizova formula.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Integracija po delih v določenem integralu.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Odvod produkta.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Naj bo $\phi$ zvezno odvedljiva, naraščajoča funkcija na $[a,b]$ in $f$ integrabilna funkcija na $[\phi(a), \phi(b)]$. Uvedba nove spremenljivke v določenem integralu.
+        \begin{itemize}
+            \item \colorbox{green!50}{\textbf{Dokaz!}} Oglejmo Riemannovo vsoto $R((f \circ \phi) \phi', \ \overline{D}, \ T_{\overline{D}})$. Kako ta Riemannova vsota povezana z Riemannovo vsoto $R(f,\ D,\ T_D)$? Enakost integralov pokažemo po definiciji Riemannova integrala z upoštavnjem lastnosti zveznih funkcij na zaprtem intervalu ter z uporabo Lagrangeeva izreka.
+        \end{itemize} 
+    \end{itemize}
+
+    \item Povprečna vrednost
+    
+    Naj bo $x_1, x_2, \ldots, x_n \in \RR$. Potem povprečna vrednost je $\frac{1}{n} (x_1 + x_2 + \ldots + x_n)$. Kaj če je teh $x$-ov neskončno? Kako lahko izračunamo povprečno temperaturo?
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Povprečna vrednost funkcije $f$.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Kaj je geometrijski pomen povprečne vrednosti, če je $f$ nenegativna funkcija?
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Ocena za povprečno vrednost $\mu$. Kaj lahko povemo, če je $f$ zvezna? 
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} (1) Monotonost integrala.
+            
+            (2) Lastnost zvezne funkcije na zaprtem intervalu.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Kaj velja za integral $\displaystyle \int_{a}^{b} f(x)g(x)  \,dx $, če sta $f$ in $g$ integrabilni na $[a,b]$ in $g$ povsod istega znaka? Kaj lahko povemo, če je $f$ zvezna? 
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} (1) Monotonost integrala.
+            
+            (2) Lastnost zvezne funkcije na zaprtem intervalu.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}}  Kaj velja za integral $\displaystyle \int_{a}^{b} f(x)g(x)  \,dx $, če je $f$ zvezna funkcija na $[a,b]$ in $g$ nenegativna, padajoča in zvezno odvedljiva funkcija na $[a,b]$?
+        \begin{itemize}
+            \item \colorbox{green!50}{\textbf{Dokaz!}} Osnovni izrek analize. Integracija po delih.             
+            Naredimo oceno za $\int_{a}^{b} f(x) g(x) \, dx$.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Primer.}} Oceni integral $\displaystyle \int_{a}^{b} \frac{\sin x}{x} \,dx $.
+    \end{itemize}
+\end{enumerate}
+
+\subsection{POSPLOŠENI INTEGRAL}
+
+Recimo, da je funkcija $f$ na intervalu $[a, b]$ neomejena ali sam interval $[a, \infty)$ neomejen. Potem funkcija $f$ ni integrabilna po Riemannu. Ali sploh lahko definiramo $\int_{a}^{b}f(x) \, dx$ ali $\int_{a}^{\infty} f(x) \, dx$?
+\begin{enumerate}
+    \item Posplošeni integral na omejenem intervalu
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Posplošeni integral funkcije $f$ na intervalu $[a,b]$. Posplošeno integrabilna funkcija $f$ na $[a,b]$. Konvergenten/divergenten integral.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} (1) Ali je integrabilna funkcija tudi posplošena integrabilna? Ali integrala sta enaka? Kaj je pogoj iz definicije?  
+        \item \colorbox{yellow!30}{\emph{Primer.}} Konvergenca $\displaystyle \int_{0}^{1} \frac{1}{x^p}  \,dx $ in $\displaystyle \int_{0}^{1} \ln x  \,dx $.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Kaj če je funkcija $f$ absolutno integrabilna?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Pišemo $\displaystyle F(x) = \int_{a}^{x} f(t) \, dt, \ G(x) = \int_{a}^{x} |g(t)| \, dt$. Po predpostavki obstaja $\lim_{x \uparrow b} G(x) \Rightarrow G(x)$ izpolnjuje Cauchyjev pogoj pri $b$. Pokažemo, da je $F(x)$ tudi izpolnjuje Cauchyjev pogoj pri $b$. 
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Kriterij za konvergenco posplošenega integrala (konvergenca v polu).
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Konvergenca: Dovolj pokazati, da konvergira $\int_{a}^{b} |\frac{f(x)}{(x-a)^s}|$. Naj bo $t \in (a, b]$. Pokažemo, da je limita $\lim_{t \downarrow a} \int_{t}^{b} |\frac{f(x)}{(x-a)^s}|$ obstaja (limita naraščajoče funkcije).
+            
+            Divergenca: Navzdol ocenimo ($f(x) \geq m > 0$) integral $\int_{t}^{b} \frac{f(x)}{(x-a)^s}$.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Kaj če je $\displaystyle \lim_{x \searrow a} f(x) \neq 0$?
+        \item \colorbox{yellow!30}{\emph{Primer.}} Obravnavaj konvergenco integala $\int_{0}^{1}\frac{e^x}{x} \, dx$
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Posplešena integrabilnost funkcije $f$ na $[a,b]$, ki ima končno mnogo "`slabih"' točk.
+        \item \colorbox{yellow!30}{\emph{Primer.}} Konvergenca $\displaystyle \int_{-1}^{1} \ln |x|  \,dx $ in $\displaystyle \int_{-1}^{1} \frac{1}{x}  \,dx $.
+    \end{itemize}
+
+    \newpage
+    \item Posplošeni integral na neomejenem intervalu
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Posplošeni integral funkcije $f$ na $[a, \infty]$. Posplošeno integrabilna funkcija $f$ na $[a, \infty]$. Konvergenten, divergenten integral. Posplošeno integrabilna funkcija $f$ na $[- \infty, \infty]$.
+        \item \colorbox{yellow!30}{\emph{Primer.}} Konvergenca $\displaystyle \int_{1}^{\infty} \frac{1}{x^p}  \,dx $.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali konvergira integral $\displaystyle \int_{0}^{\infty} \frac{1}{x^p}  \,dx $?
+        \item \colorbox{yellow!30}{\emph{Primer.}} Naj bo $r$ racionalna funkcija. Ali obstaja $\displaystyle \int_{a}^{\infty} r(x) \,dx $?
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Cauchyjev pogoj za konvegenco integrala na neomejenem intervalu.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Osnovni izrek analize in Cauchyjev pogoj v neskončnosti.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Primer.}} Konvergenca $\displaystyle \int_{1}^{\infty}  \frac{\sin x}{x} \,dx $.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Kaj če je funkcija $f$ absolutno integrabilna?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Podobno kot prej
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Primer.}} Ali integral $\displaystyle \int_{1}^{\infty}  \frac{\sin x}{x} \,dx $ absolutno konvergira?
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Kriterij za konvergenco posplošenega integrala (konvergenca v neskončnosti).
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Naj bo $M \in [a, \infty)$. V integral $\int_{a}^{M}\frac{g(x)}{x^p} \, dx$ uvedemo novo spremenljivko $t = \frac{1}{x}$ in prevedemo izrek na izrek o konvergence v polu.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Primer.}} (1) Funkcija iz trikotnikov. Ali kriterij deluje?
+        
+        (2) Eulerjeva funkcija $\Gamma(s) = \int_{0}^{\infty}x^{s-1}e^{-x} \, dx$. Določi definicijsko območje. Dokaži, da $\Gamma(n+1) = n!$ za vse $n \in \NN$.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Integralski kriterij za konvergenco vrst.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Najprej ocenimo integral z delnimi vsotami vrste, nato dokažemo ekvivalenco.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Zgled.}} Konvergenca $\displaystyle \int_{1}^{\infty} \frac{1}{x^p}  \,dx $ in $\displaystyle \sum_{n=1}^{\infty} \frac{1}{n^p}$.
+    \end{itemize}
+\end{enumerate}
+
+\subsection{UPORABA INTEGRALA V GEOMETRIJI}
+\begin{enumerate}
+    \item Dolžina loka
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Dolžina poti $F$. Izmerljiva pot $F$. 
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Naj bo $F=(\alpha, \beta)$ zvezno odvedljiva pot. Dolžina poti $F$.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Izberimo delitev $D$ intervala $[a, b]$. 1. S pomočjo Lagrangeeva izreka izračunamo $l(D)$. 
+            
+            2. Ocenimo razliko $|R(\sqrt{\dot{\alpha}^2 + \dot{\beta}^2}, \, D, \, T_D) - l(D)|$.
+            3. Z upoštevanjem enakomerne zveznosti $\dot{\alpha}^2$ in $\dot{\beta}^2$ ter integrabilnosti $\sqrt{\dot{\alpha}^2 + \dot{\beta}^2}$ ocenimo             
+            $|l(D) - \int_{a}^{b} \sqrt{(\dot{\alpha}(x))^2 + (\dot{\beta}(x))^2} \, dx|$.
+            4. S pomočjo finejše delitve naredimo oceno za $\sup \set{l(D); \ D \text{ je delitev}}.$
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Ali je zvezno odvedljiva pot izmerljiva?
+        \item \colorbox{yellow!30}{\emph{Primer.}} Izračunaj dolžin enega loka cikloide $x(t) = at - \sin t, \ y(t) = a - \cos t, \ a > 0$.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Dolžina grafa. Dolžina krivulje podane polarno.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Parametriziramo in poračunamo.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Primer.}} Obseg kroga s polmerom $a$.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Naj bo $F: [a,b] \to \RR^2$ in $G: [c,d] \to \RR^2$ injektivni regularni parametrizaciji istega gladkega loka. Ali potem $l(F) = l(G)$?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Obstaja zvezno odvedljiva funkcija $\phi: [a,b] \to [c,d]$, da velja $G \circ \phi = F$ (zakaj?).            
+            Izračunamo dolžino poti $F$ z uvedbo nove spremenljivke.
+        \end{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Dolžina gladkega loka.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Naravni parameter. Naravna parametrizacija.
+        \item \colorbox{blue!30}{\textbf{Izpeljava.}} Ali ima vsak gladek lok z regularno parametrizacijo $F=(\alpha, \beta)$ naravno parametrizacijo?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Pišemo $\phi(t) = \int_{a}^{t} \sqrt{(\dot{\alpha}(s))^2 + (\dot{\beta}(s))^2} \, ds$. Pokažemo, da je $\phi$ bijektivna zvezno odvedljiva funkcija in definiramo $G = F \circ \phi^{-1}$. Pokažemo, da je $G$ iskana parametrizacija.
+        \end{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Ločna dolžina.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Pitagorjev izrek in ločna dolžina.
+    \end{itemize}
+
+    \newpage
+    \item Ploščine
+    \begin{enumerate}
+        \item Ploščine likov med grafoma
+        \begin{itemize}
+            \item \colorbox{blue!30}{\textbf{Trditev 1.}} Naj bosta $f, g: [a,b] \to \RR$ zvezni funkciji in denimo, da je $f(x) \geq g(x)$ za vse $x \in [a,b]$. Kaj je ploščina lika med grafoma nad intervalom $[a,b]$? 
+            \item \colorbox{blue!30}{\textbf{Trditev 2.}} Naj bosta $f, g: [a,b] \to \RR$ zvezni funkciji (lahko imata presečišča). Kaj je ploščina lika med grafoma nad intervalom $[a,b]$? 
+            \item \colorbox{blue!30}{\textbf{Trditev 3.}} Naj bosta $g: [c,d] \to \RR$ zvezna funkcija nad $y$-osjo. Kaj je ploščina lika nad intervalom $[c,d]$ na ordinatni osi?
+            \item \colorbox{blue!30}{\textbf{Trditev 4.}} Ploščine med grafoma funkcij nad intervalom $[c,d]$ na ordinatni osi.
+            \begin{itemize}
+                \item \colorbox{green!30}{\textbf{Dokaz 1-4.}} Poračunamo. 
+            \end{itemize}
+        \end{itemize}
+        \item Ploščina območja, ki je dano s krivuljo
+        \begin{itemize}
+            \item \colorbox{blue!30}{\textbf{Trditev 5.}} Naj bo $F: [a,b] \to \RR^2$ zvezno odvedljiva pot. Kaj je ploščina lika, ki ga določa tir poti $F([a,b])$ nad intervalom $[x(a), x(b)]$?
+            \item \colorbox{blue!30}{\textbf{Trditev 6.}} Naj bo $F: [a,b] \to \RR^2$ zvezno odvedljiva pot. Kaj je ploščina lika, ki ga določa tir poti $F([a,b])$ nad intervalom $[y(a), y(b)]$ na ordinatni osi?
+            \begin{itemize}
+                \item \colorbox{green!30}{\textbf{Skica dokaza 5-6.}} Naj bo $D: \ a =t_0 < t_1 < \ldots < t_n = b$ poljubna delitev intervala $[a,b]$ in $S_D$~usklajen izbor testnih točk. Prevedemo z pomočjo Lagrangeeva izreka približek ploščine
+                
+                $pl(D, S_D) = \sum_{i=1}^{n}y(s_i)(x(t_i) - x(t_{i-1}))$ na neko Riemannovo vsoto. Zakaj $pl(D, S_D)$ približek?
+            \end{itemize}
+            \item \colorbox{purple!30}{\textbf{Definicija.}} Usmerjenost (orijentacija) loka $K$.
+            \item \colorbox{purple!30}{\textbf{Definicija.}} Gladka enostavna sklenjena krivulja.
+            \item \colorbox{purple!30}{\textbf{Definicija.}} Kadar je regularna parametrizacija $F$ krivulje $K$ določa pozitivno usmerjenost (orijentacijo)?
+            \item \colorbox{blue!30}{\textbf{Trditev.}} Naj bo $F:[a,b] \to \RR^2$ regularna parametrizacija gladke enostavne sklenjene krivulje $K$, ki določa pozitivno usmerjenost $K$. Kaj je potem ploščina območja $D$ znotraj $K$?
+            \begin{itemize}
+                \item \colorbox{green!30}{\textbf{Dokaz.}} Uporabimo 5-6. trditve.
+            \end{itemize}
+            \item \colorbox{yellow!30}{\emph{Primer.}} Izračunaj ploščinao astroide $x^{\frac{2}{3}} + y^{\frac{2}{3}} = a^{\frac{2}{3}}, \ a > 0$.
+            \item \colorbox{blue!30}{\textbf{Trditev.}} Naj bo $r = r(\phi), \phi \in [\alpha, \beta]$ zvezno odvedljiva polarno podana krivulja. Kaj je potem ploščina območja $D$, ka ga določa krivulja skupaj z daljicama $\phi = \alpha, \ 0 \leq r \leq r(\alpha)$ in $\phi = \beta, \ 0 \leq r \leq r(\beta)$?
+            \begin{itemize}
+                \item \colorbox{green!30}{\textbf{Dokaz.}} Krivuljo parametriziramo in uporabimo prejšnjo trditev. 
+            \end{itemize}
+        \end{itemize}        
+    \end{enumerate}
+    \item Prostornina in površina rotacijskega telesa
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Rotacijska ploskev. Vrtenina. 
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Kako izračunamo prostornino vrtenine?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Aproksimacija z valjem in Riemannova vsota.
+        \end{itemize} 
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Kako izračunamo površino rotacijske ploskve?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Aproksimacija z prisekanem stožcem, Lagrangeev izrek in Riemannova vsota.
+        \end{itemize} 
+    \end{itemize}
+\end{enumerate}

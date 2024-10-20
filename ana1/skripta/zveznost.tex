@@ -1,0 +1,169 @@
+\subsection{ZVEZNOST}
+\begin{enumerate}
+    \item Osnovni definiciji
+    \begin{itemize}        
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Zveznost funkcije $f$ v točke $a \in D$.
+        \item \colorbox{yellow!30}{\emph{Primer.}} Zveznost funkcij $\sin \frac{1}{x}$ in $x \sin \frac{1}{x}$ v točkah $a \in \RR$.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} $\delta$-okolica točke $a$ v $D$. Okolica točke $a$ v $D$.
+        \item \colorbox{purple!30}{\textbf{Definicija (ekivalentna).}} Zveznost funkcije $f$ v točke $a \in D$ ($\varepsilon-\delta \ \text{okolici}$).
+        \item \colorbox{purple!30}{\textbf{Definicija (ekivalentna).}} Zveznost funkcije $f$ v točke $a \in D$ (okolici). 
+    \end{itemize}
+
+    \item Opis zveznosti z zaporedji
+    \begin{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Karakterizacija zveznosti v točke $a$ z zaporedji.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} $(\Rightarrow)$ Definicija zveznosti ter definicija limite zaporedja.
+            
+            $(\Leftarrow)$ S protislovjem najdemo zaporedje $x_n$, ki konvergira proti $a$, vendar $f(x_n)$ ne konvergira proti $f(a)$.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Zveznost v točke $a$ vsote, razlike, produkta in kvocienta zveznih v točke $a$ funkcij.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Karakterizacija + pravila za računanje z zaporedji.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Zveznost v točke $a$ kompozituma funkcij.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Karakterizacija.
+        \end{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Zvezna funkcija.
+        \item \colorbox{yellow!30}{\emph{Primer.}} Zveznost konstant. Zveznost $f(x) = x$. Zveznost polinomov in racionalnih funkcij.
+    \end{itemize}
+
+    \item Limita funkcije 
+    \begin{itemize}
+        \item Motivacija. Prebodena okolica.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Limita funkcije $f$, ko gre $x$ proti $a$. Oznaka.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Vplivnost vrednosti $f(a)$ na limito funkcije $f$, ko gre $x$ proti $a$.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Karakterizacija zveznosti v točke $a$ z limito funkcije $f$, ko gre $x$ proti $a$.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Definicija limite in zveznosti.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Karakterizacija limite funkcije $f$, ko gre $x$ proti $a$ z zaporedji.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Podobno kot pri zveznosti.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Pravila za računanje s funkcijskimi limitami.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Pravila za računanje s funkcijskimi limitami.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Karakterizacija limite z zaporedji.
+        \end{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Leva (desna) limita funkcije v točki $a$.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Karakterizacija obstoja limite funkcije v točki $a$ z levo in desno limitama.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Iz definicij limite ter leve in desne limite.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Obstoj leve in desne limite monotone funkcije na $[a,b]$. Karakterizacija zveznosti v točki $c \in (a,b)$ monotone na intervale $[a,b]$ funkcije $f$ z levo in desno limitama.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Kaj vemo o naraščajoče funkcije? Ali obstaja $\sup \set{f(x); \ x \in (a,c)}$. Zakaj iz predpostavk izreka sledi zveznost?
+        \end{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Skok funkcije $f$ v točke $c \in D$.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Koliko točk nezveznosti lahko ima monotona na intervale $[a,b]$ funkcije $f$?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Pokažemo, da obstaja injektivna preslikava $r: \mathcal{N} \to \QQ$, kjer $\mathcal{N}$ množica vseh točk nezveznosti.
+        \end{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Limita $L$ funkcije $f$, ko gre $x$ čez vse meje (proti neskončno).
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Kaj je v tem primeru $y = L$?.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Cauchyjev pogoj pri točke $a$ (v $\infty$).
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Karakterizacija obstoja limite s Cauchyjevem pogojem.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Podobno kot pri zaporedj pokažemo, da če funkcija ima limito, potem izpolnjuje Cauchyjev pogoj. Obratno brez dokaza.
+        \end{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Limita funkcije $f$, ko gre $x$ proti $a$ enaka neskončno.
+        \item \colorbox{yellow!30}{\emph{Primer.}} $\displaystyle \lim_{x \to 0} \frac{\sin x}{x}=1, \ \lim_{x \to \pm \infty} (1+\frac{1}{x})^x=e, \ \lim_{h \to 0} \frac{a^h-1}{h} = \ln a$.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} (1) Z pomočjo enotske krožnice dokažemo, da $\sin x \leq x \leq \tan x$.
+            
+            (2) Uporabimo znano limito zaporedja.
+
+            (3) Vpeljamo $a^h - 1 = \frac{1}{x}$.
+        \end{itemize}
+    \end{itemize}
+
+    \newpage
+    \item Enakomerna zveznost
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Enakomerno zvezna funkcija $f$ na $D$.
+        \item \colorbox{yellow!30}{\emph{Primer.}} Ali je funkcija $f(x) = \frac{1}{x}$ enakomerno zvezna?
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali je vsaka enakomerno zvezna funkcija na $D$, tudi zvezna na $D$? Ali je vsaka zvezna funkcija na~$D$, tudi enakomerno zvezna na $D$?
+        \item \colorbox{blue!30}{\textbf{Lema}} o pokritjih.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Definiramo $S = \set{c \in [a,b]; \ \text{interval $[a,c]$ lahko pokrijemo s končno mnogo članicami $O_x$}}$. Pokažemo, da ima ta množica maksimum in velja: $\max S = b$.
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica}} leme o pokritjih.   
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Za vsak $x \in [a,b]$ obstaja $\lambda(x)$, da je $x \in I_{\lambda(x)}$. Za vsak $x \in [a,b]$ definiramo $\delta(x) > 0$ tako, da je $(x - \delta(x), \ x + \delta(x)) \subset I_{\lambda(x)}$.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek}} o zvezne funkcije $f$ na zaprtem intervalu $[a,b]$.
+        \begin{itemize}
+            \item \colorbox{green!50}{\textbf{Dokaz!}} Definiramo ustrezno pokritije intervala $[a,b]$, nato uporabimo lemo o pokritjih in vzemimo $\delta = \min \set{\delta(x_1), \ldots, \delta(x_m)}$. Na koncu upoštevamo definicijo enakomerne zveznosti.
+        \end{itemize}
+    \end{itemize}
+
+    \item Lastnosti zveznih funkcij na zaprtem intervalu
+    \begin{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Metod bisekcije.        
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Na vsakem koraku gledamo vrednost v središču intervala. Tako bodisi najdemo ničlo, bodisi dobimo zaporedje vloženih intervalov.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek}} o omejenosti zvezne funkcije $f$ na zaprtem intervalu $[a,b]$.
+        \begin{itemize}
+            \item \colorbox{green!50}{\textbf{Dokaz!}} Omejenost dokažimo z protislovjem. Definiramo zaporedje $x_n \in [a,b], \ f(x_n) \geq n$.
+            
+            To, da $f$ doseže maksimum tudi pokažemo s protislovjem z definicijo supremuma in funkcijo $\frac{1}{\sup f - f}$.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Kaj pove izrek?
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Ali je zvezna funkcija funkcija na zaprtem intervalu $[a,b]$ zavzame vse vrednosti med minimumom in maksimumom?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Naj bo $c \in (\min f, \max f)$. Definiramo funkcijo $g(x) = f(x) - c$. Ali ta funkcija ima ničlo?
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek}} o inverze strogo monotone zvezne funkcije na zaprtem intervalu $[a,b]$.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Recimo, da je $f$ strogo naraščajoča. Po definiciji pokažemo, da je funkcija $f^{-1}$ zvezna v točki $y_0 \in [f(a), f(b)]$. Definiramo $\delta = \min \set{|y_0 - f(f^{-1}(y_0) - \epsilon)|, |y_0 - f(f^{-1}(y_0) + \epsilon)|}$.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Primer.}} Zveznost inverzne funkcije od funkcije $f(x) = x^n, \, n \in \NN$.
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Zveznost funkcije $x \mapsto x^r$ na $(0, \infty)$ (ali $[0, \infty)$, če je $r>0$) za vsak $r \in \QQ$.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Kompozitum zveznih funkcij.
+        \end{itemize}
+    \end{itemize}
+
+    \item Zveznost posebnih funkcij
+    \begin{itemize}
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Monotonost eksponentne funkcije $x \mapsto a^x$.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Z definicijo realne eksponente pokažemo, da iz $x_1 > x_2$ sledi $a^{x_1 - x_2} > 0$.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Zveznost eksponentne funkcije $x \mapsto a^x$.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Zveznost v točke $a=0$ pokažemo po definiciji z znano oceno za izraz $|a^h-1|$.
+        
+            Zveznost v ostalih točkah $x_0 \in \RR$ pokažemo z prevodom ocene $|a^x - a^{x_0}|$ na zveznost v točke $0$.
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} $(a^x)^y = a^{xy}$
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Upoštevamo definicijo eksponentne funkcije ter ustrezne zveznosti.
+        \end{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Logaritemska funkcija z osnovo $a$, naravni logaritem.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} $\log_a (xy) = \log_a (x) + \log_a (y)$. $\log_a (x^\lambda) = \lambda \log_a (x)$.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Definicija logaritma.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Zveznost logaritemske funkcije.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Izrek o inverze zvezne strogo monotone funkcije.
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Zveznost funkcije $x \mapsto x^y$ za vsak $y \in \RR$.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} $x^y = e^{\ln x^y}$.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Zveznost sinusa, kosinusa, tangensa in kotangensa.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Dovolj, da pokažemo zveznost sinusa z upoštevanjem definicije sinusa ter definiciji zveznosti.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Zveznost arkus sinusa, arkus kosinusa, arkus tangensa in arkus kotangensa.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Izrek o inverze zvezne strogo monotone funkcije.
+        \end{itemize}
+    \end{itemize}
+
+\end{enumerate}

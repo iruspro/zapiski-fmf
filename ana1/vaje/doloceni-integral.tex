@@ -1,0 +1,54 @@
+\section{DOLOČENI INTEGRAL}
+{\color{Purple} \subsection*{Riemannova vsota (naloge $15-18$)}}
+
+\textbf{Definicija.} \emph{Riemannova vsota} funkcije $f: [a,b] \to \RR$ pridružena delitvi $D$ in usklajeni izbiri testnih točk $T_D$ je: 
+\[
+    R(f, D, T_D) = \sum_{i=1}^{n}f(t_i)\underbrace{(x_i - x_{i-1})}_{\delta_i} = \sum_{i=1}^{n}f(t_i) \delta_i
+.\]
+%
+\textbf{Definicija.} Naj bo $f: [a,b] \to \RR$ funkcija. Število $I \in \RR$ je \emph{Riemannov integral funkcije $f$ na $[a,b]$} če za vsak $\varepsilon > 0$ obstaja $\delta > 0$ z naslednjo lastnostjo: za vsako delitev $D$, da $\delta (D) < \delta$, in za vsako usklajeno izbiro testnih točk $T_D$ velja: \[
+    \left| R(f, D, T_D) - I \right| < \varepsilon
+.\]
+
+
+$\bullet$ Naj bo $f: [a,b] \to \RR$ \textcolor{orange}{zvezna}, pozitivna funkcija.
+Določeni intagral $\displaystyle \int_{a}^{b} f(x) \, dx$ določa ploščino med $x$-osjo in grafom $f$ na $[a,b]$. Izračunamo ga lahko z uporabo Riemannovih vsot:
+\begin{enumerate}
+    \item Interval $[a,b]$ razdelimo na $n$ enakih delov s točkami \(\displaystyle x_i = a + \frac{b-a}{n} \cdot i, \ i = 0, 1, \ldots, n.\)
+    \item Naš lik aproksimiramo z unijo $n$ pravokotnikov: $\displaystyle S_n = \frac{b-a}{n} \cdot \left(f(x_1) + f(x_2) + \ldots + f(x_n)\right)$.
+    \item $\displaystyle \int_{a}^{b}f(x)  \,dx = \lim_{n \to \infty} S_n$.
+\end{enumerate}
+$\bullet$ Nekatere limite lahko izračanumo tako, da prevedemo Riemannovo vsoto (če jo prepoznamo) na določeni integral. To so običajno vsote deljene z $n$ ali $n$-ti koreni od produktov, ki imajo z večanjem $n$ več členov.
+\textbf{\textcolor{Orange}{Trik.}} S logaritmom naredimo iz produkta vsoto!
+
+$\bullet$ \textbf{Kriteriji integrabilnosti:}
+\begin{enumerate}
+    \item Naj bosta $f$ in $g$ integrabilni funkciji, potem $f \pm g, \ f \cdot g$ so integrabilni.
+    \item Kompozicija integrabilnih funkcij $g \circ f$ ni nujno integrabilna!
+    \item Če je $g$ zvezna in $f$ integrabilna, potem $g \circ f$ integrabilna.
+\end{enumerate}
+\textbf{Lebesgueev izrek.} Naj bo $f:[a,b] \to \RR$ omejena. Potem je integrabilna natanko takrat, ko množica nezveznosti $f$ ima mero 0 (to so vse končne in števne množice, in pa tudi neke neštevne množice).
+
+{\color{Purple} \subsection*{Izračun določenih integralov. Newton-Leibnizeva formula (nalogi $19-20$)}}
+
+\textbf{Newton-Leibnizeva formula:} $\displaystyle \int_{a}^{b} f(x) \,dx = F(b) - F(a)$, kjer je $F$ primitivna funkcija od $f$.
+
+\textbf{Geometrijska opazka.} Recimo, da imamo nek interval, na katerem imata $\sin^2 x$ in $\cos^2 x$ pridružena lika z enakima ploščinama (taki intervali so npr. večkratnike periode). Potem $\displaystyle \int_{a}^{b} \sin^2 x \,dx = \int_{a}^{b} \cos^2 x \,dx = \frac{b-a}{2}$.
+
+\textbf{Integracija po delih v nedoločenem integralu:} $\displaystyle \int_{a}^{b} u  \,dv = uv \big|_{a}^{b} -  \int_{a}^{b} v  \,du$.
+
+\textbf{Uvedba nove spremenljivke v določeni integral.} Pri uvedbe nove spremenljivke v določeni integral treba še spremeniti meji!
+
+\textbf{\textcolor{Orange}{Trik.}} Včasih določeni integral lahko izračunamo brez izračuna nedoločenega integrala funkciji, ki jo integriramo (npr. z izpeljavo rekurzivne zveze ali s kakšnim drugim trikom).
+
+Izpeljali smo formulo: $\displaystyle \int_{0}^{\pi} x f(\sin x)  \,dx = \frac{\pi}{2} \int_{0}^{\pi} f(\sin x)  \,dx$.
+
+{\color{Purple} \subsection*{Osnovni izrek analize. Integral kot funkcija zgornje meje (naloga $21$)}}
+
+\textbf{Osnovni izrek analize.} Naj bo $f$ integrabilna funkcija na $[a,b]$ in $F:[a,b] \to \RR$ integral kot funkcija zgornje meje.
+\begin{enumerate}
+    \item Tedaj je funkcija $\displaystyle F(x): \int_{a}^{x} f(t) \,dt$ zvezna na $[a,b]$.
+    \item Če je $f$ v točki $x$ zvezna, potem je $F$ v točki $x$ odvedljiva in velja: $F'(x) = f(x)$.
+\end{enumerate}
+
+\textbf{Nauk izreka.} Vsaka zvezna funkcija ima primitivno funkcijo.

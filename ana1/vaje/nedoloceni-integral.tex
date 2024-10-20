@@ -1,0 +1,105 @@
+\section{NEDOLOČENI INTEGRAL}
+
+{\color{Purple} \subsubsection*{Splošni metodi za integracijo (naloge $1-5, \ 13-14$)}}
+
+\begin{itemize}
+    \item Tabela. Явное уравнение с интегралом.
+    \item \underline{Z uvedbo primerne nove spremenljivke} poskušamo integral prevesti na takšnega, ki ga znamo izračunati: \\ (1) Uvedemo novo spremenljivko $t$; (2) Izračunamo $dt$; (3) Na koncu vstavimo začetno vrednost nove spremenljivke $t$.  
+    \begin{itemize}
+        \item В подынтегральном выражении должна находиться некоторая функция $f(x)$ и ее производная $f'(x)$.
+        \item Можно заменить переменную $x$ на тригонометрическую или гиперболическую функцию.
+    \end{itemize}
+    \item \underline{Pri integraciji po delih} uporabljamo formulo $\displaystyle \int u  \,dv = uv - \int v \, du$: \\ (1) Za $dv$ izberimo nekaj, kar že znamo integrirati; (2) Za $u$ izberimo nekaj, kar se morda pri odvajanju poenostaviti.
+    Обычно это произведение функций, например:
+    \begin{itemize}
+        \item Логарифм, умноженный на многочлен (за $u$ обозначим логарифм).
+        \item Экспонента (показательная функция), умноженная на многочлен (за $u$ обозначим многочлен).
+        \item Тригонометрическая функции, умноженные на многочлен (за $u$ обозначим многочлен).
+        \item Обратные тригонометрические функции, умноженные на многочлен (за $u$ обозначим обратную триг. функцию).
+    \end{itemize}
+\end{itemize}
+%
+%
+{\color{Purple} \subsubsection*{Integracija racionalnih funkcij (naloge $6-7$)}}
+
+\paragraph*{1. Razcep na parcialne ulomke}
+\begin{enumerate}
+    \item Z deljenjem zapišemo $\displaystyle R(x) = p(x) + \frac{r(x)}{q(x)}$, kjer je $\text{st}r< \text{st}q$.
+    \item Faktoriziramo $q$ na produkt linearnih in nerazcepnih kvadratnih faktorjev.
+    \item Funkcijo $\frac{r(x)}{q(x)}$ zapišemo kot vsoto parcialnih ulomkov s pomočjo nastavkov:
+    
+    $$\bullet \ \frac{1}{(x-a)^k} \leadsto \frac{A_1}{x-a} + \frac{A_2}{(x-a)^2} + \ldots + \frac{A_k}{(x-a)^k} \qquad \bullet \ \frac{1}{(x^2+bx+c)^l} \leadsto \frac{B_1 + C_1 x}{x^2+bx+c} + \ldots + \frac{B_l + C_l x}{(x^2+bx+c)^l}$$
+    Število neznak je enako stopnje polinoma $q$!
+    \item Integriramo vsak parcialni ulomek posebej. Vemo: $\color{BrickRed} \displaystyle \int \frac{dx}{a^2+b^2 x^2} = \frac{1}{ab} \arctan \left(\frac{bx}{a}\right) + C$. Težko integrirati člen $\displaystyle \frac{1}{(x^2+bx+c)^k}$! 
+\end{enumerate}
+
+\paragraph*{2. Metoda nastavka}
+\begin{enumerate}
+    \item Koraka 1-2 sta enaka kot prej.
+    \item Uporabimo nastavek:
+    $$
+    \bullet \ \frac{1}{(x-a)^k} \leadsto A \ln |x-a| \qquad \bullet \ \frac{1}{(x^2+bx+c)^l} \leadsto B \ln |x^2+bx+c| + C \arctan \frac{2x+b}{\sqrt{4c-b^2}} \qquad \bullet \ \frac{\widetilde{r}(x)}{\widetilde{q}(x)},
+    $$
+    kjer polinom $\widetilde{q}$ dobimo iz polinoma $q$ z znižanjem potence vsakega faktorja za ena, polinom $\widetilde{r}$ pa ima stopnji za eno nižjo kot $\widetilde{q}$.
+    Število neznak je enako stopnje polinoma $q$!
+    \item Odvajamo obe strani in izračunamo koeficiente.
+\end{enumerate}
+
+{\color{Purple} \subsubsection*{Integracija korenckih funkcij (naloge $8-10$)}}
+\begin{itemize}
+    \item Integrale oblike $\displaystyle \int R(x, \sqrt[n]{\frac{ax+b}{cx+d}}) \, dx$ integriramo z uvedbo nove spremenljivke $t = \sqrt[n]{\frac{ax+b}{cx+d}}$. Tako dobimo integral racionalne funkcije v spremenljivke $t$. Tu $R$ je racionalna funkcija dveh spremenljivk. To pomeni, da imamo izraze, ki jih dobimo iz $x, \ \sqrt[n]{\frac{ax+b}{cx+d}}, \ \text{const}, +, -, \cdot, :$. 
+    \item Pri uvedbe nove spremenljivke za izračun $dx$ se splača eksplicitno izraziti $x$ kot funkcijo $t$.
+    \item Integrale oblike $\displaystyle \int \frac{p(x)}{\sqrt{ax^2+bx+c}} \, dx$ računamo z postopkom:
+    \begin{enumerate}
+        \item Če je $p$ konstanta, z zapisom v temenski obliki integral prevedemo:
+        $$
+        \color{BrickRed}
+        \bullet \ \int \frac{dx}{\sqrt{a^2-x^2}} = \arcsin \left(\frac{x}{a}\right) + C \quad 
+        \bullet \ \int \frac{dx}{\sqrt{x^2 - a^2}} = \ln |x + \sqrt{x^2-a^2}| + C \quad 
+        \bullet \ \int \frac{dx}{\sqrt{x^2 + a^2}} = \ln|x+\sqrt{x^2+a^2}| + C $$
+        \item Če je $p$ poljuben, pa uporabimo nastavek:
+        $$\displaystyle \int \frac{p(x)}{\sqrt{ax^2+bx+c}} \, dx = \widetilde{p}(x) \sqrt{ax^2+bx+c} + \int \frac{K \, dx}{\sqrt{ax^2+bx+c}},$$
+        kjer $\widetilde{p}$ ima stopnjo 1 manj kot $p$ in je $K$ konstanta.
+    \end{enumerate}
+    \item Integrale oblike $\displaystyle \int R \, (x, \sqrt{ax^2+bx+c}) \, dx$ vedno lahko z univerzalno substitucijo prevedemo na integral racionalne funkcije:
+    $$\bullet \ a>0: \ \sqrt{ax^2+bx+c} = \sqrt{a}(u-x) \qquad \bullet \ a<0: \ \sqrt{ax^2+bx+c} = \sqrt{-a}(x-x_1)u,$$
+    kjer je $x_1$ ničla kvadratne funkcije. Ta metoda v principu vedno deluje, ni pa nujno najbolj optimalna.
+    \item Pri integralih oblike $\displaystyle \int \frac{dx}{(x+\alpha)^k \sqrt{ax^2+bx+c}}$ se splača uvesti novo spremenljivko $t = \frac{1}{x+\alpha}$.
+\end{itemize}
+
+\newpage
+{\color{Purple} \subsubsection*{Integracija trigonometričnih funkcij (naloge $11-12$)}}
+\begin{itemize}
+    \item Integrale oblike $\displaystyle \int \sin^px \cos^q x \, dx$, kjer sta $p,q \in \ZZ$, računamo s substitucijo:
+    \begin{itemize}
+        \item Če je p lih, vzamemo novo spremenljivko $t = \cos x$.
+        \item Če je q lih, vzamemo novo spremenljivko $t = \sin x$.
+        \item Če sta $p$ in $q$ oba soda, z uporabo formul za dvojne kote znižamo red potenc, dokler ne pridemo do lihih potenc.
+    \end{itemize}
+
+    \item Integrale oblike $\displaystyle \int R \, (\sin x, \cos x) \, dx$ lahko z univerzalno trigonometrično substitucijo $\displaystyle t = \tan \left(\frac{x}{2}\right)$ prevedemo na integral racionalne funkcije spremenljivke $t$. Pri tem:
+    $$\bullet \ dx = \frac{2dt}{1+t^2} \qquad \bullet \ \cos x = \frac{1-t^2}{1+t^2} \qquad \bullet \ \sin x = \frac{2t}{1+t^2}$$
+    Pri uporabe metode, če se da, poskusimo na začetku z uporabo adicijskih izrekov potence čim bolj znižati, da dobimo bolj enostavno racionalno funkcijo.
+\end{itemize}
+
+{\color{Purple} \subsubsection*{Dodatek}}
+$$
+\color{BrickRed}
+\bullet \ \int \frac{dx}{x^2-a^2} = \frac{1}{2a} \ln \left| \frac{x-a}{x+a} \right| \
+\bullet \ \int e^{ax} \sin (bx) \, dx = \frac{e^{ax}}{a^2+b^2}(a  \sin (bx) - b \cos (bx)) \
+\bullet \ \int e^{ax} \cos (bx) \, dx = \frac{e^{ax}}{a^2+b^2}(a  \cos (bx) + b \sin (bx)) 
+$$
+%
+\begin{align*}
+    \sin \alpha + \sin \beta &= 2 \sin \frac{\alpha + \beta}{2} \cos \frac{\alpha - \beta}{2} \qquad
+    &\sin \alpha \cos \beta &= \frac{1}{2} (\sin (\alpha + \beta) + \sin (\alpha - \beta)) \\ 
+    \cos \alpha + \cos \beta &= 2 \cos \frac{\alpha + \beta}{2} \cos \frac{\alpha - \beta}{2} \qquad
+    &\cos \alpha \cos \beta &= \frac{1}{2} (\cos (\alpha + \beta) + \cos (\alpha - \beta))
+    \\
+    \cos \alpha - \cos \beta &= -2 \sin \frac{\alpha + \beta}{2} \sin \frac{\alpha - \beta}{2}
+    &\sin \alpha \sin \beta &= \frac{1}{2} (\cos (\alpha - \beta) - \cos (\alpha + \beta))
+\end{align*}
+%
+\begin{equation*}
+    \bullet \ \sinh = \frac{1}{2} (e^x - e^{-x}) \quad \bullet \ \cosh = \frac{1}{2} (e^x + e^{-x}) \quad \bullet \ \cosh^2 x - \sinh^2 x = 1
+\end{equation*}

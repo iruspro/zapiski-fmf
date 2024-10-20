@@ -1,0 +1,258 @@
+\section{Prostori in preslikave}
+\subsection{Topološki prostori}
+\begin{definicija}
+    Naj bo $X$ množica. \emph{Topologija} na množici $X$ je družina $\Tt \subseteq P(X)$, ki zadošča naslednjim pogojem:
+    \begin{enumerate}
+        \item[(T0)] $\emptyset \in \Tt$, $X \in \Tt$.
+        \item[(T1)] Poljubna unija elementov $\Tt$ je element $\Tt$.
+        \item[(T2)] Poljuben končen presek elementov $\Tt$ je element $\Tt$.
+    \end{enumerate}
+    Elemente $\Tt$ razglasimo za \emph{odprte množice} v $X$.
+\end{definicija}
+
+\begin{opomba}
+    Aksiom (T2) zadošča preveriti za poljubne dve množice in uporabit indukcijo.
+\end{opomba}
+
+\begin{definicija}
+    \emph{Topološki prostor} je množica $X$ z neko topologijo $\Tt$. Pišemo: $(X, \Tt)$.
+\end{definicija}
+
+\begin{primer}[Topologija iz metrike]
+    Naj bo $(X, d)$ metrični prostor. Definiramo $\Tt_d = \set{\text{vse možne unije odprtih krogel}}$. $\Tt_d$~je topologija, ki je \emph{porojena (inducirana)} z metriko $d$.
+\end{primer}
+
+\begin{definicija}
+    Topološki prostor je \emph{metrizabilen}, če je porojen z neko metriko.
+\end{definicija}
+
+\begin{primer}[Trivialna topologija]
+    Naj bo $X$ poljubna množica. Definiramo $\Tt = \set{\emptyset, X}$. $\Tt$ je topologija, rečemo ji \emph{trivialna topologija}.
+
+    Trivialna topologija ni metrizabilna, če ima $X$ vsaj $2$ elementa, ker v metričnem prostoru z množico z vsaj $2$ elementoma vedno lahko najdemo disjunktne odprte krogle.
+\end{primer}
+
+\begin{primer}[Diskretna topologija]
+    Definiramo $\Tt = P(x)$. $\Tt$ je topologija, rečemo ji \emph{diskretna topologija}.
+
+    Je metrizabilna, ker inducirana z metriko $d(x, x') = 
+    \begin{cases}
+        0, &x = x' \\
+        1, &x \neq x'    
+    \end{cases}.$ Ker krogle s polmerom manj kot $1$ vsebujejo le središče, sklepamo, da so vse enoelementne množice odprte. Potem so pa vse podmnožice $X$ odprte, saj jih lahko predstavimo kot unije enoelementnih.
+\end{primer}
+
+\begin{opomba}
+    Topologija poda pojem \emph{bližine} na implicitni način z pomočjo okolic. 
+\end{opomba}
+
+\begin{definicija}
+    Naj bo $(X, \Tt)$ topološki prostor in $A \subseteq X$. \emph{Notranjost množice $A$} je največji element topolgije~$\Tt$, ki je vsebovan v $A$. Oznaka: $\Int A$.
+\end{definicija}
+
+\begin{opomba}
+    Zakaj je definicija smiselna?
+    \begin{itemize}        
+        \item Pogoj za notranjo točko: $x \in U \subseteq A$, kjer $U \in \Tt$.
+        \item $\Int A$ je unija vseh odprtih množic, ki so vsebovane v $A$, torej $\Int A = \bigcup \set{U \in \Tt; \ U \subseteq A}$. Sledi, da je $\Int A$ največja odprta podmnožica $A$.
+    \end{itemize}
+\end{opomba}
+
+\begin{definicija}
+    Naj bo $(X, \Tt)$ topološki prostor in $A \subseteq X$. Množica $A$ je \emph{zaprta}, če je $A^c = X - A \in \Tt$.
+\end{definicija}
+
+\begin{opomba}
+    Lahko topologijo vpeljemo tudi tako, da predpišemo, katere množice so zaprte.
+
+    Denimo, da je dana družina $Z$ podmnožic $X$, za katero velja:
+    \begin{enumerate}
+        \item[(T0)] $\emptyset \in Z$, $X \in Z$.
+        \item[(T1)] Poljuben presek elementov $Z$ je element $Z$.
+        \item[(T2)] Poljubena končna unija elementov $Z$ je element $Z$.
+    \end{enumerate}
+    Potem komplementi množic iz $Z$ tvorijo topologijo na $X$ in $Z$ je ravno družina zaprtih množic v tej topologiji.
+\end{opomba}
+
+\begin{primer}
+    Če zahtevamo, da so točke $X$ zaprte množice, potem so tudi končne podmnožice $X$ so zaprte. Torej družina
+    $$\set{\text{končme podmnožice X}} \cup \set{X}$$
+    zadošča zahtevam (T1) in (T2). Torej komplementi
+    $$\Tt = \set{U \subset X; X - U \text{ končna}} \cup \set{\emptyset}$$
+    so topologija na $X$. Tej topologiji rečemo \emph{topologija končnih komplementov $\Tt_{kk}$}.
+
+    Topologija končnih komplementov je najmanjša topologja v kateri vse točke zaprte. 
+    
+    Če je $X$ končna, potem $\Tt_{\text{kk}}=\Tt_{\text{disk}}$ na $X$.
+\end{primer}
+
+\begin{definicija}
+    Naj bo $(X, \Tt)$ topološki prostor in $A \subseteq X$. \emph{Zaprtje množice $A$} je presek vseh zaprtih množic, ki vsebujejo $A$. Torej zaprtje množice $A$ je najmanjša zaprta množica v $X$, ki vsebuje $A$. Oznaka: $\Cl A = \overline{A}$.
+\end{definicija}
+
+\begin{primer}
+    Velja:
+    \begin{itemize}
+        \item $\overline{A \cup B} = \overline{A} \cup \overline{B}$. \emph{Dokaz.} Definicija zaprtja.
+        \item $\overline{A \cap B} \subseteq \overline{A} \cap \overline{B}$. \emph{Dokaz.} Definicija zaprtja in $(\NN, \Tt_{kk})$.
+    \end{itemize}
+\end{primer}
+
+\begin{definicija}
+    Naj bo $(X, \Tt)$ topološki prostor in $A \subseteq X$. \emph{Meja množice $A$} je $\Fr A = \Cl A - \Int A$.
+\end{definicija}
+
+\begin{opomba}
+    Meja $A$ je vedno zaprta množica, saj $\Fr A = \Cl A - \Int A = \Cl A \cap (\Int A)^c$.
+\end{opomba}
+
+\subsection{Zvezne preslikave}
+\begin{definicija}    
+    Naj bosta $(X, \Tt_X)$ in $(Y, \Tt_Y)$ topološka prostora. Preslikava $f: (X, \Tt_X) \to (Y, \Tt_Y)$ je \emph{zvezna}, če je praslika vsake odprte množice odprta, tj. če iz $V \in \Tt_Y$ sledi $\invimg{f}(V) \in \Tt_X$.
+\end{definicija}
+
+\begin{primer}
+    Primeri zveznih preslikav.
+    \begin{enumerate}
+        \item Vse zvezne funkcije v smislu metričnih prostorov so zvezne kot funkcije med porojenimi topologijami.
+        \item Naj bo $f: (X, \Tt_X) \to (Y, \Tt_Y)$. 
+        \begin{enumerate}
+            \item Naj bo $\Tt_Y$ trivilna topologija, potem $f$ je vedno zvezna.
+            \item Naj bo $\Tt_X$ diskretna topologija, potem $f$ je vedno zvezna.
+        \end{enumerate}
+        \item Naj bosta $(X, \Tt)$ in $(X, \Tt')$ topološka prostora. Funkcija $\id: X \to X'$ je zvezna natanko tedaj, ko $\Tt' \subseteq \Tt$.
+        \item Če je $f: (X, \Tt_X) \to (Y, \Tt_Y)$ konstanta, tj. $\some{y_0 \in Y} \all{x \in X} f(x) = y_0$, potem je $f$ zvezna.
+        \item Naj bo $f: (\RR, \Tt_{\text{kk}}) \to (\RR, \Tt_{\text{evkl}})$. Potem konstante so edine zvezne funkcije. 
+        
+        \emph{Dokaz.} V $(X, \Tt_{\text{kk}})$ ni disjunktnih nepraznih odprtih množic, če je $X$ neskončna.
+        
+        \emph{Splošneje.} Naj bosta $X, Y$ neskončni množici, $d$ metrika na $Y$. Naj bo $f: (X, \Tt_{\text{kk}}) \to (Y, \Tt_d)$. Potem 
+        $$f \text{ je zvezna} \liff f \text{ je konstanta}.$$
+    \end{enumerate}
+\end{primer}
+
+Uvedemo neke oznake in okrajšave:
+\begin{itemize}
+    \item Naj bosta $(X, \Tt_X), (Y, \Tt_Y)$ topološka prostota. Označimo z $C((X, \Tt_X), (Y, \Tt_Y))$ množico vseh zveznih preslikav $C(X, Y)$. Tudi $C(X) = C(X, \RR)$.
+    \item \emph{Prostor $X$} je množica z neko topologijo.
+    \item \emph{Preslikava} je zvezna funkcija.
+\end{itemize}
+
+\begin{trditev}
+    Kompozitun preslikav je preslikava.
+\end{trditev}
+
+\begin{proof}
+    Definicija zveznosti.
+\end{proof}
+
+\begin{trditev}
+    Naj bosta $X, Y$ prostora. Ekvivalentne so izjave za $f: X \to Y$:
+    \begin{enumerate}
+        \item $f$ je zvezna.
+        \item Praslika z $f$ vsake zaprte množice je zaprta.
+        \item $f(\overline{A}) \subseteq \overline{f(A)}$.
+    \end{enumerate}
+\end{trditev}
+
+\begin{proof}
+    $(1) \liff (2)$. $\invimg{f}(A^c) = (\invimg{f}(A))^c$.
+
+    $(2) \liff (3)$. LMN: $A \subseteq \invimg{f}(f(A)), \ f(\invimg{f}(B)) \subseteq B$. Monotonost $\img{f}, \invimg{f}$. STOP:
+    $\invimg{f}(B) \text{ je zaprta} \liff \invimg{f}(B) = \overline{\invimg{f}(B)}$.
+\end{proof}
+
+\subsection{Homeomorfizmi}
+\begin{definicija}
+    Naj bo $f: (X, \Tt_X) \to (Y, \Tt_Y)$ funkcija. Funkcija $f$ je \emph{homeomorfizem}, če:
+    \begin{itemize}
+        \item $f$ je bijekcija.
+        \item $\img{f}$ je bijekcija med $\Tt_X$ in $\Tt_Y$, tj. $\all{U \in \Tt_X} \img{f}(U) \in \Tt_Y \land \all{V \in \Tt_Y} \invimg{f}(V) \in \Tt_X$.
+    \end{itemize}
+\end{definicija}
+
+\begin{opomba}
+    Pogoj $\all{V \in \Tt_Y} \invimg{f}(V) \in \Tt_X$ je ravno zveznost funkcije $f$.
+\end{opomba}
+
+\begin{definicija}
+    Če obstaja homeomorfizem $f: (X, \Tt_X) \to (Y, \Tt_Y)$, potem rečemo, da sta prostora $X$ in $Y$ \emph{homeomorfna}. Oznaka: $X \approx  Y$.
+\end{definicija}
+
+\begin{opomba}
+    Homeomorfizem je ekvivalenčna relacija. To pomeni, da lahko dokažemo, da sta dva prostora homeomorfna, če pokažemo, da sta vsak od njih homeomorfen nekemu drugemu.
+\end{opomba}
+
+\begin{definicija}
+    Funkcija $f: (X, \Tt_X) \to (Y, \Tt_Y)$ je \emph{odprta}, če je slika vsake odprte množice odprta. Funkcija $f$ je \emph{zaprta}, če je slika vsake zaprte množice zaprta.
+\end{definicija}
+
+\begin{trditev}
+    Naslednje izjave o funkciji $f: X \to Y$ so ekvivalentne:
+    \begin{enumerate}
+        \item $f: X \to Y$ je homeomorfizem.
+        \item $f$ je bijektivna, $f$ in $f^{-1}$ sta zvezni.
+        \item $f$ je bijektivna, zvezna in odprta.
+        \item $f$ je bijektivna, zvezna in zaprta.
+    \end{enumerate}
+\end{trditev}
+
+\begin{proof}
+    Očitne implikacije.
+\end{proof}
+
+\begin{primer} 
+    Ali sta prostora $[0, 1) \cup \set{2}$ in $[0,1]$ homeomorfna? Ali inverz zvezne bijekcije vedno zvezen?
+\end{primer}
+
+\newpage
+\begin{trditev}
+    Nekatere zvezne funkcije so avtomatično zaprte (oz. odprte):
+    \begin{itemize}
+        \item $f^{\text{zv}}: X^{\text{komp}} \to Y^{\text{metr}}$ je vedno zaprta.
+        \item Projekcija $X \times Y \to X$ je vedno odprta.
+        \item Preslikave $f: \RR^n \to \RR^n$, ki so gladke in imajo neničelni odvod, so vedno odprte.
+    \end{itemize}
+\end{trditev}
+
+\begin{primer}
+    Pokaži, da vsak interval (končen ali neskončen) homeomorfen enemu izmed $[0,1], \ [0, 1), \ (0,1)$.
+
+    Pokaži, da intervali $[0,1], \ [0, 1), \ (0,1)$ niso paroma homeomorfni.
+\end{primer}
+
+\begin{definicija}
+    \emph{Topološka lastnost} je katerakoli lastnost prostora, ki se ohranja pri homeomorfizmih.
+\end{definicija}
+
+\begin{primer}
+    Ali je kompaktnost/omejenost/polnost topološka lastnost?
+\end{primer}
+
+Upeljamo oznake:
+\begin{itemize}
+    \item $B^n := \set{\vec{x} \in \RR^n; \ ||\vec{x}|| \leq 1}$ je \emph{enotska $n$-krogla}.
+    \item $\mathring{B}^n := \set{\vec{x} \in \RR^n; \ ||\vec{x}|| < 1}$ je \emph{odprta enotska $n$-krogla}.
+    \item $S^{n-1} := \set{\vec{x} \in \RR^n; \ ||\vec{x}|| = 1}$ je \emph{enotska $(n-1)$-sfera}.
+\end{itemize}
+
+Homeomorfizem med $(0, 1)$ in $\RR$ lahko posplošimo do homeomorfizma med odprto kroglo $\mathring{B}^n$ in $\RR^n$. Navaden homeomorfizem je
+$$f: \mathring{B}^n \to \RR^n, \ f(\vec{x}) := \frac{\vec{x}}{1 - ||\vec{x}||}, \ f^{-1}(\vec{x}) := \frac{\vec{x}}{1 + ||\vec{x}||},$$
+tj, raztegnimo vsak poltrak od $0$ do $\infty$.
+
+Sfera v $\RR^n$ topološko bolj podobna $\RR^{n-1}$ kot $\RR^n$.
+
+Naj bo $N = (0, \ldots, 0, 1) \in \RR^n$ severni tečaj sfere. Navaden homeomorfizem med $S^{n-1} - \set{N}$ in $\RR^{n-1}$ je 
+
+$$f: S^{n-1} - \set{N} \to \RR^{n-1}, \ f(x_1, \ldots, x_n) = \frac{1}{1 - x_n}(x_1, \ldots, x_{n-1}),$$
+tj. gledamo presek premic skozi točki $N$ in $T \in S^{n-1}$ z ravnino $\RR^{n-1}$.
+
+Njen inverz je dan z
+$$\RR^{n-1} \to S^{n-1} - \set{N},\  g(\vec{x}) = \left(\frac{2\vec{x}}{||\vec{x}||^2 + 1}, \frac{||\vec{x}||^2-1}{||\vec{x}||^2+1}\right).$$
+Bijekcijo $f$ imenujemo \emph{stereografska projekcija}.
+
+Sledi, da $S^{n-1} - \set{N} \approx \RR^{n-1}$. Jasno je, da bi enak rezultat dobili, če bi iz sfere izrezali katerokoli točko. Sklepamo, da ime vsaka točka $S^{n-1}$ okolico, ki je homeomorfna $\RR^{n-1}$. Pravimo, da je $S^{n-1}$ \emph{lokalno homeomorfna} prostoru $\RR^{n-1}$.
+
+\begin{definicija}
+    Prostore, ki so lokalno homeomorfne kakemu evklidskemu prostoru, imenujemo \emph{mnogoterosti}.
+\end{definicija}

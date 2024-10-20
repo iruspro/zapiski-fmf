@@ -1,0 +1,95 @@
+\section{ODVOD}
+
+{\color{Purple} \subsubsection*{Iskanje globalnih ekstremov (nalogi $3-7$)}}
+%
+Vsaka zvezna funkcija $f$ na omejenem zaprtem intervalu $[a, b]$ doseže svojo minimalno in maksimalno vrednost. Če je funkcija $f$ še razmeroma gladka, lahko ti dve vrednosti poiščemo s pomočjo odvoda. \underline{Pri iskanju ekstremnih vrednosti} najprej zožimo nabor morebitnih kandidatov na naslednje tipe točk z intervala $[a,b]$:
+\begin{itemize}
+    \item stacionarne točke funkcije $f$ v $(a,b)$ ($x \in (a,b), \ f'(x)=0$).
+    \item robni točki intervala $[a,b]$.
+    \item točke na intervalu $(a,b)$, v katerih funkcija $f$ ni odvedljiva.
+\end{itemize}
+Nato pa izračunamo vrednosti $f$ v kandidatih in izberimo min/maks vrednost.
+
+\underline{Ko optimiziramo kakšne geometrijske/fizikalne probleme}:
+\begin{itemize}
+    \item Formuliramo funkcijo, ki je odvisna samo od enega parametra in modelira naš problem.
+    \item Poiščemo ekstreme te funkcije.
+\end{itemize}
+%
+\underline{Ko iščemo ekstreme funkcij, ki so definirane z evklidsko razdaljo}, je ponavadi lažje obravnavati funkcijo $f=d^2$.
+%
+{\color{Purple} \subsubsection*{Geometrijski pomen odvoda. Tangente. Kot med funkcijama (nalogi $8-12$)}}
+\textbf{Enačba tangente na graf funkcije $f$ v točki $(a, f(a))$:} $y = f'(a)(x-a) + f(a)$.
+
+\textbf{Enačba normale na graf funkcije $f$ v točki $(a, f(a))$:} naklon: $k_t \cdot k_n = -1$; enačbo dobimo iz zveze $f(a) = k_n a + \textcolor{red}{b}$.
+
+\underline{Kot med krivuljama} je kot med tangentoma v presičišču: $\displaystyle \tan \varphi = \frac{k_2 - k_1}{1+k_1 k_2}$
+
+Enačbo krivulje lahko \underline{implicitno odvajamo}:
+\begin{itemize}
+    \item $x$-e odvajamo kot običajno.
+    \item $y$-e odvajamo kot ponovadi + dodamo faktor $y'$.
+\end{itemize}
+Nato pa izrazimo $y'$. Koeficient $k$ bo odvisen od $x$ in $y$.
+%
+{\color{Purple} \subsubsection*{Zveznost. Odvedljivost. Zvezna odvedljivost (nalogi $16-18$)}}
+Funkcija $f$ je zvezna v točki $a \Leftrightarrow \displaystyle f(a) = \lim_{x \to a} f(x)$. Zlepek funkcij $f_1$ in $f_2$ bo zvezen v točki $a \Leftrightarrow f_1(a) = f_2(a)$. Zlepek funkcij $f_1$ in~$f_2$ bo odvedlkiv v točki $a \Leftrightarrow f_1'(a) = f_2'(a)$. 
+
+Funkcija $f$ je odvedljiva v točki $a$, ko obstaja limita $\displaystyle f'(a) = \lim_{h \to 0} \frac{f(a+h) -f(a)}{h}$.
+
+{\color{Purple} \subsubsection*{Rollov in Lagrangeev izrek (nalogi $19-23$)}}
+
+\textbf{Rollov izrek.} Naj bo funkcija $f: \, [a,b] \to \RR$ zvezna na $[a,b]$ in odvedljiva na $(a,b)$. Če je $f(a) = f(b)$, potem obstaja $c \in (a,b)$, za katero velja $f'(c) = 0$.
+
+\textbf{Lagrangeev izrek.} Naj bo funkcija $f: \, [a,b] \to \RR$ zvezna na $[a,b]$ in odvedljiva na $(a,b)$. Potem obstaja $c \in (a,b)$, za katero velja $$\displaystyle f'(c) = \frac{f(b) - f(a)}{b-a} \quad \text{ali} \quad f(b) - f(a) = f'(c)(b-a).$$
+
+Funkcija je Lipschitzeva, če obstaja konstanta $C$, da za vsaka $x,y \in \RR$ velja $|f(x)-f(y)| \leq C|x-y|$. Vsaka Lipschitzeva funkcija na~$\RR$ je enakomerno zvezna na $\RR$.
+
+Če funkcija $f$ ima omejen odvod na $I$, potem je funkcija $f$ enakomerno zvezna na $I$.
+%
+
+{\color{Red} \subsubsection*{L'Hospitalovo pravilo (nalogi $24-25$)}}
+TODO
+
+{\color{Purple} \subsubsection*{Risanje grafov podanih eksplicitno (nalogi $26-27$)}}
+\begin{enumerate}
+    \item $D_f$, ničle, poli, lin. asimtote ($\displaystyle k = \lim_{x \to \infty} \frac{f(x)}{x}$, $\displaystyle b = \lim_{x \to \infty} (f(x) - kx)$), limite na robu $D_f$.
+    \item \underline{1. odvod:} stacionarne točke ($f'(x)=0$, $f'(x)$ ni definirana), lokalni ekstremi, intervali naraščanja/padanja,~tangente~na~robu~$D_f$.
+    \item \underline{2. odvod:} prevoji in intervali konveksnosti (вогнутости)/konkavnosti (выпуклости).
+\end{enumerate}
+%
+%
+{\color{Purple} \subsubsection*{Risanje parametrično podanih krivulj (naloge $28-32$)}}
+\begin{enumerate}
+    \item Skiciramo grafa obeh komponent.
+    \item Tabeliramo položaje, ki ustrezajo stacionarnim točkam obeh komponent in po potrebi dodamo še kakšno točko.
+    \item Z upoštevanjem grafov komponent skiciramo krivuljo (se splača pogledati intervali med stacionarnimi točkami + v neskončnosti).
+\end{enumerate}
+
+\begin{itemize}
+    \item Krivulje, ki so podane parametrično, lahko tudi puskusimo zapisati eksplicitno/implicitno, da ugotovimo, po kateri trajektoriji se giblje točka ali kar koli drugega, kar je potrebno.    
+    \item Če je neka komponenta gre proti neskončno se splača pogledati, ali ima krivulja kakšne asimptote tako, da pogledamo limite obeh komponent v "`zanimivih"' točkah.
+    \item Poševno asimtoto dobimo tako, da izračunamo limite: $\displaystyle k(t) =\lim_{t \to a} \frac{\dot{y}(t)}{\dot{x}(t)}$ in $\displaystyle b = \lim_{t \to a} (y(t) - k(t) x(t))$, kjer je $a$ točka, v kateri komponenti gresta v neskončnost.
+\end{itemize}
+
+\paragraph*{Računanje tangent v parametrični obliki.} Vektor $\vec{r} \, '(a)$ je \emph{smerni vektor} tangente na krivuljo v položaju $\vec{r}(t)$ (v primeru, ko je~$\vec{r} \, '(a) \neq 0$). Če pišemo $\vec{r} \, '(a) = (\dot{x}, \, \dot{y})$, potem: (1) če je $\dot{x} = 0$, potem tangenta navpična; (2) če je $\dot{x} \neq 0$, potem $\displaystyle k = \frac{\dot{y}}{\dot{x}}$.
+%
+\newpage
+{\color{Purple} \subsubsection*{Risanje krivulj podanih v polarne oblike (naloge $33-35$)}}
+
+Funkcija $r = r(\varphi)$ nam pove, kako daleč od $(0,0)$ je točka na krivulji, ki leži v smeri $\varphi$.
+
+\begin{enumerate}
+    \item Skiciramo graf $r = r(\varphi)$.
+    \item S pomočjo grafa analiziramo gibanje točke, ki kroži okoli izhodišča in mu približuje ali oddaljuje.
+\end{enumerate}
+
+\begin{itemize}
+    \item Če je $r(\varphi) < 0$, v tej smeri ne narišemo krivulje.
+    \item Asimptote dobimo tako, da zapišemo krivuljo v parametrični obliki s parametrom $\varphi$ in poglejmo, kaj se dogaja z $x(\varphi), \ y(\varphi)$.
+    \item Polarna oblika je poseben primer parametrične oblike, kjer za parameter vzamemo polarni kot $\varphi$: \\ $x(\varphi) = r(\varphi) \cos (\varphi), \ y(\varphi)=r(\varphi) \sin (\varphi)$.
+    \item Implicitno krivuljo lahko zapišemo v polarni obliki tako, da napišemo $x = r \cos \varphi, \ y = r \sin \varphi$ in poskusimo izraziti $r$ s $\varphi$.
+    
+\end{itemize}
+%
+\paragraph*{Računanje tangent v polarni obliki.} 1. Krivuljo parametiziramo. 2. Računamo tangento krivulje v parametrične oblike.

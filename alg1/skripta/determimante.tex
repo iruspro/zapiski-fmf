@@ -1,0 +1,174 @@
+\section{DETERMINANTE}
+\begin{enumerate}
+    \item $n$-linearne preslikave
+    \begin{itemize}
+        \item \colorbox{yellow!30}{\emph{Primer.}} Ali je skalarni produkt linearen v 1. in 2. faktorju? Kako pravimo take preslikave?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} $n$-linearna preslikava. $n$-linearen funkcional.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Simetrična preslikava. Antisimetrična preslikava.
+        \item \colorbox{yellow!30}{\emph{Primer.}} Ali so naslednji preslikavi $n$-linearne oz. $n$-linearni funkcionali. Ali so simetrični oz. antisimetrični?
+        \begin{itemize}
+            \item $f: \ \RR^3 \times \RR^3 \to \RR, \ f(\vec{x}, \vec{y}) = \vec{x} \cdot \vec{y}$.
+            \item $f: \ \RR^3 \times \RR^3 \to \RR^3, \ f(\vec{x}, \vec{y}) = \vec{x} \times \vec{y}$.
+            \item $f: \ \RR^3 \times \RR^3 \times \RR^3 \to \RR, \ f(\vec{x}, \vec{y}, \vec{z}) = (\vec{x} \times \vec{y}) \cdot \vec{z}$.
+            \item $f: \ \FF^{n \times n} \times \FF^{n \times n} \to \FF^{n \times n}, \ f(A,B) = AB$.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Primer.}} Kako računamo z $n$-linearnimi preslikavami? $f(\alpha_1 v_1 + \alpha_2 v_2, \beta_1 w_1 + \beta_2 w_2)$.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} 3 lastnosti antisimetričnih preslikav.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} (1) Definicija antisimetričnosti.
+            
+            (2) Definicija $n$-linearnosti in (1) točka.
+
+            (3) Z indukcijo na število transpozicij v razcepu. Z pomočjo permutacije $\rho = \tau_1 \circ \pi$.
+        \end{itemize}
+    \end{itemize}
+    \item[$\circ$] Tenzor $n$-linearne preslikave. \textcolor{red}{[Za študente, ki jih zanima več]}.
+    \begin{itemize}
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Naj bo $f: \ V \times W \to U$ bilinearna preslikava. S čim je preslikava $f$ enolično določena?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Izberimo $x \in V$ in $y \in W$ in izračunamo $f(x, y)$.
+        \end{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Tenzor reda $m \times n \times p$.
+        \item \colorbox{yellow!30}{\emph{Opomba.}}  Kako bilinerarne preslikave priredimo tenzor reda $m \times n \times p$?
+        \item \colorbox{yellow!30}{\emph{Primer.}} Naj bo $f: \ \FF^{2 \times 2} \times \FF^{2 \times 2} \to \FF^{2 \times 2}, \ f(A,B) = AB$.         
+        Določi tenzor preslikave glede na bazo $\set{E_{11}, E_{12}, E_{21}, E_{22}}$.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Seštevanje in množenje s skalarji tenzorjev fiksne velikosti $m \times n \times p$.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Tenzorski produkt prostorov $\FF^m, \FF^n$ in $\FF^p$. Oznaka.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Čemu je enaka $\dim \FF^m \otimes \FF^n \otimes \FF^p$? Kakšne vektorji sestavljajo bazo? Oznaka za tenzor, ki ima na $(i, j, k)$-tem mesu enico in drugod ničle.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Tenzor reda $m_1 \times m_2 \times \ldots \times m_n \times p$.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Recimo, da je $f: V_1 \times V_2 \times \ldots \times V_n \to U$ $n$-linearna preslikava in $\dim V_i = m_i$ za $i = 1, \ldots, n$ in $\dim U = p$. Kako preslikavi $f$ priredimo tenzor reda $m_1 \times m_2 \times \ldots \times m_n \times p$?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Seštevanje in množenje s skalarji tenzorjev reda $m_1 \times m_2 \times \ldots \times m_n \times p$.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali za ti operaciji tenzorji tvorijo vektorski prostor? Čemu je enaka njena dimenzija?
+    \end{itemize}
+    \item Definicija in lastnosti determinantov
+    \begin{itemize}
+        \item \colorbox{yellow!30}{\emph{Primer.}} Naj bo $2 \neq 0$ v $\FF$. Naj bo $\FF^{n \times n} \to \FF$ antisimetrična preslikava. Izračunaj $f(A)$.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Determinanta.
+        \item \colorbox{yellow!30}{\emph{Primer.}} Kaj če je $n=2$ ali $n=3$? Ali je to običajna determinanta?
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Naj bo $2 \neq 0$ v $\FF$. Naj bo $\FF^{n \times n} \to \FF$ antisimetrična preslikava. Čemu je enako $f(A)$?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Izpeljava na začetku poglavja.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Primer.}} Ali je mešani produkt determinanta? Kaj to pomeni o $3$-linearnih funkcionalih na $\RR^3$?
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Naj bo $A = [a_{ij}]_{i, j = 1}^n$. Ali je $\det A = \sum_{\rho \in S_n} s(\rho)a_{1, \rho(1)}a_{2, \rho(2)}\ldots a_{n, \rho(n)}$?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Členi $a_{1, \rho(1)}a_{2, \rho(2)}\ldots a_{n, \rho(n)}$ in $a_{\rho^{-1}(1), 1} a_{\rho^{-1}(2),2}\ldots a_{\rho^{-1}(n), n}$ so isti, le v drugem vrstem redu.
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Ali je $\det A = \det A^T$?
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Čemu je enaka determinanta zgornje (spodnje) trikotne matrike?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Kadar člen v vsoti $\det A$ je enak $0$? 
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Čemu je enaka determinanta diagonalne matrike?
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Čemu je enaka determinanta bločne zgornje (spodnje) trikotne matrike?
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Čemu je enaka determinanta bločno diagonalne matrike?
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Ali je determinanta $n$-linearen antisimetričen funkcional?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Antisimetričnost: Dovolj pokazati za matriko $B$, ki jo dobimo tako, da v $A$ zamenajmo $1.$ in $2.$ stolpec. Za to izračunamo po definiciji $\det B$ s pomočjo $\tau = (1\ 2)$.
+            
+            $n$-linearnost: Fiksiramo stoplce $A^{(1)}, \ldots, A^{(i-1)}, A^{(i+1)}, \ldots, A^{(n)}$ in naj bo $A^{(i)} = \beta b + \gamma c$. Izračunamo determinanto.
+        \end{itemize}
+
+        \newpage
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Ali se determinanta spremeni, če nekemu stoplcu (ali vrstice) prištejemo večkratnik drugega stolpca (druge vrstice).
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Če $2 \neq 0$ to sledi iz lastnosti antisimetričnih funkcionalov.
+            
+            Če je $2 = 0$, to lahko dokažemo z računom, pri čemer vsoto $\det A$ razdelimo na vsoto po dosih permutacijah in vsoto po lihih permutacijah.
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} 3 lastnosti determinante na podlage trditve o $n$-linearnosti in antisimetričnosti.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Kako lahko izračunamo determinanto?
+        \item \colorbox{yellow!30}{\emph{Primer.}} Izračunaj $\begin{vmatrix}
+            1 & 0 & -1 & 2 \\
+            2 & 1 & -1 & 3 \\
+            -1 & 2 & 0 & -1 \\
+            3 & -1 & 1 & 0
+        \end{vmatrix}$.
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Kadar je $n \times n$ matrika obrnljiva?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Pri računanju ranga smo pokazalim da matriko $A$ lahko s elementarnimi operacijami na vrsticah in stolpcih prevedemo na neko lepo matriko $A_0$. Kakšna zvezna med $\det A$ in $\det A_0$?
+        \end{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Minor reda $k$. Glavni minor. Vodilni minor.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Kaj je minor reda $1$? Kaj je minor reda $n$ matrike $A \in \FF^{n \times n}$?
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Kako so povezani minorji in rang matrike?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Naj bo $\rang A = r$. Najprej s izbiro linearno neodvisnih stolpcev in vrstic konstruiramo neničeln minor reda $k$. Nato pa s protislovjem pokažemo, da so vsi minorji reda $k > r$ ničelni.
+        \end{itemize}
+    \end{itemize}
+    \item Multiplikativnost determinante
+    \begin{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Ali je determinanta multiplikativen funkcional? Kaj to pomeni?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Predpostavimo $2 \neq 0$. Naj bo $f: (\FF^n)^n \to \FF$ preslikava, definirama s predpisom 
+            
+            $f(v_1, \ldots, v_n) = \det [Av_1 \ Av_2 \ \ldots \ Av_n]$. Potem $f$ je $n$-linearen in antisimetričen funkcional na $\FF^{n \times n}$. Uporabimo znane lastnosti.
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Ali velja $\det(AB) = \det(BA)$ za vse $A, B \in \FF^{n \times n}$?
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Naj bo $A \in \FF^{n \times n}$ obrnljiva. Čemu je enaka $\det A^{-1}$?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Uporabimo $\det$ na enačbe $AA^{-1} = I$.
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Ali podobni matriki imata enako determinanto?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Uporabimo $\det$ na enačbe $A' = P^{-1}AP$.
+        \end{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Determinanta endomorfizma $\Aa \in L(V)$.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Zakaj je definicija dobra?
+    \end{itemize}
+    \item Razvoj determinante
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Poddeterminanta matrike $A \in \FF^{n \times n}$. Prirejenka matrike $A$.
+        \item \colorbox{yellow!30}{\emph{Primer.}} Določi prirejenko matrike $\begin{vmatrix}
+            1 & 0 & -1 \\
+            1 & 1 & 1 \\
+            0 & -1 & 1
+        \end{vmatrix}$.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Razvij determinante po stolpcu. Razvoj determinante po vrstice.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Zaradi enakosti $\det A = \det A^T$ lahko dokažemo samo za stolpce. Najprej izračunamo determinanto v posebnih primerah:
+            
+            (1) $A^{(j)} = e^j$.
+
+            (2) $A^{(i)} = e^j$ za $i \neq j$.
+
+            Nato z upoštevanjem $n$-linearnosti $\det$ izračunamo v spolšnem za $A^{(j)} = a_{1j}e_1 + a_{2j}e_2 + \ldots + a_{nj}e_n$.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Primer.}} Z pomočjo razvoja determinante po vrstice ali stolpcu izračunaj $\begin{vmatrix}
+            0 & -1 & 0 & 2 \\
+            -1 & -2 & 3 & 1 \\
+            0 & 1 & 0 & 0 \\
+            2 & 3 & 1 & -1
+        \end{vmatrix}$.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Naj bo $A \in \FF^{n \times n}$. V kakšni zvezi sta matriki $A$ in $\widetilde{A}^T$? 
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Definicija produkta matrik. Razvoj determinante po ustreznemu stolpcu (vrstice) in lastnost determinante.
+        \end{itemize}
+        \item  \colorbox{orange!30}{\textbf{Posledica.}} Naj bo $A \in \FF^{n \times n}$ obrnljiva. Kako dobimo $A^{-1}$ z pomočjo determinante?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Izračunamo.
+        \end{itemize}
+        \colorbox{yellow!30}{\emph{Primer.}} Določi $\begin{vmatrix}
+            a & b \\ 
+            c & d
+        \end{vmatrix}^{-1}$.        
+    \end{itemize}
+
+    \newpage
+    \item Uporaba pri reševanju sistem enačb
+    
+    Radi bi rešili sistem enačb $Ax=b$, kjer $A \in F^{n \times n}$ in $b \in \FF^n$.
+    \begin{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Cramerjeve formule.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Napišemo po komponentah in izračunamo $x_j$ za vsak $j = 1, \ldots, n$. Z uporabo razvoja determinante po vrstice ali stolpcu.
+        \end{itemize}
+        \item\colorbox{yellow!30}{\emph{Primer.}} Reši sistem enačb:
+        \begin{align*}
+            &ax+by = c, \\
+            &dx+dy = f.
+        \end{align*}
+    \end{itemize}  
+\end{enumerate}
+
+\newpage
+\

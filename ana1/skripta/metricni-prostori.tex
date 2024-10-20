@@ -1,0 +1,268 @@
+\section{METRIČNI PROSTORI}
+
+\begin{enumerate}
+    \item Metrični prostori
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Metrični prostor. Metrika.
+        \item \colorbox{yellow!30}{\emph{Primer.}} Pokaži, da so metrični prostori:
+        \begin{itemize}
+            \item Realna števila z običajno metriko: $(\RR, \ |\cdot|)$. \textbf{Diskretna metrika}.
+            \item Kompleksna števila z običajno metriko: $(\CC, \ |\cdot|)$.
+            \item $\RR^n$ z evklidsko metriko $d_2(x,y) = \sqrt{(x_1 - y_1)^2 + \ldots + (x_n - y_n)^2}$.
+            \item Naj bo $(M, d)$ metrični prostor in $N \subset M$. Ali je $(N, d_{|N \times N})$ metrični prostor?
+            \item Naj bo $M = C[a,b]$ in $d_\infty(f,g) = \max \set{|f(x) - g(x)|; \, x \in [a,b]}$. Ali je metrični prostor?
+        \end{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}}  Odprta krogla. Zaprta krogla. Okolica točke.
+        \item \colorbox{yellow!30}{\emph{Primer.}} Določi odprto in zaprto enotsko kroglo s središčem v $0$:
+        \begin{itemize}
+            \item $(\RR^2, d_2)$.
+            \item Pokaži, da je metrični prostor: $(\RR^2, d_\infty), \ d_\infty ((x_1, x_2), (y_1, y_2)) = \max \set{|x_1 - y_1|, |x_2 - y_2|}$.
+        \end{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Notranja točka. Zunanja točka. Robna točka. Notranjost. Rob. Oznake.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} 
+        \begin{itemize}
+            \item Karakterizacija notranji točke z okolicami.
+            
+            \item Karakterizacija zunanji točki z okolicami. 
+    
+            \item Kako sta povezani zunanji in notranji točki?
+    
+            \item Naj bo $(M, d)$ metrični prostor. Kako lahko zapišemo množico $M$ kot unijo?
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Primer.}} Določi notranji, zunanji in robne točke:
+        \begin{itemize}
+            \item $A = [a,b]\subset \RR, \ B = (a,b) \subset \RR, (\RR, |\cdot|)$.
+            \item $A = [a,b] \times \set{0} \subset \RR^2, (\RR^2, d_2)$.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Opomba.}} 
+        \begin{itemize}
+            \item Ali je vsaka notranja točka množice $A$ leži v $A$?
+            
+            \item Ali lahko kakšna zunanja točka množice $A$ leži v $A$?
+    
+            \item Kje lahko leži robna točka množice $A$? Ali je robna točka množice $A$ tut robna točka množice $A^c$?
+        \end{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Odprta podmnožica. Zaprta podmnožica.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Karakterizacija odprtosti s komplementom.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Enostavno.
+        \end{itemize} 
+        \item \colorbox{yellow!30}{\emph{Primer.}} Obravnavaj odprtost oz. zaprtost podmnožic:
+        \begin{itemize}
+            \item Naj bo $(M,d)$ metrični prostor: $M \subset M, \ \emptyset \subset M$.
+            \item Naj bo $(M,d)$ metrični prostor, $x \in M$: $A = \set{x}$.
+            \item $A = (1,3) \times \set{0} \subset \RR^2, \ B = [1,3] \times \set{0} \subset \RR^2$, $\RR^2$ z običajno metriko.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Naj bo $O$ družina vseh odprtih množic metričnega prostora $(M,d)$. Naštej 3 lastnosti.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Definicija preseka, unije in odprte množice.
+        \end{itemize} 
+        \colorbox{yellow!30}{\emph{Opomba.}} Zakaj dovoljujemo le presek končne družine odprtih množic?
+        \item \colorbox{yellow!30}{\emph{Primer.}} Števna družina odprtih množic, katere presek ni odprt.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Naj bo $Z$ družina vseh zaprtih množic metričnega prostora $(M,d)$. Naštej 3 lastnosti.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Prehod na komplement + prejšnji izrek.
+        \end{itemize} 
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Ali je vsaka končna podmnožica metričnega prostora zaprta?
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Odprtost/zaprtost odprte in zaprte krogle.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Odprtost pokaemo po definciji ($r_1 = r - d(a, x)$). Zaprtost s prehodom na komplement.
+        \end{itemize} 
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Zaprtje.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali je zaprtje zaprta množica? Čemu je enako zaprtje od zaprtja?
+        \item \colorbox{yellow!30}{\emph{Primer.}} Ali je zaprta krogla vedno enaka zaprtju odprte krogle? $M = \set{a, b, c}$, kjer $a ,b, c$ oglišča enakostraničnega trikotnika s stranico $1$.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Omejena podmnožica. Stekališče množice.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali sta stekališče zaporedja in stekališče množice različna pojma? Ali končne množice lahko ima stekališča?
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Karakterizacija stekališča z okolicami.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} $(\Rightarrow)$ Definicija stekališča množice.
+            
+            $(\Leftarrow)$ Induktivno najdemo neskončno členov.
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Karakterizacija zaprtosti z stekališči.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} $(\Rightarrow)$ Kakšne so točke lahko stekališča množice $A$?
+            
+            $(\Leftarrow)$ Dokažemo kontro pozitivno obliko.
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Ali je množica stekališč množice $A$ zaprta množica?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Naj bo $S$ množica stekališč množice $A$. Pokažemo, da je $S^c$ odprt. Vzemimo $x \in S^c$. Lahko najdemo tak $r_0$, da $K(x, r_0) \cap A \subset \set{x}$. Pokažemo, da ta krogla vsebovana v $S^c$.
+        \end{itemize}
+    \end{itemize}
+
+    \item Zaporedja v metričnih prostorih
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Zaporedje v metričnem prostoru. $n$-ti člen zaporedja. Oznake.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Stekališče zaporedja.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Konvergentno zaporedje. Limita zaporedja.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} (1) Ali je limita zaporedja tut stekališče zaporedja? Ali velja obrat?
+        
+        (2) Ali lahko ima zaporedje več stekališč?
+
+        (3) Ali je limita ena sama? Ali je edino stekališče?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Kot za zaporedja.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Primer.}} Naj bo $(\RR^n, \, d_2)$ m. p. Kako je s konvergenco zaporedja $(x^{(m)})_m, \ x^{(m)} = (x_1^{(m)}, x_2^{(m)}, \ldots, x_n^{(m)})$?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Cauchyjev pogoj.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Ali je vsako konvergentno zaporedje v metričnem prostoru izpolnjuje Cauchyjev pogoj?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Kot za zaporedja.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali je vsako Cauchyjevo zaporedje v metrčnem prostoru konvergentno?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Poln metrični prostor.
+        \item \colorbox{yellow!30}{\emph{Primer.}} Polni in nepolni metrični prostori.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Ali je konvergenca v $C[a,b]$ z običajno metriko $d_\infty$ enakomerna konvergenca?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Definicija konvergence v metričnem prostoru in definicija enakomerne konvergence.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Ali je metrični prostor $(C[a,b], d_\infty)$ poln?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Najprej s pomočjo Cauchyjeva pogoja pokažemo, da Cauchyjevo zaporedje v $C[a,b]$ konvergira po točkah proti $f$. Nato pokažemo, da konvergenca enakomerna in uporabi prejšnji izrek.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Primer.}} Množico $C[a,b]$ opremimo z metriko: $d_1(f,g)=\int_{a}^{b}|f(x)-g(x)|  \,dx $. Ali je $(C[a,b], d_1)$ poln?
+    \end{itemize}
+
+    \item Kompaktnost
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Pokritje. Odprto pokritje. Zaprto pokritje. Končno pokritje. Podpokritje.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Kompaktna podmnožica. 
+        \item \colorbox{yellow!30}{\emph{Primer.}} Ali je zaprt/odprt interval kompakten? Ali je $\RR$ z običajno metriko kompakten?
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Kaj lahko povemo o vsake kompaktne podmnožice $K$ metričnega prostora $(M, d)$?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Omejenost: Naj bo $a \in M$. Izberimo odprto pokritje $O_r = K(a, r), \ r > 0$.
+            
+            Zaprtost: Pokažemo, da komplement odprt. Ustrezno pokritje: $O_r = \set{x \in M; d(x, c) > r} = (\overline{K}(c,r))^c$.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Kaj lahko povemo o vsake zaprte podmnožice $Z$ v kompaktni množici $K$?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Izberimo poljubno odprto pokritje $\set{O_\lambda}_{\lambda \in \Lambda}$ in dodamo mu še $Z^c$. To je odprto porkitje od $K$. 
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Heine-Borel. Kompaktnost v $\RR$.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Enostavno.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Lema 1.}} Ali je presek zaporedja vloženih zaprtih intervalov prazen.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Vemo, da obstaja natanko ena točka v preseku.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Lema 2.}} Ali je presek zaporedja padajočih kvadrov v $\RR^n$.
+        \item \colorbox{blue!30}{\textbf{Lema 3.}} Ali je zaprt kvader $P = [a_1, b_1] \times \ldots \times [a_k, b_k]$ kompaktna podmnožica v $\RR^k$?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Konstruiramo zaporedje padajočih kvadrov, ki jih ne moremo pokriti z končno mnogo članicami pokritja $\set{O_\lambda}_{\lambda \in \Lambda}$. Pokažemo, da vsaj enega kvadra iz tega zaporedja lahko pokrijemo.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Splošen Heine-Borel. Kompaktnost v $\RR^n$.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Kot pri $n=1$ z uporabo kompaktnosti zaprtega kvadra.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} (1) Kaj ima vsaka neskončna podmnožica točk, ki leži v kompaktni podmnožici?
+        
+        (2) Kaj ima vsako zaporedje $(a_n)_n$ v kompaktni podmnožici?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} (1) Z protislovjem pokrijemo množico $A$ kroglami s končnim številom elementov iz $A$.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Kje ležita stekališči iz prejšnjega izreka?
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Ali ima vsako zaporedje v kompaktni množici $K$ konvergentno podzapoedje z limito v $K$?
+        \item \colorbox{blue!30}{\textbf{Lema.}} Kaj velja, če ima Cauchyjevo zaporedje $(a_n)_n$ v metričnem prostoru stekališče?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Enostavno.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Ali je vsak kompakten metrični prostor poln? 
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Sledi iz prejšnjega izreka in prejšnji lemi.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Kaj lahko povemo o preseku padajočega zaporedja nepreacnih zaprtih množic v kompaktni množici?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Definiramo $V_j = M \setminus K_j$. Recimo,da $\bigcap_{j=1}^\infty = \emptyset$ in uporabimo komplement.
+        \end{itemize}
+    \end{itemize}
+
+    \item Podprostori metričnega prostora
+    
+    Naj bo $(M,d)$ metrični prostor in $A \subset M$ podmnožica.
+    \begin{itemize}        
+        \item Metrični podprostor.
+        \item Oznaka za kroglo s središčem v $a \in A$ in polmerom $r$ v metričnem prostoru $(A, d_{|A\times A})$.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Karakterizacija odprtih množic v metričnem prostoru $(A, d_{|A\times A})$.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Za odprte množice $O \subset M$ velja: $\bigcup_{a \in O} K(a, r_a) = O$, kjer $K(a, r_a) \subset O$. 
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Karakterizacija zaprtih množic v metričnem prostoru $(A, d_{|A\times A})$.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} S prehodom na komplemente. 
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Karakterizacija kompaktnih množic v metričnem prostoru $(A, d_{|A\times A})$.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Enostavno po definiciji kompaktnosti.
+        \end{itemize}
+    \end{itemize}
+
+    \item Preslikave med metričnimi prostori
+    
+    Naj bosta $(M,d)$ in $(M',d')$ metrična prostora. Naj bo $D \subset M, \ D \neq \emptyset$. Obravnamo preslikave $f: D \to M'$.
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Kadar je preslikava zvezna v točki $a \in D$?
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ekvivalente definicije.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Karakterizacija zveznosti v točki z zaporedji.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Enako kot v $\RR$.
+        \end{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Zvezna preslikava na množici $A \subset D$. Zvezna preslikava.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Karakterizacija zveznosti z odprtimi množicami.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Karakterizacija zveznosti z okolicami.
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Ali je kompozitum zveznih preslikav zvezna preslikava?
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Karakterizacija zveznosti z zaprtimi množicami.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} S prehodom na komplemente.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Primer.}} Ali je zvezna preslikava slika odprte množice v odprte (konstantna preslikava)?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Kadar je preslikava $f$ enakomerno zvezna?
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali je enakomerno zvezna preslikava zvezna? Ali velja obratno?
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Ali je zvezna preslikava na kompaktni množici enakomerno zvezna?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Kot v $\RR$.
+        \end{itemize}        
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Ali je slika zvezne preslikave na kompaktni množici kompaktna množica?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Definicija kompaktnosti + karakterizacija zveznosti z praslikami.
+        \end{itemize}  
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Naj bo $f: K \to \RR$ zvezna preslikava na kompaktni množici $K \subset M$, $\RR$ z običajno metriko. Kaj lahko povemo o $f$?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Omejenost sledi iz prejšnjega izreka. 
+            
+            To, da maksimum dosežen sledi iz dejstva, da je $\sup f(K)$ stekališče množice $f(K)$ in zaprtosti $f(K)$.
+        \end{itemize}  
+    \end{itemize}
+    \item Banachovo skrčitveno načelo
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Skrčitev.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali je vsaka skrčitev enakomerno zvezna preslikava?
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Banachovo skrčitveno načelo.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Oceni $d(a, x_m)$.
+    \end{itemize}
+
+    \item Nadaljni primeri metričnih prostorov
+    
+    Naj bo X realen ali kompleksen vektorski prostor in naj bo $||\cdot||: X \to \RR$ norma na $X$. Potem je $d(x,y) = ||x-y||$ za vse $x,y \in X$ metrika na $X$. Pravimo ji \textbf{inducirana metrika.}
+    \begin{itemize}
+        \item \colorbox{yellow!30}{\emph{Primer.}} 
+        \begin{itemize}
+            \item $(\RR^n, \ ||\cdot||_p)$ inducira metriko $d_p$ na $\RR^n.$ $||x||_p = \sqrt[p]{|x_1|^p + |x_2|^p + \ldots + |x_n|^p}$.
+            \item $(\RR^n, \ ||\cdot||_\infty)$ inducira metriko $d_\infty$. $||x||_\infty = \max \set{|x_i|; \ i = 1, \ldots, n}$.     
+            \item Naj bo $f \in C[a,b]$: $||f|| = \max \set{|f(x)|; \ x \in [a,b]}$. $(C[a,b], ||\cdot||)$ je normiran vektorski prostor. Inducira običajno (supremum) metriko na $C[a,b]$.
+        \end{itemize}        
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Banachov prostor.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali je končnorazsežen vektorski prostor poln? Ali je $(C[a,b], \ ||\cdot||_\infty)$ Banachov prostor?
+        \item Naj bo $X$ realen vektorski prostor s skalarnim produktom. Potem $||x|| = \sqrt{\langle x,x \rangle }$ definira normo na $X$. Ali je $(\RR^n, \ \langle , \rangle)$, $\langle x, y\rangle = \sum_{i=1}^{n}x_i y_i$ poln?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Hilbertov prostor.
+        \item \colorbox{yellow!30}{\emph{Primer.}}
+        \begin{itemize}
+            \item $(\RR^n, \ \langle , \rangle)$ je Hilbertov prostor.
+            \item Izkaže se: $(C[a,b], \ \langle , \rangle)$ ni poln metrični prostor.
+        \end{itemize}
+    \end{itemize}
+\end{enumerate}
+

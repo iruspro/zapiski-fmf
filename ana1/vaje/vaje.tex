@@ -1,0 +1,47 @@
+\documentclass[10pt, a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[slovene, russian]{babel}
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage{bbold}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{xypic}
+
+\usepackage{enumitem}
+\setlist{nosep}
+
+\setlength{\parindent}{0mm}
+
+\usepackage{geometry}
+\geometry{
+    a4paper,
+    left=3mm,
+    right=3mm,
+    top=3mm,
+    bottom=3mm
+}
+
+\input{macros.tex}
+
+
+\begin{document}
+\input{odvod.tex}
+
+\newpage
+\input{nedoloceni-integral.tex}
+
+\newpage
+\input{doloceni-integral.tex}
+
+\newpage
+\input{posploseni-integral.tex}
+
+\input{uporaba-integrala.tex}
+
+\newpage 
+\input{funkcijska-zaporedja-in-vrste.tex}
+\end{document}

@@ -1,0 +1,189 @@
+\section{LINEARNE PRESLIKAVE NA PROSTORIH S SKALARNIM PRODUKTOM}
+
+\begin{enumerate}
+    \item Adjungirana preslikava
+    
+    Vsi vektorski prostori bodo nad $\FF \in \set{\RR, \CC}$ in bodo imeli skalarni produkt.
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Naj bo $\Aa: U \to V$ linearna preslikava. Adjungirana preslikava preslikave $\Aa$.
+        \item \colorbox{blue!30}{\textbf{Lema.}} Ali je inverz poševnega izomorfizma poševno homogen?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Račun.            
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Ali je $\Aa^*$ linearna preslikava?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Aditivnost: Kompozitum additivnih preslikav.            
+            Homogenost: Račun.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Lema.}} Recimo, da za linearni preslikavi $\Bb, \mathcal{C}: W \to Z$ velja $\left\langle \Bb w, z\right\rangle = \left\langle \mathcal{C}w, z \right\rangle$ za vsaka $w \in W$ in $z \in Z$. Kaj potem?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Račun.            
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Naj bo $\Aa: U \to V$ linearna preslikava. Ali je potem $\Aa^*$ enolična preslikava iz $V$ v $U$ z neko zanimivo lastnostjo?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Enakost: Račun. Enoličnost: Prejšnja lema.           
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Naj bo $\Aa, \Bb \in L(U, V)$, $\mathcal{C} \in L(W, U)$. 5 lastnosti adjungirane preslikave.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} 1. točko dokažemo z uporabo izreka in lastnosti skalarnega produkta, ostale pa s pomočjo 1.~točke in leme.        
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Naj bo $\Aa \in L(U, V)$, naj bo $B_U$ ONB za $U$ in $B_V$ ONB za $V$. Naj bo $A = A_{B_V, B_U}$.
+        
+        (1) Čemu je enako $a_{ij}$?
+
+        (2) Kakšna matrika pripada preslikavi $A^*$ glede na bazi $B_V$ in $B_U$?
+
+        \textbf{Hermitska transponiranka matrike $A$}.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} (1) Definicija matrika linearne preslikave + skalarni produkt s ustreznim vektorjem.
+            
+            (2) Lastnost skalarnega produkta + 1. točka.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Matriko $A \in \FF^{m \times n}$ identificiramo z linearno preslikavo $A: \FF^n \to \FF^m$. Ali je $A^* = A^H$?
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Kakšna zveza med $\rang \Aa^*$ in $\rang \Aa$?
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Naj bo $\Aa \in L(U, V)$. Kako potem lahko zapišemo $U$ kot pravokotno vsoto? Čemu je enaka $\im \Aa^*$?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Dovolj, da pokažemo $\im \Aa^* = (\ker \Aa)^\perp$. ($\subseteq$) Enostavno. 
+            
+            V drugo smer vzemimo $u \in (\im \Aa^*)^\perp$ in pokažemo, da je v $\ker \Aa$ ter uporabimo $^\perp$.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Naj bo $\Aa \in L(V)$ endomorfizem in $U \leq V$. Karakterizacija invariantnosti $U$.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} $(\Rightarrow)$ Vzemimo $x \in U^\perp$ in $y \in U$. Izračunamo $\left\langle x, \Aa y \right\rangle$.
+            
+            $(\Leftarrow)$ Uporabimo smer $(\Rightarrow)$.
+        \end{itemize}
+    \end{itemize}
+    \item Normalni endomorfizmi
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Normalen endomorfizem. Normalna matrika.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali je normalnemu endomorfizmu v ONB pripada normalna matrika?
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Zadosten pogoj normalnosti endomorfizma (ONB).
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Izberimo ONB prostora $B$, da matrika $A = \Aa_{B,B}$ diagonalna. Kakšna matrika pripada endomorfizmu $\Aa^*$?
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Karakterizacija normalnosti endomorfizma s skalarnim produktom.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Račun.
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} 6 lastnosti normalnih endomorfizmov.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} (1) Norma: Prejšnja trditev.            
+            (2) Jedra: 1. točka.
+            (3) Račun.
+            
+            (4) Lastne vrednosti: 2. in 3. točki.
+            (5) Spekter: Očitno sledi iz 4. točki.
+            
+            (6) Pravokotnost vektorjev: Izračunamo $\lambda_1 \left\langle x_1, x_2 \right\rangle$.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali je 5. točka velja tudi, če $\Aa$ ni normalen?
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Naj bo $\Aa \in L(V)$ normalen endomorfizem.
+        
+        (1) Ali če je $\FF = \CC$, potem $\Aa$ se da diagonalizirati v ONB?
+
+        (2) Zadosten pogoj za diagonalizacijo v ONB, če je $\FF = \RR$.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Obe točki hkrati z indukcijo na $\dim V$.
+            
+            Najdemo en lastni vektor $v_1$ in pokažemo, da podprostor $v_1^\perp$ invarianten za $\Aa$ in uporabimo i.p.
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Karakterizacija normalnosti matrike.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Schurov izrek.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Ideja dokaz.}} Poiščemo Jordanovo bazo in na njej uporabimo Gram-Scmidtov postopek.
+        \end{itemize}
+    \end{itemize}
+
+    \newpage
+    \item Sebi adjungirani endomorfizmi
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Sebi adjungiran endomorfizem.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali so sebi adjungirane endomorfizmi normalni?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Simetrična matrika. Hermitska matrika.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Kakšne matrike pripadajo sebi adjungiranim endomorfizmam glede na ONB, 
+        
+        če je $F = \RR$ ali $F = \CC$?
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Karakterizacija sebi adjungiranosti endomorfizma s skalarnim produktom.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Enostavni račun.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Zadosten pogoj, da bi bil sebi adjungiran endomorfizem ničeln.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Izračunamo $\left\langle \Aa(x+y), x+y\right\rangle $ in vstavimo $y = \Aa x$.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Ničla karakterističnega polinoma sebi adjungiranega endomorfizma.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} 1. $\FF = \CC$: Če je $\Delta_\Aa(\alpha) = 0$, potem je $\alpha$ lastna vrednost $\Aa$. Uporabimo posledico s 6. točkami.
+            
+            2. $\FF = \RR$: Glede na neko ONB $\Aa$ priredimo simetrično matriko $A \in \RR^{n \times n}$. Gledamo na to matriko kot na endomorfizem kompleksnega prostora $\CC^n$.
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Kaj velja za spekter sebi adjungiranega endomorfizma?
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Karakterizacija sebi adjungiranosti endomorfizma z ONB.
+    \end{itemize}
+
+    \item[$\circ$] Pozitivno (semi)definitni endomorfizmi
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Pozitivno semidefiniten, pozitivno definiten, negativno semidefiniten, negativno definiten sebi adjungiran endomorfizem $\Aa \in L(V)$
+        \item \colorbox{blue!30}{\textbf{Izrek.}} [Lastne vrednosti] Naj bo $\Aa \in L(V)$ sebi adjungiran.
+        
+        (1) Karakterizacija pozitivne semidefinitnosti.
+        (2) Karakterizacija pozitivne definitnosti.
+
+        (3) Karakterizacija negativne semidefinitnosti.
+        (4) Karakterizacija negativne definitnosti.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} (1) $(\Rightarrow)$ Enostavno.
+            
+            $(\Leftarrow)$ Sebi adjungiran endomorfizem se da diagonalizirati v ONB.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} [Koeficienti karakterističnega polinoma] Naj bo $\Aa \in L(V)$ sebi adjungiran.
+        
+        (1) Karakterizacija pozitivne definitnosti.
+        (2) Karakterizacija pozitivne semidefinitnosti.
+
+        (3) Karakterizacija negativne definitnosti.
+        (4) Karakterizacija negativne semidefinitnosti.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Sylvestrov izrek.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Kje je pomemben Sylvestrov izrek?
+        \item \colorbox{yellow!30}{\emph{Primer.}} Ali je dovolj gledati samo vodilni minorji v 2. točki Sylvestrovega izreka? 
+    \end{itemize}
+
+    \item Unitarni endomorfizmi
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Unitarni endomorfizem.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali so unitarni endomorfizmi normalni?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Unitarna matrika $A \in \CC^{n \times n}$. Ortogonalna matrika $A \in \RR^{n \times n}$
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Kakšne matrike pripadajo unitarnim endomorfizmam?
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Karakterizacija unitarnosti endomorfizma (5 ekvivalenc).
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Karakterizacija unitarnosti endomorfizma (4 ekvivalnce, slike množic).
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Karakterizacija unitarnosti matrike (za $\FF = \CC$) oz. ortogonalnosti (za $\FF = \RR$).
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Za stolpce: Standardna baza je ortonormirana, stolpci matrike pa so slike standardne baze.
+            
+            Za vrstice: Pokažemo, da $\Aa$ je unitarna $\Leftrightarrow$ $\Aa^*$ je unitarna.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Ali je množica unitarnih endomorfizmov grupa za kompozitum?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Preverimo aksiome.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Absolutna vrednost lastnih vrednosti unitarnega endomorfizma.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Izračunamo $||\Aa x||^2$ na dva načina.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Naj bo $V$ unitaren prostor in $\Aa \in L(V)$. Karakterizacija unitarnosti $\Aa$ z diagonalizacijo.
+        \item \colorbox{yellow!30}{\emph{Primer.}} Poišči vse realne $2 \times 2$ ortogonalne matrike.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Unitarno podobni matriki $A, B \in \CC^{n \times n}$. Ortogonalno podobni matriki $A, B \in \RR^{n \times n}$.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali sta unitarna in ortogonalna podobnost ekvivalenčni relaciji?
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Kadar sta unitarno/ortogonalni matriki podobni (endomorfizmi)?
+        \item \colorbox{blue!30}{\textbf{Izrek.}} (1) Kakšne matrike je unitarno podobna vsaka matrika $A \in \CC^{n \times n}$?
+        
+        (2) Karakterizacija noramlnosti matrike $A \in \CC^{n \times n}$.
+
+        (3) Kadar matrika $A \in \CC^{n \times n}$ hermitska?
+
+        (4) Karakterizacija simetričnosti matrike $A \in \RR^{n \times n}$.
+
+        (5) Karakterizacija unitarnosti matrike $A \in \CC^{n \times n}$.
+    \end{itemize}
+\end{enumerate}

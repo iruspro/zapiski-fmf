@@ -1,0 +1,69 @@
+\section{LINEARNI FUNKCIONALI}
+\begin{enumerate}
+    \item Dualna baza
+    \begin{itemize}
+        \item Naj bo $V$ $n$-razsežen vektorski prostor nad $\FF$. \textbf{Dualni prostor} prostora $V$. Ali sta prostora $V$ in dualni prostor izomorfna? Oznaka.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Dualna baza.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Ali je dualna baza obstaja? Ali je enolična? Ali je res baza prostora $V^*$?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Enoličnost: Naj bo $x \in V$ poljuben. Razvijemo ga po bazi prostora $V$ in poglejmo, kam se preslika s preslikavo $\phi_j$.
+            
+            Obstoj: Predpis za preslikavo $\phi_j$ dovimo od enoličnosti.
+
+            Baza: Dovolj, da pokažemo, da je funkcionali linearno neodvisni.            
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Naj bo $B_V$ baza prostora $V$ in $B_{V^*}$ njej dualna baza. Naj bo $x \in V$ in $f \in V^*$. 
+        
+        Čemu je enako $f(x)$?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Račun.            
+        \end{itemize}
+    \end{itemize}
+    
+    \item Dualna preslikava
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Dualna preslikava. Oznaka.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Ali je dualna preslikava linearna?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Račun.            
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Naj bosta $\Aa, \Bb \in L(U, V)$ in $\mathcal{C} \in L(V, W)$. Naštej 3 lastnosti dualne preslikave.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Račun.            
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Naj preslikavi $\Aa\in L(V, W)$ pripada matrika $A$ glede na bazi $B_v$ in $B_w$. Katera matrika pripada preslikavi $\Aa^d \in L(W^*, V^*)$ glede na dualni bazi baz $B_v$ in $B_w$?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Izračunamo $(\Aa^d(\psi_i))v_k$ na dva načina.           
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Izpelji 3 lastnosti transponiranja.
+    \end{itemize}
+
+    \item Reprezentacija linearnih funkcionalov na prostoru s skalarnim produktom
+    
+    Naj bo $\FF \in \set{\RR, \CC}$ in naj bo $V$ vektorski prostor s skalarnim produktom nad $\FF$. 
+
+    Naj bo $z \in V$ poljuben vektor. Potem je $\left\langle x, z \right\rangle \in \FF$ za vsak $x \in V$, zato lahko definiramo preslikavo 
+    
+    $\phi_z: \ V \to \FF, \ \phi_z(x) = \left\langle x, z \right\rangle$.
+    \begin{itemize}
+        \item \colorbox{blue!30}{\textbf{Lema.}} Ali je $\phi_z$ linearen funkcional za vsak $z \in V$?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Račun.            
+        \end{itemize}
+    \end{itemize}    
+    Definiramo preslikavo $\Phi: \ V \to V^*, \ \Phi(z) = \phi_z$. 
+    \begin{itemize}
+        \item  \colorbox{blue!30}{\textbf{Izrek.}} Ali je $\Phi$ poševni izomorfizem (aditiven, poševno homogen, injektiven in surjektiven)?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Aditivnost in poševna homogenost: Račun.
+            
+            Injektivnost: Pokažemo, da ima trivialno jedro.
+
+            Surjektivnost: Če je $\phi$ ničlen, vzemimo $z = 0$. Sicer, zapišemo $V$ kot $V = U \oplus U^\perp$, kjer je $U = \ker \phi$. Nato zapišemo $v \in V$ kot $v = u + \alpha w$, kjer $w \in U^\perp$, to enačbo skalarno pomnožimo z $w$, tako dobimo $\alpha$, nato uporabimo $\phi$ na tej enakosti.
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Rieszov izrek o reprezentaciji linearnih funkcionalov.
+    \end{itemize}
+\end{enumerate}
+
+\newpage
+\

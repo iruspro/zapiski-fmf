@@ -1,0 +1,82 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[slovene]{babel}
+\usepackage{lmodern}
+
+\usepackage{xcolor}
+\usepackage{bbold}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{xypic}
+
+\usepackage{enumitem}
+\setlist{nosep}
+
+\setlength{\parindent}{0mm}
+
+\usepackage{geometry}
+\geometry{
+    a4paper,
+    left=5mm,
+    right=5mm,
+    top=5mm,
+    bottom=12mm
+}
+
+\usepackage{multirow} % DELETE
+
+\input{macros.tex}
+
+%--------------------------------------------------------------------
+%-- Okolja
+
+\theoremstyle{plain}{
+    \newtheorem{izrek}{Izrek}[section]
+    \newtheorem{trditev}[izrek]{Trditev}
+    \newtheorem{posledica}{Posledica}[izrek]
+    \newtheorem{lema}[izrek]{Lema}
+    \newtheorem{aksiom}[izrek]{Aksiom}
+}
+
+\theoremstyle{definition}{
+    \newtheorem{definicija}{Definicija}[section]
+    \newtheorem*{primer}{Primer}
+    \newtheorem*{opomba}{Opomba}
+    \newtheorem*{pojmi}{Ključni pojmi}
+}
+
+\newenvironment{ideja}{\begin{proof}[Ideja dokaza]}{\end{proof}}
+
+
+\begin{document}
+
+\input{stevila.tex}
+
+\newpage
+\input{stevilska-zaporedja.tex}
+
+\newpage
+\input{stevilske-vrste.tex}
+
+\newpage
+\input{funkcije.tex}
+
+\newpage
+\input{zveznost.tex}
+
+\newpage
+\input{odvod.tex}
+
+\newpage
+\input{integral.tex}
+
+\newpage
+\input{funkcijska-zaporedja.tex}
+
+\newpage
+\input{metricni-prostori.tex}
+
+\end{document}

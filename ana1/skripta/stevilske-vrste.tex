@@ -1,0 +1,114 @@
+\section{ŠTEVILSKE VRSTE}
+
+\begin{enumerate}
+    \item Osnovni definiciji
+    \begin{itemize}
+        \item  \colorbox{purple!30}{\textbf{Definicija.}} Številska vrsta, splošni člen vrste.
+        \item  \colorbox{purple!30}{\textbf{Definicija.}} Zaporedje delnih vsot.
+        \item  \colorbox{purple!30}{\textbf{Definicija.}} Konvergentna vrsta, vsota vrste.
+        \item \colorbox{yellow!30}{\emph{Primer.}} Obravnavaj konvergenco:
+        \begin{itemize}
+            \item Geometrijske vrste $\sum_{n=0}^{\infty} aq^n$.
+            \item Vrste $\sum_{n=1}^{\infty} \frac{1}{n(n+1)}$. Razcep na delne ulomke.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Cauchyjev pogoj za konvergenco vrste $\sum_{n=1}^{\infty} a_n$.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Definicija konvergence vrste + Cauchyjev pogoj za zaporedja.
+        \end{itemize}        
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Konvergenca zaporedja $(a_n)_n$.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Definicija limite zaporedja + prejšnja trditev.
+        \end{itemize}   
+        \item Ostanek vrste. \colorbox{blue!30}{\textbf{Trditev}} o ostanku vrste.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Vsota konvergentnih zaporedij.
+        \end{itemize}  
+        \item  \colorbox{blue!30}{\textbf{Trditev.}}  Lastnosti seštevanja in množenja s konstanto konvergentnih vrst.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Uporabimo znane lastnosti za računanje s konvergentimi zaporedji.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali konvergentne številske vrste sestavljajo vektorski prostor?
+    \end{itemize}
+
+    \item Vrste z nenegativnimi členi
+    \begin{itemize}
+        \item Vrsta z nenagitivnimi členi. Kaj lahko povemo o zaporedju delnih vsot?
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Karakterizacija konvergence vrste z nenegativnimi členi.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Definicija konvergence vrste + opazka o zaporedju delnih vsot.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Primer.}} Harmonična vrsta $\sum_{n=1}^{\infty} \frac{1}{n}$.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Ocena za $\frac{1}{m+1} + \ldots + \frac{1}{2m}$ in za podzaporedje $(s_{2^k})_k$.
+        \end{itemize}
+        \item  \colorbox{blue!30}{\textbf{Trditev.}} Primerjalni kriterij za konvergenco vrst. Majoranta.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Karakterizacija konvergence vrste z nenagitivnimi členi.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Primer.}} Konvergenca vrste $\sum_{n=1}^{\infty} \frac{1}{n^p}, \ p \in \mathbb{R}$. Riemannova zeta funkcija.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Konvergenco za $p>1$ pokažemo z oceno $(s_{2^k})_k$ z ustrezno geometrijsko vrsto.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} D'Alembertov-kvocientni kriterij za konvergenco vrst.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Konvergenco pokažemo z oceno člena $a_{n+1}$ z členom $a_1$. Divergenco z dokazom: $\lim_{n \to \infty}a_n \neq 0$.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Cauchyjev-korenski kriterij za konvergenco vrst.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Konvergenco pokažemo z ustrezno geometrijsko vrsto. Divergenco z dokazom: $\lim_{n \to \infty}a_n \neq 0$.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Raabejev kriterij za konvergenco vrst.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Konvergenca. Zapišemo $q = 1+s, \ s>0$. Po definiciji pokažemo, da konvergira vrsta z splošnim členom $b_n = na_n - (n+1)a_{n+1}$.
+            
+            Divergenca. Ocenimo člen $a_{n+1}$ z členom $a_1$.
+        \end{itemize}
+    \end{itemize}
+
+    \item Absolutna konvergenca        
+    \begin{itemize}
+        \item  \colorbox{purple!30}{\textbf{Definicija.}} Absolutno konvergentna vrsta.
+        \item \colorbox{blue!30}{\textbf{Izrek}} o absolutno konvergentni vrsti.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Cauchyjev pogoj za vrste.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Leibnizev kriterij za konvergenco alternirajočih vrst. Ocena ostanka.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Konvergenca. Pokažemo, da sodi in lihi členi zaporedja delnih vsot konvergirajo k iste limite.
+            
+            Ocena. Ocenimo razliki $s_{2n} - s_{2n+2k}$ in $s_{2n} - s_{2n+2k + 1}$. Podobno za lihe delne vsote.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Primer.}} Konvergenca vrste $\sum_{n = 1}^{\infty} (-1)^n \, \frac{1}{n}$. Kaj primer pove?
+    \end{itemize}
+
+    \item Preureditve vrst
+    \begin{itemize}
+        \item Preureditev vrste.            
+        \item \colorbox{blue!30}{\textbf{Izrek}} o preureditve absolutno konvergentne vrste.         
+        \begin{itemize}
+            \item \colorbox{green!50}{\textbf{Dokaz!}} Po definiciji pokažemo, da $\lim(s_n' - s_n) = 0$, kjer je $s_n'$ $n$-ta delna vsota preurejene vrste. 
+            
+            \emph{Namig.} Naj bo za števili $M$ in $N$ velja: $\set{1, 2, \ldots, N} \subset \set{\pi(1), \pi(2), \ldots, \pi(M)}$. Kako lahko zapišemo $M$-to delno vsoto preurejene vrste?
+        \end{itemize}
+        \item  \colorbox{purple!30}{\textbf{Definicija.}} Pogojno konvergentna vrsta.
+        \item \colorbox{blue!30}{\textbf{Izrek}} o preureditve pogojno konvergentne vrste (Riemann).
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Razbijemo $n$-to delno vsoto na vsoto vseh pozitivnih členov $p_{k(n)}$ ter vsoto vseh nasprotnih vrednosti negativnih členov $q_{m(n)}$. Pokažemo, da vrsti $\sum_{k=1}^{\infty} p_{k(n)}$ in $\sum_{m=1}^{\infty} q_{m(n)}$ divergirata. od tod konstruiramo vrsto z želeno vsoto.
+        \end{itemize}
+    \end{itemize}
+
+    \item Množenje vrst
+    \begin{itemize}
+        \item Vrsta, ki je sestavljena iz vseh produktov.
+        \item \colorbox{blue!30}{\textbf{Trditev}} o vrste, ki je sestavljena iz vseh produktov členov absolutno konvergentnih vrst.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Izberimo nek vrstni red in z oceno pokažemo, da vrsta absolutno konvergira. Za izračun vsote vrste spet izberimo ustrezen vrstni red seštevanja.
+        \end{itemize}
+    \end{itemize}
+
+    \item Dvakratne vrste
+    \begin{itemize}
+        \item  \colorbox{purple!30}{\textbf{Definicija.}} Dvakratna vrsta.
+        \item  \colorbox{blue!30}{\textbf{Trditev}} o konvergence dvakratnih vrst (brez dokaza).
+    \end{itemize}
+\end{enumerate}

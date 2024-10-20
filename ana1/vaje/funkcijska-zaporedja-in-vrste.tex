@@ -1,0 +1,96 @@
+\section{FUNKCIJSKA ZAPOREDJA IN VRSTE}
+{\color{Purple} \subsection*{Funkcijska zaporedja (naloge $1-4$)}}
+\textbf{Definicija.} Naj bo $f_n: I \to \RR$ zaporedje funkcij.
+\begin{enumerate}
+    \item \emph{Zaporedje $f_n$ konvergira po točkah na $I$} k limitni funkciji $f: I \to \RR$, če za vsak $x \in I$ velja: $$f(x) = \lim_{n \to \infty} f_n (x)$$.
+    \item \emph{Zaporedje $f_n$ enakomerno konvergira k funkcije $f$ na $I$}, če za vsak $\varepsilon > 0$, obstaja $N \in \NN$, da velja: $$|f_n(x)-f(x)|<\varepsilon \text{ za vsak } x \in I \text{ in vsak } n \geq \NN.$$ 
+    
+    Ekvivalentno: $\lim_{n \to \infty} c_n = 0, \ c_n := d_\infty (f_n, f) = \sup_{x \in I} |f_n(x) - f(x)|$. Supremum lahko izračunamo z uporabo odvoda.
+\end{enumerate}
+\textbf{Lastnosti enakomerne konvergence.} Naj bodo $f_n: [a,b] \to \RR$ zvezne in naj enakomerno na konvergirajo k funkciji $f$ na $[a,b]$. Potem velja:
+\begin{itemize}
+    \item $f$ je zvezna.
+    \item $\displaystyle \int_{a}^{b} f(x) \,dx = \lim_{n \to \infty} \int_{a}^{b} f_n(x) \,dx $.
+\end{itemize}
+Če tudi $f'_n$ enakomerno konvergirajo proti neke funkcije $g$ na $[a,b]$. Potem velja:
+\begin{itemize}
+    \item $f$ je odvedljiva.
+    \item $f'(x) = \lim_{n \to \infty} f'_n(x) = g(x)$.
+\end{itemize}
+
+{\color{Purple} \subsection*{Funkcijske vrste (naloge $5-7$)}}
+\textbf{Integralski kriterij.} Naj bo $f:[1, \infty) \to \RR$ zvezna, padajoča, pozitivna funkcija. Potem velja: $$\sum_{n=1}^{\infty}f(n) < \infty \Leftrightarrow \int_{1}^{\infty} f(t)  \,dt < \infty.$$
+\textbf{Definicija.} \emph{Vrsta $\sum_{n=1}^{\infty}f_n$ konvergira enakomerno na $I$ k funkciji $f$}, če enakomerno konvergira zaporedje njenih delnih vsot.
+
+\emph{Pomembno!} Če so $f_n$ zvezne na $I$ in je konvergenca enakomerna, je $f$ zvezna na $I$.
+
+\textbf{Weierstrassov kriterij.} Če obstaja zaporedje števil $c_n \geq 0$, da velja:
+\begin{itemize}
+    \item $|f_n(x)| \leq c_n$ za vsak $x \in I$. Ponavadi vzamemo $c_n = \sup_{x \in I} |f_n(x)|$;
+    \item $\sum_{n=1}^{\infty} c_n < \infty$.
+\end{itemize}
+Potem vrsta $\sum_{n=1}^{\infty}f_n$ konvergira enakomerno na $I$.
+
+{\color{Purple} \subsection*{Potenčne vrste (naloge $8-10$)}}
+\textbf{Definicija.} \emph{Potenčna vrsta} je vrsta oblike $$\sum_{n=0}^{\infty} a_n (x-a)^n = a_0 + a_1(x-a) + a_2(x-a)^2 + \ldots + a_n(x-a)^n + \ldots$$
+$a_0, \, a_1, \, a_2$ so koeficienti potenčne vrste, $a$ je središče potenčne vrste.
+
+\textbf{Definicija.} Za vsako potenčno vrsto obstaja \emph{konvergenčni polmer $R \in [0, \infty)$}, da velja:
+\begin{itemize}
+    \item vrsta konvergira za $x \in (a-R, a+R)$,
+    \item vrsta divergira za $|x-a|>R$,
+    \item v robnih točkah $a-R$ in $a+R$ vrsta lahko ali konvergira ali divergira.
+\end{itemize}
+Za izračun konvergenčnega polmera $R$ lahko uporabimo:
+\begin{itemize}
+    \item $R = \lim_{n \to \infty} \left| \frac{a_n}{a_{n+1}} \right|$;
+    \item $\frac{1}{R} =\lim_{n \to \infty} \sqrt[n]{|a_n|}$;
+    \item $\frac{1}{R} = \limsup_{n \to \infty} \sqrt[n]{|a_n|}$;
+    \item Kakšen kriterij za številske vrste.
+\end{itemize}
+
+\textbf{\textcolor{Orange}{Nasvet.}} Kako lahko dobimo vsoto funkcijske vrste? Dano vrsto poskusimo z odvajanjem/integriranjem prevesti na neko vrsto, ki jo znamo sešteti (znane vrste, geometrijska vrsta).
+
+\textbf{Izrek o členskem odvajanju in integraciji potenčnih vrst.} Naj bo $f:(a-R, a+R) \to \RR$ analitična funkcija s predpisom $f(x) = \sum_{n=0}^{\infty} a_n(x-a)^n$. Potem velja:
+\begin{itemize}
+    \item $\displaystyle f'(x) = \sum_{n=0}^{\infty} a_n n (x-a)^{n-1}$ (odvajamo vsak člen posebej in seštejemo).
+    \item $\displaystyle \int f(x) \, dx = \sum_{n=0}^{\infty} \frac{a_n}{n+1}(x-a)^{n+1} + C$ (integriramo vsak člen posebej in seštejemo).
+\end{itemize}
+
+\textbf{\textcolor{Orange}{Trik.}} Kako lahko dobimo vsoto številske vrste? 
+\begin{enumerate}
+    \item Številsko vrsto razširimo do potenčne vrste.
+    \item Izračunamo vsoto potenčne vrste.
+    \item Izračunamo vsoto številske vrste.
+\end{enumerate}
+\textbf{Abelov izrek.} Če vrsta konvergira v krajišču intervala, je vsota vrste enaka limiti $f$ v krajišču (zveznost vsote).
+
+\newpage
+{\color{Purple} \subsection*{Taylorjeva formula in Taylorjeva vrsta (naloge $11-$)}}
+\textbf{Definicija.} Naj bo $f$ funkcija, ki je $n$-krat odvedljiva v točki $a$. \emph{Taylorjev polinom reda $n$ funkcije $f$ glede na točko $a$} je polinom $$T_n(x) = f(a) + f'(a)(x-a) + \frac{f''(a)(x-a)^2}{2!} + \ldots + \frac{f^{(n)}(a)(x-a)^n}{n!}.$$
+Imamo enakost: $f(x) = T_n(x) + R_n(x)$. Ostanek lahko ocenimo z:
+
+\textbf{Taylorjev izrek.} $\displaystyle R_n(x) = \frac{1}{(n+1)!} f^{(n+1)}(t)(x-a)^{n+1}$, kjer je $t$ neka točka med $x$ in $a$.
+Ocena: $\displaystyle |R_n(x)| \leq \max_{t \in (a-\delta, a+\delta)} |f^{(n+1)}(t)| \frac{\delta^{n+1}}{(n+1)!}$.
+
+\textbf{Definicija.} Naj bo $f$ funkcija, ki ima vse odvodi v točki $a$. \emph{Taylorjeva vrsta} funkcije $f$ glede na $a$ je potenčna vrsta:
+$$T(x) = f(a) + f'(a)(x-a) + \ldots + \frac{f^{(n)}}{n!}(x-a)^n+\ldots.$$
+Lahko se zgodi naslednje:
+\begin{enumerate}
+    \item Taylorjeva vrsta konvergira k $f$ na neki okolici $(a-R, a+R)$ točke $a$.
+    \begin{itemize}
+        \item Rečemo, da je $f$ \emph{analitična} na okolici $a$.
+        \item $f$ je \emph{cela funkcija}, če je enaka svoji Taylorjevi vrsti na celem $\RR$.
+    \end{itemize}
+    \item Taylorjeva vrsta konvergira samo v točki $a$.
+    \item Taylorjeva vrsta konvergira na neki okolici $a$, pa ne k funkciji $f$.
+\end{enumerate}
+Taylorjeve vrste lahko računamo na 2 načina:
+\begin{enumerate}
+    \item Izračunamo vse odvode in uporabimo formulo.
+    \begin{itemize}
+        \item \textbf{\textcolor{Orange}{Opazka.}} Treba podati predpis za $a_n$.
+    \end{itemize}
+    \item Uporabimo znane Taylorjeve vrste.
+\end{enumerate}
+\textbf{\textcolor{Orange}{Opazka.}} Potenčni vrsti lahko množimo kot polinome!

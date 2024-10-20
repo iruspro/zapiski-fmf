@@ -1,0 +1,280 @@
+\subsection{ODVOD}
+\begin{enumerate}
+    \item Osnovni definiciji in trditvi
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Odvod funkcije $f$ v točki $a$. Odvedljiva v točki $a$ funkcija.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Diferenčni kvocient.
+        \item Geometrijski pomen odvoda.
+        \item \colorbox{yellow!30}{\emph{Primer.}} Določi odvod, če obstaja:
+        \begin{itemize}
+            \item $f(x) = x^2, \ a=3$.
+            \item $g(x) = \sqrt[3]{x}, \ a = 0$.
+            \item $h(x) = |x|, \ a = 0$.
+            \item $q(x) = x \sin \frac{1}{x}, \ q(0) = 0, \ a = 0.$
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek}} o zveznosti v točki $a$ odvedljive v točki $a$ funkcije $f$.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Z diferenčnim kvocientom pokažemo, da $\lim_{x \to a} f(x) = f(a)$.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali v prejšnjem izreku velja implikacija v nasprotno smer?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Levi (desni) odvod funkcije $f$ v točki $a$.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Karakterizacija odvedljivosti funkcije $f$ v točki $a$ z levim in desnim odvodami.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Že vemo od prej (karakterizacija obstoja limite).
+        \end{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Odvdeljiva na $(a,b)$ funkcija $f$. Odvedliva na $[a,b]$ funkcija $f$.
+        \item \colorbox{yellow!30}{\emph{Primer.}} Kjer je odvedljiva funkcija $\arcsin$?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Odvod funkcije $f$.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Zvezno odvedljiva funkcija. Množica vseh zveznih funkcij na $I$. Množica vseh zvezno odvedljivih funkcij na $I$.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Odsekoma zvezna funkcija $f$.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Odsekoma zvezno odvedljiva funkcija $f$.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Kaj pomeni odsekoma zvezna odvedlivost?
+    \end{itemize}
+
+    \item Diferencial
+    \begin{itemize}
+        \item Naj bo funkcija $f$ definirana v okolici točke $a$ in odvedljiva v točki $a$. Funkcija $o(h)$. Kaj pomeni, da je $\lim_{h \to 0} \frac{o(h)}{h}=0$? Aproksimacija razlike $f(a+h)-f(a)$.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Diferenciabilna v točki $a$ funkcija $f$. Diferencial funkcije $f$ v točki $a$.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Enoličnost diferenciala.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Karakterizacija diferenciabilnosti v točki $a$ funkcije $f$.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} $(\Leftarrow)$ Začetna izpeljava.
+            
+            $(\Rightarrow)$ Pri izračunu odvoda upoštevamo, da $\mathcal{L}(h) = c \cdot h$.
+        \end{itemize}
+        \item Zapis: $f' = \frac{df}{dx}$.
+    \end{itemize}
+
+    \item Pravila za odvajanje
+    \begin{itemize}
+        \item Odvod konstante.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Pravila za odvod vsote, razlike, produkta in kvocientna dveh odvedljivih v točki $a$ funkcij.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Vsota in razlika: Definicija odvoda v točke $a$.
+            
+            Produkt in kvocient: Prištejemo in odštejemo ustrezen nič.
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Pravilo za odvod funkcije pomnožene s konstanto.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Odvod produkta in nato konstante.
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Pravilo za odvod produkta $n$ funkcij.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Z indukcijo.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Odvod kompozicije.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Z izračunim pokažemo, da je $g \circ f$ diferenciabilna v točki $a$. 
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek}} o odvedlivosti inverzne funkcije.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Z uporabo diferenčnega kvocienta izračunamo odvod funkcije $f^-1$ v točki $f(c)$.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Pravilo za odvod inverzne funkcije.
+    \end{itemize}
+
+    \newpage
+    \item Odvodi elementarnih funkcij
+    \begin{itemize}
+        \item Odvod konstante, odvod funkcije $f(x)=x$.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Po definiciji.
+        \end{itemize}
+        \item Odvod funkcije $f(x) = x^{q}$ za $q \in \QQ$ ($\NN \to \ZZ \to \frac{1}{n} \to \QQ$).
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} $n \in \NN$: Odvod produkta.            
+            $m \in \ZZ$: Odvod kvocienta.
+            
+            $q = \frac{1}{n}, \ n \in \NN$: Izrek o odvode inverza.
+            $q \in \QQ$: Odvod kompozicije.
+        \end{itemize}
+        \item Odvod logaritma.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Po definiciji.
+        \end{itemize}
+        \item Odvod eksponentne funkcije.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Izrek o odvode inverza.
+        \end{itemize}
+        \item Odvod potenčne funkciji z realnim eksponentom.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Kompozitum eksponente in logaritma.
+        \end{itemize}
+        \item Odvod kotnih funkcij.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Sinus: Definicija + razlika sinusov.            
+            Cosinus: $\cos x = \sin (\frac{\pi}{2} - x)$.
+
+            Tangens: $\tan x = \frac{\sin x}{\cos x}$
+        \end{itemize}
+        \item Odvod ciklometričnih funkcij.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Izrek o odvode inverza.
+        \end{itemize}
+    \end{itemize}
+
+    \item Odvodi višjega reda
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Drugi odvod funkciji $f$ na intervalu $I$. $n$-ti odvod funkciji $f$.
+        \item \colorbox{yellow!30}{\emph{Primer.}} Določi vsi odvodi funkcij: $f(x) = e^x$ in $g(x) = x^k, \ k \in \NN$.
+        \item Oznake: $C(I), \ C^1(I), \ C^r(I), \, r \in \NN, \ C^\infty(I) = \cap_{r \in \NN} C^r(I)$. Lastnosti teh množic (vsobavonost, vektorski prostor).
+        \item \colorbox{blue!30}{\textbf{Trditev}} o preslikave, ki funkcije priredi njen odvod.
+        \item \colorbox{yellow!30}{\emph{Primer.}} Naj bo $g(x) = \begin{cases}
+            x^2 \sin \frac{1}{x}; &x \neq 0 \\
+            0; &x = 0
+        \end{cases}$. Določi vse $r$, da $g \in C^r(\RR)$.
+    \end{itemize}
+
+    \item Rollov in Lagrangeev izrek
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Lokalni maksimum, lokalni minimum. Lokalni ekstrem.        
+        \item \colorbox{blue!30}{\textbf{Izrek}} o odvodu funkcije $f: [a,b] \to \RR$ v točki lokalnega ekstrema.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Ocenimo limito diferenčnega kvocienta z leve in desne z uporabo definicije ekstrema.
+        \end{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Stacionarna ali kritična točka funkcije $f$.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Rollov izrek.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Uporabimo lastnost zvezne funkcije na zaprtem intervalu ter prejšnjo trditev.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Lagrangeev izrek.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Definiramo funkcijo $F(x) = f(x) - f(a) + A \cdot (x-a)$. Določimo konstanto $A$ tako, da bo $F(b) = 0$ in uporabimo Rollov izrek.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Kaj se zgodi, če zapišemo $a = x$ in $b=x+h$ v Lagrangeevem izreku?
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Opis monotonosti funkciji $f$, ki je odvedljiva na odprtem intervalu $I$ z odvodom.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} $(\Rightarrow)$ Lagrangeev izrek.        
+            
+            $(\Leftarrow)$ Definicija odvoda.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali pri stroge monotonosti velja obrat?
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Kakšna je funkcija, ki je odvedljiva na $I$, če za vse $x \in I$ velja $f'(x)=0$?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} $(1)$ in $(2)$ iz prejšnje posledice.
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Naj bo $f: (a,b) \to \RR$ zvezna na $(a,b)$, $c \in (a,b)$ in f je odvedljiva na $(a,c)$ in $(c,b)$. Kadar ima funkcija $f$ v točki $c$ ekstrem?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Min: Izberimo $x \in (a, c)$ in z ustreznim zaporedjem ($f$ je zvezna) pokažemo, da $f(c) \leq f(x)$.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali velja obratno?
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Zadosten pogoj za lokalni ekstrem odvedljive funkcije $f: (a,b) \to \RR$. Kadar funkcija nima ekstrema v stacionarni točki?
+        \item Kako poiščemo globalni ekstremi zvezne na $[a,b]$ funkciji $f$?
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Kaj lahko sklepamo iz tega, da $f''(x) \geq 0$ (ali $f''(x) \leq 0$) za $\forall \, x$ v neki okolici stacionarne točke $c$?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Uporabimo opis monotonosti.
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Opis stacionarne točke z drugim odvodom.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Zveznost + prejšnja trditev.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Naj bo funkcija $f$ definirana na $[a,b]$. Kdaj bo v točkah $a,b$ lokalni minimum/maksimum? 
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Po definiciji levega oziroma desnega odvoda.
+        \end{itemize}
+    \end{itemize}
+
+    \newpage
+    \item Konveksnost in konkavnost
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Konveksna funkcija.
+        \item Geometrijski pomen konveksnosti.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Konveksna kombinacija. Pogoj za konveksnost z uporabo konveksne kombinacije.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Konkavna funkcija.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Karakterizacija konveksnosti s konkavnostju.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Karakterizacija konveksnosti z tangentami.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} $(\Rightarrow)$ Izberimo poljubne točke $a, x \in I$. Vzemimo $y$, ki leži strogo med $x$ in $a$. Uporabimo definicijo konveksnosti in izračunamo odnostranski odvod v točke $a$.
+            
+            $(\Leftarrow)$ Izberimo poljubni točki $a, b \in I, \ a<b$ in $x \in (a,b)$. Vzemimo tangento v točke $x$ in uporabimo oceno v točkah $a$ in $b$, nato seštejemo neeančbe tako, da izognemo odvoda.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Karakterizacija konveksnosti odvedljive na odprtem intervalu $I$ funkcije z odvodom.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} $(\Rightarrow)$ Naj bo $a, b \in I, \ a < b$ in $k = \frac{f(b) - f(a)}{b-a}$. Z pomočjo definiciji konveksnosti in odnostranskega odvoda ocenimo $f'(a)$ in $f'(b)$ s $k$.
+            
+            $(\Leftarrow)$ Uporabimo prejšni izrek + Lagrangeev izrek.
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Karakterizacija konveksnosti dvakrat odvedljive na odprtem intervalu $I$ funkcije z drugim odvodom.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Prevoj (sedlo) funkcije $f$ v točki $a$
+        \item \colorbox{yellow!30}{\emph{Primer.}} Kako natančno narišemo graf poljubne funkcije?
+    \end{itemize}
+
+    \item L'Hospitalovi izreki
+    \begin{itemize}
+        \item \colorbox{blue!30}{\textbf{Lema (Cauchyjev izrek).}} Posplošen Lagrangeev izrek. 
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Najprej dokažemo, da $g(b) - g(a) \neq 0$. 
+            
+            Definiramo $F(x) = (f(x) - f(a)) - \frac{f(b)-f(a)}{g(b) - g(a)}(g(x) - g(a))$ in uporabimo Rollov izrek.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Zakaj to je posplošen Lagrangeev izrek?
+        \item \colorbox{blue!30}{\textbf{Izrek 1 (L'Hospitalovo pravilo)}} Računanje limite oblike $\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{0}{0}$.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Zvezno razširimo funkciji $f$ in $g$ na interval $[a, b)$. Izberimo točko $x \in (a, b)$ in uporabimo lemo. Dobimo izraz za $\frac{f(x)}{g(x)}$. Po definiciji limite pokažemo, da izrek sledi.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek 2 (L'Hospitalovo pravilo)}} Računanje limite oblike $\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{\infty}{\infty}$.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Denimo, da $\lim_{x \downarrow a} \frac{f'(x)}{g'(x)} = B$. Naj bo $\epsilon > 0$. Po definiciji limite obstaja $b' \in (a,b)$, da velja $B - \epsilon < \frac{f'(c)}{g'(c)} < B + \epsilon$. Izberimo nek $x \in (a, b')$ in uporabimo lemo na intervale $[x, b']$. Dobimo oceno za izraz $\frac{f(x) - f(b')}{g(x) - g(b')}$. Pomnožimo neenakost z $\frac{g(x) - g(b')}{g(x)}$ na intervalu, kjer $g(x) > g(b')$ in $g(x) > 0$.
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica 1.}} Računanje limite oblike $\lim_{x \to \infty} \frac{f(x)}{g(x)} = \frac{0}{0}$.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Lahko predpostavimo, da je $A>0$. Definiramo $F(t) = f(\frac{1}{t})$ in $G(t) = g(\frac{1}{t})$ za $t \in (0, \frac{1}{A})$. Preverimo predpostavki izreka $1$. Posledica sledi.
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica 2.}} Računanje limite oblike $\lim_{x \to \infty} \frac{f(x)}{g(x)} = \frac{\infty}{\infty}$.   
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Podobno.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Kdaj lahko uporabimo L'Hospitalovi pravili?
+    \end{itemize}
+
+    \newpage
+    \item Uporaba odvoda v geometriji
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Eksplicitno/implicitno/parametrično podana krivulja v kartezičnih koordinatah.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Kateri izmed zgornjih zapisov je splošnejši?
+        \item \colorbox{yellow!30}{\emph{Primer.}}
+        \begin{itemize}
+            \item Krožnica. Implicitna in parametrična oblika.
+            \item Elipsa. Implicitna in parametrična oblika.
+            \item Hiperbola. Implicitna in parametrična oblika.
+            \item Kriveulja $K$ je podana z enačbo $y^2 = x^3$. Določi parametrično obliko.
+            \item \textbf{Cikloida.} Parametrična oblika.
+            \item Nariši krivuljo, ki je parametrično podana: $x(t) = t^2 - 1$, $y(t) = t^3-t, \ t \in \RR$.
+        \end{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Krivulja $K$ podana kot množica točk s polarnima koordinatama. 
+        \begin{itemize}
+            \item Krožnica v polarnih koordinatah.
+            \item Premica v polarnih koordinatah.
+            \item Arhimedska spirala v polarnih koordinatah.
+        \end{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Pot v ravnini. Tir poti. Paramtetrizacija od tira poti.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Koliko parametrizacij ima tir poti (če ima vsaj eno)?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Zvezna preslikava $F: I \to \RR^2$. Odvedljiva pot. Zvezno odvedljiva pot.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Geometrijski pomen odvoda poti.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Naj bo $F: I \to \RR^2$ zvezno odvedljiva pot, $t_0 \in I$ in denimo, da je $\dot{F}(t_0) \neq 0$. Kaj če je $\dot{\alpha}(t_0) \neq 0$?
+        \item \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Iz zveznosti $\dot{\alpha}$ dobimo $\delta > 0$. Predpostavimo, da $\dot{\alpha} > 0$, torej $\alpha (t)$ je strogo naraščajoča na $(t_0 - \delta, t_0 + \delta)$. Zdaj lahko definiramo interval $U$. Pokažemo, da obstaja $\alpha^{-1}: U \to \RR$, ki je zvezno odvedljiva, in da $(x, f(x)) = (\alpha (t), \beta (t))$ za ustrezen $t$.
+            
+            Odvod $(f(\alpha (t)))'$ izračunamo z odvajanjem obeh stran enačbe $f(\alpha (t)) = \beta (t)$.
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Kaj lahko povemo o funkciji $f$ iz prejšnjega izreka, če je $\alpha$ in $\beta$ dvakrat zvezno odvedljivi na $(t_0, t_1)$ in $\dot{\alpha}(t) \neq 0$ za vse $t \in (t_0, t_1)$?
+        \item \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Izračunamo $(f'(\alpha (t)))'$ kot odvod kompozicije.
+        \end{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Kritična točka poti. Regularna točka poti. Regularna parametrizacija. Gladka krivulja. Gladek lok.
+        \item \colorbox{yellow!30}{\emph{Primer.}} Določji kritični točki poti in nariši njen tir poti. 
+        \begin{itemize}
+            \item $\alpha (t) = \begin{cases}
+                0, & t \leq 0 \\
+                t^2, & t > 0
+            \end{cases}$, $\beta (t) = \begin{cases}
+                t^2, & t \leq 0 \\
+                0, & t > 0
+            \end{cases}$
+            \item $\alpha (t) = t^3, \ \beta(t) = t^2$.
+            \item $\alpha (t) = t^3, \ \beta(t) = t^3$.
+            \item $\alpha (t) = t^2, \ \beta(t) = t^2$.
+        \end{itemize}
+        \item Od česa je odvisna tangenta na tir poti? Enačba tangente na tir poti. Enačba normale.
+    \end{itemize}
+\end{enumerate}

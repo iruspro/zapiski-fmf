@@ -1,0 +1,273 @@
+\section*{O MNOŽICAH IN PRESLIKAVAH}
+
+\begin{enumerate}
+    \item O množicah in preslikavah
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Preslikava $f$ iz množice $A$ v množico $B$. Zapis. 
+        \item Domena preslikave $f$ ali definicijsko območje od $f$. Kodomena preslikave $f$. Zaloga vrednosti preslikave $f$.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Surjektivna, injektivna, bijektivna preslikava. 
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Inverzna preslikava.
+        \item \colorbox{yellow!30}{\emph{Opomba.}}  Ali je inverzna preslikava res preslikava?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Ekvipolentni ali enako močni množici.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Kadar končni množici imata enako moč?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Števno neskončna množica.
+        \item \colorbox{blue!30}{\textbf{Trditev.}}  Množici $\ZZ$ in $\QQ$ sta števno neskončni.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Po definiciji.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Trditev.}}  Množica $\RR$ ni števno neskončna.
+        
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} S protislovjem z uporabo Cantorjeva diagonalnega postopka. 
+        \end{itemize}
+    \end{itemize}
+\end{enumerate}
+
+\newpage
+\
+
+\newpage
+\section{ŠTEVILSKA ZAPOREDJA}
+
+\begin{enumerate}
+    \item Stevilska zaporedja
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Zaporedje. $n$-ti člen zaporedja. Zapis.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Navzgor (navzdol) omejeno zaporedje. Zgornja (spodnja) meja zaporedja. Natančna zgornja (spodnja) meja. Oznaki.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Zaporedje konvergira proti $a \in \RR$. Konvergentno/divergentno zaporedje. Limita zaporedja.
+        \begin{itemize}
+            \item \colorbox{yellow!30}{\emph{Opomba.}} Recimo, da zaporedje konvergira proti $a$. Kaj lahko povemo o zunajnosti $\varepsilon$-okolice od $a$?
+            \item \colorbox{yellow!30}{\emph{Opomba.}} Kaj če zaporedje ni konvergira proti $a$?
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Primer.}} Obravnavaj konvergenco zaporedji:
+        \begin{itemize}
+            \item $a_n = 1, \ n \in \NN$.
+            \item $a_n = \frac{1}{n}, \ n \in \NN$.
+            \item $b_n = (-1)^n, \ n \in \NN$.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Trditev.}}  Koliko limit lahko ima konvergentno zaporedje?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Izračunamo $|a-b|$ z uporabo definicije limite, kjer $a$ in $b$ limiti zaporedja $(a_n)_n$.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Ali je vsako konvergentno zaporedje omejeno?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Definicija limite. Koliko členov leži izven $\epsilon$-okolice?
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali je vsako omejeno zaporedje konvergentno?
+    \end{itemize}
+    
+    \item Stekališča
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Stekališče zaporedja.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Definicija stekališča s $\epsilon$-okolicami. Koliko stekališč lahko ima konvergentno zaporedje?
+        \item \colorbox{yellow!30}{\emph{Primer.}} Obravnavaj primeri:
+        \begin{itemize}
+            \item Določi stekališča zaporedja $(-1)^n$.
+            \item Ali obstaja zaporedje, ki ima natanko  $m \in \NN$ stekališč?
+            \item Ali obstaja zaporedje, ki ima za stekališče vsa naravna števila?
+            \item Ali obstaja zaporedje, katerega množica stekališč je $\RR$?
+            \item Ali obstaja zaporedje, katerega množica stekališč je $\QQ$?
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Trditev.}}  Zadosten pogoj, da bi bilo število $s$ stekališče (okolice od $s$).
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Definicija stekališča. Členi v okolici najdemo induktivno.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Kaj lahko povemo o omejenom zaporedju?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Definiramo $S = \set{u \in \RR; a_n < u \text{ izpolnjeno za kvečjemu končno mnogo členov } (a_n)_n}$. Pokažemo, da ima $S$ supremum in ta supremum je stekališče.
+        \end{itemize}
+    \end{itemize}
+
+    \item Monotona zaporedja 
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Naraščajoče/padajoče zaporedje. Strogo naraščajoče/padajoče zaporedje. Monotono zaporedje.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Karakterizacija konvergence pri monotonih zaporedjih.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} $(\Leftarrow)$ Definiramo $A = \set{a_n; \ n \in \NN}$. Pokažemo, da ima ta množica supremum in ta supremum je limita zaporedja $(a_n)_n$.
+            
+            $(\Rightarrow)$ Že vemo.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Čemu je enaka limita naraščajočega/padajočega zaporedja? Ali je vsako naraščajoče zaporedje navzdol omejeno?
+        \item \colorbox{yellow!30}{\emph{Primer.}} Obravnavaj konvergenco zaporedja: $a_n = \frac{1}{\sqrt{n}}$.
+    \end{itemize}
+
+    \item Podzaporedja
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Podzaporedje zaporedja $(a_n)_n$.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Rep zaporedja.
+        \item \colorbox{yellow!30}{\emph{Primer.}} Naj bo $b_n = (-1)^n$. Določi stekališča danega zaporedja. Ali obstaja podzapodja, ki konvergirajo k danim stekališčam?
+        \item \colorbox{blue!30}{\textbf{Trditev.}}  Kaj lahko povemo o konvergence podzaporedja konvergentnega zaporedja?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Po definiciji limite in podzaporedja.
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Kaj lahko povemo o konvergence repa konvergentnega zaporedja?
+        \item \colorbox{blue!30}{\textbf{Izrek.}} (1) Naj bo $s$ stekališče zaporedja $(a_n)_n$. Ali vedno obstaja konvergentno podzaporedje z limito $s$?
+        
+        (2) Recimo, da $s$ limita podzaporedja zaporedja $(a_n)_n$. Kaj je $s$ za $(a_n)_n$?
+        \begin{itemize}
+            \item  \colorbox{green!30}{\textbf{Dokaz.}} (1) Induktivno konstruiramo strogo naraščajoče zaporedje $(n_j)_j$ tako, da $a_{n_k} \in (s - \frac{1}{k}, s + \frac{1}{k})$ za vsak $k = 1, \ldots. j$. Pokažemo po definiciji, da je podzaporedje konvergira proti $s$. 
+            
+            (2) Po definiciji podzaporedja, limite in stekališča.
+            
+        \end{itemize}
+    \end{itemize}
+
+    \newpage
+    \item Računanje z zaporedji
+    \begin{itemize}
+        \item \colorbox{blue!30}{\textbf{Trditev.}}  Konvergenca vsote, razlike in produkta zaporedij.
+        \begin{itemize}
+            \item  \colorbox{green!30}{\textbf{Dokaz.}} Enostavno po definicije limite.            
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Kaj se zgodi s konvergenco, če konvergentno zaporedje pomnožimo z $\lambda \in \RR$?
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali ustrezni pravili veljajo za končno mnogo zaporedij?
+        \item \colorbox{blue!30}{\textbf{Trditev.}}  Konvergenca zaporedja obratnih vrednosti.
+        \begin{itemize}
+            \item  \colorbox{green!30}{\textbf{Dokaz.}} Enostavno po definicije limite.            
+        \end{itemize}
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Konvergenca kvocienta zaporedij.
+        \begin{itemize}
+            \item  \colorbox{green!30}{\textbf{Dokaz.}} Obratna vrednost in nato produkt.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Trditev.}}  Naj bosta $(a_n)_n$ in $(b_n)_n$ konvergentni zaporedji. Recimo, da velja $a_n \leq b_n$ za vse $n \in \NN$. Kaj lahko povemo o limitah teh zaporedij?
+        \begin{itemize}
+            \item  \colorbox{green!30}{\textbf{Dokaz.}} Enostavno s protislovjem.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali iz $a_n < b_n$ za vse $n \in \NN$ sledi, da je $\lim_{n \to \infty} a_n < \lim_{n \to \infty} b_n$?
+        \item \colorbox{yellow!30}{\emph{Primer.}} Obravnavaj konvergenco zaporedja podanega rekurzivno: $x_1 = 2, \ x_{n+1} = x_n - \frac{x_{n}^2-2}{2x_n}$.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Izrek o sendviču.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Definicija limite.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Primer.}} Obravnavaj konvergenco zaporedja $b_n = \sqrt{n+1} - \sqrt{n}$.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} O vloženih intervalih.
+        \begin{itemize}
+            \item  \colorbox{green!30}{\textbf{Dokaz.}} Pokažemo, da zaporedji $(a_n)_n$ in $(b_n)_n$ konvergentni in velja $\lim_{n \to \infty} a_n = \lim_{n \to \infty} b_n$. Definiramo $c = \lim_{n \to \infty} a_n$.
+        \end{itemize}
+    \end{itemize}
+
+    
+    \item Cauchyjev pogoj
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Cauchyjev pogoj. Cauchyjevo zaporedje.
+        \item \colorbox{blue!30}{\textbf{Trditev.}}  Ali je omejeno zaporedje, ki ima eno samo stekališče $s$ konvergentno?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Naj bo $\epsilon > 0$. S protislovjem pokažemo, da zunaj $(s-\epsilon, s+\epsilon)$ leži kvečjemu končno mnogo členov zaporedja.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Zakaj potrebujemo omejenost v prejšnji trditvi?
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Karakterizacija konvergence zaporedja z Cauchyjevim pogojem.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} $(\Rightarrow)$ Enostavno po definicijam.
+            
+            $(\Leftarrow)$ 1. Pokažemo, da je vsako Cauchyjevo zaporedje omejeno.
+
+            2. Pokažemo, da Cauchyjevo zaporedje nima dveh različnih stekališč $s$ in $t$ (poiščemo prostislovje z $\epsilon = \frac{1}{3}|s-t|$) in uporabimo prejšnjo trditev.
+        \end{itemize}  
+    \end{itemize}
+
+    \item Zgornja limita, spodnja limita, limita neskončno
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Zaporedje $(a_n)_n$ konvergira proti $\pm \infty$.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Zgornja limita (limes superior). Spodnja limita (limes inferior). Oznake.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Zakaj je definicija dobra?
+        \item \colorbox{blue!30}{\textbf{Trditev.}}  Karakterizacija limes superioira. 
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} $(\Rightarrow)$ Definicija limes superiora, stekališča in prejšnje trditve.
+            
+            $(\Leftarrow)$ Ali je $s$ največje stekališče?
+        \end{itemize}  
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Ali je limes superior stekališče zaporedja?
+        \item \colorbox{blue!30}{\textbf{Trditev.}}  Čemu je enak $\limsup_{n \to \infty} a_n$?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Najprej pokažemo, da je zaporedje $\sup_{k \geq n}a_k$ konvergentno in določimo njegovo limito. Nato pokažemo na podlage prejšnje trditve, da je ta limita enaka $\limsup_{n \to \infty} a_n$.
+        \end{itemize}  
+        \item \colorbox{blue!30}{\textbf{Trditev.}}  Naj bosta $(a_n)_n$ in $(b_n)_n$ omejeni zaporedji. Recimo, da velja $a_n \leq b_n$ za vse $n \in \NN$. Kaj lahko povemo o limes superiorah in limes inferiorah teh zaporedij?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Limes superior in limes inferior za neomejena zaporedja (navzgor neomejeno, navzdol neomejeno, omejeno navzdol in neomojeno navzgor, omejeno navzor in neomejeno navzdol).
+    \end{itemize}
+
+    \newpage
+    \item Primeri posebnih zaporedij
+    \begin{itemize}
+        \item \colorbox{blue!30}{\textbf{Trditev.}}  Naj bo $a \in \RR$. Obravnavaj konvergenco zaporedja $a_n = a^n$.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} (1) $a \in (0, 1)$: Pokažemo, da zaporedje $(a_n)_n$ padajoče in navzdol omejeno.
+            
+            $a \in (-1, 0)$: Ocenimo $-|a_n| \leq a_n \leq |a_n|$.
+
+            (2) Pokažemo, da zaporedje je naraščajoče in navzdol omejeno z $1$. Kaj je edina možna limita?
+        \end{itemize} 
+        \item \colorbox{blue!30}{\textbf{Trditev.}}  Naj bo $x \in \RR, \ x>0$. Obravnavaj konvergenco zaporedja $a_n = \sqrt[n]{x}$.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} (1) $x>1$: Pokažemo, da zaporedje $(\sqrt[n]{x})_n$ je padajoče in navzdol omejeno. Pokažemo, da je $1$ spodnja meja in ocenimo $L = \lim_{n \to \infty} \sqrt[n]{x}$.
+            
+            (2) $x<1 \Rightarrow x = \frac{a}{b}$.
+        \end{itemize} 
+        \item \colorbox{blue!30}{\textbf{Trditev.}}  Obravnavaj konvergenco zaporedja $a_n = \sqrt[n]{n}$.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Z pomočjo binomske formule in zapisa $n = (\sqrt[n]{n})^n = (1 + (\sqrt[n]{n} - 1))^n$ ocenimo izraz $\sqrt[n]{n} - 1$. 
+        \end{itemize} 
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Obravnavaj konvergenco zaporedja $\left( \left( 1 + \frac{1}{n}\right)^n \right)_n$.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Najprej izračunamo $\binom{n}{k} \frac{1}{n^k}$. Nato s pomočjo binomske formule pokažemo, da je zaporedje naraščajoče. Z istim trikom in vsoto geometrijske vreste pokažemo, da je zaporedje navzgor omejeno.
+        \end{itemize} 
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Eulerjevo število.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Določi $\displaystyle \lim_{m \to -\infty} \left( 1 + \frac{1}{m}\right)^m$.
+    \end{itemize}
+
+    \item Definicija potence pri realnem eksponentu
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Definicija potence pri racionalnem eksponentu.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Kaj velja za računanje z racionalnimi potencami (3 lastnosti + monotonost)?
+        \item \colorbox{blue!30}{\textbf{Trditev.}}  Naj bo $a \in \RR, \ a>0$. Ali lahko za vsak $\epsilon > 0$ najdemo $\delta>0$, za katero velja: če je $h \in \QQ, \ |h| < \delta$, potem $|a^h - 1| < \epsilon$?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Uporabimo znani limiti: $\lim_{n \to \infty} \sqrt[n]{a}$ in $\lim_{n \to \infty} \sqrt[n]{\frac{1}{a}}$.
+        \end{itemize} 
+        \item \colorbox{blue!30}{\textbf{Trditev.}}  Naj bo $a \in \RR, \ a>0$. Denimo, da zaporedje $(q_n)_n, \ q_n \in \QQ$ konvergira proti $x \in \RR$. Ali potem kovergira zaporedje $(a^{q_n})_n$. Kaj če je $x \in \QQ$?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Pokažemo, da je zaporedje $(a^{q_n})_n$ Cauchyjevo. Izraz za limito dokažemo po definiciji. Pri dokazu uporabimo prejšnjo trditev.
+        \end{itemize} 
+        \item \colorbox{blue!30}{\textbf{Trditev.}}  Naj bo $a \in \RR, \ a>0$. Denimo, da imata zaporedja $(q_n)_n, \ q_n \in \QQ$ in $(r_n)_n, \ r_n \in \QQ$ enako limito. Ali potem $\lim_{n \to \infty} a^{q_n} = \lim_{n \to \infty} a^{r_n}$?
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Pokažemo, da je $\lim_{n \to \infty} (a^{q_n} - a^{r_n}) = 0$. Pri dokazu uporabimo predprejšnjo trditev.
+        \end{itemize} 
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Definicija potence pri realnem eksponentu.
+        \item \colorbox{blue!30}{\textbf{Trditev.}}  Dokaži, da za vse $x, y \in \RR$ in vse $a \in \RR, \ a>0$ velja: 
+        
+        (1) $a^x \cdot a^y = a^{x+y}$.
+        
+        (2) $a^x \cdot b^x = (a \cdot b)^{x}$.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Poračunamo.
+        \end{itemize} 
+        \item \colorbox{blue!30}{\textbf{Trditev.}}   Naj bo $a \in \RR, \ a>0$. Določi limito zaporedja $b_n = \frac{1}{n^a}$.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Definicija limite in arhimedska lastnost.
+        \end{itemize} 
+        \item \colorbox{blue!30}{\textbf{Trditev.}}  Naj bo $\alpha \in \RR, \ q \in \RR, \ q>1$. Določi limito zaporedja $a_n = \frac{n^\alpha}{q^n}$.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Pokažemo, da je padajoče in navzdol omejeno. Limito izračunamo iz rekuzivne zveze.
+        \end{itemize} 
+    \end{itemize}
+
+    \item Zaporedja kompleksnih števil
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Zaporedje kompleksnih števil. Zapis.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Zaporedje kompleksnih števil konvergira proti $z \in \CC$.
+        \item \colorbox{blue!30}{\textbf{Trditev.}}  Karakterizacija konvergence zaporedja kompleksnih števil (realni in imaginarni del).
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Enostavno z izračunom absolutne vrednosti števila $z \in \CC$.
+        \end{itemize} 
+        \item  \colorbox{blue!30}{\textbf{Trditev.}}  Konvergenca vsote, razlike, produkta in kvocienta zaporedij kompleksnih števil.
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Podobno kot pri realnih zaporedjih.
+        \end{itemize} 
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Cauchyjevo zaporedje.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Karakterizacija konvergence zaporedja kompleksnih števil (Cauchyjev pogoj).
+        \begin{itemize}
+            \item \colorbox{green!30}{\textbf{Dokaz.}} Podobno kot pri prejšnje karakterizacije pokažemo, da $(z_n)_n$ je Cauchyjevo natanko takrat, ko $(\text{Re } z_n)_n$ in $(\text{Im } z_n)_n$ sta Cauchyjevi.
+        \end{itemize} 
+    \end{itemize}
+\end{enumerate}
+
+\newpage
+\

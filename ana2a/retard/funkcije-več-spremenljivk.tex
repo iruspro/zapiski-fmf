@@ -1,0 +1,186 @@
+\section{Funkcije več spremenljivk}
+\subsection{Prostor $\RR^n$}
+$\RR^n$ je vektorski prostor nad $\RR$. 
+Če je $x, y \in \RR^n$, potem $x = (x_1, \ldots, x_n)$, $y = (y_1, \ldots, y_n)$. 
+
+Naj bo $\alpha \in \RR$. Operaciji $x+y$ in $\alpha x$ sta definirani po komponentah.
+
+\begin{definicija}
+    \emph{Standardna baza} prostora $\RR^n$ je množica $\set{e_j; \ j = 1, \ldots, n}$, kjer $\displaystyle e_j = (0, \ldots, 0, 1_j , 0, \ldots, 0)$.
+\end{definicija}
+
+\begin{opomba}
+    V prostorah $\RR, \ \RR^2, \ \RR^3$ ponavadi koordinate točk označimo z $x, y, z$.
+\end{opomba}
+
+\begin{definicija}
+    Standardna baza prostora $\RR^3$ je množica $\set{\vec{i}, \vec{j}, \vec{k}}$.
+\end{definicija}
+
+\begin{definicija}
+    \emph{Standardni skalarni produkt vektrojev $x, y \in \RR^n$} je $x \cdot y = \sum_{j=1}^{n} x_jy_j$.
+
+    \emph{Norma vektorja $x \in \RR^n$} je  $||x||_2= \sqrt{x \cdot x} = \sqrt{x_1^2+\ldots+x_n^2}$.
+
+    \emph{Razdalja med vektorjama $x, y \in \RR^n$} je $d_2(x,y) = ||x-y||_2 = \sqrt{(x_1-y_1)^2 + \ldots + (x_n - y_n)^2}$.
+\end{definicija}
+
+\begin{definicija}
+    \emph{Odprta krogla s središčem v $a \in \RR^n$ in polmerom $r>0$} je množica $K(a, r) = \set{x \in \RR^n; \ d_2(x,a)<r}.$
+
+    \emph{Zaprta krogla s središčem v $a \in \RR^n$ in polmerom $r>0$} je množica $K(a, r) = \set{x \in \RR^n; \ d_2(x,a) \leq r}$.
+
+    \emph{Sfera} je množica $S(a,r) = \set{x \in \RR^n; \ d_2(x,a) = r}$
+\end{definicija}
+
+Metrični prostor $(\RR^n, d_2)$ porodi topologijo na $\RR^n$. Oznaki: $D^\text{odp}$ je odprta množica, $Z$ je zaprta množica.
+
+\begin{opomba}
+    Metrična prostora $(\RR^n, d_2)$ in $(\RR^n, d_\infty)$ imata isto topologijo.
+\end{opomba}
+
+\begin{trditev}
+    Naj bo $(M, d)$ metrični prostor in $K \subset M$. Če je $K$ kompaktna, potem je zaprta in omejena.
+\end{trditev}
+
+\begin{izrek}
+    Naj bo $K \subset \RR^n$, potem
+
+    $$K \text{ je kompaktna} \liff K \text{ je zaprta in omejena}.$$
+\end{izrek}
+
+\begin{definicija}
+    Naj bo $a, b \in \RR^n, \ a = (a_1, \ldots, a_n), \ b= (b_1, \ldots, b_n)$. Definiramo:
+    \begin{align*}
+        a \leq b \liff \all{j = 1, \ldots, n} a_j \leq b_j. \\
+        a < b \liff \all{j = 1, \ldots, n} a_j < b_j.
+    \end{align*}
+\end{definicija}
+
+\begin{definicija}
+    Naj bo $a, b \in \RR^n, \ a< b$. \emph{Odprti kvader $(a,b)$} je množica $(a,b) = \set{x \in \RR^n; \ a<x<b}$.
+
+    Naj bo $a, b \in \RR^n, \ a \leq b$. \emph{Zaprti kvader $[a,b]$} je množica $[a,b] = \set{x \in \RR^n; \ a \leq x \leq b}$.
+\end{definicija}
+
+\begin{opomba}
+    Dolžine stranic kvadra $[a,b]$ je $b_j-a_j$. Volumen kvadra $[a,b]$ je $\Pi_{j=1}^n(b_j-a_j)$. 
+    
+    Če so vse strani kvadra enaki, potem kvader je \emph{kocka}.
+\end{opomba}
+
+\newpage
+\subsection{Zaporedja v $\RR^n$}
+\begin{definicija}
+    \emph{Zaporedje v $\RR^n$} je preslikava $a: \NN \to \RR^n$. Namesto $a(m)$ pišimo $a_m$, $a_m = (a_1^m, \ldots, a_n^m)$.
+\end{definicija}
+
+\begin{opomba}
+    Zaporedje v $\RR^n$ porodi $n$ zaporedij v $\RR$.
+\end{opomba}
+
+\begin{trditev}
+    Naj bo $(a_m)_m$ zaporedje v $\RR^n$, $a_m = (a_1^m, \ldots, a_n^m)$. Velja:
+    $$\text{Zaporedje } (a_m)_m \text{ konvergia } \liff \text{ konvergira zaporedja } (a_1^m)_m, \ldots, (a_n^m)_m.$$
+    V primeru konvergence velja:
+    $$\lim_{m \to \infty} a_m = (\lim_{m \to \infty} a_1^m, \ldots, \lim_{m \to \infty} a_n^m).$$
+\end{trditev}
+
+\begin{proof}
+    Definicija limite.
+\end{proof}
+
+\subsection{Zveznost preslikav iz $\RR^n$ v $\RR^m$}
+\subsubsection{Zveznost preslikav iz $\RR^n$ v $\RR$}
+\begin{opomba}
+    Če je $m=1$, potem preslikave rečemo \emph{funkcija}.
+\end{opomba}
+
+\begin{definicija}
+    Naj bo $f: D \subseteq \RR^n \to \RR^m$ preslikava. Naj bo $a \in D$. \emph{Preslikava $f$ je zvezna v $a$}, če 
+    $$\all{\epsilon > 0} \some{\delta >0} \all{x \in D} d(x, a) \lthen d(f(x), f(a)).$$
+\end{definicija}
+
+\begin{definicija}
+    Naj bo $f: D \subseteq \RR^n \to \RR^m$ preslikava. Preslikava $f$ je \emph{zvezna na $D$}, če je zvezna v vsaki točki $a \in D$.
+\end{definicija}
+
+\begin{definicija}
+    Naj bo $f: D \subseteq \RR^n \to \RR^m$ preslikava. Preslikava $f$ je \emph{enakomerno zvezna na $D$}, če
+    $$\all{\epsilon > 0} \some{\delta > 0} \all{x, x' \in D} d(x, x') < \delta \lthen d(f(x), f(x')) < \epsilon.$$
+\end{definicija}
+
+\begin{opomba}
+    Velja karakterizacija zveznosti v točki z zaporedji.
+\end{opomba}
+
+\begin{opomba}
+    Zvezna preslikava na kompaktne množice je enakomerno zvezna.
+\end{opomba}
+
+\begin{trditev}
+    Naj bosta $f, g: D \subset \RR^n \to \RR$ zvezni funkciji v $a \in D$. Naj bo $\lambda \in \RR$. Tedaj so v $a$ zvezni tudi funkcije:
+    $$f+g, \ f-g, \ \lambda f, \ fg.$$
+\end{trditev}
+
+\begin{proof}
+    Z zaporedji kot pri analizi 1.
+\end{proof}
+
+\begin{zgled}
+    Nekaj primerov zveznih preslikav.
+    \begin{itemize}
+        \item Preslikava $\Pi_j(x_1, \ldots, x_n) = x_j$ je zvezna na $\RR^n$ za vsak $j = 1, \ldots, n$.
+        \item Vsi polinomi v $n$-spremenljivkah so zvezne funkcije na $\RR^n$.
+        \item Vse racionalne funkcije so zvezne povsod, razen tam, kjer je imenovalec enak $0$.
+    \end{itemize}
+\end{zgled}
+
+\begin{definicija}
+    Preslikava $f: D \subset \RR^n \to \RR$ je \emph{funkcija $n$-spremenljivk.}
+\end{definicija}
+
+\begin{opomba}
+    Naj bo $(M, d)$ metrični prostor in $N \subset M$. Naj bo $f: M \to \RR$ zvezna funkcija na $M$. Potem $f|_N$ je tudi zvezna funkcija na $N$.
+\end{opomba}
+
+\begin{trditev}
+    Naj bosta $D \subseteq \RR^n$ in $D_j = \Pi_j(D)$. Naj bo $a \in D, \ a =(a_1, \ldots, a_n)$ in $f: D \to \RR$ zvezna v $a$. Tedaj za vsak $j = 1, \ldots, n$ funkcija $\varphi_j: D_j \to \RR, \ \varphi_j(t) = f(a_1, \ldots, a_{j-1}, t, a_{j+1}, \ldots, a_n)$ zvezna v $a_j$.
+\end{trditev}
+
+\begin{proof}
+    Definicija zveznosti v točki.
+\end{proof}
+
+\begin{opomba}
+    Če je funkcija več spremenljivk zvezna v neki točki $a \in \RR^n$, je zvezna tudi kot funkcija posameznih spremenljivk.
+\end{opomba}
+
+\begin{zgled}
+    Naj bo $f(x,y) = \begin{cases}
+        \frac{2xy}{x^2+y^2}; &(x,y) \neq (0,0) \\
+        0; &(x,y) = (0,0)
+    \end{cases}$. Ali je $f$ zvezna kot funkcija vsake spremenljivke posebej? Ali je $f$ zvezna na $\RR^2$?
+\end{zgled}
+
+\begin{zgled}
+    Naj bo $f(x,y) = \begin{cases}
+        \frac{2x^2y}{x^4+y^2}; &(x,y) \neq (0,0) \\
+        0; &(x,y) = (0,0)
+    \end{cases}$. Ali je $f$ zvezna kot funkcija vsake spremenljivke posebej? Ali je zvezna na vsaki premici? Ali je $f$ zvezna na $\RR^2$?
+\end{zgled}
+
+\newpage
+\subsubsection{Zveznost preslikav iz $\RR^n$ v $\RR^m$}
+Naj bo $D \subseteq \RR^n$ in $F: D \to \RR^m$ preslikava. Naj bo $x \in D$, potem $F(x) \in \RR^m, \ F(x) = y = (y_1, \ldots, y_m)$.
+
+Lahko pišemo $F(x) = (f_1(x), \ldots, f_m(x))$. Torej $F$ določa $m$ funkcij $n$-spremenljivk.
+
+\begin{trditev}
+    Naj bo $a \in D \subseteq \RR^n$. Naj bo $F=(f_1, \ldots, f_m): D \to \RR^m$ preslikava. Velja:
+    $$\text{Preslikava } F \text{ je zvezna v } a \liff f_1,\ldots, f_m \text{ so zvezne v } a.$$
+\end{trditev}
+
+\begin{proof}
+    Definicija zveznosti v točki.
+\end{proof}

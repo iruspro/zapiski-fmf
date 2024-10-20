@@ -1,0 +1,28 @@
+\section{POSPLOŠENI INTEGRAL}
+{\color{Purple} \subsection*{Definicija posplošenega integrala (nalogi $22-23$)}}
+\textbf{Definicija.} Naj bo $f: [a, b) \to \RR$ funkcija, ki je integrabilna na vsakem intervalu $[a,t]$, kjer je $t \in [a, b)$. Potem je \emph{posplošeni integral} funkcije $f$ na intervalu $[a, b]$: $\displaystyle \int_{a}^{b} f(x)  \,dx = \lim_{t \nearrow  b}  \int_{a}^{t} f(x)  \,dx $, če ta limita obstaja. Podobno v neskončnosti.
+
+Torej z posplošenim integralom lahko računamo ploščine neomejenih likov:
+\begin{enumerate}
+    \item Lik razdelimo na več delov, tako da ima vsak del samo en neomejen kos.
+    \item Vsak neomejen kos aproksimiramo z omejenimi in pogledamo ali obstajajo limite ploščin omejenih aproksimacij.
+\end{enumerate}
+
+{\color{Purple} \subsection*{Kriterija za konvergenco (nalogi $24-25$)}}
+Če je funkcija $f$ absolutno posplošeno integrabilna, potem je posplošeno integrabilna.
+
+Za testiranje konvergence imamo 2 kriterja:
+\begin{enumerate}
+    \item \textbf{Konvergrenca v polu.} Naj bo $g: (a,b) \to \RR$ zvezna funkcija, ki ima limito $\displaystyle L = \lim_{x \searrow a}g(x)$. Potem integral $\displaystyle \int_{a}^{b} \frac{g(x)}{(x-a)^s}  \,dx $:
+    \begin{itemize}
+        \item konvergira, če je $s<1$;
+        \item divergira, če je $s \geq 1$ in $L \neq 0$.
+    \end{itemize}
+    \item \textbf{Konvergenca v neskončnosti.} Naj bo $g: [a,\infty) \to \RR$ zvezna funkcija, ki ima limito $\displaystyle L = \lim_{x \to \infty}g(x)$. Potem integral $\displaystyle \int_{a}^{\infty} \frac{g(x)}{x^s}  \,dx $:
+    \begin{itemize}
+        \item konvergira, če je $s>1$;
+        \item divergira, če je $s \leq 1$ in $L \neq 0$.
+    \end{itemize}
+\end{enumerate}
+
+\textbf{\textcolor{Orange}{Nasvet.}} Da ugotovimo, kakšne stopnje pol ima funkcija, vse, kar ne prispeva k polu izrazimo s funkcijo $g$.
