@@ -1,5 +1,6 @@
 \section{Funkcije več spremenljivk}
 \subsection{Prostor $\RR^n$}
+\subsubsection{Uvodni pojmi}
 $\RR^n$ je vektorski prostor nad $\RR$. 
 Če je $x, y \in \RR^n$, potem $x = (x_1, \ldots, x_n)$, $y = (y_1, \ldots, y_n)$. 
 
@@ -25,12 +26,16 @@ Naj bo $\alpha \in \RR$. Operaciji $x+y$ in $\alpha x$ sta definirani po kompone
     \emph{Razdalja med vektorjama $x, y \in \RR^n$} je $d_2(x,y) = ||x-y||_2 = \sqrt{(x_1-y_1)^2 + \ldots + (x_n - y_n)^2}$.
 \end{definicija}
 
+\begin{opomba}
+    Standardno normo $|| \cdot ||$ bomo pisali kot $| \cdot |$.
+\end{opomba}
+
 \begin{definicija}
-    \emph{Odprta krogla s središčem v $a \in \RR^n$ in polmerom $r>0$} je množica $K(a, r) = \set{x \in \RR^n; \ d_2(x,a)<r}.$
+    \emph{Odprta krogla s središčem v $a \in \RR^n$ in polmerom $r>0$} je množica $K(a, r) = \set{x \in \RR^n; \ ||x-a||<r}.$
 
-    \emph{Zaprta krogla s središčem v $a \in \RR^n$ in polmerom $r>0$} je množica $K(a, r) = \set{x \in \RR^n; \ d_2(x,a) \leq r}$.
+    \emph{Zaprta krogla s središčem v $a \in \RR^n$ in polmerom $r>0$} je množica $K(a, r) = \set{x \in \RR^n; \ ||x-a|| \leq r}$.
 
-    \emph{Sfera} je množica $S(a,r) = \set{x \in \RR^n; \ d_2(x,a) = r}$
+    \emph{Sfera} je množica $S(a,r) = \set{x \in \RR^n; \ ||x-a|| = r}$
 \end{definicija}
 
 Metrični prostor $(\RR^n, d_2)$ porodi topologijo na $\RR^n$. Oznaki: $D^\text{odp}$ je odprta množica, $Z$ je zaprta množica.
@@ -38,10 +43,6 @@ Metrični prostor $(\RR^n, d_2)$ porodi topologijo na $\RR^n$. Oznaki: $D^\text{
 \begin{opomba}
     Metrična prostora $(\RR^n, d_2)$ in $(\RR^n, d_\infty)$ imata isto topologijo.
 \end{opomba}
-
-\begin{trditev}
-    Naj bo $(M, d)$ metrični prostor in $K \subset M$. Če je $K$ kompaktna, potem je zaprta in omejena.
-\end{trditev}
 
 \begin{izrek}
     Naj bo $K \subset \RR^n$, potem
@@ -69,8 +70,7 @@ Metrični prostor $(\RR^n, d_2)$ porodi topologijo na $\RR^n$. Oznaki: $D^\text{
     Če so vse strani kvadra enaki, potem kvader je \emph{kocka}.
 \end{opomba}
 
-\newpage
-\subsection{Zaporedja v $\RR^n$}
+\subsubsection{Zaporedja v $\RR^n$}
 \begin{definicija}
     \emph{Zaporedje v $\RR^n$} je preslikava $a: \NN \to \RR^n$. Namesto $a(m)$ pišimo $a_m$, $a_m = (a_1^m, \ldots, a_n^m)$.
 \end{definicija}
@@ -117,6 +117,17 @@ Metrični prostor $(\RR^n, d_2)$ porodi topologijo na $\RR^n$. Oznaki: $D^\text{
 \begin{opomba}
     Zvezna preslikava na kompaktne množice je enakomerno zvezna.
 \end{opomba}
+
+\begin{definicija}
+    Preslikava $f: D \to X'$ je \emph{$C$-lipschitzova}, če
+    $$\all{x, x' \in D} d'(f(x), f(x')) \leq Cd(x, x').$$
+\end{definicija}
+
+\begin{trditev}
+    Za preslikavo $f: D \to X'$ velja:
+
+    $$f \text{ je $C$-lipschitzova } \lthen f \text{ je enakomerno zvezna } \lthen f \text{ je zvezna}.$$
+\end{trditev}
 
 \begin{trditev}
     Naj bosta $f, g: D \subset \RR^n \to \RR$ zvezni funkciji v $a \in D$. Naj bo $\lambda \in \RR$. Tedaj so v $a$ zvezni tudi funkcije:
@@ -170,6 +181,10 @@ Metrični prostor $(\RR^n, d_2)$ porodi topologijo na $\RR^n$. Oznaki: $D^\text{
     \end{cases}$. Ali je $f$ zvezna kot funkcija vsake spremenljivke posebej? Ali je zvezna na vsaki premici? Ali je $f$ zvezna na $\RR^2$?
 \end{zgled}
 
+\begin{opomba}
+    Zgleda pokažeta, da obrat v prejšnji trditvi ne velja.
+\end{opomba}
+
 \newpage
 \subsubsection{Zveznost preslikav iz $\RR^n$ v $\RR^m$}
 Naj bo $D \subseteq \RR^n$ in $F: D \to \RR^m$ preslikava. Naj bo $x \in D$, potem $F(x) \in \RR^m, \ F(x) = y = (y_1, \ldots, y_m)$.
@@ -184,3 +199,119 @@ Lahko pišemo $F(x) = (f_1(x), \ldots, f_m(x))$. Torej $F$ določa $m$ funkcij $
 \begin{proof}
     Definicija zveznosti v točki.
 \end{proof}
+
+\begin{opomba}
+    Linearne preslikave so zvezne, saj so vse koordinatne funkcije linearne (polinomi 1. stopnje).
+\end{opomba}
+
+\begin{zgled}[Omejenost linearnih preslikav]
+    Naj bo $\lin{A}: \RR^n \to \RR^m$ linearna preslikava, potem $$\some{ M \in \RR \, . \, M \geq 0} \all{x \in \RR^n \, . \, x \neq 0 }  \frac{|\lin{A}x|}{|x|} \leq M.$$
+    Lahko zapišemo $\sup \frac{|\lin{A}x|}{|x|} = \sup_{|x|=1}|\lin{A}x| = ||A||$. Dobimo normo na matrikah.
+
+    Trdimo: Naj bo $\lin{A}: \RR^n \to \RR^m$ linearna preslikava. Tedaj je $\lin{A}$ zvezna na $\RR^n$. Zveznost linearnih preslikav je ekvivalentna zveznosti v točki $0$. Vse skupaj je ekvivalentno omejenosti linearnih preslikav.
+\end{zgled}
+
+\begin{proof}
+    Definicija zveznosti in omejenosti.
+\end{proof}
+
+\begin{definicija}
+    Naj bo $\lin{A}: \RR^n \to \RR^m$ linearna preslikava. Preslikavo $\lin{A}: \RR^n \to \RR^m, \ x \mapsto \lin{A}x + b, \ b \in \RR^m$ imenujemo \emph{afina preslikava}.
+\end{definicija}
+
+\subsection{Parcialni odvodi in diferenciabilnost}
+\subsubsection{Parcialni odvod}
+\begin{definicija}
+    Naj bo $f: D \subset \RR^n \to \RR$ funkcija. Naj bo $a = (a_1, \ldots, a_n) \in D$ notranja točka. Funkcija $f$ je \emph{parcialno odvedljiva} po spremenljivki $x_j$ v točki $a$, če obstaja limita 
+    $$\lim_{h \to 0} \frac{f(a_1, \ldots, a_{j-1}, a_j+h, a_{j+1}, \ldots, a_n) - f(a_1, \ldots, a_n)}{h},$$
+    oz. če je funkcija 
+    $$x_j \mapsto f(a_1, \ldots, a_{j-1}, x_j, a_{j+1}, \ldots, a_n)$$
+    odvedliva v točki $a_j$.
+
+    Če je ta limita obstaja, je to \emph{parcialni odvod} funkcije $f$ po spremenljivki $x_j$ v točki $a$.
+    Oznaki: $\frac{\partial f}{\partial x_j}(a), \ f_{x_j}(a), \ (D_jf)(a)$.
+\end{definicija}
+
+\begin{opomba}
+    Vse elementarne funkcije so parcialno odvedljive po vseh spremenljivkah tam, kjer so definirane.
+\end{opomba}
+
+\begin{zgled}
+    Naj bo $f(x, y, z) = e^{x+2y} + \cos(xz^2)$. Potem $f_x(x, y, z) = \podv{f}{x}{x, y, z} = e^{x+2y} - z^2 \sin(xz^2)$.
+\end{zgled}
+
+\subsubsection{Diferenciabilnost}
+\begin{definicija}
+    Naj bo $f: D \subset \RR^n \to \RR$ funkcija. Naj bo $a = (a_1, \ldots, a_n) \in D$ notranja točka. Funkcija $f$ je \emph{diferenciabilna} v točki $a$, če obstaja tak linearen funkcional $\lin{L}: \RR^n \to \RR$, da velja:
+    $$f(a+h) = f(a) + \lin{L}(h) + o(h),$$
+    kjer $\lim_{h \to 0} \frac{|o(h)|}{|h|} = 0$.
+\end{definicija}
+
+\begin{opomba}
+    Če je tak $\lin{L}$ obstaja, je enolično določen.
+\end{opomba}
+
+\begin{proof}
+    Pokažemo, da iz $\lin{L}(h) = (\lin{L}_1 - \lin{L}_2)(h) = (o_2 - o_1)(h) = o(h)$ sledi, da je $L = 0$. Zato uporabimo vektor $v = tv_0$, kjer $|v_0| = 1, \ |v| = t$ na linearnem funkcionalu $\lin{L}$.
+\end{proof}
+
+\begin{definicija}
+    Če je $f$ diferenciabilna v $a$ je $\lin{L}$ natanko določen in ga imenujemo \emph{diferencial} funkcije $f$ v točki $a$. Oznaka: $\lin{L} = df_a$. Linearen funkcional $\lin{L}$ imenujemo tudi \emph{odvod} funkcije $f$ v točki $a$. Oznaka: $(Df)(a)$.
+\end{definicija}
+
+\begin{opomba}
+    Recimo, da je funkcija $f$ diferenciabilna v točki $a$. Preslikava $h \mapsto f(a) + (df_a)(h)$ je najboljša afina aproksimacija funkcije $h \to f(a+h)$.
+\end{opomba}
+
+\begin{trditev}
+    Naj bo $f: D \subset \RR^n \to \RR$ diferenciabilna v notranji točki $a \in D$. Tedaj je $f$ v $a$ parcialno odvedljiva po vseh spremenljivkah. Poleg tega je zvezna v $a$. Pri tem za $h = (h_1, \ldots, h_n)$ velja:
+    $$(df_a)(h) = \podv{f}{x_1}{a} \cdot h_1 + \ldots + \podv{f}{x_n}{a} \cdot h_n = f_{x_1}(a) \cdot h_1 + \ldots + f_{x_n}(a) \cdot h_n$$
+\end{trditev}
+
+\begin{opomba}
+    Naj bo $\lin{L}: \RR^n \to \RR$ linearen funkcional, $x \in \RR^n$, potem $\lin{L}(x) = l_1x_1+\ldots+l_nx_n = \begin{bmatrix}
+        l_1 & \ldots & l_n
+    \end{bmatrix} \cdot \begin{bmatrix}
+        x_1 \\ \vdots \\ x_n
+    \end{bmatrix}$, kjer~$\begin{bmatrix}
+        l_1 & \ldots & l_n
+    \end{bmatrix}$ matrika linearnega funkcionala glede na standardne baze.    
+\end{opomba}
+
+\begin{proof}
+    Zveznost pokažemo z limito. Za parcialno odvedljivost poglejmo kaj se dogaja za $h = (h_1, 0, \ldots, 0)$.
+\end{proof}
+
+\begin{opomba}
+    Trditev pove, da je $(df_a)(h) = \begin{bmatrix}
+        \podv{f}{x_1}{a} & \ldots & \podv{f}{x_n}{a} 
+    \end{bmatrix} \cdot \begin{bmatrix}
+        h_1 \\ \vdots \\ h_n
+    \end{bmatrix} = (\podv{f}{x_1}{a}, \ldots, \podv{f}{x_n}{a}) \cdot (h_1, \ldots, h_n)$.
+
+    Zapis: $(\vec{\nabla} f) (a) = (\grad f)(a) = (\podv{f}{x_1}{a}, \ldots, \podv{f}{x_n}{a})$.
+
+    Vektor $(\grad f)(a)$ imenujemo \emph{gradient funkcije} $f$ v točki $a$. Operator $\vec{\nabla} = (\frac{\partial}{\partial x_1}, \ldots, \frac{\partial}{\partial x_n})$ je \emph{operator Nabla}.
+\end{opomba}
+
+\begin{zgled}
+    Naj bo $f(x,y) = \begin{cases}
+        \frac{2xy}{x^2+y^2}; &(x,y) \neq (0,0) \\
+        0; &(x,y) = (0,0)
+    \end{cases}$. Ali je $f$ diferenciabilna?
+\end{zgled}
+
+\begin{zgled}
+    Naj bo $f(x,y) = \begin{cases}
+        \frac{2x^2y}{x^2+y^2}; &(x,y) \neq (0,0) \\
+        0; &(x,y) = (0,0)
+    \end{cases}$. Ali je $f$ zvezna? Ali je $f$ parcialno odvedljiva? Ali je $f$ diferenciabilna?
+\end{zgled}
+
+\begin{opomba}
+    Zgleda pokažeta, da obrat v prejšnji trditvi ne velja
+\end{opomba}
+
+\begin{izrek}
+    Naj bo $f: D \subseteq \RR^n \to \RR$ funkcija in naj bo $a \in D$ notranja točka. Denimo, da je $f$ parcialno odvedljiva po vseh spremenljivkah v okolici točke $a$ in so parcialni odvodi zvezni v $a$. Tedaj je $f$ diferenciabilna v $a$.
+\end{izrek}
