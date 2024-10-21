@@ -1,0 +1,136 @@
+\section{Uvod v teorijo grup}
+\subsection{Uvod v teorijo grup}
+\begin{definicija}
+    Naj bo $S$ neprazna množica. \emph{Operacija na množice $S$} je preslikava $*: S \times S \to S, \ (a,b) \mapsto a * b$.
+
+    Operacija $*$ je \emph{asociativna}, če $\all{a, b, c \in S} (a*b)*c = a*(b*c)$.
+
+    Operacija $*$ je \emph{komutativna}, če $\all{a, b \in S} a* b = b* a$.
+\end{definicija}
+
+\begin{definicija}
+    Neprazna množica $S$ skupaj z operacijo $*$ je \emph{polgrupa}, če je operacija $*$ asociativna.
+\end{definicija}
+
+\begin{definicija}
+    Naj bo $S$ množica z operacijo $*$. Pravimo, da je $e \in S$ \emph{enota (oz. nevtralni element) za operacijo~$*$}, če $\all{x \in S} e * x = x * e = x$.
+\end{definicija}
+
+\begin{trditev}
+    Če v množici $S$ obstaja enota za operacijo $*$, potem je ena sama.
+\end{trditev}
+
+\begin{definicija}
+    Polgrupa z enoto je \emph{monoid}.
+\end{definicija}
+
+\begin{definicija}
+    Naj bo $S$ množica z operacijo $*$ in $e \in S$ enota. Naj bo $x \in S$.
+    \begin{itemize}
+        \item Element $y \in S$ je \emph{levi inverz} elementa $x$, če $y * x = e$.
+        \item Element $y \in S$ je \emph{desni inverz} elementa $x$, če $x * y = e$.
+        \item Element $y \in S$ je \emph{inverz} elementa $x$, če $x *y = y* x = e$.
+    \end{itemize}
+\end{definicija}
+
+\begin{trditev}
+    Če je $S$ monoid, $x \in S$, $l$ levi inverz $x$ ter $d$ desni inverz $x$, potem $l=d$.
+\end{trditev}
+
+\begin{definicija}
+    Pravimo, da je element $x \in S$ \emph{obrnljiv}, če obstaja inverz od $x$.
+\end{definicija}
+
+\begin{definicija}
+    Naj bo $S$ z operacijo $*$ monoid. Pravimo, da je $S$ \emph{grupa}, če je vsak element iz $S$ obrnljiv.
+
+    Če je operacija $*$ komutativna, pravimo, da je $S$ \emph{Abelova grupa}.
+\end{definicija}
+
+\begin{zgled}
+    Nekaj primerov grup.
+    \begin{enumerate}
+        \item $(\ZZ, +), \ (\QQ, +), \ (\RR, +), \ (\CC, +), (\QQ \setminus \set{0}, \cdot)$ so Abelove grupe.
+        \item Naj bo $X$ neprazna množica. Definiramo $\Sim(X) = \set{\text{vse bijektivne preslikave } f: X \to X}$. $(\Sim(X), \circ)$ je grupa, imenujemo jo \emph{simetrična grupa} množice $X$.
+        
+        V posebnem primeru, ko je $X$ končna dobimo $\Sim(\set{1, 2, \ldots, n}) = S_n$. $S_n$ je \emph{simetrična grupa reda $n$}.
+    \end{enumerate}
+\end{zgled}
+
+\subsection{Ponovitev o permutacijah}
+\begin{izrek}
+    Vsaka permutacija je produkt disjunktnih ciklov.
+\end{izrek}
+
+\begin{definicija}
+    Cikli dolžine $2$ so \emph{transpozicije}.
+\end{definicija}
+
+\begin{trditev}
+    Vsaka permutacija $\pi \in S_n$ je produkt transpozicij. Teh transpozicij je vedno sodo mnogo ali vedno liho mnogo.
+\end{trditev}
+
+\begin{definicija}
+    Permutacija je \emph{soda (oz. liha)}, če je produkt sodo (oz. liho) mnogo transpozicij.
+\end{definicija}
+
+\begin{definicija}
+    Znak permutacije je $\sgn(\pi) = \begin{cases}
+        1; &\pi \text{ je soda} \\
+        -1; &\pi \text{ je liha}
+    \end{cases}$.
+\end{definicija}
+
+\begin{trditev}
+    $\sgn(\pi \rho) = \sgn(\pi) \cdot \sgn(\rho)$.
+\end{trditev}
+
+\subsection{Primeri grup}
+\begin{zgled}[Simetrije kvadrata]
+    Simetrije kvadrata $K$ so izometrije $f: \RR^2 \to \RR^2$, da je $f(K) = K$. 
+    
+    Primeri simetrij: $r$ - rotacija za $90^{\circ}$ okoli središča kvadrata, $z$ - zrcaljenje čez fiksno os simetrije ter kompozicije $r$ in $z$. Iz geometrije lahko vidimo, da je $zr = r^3z$. To pomeni, da je vsak kompozitum $r$ in $z$ oblike $r^kz$.
+    
+    Kvadrat ima kvečjemu $8$ simetrij, ker je vsaka simetrija določena s sliko oglišča $1$ in informacijo, ali smo naredili zrcaljenje ali ne. Dobimo množico simetrij $D_{2 \cdot 4} = \set{\id, r, r^2, r^3, z, rz, r^2z, r^3z}$. $D_{2\cdot 4}$ je \emph{diedrska grupa moči $8$}.
+\end{zgled}
+
+\begin{zgled}[Diedrska grupa moči $2n$]
+    Imamo naslednje simetrije pravilnega $n$-kotnika:
+    \begin{itemize}
+        \item $r$ - rotacija za $\frac{2 \pi}{n}$ okoli središča.
+        \item $z$ - zrcaljenje čes neko fiksno os simetrije.
+    \end{itemize}
+    Velja: $zr = r^{n-1}z$. 
+    
+    Množica vseh simetrij je $D_{2n} = \set{1, r, r^2, \ldots, r^{n-1}, z, rz, r^2zn, \ldots, r^{n-1}z}$. $D_{2n}$ je \emph{diedrska grupa moči $2n$}.
+\end{zgled}
+
+\begin{zgled}[Monoid -> Grupa]
+    Naj bo $(S, *)$ monoid. Definiramo $S^* = \set{\text{obrnljive elementi iz } S}$, potem $S^*$ je grupa za $*$.
+\end{zgled}
+
+\begin{primer}
+    Naj bo $S = (\RR^{n \times n}, \cdot)$, $S^* = \set{A \in \RR^{n \times n}; \ \det A \neq 0} = \GL_n(\RR)$. $\GL_n(\RR)$ je \emph{splošna linearna grupa $n \times n$ matrik}.
+\end{primer}
+
+\begin{zgled}[Direktni produkt grup]
+    Naj bodo $G_1, G_2, \ldots, G_n$ grupe z operacijami $*_1, *_2, \ldots, *_n$. Na množice $G_1 \times G_2 \times \ldots \times G_n$ vpeljamo operacijo $(g_1, g_2, \ldots, g_n) * (h_1, h_2, \ldots, h_n) = (g_1 *_1 h_1, g_2 *_2 h_2, \ldots, g_n *_n h_n)$. Potem $(G_1 \times G_2 \times \ldots \times G_n, *)$ je grupa. 
+\end{zgled}
+
+V grupah ponavadi uporabljamo \emph{miltiplikativni zapis}: operacija: $\cdot$, enota: $1$, inverz od $x$: $x^{-1}$, potenca: $x^n$.
+
+V Abelovih grupah uporabljamo \emph{aditivni zapis}: operacija: $+$, enota: $0$, inverz od $x$: $-x$, potenca: $nx$.
+
+\subsubsection*{Lastnosti računanja v grupah}
+\begin{enumerate}
+    \item $G$ ima natanko eno enoto.
+    \item Vsak element iz $G$ ima natanko en inverz.
+    \item $(x^{-1})^{-1} = x$.
+    \item $(xy)^{-1} = y^{-1}x^{-1}$.
+    \item $x^{m+n} = x^mx^n$.
+    \item $(x^m)^n = x^{mn}$.
+    \item $xy=xz \lthen y=z$.
+    \item $yx=zx \lthen y=z$.
+    \item $xy=1 \lthen yx =1$.
+\end{enumerate}
+Trditvi 7. in 8. imenujemo \emph{pravili krajšanja} v grupi.
