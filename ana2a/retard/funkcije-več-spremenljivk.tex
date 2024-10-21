@@ -237,7 +237,7 @@ Lahko pišemo $F(x) = (f_1(x), \ldots, f_m(x))$. Torej $F$ določa $m$ funkcij $
 \end{opomba}
 
 \begin{zgled}
-    Naj bo $f(x, y, z) = e^{x+2y} + \cos(xz^2)$. Potem $f_x(x, y, z) = \podv{f}{x}{x, y, z} = e^{x+2y} - z^2 \sin(xz^2)$.
+    Naj bo $f(x, y, z) = e^{x+2y} + \cos(xz^2)$. Potem $f_x(x, y, z) = \podv{f}{x}(x, y, z) = e^{x+2y} - z^2 \sin(xz^2)$.
 \end{zgled}
 
 \subsubsection{Diferenciabilnost}
@@ -265,7 +265,7 @@ Lahko pišemo $F(x) = (f_1(x), \ldots, f_m(x))$. Torej $F$ določa $m$ funkcij $
 
 \begin{trditev}
     Naj bo $f: D \subset \RR^n \to \RR$ diferenciabilna v notranji točki $a \in D$. Tedaj je $f$ v $a$ parcialno odvedljiva po vseh spremenljivkah. Poleg tega je zvezna v $a$. Pri tem za $h = (h_1, \ldots, h_n)$ velja:
-    $$(df_a)(h) = \podv{f}{x_1}{a} \cdot h_1 + \ldots + \podv{f}{x_n}{a} \cdot h_n = f_{x_1}(a) \cdot h_1 + \ldots + f_{x_n}(a) \cdot h_n$$
+    $$(df_a)(h) = \podv{f}{x_1}(a) \cdot h_1 + \ldots + \podv{f}{x_n}(a) \cdot h_n = f_{x_1}(a) \cdot h_1 + \ldots + f_{x_n}(a) \cdot h_n$$
 \end{trditev}
 
 \begin{opomba}
@@ -284,12 +284,12 @@ Lahko pišemo $F(x) = (f_1(x), \ldots, f_m(x))$. Torej $F$ določa $m$ funkcij $
 
 \begin{opomba}
     Trditev pove, da je $(df_a)(h) = \begin{bmatrix}
-        \podv{f}{x_1}{a} & \ldots & \podv{f}{x_n}{a} 
+        \podv{f}{x_1}(a) & \ldots & \podv{f}{x_n}(a) 
     \end{bmatrix} \cdot \begin{bmatrix}
         h_1 \\ \vdots \\ h_n
-    \end{bmatrix} = (\podv{f}{x_1}{a}, \ldots, \podv{f}{x_n}{a}) \cdot (h_1, \ldots, h_n)$.
+    \end{bmatrix} = (\podv{f}{x_1}(a), \ldots, \podv{f}{x_n}(a)) \cdot (h_1, \ldots, h_n)$.
 
-    Zapis: $(\vec{\nabla} f) (a) = (\grad f)(a) = (\podv{f}{x_1}{a}, \ldots, \podv{f}{x_n}{a})$.
+    Zapis: $(\vec{\nabla} f) (a) = (\grad f)(a) = (\podv{f}{x_1}(a), \ldots, \podv{f}{x_n}(a))$.
 
     Vektor $(\grad f)(a)$ imenujemo \emph{gradient funkcije} $f$ v točki $a$. Operator $\vec{\nabla} = (\frac{\partial}{\partial x_1}, \ldots, \frac{\partial}{\partial x_n})$ je \emph{operator Nabla}.
 \end{opomba}
@@ -315,3 +315,21 @@ Lahko pišemo $F(x) = (f_1(x), \ldots, f_m(x))$. Torej $F$ določa $m$ funkcij $
 \begin{izrek}
     Naj bo $f: D \subseteq \RR^n \to \RR$ funkcija in naj bo $a \in D$ notranja točka. Denimo, da je $f$ parcialno odvedljiva po vseh spremenljivkah v okolici točke $a$ in so parcialni odvodi zvezni v $a$. Tedaj je $f$ diferenciabilna v $a$.
 \end{izrek}
+
+\begin{proof}
+    Za $n=2$. Definicija diferenciabilnosti + 2-krat Lagrangeev izrek.
+\end{proof}
+
+\subsubsection{Višji parcialni odvodi}
+Naj bo $f: D^{\text{odp}} \subseteq \RR^n \to \RR$ funkcija. Denimo, da je $f$ parcialno odvedljiva po vseh spremenljivkah na $D$: $f_{x_1}, \ldots, f_{x_n}$. To so tudi funkcije $n$-spremenljivk in morda so tudi te parcialno odvedljive po vseh oz. nekatareih spremenljivkah.
+
+\begin{trditev}
+    Naj bo funkcija $f$ definirana v okolici $a \in \RR^n$. Naj bosta $i, j \in \set{1, 2, \ldots, n}$. Denimo, da na tej okolici obstajata $\podv{f}{x_i}, \ \podv{f}{x_j}$ in tudi druga odvoda $\frac{\partial}{\partial x_j} (\podv{f}{x_i}), \ \frac{\partial}{\partial x_i} (\podv{f}{x_j})$. Če sta $\frac{\partial}{\partial x_j} (\podv{f}{x_i}), \ \frac{\partial}{\partial x_i} (\podv{f}{x_j})$ zvezna v $a$, potem sta enaka v točki $a$: 
+    $$\frac{\partial}{\partial x_j} \left(\podv{f}{x_i}\right)(a) = \frac{\partial}{\partial x_i} \left(\podv{f}{x_j}\right)(a).$$
+\end{trditev}
+
+\begin{proof}
+    Dovolj za $n=2$. 
+    
+    Definiramo $J = f(a+h, b+k) - f(a+h, b) - f(a, b+k) + f(a,b)$ in $\varphi(x) = f(x, b+k) - f(x, b), \ \psi(y) = f(a+h, y) - f(a, y)$. Zapištemo $J$ s pomočjo funkcij $\varphi, \ \psi$ ter porabimo 2-krat Lagrangeev izrek in upoštevamo zveznost.
+\end{proof}
