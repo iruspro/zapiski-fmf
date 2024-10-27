@@ -374,9 +374,9 @@ Naj bo $f: D^{\text{odp}} \subseteq \RR^n \to \RR$ funkcija. Denimo, da je $f$ p
     Naj bo $F(x,y,z) = (x^2+2y+e^z, xy+z^2), \ f: \RR^3 \to \RR^2$. Določi $(DF)(1,0,1)$.
 \end{zgled}
 
-\begin{opomba}
-    Preslikava $F: D^{\text{odp}} \subseteq \RR^n \to \RR^m$ je razreda $C^k(D)$ oz. je $k$-krat zvezno odvedljiva, če so $f_1, \ldots, f_m \in C^k(D)$.
-\end{opomba}
+\begin{definicija}
+    Preslikava $F: D^{\text{odp}} \subseteq \RR^n \to \RR^m$ je razreda $C^k(D)$, če so $f_1, \ldots, f_m \in C^k(D)$.
+\end{definicija}
 
 \begin{izrek}[Verižno pravilo]
     Naj bo $a \in D \subseteq \RR^n$ notranja točka. Naj bo $b \in \Omega \subseteq \RR^m$ notranja točka. Naj bo $F: D \to \Omega$ diferenciabilna v točki $a$ in velja $F(a) = b$. Naj bo $G: \Omega \to \RR^k$ diferenciabilna v točki $b$. Tedaj $G \circ F$ diferenciabilna v točki $a$ in velja:
@@ -406,11 +406,13 @@ Naj bo $f: D^{\text{odp}} \subseteq \RR^n \to \RR$ funkcija. Denimo, da je $f$ p
     Naj bo $F(x,y) = (x^2 + y, xy), \ g(u, v) = uv + v^2$. Naj bo $\Phi = g \circ F$. Izračunaj $(D\Phi)(x,y)$ na dva načina.
 \end{zgled}
 
+\newpage
 \subsection{Izrek o implicitni funkciji}
+\subsubsection{Osnovna verzija izreka o implicitni funkciji}
 Radi bi poiskali zadostni pogoji na funkcijo $f(x, y)$, da bi enačba $f(x, y) = 0$ lokalno v okolici točki $(a,b)$, za katero velja $f(a,b) = 0$, predstavljala graf funkcije $y = \varphi(x)$.
 
 \begin{izrek}[Osnovna verzija izreka o implicitni funkciji]
-    Naj bo $D^{\text{odp}} \subseteq \RR^2$. Naj bo $(a, b) \in D$. Naj bo $f \in C^1(D)$ in naj velja:
+    Naj bo $D^{\text{odp}} \subseteq \RR^2$. Naj bo $(a, b) \in D$. Naj bo $f: D \subseteq \RR^2 \to \RR$ funkcija, $f \in C^1(D)$ in naj velja:
     \begin{enumerate}
         \item $f(a,b) = 0$.
         \item $f_y(a,b) \neq 0$.
@@ -422,3 +424,91 @@ Radi bi poiskali zadostni pogoji na funkcijo $f(x, y)$, da bi enačba $f(x, y) =
         \item $\varphi'(x) = -\frac{f_x(x, \varphi(x))}{f_y(x, \varphi(x))}$ za vsak $x \in I$.
     \end{enumerate}
 \end{izrek}
+
+\begin{proof}
+    Funkcijo $\varphi$ konstruiramo s pomočjo izreka o bisekciji z upoštevanjem stroge monotonosti funkciji $y \mapsto f(x, y)$.
+
+    Zveznost ($\overline{I} \times \overline{J}$ je kompaktna), odvedljivost in zveznost odvoda pokažemo z pomočjo izraza $f(x + \Delta x, y + \Delta y) - f(x,y) = 0$ in Lagrangeeva izreka, kjer $x + \Delta x \in (a - \delta, a + \delta), \ y= \varphi (x), \ y + \Delta y = \varphi(x + \Delta x)$.
+\end{proof}
+
+\begin{opomba}
+    Če je $f \in C^k(D)$, potem $\varphi \in C^k(I)$.
+\end{opomba}
+
+\begin{zgled}
+    Kaj če pogoji niso izpolnjeni?
+    \begin{enumerate}
+        \item $f(x,y) = (x-y)^2, \ f(x,y) = 0$ v okolici točke $(0,0)$ (pogoji ni potrebni).
+        \item $f(x,y) = y^3 - x, \ f(x,y) = 0$ v okolici točke $(0,0)$ (odvedljivost $\varphi$).
+        \item $f(x,y) = y^2-x^2-x^4, \ f(x,y) = 0$ v okolici točke $(0,0)$ (enoličnost $\varphi$).
+        \item $f(x,y) = y^2+x^2+x^4, \ f(x,y) = 0$ v okolici točke $(0,0)$ (množica rešitev).
+    \end{enumerate}
+\end{zgled}
+
+\subsubsection{Izrek o inverzni preslikavi}
+Naj bo $\Phi: D^\text{odp} \subseteq \RR^m \to \RR^m$ preslikava, $\Phi \in C^1(D)$. Kakšne so zadostni pogoji za (lokalno) obrnljivost preslikave $\Phi$?
+\begin{definicija}
+    Naj bosta $D, \, \Omega \subseteq \RR^m$ odprti. Preslikava $\Phi: D  \to \Omega$ je \emph{$C^1$-difeomorfizem}, če
+    \begin{enumerate}
+        \item $\Phi$ je bijekcija, 
+        \item $\Phi \in C^1(D)$,
+        \item $\Phi^{-1} \in C^1(\Omega)$.
+    \end{enumerate} 
+    Podobno definiramo \emph{$C^k$-difeomorfizem} za $k \in \NN \cup \set{\infty}$.
+\end{definicija}
+
+\begin{zgled}
+    Ali je $f(x) = x^3, \ f: \RR \to \RR$ difeomorfizem?
+\end{zgled}
+
+\begin{trditev}
+    Naj bosta $D, \, \Omega \subseteq \RR^m$ odprti. Naj bo $\Phi: D  \to \Omega$ $C^1$-difeomorfizem. Tedaj je $\det(D\Phi) \neq 0$ na $D$. 
+\end{trditev}
+
+\begin{proof}
+    Pogledamo $\Phi^{-1} \circ \Phi = \id_D$ (verižno pravilo).
+\end{proof}
+
+\begin{posledica}
+    $(D\Phi^{-1})(y) = (D\Phi)^{-1}(x)$, kjer $y = \Phi(x)$.
+\end{posledica}
+
+\begin{zgled}
+    Ali velja obrat trditve? 
+    Naj bo $\Phi(x,y) = (e^x \cos y, e^x \sin y), \ \Phi: \RR^2 \to \RR^2$. Ali je $\Phi$ difeomorfizem?
+\end{zgled}
+
+\begin{izrek}[Izrek o inverzni preslikavi]
+    Naj bo $D^\text{odp} \subseteq \RR^m$ in $\Phi: D \to \RR^m$ preslikava razreda $C^1$. Naj bo $a \in D$ in $b = \Phi(a)$.
+    Če je $\det(D\Phi)(a) \neq 0$, potem obstajata okolici $a \in U \subseteq \RR^m$ in $b \in V \subseteq \RR^m$, da je $\Phi: U \to V$ $C^1$-difeomorfizem.
+    Pravimo, da je preslikava $\Phi$ \emph{lokalni difeomorfizem}.
+\end{izrek}
+
+\begin{proof}
+    \textcolor{red}{TODO}.
+\end{proof}
+
+\begin{posledica}
+    Če je $\Phi$ razreda $C^k$ za $k \in \NN \cup \set{\infty}$, je $\Phi$ lokalni $C^k$ difeomorfizem.
+\end{posledica}
+
+\begin{proof}
+    Indukcija na $k$.
+\end{proof}
+
+
+
+
+
+
+
+\newpage
+\subsubsection{Izrek o implicitni funkciji}
+Imamo $n+m$ spremenljivk: $(x, y)$, kjer $x = (x_1, \ldots, x_n), \ y = (y_1, \ldots, y_m)$ in $m$ enačb: 
+\begin{align*}
+    f_1(x,y) = 0 \\
+    f_2(x,y) = 0 \\
+    \vdots \\
+    f_m(x,y) = 0
+\end{align*}
+Ali lahko zapišemo $y = \Phi(x)$?
