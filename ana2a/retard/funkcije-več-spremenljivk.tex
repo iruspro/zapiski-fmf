@@ -1,74 +1,42 @@
 \section{Funkcije več spremenljivk}
 \subsection{Prostor $\RR^n$}
-\subsubsection{Uvodni pojmi}
-$\RR^n$ je vektorski prostor nad $\RR$. 
-Če je $x, y \in \RR^n$, potem $x = (x_1, \ldots, x_n)$, $y = (y_1, \ldots, y_n)$. 
-
-Naj bo $\alpha \in \RR$. Operaciji $x+y$ in $\alpha x$ sta definirani po komponentah.
+\subsubsection{Prostor $\RR^n$}
+\begin{definicija}
+    \emph{Prostor $\RR^n$} je kartezični produkt
+    $\underbrace{\RR \times \dots \times \RR}_n$. Na njem definiramo
+    seštevanje in množenje s skalarjem po komponentah. S tema
+    operacijama je $(\RR,+,\cdot)$ vektorski prostor nad $\RR$. Posebej
+    definiramo še skalarni produkt
+    \[
+    x \cdot y = \sum_{i=1}^n x_iy_i,
+    \]
+    ki nam da normo $\norm{x}=\sqrt{x \cdot x}$ in metriko
+    $d(x,y) = \norm{x-y}$. $(\RR^n,d)$ je tako metrični prostor.
+    \end{definicija}
 
 \begin{definicija}
-    \emph{Standardna baza} prostora $\RR^n$ je množica $\set{e_j; \ j = 1, \ldots, n}$, kjer $\displaystyle e_j = (0, \ldots, 0, 1_j , 0, \ldots, 0)$.
-\end{definicija}
-
-\begin{opomba}
-    V prostorah $\RR, \ \RR^2, \ \RR^3$ ponavadi koordinate točk označimo z $x, y, z$.
-\end{opomba}
-
-\begin{definicija}
-    Standardna baza prostora $\RR^3$ je množica $\set{\vec{i}, \vec{j}, \vec{k}}$.
-\end{definicija}
-
-\begin{definicija}
-    \emph{Standardni skalarni produkt vektrojev $x, y \in \RR^n$} je $x \cdot y = \sum_{j=1}^{n} x_jy_j$.
-
-    \emph{Norma vektorja $x \in \RR^n$} je  $||x||_2= \sqrt{x \cdot x} = \sqrt{x_1^2+\ldots+x_n^2}$.
-
-    \emph{Razdalja med vektorjama $x, y \in \RR^n$} je $d_2(x,y) = ||x-y||_2 = \sqrt{(x_1-y_1)^2 + \ldots + (x_n - y_n)^2}$.
-\end{definicija}
-
-\begin{opomba}
-    Standardno normo $|| \cdot ||$ bomo pisali kot $| \cdot |$.
-\end{opomba}
-
-\begin{definicija}
-    \emph{Odprta krogla s središčem v $a \in \RR^n$ in polmerom $r>0$} je množica $K(a, r) = \set{x \in \RR^n; \ ||x-a||<r}.$
-
-    \emph{Zaprta krogla s središčem v $a \in \RR^n$ in polmerom $r>0$} je množica $K(a, r) = \set{x \in \RR^n; \ ||x-a|| \leq r}$.
-
-    \emph{Sfera} je množica $S(a,r) = \set{x \in \RR^n; \ ||x-a|| = r}$
-\end{definicija}
-
-Metrični prostor $(\RR^n, d_2)$ porodi topologijo na $\RR^n$. Oznaki: $D^\text{odp}$ je odprta množica, $Z$ je zaprta množica.
-
-\begin{opomba}
-    Metrična prostora $(\RR^n, d_2)$ in $(\RR^n, d_\infty)$ imata isto topologijo.
-\end{opomba}
-
-\begin{izrek}
-    Naj bo $K \subset \RR^n$, potem
-
-    $$K \text{ je kompaktna} \liff K \text{ je zaprta in omejena}.$$
-\end{izrek}
-
-\begin{definicija}
-    Naj bo $a, b \in \RR^n, \ a = (a_1, \ldots, a_n), \ b= (b_1, \ldots, b_n)$. Definiramo:
-    \begin{align*}
-        a \leq b \liff \all{j = 1, \ldots, n} a_j \leq b_j. \\
-        a < b \liff \all{j = 1, \ldots, n} a_j < b_j.
-    \end{align*}
-\end{definicija}
-
-\begin{definicija}
-    Naj bo $a, b \in \RR^n, \ a< b$. \emph{Odprti kvader $(a,b)$} je množica $(a,b) = \set{x \in \RR^n; \ a<x<b}$.
-
-    Naj bo $a, b \in \RR^n, \ a \leq b$. \emph{Zaprti kvader $[a,b]$} je množica $[a,b] = \set{x \in \RR^n; \ a \leq x \leq b}$.
-\end{definicija}
-
-\begin{opomba}
-    Dolžine stranic kvadra $[a,b]$ je $b_j-a_j$. Volumen kvadra $[a,b]$ je $\Pi_{j=1}^n(b_j-a_j)$. 
+    Naj bosta $a,b \in \RR^n$ vektorja, za katera je $a_i \leq b_i$ za
+    vse $i \in \set{1,\dots,n}$. \emph{Zaprt kvader}\index{Kvader}, ki
+    ga določata $a$ in $b$, je množica
+    \[
+    [a,b] = \setb{x\in\RR^n}{\forall i \in \set{1,\dots,n} \colon
+    a_i \leq x_i \leq b_i}.
+    \]
+    Podobno definiramo \emph{odprt kvader} kot
+    \[
+    (a,b) = \setb{x\in\RR^n}{\forall i \in \set{1,\dots,n} \colon
+    a_i < x_i < b_i}.
+    \]
+    \end{definicija}
     
-    Če so vse strani kvadra enaki, potem kvader je \emph{kocka}.
-\end{opomba}
+    \begin{opomba}
+    Odprte množice v normah $\norm{x}_\infty$ in $\norm{x}_2$ so iste.
+    \end{opomba}
+    
+    \begin{izrek}
+    Množica $K\subseteq\RR^n$ je kompaktna natanko tedaj, ko je zaprta
+    in omejena.
+    \end{izrek}
 
 \subsubsection{Zaporedja v $\RR^n$}
 \begin{definicija}
@@ -90,37 +58,40 @@ Metrični prostor $(\RR^n, d_2)$ porodi topologijo na $\RR^n$. Oznaki: $D^\text{
     Definicija limite.
 \end{proof}
 
+\newpage
 \subsection{Zveznost preslikav iz $\RR^n$ v $\RR^m$}
 \subsubsection{Zveznost preslikav iz $\RR^n$ v $\RR$}
-\begin{opomba}
+
+\begin{definicija}
     Če je $m=1$, potem preslikave rečemo \emph{funkcija}.
-\end{opomba}
-
-\begin{definicija}
-    Naj bo $f: D \subseteq \RR^n \to \RR^m$ preslikava. Naj bo $a \in D$. \emph{Preslikava $f$ je zvezna v $a$}, če 
-    $$\all{\epsilon > 0} \some{\delta >0} \all{x \in D} d(x, a) \lthen d(f(x), f(a)).$$
 \end{definicija}
 
 \begin{definicija}
-    Naj bo $f: D \subseteq \RR^n \to \RR^m$ preslikava. Preslikava $f$ je \emph{zvezna na $D$}, če je zvezna v vsaki točki $a \in D$.
+    Naj bo $f: D \subseteq \RR^n \to \RR^m$ preslikava. Naj bo $a \in D$. \emph{Preslikava $f$ je zvezna v točki $a$}, če 
+    $$\all{\epsilon > 0} \some{\delta >0} \all{x \in D} \norm{x-a} \lthen \norm{f(x)- f(a)}.$$
+    Preslikava $f$ je \emph{zvezna na $D$}, če je zvezna v vsaki točki $a \in D$.
 \end{definicija}
+
+\begin{trditev}
+    Naj bo $f: D \subseteq \RR^n \to \RR^m$ preslikava. Naj bo $a \in D$. Preslikava $f$ je zvezna v točki $a$ natanko tedaj, ko za vsako zaporedje $(x_n)_n, \ x_n \in D$, ki konvergira proti $a$, zaporedje $(f(x_n))_n, \ f(x_n) \in \RR^m$ konvergira proti $f(a)$.
+\end{trditev}
 
 \begin{definicija}
     Naj bo $f: D \subseteq \RR^n \to \RR^m$ preslikava. Preslikava $f$ je \emph{enakomerno zvezna na $D$}, če
-    $$\all{\epsilon > 0} \some{\delta > 0} \all{x, x' \in D} d(x, x') < \delta \lthen d(f(x), f(x')) < \epsilon.$$
+    $$\all{\epsilon > 0} \some{\delta > 0} \all{x, x' \in D} \norm{x - x'} < \delta \lthen \norm{f(x) - f(x')} < \epsilon.$$
 \end{definicija}
 
-\begin{opomba}
-    Velja karakterizacija zveznosti v točki z zaporedji.
-\end{opomba}
-
-\begin{opomba}
+\begin{trditev}
     Zvezna preslikava na kompaktne množice je enakomerno zvezna.
-\end{opomba}
+\end{trditev}
+
+\begin{trditev}
+    Naj bo $f: K^\text{komp} \subseteq \RR^n \to \RR^m$ zvezna preslikava. Potem je $\img{f}(K)$ kompaktna.
+\end{trditev}
 
 \begin{definicija}
-    Preslikava $f: D \to X'$ je \emph{$C$-lipschitzova}, če
-    $$\all{x, x' \in D} d'(f(x), f(x')) \leq Cd(x, x').$$
+    Preslikava $f: D \subseteq \RR^n \to \RR^m$ je \emph{$C$-lipschitzova}, če
+    $$\some{C \in \RR} \all{x, x' \in D} \norm{f(x) - f(x')} \leq C \norm{x - x'}.$$
 \end{definicija}
 
 \begin{trditev}
@@ -132,6 +103,12 @@ Metrični prostor $(\RR^n, d_2)$ porodi topologijo na $\RR^n$. Oznaki: $D^\text{
 \begin{trditev}
     Naj bosta $f, g: D \subset \RR^n \to \RR$ zvezni funkciji v $a \in D$. Naj bo $\lambda \in \RR$. Tedaj so v $a$ zvezni tudi funkcije:
     $$f+g, \ f-g, \ \lambda f, \ fg.$$
+    Če za vsak $x \in D, \ g(x) \neq 0$ , tedaj so v $a$ zvezna tudi funkcija: 
+    $$\frac{f}{g}.$$
+\end{trditev}
+
+\begin{trditev}
+    Kompozitum zveznih preslikav je zvezna preslikava.
 \end{trditev}
 
 \begin{proof}
@@ -142,7 +119,7 @@ Metrični prostor $(\RR^n, d_2)$ porodi topologijo na $\RR^n$. Oznaki: $D^\text{
     Nekaj primerov zveznih preslikav.
     \begin{itemize}
         \item Preslikava $\Pi_j(x_1, \ldots, x_n) = x_j$ je zvezna na $\RR^n$ za vsak $j = 1, \ldots, n$.
-        \item Vsi polinomi v $n$-spremenljivkah so zvezne funkcije na $\RR^n$.
+        \item Vse polinomi v $n$-spremenljivkah so zvezne funkcije na $\RR^n$.
         \item Vse racionalne funkcije so zvezne povsod, razen tam, kjer je imenovalec enak $0$.
     \end{itemize}
 \end{zgled}
@@ -205,8 +182,8 @@ Lahko pišemo $F(x) = (f_1(x), \ldots, f_m(x))$. Torej $F$ določa $m$ funkcij $
 \end{opomba}
 
 \begin{zgled}[Omejenost linearnih preslikav]
-    Naj bo $\lin{A}: \RR^n \to \RR^m$ linearna preslikava, potem $$\some{ M \in \RR \, . \, M \geq 0} \all{x \in \RR^n \, . \, x \neq 0 }  \frac{|\lin{A}x|}{|x|} \leq M.$$
-    Lahko zapišemo $\sup \frac{|\lin{A}x|}{|x|} = \sup_{|x|=1}|\lin{A}x| = ||A||$. Dobimo eno izmed norm na matrikah.
+    Naj bo $\lin{A}: \RR^n \to \RR^m$ linearna preslikava, potem $$\some{ M \in \RR \, . \, M \geq 0} \all{x \in \RR^n \, . \, x \neq 0 }  \frac{\norm{\lin{A}x}}{\norm{x}} \leq M.$$
+    Lahko zapišemo $\sup \frac{\norm{\lin{A}x}}{\norm{x}} = \sup_{\norm{x}=1}\norm{\lin{A}x} = \norm{A}$. Dobimo eno izmed norm na matrikah.
 
     Trdimo: Naj bo $\lin{A}: \RR^n \to \RR^m$ linearna preslikava. Tedaj je $\lin{A}$ zvezna na $\RR^n$. Zveznost linearnih preslikav je ekvivalentna zveznosti v točki $0$. Vse skupaj je ekvivalentno omejenosti linearnih preslikav.
 \end{zgled}
@@ -219,10 +196,11 @@ Lahko pišemo $F(x) = (f_1(x), \ldots, f_m(x))$. Torej $F$ določa $m$ funkcij $
     Naj bo $\lin{A}: \RR^n \to \RR^m$ linearna preslikava. Preslikavo $\lin{A}: \RR^n \to \RR^m, \ x \mapsto \lin{A}x + b, \ b \in \RR^m$ imenujemo \emph{afina preslikava}.
 \end{definicija}
 
+\newpage
 \subsection{Parcialni odvodi in diferenciabilnost}
 \subsubsection{Parcialni odvod}
 \begin{definicija}
-    Naj bo $f: D \subset \RR^n \to \RR$ funkcija. Naj bo $a = (a_1, \ldots, a_n) \in D$ notranja točka. Funkcija $f$ je \emph{parcialno odvedljiva} po spremenljivki $x_j$ v točki $a$, če obstaja limita 
+    Naj bo $f: D \subset \RR^n \to \RR$ funkcija. Naj bo $a = (a_1, \ldots, a_n) \in D$ notranja točka. Funkcija $f$ je \emph{parcialno odvedljiva po spremenljivki $x_j$ v točki $a$}, če obstaja limita 
     $$\lim_{h \to 0} \frac{f(a_1, \ldots, a_{j-1}, a_j+h, a_{j+1}, \ldots, a_n) - f(a_1, \ldots, a_n)}{h},$$
     oz. če je funkcija 
     $$x_j \mapsto f(a_1, \ldots, a_{j-1}, x_j, a_{j+1}, \ldots, a_n)$$
@@ -237,14 +215,14 @@ Lahko pišemo $F(x) = (f_1(x), \ldots, f_m(x))$. Torej $F$ določa $m$ funkcij $
 \end{opomba}
 
 \begin{zgled}
-    Naj bo $f(x, y, z) = e^{x+2y} + \cos(xz^2)$. Potem $f_x(x, y, z) = \podv{f}{x}(x, y, z) = e^{x+2y} - z^2 \sin(xz^2)$.
+    Naj bo $f(x, y, z) = e^{x+2y} + \cos(xz^2)$. Izračunaj $f_x(x,y,z), \ f_y(x,y,z), \ f_z(x,y,z)$.
 \end{zgled}
 
 \subsubsection{Diferenciabilnost}
 \begin{definicija}
-    Naj bo $f: D \subset \RR^n \to \RR$ funkcija. Naj bo $a = (a_1, \ldots, a_n) \in D$ notranja točka. Funkcija $f$ je \emph{diferenciabilna} v točki $a$, če obstaja tak linearen funkcional $\lin{L}: \RR^n \to \RR$, da velja:
+    Naj bo $f: D \subset \RR^n \to \RR$ funkcija. Naj bo $a = (a_1, \ldots, a_n) \in D$ notranja točka. Funkcija $f$ je \emph{diferenciabilna v točki $a$}, če obstaja tak linearen funkcional $\lin{L}: \RR^n \to \RR$, da velja:
     $$f(a+h) = f(a) + \lin{L}(h) + o(h),$$
-    kjer $\lim_{h \to 0} \frac{|o(h)|}{|h|} = 0$.
+    kjer $$\lim_{h \to 0} \frac{\norm{o(h)}}{\norm{h}} = 0.$$
 \end{definicija}
 
 \begin{opomba}
@@ -252,7 +230,7 @@ Lahko pišemo $F(x) = (f_1(x), \ldots, f_m(x))$. Torej $F$ določa $m$ funkcij $
 \end{opomba}
 
 \begin{proof}
-    Pokažemo, da iz $\lin{L}(h) = (\lin{L}_1 - \lin{L}_2)(h) = (o_2 - o_1)(h) = o(h)$ sledi, da je $L = 0$. Zato uporabimo vektor $v = tv_0$, kjer $|v_0| = 1, \ |v| = t$ na linearnem funkcionalu $\lin{L}$.
+    Pokažemo, da iz $\lin{L}(h) = (\lin{L}_1 - \lin{L}_2)(h) = (o_2 - o_1)(h) = o(h)$ sledi, da je $L = 0$.
 \end{proof}
 
 \begin{definicija}
@@ -334,13 +312,26 @@ Naj bo $f: D^{\text{odp}} \subseteq \RR^n \to \RR$ funkcija. Denimo, da je $f$ p
     Definiramo $J = f(a+h, b+k) - f(a+h, b) - f(a, b+k) + f(a,b)$ in $\varphi(x) = f(x, b+k) - f(x, b), \ \psi(y) = f(a+h, y) - f(a, y)$. Zapišemo $J$ s pomočjo funkcij $\varphi, \ \psi$ ter uporabimo 2-krat Lagrangeev izrek in upoštevamo zveznost.
 \end{proof}
 
+\begin{opomba}
+     Pravimo, da parcialni odvodi komutirajo in pišemo $\frac{\partial^2 f}{\partial x_i \partial x_j}$.
+\end{opomba}
+
+\begin{definicija}
+    Naj bo $D^\text{odp} \subseteq \RR^n$. \emph{Vektroski prostor vseh $k$-krat zvezno parcialno odvedljivih funkcij} označimo z~$C^k(D)$. \emph{Prostor gladkih funkcij} je $C^\infty(D) = \bigcap_{k=1}^\infty C^k(D)$. \emph{Prostor zveznih funkcij na $D$} je $C(D)$.
+\end{definicija}
+
+\begin{opomba}
+    Funkcija $f \in C^k(D)$, če obstajajo vse parcialni odvodi funkcije $f$ do reda $k$ in so vse ti parcialni odvodi zvezni na $D$. 
+\end{opomba}
+
 \subsubsection{Diferenciabilnost preslikav}
+
 \begin{definicija}
     Naj bo $F: D \subseteq \RR^n \to \RR^m$ preslikava, $a \in D$ notranja točka. Preslikava $F$ je \emph{diferenciabilna} v točki~$a$, če obstaja taka linearna preslikava $\lin{L}: \RR^n \to \RR^m$, da velja:
     $$F(a+h) = F(a) + \lin{L}(h) + o(h),$$
     kjer je $\lim_{h \to 0} \frac{|o(h)|_m}{|h|_n}$. 
 
-    Preslikavo $\lin{L}$ imenujemo \emph{diferencial} $F$ v točki $a$. Oznaka: $dF_a$. Imenujemo ga tudi \emph{odvod} $F$ v točki $a$. Oznaka: $(DF)(d)$.
+    Preslikavo $\lin{L}$ imenujemo \emph{diferencial} $F$ v točki $a$. Oznaka: $dF_a$. Imenujemo ga tudi \emph{odvod} $F$ v točki $a$. Oznaka: $(DF)(a)$.
 \end{definicija}
 
 \begin{opomba}
@@ -351,13 +342,11 @@ Naj bo $f: D^{\text{odp}} \subseteq \RR^n \to \RR$ funkcija. Denimo, da je $f$ p
     Obravnavaj diferenciabilnost preslikav:
     \begin{itemize}
         \item $\lin{A}: \RR^n \to \RR^m$ linearna, $F(x) = \lin{A}x$.
-        \item $F: \RR^{n \times n} \to \RR^{n \times n}, \ F(X) = X^2$. 
-        
-        Namig: $|A| = \sqrt{a_{11}^2 + a_{12}^2 + \ldots + a_{nn}^2}$. S pomočjo neenakosti CSB pokažimo, da $|H^2| \leq |H|^2$.
+        \item $F: \RR^{n \times n} \to \RR^{n \times n}, \ F(X) = X^2$.         
+        Namig: S pomočjo neenakosti CSB pokažimo, da $|H^2| \leq |H|^2$.
     \end{itemize}
 \end{zgled}
 
-\newpage
 \begin{izrek}
     Naj bo $a \in D$ notranja točka. Naj bo $F = (f_1, \ldots, f_m): D \to \RR^m$ preslikava. Velja: 
     $$\text{Preslikava } F \text{ je diferenciabilna v } a \in D \liff \text{so } f_1, \ldots, f_m \text{ diferenciabilne v } a.$$
@@ -378,7 +367,7 @@ Naj bo $f: D^{\text{odp}} \subseteq \RR^n \to \RR$ funkcija. Denimo, da je $f$ p
 \begin{posledica}
     Naj bo $a \in D$ notranja točka. Naj bo $F = (f_1, \ldots, f_m): D \to \RR^m$ preslikava. Velja:
     
-    Če so vse funkcije $f_1, \ldots, f_m$ v točki $a$ parcialno odvedlivi po vseh spremenljivkah in so ti vsi odvodi zvezni v točki $a$, potem je $F$ diferenciabilna v točki $a$.
+    Če so vse funkcije $f_1, \ldots, f_m$ v točki $a$ parcialno odvedlivi po vseh spremenljivkah in so ti vse odvodi zvezni v točki $a$, potem je $F$ diferenciabilna v točki $a$.
 \end{posledica}
 
 \begin{zgled}
