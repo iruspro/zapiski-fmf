@@ -206,7 +206,7 @@ Lahko pišemo $F(x) = (f_1(x), \ldots, f_m(x))$. Torej $F$ določa $m$ funkcij $
 
 \begin{zgled}[Omejenost linearnih preslikav]
     Naj bo $\lin{A}: \RR^n \to \RR^m$ linearna preslikava, potem $$\some{ M \in \RR \, . \, M \geq 0} \all{x \in \RR^n \, . \, x \neq 0 }  \frac{|\lin{A}x|}{|x|} \leq M.$$
-    Lahko zapišemo $\sup \frac{|\lin{A}x|}{|x|} = \sup_{|x|=1}|\lin{A}x| = ||A||$. Dobimo normo na matrikah.
+    Lahko zapišemo $\sup \frac{|\lin{A}x|}{|x|} = \sup_{|x|=1}|\lin{A}x| = ||A||$. Dobimo eno izmed norm na matrikah.
 
     Trdimo: Naj bo $\lin{A}: \RR^n \to \RR^m$ linearna preslikava. Tedaj je $\lin{A}$ zvezna na $\RR^n$. Zveznost linearnih preslikav je ekvivalentna zveznosti v točki $0$. Vse skupaj je ekvivalentno omejenosti linearnih preslikav.
 \end{zgled}
@@ -264,7 +264,7 @@ Lahko pišemo $F(x) = (f_1(x), \ldots, f_m(x))$. Torej $F$ določa $m$ funkcij $
 \end{opomba}
 
 \begin{trditev}
-    Naj bo $f: D \subset \RR^n \to \RR$ diferenciabilna v notranji točki $a \in D$. Tedaj je $f$ v $a$ parcialno odvedljiva po vseh spremenljivkah. Poleg tega je zvezna v $a$. Pri tem za $h = (h_1, \ldots, h_n)$ velja:
+    Naj bo $f: D \subset \RR^n \to \RR$ diferenciabilna v notranji točki $a \in D$. Tedaj je $f$ v točki $a$ parcialno odvedljiva po vseh spremenljivkah. Poleg tega je zvezna v točki $a$. Pri tem za $h = (h_1, \ldots, h_n)$ velja:
     $$(df_a)(h) = \podv{f}{x_1}(a) \cdot h_1 + \ldots + \podv{f}{x_n}(a) \cdot h_n = f_{x_1}(a) \cdot h_1 + \ldots + f_{x_n}(a) \cdot h_n$$
 \end{trditev}
 
@@ -313,7 +313,7 @@ Lahko pišemo $F(x) = (f_1(x), \ldots, f_m(x))$. Torej $F$ določa $m$ funkcij $
 \end{opomba}
 
 \begin{izrek}
-    Naj bo $f: D \subseteq \RR^n \to \RR$ funkcija in naj bo $a \in D$ notranja točka. Denimo, da je $f$ parcialno odvedljiva po vseh spremenljivkah v okolici točke $a$ in so parcialni odvodi zvezni v $a$. Tedaj je $f$ diferenciabilna v $a$.
+    Naj bo $f: D \subseteq \RR^n \to \RR$ funkcija in naj bo $a \in D$ notranja točka. Denimo, da je $f$ parcialno odvedljiva po vseh spremenljivkah v točki $a$ in so parcialni odvodi zvezni v točki $a$. Tedaj je $f$ diferenciabilna v točki $a$.
 \end{izrek}
 
 \begin{proof}
@@ -331,5 +331,105 @@ Naj bo $f: D^{\text{odp}} \subseteq \RR^n \to \RR$ funkcija. Denimo, da je $f$ p
 \begin{proof}
     Dovolj za $n=2$. 
     
-    Definiramo $J = f(a+h, b+k) - f(a+h, b) - f(a, b+k) + f(a,b)$ in $\varphi(x) = f(x, b+k) - f(x, b), \ \psi(y) = f(a+h, y) - f(a, y)$. Zapištemo $J$ s pomočjo funkcij $\varphi, \ \psi$ ter porabimo 2-krat Lagrangeev izrek in upoštevamo zveznost.
+    Definiramo $J = f(a+h, b+k) - f(a+h, b) - f(a, b+k) + f(a,b)$ in $\varphi(x) = f(x, b+k) - f(x, b), \ \psi(y) = f(a+h, y) - f(a, y)$. Zapišemo $J$ s pomočjo funkcij $\varphi, \ \psi$ ter uporabimo 2-krat Lagrangeev izrek in upoštevamo zveznost.
 \end{proof}
+
+\subsubsection{Diferenciabilnost preslikav}
+\begin{definicija}
+    Naj bo $F: D \subseteq \RR^n \to \RR^m$ preslikava, $a \in D$ notranja točka. Preslikava $F$ je \emph{diferenciabilna} v točki~$a$, če obstaja taka linearna preslikava $\lin{L}: \RR^n \to \RR^m$, da velja:
+    $$F(a+h) = F(a) + \lin{L}(h) + o(h),$$
+    kjer je $\lim_{h \to 0} \frac{|o(h)|_m}{|h|_n}$. 
+
+    Preslikavo $\lin{L}$ imenujemo \emph{diferencial} $F$ v točki $a$. Oznaka: $dF_a$. Imenujemo ga tudi \emph{odvod} $F$ v točki $a$. Oznaka: $(DF)(d)$.
+\end{definicija}
+
+\begin{opomba}
+    Kot pri funkcijah, če je tak $\lin{L}$ obstaja, je enolično določen.
+\end{opomba}
+
+\begin{zgled}
+    Obravnavaj diferenciabilnost preslikav:
+    \begin{itemize}
+        \item $\lin{A}: \RR^n \to \RR^m$ linearna, $F(x) = \lin{A}x$.
+        \item $F: \RR^{n \times n} \to \RR^{n \times n}, \ F(X) = X^2$. 
+        
+        Namig: $|A| = \sqrt{a_{11}^2 + a_{12}^2 + \ldots + a_{nn}^2}$. S pomočjo neenakosti CSB pokažimo, da $|H^2| \leq |H|^2$.
+    \end{itemize}
+\end{zgled}
+
+\newpage
+\begin{izrek}
+    Naj bo $a \in D$ notranja točka. Naj bo $F = (f_1, \ldots, f_m): D \to \RR^m$ preslikava. Velja: 
+    $$\text{Preslikava } F \text{ je diferenciabilna v } a \in D \liff \text{so } f_1, \ldots, f_m \text{ diferenciabilne v } a.$$
+    Tedaj
+    $$(DF)(a) = \begin{bmatrix}
+        \podv{f_1}{x_1}(a) & \ldots & \podv{f_1}{x_n}(a) \\
+        \vdots & & \vdots \\
+        \podv{f_m}{x_1}(a) & \ldots & \podv{f_m}{x_n}(a) 
+    \end{bmatrix}$$
+\end{izrek}
+
+\begin{proof}
+    $(\lthen)$ Zapišemo enakost $F(a+h) = F(a) + dF_a(h) + o(h)$ po komponentah.
+
+    $(\Leftarrow)$ Definicija diferenciabilnosti.
+\end{proof}
+
+\begin{posledica}
+    Naj bo $a \in D$ notranja točka. Naj bo $F = (f_1, \ldots, f_m): D \to \RR^m$ preslikava. Velja:
+    
+    Če so vse funkcije $f_1, \ldots, f_m$ v točki $a$ parcialno odvedlivi po vseh spremenljivkah in so ti vsi odvodi zvezni v točki $a$, potem je $F$ diferenciabilna v točki $a$.
+\end{posledica}
+
+\begin{zgled}
+    Naj bo $F(x,y,z) = (x^2+2y+e^z, xy+z^2), \ f: \RR^3 \to \RR^2$. Določi $(DF)(1,0,1)$.
+\end{zgled}
+
+\begin{opomba}
+    Preslikava $F: D^{\text{odp}} \subseteq \RR^n \to \RR^m$ je razreda $C^k(D)$ oz. je $k$-krat zvezno odvedljiva, če so $f_1, \ldots, f_m \in C^k(D)$.
+\end{opomba}
+
+\begin{izrek}[Verižno pravilo]
+    Naj bo $a \in D \subseteq \RR^n$ notranja točka. Naj bo $b \in \Omega \subseteq \RR^m$ notranja točka. Naj bo $F: D \to \Omega$ diferenciabilna v točki $a$ in velja $F(a) = b$. Naj bo $G: \Omega \to \RR^k$ diferenciabilna v točki $b$. Tedaj $G \circ F$ diferenciabilna v točki $a$ in velja:
+    $$D(G \circ F)(a) = (DG)(b) \cdot (DF)(a) = (DG)(F(a)) \cdot (DF)(a).$$
+    Označimo $F(x_1, \ldots, x_n) = (f_1(x_1, \ldots, x_n), \ldots, f_m(x_1, \ldots, x_n))$ in $G(y_1, \ldots, y_m) = (g_1(y_1, \ldots, y_m), \ldots, g_k(y_1, \ldots, y_m))$. Potem 
+    $$D(G \circ F)(a) = \begin{bmatrix}
+        \podv{g_1}{y_1} & \ldots & \podv{g_1}{y_m} \\
+        \vdots & & \vdots \\
+        \podv{g_k}{y_1} & \ldots & \podv{g_k}{y_m}
+    \end{bmatrix}(b) \cdot \begin{bmatrix}
+        \podv{f_1}{x_1} & \ldots & \podv{f_1}{x_n} \\
+        \vdots & & \vdots \\
+        \podv{f_m}{x_1} & \ldots & \podv{f_m}{x_n}
+    \end{bmatrix}(a)$$
+\end{izrek}
+
+\begin{proof}
+    Definicija diferenciabilnosti.
+\end{proof}
+
+\begin{posledica}[$k=1$, $G = g$ funkcija]
+    Naj bo $\Phi(x_1, \ldots, x_n) = g(f_1(x_1, \ldots, x_n), \ldots, f_m(x_1, \ldots, x_n))$. Potem 
+    $$\podv{\Phi}{x_j}(a) = \podv{g}{y_1}(b) \cdot \podv{f_1}{x_j}(a) + \podv{g}{y_2}(b) \cdot \podv{f_2}{x_j}(a) + \ldots + \podv{g}{y_m}(b) \cdot \podv{f_m}{x_j}(a)$$
+\end{posledica}
+
+\begin{zgled}
+    Naj bo $F(x,y) = (x^2 + y, xy), \ g(u, v) = uv + v^2$. Naj bo $\Phi = g \circ F$. Izračunaj $(D\Phi)(x,y)$ na dva načina.
+\end{zgled}
+
+\subsection{Izrek o implicitni funkciji}
+Radi bi poiskali zadostni pogoji na funkcijo $f(x, y)$, da bi enačba $f(x, y) = 0$ lokalno v okolici točki $(a,b)$, za katero velja $f(a,b) = 0$, predstavljala graf funkcije $y = \varphi(x)$.
+
+\begin{izrek}[Osnovna verzija izreka o implicitni funkciji]
+    Naj bo $D^{\text{odp}} \subseteq \RR^2$. Naj bo $(a, b) \in D$. Naj bo $f \in C^1(D)$ in naj velja:
+    \begin{enumerate}
+        \item $f(a,b) = 0$.
+        \item $f_y(a,b) \neq 0$.
+    \end{enumerate}
+    Potem obstajata $\delta > 0$ in $\epsilon > 0$, da velja: $I \times J \subseteq D$, kjer je $I = (a - \delta, a + \delta), \ J = (b-\epsilon, b+\epsilon)$ in enolično določena~$C^1$ funkcija $\varphi: I \to J$, za katero velja:
+    \begin{enumerate}
+        \item $\varphi(a) = b$.
+        \item $\all{(x,y) \in I \times J} f(x, y) = 0 \liff y = \varphi (x)$ (rešitve enačbe $f(x,y) = 0$ so natanko graf funkcije $\varphi$).
+        \item $\varphi'(x) = -\frac{f_x(x, \varphi(x))}{f_y(x, \varphi(x))}$ za vsak $x \in I$.
+    \end{enumerate}
+\end{izrek}
