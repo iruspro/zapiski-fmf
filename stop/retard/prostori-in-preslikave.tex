@@ -251,8 +251,132 @@ Njen inverz je dan z
 $$\RR^{n-1} \to S^{n-1} - \set{N},\  g(\vec{x}) = \left(\frac{2\vec{x}}{||\vec{x}||^2 + 1}, \frac{||\vec{x}||^2-1}{||\vec{x}||^2+1}\right).$$
 Bijekcijo $f$ imenujemo \emph{stereografska projekcija}.
 
-Sledi, da $S^{n-1} - \set{N} \approx \RR^{n-1}$. Jasno je, da bi enak rezultat dobili, če bi iz sfere izrezali katerokoli točko. Sklepamo, da ime vsaka točka $S^{n-1}$ okolico, ki je homeomorfna $\RR^{n-1}$. Pravimo, da je $S^{n-1}$ \emph{lokalno homeomorfna} prostoru $\RR^{n-1}$.
+Sledi, da $S^{n-1} - \set{N} \approx \RR^{n-1}$. Jasno je, da bi enak rezultat dobili, če bi iz sfere izrezali katerokoli točko. Sklepamo, da ima vsaka točka $S^{n-1}$ okolico, ki je homeomorfna $\RR^{n-1}$. Pravimo, da je $S^{n-1}$ \emph{lokalno homeomorfna} prostoru $\RR^{n-1}$.
 
 \begin{definicija}
     Prostore, ki so lokalno homeomorfne kakemu evklidskemu prostoru, imenujemo \emph{mnogoterosti}.
 \end{definicija}
+
+\subsection{Baze in predbaze}
+\begin{definicija}
+    Naj bo $(X, \Tt)$ prostor. Družina $B \subseteq \Tt$ je \emph{baza topologije $\Tt$}, če lahko vse elemente $\Tt$ zapišemo kot unije elementov $B$.
+\end{definicija}
+
+\begin{primer}
+    Primeri baz. Ali so lahko baze majhne?
+    \begin{itemize}
+        \item Naj bo $(X, d)$ metrični prostor. Krogle so baza metrične topologije $\Tt_d$. Še več: Dovolj je, če vzamemo samo majhne krogle, npr. z radijem $\frac{1}{n}$.
+        \item Če vzemimo $(X, \Tt_\text{disk})$, potem vsaka baza vsebuje vse enojčke.
+        \item Ali bi v $(\RR^n, \Tt_\text{evkl})$ lahko za bazo vzeli le krogle s središči v $\QQ^n$?
+    \end{itemize}
+\end{primer}
+
+\begin{trditev}
+    Naj bo $(X, \Tt_X)$ prostor, $B_x$ baza $\Tt_X$. Naj bo $(Y, \Tt_Y)$ prostor, $B_Y$ baza $\Tt_Y$. Velja:
+    \begin{enumerate}
+        \item $A \subseteq X \text{ je odprta} \liff \all{a \in A} \some{B \in B_x} a \in B \subseteq A$.
+        \item Naj bo $f: X \to Y$ funkcija. Potem
+        \begin{itemize}
+            \item $f \text{ je zvezna} \liff \all{B \in B_Y} \invimg{f}(B) \in \Tt_X$.
+            \item $f \text{ je odprta} \liff \all{B \in B_X} \img{f}(B) \in \Tt_Y$.
+        \end{itemize}
+    \end{enumerate}
+\end{trditev}
+
+\begin{proof}
+    Slike in praslike ohranjajo unije.
+\end{proof}
+
+\begin{primer}
+    Ali je $f: S^1 \to S^1 \subseteq \CC \text{ (enotska kompleksna števila)}, \ f(z) = z^2$ odprta?
+\end{primer}
+
+\begin{definicija}
+    Naj bo $X$ prostor, $x \in X$. Družina $B_X \subseteq \Tt$ je \emph{lokalna baza okolic $X$}, če za vsako odprto okolico $U$, ki vsebuje $x$, obstaja $B \in B_X$, da $x \in B \subseteq U$. 
+\end{definicija}
+
+\begin{opomba}
+    Običajno prevzamemo, da so $B_X$ okolice $x$.
+\end{opomba}
+
+\begin{trditev}
+    Če je $\mathcal{B}$ baza topologije $\Tt$, potem je $B_x = \set{B \in \mathcal{B}; \ x \in B}$ je lokalna baza okolic $x$.
+
+    Obratno: $\mathcal{B} := \bigcup_{x \in X} B_x$ je baza topologije $X$.
+\end{trditev}
+
+\begin{primer}
+    V metričnem prostoru $(X, d)$ je $\set{K(x,r); \ r \in \QQ}$ lokalna baza pri $x$.
+\end{primer}
+
+\newpage
+Vzemimo neko družino $B$. Definiramo $\Tt = \set{\text{unije elementov } B}$. Ali je $\Tt$ topologija?
+
+\begin{trditev}
+    \label{trd:baza}
+    Naj bo $\mathcal{B}$ družina podmnožic $X$. Definiramo $\Tt = \set{\text{unije elementov } \mathcal{B}}$. Potem $\Tt$ je topologija na $X$ natanko tedaj, ko
+    \begin{enumerate}
+        \item $\mathcal{B}$ je pokritje $X$,
+        \item za vse $B, B' \in \mathcal{B}$, za vse $x \in B \cap B'$, obstaja $B'' \in \mathcal{B}$, da $x \in B'' \subseteq B \cap B'$.
+    \end{enumerate} 
+    Rečemo, da je \emph{topologija $\Tt$ generirana z bazo $\mathcal{B}$}.
+\end{trditev}
+
+\begin{proof}
+    Enostavno preverimo lastnosti.
+\end{proof}
+
+Naj bosta $(X, \Tt_X), (Y, \Tt_Y)$ topologiji. Radi bi definirali topologijo na množici $X \times Y$.
+
+\begin{definicija}
+    \emph{Produktna topologija} $\Tt_{X \times Y}$ je topologija, ki je generirana z bazo $\set{U \times V; \ U \in \Tt_X, V \in \Tt_Y}$.
+\end{definicija}
+
+\begin{zgled} 
+    Projekciji.
+    \begin{itemize}
+        \item Naj bo $(X \times Y, \Tt_{X \times Y})$ produktna topologija. Projekciji $\pr_x: X \times Y \to X, \ \pr_y$ sta zvezni in odprti.
+        \item Naj bo $\pr_1: \RR^2 \to \RR$. Ali je $\pr_1$ zaprta?
+    \end{itemize} 
+\end{zgled}
+
+Naj bo $\mathcal{P}$ poljubna družina podmnožic $X$. Kaj je najmanjša topologija $\Tt$ na $X$, ki vsebuje $\mathcal{P}$?
+
+\begin{trditev}
+    Naj bo $\mathcal{P}$ poljubna družina podmnožic $X$. Če je $\mathcal{P}$ pokritje $X$, potem je $\Tt$ topologija, ki jo kot baza generirajo končni preseki elementov $\mathcal{P}$.
+    Pravimo, da je $\mathcal{P}$ \emph{predbaza topologije $\Tt$}.
+\end{trditev}
+
+\begin{proof}
+    Družina vseh končnih presekov elementov $\mathcal{P}$ ustreza pogoju (2) iz trditve \ref{trd:baza}
+\end{proof}
+
+\begin{primer}
+    Produktna topologia na $X \times Y$ je najmanjša topologija za katero sta projekciji $\pr_X$ in $\pr_Y$ zvezni. 
+    
+    Množica~$\mathcal{P} = \set{\invimg{\pr_X}(U), \ U \in \Tt_X} \cup \set{\invimg{\pr_Y}(V), \ V \in \Tt_Y}$ je predbaza. 
+
+    S pomočjo predbaze $\mathcal{P}$ lahko definiramo produktno topologijo za poljubno mnogo faktorjev.
+\end{primer}
+
+\begin{trditev}
+    Naj bosta $(X, \Tt_X), (Y, \Tt_Y)$ prostora. Naj bo $\mathcal{P}$ predbaza $\Tt_Y$. Velja:
+    $$\text{Funkcija } f: X \to Y \text{ je zvezna} \liff \all{B \in \mathcal{P}} \invimg{f}(B) \in \Tt_X.$$
+\end{trditev}
+
+\begin{proof}
+    Enostavno.
+\end{proof}
+
+\textbf{\textcolor{red}{Pozor!}} Odprtost funkcije $f$ v splošnem ne moremo testirati na predbaze.
+
+\begin{trditev}
+    Naj bodo $X, Y, Z$ prostori. Velja:
+    $$\text{Funkcija } f:X \to Y \times Z, \ f = (f_Y, f_Z) \text{ je zvezna} \liff f_Y, f_Z \text{ sta zvezni}.$$
+\end{trditev}
+
+\begin{proof}
+    $(\lthen)$ Komponenti sta kompozitum zveznih funkcij.
+
+    $(\Leftarrow)$ Poglejmo prasliko predbaznih množic.
+\end{proof}
