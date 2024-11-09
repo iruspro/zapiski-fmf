@@ -321,11 +321,15 @@ Naj bo $f: D^{\text{odp}} \subseteq \RR^n \to \RR$ funkcija. Denimo, da je $f$ p
 \end{opomba}
 
 \begin{definicija}
-    Naj bo $D^\text{odp} \subseteq \RR^n$. \emph{Vektroski prostor vseh $k$-krat zvezno parcialno odvedljivih funkcij} označimo z~$C^k(D)$. \emph{Prostor gladkih funkcij} je $C^\infty(D) = \bigcap_{k=1}^\infty C^k(D)$. \emph{Prostor zveznih funkcij na $D$} je $C(D)$.
+    Naj bo $D^\text{odp} \subseteq \RR^n$. \emph{Množico vseh $k$-krat zvezno parcialno odvedljivih funkcij} označimo z~$C^k(D)$. \emph{Množica gladkih funkcij} je $C^\infty(D) = \bigcap_{k=1}^\infty C^k(D)$. \emph{Množica zveznih funkcij na $D$} je $C(D)$.
 \end{definicija}
 
 \begin{opomba}
     Funkcija $f \in C^k(D)$, če obstajajo vse parcialni odvodi funkcije $f$ do reda $k$ in so vse ti parcialni odvodi zvezni na $D$. 
+\end{opomba}
+
+\begin{opomba}
+    Množica $C^k(D)$ z operacijama seštevanja, množenja s skalarji in komponiranja preslikav je algebra nad $\RR$.
 \end{opomba}
 
 \subsubsection{Diferenciabilnost preslikav}
@@ -412,11 +416,11 @@ Naj bo $f: D^{\text{odp}} \subseteq \RR^n \to \RR$ funkcija. Denimo, da je $f$ p
 \end{zgled}
 
 \newpage
-\subsection{Izrek o implicitni funkciji}
-\subsubsection{Osnovna verzija izreka o implicitni funkciji}
+\subsection{Izrek o implicitni preslikavi}
+\subsubsection{Osnovna verzija izreka o implicitni preslikavi}
 Radi bi poiskali zadostni pogoji na funkcijo $f(x, y)$, da bi enačba $f(x, y) = 0$ lokalno v okolici točki $(a,b)$, za katero velja $f(a,b) = 0$, predstavljala graf funkcije $y = \varphi(x)$.
 
-\begin{izrek}[Osnovna verzija izreka o implicitni funkciji]
+\begin{izrek}[Osnovna verzija izreka o implicitni preslikavi]
     Naj bo $D \subseteq \RR^2$ odprta,  $(a, b) \in D$,  $f: D^\text{odp} \to \RR$ funkcija razreda $ C^1(D)$ in naj velja:
     \begin{enumerate}
         \item $f(a,b) = 0$.
@@ -483,6 +487,29 @@ Naj bo $\Phi: D^\text{odp} \subseteq \RR^m \to \RR^m$ preslikava, $\Phi \in C^1(
     Naj bo $\Phi(x,y) = (e^x \cos y, e^x \sin y), \ \Phi: \RR^2 \to \RR^2$. Ali je $\Phi$ difeomorfizem?
 \end{zgled}
 
+\begin{lema}[Lagrangeev izrek za funkcijo več spremenljivk]
+    Naj bo $D \subseteq \RR^n$ odprta množica, točki $a, b \in D$ taki, da za vsak $t \in [0,1]$ daljica $(1-t)a + tb \in D$, $f: D \to \RR$ funkcija razreda $C^1$.     
+    Tedaj obstaja taka točka $\xi$ iz daljice med~$a$~in~$b$, da je $f(b)-f(a) = (Df)(\xi)(b-a)$.
+\end{lema}
+
+\begin{proof}
+    Lagrangeev izrek za funkcijo $\varphi(t) = f((1-t)a + tb)$.
+\end{proof}
+
+\begin{lema}
+    Predpostavki kot prej. Naj obstaja tak $M \in \RR$, da za vsak $j = 1, \ldots, n$ in vsak $x \in D$ velja: $\left|\podv{f}{x_j}(x)\right| \leq M$. Tedaj~$|f(b)-f(a)| \leq M \sqrt{n}|b-a|$.
+\end{lema}
+
+\begin{proof}
+    Uporabimo prejšnjo trditev.
+\end{proof}
+
+\begin{lema}
+    Naj bo $D \subseteq \RR^n, \ a,b \in D$ kot prej. Naj bo $F: D \subseteq \RR^n \to \RR^m, \ F = (f_1, \ldots, f_m)$ preslikava razreda~$C^1$. Naj obstaja tak $M \in \RR$, da za vsak $j = 1, \ldots, n$, vsak $i = 1, \ldots, m$ in vsak $x \in D$ velja: $\left|\podv{f_i}{x_j}(x)\right| \leq M$. 
+    
+    Tedaj~$\norm{F(b) - F(a)}~\leq~M~\sqrt{mn}~\norm{b - a}$.
+\end{lema}
+
 \begin{izrek}[Izrek o inverzni preslikavi]
     Naj bo $D \subseteq \RR^m$ odprta, $F: D \to \RR^m$ preslikava razreda $C^1$,  $a \in D$ in $b = F(a)$.
     Če je $\det(DF)(a) \neq 0$, potem obstajata okolici $a \in U \subseteq \RR^m$ in $b \in V \subseteq \RR^m$, da je $F: U \to V$ $C^1$-difeomorfizem.    
@@ -513,7 +540,7 @@ Naj bo $\Phi: D^\text{odp} \subseteq \RR^m \to \RR^m$ preslikava, $\Phi \in C^1(
 
 
 \newpage
-\subsubsection{Izrek o implicitni funkciji}
+\subsubsection{Izrek o implicitni preslikavi}
 Imamo $n+m$ spremenljivk: $(x, y)$, kjer $x = (x_1, \ldots, x_n), \ y = (y_1, \ldots, y_m)$ in $m$ enačb. Pričakujemo, da bomo lahko $m$~spremenljivk izrazili kot funkcijo ostalih, tj. najdemo preslikavo $\Phi: D \subseteq \RR^n \to \RR^m$, da velja $y = \Phi(x)$.
 
 
@@ -544,13 +571,15 @@ Diferencial preslikave $F$ je potem enak $(DF)(x,y) = \begin{bmatrix}
     \podv{F}{x}(x,y) & \podv{F}{y}(x,y)
 \end{bmatrix}$ (bločni zapis).
 
-Za vektor $\begin{bmatrix}
-    h \\ k
-\end{bmatrix}$, kjer je $h \in \RR^n, \ k \in \RR^m$ velja: $(DF)(x,y)  \begin{bmatrix}
-    h \\ k
-\end{bmatrix} = \podv{F}{x}(x,y)  h + \podv{F}{y}(x,y)  k \in \RR^m$.
+\begin{opomba}
+    Za vektor $\begin{bmatrix}
+        h \\ k
+    \end{bmatrix}$, kjer je $h \in \RR^n, \ k \in \RR^m$ velja: $(DF)(x,y)  \begin{bmatrix}
+        h \\ k
+    \end{bmatrix} = \podv{F}{x}(x,y)  h + \podv{F}{y}(x,y)  k \in \RR^m$.
+\end{opomba}
 
-\begin{izrek}[Izrek o implicitni funkciji]
+\begin{izrek}[Izrek o implicitni preslikavi]
     Naj bo $D\subseteq \RR_x^n \times \RR_y^m$ odprta množica, $(a, b) \in D$, $F: D \to \RR^m$ preslikava razreda $C^1$. Naj velja:
     \begin{enumerate}
         \item $F(a, b) = 0$,
@@ -565,9 +594,19 @@ Za vektor $\begin{bmatrix}
 \end{izrek}
 
 \begin{proof}
-    \textcolor{red}{TODO.}
+    Uporabimo izrek o inverzni preslikavi. 
+    
+    Definiramo preslikavo $\Phi: D \subseteq \RR^n \times \RR^m \to  \RR^n \times \RR^m, \ \Phi(x,y) = (x, F(x,y))$. Kandidata za preslikavo $\varphi$ najdemo v oblike inverza $\Phi^{-1}$, nato enostavno preverimo lastnosti.
 \end{proof}
 
 \begin{posledica}
     Če je preslikava $F$ razreda $C^k$, je tudi preslikava $\varphi$ razreda $C^k$.
 \end{posledica}
+
+\begin{zgled}
+    Naj bo $x,y \in \RR, \ F(x, y) = x^2 + y^2 -1$. S pomočjo izreka o implicitni preslikavi pokaži, da v okolici točke $(0,1)$ rešitve enačbe $F(x,y) = 0$ graf neke preslikave $\varphi$. Določi tudi preslikavo $\varphi$.
+\end{zgled}
+
+\begin{zgled}
+    Naj bo $F(x,y,z) = (y + xy+xz^2, z+zy+x^2), \ F = (f, g)$ in naj rešujemo enačbo $F(x,y,z) = 0$. Preveri zahteve izreka v okolici točke $(0,0,0)$ in zapiši spremenljivki $y$ in $z$ kot funkciji spremenljivke $x$. Določi tudi prvi in drugi odvod funkcij $f$ in $g$ po spremenljivke $x$. Kaj je rezultat?
+\end{zgled}
