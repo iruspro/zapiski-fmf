@@ -1,30 +1,30 @@
 \section{Funkcije več spremenljivk}
-\subsection{Prostor $\RR^n$}
-\subsubsection{Prostor $\RR^n$}
+\subsection{Prostor $\R^n$}
+\subsubsection{Prostor $\R^n$}
 \begin{definicija}
-    \emph{Prostor $\RR^n$} je kartezični produkt
-    $\underbrace{\RR \times \dots \times \RR}_n$. Na njem definiramo
+    \emph{Prostor $\R^n$} je kartezični produkt
+    $\underbrace{\R \times \dots \times \R}_n$. Na njem definiramo
     seštevanje in množenje s skalarjem po komponentah. S tema
-    operacijama je $(\RR,+,\cdot)$ vektorski prostor nad $\RR$. Posebej
+    operacijama je $(\R,+,\cdot)$ vektorski prostor nad $\R$. Posebej
     definiramo še skalarni produkt
     \[
     x \cdot y = \sum_{i=1}^n x_iy_i,
     \]
     ki nam da normo $\norm{x}=\sqrt{x \cdot x}$ in metriko
-    $d(x,y) = \norm{x-y}$. $(\RR^n,d)$ je tako metrični prostor.
+    $d(x,y) = \norm{x-y}$. $(\R^n,d)$ je tako metrični prostor.
     \end{definicija}
 
 \begin{definicija}
-    Naj bosta $a,b \in \RR^n$ vektorja, za katera je $a_i \leq b_i$ za
+    Naj bosta $a,b \in \R^n$ vektorja, za katera je $a_i \leq b_i$ za
     vse $i \in \set{1,\dots,n}$. \emph{Zaprt kvader}\index{Kvader}, ki
     ga določata $a$ in $b$, je množica
     \[
-    [a,b] = \setb{x\in\RR^n}{\forall i \in \set{1,\dots,n} \colon
+    [a,b] = \setb{x\in\R^n}{\forall i \in \set{1,\dots,n} \colon
     a_i \leq x_i \leq b_i}.
     \]
     Podobno definiramo \emph{odprt kvader} kot
     \[
-    (a,b) = \setb{x\in\RR^n}{\forall i \in \set{1,\dots,n} \colon
+    (a,b) = \setb{x\in\R^n}{\forall i \in \set{1,\dots,n} \colon
     a_i < x_i < b_i}.
     \]
     \end{definicija}
@@ -34,21 +34,21 @@
     \end{opomba}
     
     \begin{izrek}
-    Množica $K\subseteq\RR^n$ je kompaktna natanko tedaj, ko je zaprta
+    Množica $K\subseteq\R^n$ je kompaktna natanko tedaj, ko je zaprta
     in omejena.
     \end{izrek}
 
-\subsubsection{Zaporedja v $\RR^n$}
+\subsubsection{Zaporedja v $\R^n$}
 \begin{definicija}
-    \emph{Zaporedje v $\RR^n$} je preslikava $a: \NN \to \RR^n$. Namesto $a(m)$ pišemo $a_m$, kjer $a_m = (a_1^m, \ldots, a_n^m)$.
+    \emph{Zaporedje v $\R^n$} je preslikava $a: \N \to \R^n$. Namesto $a(m)$ pišemo $a_m$, kjer $a_m = (a_1^m, \ldots, a_n^m)$.
 \end{definicija}
 
 \begin{opomba}
-    Zaporedje v $\RR^n$ porodi $n$ zaporedij v $\RR$.
+    Zaporedje v $\R^n$ porodi $n$ zaporedij v $\R$.
 \end{opomba}
 
 \begin{trditev}
-    Naj bo $(a_m)_m$ zaporedje v $\RR^n$, $a_m = (a_1^m, \ldots, a_n^m)$. Velja:
+    Naj bo $(a_m)_m$ zaporedje v $\R^n$, $a_m = (a_1^m, \ldots, a_n^m)$. Velja:
     $$\text{Zaporedje } (a_m)_m \text{ konvergia } \liff \text{ konvergira zaporedja } (a_1^m)_m, \ldots, (a_n^m)_m.$$
     V primeru konvergence velja:
     $$\lim_{m \to \infty} a_m = (\lim_{m \to \infty} a_1^m, \ldots, \lim_{m \to \infty} a_n^m).$$
@@ -59,25 +59,25 @@
 \end{proof}
 
 \newpage
-\subsection{Zveznost preslikav iz $\RR^n$ v $\RR^m$}
-\subsubsection{Zveznost preslikav iz $\RR^n$ v $\RR$}
+\subsection{Zveznost preslikav iz $\R^n$ v $\R^m$}
+\subsubsection{Zveznost preslikav iz $\R^n$ v $\R$}
 
 \begin{definicija}
     Če je $m=1$, potem preslikave rečemo \emph{funkcija}.
 \end{definicija}
 
 \begin{definicija}
-    Naj bo $f: D \subseteq \RR^n \to \RR^m$ preslikava. Naj bo $a \in D$. \emph{Preslikava $f$ je zvezna v točki $a$}, če 
+    Naj bo $f: D \subseteq \R^n \to \R^m$ preslikava. Naj bo $a \in D$. \emph{Preslikava $f$ je zvezna v točki $a$}, če 
     $$\all{\epsilon > 0} \some{\delta >0} \all{x \in D} \norm{x-a} \lthen \norm{f(x)- f(a)}.$$
     Preslikava $f$ je \emph{zvezna na $D$}, če je zvezna v vsaki točki $a \in D$.
 \end{definicija}
 
 \begin{trditev}
-    Naj bo $f: D \subseteq \RR^n \to \RR^m$ preslikava. Naj bo $a \in D$. Preslikava $f$ je zvezna v točki $a$ natanko tedaj, ko za vsako zaporedje $(x_n)_n, \ x_n \in D$, ki konvergira proti $a$, zaporedje $(f(x_n))_n, \ f(x_n) \in \RR^m$ konvergira proti $f(a)$.
+    Naj bo $f: D \subseteq \R^n \to \R^m$ preslikava. Naj bo $a \in D$. Preslikava $f$ je zvezna v točki $a$ natanko tedaj, ko za vsako zaporedje $(x_n)_n, \ x_n \in D$, ki konvergira proti $a$, zaporedje $(f(x_n))_n, \ f(x_n) \in \R^m$ konvergira proti $f(a)$.
 \end{trditev}
 
 \begin{definicija}
-    Naj bo $f: D \subseteq \RR^n \to \RR^m$ preslikava. Preslikava $f$ je \emph{enakomerno zvezna na $D$}, če
+    Naj bo $f: D \subseteq \R^n \to \R^m$ preslikava. Preslikava $f$ je \emph{enakomerno zvezna na $D$}, če
     $$\all{\epsilon > 0} \some{\delta > 0} \all{x, x' \in D} \norm{x - x'} < \delta \lthen \norm{f(x) - f(x')} < \epsilon.$$
 \end{definicija}
 
@@ -86,12 +86,12 @@
 \end{trditev}
 
 \begin{trditev}
-    Naj bo $f: K^\text{komp} \subseteq \RR^n \to \RR^m$ zvezna preslikava. Potem je $\img{f}(K)$ kompaktna.
+    Naj bo $f: K^\text{komp} \subseteq \R^n \to \R^m$ zvezna preslikava. Potem je $\img{f}(K)$ kompaktna.
 \end{trditev}
 
 \begin{definicija}
-    Preslikava $f: D \subseteq \RR^n \to \RR^m$ je \emph{$C$-lipschitzova}, če
-    $$\some{C \in \RR} \all{x, x' \in D} \norm{f(x) - f(x')} \leq C \norm{x - x'}.$$
+    Preslikava $f: D \subseteq \R^n \to \R^m$ je \emph{$C$-lipschitzova}, če
+    $$\some{C \in \R} \all{x, x' \in D} \norm{f(x) - f(x')} \leq C \norm{x - x'}.$$
 \end{definicija}
 
 \begin{trditev}
@@ -101,7 +101,7 @@
 \end{trditev}
 
 \begin{trditev}
-    Naj bosta $f, g: D \subset \RR^n \to \RR$ zvezni funkciji v $a \in D$. Naj bo $\lambda \in \RR$. Tedaj so v $a$ zvezni tudi funkcije:
+    Naj bosta $f, g: D \subset \R^n \to \R$ zvezni funkciji v $a \in D$. Naj bo $\lambda \in \R$. Tedaj so v $a$ zvezni tudi funkcije:
     $$f+g, \ f-g, \ \lambda f, \ fg.$$
     Če za vsak $x \in D, \ g(x) \neq 0$ , tedaj so v $a$ zvezna tudi funkcija: 
     $$\frac{f}{g}.$$
@@ -118,22 +118,22 @@
 \begin{zgled}
     Nekaj primerov zveznih preslikav.
     \begin{itemize}
-        \item Preslikava $\Pi_j(x_1, \ldots, x_n) = x_j$ je zvezna na $\RR^n$ za vsak $j = 1, \ldots, n$.
-        \item Vse polinomi v $n$-spremenljivkah so zvezne funkcije na $\RR^n$.
+        \item Preslikava $\Pi_j(x_1, \ldots, x_n) = x_j$ je zvezna na $\R^n$ za vsak $j = 1, \ldots, n$.
+        \item Vse polinomi v $n$-spremenljivkah so zvezne funkcije na $\R^n$.
         \item Vse racionalne funkcije so zvezne povsod, razen tam, kjer je imenovalec enak $0$.
     \end{itemize}
 \end{zgled}
 
 \begin{definicija}
-    Preslikava $f: D \subset \RR^n \to \RR$ je \emph{funkcija $n$-spremenljivk.}
+    Preslikava $f: D \subset \R^n \to \R$ je \emph{funkcija $n$-spremenljivk.}
 \end{definicija}
 
 \begin{opomba}
-    Naj bo $(M, d)$ metrični prostor in $N \subset M$. Naj bo $f: M \to \RR$ zvezna funkcija na $M$. Potem $f|_N$ je tudi zvezna funkcija na $N$.
+    Naj bo $(M, d)$ metrični prostor in $N \subset M$. Naj bo $f: M \to \R$ zvezna funkcija na $M$. Potem $f|_N$ je tudi zvezna funkcija na $N$.
 \end{opomba}
 
 \begin{trditev}
-    Naj bosta $D \subseteq \RR^n$ in $D_j = \Pi_j(D)$. Naj bo $a \in D, \ a =(a_1, \ldots, a_n)$ in $f: D \to \RR$ zvezna v $a$. Tedaj za vsak $j = 1, \ldots, n$ funkcija $\varphi_j: D_j \to \RR, \ \varphi_j(t) = f(a_1, \ldots, a_{j-1}, t, a_{j+1}, \ldots, a_n)$ zvezna v $a_j$.
+    Naj bosta $D \subseteq \R^n$ in $D_j = \Pi_j(D)$. Naj bo $a \in D, \ a =(a_1, \ldots, a_n)$ in $f: D \to \R$ zvezna v $a$. Tedaj za vsak $j = 1, \ldots, n$ funkcija $\varphi_j: D_j \to \R, \ \varphi_j(t) = f(a_1, \ldots, a_{j-1}, t, a_{j+1}, \ldots, a_n)$ zvezna v $a_j$.
 \end{trditev}
 
 \begin{proof}
@@ -141,21 +141,21 @@
 \end{proof}
 
 \begin{opomba}
-    Če je funkcija več spremenljivk zvezna v neki točki $a \in \RR^n$, je zvezna tudi kot funkcija posameznih spremenljivk.
+    Če je funkcija več spremenljivk zvezna v neki točki $a \in \R^n$, je zvezna tudi kot funkcija posameznih spremenljivk.
 \end{opomba}
 
 \begin{zgled}
     Naj bo $f(x,y) = \begin{cases}
         \frac{2xy}{x^2+y^2}; &(x,y) \neq (0,0) \\
         0; &(x,y) = (0,0)
-    \end{cases}$. Ali je $f$ zvezna kot funkcija vsake spremenljivke posebej? Ali je $f$ zvezna na $\RR^2$?
+    \end{cases}$. Ali je $f$ zvezna kot funkcija vsake spremenljivke posebej? Ali je $f$ zvezna na $\R^2$?
 \end{zgled}
 
 \begin{zgled}
     Naj bo $f(x,y) = \begin{cases}
         \frac{2x^2y}{x^4+y^2}; &(x,y) \neq (0,0) \\
         0; &(x,y) = (0,0)
-    \end{cases}$. Ali je $f$ zvezna kot funkcija vsake spremenljivke posebej? Ali je zvezna na vsaki premici? Ali je $f$ zvezna na $\RR^2$?
+    \end{cases}$. Ali je $f$ zvezna kot funkcija vsake spremenljivke posebej? Ali je zvezna na vsaki premici? Ali je $f$ zvezna na $\R^2$?
 \end{zgled}
 
 \begin{opomba}
@@ -163,13 +163,13 @@
 \end{opomba}
 
 \newpage
-\subsubsection{Zveznost preslikav iz $\RR^n$ v $\RR^m$}
-Naj bo $D \subseteq \RR^n$ in $F: D \to \RR^m$ preslikava. Naj bo $x \in D$, potem $F(x) \in \RR^m, \ F(x) = y = (y_1, \ldots, y_m)$.
+\subsubsection{Zveznost preslikav iz $\R^n$ v $\R^m$}
+Naj bo $D \subseteq \R^n$ in $F: D \to \R^m$ preslikava. Naj bo $x \in D$, potem $F(x) \in \R^m, \ F(x) = y = (y_1, \ldots, y_m)$.
 
 Lahko pišemo $F(x) = (f_1(x), \ldots, f_m(x))$. Torej $F$ določa $m$ funkcij $n$-spremenljivk.
 
 \begin{trditev}
-    Naj bo $a \in D \subseteq \RR^n$. Naj bo $F=(f_1, \ldots, f_m): D \to \RR^m$ preslikava. Velja:
+    Naj bo $a \in D \subseteq \R^n$. Naj bo $F=(f_1, \ldots, f_m): D \to \R^m$ preslikava. Velja:
     $$\text{Preslikava } F \text{ je zvezna v } a \liff f_1,\ldots, f_m \text{ so zvezne v } a.$$
 \end{trditev}
 
@@ -178,7 +178,7 @@ Lahko pišemo $F(x) = (f_1(x), \ldots, f_m(x))$. Torej $F$ določa $m$ funkcij $
 \end{proof}
 
 \begin{zgled}[Omejenost linearnih preslikav]
-    Naj bo $\lin{A}: \RR^n \to \RR^m$ linearna preslikava, potem $$\some{ M \in \RR \, . \, M \geq 0} \all{x \in \RR^n \, . \, x \neq 0 }  \frac{\norm{\lin{A}x}}{\norm{x}} \leq M \ (\text{oz. } \norm{\lin{A}x} \leq M \norm{x} ).$$
+    Naj bo $\lin{A}: \R^n \to \R^m$ linearna preslikava, potem $$\some{ M \in \R \, . \, M \geq 0} \all{x \in \R^n \, . \, x \neq 0 }  \frac{\norm{\lin{A}x}}{\norm{x}} \leq M \ (\text{oz. } \norm{\lin{A}x} \leq M \norm{x} ).$$
 \end{zgled}
 
 \begin{trditev}
@@ -190,7 +190,7 @@ Lahko pišemo $F(x) = (f_1(x), \ldots, f_m(x))$. Torej $F$ določa $m$ funkcij $
 \end{proof}
 
 \begin{trditev}
-    Naj bo $\lin{A}: \RR^n \to \RR^m$ linearna preslikava. Velja:
+    Naj bo $\lin{A}: \R^n \to \R^m$ linearna preslikava. Velja:
     $$\text{Preslikava } \lin{A} \text{ je zvezna} \liff \text{Preslikava } \lin{A} \text{ je zvezna v točki } 0 \liff \text{Preslikava } \lin{A} \text{ je omejena}.$$
 \end{trditev}
 
@@ -199,14 +199,14 @@ Lahko pišemo $F(x) = (f_1(x), \ldots, f_m(x))$. Torej $F$ določa $m$ funkcij $
 \end{proof}
 
 \begin{definicija}
-    Naj bo $\lin{A}: \RR^n \to \RR^m$ linearna preslikava. Preslikavo $\lin{A}: \RR^n \to \RR^m, \ x \mapsto \lin{A}x + b, \ b \in \RR^m$ imenujemo \emph{afina preslikava}.
+    Naj bo $\lin{A}: \R^n \to \R^m$ linearna preslikava. Preslikavo $\lin{A}: \R^n \to \R^m, \ x \mapsto \lin{A}x + b, \ b \in \R^m$ imenujemo \emph{afina preslikava}.
 \end{definicija}
 
 \newpage
 \subsection{Parcialni odvodi in diferenciabilnost}
 \subsubsection{Parcialni odvod}
 \begin{definicija}
-    Naj bo $f: D \subset \RR^n \to \RR$ funkcija. Naj bo $a = (a_1, \ldots, a_n) \in D$ notranja točka. Funkcija $f$ je \emph{parcialno odvedljiva po spremenljivki $x_j$ v točki $a$}, če obstaja limita 
+    Naj bo $f: D \subset \R^n \to \R$ funkcija. Naj bo $a = (a_1, \ldots, a_n) \in D$ notranja točka. Funkcija $f$ je \emph{parcialno odvedljiva po spremenljivki $x_j$ v točki $a$}, če obstaja limita 
     $$\lim_{h \to 0} \frac{f(a_1, \ldots, a_{j-1}, a_j+h, a_{j+1}, \ldots, a_n) - f(a_1, \ldots, a_n)}{h},$$
     oz. če je funkcija 
     $$x_j \mapsto f(a_1, \ldots, a_{j-1}, x_j, a_{j+1}, \ldots, a_n)$$
@@ -226,7 +226,7 @@ Lahko pišemo $F(x) = (f_1(x), \ldots, f_m(x))$. Torej $F$ določa $m$ funkcij $
 
 \subsubsection{Diferenciabilnost}
 \begin{definicija}
-    Naj bo $f: D \subset \RR^n \to \RR$ funkcija. Naj bo $a = (a_1, \ldots, a_n) \in D$ notranja točka. Funkcija $f$ je \emph{diferenciabilna v točki $a$}, če obstaja tak linearen funkcional $\lin{L}: \RR^n \to \RR$, da velja:
+    Naj bo $f: D \subset \R^n \to \R$ funkcija. Naj bo $a = (a_1, \ldots, a_n) \in D$ notranja točka. Funkcija $f$ je \emph{diferenciabilna v točki $a$}, če obstaja tak linearen funkcional $\lin{L}: \R^n \to \R$, da velja:
     $$f(a+h) = f(a) + \lin{L}(h) + o(h),$$
     kjer $\lim_{h \to 0} \frac{\norm{o(h)}}{\norm{h}} = 0.$
 \end{definicija}
@@ -248,12 +248,12 @@ Lahko pišemo $F(x) = (f_1(x), \ldots, f_m(x))$. Torej $F$ določa $m$ funkcij $
 \end{opomba}
 
 \begin{trditev}
-    Naj bo $f: D \subset \RR^n \to \RR$ diferenciabilna v notranji točki $a \in D$. Tedaj je $f$ v točki $a$ parcialno odvedljiva po vseh spremenljivkah. Poleg tega je zvezna v točki $a$. Pri tem za $h = (h_1, \ldots, h_n)$ velja:
+    Naj bo $f: D \subset \R^n \to \R$ diferenciabilna v notranji točki $a \in D$. Tedaj je $f$ v točki $a$ parcialno odvedljiva po vseh spremenljivkah. Poleg tega je zvezna v točki $a$. Pri tem za $h = (h_1, \ldots, h_n)$ velja:
     $$(df_a)(h) = \podv{f}{x_1}(a) \cdot h_1 + \ldots + \podv{f}{x_n}(a) \cdot h_n = f_{x_1}(a) \cdot h_1 + \ldots + f_{x_n}(a) \cdot h_n$$
 \end{trditev}
 
 \begin{opomba}
-    Naj bo $\lin{L}: \RR^n \to \RR$ linearen funkcional, $x \in \RR^n$, potem $\lin{L}(x) = l_1x_1+\ldots+l_nx_n = \begin{bmatrix}
+    Naj bo $\lin{L}: \R^n \to \R$ linearen funkcional, $x \in \R^n$, potem $\lin{L}(x) = l_1x_1+\ldots+l_nx_n = \begin{bmatrix}
         l_1 & \ldots & l_n
     \end{bmatrix} \cdot \begin{bmatrix}
         x_1 \\ \vdots \\ x_n
@@ -295,7 +295,7 @@ Lahko pišemo $F(x) = (f_1(x), \ldots, f_m(x))$. Torej $F$ določa $m$ funkcij $
 \end{opomba}
 
 \begin{izrek}
-    Naj bo $f: D \subseteq \RR^n \to \RR$ funkcija in naj bo $a \in D$ notranja točka. Denimo, da je $f$ parcialno odvedljiva po vseh spremenljivkah v točki $a$ in so parcialni odvodi zvezni v točki $a$. Tedaj je $f$ diferenciabilna v točki $a$.
+    Naj bo $f: D \subseteq \R^n \to \R$ funkcija in naj bo $a \in D$ notranja točka. Denimo, da je $f$ parcialno odvedljiva po vseh spremenljivkah v točki $a$ in so parcialni odvodi zvezni v točki $a$. Tedaj je $f$ diferenciabilna v točki $a$.
 \end{izrek}
 
 \begin{proof}
@@ -303,10 +303,10 @@ Lahko pišemo $F(x) = (f_1(x), \ldots, f_m(x))$. Torej $F$ določa $m$ funkcij $
 \end{proof}
 
 \subsubsection{Višji parcialni odvodi}
-Naj bo $f: D^{\text{odp}} \subseteq \RR^n \to \RR$ funkcija. Denimo, da je $f$ parcialno odvedljiva po vseh spremenljivkah na $D$: $f_{x_1}, \ldots, f_{x_n}$. To so tudi funkcije $n$-spremenljivk in morda so tudi te parcialno odvedljive po vseh oz. nekatareih spremenljivkah.
+Naj bo $f: D^{\text{odp}} \subseteq \R^n \to \R$ funkcija. Denimo, da je $f$ parcialno odvedljiva po vseh spremenljivkah na $D$: $f_{x_1}, \ldots, f_{x_n}$. To so tudi funkcije $n$-spremenljivk in morda so tudi te parcialno odvedljive po vseh oz. nekatareih spremenljivkah.
 
 \begin{trditev}
-    Naj bo funkcija $f$ definirana v okolici $a \in \RR^n$. Naj bosta $i, j \in \set{1, 2, \ldots, n}$. Denimo, da na tej okolici obstajata $\podv{f}{x_i}, \ \podv{f}{x_j}$ in tudi druga odvoda $\frac{\partial}{\partial x_j} (\podv{f}{x_i}), \ \frac{\partial}{\partial x_i} (\podv{f}{x_j})$. Če sta $\frac{\partial}{\partial x_j} (\podv{f}{x_i}), \ \frac{\partial}{\partial x_i} (\podv{f}{x_j})$ zvezna v $a$, potem sta enaka v točki $a$: 
+    Naj bo funkcija $f$ definirana v okolici $a \in \R^n$. Naj bosta $i, j \in \set{1, 2, \ldots, n}$. Denimo, da na tej okolici obstajata $\podv{f}{x_i}, \ \podv{f}{x_j}$ in tudi druga odvoda $\frac{\partial}{\partial x_j} (\podv{f}{x_i}), \ \frac{\partial}{\partial x_i} (\podv{f}{x_j})$. Če sta $\frac{\partial}{\partial x_j} (\podv{f}{x_i}), \ \frac{\partial}{\partial x_i} (\podv{f}{x_j})$ zvezna v $a$, potem sta enaka v točki $a$: 
     $$\frac{\partial}{\partial x_j} \left(\podv{f}{x_i}\right)(a) = \frac{\partial}{\partial x_i} \left(\podv{f}{x_j}\right)(a).$$
 \end{trditev}
 
@@ -321,7 +321,7 @@ Naj bo $f: D^{\text{odp}} \subseteq \RR^n \to \RR$ funkcija. Denimo, da je $f$ p
 \end{opomba}
 
 \begin{definicija}
-    Naj bo $D^\text{odp} \subseteq \RR^n$. \emph{Množico vseh $k$-krat zvezno parcialno odvedljivih funkcij} označimo z~$C^k(D)$. \emph{Množica gladkih funkcij} je $C^\infty(D) = \bigcap_{k=1}^\infty C^k(D)$. \emph{Množica zveznih funkcij na $D$} je $C(D)$.
+    Naj bo $D^\text{odp} \subseteq \R^n$. \emph{Množico vseh $k$-krat zvezno parcialno odvedljivih funkcij} označimo z~$C^k(D)$. \emph{Množica gladkih funkcij} je $C^\infty(D) = \bigcap_{k=1}^\infty C^k(D)$. \emph{Množica zveznih funkcij na $D$} je $C(D)$.
 \end{definicija}
 
 \begin{opomba}
@@ -329,13 +329,13 @@ Naj bo $f: D^{\text{odp}} \subseteq \RR^n \to \RR$ funkcija. Denimo, da je $f$ p
 \end{opomba}
 
 \begin{opomba}
-    Množica $C^k(D)$ z operacijama seštevanja, množenja s skalarji in komponiranja preslikav je algebra nad $\RR$.
+    Množica $C^k(D)$ z operacijama seštevanja, množenja s skalarji in komponiranja preslikav je algebra nad $\R$.
 \end{opomba}
 
 \subsubsection{Diferenciabilnost preslikav}
 
 \begin{definicija}
-    Naj bo $F: D \subseteq \RR^n \to \RR^m$ preslikava, $a \in D$ notranja točka. Preslikava $F$ je \emph{diferenciabilna} v točki~$a$, če obstaja taka linearna preslikava $\lin{L}: \RR^n \to \RR^m$, da velja:
+    Naj bo $F: D \subseteq \R^n \to \R^m$ preslikava, $a \in D$ notranja točka. Preslikava $F$ je \emph{diferenciabilna} v točki~$a$, če obstaja taka linearna preslikava $\lin{L}: \R^n \to \R^m$, da velja:
     $$F(a+h) = F(a) + \lin{L}(h) + o(h),$$
     kjer je $\lim_{h \to 0} \frac{|o(h)|_m}{|h|_n}$. 
 
@@ -349,14 +349,14 @@ Naj bo $f: D^{\text{odp}} \subseteq \RR^n \to \RR$ funkcija. Denimo, da je $f$ p
 \begin{zgled}
     Obravnavaj diferenciabilnost preslikav:
     \begin{itemize}
-        \item $\lin{A}: \RR^n \to \RR^m$ linearna, $F(x) = \lin{A}x$.
-        \item $F: \RR^{n \times n} \to \RR^{n \times n}, \ F(X) = X^2$.         
+        \item $\lin{A}: \R^n \to \R^m$ linearna, $F(x) = \lin{A}x$.
+        \item $F: \R^{n \times n} \to \R^{n \times n}, \ F(X) = X^2$.         
         Namig: S pomočjo neenakosti CSB pokažimo, da $|H^2| \leq |H|^2$.
     \end{itemize}
 \end{zgled}
 
 \begin{izrek}
-    Naj bo $a \in D$ notranja točka. Naj bo $F = (f_1, \ldots, f_m): D \to \RR^m$ preslikava. Velja: 
+    Naj bo $a \in D$ notranja točka. Naj bo $F = (f_1, \ldots, f_m): D \to \R^m$ preslikava. Velja: 
     $$\text{Preslikava } F \text{ je diferenciabilna v } a \in D \liff \text{so } f_1, \ldots, f_m \text{ diferenciabilne v } a.$$
     Tedaj
     $$(DF)(a) = \begin{bmatrix}
@@ -374,21 +374,21 @@ Naj bo $f: D^{\text{odp}} \subseteq \RR^n \to \RR$ funkcija. Denimo, da je $f$ p
 \end{proof}
 
 \begin{posledica}
-    Naj bo $a \in D$ notranja točka. Naj bo $F = (f_1, \ldots, f_m): D \to \RR^m$ preslikava. Velja:
+    Naj bo $a \in D$ notranja točka. Naj bo $F = (f_1, \ldots, f_m): D \to \R^m$ preslikava. Velja:
     
     Če so vse funkcije $f_1, \ldots, f_m$ v točki $a$ parcialno odvedlivi po vseh spremenljivkah in so ti vse odvodi zvezni v točki $a$, potem je $F$ diferenciabilna v točki $a$.
 \end{posledica}
 
 \begin{zgled}
-    Naj bo $F(x,y,z) = (x^2+2y+e^z, xy+z^2), \ f: \RR^3 \to \RR^2$. Določi $(DF)(1,0,1)$.
+    Naj bo $F(x,y,z) = (x^2+2y+e^z, xy+z^2), \ f: \R^3 \to \R^2$. Določi $(DF)(1,0,1)$.
 \end{zgled}
 
 \begin{definicija}
-    Preslikava $F: D^{\text{odp}} \subseteq \RR^n \to \RR^m$ je razreda $C^k(D)$, če so $f_1, \ldots, f_m \in C^k(D)$.
+    Preslikava $F: D^{\text{odp}} \subseteq \R^n \to \R^m$ je razreda $C^k(D)$, če so $f_1, \ldots, f_m \in C^k(D)$.
 \end{definicija}
 
 \begin{izrek}[Verižno pravilo]
-    Naj bo $a \in D \subseteq \RR^n$ notranja točka. Naj bo $b \in \Omega \subseteq \RR^m$ notranja točka. Naj bo $F: D \to \Omega$ diferenciabilna v točki $a$ in velja $F(a) = b$. Naj bo $G: \Omega \to \RR^k$ diferenciabilna v točki $b$. Tedaj $G \circ F$ diferenciabilna v točki $a$ in velja:
+    Naj bo $a \in D \subseteq \R^n$ notranja točka. Naj bo $b \in \Omega \subseteq \R^m$ notranja točka. Naj bo $F: D \to \Omega$ diferenciabilna v točki $a$ in velja $F(a) = b$. Naj bo $G: \Omega \to \R^k$ diferenciabilna v točki $b$. Tedaj $G \circ F$ diferenciabilna v točki $a$ in velja:
     $$D(G \circ F)(a) = (DG)(b) \cdot (DF)(a) = (DG)(F(a)) \cdot (DF)(a).$$
     Označimo $F(x_1, \ldots, x_n) = (f_1(x_1, \ldots, x_n), \ldots, f_m(x_1, \ldots, x_n))$ in $G(y_1, \ldots, y_m) = (g_1(y_1, \ldots, y_m), \ldots, g_k(y_1, \ldots, y_m))$. Potem 
     $$D(G \circ F)(a) = \begin{bmatrix}
@@ -421,7 +421,7 @@ Naj bo $f: D^{\text{odp}} \subseteq \RR^n \to \RR$ funkcija. Denimo, da je $f$ p
 Radi bi poiskali zadostni pogoji na funkcijo $f(x, y)$, da bi enačba $f(x, y) = 0$ lokalno v okolici točki $(a,b)$, za katero velja $f(a,b) = 0$, predstavljala graf funkcije $y = \varphi(x)$.
 
 \begin{izrek}[Osnovna verzija izreka o implicitni preslikavi]
-    Naj bo $D \subseteq \RR^2$ odprta,  $(a, b) \in D$,  $f: D^\text{odp} \to \RR$ funkcija razreda $ C^1(D)$ in naj velja:
+    Naj bo $D \subseteq \R^2$ odprta,  $(a, b) \in D$,  $f: D^\text{odp} \to \R$ funkcija razreda $ C^1(D)$ in naj velja:
     \begin{enumerate}
         \item $f(a,b) = 0$.
         \item $f_y(a,b) \neq 0$.
@@ -455,23 +455,23 @@ Radi bi poiskali zadostni pogoji na funkcijo $f(x, y)$, da bi enačba $f(x, y) =
 \end{zgled}
 
 \subsubsection{Izrek o inverzni preslikavi}
-Naj bo $\Phi: D^\text{odp} \subseteq \RR^m \to \RR^m$ preslikava, $\Phi \in C^1(D)$. Kakšne so zadostni pogoji za (lokalno) obrnljivost preslikave $\Phi$?
+Naj bo $\Phi: D^\text{odp} \subseteq \R^m \to \R^m$ preslikava, $\Phi \in C^1(D)$. Kakšne so zadostni pogoji za (lokalno) obrnljivost preslikave $\Phi$?
 \begin{definicija}
-    Naj bosta $D, \, \Omega \subseteq \RR^m$ odprti. Preslikava $\Phi: D  \to \Omega$ je \emph{$C^1$-difeomorfizem}, če
+    Naj bosta $D, \, \Omega \subseteq \R^m$ odprti. Preslikava $\Phi: D  \to \Omega$ je \emph{$C^1$-difeomorfizem}, če
     \begin{enumerate}
         \item $\Phi$ je bijekcija, 
         \item $\Phi \in C^1(D)$,
         \item $\Phi^{-1} \in C^1(\Omega)$.
     \end{enumerate} 
-    Podobno definiramo \emph{$C^k$-difeomorfizem} za $k \in \NN \cup \set{\infty}$.
+    Podobno definiramo \emph{$C^k$-difeomorfizem} za $k \in \N \cup \set{\infty}$.
 \end{definicija}
 
 \begin{zgled}
-    Ali je $f(x) = x^3, \ f: \RR \to \RR$ difeomorfizem?
+    Ali je $f(x) = x^3, \ f: \R \to \R$ difeomorfizem?
 \end{zgled}
 
 \begin{trditev}
-    Naj bosta $D, \, \Omega \subseteq \RR^m$ odprti. Naj bo $\Phi: D  \to \Omega$ $C^1$-difeomorfizem. Tedaj je $\det(D\Phi) \neq 0$ na $D$. 
+    Naj bosta $D, \, \Omega \subseteq \R^m$ odprti. Naj bo $\Phi: D  \to \Omega$ $C^1$-difeomorfizem. Tedaj je $\det(D\Phi) \neq 0$ na $D$. 
 \end{trditev}
 
 \begin{proof}
@@ -484,11 +484,11 @@ Naj bo $\Phi: D^\text{odp} \subseteq \RR^m \to \RR^m$ preslikava, $\Phi \in C^1(
 
 \begin{zgled}
     Ali velja obrat trditve? 
-    Naj bo $\Phi(x,y) = (e^x \cos y, e^x \sin y), \ \Phi: \RR^2 \to \RR^2$. Ali je $\Phi$ difeomorfizem?
+    Naj bo $\Phi(x,y) = (e^x \cos y, e^x \sin y), \ \Phi: \R^2 \to \R^2$. Ali je $\Phi$ difeomorfizem?
 \end{zgled}
 
 \begin{lema}[Lagrangeev izrek za funkcijo več spremenljivk]
-    Naj bo $D \subseteq \RR^n$ odprta množica, točki $a, b \in D$ taki, da za vsak $t \in [0,1]$ daljica $(1-t)a + tb \in D$, $f: D \to \RR$ funkcija razreda $C^1$.     
+    Naj bo $D \subseteq \R^n$ odprta množica, točki $a, b \in D$ taki, da za vsak $t \in [0,1]$ daljica $(1-t)a + tb \in D$, $f: D \to \R$ funkcija razreda $C^1$.     
     Tedaj obstaja taka točka $\xi$ iz daljice med~$a$~in~$b$, da je $f(b)-f(a) = (Df)(\xi)(b-a)$.
 \end{lema}
 
@@ -497,7 +497,7 @@ Naj bo $\Phi: D^\text{odp} \subseteq \RR^m \to \RR^m$ preslikava, $\Phi \in C^1(
 \end{proof}
 
 \begin{lema}
-    Predpostavki kot prej. Naj obstaja tak $M \in \RR$, da za vsak $j = 1, \ldots, n$ in vsak $x \in D$ velja: $\left|\podv{f}{x_j}(x)\right| \leq M$. Tedaj~$|f(b)-f(a)| \leq M \sqrt{n}|b-a|$.
+    Predpostavki kot prej. Naj obstaja tak $M \in \R$, da za vsak $j = 1, \ldots, n$ in vsak $x \in D$ velja: $\left|\podv{f}{x_j}(x)\right| \leq M$. Tedaj~$|f(b)-f(a)| \leq M \sqrt{n}|b-a|$.
 \end{lema}
 
 \begin{proof}
@@ -505,18 +505,18 @@ Naj bo $\Phi: D^\text{odp} \subseteq \RR^m \to \RR^m$ preslikava, $\Phi \in C^1(
 \end{proof}
 
 \begin{lema}
-    Naj bo $D \subseteq \RR^n, \ a,b \in D$ kot prej. Naj bo $F: D \subseteq \RR^n \to \RR^m, \ F = (f_1, \ldots, f_m)$ preslikava razreda~$C^1$. Naj obstaja tak $M \in \RR$, da za vsak $j = 1, \ldots, n$, vsak $i = 1, \ldots, m$ in vsak $x \in D$ velja: $\left|\podv{f_i}{x_j}(x)\right| \leq M$. 
+    Naj bo $D \subseteq \R^n, \ a,b \in D$ kot prej. Naj bo $F: D \subseteq \R^n \to \R^m, \ F = (f_1, \ldots, f_m)$ preslikava razreda~$C^1$. Naj obstaja tak $M \in \R$, da za vsak $j = 1, \ldots, n$, vsak $i = 1, \ldots, m$ in vsak $x \in D$ velja: $\left|\podv{f_i}{x_j}(x)\right| \leq M$. 
     
     Tedaj~$\norm{F(b) - F(a)}~\leq~M~\sqrt{mn}~\norm{b - a}$.
 \end{lema}
 
 \begin{izrek}[Izrek o inverzni preslikavi]
-    Naj bo $D \subseteq \RR^m$ odprta, $F: D \to \RR^m$ preslikava razreda $C^1$,  $a \in D$ in $b = F(a)$.
-    Če je $\det(DF)(a) \neq 0$, potem obstajata okolici $a \in U \subseteq \RR^m$ in $b \in V \subseteq \RR^m$, da je $F: U \to V$ $C^1$-difeomorfizem.    
+    Naj bo $D \subseteq \R^m$ odprta, $F: D \to \R^m$ preslikava razreda $C^1$,  $a \in D$ in $b = F(a)$.
+    Če je $\det(DF)(a) \neq 0$, potem obstajata okolici $a \in U \subseteq \R^m$ in $b \in V \subseteq \R^m$, da je $F: U \to V$ $C^1$-difeomorfizem.    
 \end{izrek}
 
 \begin{definicija}
-    Če je $F: D \to \Omega$ preslikava med odprtimi množicami v $\RR^m$ in je $\det(DF)(x) \neq 0$ za vse $x \in D$, pravimo, da je $F$ \emph{lokalni difeomorfizem}.
+    Če je $F: D \to \Omega$ preslikava med odprtimi množicami v $\R^m$ in je $\det(DF)(x) \neq 0$ za vse $x \in D$, pravimo, da je $F$ \emph{lokalni difeomorfizem}.
 \end{definicija}
 
 \begin{proof}
@@ -526,35 +526,33 @@ Naj bo $\Phi: D^\text{odp} \subseteq \RR^m \to \RR^m$ preslikava, $\Phi \in C^1(
 \end{proof}
 
 \begin{posledica}
-    Če je $\Phi$ razreda $C^k$ za $k \in \NN \cup \set{\infty}$, je $\Phi$ lokalni $C^k$ difeomorfizem.
+    Če je $\Phi$ razreda $C^k$ za $k \in \N \cup \set{\infty}$, je $\Phi$ lokalni $C^k$ difeomorfizem.
 \end{posledica}
 
 \begin{opomba}
-    Če je $m=1$, potem $f: I \subseteq \RR \to \RR$. Naj bo $a \in I, \ f \in C^1(I), \ f'(a) \neq 0$. Potem $f'(x) \neq 0$ v okolici $a$, torej~$f$ ima lokalni $C^1$ inverz.
+    Če je $m=1$, potem $f: I \subseteq \R \to \R$. Naj bo $a \in I, \ f \in C^1(I), \ f'(a) \neq 0$. Potem $f'(x) \neq 0$ v okolici $a$, torej~$f$ ima lokalni $C^1$ inverz.
 \end{opomba}
 
-
-
-
-
-
+\begin{zgled}
+    Naj bo $F: \R^{n \times n} \to \R^{n \times n}, \ F(X) = X^2$. Ali je $F$ v okolici točke $I \in \R^{n \times n}$ lokalni difeomorfizem? Kaj to pomeni?
+\end{zgled}
 
 \newpage
 \subsubsection{Izrek o implicitni preslikavi}
-Imamo $n+m$ spremenljivk: $(x, y)$, kjer $x = (x_1, \ldots, x_n), \ y = (y_1, \ldots, y_m)$ in $m$ enačb. Pričakujemo, da bomo lahko $m$~spremenljivk izrazili kot funkcijo ostalih, tj. najdemo preslikavo $\Phi: D \subseteq \RR^n \to \RR^m$, da velja $y = \Phi(x)$.
+Imamo $n+m$ spremenljivk: $(x, y)$, kjer $x = (x_1, \ldots, x_n), \ y = (y_1, \ldots, y_m)$ in $m$ enačb. Pričakujemo, da bomo lahko $m$~spremenljivk izrazili kot funkcijo ostalih, tj. najdemo preslikavo $\Phi: D \subseteq \R^n \to \R^m$, da velja $y = \Phi(x)$.
 
 
 \begin{primer}[Linearen primer]
-    Naj bosta $\lin{A}: \RR^n \to \RR^m, \ \lin{B}: \RR^m \to \RR^m$ linearni, $b \in \RR^m$. Naj rešujemo enačbo $Ax + By = b$. Kdaj lahko za vsak $b \in \RR^m$ iz te  enačbe $y$ razrišemo kot funkcijo $x$? 
+    Naj bosta $\lin{A}: \R^n \to \R^m, \ \lin{B}: \R^m \to \R^m$ linearni, $b \in \R^m$. Naj rešujemo enačbo $Ax + By = b$. Kdaj lahko za vsak $b \in \R^m$ iz te  enačbe $y$ razrišemo kot funkcijo $x$? 
 
-    Če je $n=0$, potem rešujemo enačbo $By = b$. Kdaj lahko to enačbo enolično rešimo za vsak $b \in \RR^m$?
+    Če je $n=0$, potem rešujemo enačbo $By = b$. Kdaj lahko to enačbo enolično rešimo za vsak $b \in \R^m$?
 \end{primer}
 
-Naj bo $F: D^\text{odp} \subseteq \RR^n_x \times \RR^m_y \to \RR^m, \ F = (f_1, \ldots, f_m)$ preslikava razreda $C_1$. 
+Naj bo $F: D^\text{odp} \subseteq \R^n_x \times \R^m_y \to \R^m, \ F = (f_1, \ldots, f_m)$ preslikava razreda $C_1$. 
 
-Za vsak $y \in \RR^m$ naj bo $\podv{F}{x}$ diferencial preslikave $x \mapsto F(x,y)$. Imenujemo ga \emph{parcialni diferenical na prvo spremenljivko}. 
+Za vsak $y \in \R^m$ naj bo $\podv{F}{x}$ diferencial preslikave $x \mapsto F(x,y)$. Imenujemo ga \emph{parcialni diferenical na prvo spremenljivko}. 
 
-Za vsak $x \in \RR^n$ naj bo $\podv{F}{y}$ diferencial preslikave $y \mapsto F(x,y)$. Imenujemo ga \emph{parcialni diferenical na drugo spremenljivko}. 
+Za vsak $x \in \R^n$ naj bo $\podv{F}{y}$ diferencial preslikave $y \mapsto F(x,y)$. Imenujemo ga \emph{parcialni diferenical na drugo spremenljivko}. 
 
 Velja: 
 $\podv{F}{x}(x,y) = \begin{bmatrix}
@@ -574,18 +572,18 @@ Diferencial preslikave $F$ je potem enak $(DF)(x,y) = \begin{bmatrix}
 \begin{opomba}
     Za vektor $\begin{bmatrix}
         h \\ k
-    \end{bmatrix}$, kjer je $h \in \RR^n, \ k \in \RR^m$ velja: $(DF)(x,y)  \begin{bmatrix}
+    \end{bmatrix}$, kjer je $h \in \R^n, \ k \in \R^m$ velja: $(DF)(x,y)  \begin{bmatrix}
         h \\ k
-    \end{bmatrix} = \podv{F}{x}(x,y)  h + \podv{F}{y}(x,y)  k \in \RR^m$.
+    \end{bmatrix} = \podv{F}{x}(x,y)  h + \podv{F}{y}(x,y)  k \in \R^m$.
 \end{opomba}
 
 \begin{izrek}[Izrek o implicitni preslikavi]
-    Naj bo $D\subseteq \RR_x^n \times \RR_y^m$ odprta množica, $(a, b) \in D$, $F: D \to \RR^m$ preslikava razreda $C^1$. Naj velja:
+    Naj bo $D\subseteq \R_x^n \times \R_y^m$ odprta množica, $(a, b) \in D$, $F: D \to \R^m$ preslikava razreda $C^1$. Naj velja:
     \begin{enumerate}
         \item $F(a, b) = 0$,
         \item $\det(\podv{F}{y}(a,b)) \neq 0$.
     \end{enumerate}
-    Tedaj obstaja okolica $U \subseteq \RR^n$ točke $a$ in okolica $V \subseteq \RR^m$ točke $b$ in taka enolično določena preslikava $\varphi: U \to V$ razreda~$C^1$, da velja:
+    Tedaj obstaja okolica $U \subseteq \R^n$ točke $a$ in okolica $V \subseteq \R^m$ točke $b$ in taka enolično določena preslikava $\varphi: U \to V$ razreda~$C^1$, da velja:
     \begin{enumerate}
         \item $\phi(a) = b$.
         \item $\all{(x,y) \in U \times V} F(x,y) = 0 \liff y = \varphi(x)$ (rešitve te enačbe je isto kot graf $\varphi$ znotraj $U \times V$).
@@ -596,7 +594,7 @@ Diferencial preslikave $F$ je potem enak $(DF)(x,y) = \begin{bmatrix}
 \begin{proof}
     Uporabimo izrek o inverzni preslikavi. 
     
-    Definiramo preslikavo $\Phi: D \subseteq \RR^n \times \RR^m \to  \RR^n \times \RR^m, \ \Phi(x,y) = (x, F(x,y))$. Kandidata za preslikavo $\varphi$ najdemo v oblike inverza $\Phi^{-1}$, nato enostavno preverimo lastnosti.
+    Definiramo preslikavo $\Phi: D \subseteq \R^n \times \R^m \to  \R^n \times \R^m, \ \Phi(x,y) = (x, F(x,y))$. Kandidata za preslikavo $\varphi$ najdemo v oblike inverza $\Phi^{-1}$, nato enostavno preverimo lastnosti.
 \end{proof}
 
 \begin{posledica}
@@ -604,9 +602,30 @@ Diferencial preslikave $F$ je potem enak $(DF)(x,y) = \begin{bmatrix}
 \end{posledica}
 
 \begin{zgled}
-    Naj bo $x,y \in \RR, \ F(x, y) = x^2 + y^2 -1$. S pomočjo izreka o implicitni preslikavi pokaži, da v okolici točke $(0,1)$ rešitve enačbe $F(x,y) = 0$ graf neke preslikave $\varphi$. Določi tudi preslikavo $\varphi$.
+    Naj bo $x,y \in \R, \ F(x, y) = x^2 + y^2 -1$. S pomočjo izreka o implicitni preslikavi pokaži, da v okolici točke $(0,1)$ rešitve enačbe $F(x,y) = 0$ graf neke preslikave $\varphi$. Določi tudi preslikavo $\varphi$.
 \end{zgled}
 
 \begin{zgled}
     Naj bo $F(x,y,z) = (y + xy+xz^2, z+zy+x^2), \ F = (f, g)$ in naj rešujemo enačbo $F(x,y,z) = 0$. Preveri zahteve izreka v okolici točke $(0,0,0)$ in zapiši spremenljivki $y$ in $z$ kot funkciji spremenljivke $x$. Določi tudi prvi in drugi odvod funkcij $f$ in $g$ po spremenljivke $x$. Kaj je rezultat?
 \end{zgled}
+
+\begin{zgled}
+    Naj bo $F: \R^3 \to \R$ in naj rešuejmo enačbo $F(x,y,z) = 0$. Recimo, da $F(a,b,c) = 0$. Kakšna povezava med zadostnimi pogajami in rangom $(DF)(a,b,c)$? Kaj če gledamo preslikavo $F: \R^3 \to \R^2$?
+\end{zgled}
+
+\begin{definicija}
+    Naj bo $D^\text{odp} \in \R^n$ in $F: D \to \R^m$ preslikava razreda $C^1$, $a \in D$. 
+    \begin{enumerate}
+        \item \emph{Rang preslikave $F$ v točki $a$} je~$\rang_aF := \rang (DF)(a)$.
+        \item Če je $\rang_aF$ konstanten na $D$, je $F$ tega ranga na $D$, tj. $\rang F = \rang_aF$.
+        \item Preslikava $F$ je \emph{maksimalnega ranga v točki $a$}, če je $\rang_aF = \min \set{m, n}$.
+    \end{enumerate}      
+\end{definicija}
+
+\begin{opomba}
+    Ta pogoj je lokalno stabilen, tj. če je $\rang_aF = \min \set{n, m}$, potem obstaja okolica od $a$, kjer $\rang F$~maksimalen.
+\end{opomba}
+
+\begin{posledica}
+    Naj bo $F: D^\text{odp}$
+\end{posledica}
