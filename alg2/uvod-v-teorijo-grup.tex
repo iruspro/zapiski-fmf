@@ -1,5 +1,5 @@
 \section{Uvod v teorijo grup}
-\subsection{Uvod v teorijo grup}
+\subsection{Osnovni pojmi teoriji grup}
 \begin{definicija}
     Naj bo $S$ neprazna množica. \emph{Operacija na množice $S$} je preslikava $*: S \times S \to S, \ (a,b) \mapsto a * b$.
 
@@ -238,3 +238,91 @@ V Abelovih grupah uporabljamo \emph{aditivni zapis}: operacija: $+$, enota: $0$,
 \begin{proof}
     Karakterizacija podrgupe.
 \end{proof}
+
+\subsection{Odseki podgrup in Lagrangeev izrek}
+Naj bo $G$ grupa in $H \leq G$. Definiramo relacijo na $G$ s predpsiom $\all{a, b \in G} a \sim b :\liff a^{-1}b \in H$.
+
+\begin{trditev}
+    Relacija $\sim$ je ekvivalenčna relacija na $G$.
+\end{trditev}
+
+\begin{proof}
+    Preverimo refleksivnost, simetričnost in tranzitivnost.
+\end{proof}
+
+\begin{definicija}
+    Naj bo $G$ grupa, $H \leq H, \ a \in G$. \emph{Ekvivalenčni razred elementa $a \in G$} je množica $[a] = \setb{b \in G}{a \sim b}$.
+\end{definicija}
+
+\begin{opomba}
+    $[a] = \setb{ah}{h \in H} =: aH$.
+\end{opomba}
+
+\begin{definicija}
+    Množico $aH$ imenujemo \emph{levi odsek grupe $G$ po podgrupi $H$}.
+\end{definicija}
+
+\begin{opomba}
+    V grupo $G$ lahko vpeljamo tudi relacijo $\approx$ s predpisom $\all{a, b \in G} a \approx b :\liff ab^{-1} \in H$.
+
+    To je ekvivalenčna relacija. Ekvivalentni razredi so $[a] = \setb{ha}{h \in H} =: Ha$, ki jih imenujemo \emph{desni odseki}.
+\end{opomba}
+
+\begin{definicija}
+    \emph{Faktorska (oz. kvocientna) množica} glede na relacijo $\sim$ je množica $G/_\sim = \setb{aH}{a \in G} =: G/H$.
+\end{definicija}
+
+\begin{opomba}
+    $G/H$ ni nujno grupa.
+\end{opomba}
+
+\begin{opomba}
+    Kadar sta dva odseka enaka? $aH = bH \liff a \sim b \liff a^{-1}b \in H$.
+\end{opomba}
+
+\begin{opomba}
+    Naj bo $G$ končna grupa. Potem je $G/H$ tudi končna množica.
+\end{opomba}
+
+\begin{definicija}
+    Naj bo $G$ končna grupa. Moč množce $G/H$ označimo z $G:H$ (oz $[G:H]$) in jo imenujemo \emph{indeks podgrupe $H$ v grupi $G$}.
+\end{definicija}
+
+\begin{izrek}[Lagrangeev izrek]
+    Če je $G$ končna grupa in $H \leq G$, potem je 
+    $$|G| = |H| \cdot |G:H|.$$
+\end{izrek}
+
+\begin{proof}
+    Recimo, da $|G:H| = r$. Pokažemo, da $|a_iH| = |H|$ za vse $i = 1, \ldots, r$.
+\end{proof}
+
+\begin{posledica}
+    Moč vsake podgrupe končne grupe deli moč grupe.
+\end{posledica}
+
+\begin{opomba}
+    Če je grupa $G$ Abelova in $H \leq G$, potem odseki pišemo kot $a + H$. Velja: $G/H = \setb{a+H}{a \in G}$.
+
+    Vpeljamo operacijo na $G/H$: $(a+H) + (b+H) = (a + b) + H$. Ta operacija je dobro definirana, ker je $G$ Abelova.
+\end{opomba}
+
+\begin{trditev}
+    $G/H$ je za to operacijo Abelova grupa.
+\end{trditev}
+
+\begin{proof}
+    Enostavno preverimo aksiome.
+\end{proof}
+
+\begin{primer}
+    Naj bo $G = \Z$ in $H = n\Z, \ n \in \N$. Potem $\Z/{n\Z} = \set{0 + n\Z, 1 + n\Z, \ldots, (n-1) + n\Z}$.
+
+    Operacija $+$ na $\Z/{n\Z}$ je seštevanje po modulu $n$. Grupa $\Z_n := \Z/{n\Z}$ je \emph{grupa ostankov po modulu $n$}, $|\Z_n| = n$.
+\end{primer}
+\begin{posledica}
+    Za vsako število $n \in \N$ obstaja vsaj ena grupa moči $n$.
+\end{posledica}
+
+\newpage
+\subsection{Generatorji grup. Ciklične grupe}
