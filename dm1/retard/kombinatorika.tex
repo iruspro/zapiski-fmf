@@ -31,15 +31,15 @@ Označimo z $[k] = \set{1, 2, \ldots, k}$.
 \end{trditev}
 
 \begin{primer}[Eulorjeva funkcija $\phi$]
-    Za $n \in \NN$ definiramo $\phi(n) = \text{število števil iz } [n], \text{ ki so tuji z } n.$ Določi $\sum_{d | n} \phi(d)$.
+    Za $n \in \N$ definiramo $\phi(n) = \text{število števil iz } [n], \text{ ki so tuji z } n.$ Določi $\sum_{d | n} \phi(d)$.
 \end{primer}
 
 \begin{trditev}[Dirichletovo načelo]
-    Če sta $n, m \in \NN$ in je $n > m$, potem ne obstaja injektivna preslikava $[n] \to [m]$.
+    Če sta $n, m \in \N$ in je $n > m$, potem ne obstaja injektivna preslikava $[n] \to [m]$.
 \end{trditev}
 
 \begin{opomba}[Kombinatorična interpretacija]
-    Če $n$ predmetov razporedimo v $m$ predalov in je $n > m$, potem sta vsak v enem predalu vsaj dva predmeta.
+    Če $n$ predmetov razporedimo v $m$ predalov in je $n > m$, potem sta vsaj v enem predalu vsaj dva predmeta.
 \end{opomba}
 
 \begin{primer}
@@ -76,14 +76,14 @@ Označimo z $[k] = \set{1, 2, \ldots, k}$.
 \newpage
 \subsection{Binomski koeficienti in binomski izrek}
 \begin{definicija}
-    Naj bo $x \in \CC$. Naj bo $k \in \NN_0 = \set{1, 2, \ldots}$. Definiramo $\binom{x}{k} = \frac{x^{\underline{k}}}{k!} = \frac{x(x-1)\ldots (x-k+1)}{k!}$. 
+    Naj bo $x \in \C$. Naj bo $k \in \N_0 = \set{1, 2, \ldots}$. Definiramo $\binom{x}{k} = \frac{x^{\underline{k}}}{k!} = \frac{x(x-1)\ldots (x-k+1)}{k!}$. 
     
     Števila $\binom{x}{k}$ so \emph{binomski koeficienti.}
-    Če je $k \notin \NN_0$ definiramo $\binom{x}{k} = 0$.
+    Če je $k \notin \N_0$ definiramo $\binom{x}{k} = 0$.
 \end{definicija}
 
 \begin{trditev}
-    Če je $n \in \NN_0$ in $k \leq n, \ k \in \NN_0$, potem je 
+    Če je $n \in \N_0$ in $k \leq n, \ k \in \N_0$, potem je 
     $$\binom{n}{k} = \frac{n!}{k!(n-k)!}.$$
 
     Števila $\binom{n}{k}$ so \emph{binomska števila.}
@@ -102,7 +102,7 @@ Označimo z $[k] = \set{1, 2, \ldots, k}$.
 \end{opomba}
 
 \begin{definicija}
-    Definiramo $\binom{N}{k} = \set{A: A \subseteq N, \ |A| = k}$.
+    Naj bo $N$ množica. Definiramo $\binom{N}{k} = \setb{A \in P(N)}{|A| = k}$.
 \end{definicija}
 
 \begin{trditev}
@@ -111,11 +111,11 @@ Označimo z $[k] = \set{1, 2, \ldots, k}$.
 \end{trditev}
 
 \begin{proof}
-    Definiramo $X = \set{(n_1, n_2, \ldots, n_k); \ n_i \in \NN \text{ paroma različni}}$. Označimo $X_{n,k} = \left| \binom{N}{k} \right|$. Preštejemo elementi množici $X$ na 2 načina.
+    Definiramo $X = \set{(n_1, n_2, \ldots, n_k); \ n_i \in \N \text{ paroma različni}}$. Označimo $X_{n,k} = \left| \binom{N}{k} \right|$. Preštejemo elementi množici $X$ na 2 načina.
 \end{proof}
 
 \begin{trditev}
-    Za $n \in \NN$ in $1 \leq k \leq n$ velja:
+    Za $n \in \N$ in $1 \leq k \leq n$ velja:
     $$\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}.$$
 \end{trditev}
 
@@ -142,17 +142,21 @@ Označimo z $[k] = \set{1, 2, \ldots, k}$.
 \end{definicija}
 
 \begin{opomba}
-    S pomočjo Paskalovega trikotnika se lahko spomnimo rekurzivno formulo za $\binom{n}{k}$ ($n$ je številka vrstice, $k$ je številka diagonale, ki jo gledamo z leve proti desni).
+    S pomočjo Paskalovega trikotnika se lahko spomnimo rekurzivno formulo za $\binom{n}{k}$ ($n$ je številka vrstice, $k$ je številka diagonale, ki jo gledamo z leve proti desni). Šteteti vrstice in diagonale začnemo z $0$.
 \end{opomba}
 
 \begin{izrek}[Binomski izrek]
-    Za vsak $n \in \NN_0$ velja:
+    Za vsak $n \in \N_0$ velja:
     $$(a+b)^n = \sum_{k=0}^{n} \binom{n}{k}a^kb^{n-k}.$$
 \end{izrek}
 
 \begin{proof}
     Izberimo $k$-krat $a$ izmed $n$ oklepajev.
 \end{proof}
+
+\begin{opomba}
+    V izreku sta $a$ in $b$ elementi poljubnega komutativnega kolobarja.
+\end{opomba}
 
 \newpage
 \subsection{Izbori}
@@ -211,7 +215,7 @@ Naj bo $N$ $n$-mnižica. Opazujemo izbori $k$-elementov.
 
 \subsubsection{Multimnožice}
 \begin{definicija}
-    \emph{Multimnožica z elementi v množici $S$} je preslikava $\mu: S \to \NN_0$. Pri tem številu $\mu(a), a \in S$, rečemo \emph{kratnost elementa $a$ v multimnožici $\mu$}, vsoti $\sum_{a \in S} \mu(a)$ pa \emph{moč multimnožice $\mu$}. Multimnožica je \emph{končna}, če je njena moč končna.
+    \emph{Multimnožica z elementi v množici $S$} je preslikava $\mu: S \to \N_0$. Pri tem številu $\mu(a), a \in S$, rečemo \emph{kratnost elementa $a$ v multimnožici $\mu$}, vsoti $\sum_{a \in S} \mu(a)$ pa \emph{moč multimnožice $\mu$}. Multimnožica je \emph{končna}, če je njena moč končna.
 \end{definicija}
 
 \begin{opomba}
@@ -268,7 +272,7 @@ Permutacija multimnožice $M = (S, \mu)$ moči $n$ je zaporedje $(x_1, \ldots, x
 \end{proof}
 
 \begin{opomba}
-    Lahko razumemo kompozicijo števila $n$ s $k$ členi kot rešitev enačbe $x_1 + \ldots + x_k = n$, kjer so $x_i \in \NN$.
+    Lahko razumemo kompozicijo števila $n$ s $k$ členi kot rešitev enačbe $x_1 + \ldots + x_k = n$, kjer so $x_i \in \N$.
 \end{opomba}
 
 \subsubsection{Šibke kompozicije}
@@ -279,7 +283,7 @@ Permutacija multimnožice $M = (S, \mu)$ moči $n$ je zaporedje $(x_1, \ldots, x
 \end{trditev}
 
 \begin{proof}
-    1. način. Rešujemo enačbo $x_1 + \ldots + x_k = n$, kjer so $x_i \in \NN_0$.
+    1. način. Rešujemo enačbo $x_1 + \ldots + x_k = n$, kjer so $x_i \in \N_0$.
 
     2. način. Kroglice in pregrade.
 
@@ -289,6 +293,20 @@ Permutacija multimnožice $M = (S, \mu)$ moči $n$ je zaporedje $(x_1, \ldots, x
 \subsection{Razčlenitve naravnega števila}
 \begin{definicija}
     \emph{Razčlenitev naravnega števila $n$} je zaporedoje pozitivnih naravnih števil $\lambda = (\lambda_1, \ldots, \lambda_l)$, kjer je $\lambda_1 \geq \ldots \lambda_l$ in $\lambda_1 + \ldots + \lambda_l = n$. \emph{Dolžina} razčlenitve $\lambda$, $l(\lambda)$ je število elemetnov zaporedja, številu $n$ pa rečemo \emph{velikost razčlenitve}. Števila $\lambda_1, \ldots, \lambda_l$ imenujemo \emph{členi razčlenitve}. Razčlenitvam rečemo tudi \emph{particije}.
+\end{definicija}
+
+\begin{definicija}
+    Naj bo $\lambda = (\lambda_1, \ldots, \lambda_l)$ račlenitev naravnega števila $n$. \emph{Ferrersov diagram $\lambda$} je seznam vrstic oblike:
+    \begin{align*}
+        \text{1. vrsta: } &\underbrace{\circ \ \circ \ \circ \ \ldots \ \circ}_{\lambda_1 \text{ krožcev}} \\
+        \text{2. vrsta: } &\underbrace{\circ \ \circ \ \ldots \ \circ}_{\lambda_2 \text{ krožcev}} \\
+        &\vdots \\
+        \text{k. vrsta: } &\underbrace{\circ \ \ldots \ \circ}_{\lambda_l \text{ krožcev}}
+    \end{align*}
+\end{definicija}
+
+\begin{definicija}
+    Naj bo $\lambda = (\lambda_1, \ldots, \lambda_l)$ račlenitev naravnega števila $n$. \emph{Konjugirana razčlenitev $\overline{\lambda}$} je razčlenitev, ki ima transponiran Ferrersov diagram.
 \end{definicija}
 
 Uvedemo oznake:
@@ -308,16 +326,48 @@ Uvedemo oznake:
 \end{trditev}
 
 \begin{proof}
-    Gledamo padajoči trikotnik:
-    \begin{align*}
-        &\lambda_1 \ \Box \Box \Box \Box \Box \\
-        &\lambda_2  \  \Box \Box \Box \Box  \\
-        &\vdots  \\
-        &\lambda_k \ \Box  \\
-    \end{align*}
-    1. Razbijemo razčlinitve na tiste, ki vsebujejo $1$ in tiste, ki jo ne vsebujejo.
-    
-    2. Odštejemo od prvega stolpca $1$.
-
-    3. Razčlenitev $n$ z največ $k$ členi ima bodisi natanko $k$ členov bodisi kvečjemi $k-1$ členov.
+    Pomagamo si z Ferrersovim diagramom.
+    \begin{enumerate}
+        \item Razbijemo razčlinitve na tiste, ki vsebujejo $1$ in tiste, ki jo ne vsebujejo.
+        \item Odštejemo od prvega stolpca $1$.
+        \item Razčlenitev $n$ z največ $k$ členi ima bodisi natanko $k$ členov bodisi kvečjemi $k-1$ členov. \qedhere
+    \end{enumerate}
 \end{proof}
+
+\subsection{Stirlingova števila I. vrste}
+\begin{definicija}
+    Naj bo $1 \leq k \leq n$. \emph{Stirlingovo število I. vrste $C(n,k)$} je število permutacij množice $[n]$, ki se zapišejo kot produkt $k$ disjunktnih ciklov.
+    Velja: $C(n, 0) = 0, \ n > 0$ in $C(0,0) = 1$.
+\end{definicija}
+
+\begin{trditev}
+    Naj bo $1 \leq k \leq n$. Velja:
+    $$C(n, k) = C(n-1, k-1) + (n-1)C(n-1, k).$$
+\end{trditev}
+
+\begin{proof}
+    Permutacije $[n]$ s $k$ cikli razdelimo takole:
+    \begin{enumerate}
+        \item tiste, kjer je $n$ negibna točka in
+        \item ostale. \qedhere
+    \end{enumerate}
+\end{proof}
+
+Za izračun $C(n,k)$ lahko si pomagamo s Stirlingovo matriko I. vrste in rekurzivno zvezo.
+
+\begin{trditev}
+    $x^{\overline{n}} = \sum_{k=0}^{\infty}C(n,k)x^k$.
+\end{trditev}
+
+\begin{proof}
+    Indukcija po $n$.
+\end{proof}
+
+\subsection{Stirlingova števila II. vrste in Bellova števila}
+\begin{definicija}
+    \emph{Razdelitev množice $X$} je družina podmnožic $\set{X_i}_{i \in I}$ za katero velja:
+    \begin{enumerate}
+        \item $\bigcup_{i=I}X_i =X$,
+        \item $X_i \cap X_j = \emptyset$ za vsaka $i,j \in I, \ i \neq j$.
+    \end{enumerate}
+\end{definicija}
