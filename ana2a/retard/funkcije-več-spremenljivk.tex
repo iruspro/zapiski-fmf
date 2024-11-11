@@ -62,9 +62,9 @@
 \subsection{Zveznost preslikav iz $\R^n$ v $\R^m$}
 \subsubsection{Zveznost preslikav iz $\R^n$ v $\R$}
 
-\begin{definicija}
+\begin{opomba}
     Če je $m=1$, potem preslikave rečemo \emph{funkcija}.
-\end{definicija}
+\end{opomba}
 
 \begin{definicija}
     Naj bo $f: D \subseteq \R^n \to \R^m$ preslikava. Naj bo $a \in D$. \emph{Preslikava $f$ je zvezna v točki $a$}, če 
@@ -626,6 +626,50 @@ Diferencial preslikave $F$ je potem enak $(DF)(x,y) = \begin{bmatrix}
     Ta pogoj je lokalno stabilen, tj. če je $\rang_aF = \min \set{n, m}$, potem obstaja okolica od $a$, kjer $\rang F$~maksimalen.
 \end{opomba}
 
+\newpage
 \begin{posledica}
-    Naj bo $F: D^\text{odp}$
+    Naj bo $F: D^\text{odp} \subseteq \R^n \to \R^m$ preslikava razreda $C^k, \ k \in \N$ in naj velja $m < n$. Naj bo $a \in D, \ F(a) = 0$ in $F$ maksimalnega ranga v točki $a$. Tedaj obstajajo indeksi $i_1 < i_2 < \ldots < i_{n-m}$, $j_1 < j_2 < \ldots <j_m$, $i_k \neq j_l$ za vse $k$ in $l$ in take funkcije $\varphi_1, \ldots, \varphi_m$ razreda $C^k$ definirane v okolici točke $(a_{i_1}, \ldots, a_{i_{n-m}})$, da je v neki okolici~$U$ točke $a$ enačba $F(x) = 0$ ekvivalentna sistemu enačb: 
+    \begin{align*}
+        x_{j_1} = \varphi_1(x_{i_1}, \ldots, x_{i_{n-m}}) \\
+        \vdots \\
+        x_{j_m} = \varphi_m(x_{i_1}, \ldots, x_{i_{n-m}})
+    \end{align*}
+    Ekvivalentno: Obstaja permutacija $\sigma \in S_n$, da v okolici točke $a$ velja:
+    $$F(x) = 0 \liff (x_{\sigma(1)}, \ldots, x_{\sigma(n)}) = (x_{\sigma(1)}, \ldots, x_{\sigma(n-m)}, \varphi(x_\sigma')), \text{ kjer } \varphi = (\varphi_1, \ldots, \varphi_m).$$
 \end{posledica}
+
+\begin{proof}
+    \textcolor{red}{TODO.}
+\end{proof}
+
+\begin{primer}
+    Naj bo $\lin{A}: \R^n \to \R^m$ linearna, $m \leq n$, $\rang \lin{A} = m$ ($\lin{A}$ je surjektivna). Rešujemo enačno $\lin{A}x=b$. Prostor rešitev je $n-m$ dimenzialen.
+\end{primer}
+
+\begin{posledica}
+    Naj bo $F: D^\text{odp} \subseteq \R^n \to \R^m$ preslikava razreda $C^1$, $m \leq n$, $a \in D$ in naj velja $\rang_aF=m$. Tedaj obstaja okolica $V$ točke $F(a) = b$ in okolica $U$ točke $a$, da je $F: U \to V$ surjektivna.
+\end{posledica}
+
+\begin{proof}
+    \textcolor{red}{TODO.}
+\end{proof}
+
+\subsection{Podmnogoterosti v $\R^n$}
+Podmnogoterost je posplošitev pojmov "`krivulja"' in "`ploskev"'.
+
+\begin{definicija}
+    Naj bo $M \subseteq \R^{n+m}, \ M \neq \emptyset$. Množica $M$ je \emph{gladka (vsaj razreda $C^1$) podmnogoterost dimenzije $n$ in kodimenzije~$m$ prostora $\R^{n+m}$}, če 
+    za vsako točko $a \in M$ obstaja okolica $U$ v $\R^{n+m}$ in take $C^1$ funkcije $F_1, \ldots, F_m: U \to \R$, da velja:
+    \begin{enumerate}
+        \item $M \cap U = \setb{x \in U}{F_1(x) = \ldots = F_m(x) = 0} = F^*(\set{0})$.
+        \item $\rang(F_1, \ldots, F_m) = m$ na $U$.
+    \end{enumerate}
+\end{definicija}
+
+\begin{opomba}
+    Funkcije $F_1, \ldots, F_m$ se imenujejo \emph{lokalne definicijske funkcije za $M \cap U$}.
+\end{opomba}
+
+\begin{opomba}
+    Če $m = 0$: $M$ odprta množica.
+\end{opomba}
