@@ -1,0 +1,105 @@
+\section{Integrali s parametri}
+Naj bo $f:[a,b]_x \times [c,d]_y \to \R$ funkcija. Gledamo funkcijo $\ds F(y) = \int_{a}^{b}f(x,y) \, dx$, kjer $y \in [c,d]$ je \df{parameter}.
+
+Zanima nas v kakšni so povezavi lastnosti funkcije $f$ in funkcije $F$.
+
+\begin{zgled}
+    Izračunaj $F(y) = \int_{0}^{\pi} \sin (xy) \,dx$. Ali je $F(y)$ zvezna? Kaj je $D_F$?
+\end{zgled}
+
+\begin{zgled}
+    \df{Eulerjeva funkcija gama} je $\ds \Gamma (s) = \int_{0}^{\infty} x^{s-1} e^{-x} \, dx$.
+    \begin{itemize}
+        \item Določi $D_\Gamma$.
+        \item Kakšen predznak ima $\Gamma$ na $D_\Gamma$?
+        \item Določi osnovno rekurzivno relacijo za $\Gamma$.
+        \item Kakšna povezava med fakulteto in $\Gamma$?
+        \item Kako bi lahko definirali $\Gamma$ za negativne vrednosti? Za katere lahko?
+    \end{itemize}
+\end{zgled}
+
+\begin{definicija}
+    Podmnožica $D \subseteq \R^n$ je \df{lokalno kompaktna}, če
+    $$\all{a \in D} \some{r \in \R \, . \, r > 0} D \cap \overline{K(a,r)} \text{ kompaktna množica}.$$
+\end{definicija}
+
+\begin{zgled}
+    Primeri lokalno kompaktnih množic.
+    \begin{itemize}
+        \item Vsaka zaprta in vsaka odprta množica v $\R^n$ je lokalno kompaktna.
+        \item $D \subseteq \R^2, \ D = K(0,1) \cup \set{(1,0)}$ ni lokalno kompaktna.
+    \end{itemize}
+\end{zgled}
+
+\begin{trditev}
+    Recimo, da velja
+    \begin{enumerate}
+        \item $D \subseteq \R^n$ lokalno kompaktna podmnožica;
+        \item $I$ zaprt interval na $\R$;
+        \item funkcija $f: I_x \times D_y$ zvezna.
+    \end{enumerate}
+    Tedaj je funkcija $\displaystyle F(u, v, y) = \int_{u}^{v}f(x,y) \, dx$, kjer so $(u, v, y) \in I \times I \times D$, zvezna na $I \times I \times D$.
+\end{trditev}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+\begin{posledica}
+    Recimo, da velja
+    \begin{enumerate}
+        \item $D \subseteq \R^n$ lokalno kompaktna podmnožica.
+        \item $I = [a,b]$.
+        \item Funkcija $f: I_x \times D_y$ zvezna.
+    \end{enumerate}
+    Tedaj je funkcija $\ds F(y) = \int_{a}^{b}f(x,y) \, dx$, zvezna na $D$.
+\end{posledica}
+
+\subsection{Odvajanje integralov s parametri}
+\begin{trditev}
+    Recimo, da velja
+    \begin{enumerate}
+        \item Funkcija $f:[a,b]_x \times (c,d)_y \to \R$ zvezna.
+        \item $\all{(x,y) \in [a,b] \times (c,d)} f \text{ parcialno odvedljiva po } y$.
+        \item Funkcija $\podv{f}{y}(x,y)$ zvezna na $[a,b] \times (c,d)$.
+    \end{enumerate}
+    Tedaj je 
+    \begin{enumerate}
+        \item $\ds F(y) = \int_{a}^{b}f(x,y) \, dx$ odvedljiva funkcija na $(c,d)$.
+        \item $\ds F'(y) = \frac{dF}{dy}(y) = \frac{d}{dy} \int_{a}^{b}f(x,y) \, dx = \int_{a}^{b} \podv{f}{y}(x,y) \, dx$, tj. lahko zamenjamo vrstni red odvajanja.
+    \end{enumerate}    
+\end{trditev}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+\begin{posledica}
+    Recimo, da velja
+    \begin{enumerate}
+        \item Funkcija $f:[a,b]_x \times (c,d)_y \to \R$ zvezna.
+        \item Funkciji $\alpha, \beta: (c,d) \to [a,b]$ zvezno odvedljivi.
+    \end{enumerate}
+    Tedaj $F'(y) = \ds \frac{d}{dy} \int_{\alpha(y)}^{\beta(y)}f(x,y) \, dx = \int_{\alpha(y)}^{\beta(y)} \podv{f}{y}(x,y) \, dx + \beta'(y)f(\beta(y), y) - \alpha'(y)f(\alpha(y), y)$.
+\end{posledica}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+\newpage
+\begin{posledica}
+    Recimo, da velja
+    \begin{enumerate}
+        \item $D^\text{odp} \subseteq \R^n$.
+        \item Funkcija $f: [a,b]_x \times D_y \to \R$ zvezna.
+        \item $\all{(x,y) \in [a,b] \times D} \all{j \in [n]} f \text{ parcialno odvedljiva po } y_j$.
+        \item $\all{j \in [n]} \podv{f}{y_j}(x,y) \text{ so zvezne funkcije na } [a,b] \times D$.
+    \end{enumerate}
+    Tedaj je 
+    \begin{enumerate}
+        \item $\ds F(y) = \int_{a}^{b} f(x,y) \, dx $ funkcija razreda $C^1$ na $D$.
+        \item $\ds \podv{F}{y_j}(y) = \int_{a}^{b} \podv{f}{y_j}(x,y) \, dx$.
+    \end{enumerate}
+    
+\end{posledica}
