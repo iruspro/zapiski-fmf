@@ -340,6 +340,10 @@ Uvedemo oznake:
     Velja: $C(n, 0) = 0, \ n > 0$ in $C(0,0) = 1$.
 \end{definicija}
 
+\begin{primer}
+    Izračunaj $C(n,n), \ C(n, 1), \ C(4,2)$.
+\end{primer}
+
 \begin{trditev}
     Naj bo $1 \leq k \leq n$. Velja:
     $$C(n, k) = C(n-1, k-1) + (n-1)C(n-1, k).$$
@@ -353,7 +357,7 @@ Uvedemo oznake:
     \end{enumerate}
 \end{proof}
 
-Za izračun $C(n,k)$ lahko si pomagamo s Stirlingovo matriko I. vrste in rekurzivno zvezo.
+Za izračun $C(n,k)$ lahko si pomagamo s Stirlingovo matriko I. vrste, ki jo dobimo s pomočjo rekurzivne zveze.
 
 \begin{trditev}
     $x^{\overline{n}} = \sum_{k=0}^{\infty}C(n,k)x^k$.
@@ -363,6 +367,10 @@ Za izračun $C(n,k)$ lahko si pomagamo s Stirlingovo matriko I. vrste in rekurzi
     Indukcija po $n$.
 \end{proof}
 
+\begin{primer}
+    Izračunaj $x^{\overline{4}}$.
+\end{primer}
+
 \subsection{Stirlingova števila II. vrste in Bellova števila}
 \begin{definicija}
     \emph{Razdelitev množice $X$} je družina podmnožic $\set{X_i}_{i \in I}$ za katero velja:
@@ -371,3 +379,142 @@ Za izračun $C(n,k)$ lahko si pomagamo s Stirlingovo matriko I. vrste in rekurzi
         \item $X_i \cap X_j = \emptyset$ za vsaka $i,j \in I, \ i \neq j$.
     \end{enumerate}
 \end{definicija}
+
+\begin{definicija}
+    Naj bo $1 \leq k \leq n$. \emph{Stirlingovo število II. vrste $S(n,k)$} je število razdelitev množice $[n]$ v $k$ nepraznih razredov. Velja: $S(n, 0) = 0, \ n > 0$ in $S(0,0) = 1$.
+\end{definicija}
+
+\begin{primer}
+    Izračunaj $S(n, n), \ S(n, 1), \ S(n,2)$.
+\end{primer}
+
+\begin{definicija}
+    \emph{Bellovo število $B(n) = \sum_{k=0}^{\infty} S(n,k)$} je število vseh razdelitev $n$-množice v neprazne razrede.
+\end{definicija}
+
+\begin{trditev}
+    Naj bo $1 \leq k \leq n$. Velja:
+    $$S(n,k) = S(n-1, k-1) + k S(n-1, k).$$
+\end{trditev}
+
+\begin{proof}
+    Vzemimo množico $[n]$. Razdelitve v $k$ razredov razdelimo takole:
+    \begin{enumerate}
+        \item tiste, ki imajo $\set{n}$ kot samostojni del in
+        \item ostale.
+    \end{enumerate}
+\end{proof}
+
+Za izračun $S(n,k)$ lahko si pomagamo s Stirlingovo matriko II. vrste, ki jo dobimo s pomočjo rekurzivne zveze.
+
+\begin{trditev}
+    $x^n=\sum_{k=0}^{\infty} S(n,k) x^{\underline{k}}$.
+\end{trditev}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+\begin{opomba}
+    Če dva polinoma stopnje $n$ ujemata v $n+1$ točk, potem sta enaka.
+\end{opomba}
+
+\begin{izrek}
+    Število surjekcij iz $n$-množice v $k$-množico je enako 
+    $$k! S(n,k).$$
+\end{izrek}
+
+\begin{proof}
+    Vsaka surjekcija določa razdelitev $n$-množice v $k$ nepraznih razredov.
+\end{proof}
+
+\begin{trditev}
+    $B(n+1) = \sum_{k=0}^{\infty} \binom{n}{k} B(k)$.
+\end{trditev}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+\begin{definicija}
+    Naj bo $1 \leq k \leq n$. \emph{Lahovo število $L(n,k)$} je število razdelitev $n$-množice v $k$ linearno urejenih kosov.
+\end{definicija}
+
+\newpage
+\subsection{Dvajnastera pot}
+Naj bo $N$ $n$-množica (predmetov) in $K$ $k$-množica (predalov). 
+Gledamo "`funkcijo"' $f: N \to K$, ki predmeti razporedi po predalih.
+
+Imamo 12 možnosti: predmeti in predali lahko bodisi ločimo med seboj bodisi ne ločimo med seboj, funkcija lahko poljubna, inkjektivna (vsak predal ima kvečjemu 1 predmet) ali surjektivna (noben predal ni prazen).
+
+\begin{izrek}[Dvajnastera pot]
+    Velja:
+    \begin{center}
+        \begin{tabular}{ c | c | c | c }
+            ločimo predmeti/predali & poljubna & injektivna  & surjektivna \\ 
+            \hline
+            DA/DA & $k^n$ & $k^{\underline{n}}$  & $k! S(n, k)$ \\ 
+            \hline
+            DA/NE & $\sum_{i \leq k} S(n, i)$ & $\begin{cases}
+                1; &n \leq k \\
+                0; &\text{sicer}
+            \end{cases}$  & $S(n, k)$\\
+            \hline 
+            NE/DA & $\binom{n+k-1}{k-1}$ & $\begin{cases}
+                \binom{k}{n}; &n \leq k \\
+                0; &\text{sicer}
+            \end{cases}$  & $\binom{n-1}{k-1}$ \\  
+            \hline
+            NE/NE & $\overline{p}_k(n)$ & $\begin{cases}
+                1; &n \leq k \\
+                0; &\text{sicer}
+            \end{cases}$  & $p_k(n)$ 
+        \end{tabular}
+        \end{center}
+\end{izrek}
+
+\begin{proof}
+    Uporabimo že znane rezultate (kompozicije, razčlenitve) itd.
+\end{proof}
+
+\subsection{Načelo vključitev in izključitev}
+Recimo, da sta $A, B$ poljubni množici, potem $|A \cup B| = |A| + |B| - |A \cap B|$.
+\begin{primer}
+    Koliko so števil v $[30]$ ni tujih s $30$? Koliko so tujih?
+\end{primer}
+
+\begin{izrek}[Načelo vključitev in izključitev]
+    Naj bo $A_1, \ldots, A_n$ množice. Velja: 
+    $$\left| \bigcup_{i=1}^n A_i \right| = \sum_{j=1}^{n}(-1)^{j+1}\sigma_j,$$
+    kjer je $\displaystyle \sigma_j = \sum_{I \in \binom{[n]}{j}} \left|\bigcap_{i \in I} A_i\right|$.
+\end{izrek}
+
+\begin{proof}
+    Pokažemo, da če $x \in \bigcup_{i=1}^n A_i$, potem prispeva natanko $1$ k formuli.
+\end{proof}
+
+\begin{primer}
+    Na koliko načinov lahko razporedimo $n$ označenih predmetov v $k$ označenih predalov, če je vsaj en predal prazen?
+\end{primer}
+
+\begin{posledica}
+    Če je $X$ $N$-množica in so $A_1, \ldots, A_n \subset X$, potem je število elementov množice $X$, ki niso v nobeni izmed množic $A_1, \ldots, A_n$ enako 
+    $$N + \sum_{j=1}^{n}(-1)^j \sigma_j.$$
+\end{posledica}
+
+\begin{definicija}
+    \emph{Premestitev množice $[n]$} je permutacija $\pi \in S_n$ brez negibnih točk.
+\end{definicija}
+
+\begin{primer}
+    Izračunaj število premestitev množice $[n]$.
+\end{primer}
+
+\begin{izrek}
+    Če je $n = p_1^{e_1} \ldots p_r^{e^r}$ razcep $n \in \N$ na prafaktorji, potem je 
+    $$\phi(n) = n(1 - \frac{a}{p_1}) \ldots (1 - \frac{1}{p_r}) \text{ (Eulorjeva funkcija)}.$$
+\end{izrek}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
