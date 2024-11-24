@@ -522,7 +522,7 @@ Naj bo $\Phi: D^\text{odp} \subseteq \R^m \to \R^m$ preslikava, $\Phi \in C^1(D)
 \begin{proof}
     Dovolj, da izrek dokažemo za primer, ko $a=b=0, \ (DF)(0) = I$.
 
-    \textcolor{red}{TODO.}
+    \textcolor{red}{TODO}
 \end{proof}
 
 \begin{posledica}
@@ -639,7 +639,7 @@ Diferencial preslikave $F$ je potem enak $(DF)(x,y) = \begin{bmatrix}
 \end{posledica}
 
 \begin{proof}
-    \textcolor{red}{TODO.}
+    \textcolor{red}{TODO}
 \end{proof}
 
 \begin{primer}
@@ -651,7 +651,7 @@ Diferencial preslikave $F$ je potem enak $(DF)(x,y) = \begin{bmatrix}
 \end{posledica}
 
 \begin{proof}
-    \textcolor{red}{TODO.}
+    \textcolor{red}{TODO}
 \end{proof}
 
 \subsection{Podmnogoterosti v $\R^n$}
@@ -670,6 +670,53 @@ Podmnogoterost je posplošitev pojmov "`krivulja"' in "`ploskev"'.
     Funkcije $F_1, \ldots, F_m$ se imenujejo \emph{lokalne definicijske funkcije za $M \cap U$}.
 \end{opomba}
 
+\textcolor{red}{TODO}
+
+\subsection{Taylorjeva formula}
+Naj bo $f: D^{\text{odp}} \subseteq \R^n \to \R$ funkcija, $a \in D$. Funkcijo $f$ bi radi v okolici točke $a$ aproksimirali s polinomi.
+
+\begin{izrek}
+    Recimo, da velja
+    \begin{enumerate}
+        \item Množica $D \subseteq \R^n$ odprta, $a \in D$.
+        \item $f: D^{\text{odp}} \to \R$ funkcija razreda $C^{k+1}(D)$.
+        \item Vektor $h \in \R^n$ tak, da daljica med $a$ in $a+h$ leži v $D$.
+    \end{enumerate}
+    Tedaj obstaja tak $\theta \in (0,1)$, da je 
+    $$f(a+h) = f(a) + (D_hf)(a) + \frac{1}{2!}(D_h^2f)(a) + \ldots + \frac{1}{k!} (D_h^kf)(a) + R_k \ \textcolor{red}{(*)},$$
+    kjer je $D_h = h_1D_1 + h_2D_2 + \ldots + h_nD_n$ \df{odvod v smeri $h$} in $R_k = \frac{1}{(k+1)!} (D_h^{k+1}f)(a + \theta h)$ \df{ostanek}.
+
+    Izraz \textcolor{red}{(*)} je \df{Taylorjeva formula} za funkcijo več spremenljivk.
+\end{izrek}
+
 \begin{opomba}
-    Če $m = 0$: $M$ odprta množica.
+    Pokaži, da velja
+    \begin{enumerate}
+        \item $(D_hf)(a) = \sum_{j=1}^{n}h_j \podv{f}{x_j}(a)$.
+        \item $(D_h^2f)(a) = \sum_{k=1}^{n} \sum_{j=1}^{n}h_kh_j \frac{\partial^2f}{\partial x_k \partial x_j}(a)$. 
+    \end{enumerate}
 \end{opomba}
+
+\begin{primer}
+    Pokaži, da za $n=2$ velja $D_{(h,k)}^m = \sum_{j=0}^{m} \binom{m}{j} h^j k^{m-j} \frac{\partial^m}{\partial x^j \partial y^{m-j}}$.
+\end{primer}
+
+\begin{opomba}
+    $h \mapsto f(a) + (D_hf)(a) + \frac{1}{2!}(D_h^2f)(a) + \ldots + \frac{1}{k!} (D_h^kf)(a) $ je polinom stopnje največ $k$ v spremenljivkah $h_1, h_2, \ldots, h_n$.
+\end{opomba}
+
+\begin{opomba}
+    Če je funkcija $f$ razreda $C^\infty(D)$ lahko tvorimo \df{Taylorjevo vrsto}:
+    $$\sum_{j=1}^{\infty} \frac{1}{j!} (D_h^j f)(a).$$
+    \begin{itemize}
+        \item Vrsta sigurno konvergira za $h=0$.
+        \item Tudi, če vrsta konvergira za nek $h \neq 0$, ne konvergira nujno k $f(a+h)$.
+    \end{itemize}
+\end{opomba}
+
+\newpage
+\begin{definicija}
+    Če Taylorjeva vrsta konvergira k $f(a+h)$ za vse vse $\norm{h} \leq \delta$ za nek $\delta > 0$, tj. 
+    $$f(a+h) = \sum_{j=1}^{\infty} \frac{1}{j!} (D_h^j f)(a),$$
+    potem rečemo, da je \df{funkcija $f$ v okolici točke $a$ (realno) analitična}.
+\end{definicija}
