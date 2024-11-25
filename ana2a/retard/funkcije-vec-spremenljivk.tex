@@ -672,6 +672,7 @@ Podmnogoterost je posplošitev pojmov "`krivulja"' in "`ploskev"'.
 
 \textcolor{red}{TODO}
 
+\newpage
 \subsection{Taylorjeva formula}
 Naj bo $f: D^{\text{odp}} \subseteq \R^n \to \R$ funkcija, $a \in D$. Funkcijo $f$ bi radi v okolici točke $a$ aproksimirali s polinomi.
 
@@ -688,6 +689,10 @@ Naj bo $f: D^{\text{odp}} \subseteq \R^n \to \R$ funkcija, $a \in D$. Funkcijo $
 
     Izraz \textcolor{red}{(*)} je \df{Taylorjeva formula} za funkcijo več spremenljivk.
 \end{izrek}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
 
 \begin{opomba}
     Pokaži, da velja
@@ -714,9 +719,44 @@ Naj bo $f: D^{\text{odp}} \subseteq \R^n \to \R$ funkcija, $a \in D$. Funkcijo $
     \end{itemize}
 \end{opomba}
 
-\newpage
 \begin{definicija}
     Če Taylorjeva vrsta konvergira k $f(a+h)$ za vse vse $\norm{h} \leq \delta$ za nek $\delta > 0$, tj. 
     $$f(a+h) = \sum_{j=1}^{\infty} \frac{1}{j!} (D_h^j f)(a),$$
     potem rečemo, da je \df{funkcija $f$ v okolici točke $a$ (realno) analitična}.
 \end{definicija}
+
+\begin{zgled}
+    Razvij funkcijo $f(x,y) = e^{xy}$ v Taylorjevo vrsto v okolici točke $(0,0)$.
+\end{zgled}
+
+\begin{posledica}
+    Recimo, da velja
+    \begin{enumerate}
+        \item Množica $D \subseteq \R^n$ odprta, $a \in D$.
+        \item $f: D^{\text{odp}} \to \R$ funkcija razreda $C^{k+1}(D)$.
+        \item Vektor $h \in \R^n$ tak, da daljica med $a$ in $a+h$ leži v $D$.
+    \end{enumerate}
+    Potem je 
+    \begin{enumerate}
+        \item $R_k = o(\norm{h}^k)$ za $h \to 0$.
+        \item $R_k = O(\norm{h}^{k+1})$ za $h \to 0$.
+    \end{enumerate}
+\end{posledica}
+
+\begin{opomba}
+    Velja:
+    \begin{enumerate}
+        \item $R_k = o(\norm{h}^k) \liff \lim_{h \to 0} \frac{|R_k|}{\norm{h}^k} = 0$ (izraz je majhen).
+        \item $R_k = O(\norm{h}^{k+1}) \liff \some{M \in \R} \frac{|R_k|}{\norm{h}^{k+1}} \leq M, \text{ ko gre } h \text{ proti } 0$ (velikostni red).
+    \end{enumerate}
+\end{opomba}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+\begin{opomba}
+    Naj bo $f: \R^2 \to \R$ funkcija razreda $C^\infty$ v okolici točke $(0,0)$, $h = (x, y)$. 
+    
+    Pokaži, da za koeficient $a_{nm}$ pred $x^ny^m$ velja: $(\frac{\partial^{n+m}}{\partial x^n \partial y^m} f)(0,0) = a_{nm} n!m!$. 
+\end{opomba}
