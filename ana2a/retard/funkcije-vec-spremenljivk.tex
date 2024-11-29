@@ -732,7 +732,7 @@ Naj bo $f: D^{\text{odp}} \subseteq \R^n \to \R$ funkcija, $a \in D$. Funkcijo $
 \begin{posledica}
     Recimo, da velja
     \begin{enumerate}
-        \item Množica $D \subseteq \R^n$ odprta, $a \in D$.
+        \item Podmnožica $D \subseteq \R^n$ odprta, $a \in D$.
         \item $f: D^{\text{odp}} \to \R$ funkcija razreda $C^{k+1}(D)$.
         \item Vektor $h \in \R^n$ tak, da daljica med $a$ in $a+h$ leži v $D$.
     \end{enumerate}
@@ -760,3 +760,143 @@ Naj bo $f: D^{\text{odp}} \subseteq \R^n \to \R$ funkcija, $a \in D$. Funkcijo $
     
     Pokaži, da za koeficient $a_{nm}$ pred $x^ny^m$ velja: $(\frac{\partial^{n+m}}{\partial x^n \partial y^m} f)(0,0) = a_{nm} n!m!$. 
 \end{opomba}
+
+\newpage
+\subsection{Ekstremi funkcij več spremenljivk}
+\begin{definicija}
+    Naj bo $f: D \subseteq \R^n \to \R$ funkcija, $a \in D$.
+    \begin{enumerate}
+        \item Funkcija $f$ ima v točki $a$ \df{lokalni maksimum}, če 
+        $$\some{r>0} \all{x \in D \cap K(a,r)} f(a) \geq f(x).$$ 
+        Funkcija $f$ ima v točki $a$ \df{strogi lokalni maksimum}, če
+        $$\some{r>0} \all{x \in D \cap K(a,r)} f(a) > f(x).$$ 
+        \item Funkcija $f$ ima v točki $a$ \df{(globalni) maksimum na $D$}, če 
+        $$\all{x \in D} f(a) \geq f(x).$$
+        \item Podobno definiramo: \df{lokalni minimum}, \df{(globalni) minimum}.
+        \item \df{Lokalni ekstrem} (oz. \df{globalni ekstrem}) je skupno ime za lokalni (oz. globalni) minumum in maksimum.
+    \end{enumerate}
+\end{definicija}
+
+\begin{opomba}
+    Če je $K^\text{komp} \subseteq \R^n$ in $f: K \to \R$ zvezna funkcija, potem ima $f$ na $K$ maksimum in minimum.
+\end{opomba}
+
+\begin{definicija}
+    Naj bo $D^\text{odp} \subseteq \R^n$ in $f: D \to \R$ funkcija razreda $C^1$ (dovolj, da diferenciabilna). 
+    
+    Rečemo, da je točka $a \in D$ \df{stacionarna (oz. kritična) točka  funkcije $f$}, če $$(Df)(a) = 0, \text{ tj. } \podv{f}{x_1}(a) = \podv{f}{x_2}(a) = \ldots = \podv{f}{x_n}(a) = 0.$$
+\end{definicija}
+
+\begin{trditev}
+    Recimo, da velja
+    \begin{enumerate}
+        \item Podmnožica $D \subseteq \R^n$ odprta, $a \in D$.
+        \item $f: D \to \R$ funkcija razreda $C^1$.
+    \end{enumerate}
+    Tedaj, če ima funkcija $f$ v točki $a$ lokalni ekstrem, je $a$ kritična točka za $f$.
+\end{trditev}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+\begin{zgled}
+    Naj bo $K = \setb{(x, y) \in \R^2}{x^2+y^2 \leq 3}$, $f(x, y) = x^2 - xy + y^2 - 3x +4$. 
+    Poišči minimum in maksimum funkcije~$f$.
+\end{zgled}
+
+\subsubsection{Potrebni in zadostni pogoji na 2. odvodi, da je kritična točka lokalni ekstrem}
+Naj bo $D \subseteq \R^n$ odprta, $f: D \to R$ funkcija razreda $C^2$. Definiramo \df{Hessejevo matriko} 2. odvodov:
+$$(Hf) (x) = \begin{bmatrix}
+    \frac{\partial^2 f}{\partial x_1^2} & \frac{\partial^2 f}{\partial x_1 \partial x_2} & \ldots & \frac{\partial^2 f}{\partial x_1 \partial x_n} \\
+    \frac{\partial^2 f}{\partial x_2 \partial x_1} & \frac{\partial^2 f}{\partial x_2^2} & \ldots & \frac{\partial^2 f}{\partial x_2 \partial x_n} \\
+    \vdots & & & \\
+    \frac{\partial^2 f}{\partial x_n \partial x_1} & \frac{\partial^2 f}{\partial x_n \partial x_2} & \vdots & \frac{\partial^2 f}{\partial x_n^2}
+\end{bmatrix}.$$
+
+\begin{opomba}
+    Če je $f \in C^2(D)$, potem mešani odvodi so enaki, tj. $(Hf)^T = Hf$. Torej Hessejeva matrika je simetrična, torej ima v vsaki točki realne lastne vrednosti. 
+\end{opomba}
+
+$\left\langle (Hf)h, h\right\rangle$ je \df{Hessejeva forma} (kvadratna forma, ki pripada matrike $(Hf)(a)$).
+
+\begin{definicija}
+    Hessejeva matrika $Hf$ je
+    \begin{itemize}
+        \item \df{pozitivno semidefinitna} (pišemo $Hf \geq 0$), če $\all{v \in D} \left\langle (Hf)v, v\right\rangle \geq 0 \liff \text{vse lastne vrednosti so nenagitvne}$;
+        \item \df{pozitivno definitna} (pišemo $Hf > 0$), če $\all{v \in D} v \neq 0 \lthen \left\langle (Hf)v, v\right\rangle > 0 \liff \text{vse lastne vrednosti so pozitivne}$;
+        \item \df{negativno semidefinitna} (pišemo $Hf \leq 0$), če $\all{v \in D}\left\langle (Hf)v, v\right\rangle \leq 0 \liff \text{vse lastne vrednosti so nepozitivne}$;
+        \item \df{negativno definitna} (pišemo $Hf < 0$), če $\all{v \in D} v \neq 0 \lthen \left\langle (Hf)v, v\right\rangle < 0 \liff \text{vse lastne vrednosti so negativne}$.
+    \end{itemize}
+\end{definicija}
+
+\begin{trditev}[Potrebni pogoji]
+    Recimo, da velja
+    \begin{enumerate}
+        \item Podmnožica $D \subseteq \R^n$ odprta, $a \in D$.
+        \item Funkcija $f: D \to \R$ razreda $C^2$.
+    \end{enumerate}
+    Tedaj
+    \begin{itemize}
+        \item Če ima $f$ v točki $a$ lokalni maksimum, potem
+        \begin{enumerate}
+            \item $(Df)(a) = 0$,
+            \item $Hf(a) \leq 0$.
+        \end{enumerate}
+        \item Če ima $f$ v točki $a$ lokalni minimum, potem
+        \begin{enumerate}
+            \item $(Df)(a) = 0$,
+            \item $(Hf)(a) \geq 0$.
+        \end{enumerate}
+    \end{itemize}
+\end{trditev}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+\newpage
+\begin{izrek}[Zadostni pogoji]
+    Recimo, da velja
+    \begin{enumerate}
+        \item Podmnožica $D \subseteq \R^n$ odprta, $a \in D$.
+        \item Funkcija $f: D \to \R$ razreda $C^2$.
+        \item $a \in D$ stacionarna točka funkcije $f$.
+    \end{enumerate}
+    Tedaj
+    \begin{itemize}
+        \item Če je $(Hf)(a) > 0$, potem ima funkcija $f$ v točki $a$ (strogi) lokalni minimum.
+        \item Če je $(Hf)(a) < 0$, potem ima funkcija $f$ v točki $a$ (strogi) lokalni maksimum.
+        \item Če ima $(Hf)(a)$ tako pozitivne, kot negativne lastne vrednosti, potem funkcija $f$ v točki $a$ nima lokalnega ekstrema.
+    \end{itemize}
+\end{izrek}
+
+\begin{zgled}
+    Določi $(Hf_i)(0,0)$ za $f_1(x,y) = \frac{1}{2}(x^2+y^2)$, $f_2(x,y) = \frac{1}{2}(-x^2-y^2)$, $f_3(x,y) = \frac{1}{2}(x^2-y^2)$.
+\end{zgled}
+
+\begin{posledica}[Zadostni pogoji, $n=2$]
+    Recimo, da velja
+    \begin{enumerate}
+        \item Podmnožica $D \subseteq \R^2$ odprta, $(a, b) \in D$.
+        \item Funkcija $f: D \to \R$ razreda $C^2$.
+        \item $(a, b) \in D$ stacionarna točka funkcije $f$.    
+    \end{enumerate}
+    Tedaj
+    \begin{itemize}
+        \item Če je $f_{xx}f_{yy} - f_{xy}^2(a,b) > 0$, potem ima funkcija $f$ v točki $(a, b)$.
+        \begin{itemize}
+            \item Če je $f_{xx}(a,b)>0$, potem ima funkcija $f$ v točki $(a,b)$ lokalni minimum.
+            \item Če je $f_{xx}(a,b)<0$, potem ima funkcija $f$ v točki $(a,b)$ lokalni maksimum.
+        \end{itemize}
+        \item Če je $f_{xx}f_{yy} - f_{xy}^2(a,b) < 0$, potem funkcija $f$ v točki $(a, b)$ nima lokalnega ekstrema.
+    \end{itemize}
+\end{posledica}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+\begin{zgled}
+    Naj bo $f(x,y,z) = x^2+y^2+z^2 + 2xyz$. Klasificiraj vse stacionarne točke funkcije $f$.
+\end{zgled}
