@@ -1,0 +1,135 @@
+\section{Uvod v teorijo kolobarjev}
+
+\begin{definicija}
+    Naj bo $K$ neprazna množica z operacijama $+$ in $\cdot$. Pravimo, da je $(K, +, \cdot)$ \df{kolobar}, če
+    \begin{enumerate}
+        \item $(K, +)$ je Abelova grupa (enota: $0$, inverz od $a$: $-a$).
+        \item $(K, \cdot)$ je monoid, tj. kolobar vedno ima enoto za $\cdot$, označimo jo z $1$, in rečemo, da je $1$ \df{enica} kolobarja $K$.
+        \item Za vse $a, b, c \in K$ velja, da $a(b+c) = ab+ac$ in $(a+b)c = ac+bc$.
+    \end{enumerate}
+    Če je množenje komutativno, pravimo, da je $K$ \df{komutativen kolobar}.
+\end{definicija}
+
+\begin{zgled}
+    Primeri kolobarjev.
+    \begin{itemize}
+        \item $(\Z, +, \cdot)$ je komutativen kolobar.
+        \item $\Q, \R, \C$ so komutativni kolobarji.
+        \item $(\R^{n \times n}, +, \cdot)$ je kolobar.
+        \item Naj bo $X \subseteq \R$, $\R^X = \set{f: X \to \R}$. Definiramo $(f+g)(x) = f(x) + g(x), \ (fg)(x) = f(x)g(x)$. $\R^X$ je komutativen kolobar.
+    \end{itemize}
+\end{zgled}
+
+\begin{definicija}
+    Naj bo $K$ kolobar.
+    \begin{itemize}
+        \item $l \in K \setminus \set{0}$ je \df{levi delitelj niča}, če $\some{y \in K \setminus \set{0}. ly = 0}$.
+        \item $d \in K \setminus \set{0}$ je \df{desni delitelj niča}, če $\some{y \in K \setminus \set{0}. yd = 0}$.
+        \item $x \in K \setminus \set{0}$ je \df{delitelj niča}, če je levi ali desni delitelj niča. 
+        \item $x \in K$ je \df{idempotent}, če $x^2 = x$.
+        \item $x \in K$ je \df{nilpotent}, če $\some{n \in \N} x^n = 0$.
+    \end{itemize}
+\end{definicija}
+
+\begin{zgled}
+    Primeri deliteljev niča, idempotentov in nilpotentov.
+    \begin{itemize}
+        \item V $\R^2$ velja $\begin{bmatrix}
+            1 & 0 \\ 0 & 0
+        \end{bmatrix} \begin{bmatrix}
+            0 & 0 \\ 0 & 1
+        \end{bmatrix} = 0$.
+        \item Če je $K$ poljuben kolobar, potem $1$ in $0$ sta idempotenta.
+        \item V $\R^5$ matrika $\begin{bmatrix}
+            0 & 1 & & & \\ 
+            & 0 & 1 & & \\ 
+            & & 0 & 1 & \\ 
+            & & & 0 & 1 \\ 
+            & & &  & 0 \\ 
+        \end{bmatrix}$ je nilpotenta.
+    \end{itemize}
+\end{zgled}
+
+\begin{definicija}
+    \df{Cel kolobar} je komutativen kolobar brez deliteljev niča.
+\end{definicija}
+
+\begin{primer}
+    $(\Z, +, \cdot)$ je cel kolobar.
+\end{primer}
+
+\begin{definicija}
+    Naj bo $K$ kolobar.
+    \begin{itemize}
+        \item Kolobar $K$ je \df{obseg}, če je vsak neničeln element kolobarja $K$ obrnljiv, tj. $K^* = K \setminus \set{0}$. 
+        \item \df{Polje} je komutativen obseg.
+    \end{itemize}
+\end{definicija}
+
+\begin{primer}
+    $\Q, \R, \C$ so polja.
+\end{primer}
+
+\begin{trditev}
+    Obrnljiv element kolobarja $K$ ne more biti delitelj niča.
+\end{trditev}
+
+\begin{proof}
+    Enostavno.
+\end{proof}
+
+\begin{definicija}
+    Naj bo $A$ kolobar in $F$ polje. $A$ je \df{algebra} nad $F$, če 
+    \begin{enumerate}
+        \item $A$ je vektorski prostor nad $F$.
+        \item $\alpha(xy) = (\alpha x)y = x(\alpha y)$.
+    \end{enumerate}
+\end{definicija}
+
+\begin{zgled}
+    Kolobarji in algebri.
+    \begin{itemize}
+        \item Naj bo $K$ kolobar, $K^{n \times n} = M_n(K) = \set{n \times n \text{ matrike z elementi iz } K}$. $K^{n \times n}$ z običajnima $+$ in $\cdot$ je kolobar. Če~je~$F$~polje, potem $F^{n \times n}$ je vektorski prostor in hitro vidimo, da je $F^{n \times n}$ algebra nad $F$.
+        
+        Bolj splošno: Naj bo $V$ vektorski prostor nad $F$. Vzemimo množico $\End V$. Potem $\End V$ je algebra nad $F$ (rečemo tudi $F$-algebra).
+        \item Naj bo $X$ neprazna množica. Gledamo funkcije $\R^X$. Na $\R^X$ lahko definiramo $+$, $\cdot$ in množenje s skalarjem iz $\R$ po točkah. $\R^X$ je algebra nad $\R$.
+        
+        \newpage
+        \item Naj bo $K$ kolobar. \df{Polinom} s koeficienti iz $K$ je formalna vrsta oblike
+        $$p(x) = \sum_{i \geq 0} a_iX^i = a_0 + a_1X + a_2 X^2 + \ldots + a_k X^k, \ a_i \in K, \ k \geq 0.$$
+        Manj baročno:
+        $$(a_0, a_1, \ldots, a_k, 0, 0, \ldots).$$
+        Torej polinom je končno zaporedje elementov iz $K$.
+
+        Naj bo $K[X]$ je množica vseh polinomov s koeficienti iz $K$. V $K[X]$ definiramo seštevanje in množenje:
+        \begin{itemize}
+            \item $\sum_{i \geq 0} a_iX^i + \sum_{i \geq 0} b_iX^i := \sum_{i \geq 0} (a_i + b_i)X^i$.
+            \item $\sum_{i \geq 0} a_iX^i \cdot \sum_{i \geq 0} b_iX^i := \sum_{i \geq 0} c_iX^i$, kjer $c_i = \sum_{j \geq 0}^{i} a_{i - j} b_j$.
+        \end{itemize}
+        S temi operacijami $K[X]$ postane kolobar.
+        \begin{opomba}
+            Če je $K$ polje, v $K[X]$ lahko vpeljamo množenje s skalarjem:
+            \begin{itemize}
+                \item $\alpha (\sum_{i \geq 0} a_iX^i) = \sum_{i \geq 0} (\alpha a_i)X^i$
+            \end{itemize} 
+            Potem $K[X]$ postane algebra nad $K$.
+        \end{opomba}
+        \emph{Možni pospološitvi $K[X]$:}
+        \begin{itemize}
+            \item Polinomi več spremenljivk: $K[X_1, \ldots, X_n] = K[X_1, \ldots, X_n][X_n]$.
+            \item Če se ne omejimo na končne formalne vsote, dobimo \df{kolobar formalnih potenčnih vrst $K[[X]]$}.
+        \end{itemize}        
+    \end{itemize}    
+\end{zgled}
+\begin{trditev}
+    Velja:
+    \begin{itemize}
+        \item Če je $K$ komutativen kolobar, je tudi $K[X]$ komutativen.
+        \item $K$ je brez deliteljev nična natanko tedaj, ko $K[X]$ brez deliteljev niča.
+        \item $K$ je cel kolobar natanko tedaj, ko $K[X]$ cel.
+    \end{itemize}
+\end{trditev}
+
+\begin{proof}
+    Enostavno.
+\end{proof}

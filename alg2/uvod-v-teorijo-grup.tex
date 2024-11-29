@@ -1,19 +1,19 @@
 \section{Uvod v teorijo grup}
 \subsection{Osnovni pojmi teoriji grup}
 \begin{definicija}
-    Naj bo $S$ neprazna množica. \emph{Operacija na množice $S$} je preslikava $*: S \times S \to S, \ (a,b) \mapsto a * b$.
+    Naj bo $S$ neprazna množica. \df{Operacija na množice $S$} je preslikava $*: S \times S \to S, \ (a,b) \mapsto a * b$.
 
-    Operacija $*$ je \emph{asociativna}, če $\all{a, b, c \in S} (a*b)*c = a*(b*c)$.
+    Operacija $*$ je \df{asociativna}, če $\all{a, b, c \in S} (a*b)*c = a*(b*c)$.
 
-    Operacija $*$ je \emph{komutativna}, če $\all{a, b \in S} a* b = b* a$.
+    Operacija $*$ je \df{komutativna}, če $\all{a, b \in S} a* b = b* a$.
 \end{definicija}
 
 \begin{definicija}
-    Neprazna množica $S$ skupaj z operacijo $*$ je \emph{polgrupa}, če je operacija $*$ asociativna.
+    Neprazna množica $S$ skupaj z operacijo $*$ je \df{polgrupa}, če je operacija $*$ asociativna.
 \end{definicija}
 
 \begin{definicija}
-    Naj bo $S$ množica z operacijo $*$. Pravimo, da je $e \in S$ \emph{enota (oz. nevtralni element) za operacijo~$*$}, če~$\all{x \in S} e * x = x * e = x$.
+    Naj bo $S$ množica z operacijo $*$. Pravimo, da je $e \in S$ \df{enota (oz. nevtralni element) za operacijo~$*$}, če~$\all{x \in S} e * x = x * e = x$.
 \end{definicija}
 
 \begin{trditev}
@@ -21,15 +21,15 @@
 \end{trditev}
 
 \begin{definicija}
-    Polgrupa z enoto je \emph{monoid}.
+    Polgrupa z enoto je \df{monoid}.
 \end{definicija}
 
 \begin{definicija}
     Naj bo $S$ množica z operacijo $*$ in $e \in S$ enota. Naj bo $x \in S$.
     \begin{itemize}
-        \item Element $l \in S$ je \emph{levi inverz} elementa $x$, če $l * x = e$.
-        \item Element $d \in S$ je \emph{desni inverz} elementa $x$, če $x * d = e$.
-        \item Element $y \in S$ je \emph{inverz} elementa $x$, če $x *y = y* x = e$.
+        \item Element $l \in S$ je \df{levi inverz} elementa $x$, če $l * x = e$.
+        \item Element $d \in S$ je \df{desni inverz} elementa $x$, če $x * d = e$.
+        \item Element $y \in S$ je \df{inverz} elementa $x$, če $x *y = y* x = e$.
     \end{itemize}
 \end{definicija}
 
@@ -38,18 +38,18 @@
 \end{trditev}
 
 \begin{definicija}
-    Pravimo, da je element $x \in S$ \emph{obrnljiv}, če obstaja inverz od $x$.
+    Pravimo, da je element $x \in S$ \df{obrnljiv}, če obstaja inverz od $x$.
 \end{definicija}
 
 \begin{definicija}
-    Naj bo $S$ z operacijo $*$ monoid. Pravimo, da je $S$ \emph{grupa}, če je vsak element iz $S$ obrnljiv.
+    Naj bo $S$ z operacijo $*$ monoid. Pravimo, da je $S$ \df{grupa}, če je vsak element iz $S$ obrnljiv.
 
-    Če je operacija $*$ komutativna, pravimo, da je $S$ \emph{Abelova grupa}.
+    Če je operacija $*$ komutativna, pravimo, da je $S$ \df{Abelova grupa}.
 \end{definicija}
 
-V grupah ponavadi uporabljamo \emph{miltiplikativni zapis}: operacija: $\cdot$, enota: $1$, inverz od $x$: $x^{-1}$, potenca: $x^n$.
+V grupah ponavadi uporabljamo \df{miltiplikativni zapis}: operacija: $\cdot$, enota: $1$, inverz od $x$: $x^{-1}$, potenca: $x^n$.
 
-V Abelovih grupah uporabljamo \emph{aditivni zapis}: operacija: $+$, enota: $0$, inverz od $x$: $-x$, potenca: $nx$.
+V Abelovih grupah uporabljamo \df{aditivni zapis}: operacija: $+$, enota: $0$, inverz od $x$: $-x$, potenca: $nx$.
 
 \begin{table}[h!]
     \begin{tabular}{ m{23em} | m{23em} }
@@ -72,7 +72,7 @@ V Abelovih grupah uporabljamo \emph{aditivni zapis}: operacija: $+$, enota: $0$,
     Nekaj primerov grup.
     \begin{enumerate}
         \item $(\Z, +), \ (\Q, +), \ (\R, +), \ (\C, +), (\Q \setminus \set{0}, \cdot)$ so Abelove grupe.
-        \item Naj bo $X$ neprazna množica. Definiramo $\Sim(X) = \set{\text{vse bijektivne preslikave } f: X \to X}$. $(\Sim(X), \circ)$ je grupa, imenujemo jo \emph{simetrična grupa} množice $X$.        
+        \item Naj bo $X$ neprazna množica. Definiramo $\Sim(X) = \set{\text{vse bijektivne preslikave } f: X \to X}$. $(\Sim(X), \circ)$ je grupa, imenujemo jo \df{simetrična grupa} množice $X$.        
         
         V posebnem primeru, ko je $X$ končna dobimo $\Sim(\set{1, 2, \ldots, n}) = S_n$. Torej običajne permutacije.
     \end{enumerate}
@@ -83,7 +83,7 @@ V Abelovih grupah uporabljamo \emph{aditivni zapis}: operacija: $+$, enota: $0$,
     
     Primeri simetrij: $r$ - rotacija za $90^{\circ}$ okoli središča kvadrata, $z$ - zrcaljenje čez fiksno os simetrije ter kompozicije $r$ in $z$. Iz geometrije lahko vidimo, da je $zr = r^3z$. To pomeni, da je vsak kompozitum $r$ in $z$ oblike $r^kz$.
     
-    Kvadrat ima kvečjemu $8$ simetrij, ker je vsaka simetrija določena s sliko oglišča $1$ in informacijo, ali smo naredili zrcaljenje ali ne. Dobimo množico simetrij $D_{2 \cdot 4} = \set{\id, r, r^2, r^3, z, rz, r^2z, r^3z}$. $D_{2\cdot 4}$ je \emph{diedrska grupa moči $8$}.
+    Kvadrat ima kvečjemu $8$ simetrij, ker je vsaka simetrija določena s sliko oglišča $1$ in informacijo, ali smo naredili zrcaljenje ali ne. Dobimo množico simetrij $D_{2 \cdot 4} = \set{\id, r, r^2, r^3, z, rz, r^2z, r^3z}$. $D_{2\cdot 4}$ je \df{diedrska grupa moči $8$}.
 \end{zgled}
 
 \begin{zgled}[Diedrska grupa moči $2n$]
@@ -94,7 +94,7 @@ V Abelovih grupah uporabljamo \emph{aditivni zapis}: operacija: $+$, enota: $0$,
     \end{itemize}
     Velja: $zr = r^{n-1}z$. 
     
-    Množica vseh simetrij je $D_{2n} = \set{1, r, r^2, \ldots, r^{n-1}, z, rz, r^2zn, \ldots, r^{n-1}z}$. $D_{2n}$ je \emph{diedrska grupa moči $2n$}.
+    Množica vseh simetrij je $D_{2n} = \set{1, r, r^2, \ldots, r^{n-1}, z, rz, r^2zn, \ldots, r^{n-1}z}$. $D_{2n}$ je \df{diedrska grupa moči $2n$}.
 \end{zgled}
 
 \begin{zgled}[Monoid $\to$ Grupa]
@@ -102,7 +102,7 @@ V Abelovih grupah uporabljamo \emph{aditivni zapis}: operacija: $+$, enota: $0$,
 \end{zgled}
 
 \begin{primer}
-    Naj bo $S = (\R^{n \times n}, \cdot)$, $S^* = \setb{A \in \R^{n \times n}}{\det A \neq 0} = \GL_n(\R)$. $\GL_n(\R)$ je \emph{splošna linearna grupa $n \times n$ matrik}.
+    Naj bo $S = (\R^{n \times n}, \cdot)$, $S^* = \setb{A \in \R^{n \times n}}{\det A \neq 0} = \GL_n(\R)$. $\GL_n(\R)$ je \df{splošna linearna grupa $n \times n$ matrik}.
 \end{primer}
 
 \begin{zgled}[Direktni produkt grup]
@@ -115,7 +115,7 @@ V Abelovih grupah uporabljamo \emph{aditivni zapis}: operacija: $+$, enota: $0$,
 \end{izrek}
 
 \begin{definicija}
-    Cikli dolžine $2$ so \emph{transpozicije}.
+    Cikli dolžine $2$ so \df{transpozicije}.
 \end{definicija}
 
 \begin{trditev}
@@ -123,7 +123,7 @@ V Abelovih grupah uporabljamo \emph{aditivni zapis}: operacija: $+$, enota: $0$,
 \end{trditev}
 
 \begin{definicija}
-    Permutacija je \emph{soda (oz. liha)}, če je produkt sodo (oz. liho) mnogo transpozicij.
+    Permutacija je \df{soda (oz. liha)}, če je produkt sodo (oz. liho) mnogo transpozicij.
 \end{definicija}
 
 \begin{definicija}
@@ -139,7 +139,7 @@ V Abelovih grupah uporabljamo \emph{aditivni zapis}: operacija: $+$, enota: $0$,
 
 \subsection{Podgrupe}
 \begin{definicija}
-    Naj bo $G$ grupa in $H \subseteq G, \ H \neq \emptyset$. $H$ je \emph{podgrupa grupe $G$}, če je $H$ za isto operacijo tudi grupa. Oznaka $H \leq G$.
+    Naj bo $G$ grupa in $H \subseteq G, \ H \neq \emptyset$. $H$ je \df{podgrupa grupe $G$}, če je $H$ za isto operacijo tudi grupa. Oznaka $H \leq G$.
 \end{definicija}
 
 \begin{opomba} 
@@ -184,9 +184,9 @@ V Abelovih grupah uporabljamo \emph{aditivni zapis}: operacija: $+$, enota: $0$,
     Primeri podrgup.
     \begin{enumerate}
         \item Vse prave podrgupe v grupi $(\Z, +)$ so oblike $n\Z, \ n \in \N$.
-        \item Definiramo $\SL_n(\R) = \setb{A \in \GL_n(\R)}{\det A = 1}$. Potem $\SL_n(\R) \leq \GL_n(\R)$. $\SL_n(\R)$ imenujemo \emph{specialna linearna grupa}.
+        \item Definiramo $\SL_n(\R) = \setb{A \in \GL_n(\R)}{\det A = 1}$. Potem $\SL_n(\R) \leq \GL_n(\R)$. $\SL_n(\R)$ imenujemo \df{specialna linearna grupa}.
         \item Definiramo $\text{O}(n) = \setb{A \in \GL_n(\R)}{AA^T = A^TA = I}$. Potem $\text{O}(n) \leq \GL_n(\R)$.
-        \item Definiramo $\text{SO}(n) = \setb{A \in \text{O}(n)}{\det A = 1}$. Potem $\text{SO}(n) \leq \text{O}(n)$. Grupo $\text{SO}(n)$ imenujemo \emph{specialne ortogonalne matrike}.
+        \item Definiramo $\text{SO}(n) = \setb{A \in \text{O}(n)}{\det A = 1}$. Potem $\text{SO}(n) \leq \text{O}(n)$. Grupo $\text{SO}(n)$ imenujemo \df{specialne ortogonalne matrike}.
     \end{enumerate}
 \end{primer}
 
@@ -200,7 +200,7 @@ V Abelovih grupah uporabljamo \emph{aditivni zapis}: operacija: $+$, enota: $0$,
 \end{proof}
 
 \begin{definicija}
-    Naj bosta $H, K \leq G$. Definiramo $HK = \setb{hk}{h \in H, \ k \in K}$. Temu pravimo \emph{produkt podgrup}.
+    Naj bosta $H, K \leq G$. Definiramo $HK = \setb{hk}{h \in H, \ k \in K}$. Temu pravimo \df{produkt podgrup}.
 \end{definicija}
 
 \begin{zgled}
@@ -220,7 +220,7 @@ V Abelovih grupah uporabljamo \emph{aditivni zapis}: operacija: $+$, enota: $0$,
 \end{opomba}
 
 \begin{definicija}
-    Naj bo $H \leq G, \ a \in G$. Definiramo množico $aHa^{-1} = \setb{aha^{-1}}{h \in H}$. Potem $aHa^{-1} \leq G$. Temu~se~reče \emph{konjungiranje podgrupe $H$ z elementom $a$}.
+    Naj bo $H \leq G, \ a \in G$. Definiramo množico $aHa^{-1} = \setb{aha^{-1}}{h \in H}$. Potem $aHa^{-1} \leq G$. Temu~se~reče \df{konjungiranje podgrupe $H$ z elementom $a$}.
 \end{definicija}
 
 \begin{proof}
@@ -230,8 +230,8 @@ V Abelovih grupah uporabljamo \emph{aditivni zapis}: operacija: $+$, enota: $0$,
 \begin{trditev}
     Naj bo $G$ grupa.
     \begin{enumerate}
-        \item Definiramo $Z(G) = \setb{y \in G}{\all{x \in G} yx=xy}$. Potem $Z(G) \leq G$. Tej grupi pravimo \emph{center grupe $G$}.
-        \item Naj bo $a \in G$. Definiramo $C_G(a) = \setb{y \in G}{ya = ay}$. Potem $C_G(a) \leq G$. Tej podgrupi pravimo \emph{centralizator elementa $a$ v $G$}.
+        \item Definiramo $Z(G) = \setb{y \in G}{\all{x \in G} yx=xy}$. Potem $Z(G) \leq G$. Tej grupi pravimo \df{center grupe $G$}.
+        \item Naj bo $a \in G$. Definiramo $C_G(a) = \setb{y \in G}{ya = ay}$. Potem $C_G(a) \leq G$. Tej podgrupi pravimo \df{centralizator elementa $a$ v $G$}.
     \end{enumerate}
 \end{trditev}
 
@@ -251,7 +251,7 @@ Naj bo $G$ grupa in $H \leq G$. Definiramo relacijo na $G$ s predpsiom $\all{a, 
 \end{proof}
 
 \begin{definicija}
-    Naj bo $G$ grupa, $H \leq H, \ a \in G$. \emph{Ekvivalenčni razred elementa $a \in G$} je množica $[a] = \setb{b \in G}{a \sim b}$.
+    Naj bo $G$ grupa, $H \leq H, \ a \in G$. \df{Ekvivalenčni razred elementa $a \in G$} je množica $[a] = \setb{b \in G}{a \sim b}$.
 \end{definicija}
 
 \begin{opomba}
@@ -259,17 +259,17 @@ Naj bo $G$ grupa in $H \leq G$. Definiramo relacijo na $G$ s predpsiom $\all{a, 
 \end{opomba}
 
 \begin{definicija}
-    Množico $aH$ imenujemo \emph{levi odsek grupe $G$ po podgrupi $H$}.
+    Množico $aH$ imenujemo \df{levi odsek grupe $G$ po podgrupi $H$}.
 \end{definicija}
 
 \begin{opomba}
     V grupo $G$ lahko vpeljamo tudi relacijo $\approx$ s predpisom $\all{a, b \in G} a \approx b :\liff ab^{-1} \in H$.
 
-    To je ekvivalenčna relacija. Ekvivalentni razredi so $[a] = \setb{ha}{h \in H} =: Ha$, ki jih imenujemo \emph{desni odseki}.
+    To je ekvivalenčna relacija. Ekvivalentni razredi so $[a] = \setb{ha}{h \in H} =: Ha$, ki jih imenujemo \df{desni odseki}.
 \end{opomba}
 
 \begin{definicija}
-    \emph{Faktorska (oz. kvocientna) množica} glede na relacijo $\sim$ je množica $G/_\sim = \setb{aH}{a \in G} =: G/H$.
+    \df{Faktorska (oz. kvocientna) množica} glede na relacijo $\sim$ je množica $G/_\sim = \setb{aH}{a \in G} =: G/H$.
 \end{definicija}
 
 \begin{opomba}
@@ -285,7 +285,7 @@ Naj bo $G$ grupa in $H \leq G$. Definiramo relacijo na $G$ s predpsiom $\all{a, 
 \end{opomba}
 
 \begin{definicija}
-    Naj bo $G$ končna grupa. Moč množce $G/H$ označimo z $G:H$ (oz $[G:H]$) in jo imenujemo \emph{indeks podgrupe $H$ v grupi $G$}.
+    Naj bo $G$ končna grupa. Moč množce $G/H$ označimo z $G:H$ (oz $[G:H]$) in jo imenujemo \df{indeks podgrupe $H$ v grupi $G$}.
 \end{definicija}
 
 \begin{izrek}[Lagrangeev izrek]
@@ -318,7 +318,7 @@ Naj bo $G$ grupa in $H \leq G$. Definiramo relacijo na $G$ s predpsiom $\all{a, 
 \begin{primer}
     Naj bo $G = \Z$ in $H = n\Z, \ n \in \N$. Potem $\Z/{n\Z} = \set{0 + n\Z, 1 + n\Z, \ldots, (n-1) + n\Z}$.
 
-    Operacija $+$ na $\Z/{n\Z}$ je seštevanje po modulu $n$. Grupa $\Z_n := \Z/{n\Z}$ je \emph{grupa ostankov po modulu $n$}, $|\Z_n| = n$.
+    Operacija $+$ na $\Z/{n\Z}$ je seštevanje po modulu $n$. Grupa $\Z_n := \Z/{n\Z}$ je \df{grupa ostankov po modulu $n$}, $|\Z_n| = n$.
 \end{primer}
 \begin{posledica}
     Za vsako število $n \in \N$ obstaja vsaj ena grupa moči $n$.
@@ -326,3 +326,76 @@ Naj bo $G$ grupa in $H \leq G$. Definiramo relacijo na $G$ s predpsiom $\all{a, 
 
 \newpage
 \subsection{Generatorji grup. Ciklične grupe}
+
+\begin{definicija}
+    Naj bo $G$ grupa in $X$ podmnožica v $G$. Potem označimo z $\gen{X}$ najmanjšo podgrupo v $G$, ki vsebuje množico $X$. To podgrupo imenujemo \df{podgrupa generirana z množico $X$}.
+\end{definicija}
+
+\begin{opomba}
+    $\gen{X}$ je presek vseh podgrup grupe $G$, ki vsebujejo množico $X$.
+\end{opomba}
+
+\begin{definicija}
+    Naj bo $G$ grupa. 
+    
+    \begin{itemize}
+        \item Če je $X \subseteq G$, za katero velja $G = \gen{X}$, pravimo, da je \df{$G$ generirana z množico $X$}. Elementam množice $X$ pravimo \df{generatorji grupe $G$}.
+        
+        Oznaka: Če je $X = \set{x_1, \ldots, x_n}$, pišemo $\gen{\set{x_1, \ldots, x_n}} = \gen{x_1, \ldots, x_n}$.
+        \item Če je $G = \gen{x_1, \ldots, x_n}$, pravimo, da je \df{$G$ končno generirana grupa}.
+        \item Če obstaja $x \in G$, da je $G = \gen{x}$, pravimo, da je \df{$G$ ciklična grupa}.
+    \end{itemize}    
+\end{definicija}
+
+\begin{trditev}
+    Naj bo $G$ grupa in $X \subseteq G$. $\gen{X} = \setb{x_{i_1}^{\pm 1} x_{i_2}^{\pm 1} \ldots x_{i_r}^{\pm 1}}{x_{i_j} \in X; \ r \in \N_0} =: S$.
+\end{trditev}
+
+\begin{proof}
+    Dovolj dokazati, da je $S$ podgrupa grupe $G$.
+\end{proof}
+
+\begin{posledica}
+    Naj bo $G$ grupa, $a \in G$. Potem $\gen{a} = \setb{a^n}{n \in \Z}$.
+\end{posledica}
+
+\begin{primer}
+    Primeri generatorjev grup:
+    \begin{itemize}
+        \item $\Z = \gen{1}$. Velja tudi: $\Z = \gen{p, q}$, kjer sta $p$ in $q$ tuji.
+        \item $\Z_n = \gen{1 + n\Z}$.
+    \end{itemize}
+\end{primer}
+
+\begin{definicija}
+    Naj bo $G$ grupa in $a \in G$. Najmanjšemu naravnemu številu $n$, za katerega velja $a^n=1$, pravimo \df{red}~elementa $a$. Če tak $n$ ne obstaja, pravimo, da ima $a$ neskončen red.
+\end{definicija}
+
+\begin{primer}
+    Primeri elementov končnega in neskončnega reda.
+    \begin{itemize}
+        \item Element $1 \in \Z$ ima neskončen red.
+        \item Element $1 + n\Z \in \Z_n$ ima red $n$.
+    \end{itemize}    
+\end{primer}
+
+\begin{trditev}
+    Naj bo $G$ grupa, $a \in G$. Potem je red elementa $a$ enak $n$ natanko tedaj, ko $|\gen{a}| = n$.
+\end{trditev}
+
+\begin{proof}
+    Uporabimo ustrezne definicije in izreki o celih številih.
+\end{proof}
+
+\begin{posledica}
+    Naj bo $G$ končna grupa. Velja:
+    \begin{enumerate}
+        \item Za vsak $a \in G$ red $a$ deli $|G|$.
+        \item Za vsak $a \in G$ velja, da $a^{|G|} = 1$.
+        \item Če je $|G|$ praštevilo, potem je $G$ ciklična grupa. 
+    \end{enumerate}
+\end{posledica}
+
+\begin{proof}
+    Uporabimo ustrezne definicije in izreki.
+\end{proof}
