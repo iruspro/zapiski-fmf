@@ -900,3 +900,42 @@ $\left\langle (Hf)h, h\right\rangle$ je \df{Hessejeva forma} (kvadratna forma, k
 \begin{zgled}
     Naj bo $f(x,y,z) = x^2+y^2+z^2 + 2xyz$. Klasificiraj vse stacionarne točke funkcije $f$.
 \end{zgled}
+
+\subsection{Vezani ekstremi}
+\begin{izrek}
+    Recimo, da velja
+    \begin{enumerate}
+        \item Podmnožica $D \subseteq \R^n$ odprta.
+        \item Funkciji $f, g_1, \ldots, g_m$ razreda $C^1(D)$, $m < n$.
+        \item Preslikava $G = (g_1, \ldots, g_m): D \to \R^m$ maksimalnega ranga.
+        \item $M = G^{-1}(\set{0}) \neq \emptyset$, tj. $M = \setb{x \in D}{\underbrace{g_1(x) = 0, \ldots, g_m(x) = 0}}$ podmnogoterost v $D$.
+        \item Funkcija $f: M \to \R$ ima v točki $a \in M$ lokalni ekstrem (kot funkcija iz $M$ v $\R$).        
+    \end{enumerate}
+    Tedaj obstajajo take realne konstante $\lambda_1, \ldots, \lambda_m$, da je 
+    $$(Df)(a) = \lambda_1 (Dg_1)(a) + \ldots + \lambda_m (Dg_m)(a) = \sum_{j=1}^{m}\lambda_j(Dg_j)(a).$$ 
+\end{izrek}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+\begin{opomba}
+    Lagrangeeva metoda za iskanja vezanih ekstremov
+    \begin{enumerate}
+        \item Tvorimo funkcijo $F(\underbrace{x_1, \ldots, x_n}_x, \lambda_1, \ldots, \lambda_m) = f(x) - \sum_{j=1}^{m} \lambda_j g_j(x)$.
+        \item Iščemo stacionarne točke $F$:
+        \begin{itemize}
+            \item $D_xF = (Df)(x) - \sum_{j=1}^{m}\lambda_j(Dg_j)(x) = 0$ ($n$ enačb).
+            \item $D_{\lambda_j}F = -g_j(x) = 0$ za $j = 1, \ldots, m$ ($m$ enačb).
+        \end{itemize}
+        Konstante $\lambda_1, \ldots, \lambda_m$ so \df{Lagrangeevi multiplikatorji}.
+    \end{enumerate}    
+\end{opomba}
+
+\begin{zgled}
+    Določi stacionarne točke funkcije $f(x,y,z)=z$ na $M = \setb{(x,y,z) \in \R^3}{x^2+y^2+z^2=1; \ x+ y + z = 0}$.
+\end{zgled}
+
+\begin{zgled}
+    Določi stacionarne točke funkcije $f(x,y,z)= x^2 - xy +y^2 - 3x +4$ na robu $x^2 + y^2 = 9$.
+\end{zgled}

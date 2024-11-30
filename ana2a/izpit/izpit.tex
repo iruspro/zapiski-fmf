@@ -1,0 +1,54 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[slovene]{babel}
+\usepackage{lmodern}
+
+\usepackage{xcolor}
+\usepackage{bbold}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{xypic}
+\usepackage{enumitem}
+\setlist{nosep}
+
+\setlength{\parindent}{0mm}
+
+\usepackage{soul}
+\setulcolor{red}
+
+\usepackage{geometry}
+\geometry{
+    a4paper,
+    left=5mm,
+    right=5mm,
+    top=5mm,
+    bottom=15mm
+}
+
+\input{../../macros.tex}
+
+%--------------------------------------------------------------------
+%-- Okolja
+
+\theoremstyle{definition}{
+    \newtheorem{definicija}{Definicija}[subsection]
+    \newtheorem{izrek}[definicija]{Izrek}
+    \newtheorem{trditev}[definicija]{Trditev}
+    \newtheorem{posledica}{Posledica}[definicija]
+    \newtheorem{lema}[definicija]{Lema}
+    \newtheorem{aksiom}[definicija]{Aksiom}
+    \newtheorem*{opomba}{Opomba}
+    \newtheorem*{primer}{Primer}   
+    \newtheorem*{zgled}{Zgled}
+}
+
+
+\begin{document}
+
+\input{funkcije-vec-spremenljivk.tex}
+
+
+\end{document}
