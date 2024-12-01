@@ -1,7 +1,7 @@
 \section*{Metrični prostori}
 \subsection{Metrični prostori}
 \begin{definicija}
-    \emph{Metrični prostor} je množica $X$ skupaj z preslikavo $d: X \times X \to \RR$, za katero velja:
+    \emph{Metrični prostor} je množica $X$ skupaj z preslikavo $d: X \times X \to \R$, za katero velja:
     \begin{itemize}
         \item $d(x, x') = 0 \liff x=x'$,
         \item $d(x, x') = d(x', x)$,
@@ -60,7 +60,7 @@
     \begin{itemize}
         \item $X \in O$, $\emptyset \in O$.
         \item Če je $A_\lambda \in O$ za vsak $\lambda \in \Lambda$, potem $ \bigcup_{\lambda \in \Lambda} A_\lambda \in O$.
-        \item Če je $n \in \NN$ in $A_j \in O$ za vsak $j = 1, 2, \ldots, n$, potem $ \bigcap_{j=1}^n A_j \in O$.
+        \item Če je $n \in \N$ in $A_j \in O$ za vsak $j = 1, 2, \ldots, n$, potem $ \bigcap_{j=1}^n A_j \in O$.
     \end{itemize}
 \end{izrek}
 
@@ -86,20 +86,20 @@
 \newpage
 \subsection{Zaporedja v metričnih prostorih}
 \begin{definicija}
-    Naj bo $(X, d)$ metrični prostor. \emph{Zaporedje v metričnem prostoru $X$} je preslikava $\NN \to X$.
+    Naj bo $(X, d)$ metrični prostor. \emph{Zaporedje v metričnem prostoru $X$} je preslikava $\N \to X$.
 \end{definicija}
 
 \begin{definicija}
     Naj bo $(X, d)$ metrični prostor. Pravimo, da zaporedje $(a_n)_n$ v $X$ \emph{konvergira proti $a \in X$}, če
 
-    $$\all{\epsilon > 0} \some{n_0 \in \NN} \all{n \in \NN} n \geq n_0 \lthen d(a_n, a) < \epsilon.$$
+    $$\all{\epsilon > 0} \some{n_0 \in \N} \all{n \in \N} n \geq n_0 \lthen d(a_n, a) < \epsilon.$$
     V tem primeru $a$ imenujemo \emph{limita zaporedja}.
 \end{definicija}
 
 \begin{definicija}
     Naj bo $(X, d)$ metrični prostor. Pravimo, da zaporedje $(a_n)_n$ v $X$ \emph{izpolnjuje Cauchyjev pogoj}, če
 
-    $$\all{\epsilon > 0} \some{n_0 \in \NN} \all{n, m \in \NN} n, m \geq n_0 \lthen d(a_n, a_m) < \epsilon.$$
+    $$\all{\epsilon > 0} \some{n_0 \in \N} \all{n, m \in \N} n, m \geq n_0 \lthen d(a_n, a_m) < \epsilon.$$
 \end{definicija}
 
 \begin{izrek}

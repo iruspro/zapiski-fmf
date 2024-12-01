@@ -1,13 +1,13 @@
 \section{Prostori in preslikave}
 \subsection{Topološki prostori}
 \begin{definicija}
-    Naj bo $X$ množica. \emph{Topologija} na množici $X$ je družina $\T \subseteq P(X)$, ki zadošča naslednjim pogojem:
+    Naj bo $X$ množica. \df{Topologija} na množici $X$ je družina $\T \subseteq P(X)$, ki zadošča naslednjim pogojem:
     \begin{enumerate}
         \item[(T0)] $\emptyset \in \T$, $X \in \T$.
         \item[(T1)] Poljubna unija elementov $\T$ je element $\T$.
         \item[(T2)] Poljuben končen presek elementov $\T$ je element $\T$.
     \end{enumerate}
-    Elemente $\T$ razglasimo za \emph{odprte množice} v $X$.
+    Elemente $\T$ razglasimo za \df{odprte množice} v $X$.
 \end{definicija}
 
 \begin{opomba}
@@ -15,25 +15,25 @@
 \end{opomba}
 
 \begin{definicija}
-    \emph{Topološki prostor} je množica $X$ z neko topologijo $\T$. Pišemo: $(X, \T)$.
+    \df{Topološki prostor} je množica $X$ z neko topologijo $\T$. Pišemo: $(X, \T)$.
 \end{definicija}
 
 \begin{primer}[Topologija iz metrike]
-    Naj bo $(X, d)$ metrični prostor. Definiramo $\T_d = \set{\text{vse možne unije odprtih krogel}}$. $\T_d$~je topologija, ki je \emph{porojena (inducirana)} z metriko $d$.
+    Naj bo $(X, d)$ metrični prostor. Definiramo $\T_d = \set{\text{vse možne unije odprtih krogel}}$. $\T_d$~je topologija, ki je \df{porojena (inducirana)} z metriko $d$.
 \end{primer}
 
 \begin{definicija}
-    Topološki prostor je \emph{metrizabilen}, če je porojen z neko metriko.
+    Topološki prostor je \df{metrizabilen}, če je porojen z neko metriko.
 \end{definicija}
 
 \begin{primer}[Trivialna topologija]
-    Naj bo $X$ poljubna množica. Definiramo $\T = \set{\emptyset, X}$. $\T$ je topologija, rečemo ji \emph{trivialna topologija}.
+    Naj bo $X$ poljubna množica. Definiramo $\T = \set{\emptyset, X}$. $\T$ je topologija, rečemo ji \df{trivialna topologija}.
 
     Trivialna topologija ni metrizabilna, če ima $X$ vsaj $2$ elementa, ker v metričnem prostoru z množico z vsaj $2$ elementoma vedno lahko najdemo disjunktne odprte krogle.
 \end{primer}
 
 \begin{primer}[Diskretna topologija]
-    Definiramo $\T = P(x)$. $\T$ je topologija, rečemo ji \emph{diskretna topologija}.
+    Definiramo $\T = P(x)$. $\T$ je topologija, rečemo ji \df{diskretna topologija}.
 
     Je metrizabilna, ker inducirana z metriko $d(x, x') = 
     \begin{cases}
@@ -43,11 +43,11 @@
 \end{primer}
 
 \begin{opomba}
-    Topologija poda pojem \emph{bližine} na implicitni način z pomočjo okolic. 
+    Topologija poda pojem \df{bližine} na implicitni način z pomočjo okolic. 
 \end{opomba}
 
 \begin{definicija}
-    Naj bo $(X, \T)$ topološki prostor in $A \subseteq X$. \emph{Notranjost množice $A$} je največji element topolgije~$\T$, ki je vsebovan v $A$. Oznaka: $\Int A$.
+    Naj bo $(X, \T)$ topološki prostor in $A \subseteq X$. \df{Notranjost množice $A$} je največji element topolgije~$\T$, ki je vsebovan v $A$. Oznaka: $\Int A$.
 \end{definicija}
 
 \begin{opomba}
@@ -59,7 +59,7 @@
 \end{opomba}
 
 \begin{definicija}
-    Naj bo $(X, \T)$ topološki prostor in $A \subseteq X$. Množica $A$ je \emph{zaprta}, če je $A^c = X - A \in \T$.
+    Naj bo $(X, \T)$ topološki prostor in $A \subseteq X$. Množica $A$ je \df{zaprta}, če je $A^c = X - A \in \T$.
 \end{definicija}
 
 \begin{opomba}
@@ -79,7 +79,7 @@
     $$\set{\text{končme podmnožice X}} \cup \set{X}$$
     zadošča zahtevam (T1) in (T2). Torej komplementi
     $$\T = \set{U \subset X; X - U \text{ končna}} \cup \set{\emptyset}$$
-    so topologija na $X$. Tej topologiji rečemo \emph{topologija končnih komplementov $\T_{kk}$}.
+    so topologija na $X$. Tej topologiji rečemo \df{topologija končnih komplementov $\T_{kk}$}.
 
     Topologija končnih komplementov je najmanjša topologja v kateri vse točke zaprte. 
     
@@ -87,19 +87,19 @@
 \end{primer}
 
 \begin{definicija}
-    Naj bo $(X, \T)$ topološki prostor in $A \subseteq X$. \emph{Zaprtje množice $A$} je presek vseh zaprtih množic, ki vsebujejo $A$. Torej zaprtje množice $A$ je najmanjša zaprta množica v $X$, ki vsebuje $A$. Oznaka: $\Cl A = \overline{A}$.
+    Naj bo $(X, \T)$ topološki prostor in $A \subseteq X$. \df{Zaprtje množice $A$} je presek vseh zaprtih množic, ki vsebujejo $A$. Torej zaprtje množice $A$ je najmanjša zaprta množica v $X$, ki vsebuje $A$. Oznaka: $\Cl A = \overline{A}$.
 \end{definicija}
 
 \begin{primer}
     Velja:
     \begin{itemize}
-        \item $\overline{A \cup B} = \overline{A} \cup \overline{B}$. \emph{Dokaz.} Definicija zaprtja.
-        \item $\overline{A \cap B} \subseteq \overline{A} \cap \overline{B}$. \emph{Dokaz.} Definicija zaprtja in $(\NN, \T_{kk})$.
+        \item $\overline{A \cup B} = \overline{A} \cup \overline{B}$. \df{Dokaz.} Definicija zaprtja.
+        \item $\overline{A \cap B} \subseteq \overline{A} \cap \overline{B}$. \df{Dokaz.} Definicija zaprtja in $(\N, \T_{kk})$.
     \end{itemize}
 \end{primer}
 
 \begin{definicija}
-    Naj bo $(X, \T)$ topološki prostor in $A \subseteq X$. \emph{Meja množice $A$} je $\Fr A = \Cl A - \Int A$.
+    Naj bo $(X, \T)$ topološki prostor in $A \subseteq X$. \df{Meja množice $A$} je $\Fr A = \Cl A - \Int A$.
 \end{definicija}
 
 \begin{opomba}
@@ -108,7 +108,7 @@
 
 \subsection{Zvezne preslikave}
 \begin{definicija}    
-    Naj bosta $(X, \T_X)$ in $(Y, \T_Y)$ topološka prostora. Preslikava $f: (X, \T_X) \to (Y, \T_Y)$ je \emph{zvezna}, če je praslika vsake odprte množice odprta, tj. če iz $V \in \T_Y$ sledi $\invimg{f}(V) \in \T_X$.
+    Naj bosta $(X, \T_X)$ in $(Y, \T_Y)$ topološka prostora. Preslikava $f: (X, \T_X) \to (Y, \T_Y)$ je \df{zvezna}, če je praslika vsake odprte množice odprta, tj. če iz $V \in \T_Y$ sledi $\invimg{f}(V) \in \T_X$.
 \end{definicija}
 
 \begin{primer}
@@ -122,20 +122,20 @@
         \end{enumerate}
         \item Naj bosta $(X, \T)$ in $(X, \T')$ topološka prostora. Funkcija $\id: X \to X'$ je zvezna natanko tedaj, ko $\T' \subseteq \T$.
         \item Če je $f: (X, \T_X) \to (Y, \T_Y)$ konstanta, tj. $\some{y_0 \in Y} \all{x \in X} f(x) = y_0$, potem je $f$ zvezna.
-        \item Naj bo $f: (\RR, \T_{\text{kk}}) \to (\RR, \T_{\text{evkl}})$. Potem konstante so edine zvezne funkcije. 
+        \item Naj bo $f: (\R, \T_{\text{kk}}) \to (\R, \T_{\text{evkl}})$. Potem konstante so edine zvezne funkcije. 
         
-        \emph{Dokaz.} V $(X, \T_{\text{kk}})$ ni disjunktnih nepraznih odprtih množic, če je $X$ neskončna.
+        \df{Dokaz.} V $(X, \T_{\text{kk}})$ ni disjunktnih nepraznih odprtih množic, če je $X$ neskončna.
         
-        \emph{Splošneje.} Naj bosta $X, Y$ neskončni množici, $d$ metrika na $Y$. Naj bo $f: (X, \T_{\text{kk}}) \to (Y, \T_d)$. Potem 
+        \df{Splošneje.} Naj bosta $X, Y$ neskončni množici, $d$ metrika na $Y$. Naj bo $f: (X, \T_{\text{kk}}) \to (Y, \T_d)$. Potem 
         $$f \text{ je zvezna} \liff f \text{ je konstanta}.$$
     \end{enumerate}
 \end{primer}
 
 Uvedemo neke oznake in okrajšave:
 \begin{itemize}
-    \item Naj bosta $(X, \T_X), (Y, \T_Y)$ topološka prostota. Označimo z $C((X, \T_X), (Y, \T_Y))$ množico vseh zveznih preslikav $C(X, Y)$. Tudi $C(X) = C(X, \RR)$.
-    \item \emph{Prostor $X$} je množica z neko topologijo.
-    \item \emph{Preslikava} je zvezna funkcija.
+    \item Naj bosta $(X, \T_X), (Y, \T_Y)$ topološka prostota. Označimo z $C((X, \T_X), (Y, \T_Y))$ množico vseh zveznih preslikav $C(X, Y)$. Tudi $C(X) = C(X, \R)$.
+    \item \df{Prostor $X$} je množica z neko topologijo.
+    \item \df{Preslikava} je zvezna funkcija.
 \end{itemize}
 
 \begin{trditev}
@@ -164,7 +164,7 @@ Uvedemo neke oznake in okrajšave:
 
 \subsection{Homeomorfizmi}
 \begin{definicija}
-    Naj bo $f: (X, \T_X) \to (Y, \T_Y)$ funkcija. Funkcija $f$ je \emph{homeomorfizem}, če:
+    Naj bo $f: (X, \T_X) \to (Y, \T_Y)$ funkcija. Funkcija $f$ je \df{homeomorfizem}, če:
     \begin{itemize}
         \item $f$ je bijekcija.
         \item $\img{f}$ je bijekcija med $\T_X$ in $\T_Y$, tj. $\all{U \in \T_X} \img{f}(U) \in \T_Y \land \all{V \in \T_Y} \invimg{f}(V) \in \T_X$.
@@ -176,7 +176,7 @@ Uvedemo neke oznake in okrajšave:
 \end{opomba}
 
 \begin{definicija}
-    Če obstaja homeomorfizem $f: (X, \T_X) \to (Y, \T_Y)$, potem rečemo, da sta prostora $X$ in $Y$ \emph{homeomorfna}. Oznaka: $X \approx  Y$.
+    Če obstaja homeomorfizem $f: (X, \T_X) \to (Y, \T_Y)$, potem rečemo, da sta prostora $X$ in $Y$ \df{homeomorfna}. Oznaka: $X \approx  Y$.
 \end{definicija}
 
 \begin{opomba}
@@ -184,7 +184,7 @@ Uvedemo neke oznake in okrajšave:
 \end{opomba}
 
 \begin{definicija}
-    Funkcija $f: (X, \T_X) \to (Y, \T_Y)$ je \emph{odprta}, če je slika vsake odprte množice odprta. Funkcija $f$ je \emph{zaprta}, če je slika vsake zaprte množice zaprta.
+    Funkcija $f: (X, \T_X) \to (Y, \T_Y)$ je \df{odprta}, če je slika vsake odprte množice odprta. Funkcija $f$ je \df{zaprta}, če je slika vsake zaprte množice zaprta.
 \end{definicija}
 
 \begin{trditev}
@@ -211,7 +211,7 @@ Uvedemo neke oznake in okrajšave:
     \begin{itemize}
         \item $f^{\text{zv}}: X^{\text{komp}} \to Y^{\text{metr}}$ je vedno zaprta.
         \item Projekcija $X \times Y \to X$ je vedno odprta.
-        \item Preslikave $f: \RR^n \to \RR^n$, ki so gladke in imajo neničelni odvod, so vedno odprte.
+        \item Preslikave $f: \R^n \to \R^n$, ki so gladke in imajo neničelni odvod, so vedno odprte.
     \end{itemize}
 \end{trditev}
 
@@ -222,7 +222,7 @@ Uvedemo neke oznake in okrajšave:
 \end{primer}
 
 \begin{definicija}
-    \emph{Topološka lastnost} je katerakoli lastnost prostora, ki se ohranja pri homeomorfizmih.
+    \df{Topološka lastnost} je katerakoli lastnost prostora, ki se ohranja pri homeomorfizmih.
 \end{definicija}
 
 \begin{primer}
@@ -231,35 +231,35 @@ Uvedemo neke oznake in okrajšave:
 
 Upeljamo oznake:
 \begin{itemize}
-    \item $B^n := \set{\vec{x} \in \RR^n; \ ||\vec{x}|| \leq 1}$ je \emph{enotska $n$-krogla}.
-    \item $\mathring{B}^n := \set{\vec{x} \in \RR^n; \ ||\vec{x}|| < 1}$ je \emph{odprta enotska $n$-krogla}.
-    \item $S^{n-1} := \set{\vec{x} \in \RR^n; \ ||\vec{x}|| = 1}$ je \emph{enotska $(n-1)$-sfera}.
+    \item $B^n := \set{\vec{x} \in \R^n; \ ||\vec{x}|| \leq 1}$ je \df{enotska $n$-krogla}.
+    \item $\mathring{B}^n := \set{\vec{x} \in \R^n; \ ||\vec{x}|| < 1}$ je \df{odprta enotska $n$-krogla}.
+    \item $S^{n-1} := \set{\vec{x} \in \R^n; \ ||\vec{x}|| = 1}$ je \df{enotska $(n-1)$-sfera}.
 \end{itemize}
 
-Homeomorfizem med $(0, 1)$ in $\RR$ lahko posplošimo do homeomorfizma med odprto kroglo $\mathring{B}^n$ in $\RR^n$. Navaden homeomorfizem je
-$$f: \mathring{B}^n \to \RR^n, \ f(\vec{x}) := \frac{\vec{x}}{1 - ||\vec{x}||}, \ f^{-1}(\vec{x}) := \frac{\vec{x}}{1 + ||\vec{x}||},$$
+Homeomorfizem med $(0, 1)$ in $\R$ lahko posplošimo do homeomorfizma med odprto kroglo $\mathring{B}^n$ in $\R^n$. Navaden homeomorfizem je
+$$f: \mathring{B}^n \to \R^n, \ f(\vec{x}) := \frac{\vec{x}}{1 - ||\vec{x}||}, \ f^{-1}(\vec{x}) := \frac{\vec{x}}{1 + ||\vec{x}||},$$
 tj, raztegnimo vsak poltrak od $0$ do $\infty$.
 
-Sfera v $\RR^n$ topološko bolj podobna $\RR^{n-1}$ kot $\RR^n$.
+Sfera v $\R^n$ topološko bolj podobna $\R^{n-1}$ kot $\R^n$.
 
-Naj bo $N = (0, \ldots, 0, 1) \in \RR^n$ severni tečaj sfere. Navaden homeomorfizem med $S^{n-1} - \set{N}$ in $\RR^{n-1}$ je 
+Naj bo $N = (0, \ldots, 0, 1) \in \R^n$ severni tečaj sfere. Navaden homeomorfizem med $S^{n-1} - \set{N}$ in $\R^{n-1}$ je 
 
-$$f: S^{n-1} - \set{N} \to \RR^{n-1}, \ f(x_1, \ldots, x_n) = \frac{1}{1 - x_n}(x_1, \ldots, x_{n-1}),$$
-tj. gledamo presek premic skozi točki $N$ in $T \in S^{n-1}$ z ravnino $\RR^{n-1}$.
+$$f: S^{n-1} - \set{N} \to \R^{n-1}, \ f(x_1, \ldots, x_n) = \frac{1}{1 - x_n}(x_1, \ldots, x_{n-1}),$$
+tj. gledamo presek premic skozi točki $N$ in $T \in S^{n-1}$ z ravnino $\R^{n-1}$.
 
 Njen inverz je dan z
-$$\RR^{n-1} \to S^{n-1} - \set{N},\  g(\vec{x}) = \left(\frac{2\vec{x}}{||\vec{x}||^2 + 1}, \frac{||\vec{x}||^2-1}{||\vec{x}||^2+1}\right).$$
-Bijekcijo $f$ imenujemo \emph{stereografska projekcija}.
+$$\R^{n-1} \to S^{n-1} - \set{N},\  g(\vec{x}) = \left(\frac{2\vec{x}}{||\vec{x}||^2 + 1}, \frac{||\vec{x}||^2-1}{||\vec{x}||^2+1}\right).$$
+Bijekcijo $f$ imenujemo \df{stereografska projekcija}.
 
-Sledi, da $S^{n-1} - \set{N} \approx \RR^{n-1}$. Jasno je, da bi enak rezultat dobili, če bi iz sfere izrezali katerokoli točko. Sklepamo, da ima vsaka točka $S^{n-1}$ okolico, ki je homeomorfna $\RR^{n-1}$. Pravimo, da je $S^{n-1}$ \emph{lokalno homeomorfna} prostoru $\RR^{n-1}$.
+Sledi, da $S^{n-1} - \set{N} \approx \R^{n-1}$. Jasno je, da bi enak rezultat dobili, če bi iz sfere izrezali katerokoli točko. Sklepamo, da ima vsaka točka $S^{n-1}$ okolico, ki je homeomorfna $\R^{n-1}$. Pravimo, da je $S^{n-1}$ \df{lokalno homeomorfna} prostoru $\R^{n-1}$.
 
 \begin{definicija}
-    Prostore, ki so lokalno homeomorfne kakemu evklidskemu prostoru, imenujemo \emph{mnogoterosti}.
+    Prostore, ki so lokalno homeomorfne kakemu evklidskemu prostoru, imenujemo \df{mnogoterosti}.
 \end{definicija}
 
 \subsection{Baze in predbaze}
 \begin{definicija}
-    Naj bo $(X, \T)$ prostor. Družina $B \subseteq \T$ je \emph{baza topologije $\T$}, če lahko vse elemente $\T$ zapišemo kot unije elementov $B$.
+    Naj bo $(X, \T)$ prostor. Družina $B \subseteq \T$ je \df{baza topologije $\T$}, če lahko vse elemente $\T$ zapišemo kot unije elementov $B$.
 \end{definicija}
 
 \begin{primer}
@@ -267,7 +267,7 @@ Sledi, da $S^{n-1} - \set{N} \approx \RR^{n-1}$. Jasno je, da bi enak rezultat d
     \begin{itemize}
         \item Naj bo $(X, d)$ metrični prostor. Krogle so baza metrične topologije $\T_d$. Še več: Dovolj je, če vzamemo samo majhne krogle, npr. z radijem $\frac{1}{n}$.
         \item Če vzemimo $(X, \T_\text{disk})$, potem vsaka baza vsebuje vse enojčke.
-        \item Ali bi v $(\RR^n, \T_\text{evkl})$ lahko za bazo vzeli le krogle s središči v $\QQ^n$?
+        \item Ali bi v $(\R^n, \T_\text{evkl})$ lahko za bazo vzeli le krogle s središči v $\Q^n$?
     \end{itemize}
 \end{primer}
 
@@ -288,11 +288,11 @@ Sledi, da $S^{n-1} - \set{N} \approx \RR^{n-1}$. Jasno je, da bi enak rezultat d
 \end{proof}
 
 \begin{primer}
-    Ali je $f: S^1 \to S^1 \subseteq \CC \text{ (enotska kompleksna števila)}, \ f(z) = z^2$ odprta?
+    Ali je $f: S^1 \to S^1 \subseteq \C \text{ (enotska kompleksna števila)}, \ f(z) = z^2$ odprta?
 \end{primer}
 
 \begin{definicija}
-    Naj bo $X$ prostor, $x \in X$. Družina $B_X \subseteq \T$ je \emph{lokalna baza okolic $X$}, če za vsako odprto okolico $U$, ki vsebuje $x$, obstaja $B \in B_X$, da $x \in B \subseteq U$. 
+    Naj bo $X$ prostor, $x \in X$. Družina $B_X \subseteq \T$ je \df{lokalna baza okolic $X$}, če za vsako odprto okolico $U$, ki vsebuje $x$, obstaja $B \in B_X$, da $x \in B \subseteq U$. 
 \end{definicija}
 
 \begin{opomba}
@@ -306,7 +306,7 @@ Sledi, da $S^{n-1} - \set{N} \approx \RR^{n-1}$. Jasno je, da bi enak rezultat d
 \end{trditev}
 
 \begin{primer}
-    V metričnem prostoru $(X, d)$ je $\set{K(x,r); \ r \in \QQ}$ lokalna baza pri $x$.
+    V metričnem prostoru $(X, d)$ je $\set{K(x,r); \ r \in \Q}$ lokalna baza pri $x$.
 \end{primer}
 
 \newpage
@@ -319,7 +319,7 @@ Vzemimo neko družino $B$. Definiramo $\T = \set{\text{unije elementov } B}$. Al
         \item $\mathcal{B}$ je pokritje $X$,
         \item za vse $B, B' \in \mathcal{B}$, za vse $x \in B \cap B'$, obstaja $B'' \in \mathcal{B}$, da $x \in B'' \subseteq B \cap B'$.
     \end{enumerate} 
-    Rečemo, da je \emph{topologija $\T$ generirana z bazo $\mathcal{B}$}.
+    Rečemo, da je \df{topologija $\T$ generirana z bazo $\mathcal{B}$}.
 \end{trditev}
 
 \begin{proof}
@@ -329,14 +329,14 @@ Vzemimo neko družino $B$. Definiramo $\T = \set{\text{unije elementov } B}$. Al
 Naj bosta $(X, \T_X), (Y, \T_Y)$ topologiji. Radi bi definirali topologijo na množici $X \times Y$.
 
 \begin{definicija}
-    \emph{Produktna topologija} $\T_{X \times Y}$ je topologija, ki je generirana z bazo $\set{U \times V; \ U \in \T_X, V \in \T_Y}$.
+    \df{Produktna topologija} $\T_{X \times Y}$ je topologija, ki je generirana z bazo $\set{U \times V; \ U \in \T_X, V \in \T_Y}$.
 \end{definicija}
 
 \begin{zgled} 
     Projekciji.
     \begin{itemize}
         \item Naj bo $(X \times Y, \T_{X \times Y})$ produktna topologija. Projekciji $\pr_x: X \times Y \to X, \ \pr_y$ sta zvezni in odprti.
-        \item Naj bo $\pr_1: \RR^2 \to \RR$. Ali je $\pr_1$ zaprta?
+        \item Naj bo $\pr_1: \R^2 \to \R$. Ali je $\pr_1$ zaprta?
     \end{itemize} 
 \end{zgled}
 
@@ -344,7 +344,7 @@ Naj bo $\mathcal{P}$ poljubna družina podmnožic $X$. Kaj je najmanjša topolog
 
 \begin{trditev}
     Naj bo $\mathcal{P}$ poljubna družina podmnožic $X$. Če je $\mathcal{P}$ pokritje $X$, potem je $\T$ topologija, ki jo kot baza generirajo končni preseki elementov $\mathcal{P}$.
-    Pravimo, da je $\mathcal{P}$ \emph{predbaza topologije $\T$}.
+    Pravimo, da je $\mathcal{P}$ \df{predbaza topologije $\T$}.
 \end{trditev}
 
 \begin{proof}
@@ -386,13 +386,13 @@ Baze lahko uporabimo za neko grobo oceno velikosti topološkega prostora in boga
 \begin{aksiom}[1. aksiom števnosti]
     Naj bo $(X, \T)$ prostor. Vsaka točka $x \in X$ ima števno bazo okolic.
 
-    Rečemo, da je prostor $(X, \T)$ \emph{$1$-števen}. 
+    Rečemo, da je prostor $(X, \T)$ \df{$1$-števen}. 
 \end{aksiom}
 
 \begin{aksiom}[2. aksiom števnosti]
     Naj bo $(X, \T)$ prostor. Obstaja kaka števna baza za topologijo $\T$.
 
-    Rečemo, da je prostor $(X, \T)$ \emph{$2$-števen}. 
+    Rečemo, da je prostor $(X, \T)$ \df{$2$-števen}. 
 \end{aksiom}
 
 \begin{primer}
@@ -420,3 +420,89 @@ Baze lahko uporabimo za neko grobo oceno velikosti topološkega prostora in boga
 
     (2) \textcolor{red}{TODO.}
 \end{proof}
+
+\begin{primer}
+    $(\R, \T_{\text{evkl}})$ je $2$-števna.
+\end{primer}
+
+\newpage
+\begin{definicija}
+    Prostor $(X, \T)$ je \df{separabilen}, če v $X$ obstaja števna gosta podmnožica.
+\end{definicija}
+
+\begin{primer}
+    $\Q$ v $\R$ ali $\Q^n$ v $\R^n$.
+\end{primer}
+
+Ali separabilnost in $1$-števnost implicira $2$-števnost? Ne.
+Očitno: $2$-števnost implicira separabilnost.
+
+\begin{trditev}
+    V metričnih prostorih je separabilnost ekvivalentna $2$-števnosti.
+\end{trditev}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+\begin{primer}
+    Opazujemo množico $C([0,1])$. 
+    
+    Weierstrassov izrek pravi, da vsako zvezno funkcijo na poljubnem zaprtem intervalu lahko enakomerno aproksimiramo z polinomi.
+    Vsak polinom pa lahko enakomerno aproksimiramo z polinomi z racionalnimi koeficienti. Slida, da je množica polinomov z racionalnimi koeficienti je števna gosta v $C([0,1])$. Torej $C([0,1])$ je separabilen (in metričen) sledi, da je $2$-števen.
+\end{primer}
+
+\subsection{Podprostori}
+Naj bo $(X, \T)$ prostor, $A \subseteq X$. Definiramo $\T_A := \setb{A \cap U}{U \in T}$. Trdimo, da je $\T_A$ topologija na $A$.
+
+\begin{definicija}
+    Topologija $\T_A$ je \df{inducirana} (oz. \df{podedovana}) topologija na $A$.
+    Prostor $(A, \T_A)$ je \df{podprostor} prostora $(X, \T)$.
+\end{definicija}
+
+\begin{primer}
+    Podprostori.
+    \begin{itemize}
+        \item Evklidska topologija na $\R$ je inducirana z evklidsko topologijo na $\R^2$.
+        \item Naj bo $d$ metrika na $X$. Velja:
+        $$\xymatrix{
+            & (X, d) \ar@{->}[ld] \ar@{->}[rd] &  &  \\
+           (X, \mathcal{T}_d) \ar@{->}[d] &  & (A, d|_A) \ar@{->}[d] &  \\
+           (A, (\mathcal{T}_d)_A) & = & (A, \mathcal{T}_{(d_{|A})}) & \text{(odprte krogle so iste)}
+           }$$
+        \item Naj bo $B \subseteq A \subseteq (X, \T)$. Velja: $\T_B = (\T_A)_B$ (podprostor podprostora spet podprostor).
+        \item Opazujemo $(\R, \T_{\text{evkl}})$. Vzemimo $\N \subseteq \R$. Inducirana topologija je diskretna.
+    \end{itemize}
+\end{primer}
+
+\begin{trditev}
+    Zaprte množice v $\T_A$ so preseki $A$ z zaprtimi podmnožicamo v $X$.
+\end{trditev}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+Velja:
+\begin{itemize}
+    \item Če je $B$ baza $\T$, potem $B_A := \setb{A \cap U}{U \in B}$ je baza $\T_A$.
+    \item Če je $(X, \T)$ je $1$-števen/$2$-števen, potem $(A, \T_A)$ je $1$-števen/$2$-števen.
+\end{itemize}
+
+\begin{definicija}
+    Topološka lastnost je \df{dedna}, če iz prevzetka, da $(X, \T)$ ima to lastnost sledi, da jo imajo tudi vsi podprostori.
+\end{definicija}
+
+\begin{primer}
+    Dedni lastnosti.
+    \begin{itemize}
+        \item Diskretnost in trivialnost topologije sta dedni.
+        \item $1$-števnost in $2$-števnost sta dedni.
+        \item Metrizabilnost je dedsna.
+        \item Separabilnost ni dedna.
+        
+        Naj bo $X$ neštevna množica, $a \in X$. Definiramo $\T := \setb{U \subseteq X}{a \in U} \cup \set{\emptyset}$. Topologija, ki je inducirana na $X - \set{a}$ je diskretna, ki ni separabilna.
+        
+        Velja: odprt podprostor separabilnega podprostora je separabilen. Očitno $\set{a}$ je gosta v $X$. 
+    \end{itemize}
+\end{primer}
