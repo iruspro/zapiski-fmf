@@ -1,6 +1,68 @@
-\textbf{Nasveti.}
+\subsubsection*{Zveznost}
 Zveznost v $(0,0)$ (če ni $(0,0)$ še premaknemo) pokažemo tako:
 \begin{enumerate}
     \item Naredimo oceno $|f(r \cos \phi, r \sin \phi) - f(0,0)| \leq g(r).$
     \item Če je $\lim_{r \to 0} g(r) = 0 \lthen f \text{ je zvezna v } (0,0)$.
 \end{enumerate}
+
+\subsubsection*{Diferenciabilnost}
+Naj bo $f: \R^n \to \R^m$ diferenciabilna. $Df(a)$ predstavljamo z \df{Jacobijevo matriko $Jf(a)$} (v standardnih bazah):
+$$Jf(a) = \begin{bmatrix}
+    \podv{f_1}{x_1} & \ldots & \podv{f_1}{x_n} \\
+    \vdots & \vdots & \vdots \\
+    \podv{f_m}{x_1} & \ldots & \podv{f_m}{x_n}
+\end{bmatrix} (a).$$
+Oznaka: $Jf(a) =: \podv{(f_1, \ldots, f_m)}{(x_1, \ldots, x_n)}(a)$.
+
+\subsubsection*{Vpeljava novih spremenljivk}
+Naj bo $f: \R^n \to \R$ funkcija. Recimo, da velja:
+\begin{itemize}
+    \item $y = (y_1, \ldots, y_n) = y(x) = y(x_1, \ldots, x_n)$.
+    \item $x = (x_1, \ldots, x_n) = x(y) = x(y_1, \ldots, y_n)$.
+\end{itemize}
+Potem $g(y) = g(y_1, \ldots, y_n) = f(x(y))$. Nove spremenljivke vpeljamo takole:
+$$\frac{\partial}{\partial x_k} = \sum_{i=1}^{n} \podv{y_i}{x_k} \cdot \podv{}{y_i}.$$
+
+Recimo, da stare spremenljivke $y, x$ so izražene preko novih $u, v$. Lahko računamo takole:
+$$\begin{bmatrix}
+    z_x \\ z_y
+\end{bmatrix} = \left(\left( \podv{(x,y)}{(u, v)} \right)^{-1} \right)^T \begin{bmatrix}
+    z_u \\ z_v
+\end{bmatrix}.$$
+
+\subsubsection*{Izrek o inverzni preslikavi in izrek o implicitni funkciji}
+Izračunamo matriko parcialnih odvodov po spremenljivkah, ki jih želimo izraziti.
+
+\subsubsection*{Podmnogoterosti}
+$M$ je $C^r$ \df{podmnogoterost} dimenzije $m$, če
+za vsak $x \in M$ obstaja $U^\text{odp} \subseteq \R^n$ okolica točke $x$ in $V^\text{odp} \subseteq \R^n$ okolica točke $0$, da $F \in C^r(U, V)$ difeomorfizem: $F(M \cap U) = V \cap (\R^m \times \set{0}^{n-m})$.
+
+Izskaže se: $M$ je podmnogoterost, če v okolici vsakega $x \in M$, $M$ sovpada z grafom neke $C^r$ preslikave ($(n-m)$ koordinat izrazimo s preostalimi $m$ koordinatami).
+
+$M$ podajamo kot $F(\underbrace{x_1, \ldots, x_n}_x) = 0. \ (M = F^*(0) \text{ ... rešitve enačbe } F = 0)$, kjer $F = (f_1, \ldots, f_{n-m})$.
+
+\textbf{Recept:} Če je $\rang \podv{F}{x}(a) = n-m$ največji možen (maksimalen) za vsak $a \in M$, potem $M$ je $C^r$ podmnogoterost dimenzije $m$.
+
+\textbf{Tangentni prostor:}
+Če je $M = F^*(0)$ podmnogoterost, $a \in M$, $\rang JF(a)$ maksimalen, potem $T_aM = \ker JF(a)$.
+
+\subsubsection*{Taylorjeva formula}
+\begin{izrek}
+    Recimo, da velja
+    \begin{enumerate}
+        \item Množica $D \subseteq \R^n$ odprta, $a \in D$.
+        \item $f: D^{\text{odp}} \to \R$ funkcija razreda $C^{k+1}(D)$.
+        \item Vektor $h \in \R^n$ tak, da daljica med $a$ in $a+h$ leži v $D$.
+    \end{enumerate}
+    Tedaj obstaja tak $\theta \in (0,1)$, da je 
+    $$f(a+h) = f(a) + (D_hf)(a) + \frac{1}{2!}(D_h^2f)(a) + \ldots + \frac{1}{k!} (D_h^kf)(a) + R_k \ \textcolor{red}{(*)},$$
+    kjer je $D_h = h_1D_1 + h_2D_2 + \ldots + h_nD_n$ \df{odvod v smeri $h$} in $R_k = \frac{1}{(k+1)!} (D_h^{k+1}f)(a + \theta h)$ \df{ostanek}.
+
+    Izraz \textcolor{red}{(*)} je \df{Taylorjeva formula} za funkcijo več spremenljivk.
+\end{izrek}
+
+\textbf{Iskanje odvodov:}
+
+$f(x,y) = \ldots + \underbrace{C_{nm}(x-a)^n(y-b)^m}_\text{red $r = n+m$} + \ldots$ je Taylorjeva vrsta okoli $(a, b)$. Potem 
+$$C_{nm} = \frac{1}{r!} \binom{r}{n} \cdot \frac{\partial^r}{\partial x^n \partial y^m}(a, b) \lthen \frac{\partial^r}{\partial x^n \partial y^m}(a, b) = C_{nm}n!m!.$$
+Za razvoj okoli točke $(a,b) \neq (0,0)$ vpeljamo $u = x-a, \ v = y - b$.
