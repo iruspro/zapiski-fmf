@@ -1,68 +1,104 @@
-\subsubsection*{Zveznost}
+\subsection*{Zveznost}
 Zveznost v $(0,0)$ (če ni $(0,0)$ še premaknemo) pokažemo tako:
 \begin{enumerate}
     \item Naredimo oceno $|f(r \cos \phi, r \sin \phi) - f(0,0)| \leq g(r).$
     \item Če je $\lim_{r \to 0} g(r) = 0 \lthen f \text{ je zvezna v } (0,0)$.
 \end{enumerate}
 
-\subsubsection*{Diferenciabilnost}
-Naj bo $f: \R^n \to \R^m$ diferenciabilna. $Df(a)$ predstavljamo z \df{Jacobijevo matriko $Jf(a)$} (v standardnih bazah):
-$$Jf(a) = \begin{bmatrix}
-    \podv{f_1}{x_1} & \ldots & \podv{f_1}{x_n} \\
-    \vdots & \vdots & \vdots \\
-    \podv{f_m}{x_1} & \ldots & \podv{f_m}{x_n}
-\end{bmatrix} (a).$$
-Oznaka: $Jf(a) =: \podv{(f_1, \ldots, f_m)}{(x_1, \ldots, x_n)}(a)$.
+\subsection*{Parcialni odvodi in diferenciabilnost}
+\textbf{Verižno pravilo:} $D(G \circ F)(a) = (DG)(F(a)) \circ (DF)(a)$
 
-\subsubsection*{Vpeljava novih spremenljivk}
-Naj bo $f: \R^n \to \R$ funkcija. Recimo, da velja:
+\textbf{\textcolor{purple}{Nasveti}}
 \begin{itemize}
-    \item $y = (y_1, \ldots, y_n) = y(x) = y(x_1, \ldots, x_n)$.
-    \item $x = (x_1, \ldots, x_n) = x(y) = x(y_1, \ldots, y_n)$.
+    \item Poskusimo opaziti kakšno simetrijo funkcije, da bi imeli manjše dela.
+    \item Včasih lahko ne gledamo zveznost parcialnih odvodov, če ne treba.
+    \item Linearna presliava je bijektivna, če ima trivialno jedro.
 \end{itemize}
-Potem $g(y) = g(y_1, \ldots, y_n) = f(x(y))$. Nove spremenljivke vpeljamo takole:
-$$\frac{\partial}{\partial x_k} = \sum_{i=1}^{n} \podv{y_i}{x_k} \cdot \podv{}{y_i}.$$
 
-Recimo, da stare spremenljivke $y, x$ so izražene preko novih $u, v$. Lahko računamo takole:
-$$\begin{bmatrix}
-    z_x \\ z_y
+\subsection*{Vpeljava novih spremenljivk}
+Nove spremenljivke $y_1, \ldots, y_n$ vpeljamo takole:
+$\displaystyle \frac{\partial}{\partial x_k} = \sum_{i=1}^{n} \podv{y_i}{x_k} \cdot \podv{}{y_i}.$
+
+Recimo, da stare spr. $x, y$ sta izraženi preko novih $u, v$: $x = x(u), \ y = y(v)$. Potem:
+$\displaystyle \begin{bmatrix}
+    f_x \\ f_y
 \end{bmatrix} = \left(\left( \podv{(x,y)}{(u, v)} \right)^{-1} \right)^T \begin{bmatrix}
-    z_u \\ z_v
-\end{bmatrix}.$$
+    f_u \\ f_v
+\end{bmatrix}.$
 
-\subsubsection*{Izrek o inverzni preslikavi in izrek o implicitni funkciji}
-Izračunamo matriko parcialnih odvodov po spremenljivkah, ki jih želimo izraziti.
+\subsection*{Izrek o inverzni preslikavi}
+\textbf{Potreben pogoj:} Če je $F$ difeomorfizem, potem $\det (DF) \neq 0$ na $D_F$.
 
-\subsubsection*{Podmnogoterosti}
-$M$ je $C^r$ \df{podmnogoterost} dimenzije $m$, če
-za vsak $x \in M$ obstaja $U^\text{odp} \subseteq \R^n$ okolica točke $x$ in $V^\text{odp} \subseteq \R^n$ okolica točke $0$, da $F \in C^r(U, V)$ difeomorfizem: $F(M \cap U) = V \cap (\R^m \times \set{0}^{n-m})$.
+\textbf{Diferencial inverza:} $(DF^{-1})(F(x)) = (DF)^{-1}(x)$. \\
+\textbf{Izrek o inverzni preslikavi:} Naj bo $D \subseteq \R^n$ odprta, $F: D \to \R^n$ preslikava razreda $C^1$,  $a \in D$ in $b = F(a)$.
 
-Izskaže se: $M$ je podmnogoterost, če v okolici vsakega $x \in M$, $M$ sovpada z grafom neke $C^r$ preslikave ($(n-m)$ koordinat izrazimo s preostalimi $m$ koordinatami).
 
-$M$ podajamo kot $F(\underbrace{x_1, \ldots, x_n}_x) = 0. \ (M = F^*(0) \text{ ... rešitve enačbe } F = 0)$, kjer $F = (f_1, \ldots, f_{n-m})$.
+Če je $\det(DF)(a) \neq 0$, potem obstajata okolici $a \in U \subseteq \R^n$ in $b \in V \subseteq \R^n$, da je $F: U \to V$ $C^1$-difeomorfizem.
 
-\textbf{Recept:} Če je $\rang \podv{F}{x}(a) = n-m$ največji možen (maksimalen) za vsak $a \in M$, potem $M$ je $C^r$ podmnogoterost dimenzije $m$.
+\subsection*{Izrek o implicitni funkciji}
+\textbf{Izrek o implicitni funkciji:} Naj bo $D\subseteq \R_x^n \times \R_y^m$ odprta množica, $(a, b) \in D$, $F: D \to \R^m$ preslikava razreda $C^1$. Naj velja:
+\begin{enumerate}
+    \item $F(a, b) = 0$,
+    \item $\det(\podv{F}{y}(a,b)) \neq 0$ (to preverjamo).
+\end{enumerate}
+Tedaj obstaja okolica $a \in U \subseteq \R^n$ in okolica $b \in V \subseteq \R^m$ in enolično določena preslikava $\varphi: U \to V$ razreda~$C^1$, da:
+\begin{enumerate}
+    \item $\varphi(a) = b$.
+    \item $\all{(x,y) \in U \times V} F(x,y) = 0 \liff y = \varphi(x)$ (rešitve te enačbe je isto kot graf $\varphi$ znotraj $U \times V$).
+    \item $(D \varphi)(x) = - \left(\podv{F}{y}(x,y)\right)^{-1} \cdot \podv{F}{x}(x,y), \ y = \varphi(x)$ za vsak $x \in U$.
+\end{enumerate}
+
+\subsection*{Podmnogoterosti}
+Naj bo $M \subseteq \R^{n+m}, \ M \neq \emptyset$. Množica $M$ je \df{gladka podmnogoterost} dimenzije $n$ prostora $\R^{n+m}$, če za vsako točko~$a \in M$ obstaja okolica $U$ v $\R^{n+m}$ in take $C^1$ funkcije $F_1, \ldots, F_m: U \to \R$, da velja:
+\begin{enumerate}
+    \item $M \cap U = \setb{x \in U}{F_1(x) = \ldots = F_m(x) = 0} = F^*(\set{0})$.
+    \item $\rang(F_1, \ldots, F_m) = m$ na $U$.
+\end{enumerate}
+
+$M$ podajamo kot $F(\underbrace{x_1, \ldots, x_{n}}_x) = 0 $, kjer $F = (f_1, \ldots, f_{n-m})$ $(\text{v } M = F^*(0) \text{ so rešitve enačbe } F(x) = 0)$.
+
+\textbf{Recept:} Če je $\rang JF(a) = n-m$ (maksimalen) za vsak $a \in M$, potem $M$ je $C^r$ podmnogoterost dimenzije $m$.
 
 \textbf{Tangentni prostor:}
 Če je $M = F^*(0)$ podmnogoterost, $a \in M$, $\rang JF(a)$ maksimalen, potem $T_aM = \ker JF(a)$.
 
-\subsubsection*{Taylorjeva formula}
-\begin{izrek}
-    Recimo, da velja
-    \begin{enumerate}
-        \item Množica $D \subseteq \R^n$ odprta, $a \in D$.
-        \item $f: D^{\text{odp}} \to \R$ funkcija razreda $C^{k+1}(D)$.
-        \item Vektor $h \in \R^n$ tak, da daljica med $a$ in $a+h$ leži v $D$.
-    \end{enumerate}
-    Tedaj obstaja tak $\theta \in (0,1)$, da je 
-    $$f(a+h) = f(a) + (D_hf)(a) + \frac{1}{2!}(D_h^2f)(a) + \ldots + \frac{1}{k!} (D_h^kf)(a) + R_k \ \textcolor{red}{(*)},$$
-    kjer je $D_h = h_1D_1 + h_2D_2 + \ldots + h_nD_n$ \df{odvod v smeri $h$} in $R_k = \frac{1}{(k+1)!} (D_h^{k+1}f)(a + \theta h)$ \df{ostanek}.
+\subsection*{Taylorjeva formula}
+\textbf{Taylorjeva formula:} $\displaystyle f(a+h) = f(a) + (D_hf)(a) + \frac{1}{2!}(D_h^2f)(a) + \ldots + \frac{1}{k!} (D_h^kf)(a) + R_k$,
 
-    Izraz \textcolor{red}{(*)} je \df{Taylorjeva formula} za funkcijo več spremenljivk.
-\end{izrek}
+kjer je $D_h = h_1D_1 + h_2D_2 + \ldots + h_nD_n$ \df{odvod v smeri $h$} in $R_k = \frac{1}{(k+1)!} (D_h^{k+1}f)(a + \theta h)$ \df{ostanek}.
 
 \textbf{Iskanje odvodov:}
+$\displaystyle \frac{\partial^{i+j}}{\partial x^i \partial y^j}(a, b) = C_{ij}\, i !j!$, kjer je $C_{ij}$ koeficient pred členom $x^iy^j$ v razvoju $f$ v Taylorjevo vrsto.
 
-$f(x,y) = \ldots + \underbrace{C_{nm}(x-a)^n(y-b)^m}_\text{red $r = n+m$} + \ldots$ je Taylorjeva vrsta okoli $(a, b)$. Potem 
-$$C_{nm} = \frac{1}{r!} \binom{r}{n} \cdot \frac{\partial^r}{\partial x^n \partial y^m}(a, b) \lthen \frac{\partial^r}{\partial x^n \partial y^m}(a, b) = C_{nm}n!m!.$$
-Za razvoj okoli točke $(a,b) \neq (0,0)$ vpeljamo $u = x-a, \ v = y - b$.
+\textbf{\textcolor{purple}{Nasveti}}
+\begin{itemize}
+    \item Za razvoj okoli točke $(a,b) \neq (0,0)$ vpeljamo $u = x-a, \ v = y - b$.
+\end{itemize}
+
+\newpage
+\subsection*{Splošno}
+\subsubsection*{Norma matrik}
+Naj bo $A = [a_{ij}]_{1 \leq i, j \leq n}, \ B = [B_{ij}]_{1 \leq i, j \leq n}$. Definiramo $\displaystyle \norm{A} = \sqrt{\sum_{i=1}^n \sum_{j=1}^n a_{ij}^2}$. Dokažemo, da velja $\norm{A \cdot B} \leq \norm{A} \cdot \norm{B}$.
+\begin{proof}
+    $\text{Matriki množimo tako: } A \cdot B = \begin{bmatrix}
+        \vec{a}_1 \\ \vdots \\ \vec{a}_n
+    \end{bmatrix} \cdot \begin{bmatrix}
+        \vec{b}_1 & \ldots & \vec{b}_n
+    \end{bmatrix} = \begin{bmatrix}
+        \vec{a}_1 \cdot \vec{b}_1 & \ldots & \vec{a}_n \cdot \vec{b}_n
+    \end{bmatrix}.$
+
+    $\text{Za vsak element produkta velja: } \norm{(A \cdot B)_{ij}}^2 = \norm{\vec{a}_i \cdot \vec{b}_j}^2 \leq \norm{\vec{a}_i}^2 \cdot \norm{\vec{b}_j}^2$.
+
+    Torej $\displaystyle \norm{A \cdot B}^2 = \sum_{i=1}^n \sum_{j=1}^n \norm{(A \cdot B)_{ij}}^2 \leq \sum_{i=1}^n \sum_{j=1}^n \norm{\vec{a}_i}^2 \cdot \norm{\vec{b}_j}^2 = \sum_{i=1}^n \norm{\vec{a}_i}^2 \sum_{j=1}^n \norm{\vec{b}_j}^2  = \norm{A}^2 \cdot \norm{B}^2$.
+\end{proof}
+
+\subsubsection*{Inverz $2 \times 2$ matriki}
+$\displaystyle \begin{bmatrix}
+    a & b \\ c & d
+\end{bmatrix}^{-1} = \frac{1}{ad - bc} \begin{bmatrix}
+    d & -c \\ -b & a
+\end{bmatrix}$.
+
+\subsubsection*{Hiperbolične funkcije}
+$\displaystyle \sinh x = \frac{e^x - e^{-x}}{2}, \ \cosh x = \frac{e^x + e^{-x}}{2}, \ \tanh x = \frac{e^x - e^{-x}}{e^x + e^{-x}}, \ \cosh^2 x - \sinh^2 x = 1$.
