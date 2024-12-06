@@ -1,0 +1,105 @@
+\section{Topološke lastnosti}
+
+\subsection{Ločljivost}
+Naj bo $(X, \T)$ topološki prostor.
+\begin{enumerate}
+    \item Hausdorffovi in Frechetovi prostori
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Kadar pravimo, da $\T$ \textbf{loči} $A \subseteq X$ od $B \subseteq X$?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Kadar pravimo, da $\T$ \textbf{ostro loči} $A \subseteq X$ od $B \subseteq X$?
+        \item \colorbox{yellow!30}{\emph{Primer.}} Ali je trivialna topologija loči množice? Kaj pa diskretna?
+        \item \colorbox{yellow!30}{\emph{Primer.}} Kaj je zaprtje podmnožice $A \subseteq X$ v jeziku ločljivosti?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Hausdorffov prostor.
+        \item \colorbox{yellow!30}{\emph{Primer.}} Ali so Hausdorffovi:
+        \begin{itemize}
+            \item Metrični prostori.
+            \item $(X, \T_{kk})$, $X$ je neskončna.
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Trditev.}} 3 ekvivalentne trditve o Hausdorffovih prostorih. \textbf{Diagonala v produktu}.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Lastnosti Hausdorffovih prostorov:
+        \begin{enumerate}
+            \item Kaj lahko povemo o končnih množicah?
+            \item Koliko limit lahko ima zaporedje v Hausdorffovem prostoru?
+            \item Naj bosta $f,g: X \to Y^\text{Haus}$ preslikavi. Kaj lahko povemo o množici $\setb{x \in X}{f(x) = g(x)}$?
+            \item Naj bosta $f,g: X \to Y^\text{Haus}$ preslikavi. Kaj če se $f, g$ ujemata na kakšne goste podmnožice $A \subseteq X$?
+            \item Kaj lahko povemo o grafu preslikave $f: X \to Y^\text{Haus}$?
+        \end{enumerate}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Frechetov prostor.
+        \item \colorbox{yellow!30}{\emph{Primer.}} Ali so Hausdorffovi prostori Frechetovi? Ali je trivialen prostor Frechetov?
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Karakterizacija Frechetova prostora (enojčki).
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Multiplikativna lastnost.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Ali sta Hausdorffova in Frechetova lastnosti dedni in multiplkativni?        
+    \end{itemize}
+
+    \item Regularnost in normalnost
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Regularen prostor.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Normalen prostor.
+        \item \colorbox{yellow!30}{\emph{Primer.}} V kakšni povezavi so normalnost, regularnost, Hausdorff in Frechet?
+        \item \colorbox{yellow!30}{\emph{Primer.}} Naj bo $(X, \T)$ Hausdorffov in $\T \subseteq \T'$. Ali je $(X, \T')$ Hausdorffov? Ali je Hausdorffova lastnost implicira regularnost?
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Ali je vsak metričen prostor normalen?
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Ali je regularnost dedna?
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Naj bo $X$ normalen. Kaj je zadostni pogoj, da bi bil $A \subseteq X$ normalen?
+    \end{itemize}
+
+    \item Aksiomi ločljivosti
+    \begin{itemize}
+        \item \colorbox{blue!30}{\textbf{Aksiom.}} Aksiomi $T_0 - T_4$.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Kako s aksiomi se izraža regularnost in normalnost? Kaj je $T_0, T_1, T_2$? 
+        \item \colorbox{yellow!30}{\emph{Primer.}} Zapiši, kaj iz česa sledi.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Karakterizacija $T_3$.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Karakterizacija $T_4$.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Ali je $T_3$ multiplikativna?
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Ali je regularnost multiplikativna?
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Izrek Tihonova. Zadostni pogoj za normalnost prostora.
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection*{Rezultati z vaj}
+\begin{itemize}
+    \item Ali je $T_4$ multiplikativna? Ali je normalnost multiplikativna?
+\end{itemize}
+
+\newpage
+\subsection{Povezanost}
+Naj bo $(X, \T)$ topološki prostor.
+\begin{enumerate}
+    \item Povezanost
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Nepovezan prostor.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Povezan prostor.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} 4 ekvivalentne trditve o nepovazanosti.
+        \begin{itemize}
+            \item \colorbox{yellow!30}{\emph{Opomba.}} Kaj pravi trditev o povezanosti?
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Karakterizacija povezanosti v $\R$.        
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Ali je povezanost topološka lastnost?
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Lastnosti povezanosti:
+        \begin{enumerate}
+            \item Kaj lahko povemo o uniji družine povezanih podmnožic v $X$, ki imajo neprazen presek?
+            \item Ali je povezanost multiplikativna?
+            \item \textbf{Pot v X}. Zadostni pogoj za povezanost prostora.
+            \item Recimo, da je $A$ povezan. Kaj lahko povemo o vsake množice $B$, za katero velja $A \subseteq B \subseteq \overline{A}$?
+        \end{enumerate}
+        \item \colorbox{yellow!30}{\emph{Primer.}} Ali so povezane:
+        \begin{itemize}
+            \item Vsaka konveksna podmnožica v $\R^n$.
+            \item Komplement končne množice v $\R^n, \ n > 1$.
+            \item Komplement števne množice v $\R^n, \ n > 1$.
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Primer.}} Ali je $\R \approx \R^n, \ n > 1$?
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Izrek o vmesni vrednosti.
+    \end{itemize}
+    
+    \item Povezanost s potmi
+    \begin{itemize}
+        \item \colorbox{yellow!30}{\emph{Primer.}} Kaj je varšavski lok (oz. lok Sierpinskega)?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Kadar rečemo, da je $X$ povezan s potmi?
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Zadostni pogoj za povezanost $X$.
+        \begin{itemize}
+            \item \colorbox{yellow!30}{\emph{Opomba.}} Ali velja implikacija v nasprotno smer?
+        \end{itemize}
+    \end{itemize}
+
+    \item Komponente
+\end{enumerate}
