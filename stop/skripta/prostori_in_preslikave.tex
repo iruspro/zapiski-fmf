@@ -5,11 +5,101 @@
     \item Topološki prostori
     \begin{itemize}
         \item \colorbox{purple!30}{\textbf{Definicija.}} Topologija. Odprte množice.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Kako običajno preverimo aksiom T2?
         \item \colorbox{purple!30}{\textbf{Definicija.}} Topološki prostor.
-        \item \colorbox{purple!30}{\textbf{Definicija.}} Naj bo $(X, \T)$ prostor, $A \subseteq X$. \textbf{Okolica} točke $x$. $x$ je \textbf{notranja} točka $A$. $x$ je \textbf{mejna} točka~$A$. Notranjost $A$. Meja $A$. Zaprtje $A$. $A$ je \textbf{odprta}. $A$ je \textbf{zaprta}. $x$ je \textbf{stekališče} $A$. $x = \lim_{x_n}$.
-        \item \colorbox{yellow!30}{\emph{Primer.}} Naj bo $(X, d)$ metrični prostor. \textbf{Porojena (inducirana)} topologija z metriko $d$. \textbf{Metrizabilen} prostor.
-        \item \colorbox{yellow!30}{\emph{Primer.}} Trivialna topologija. Diskretna topologija.
-        \item \colorbox{yellow!30}{\emph{Primer.}} Kaj velja za poljubno družino zaprtih množic? \textbf{Topologija končnih komplementov}.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Finejša topologija. Grobejša topologija.         
+        \item \colorbox{yellow!30}{\emph{Primer.}} Naj bo $(M, d)$ metrični prostor. \df{Porojena (inducirana)} topologija z metriko $d$.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Metrizabilen prostor.
+        \item \colorbox{yellow!30}{\emph{Primer.}} Trivialna topologija. Diskretna topologija. Ali sta metrizabilna?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Notranjost množice $A$.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Čemu je enaka $\Int A$?
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Opis množice $\Int A$.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Zaprta množica.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Kaj velja za poljubno družino zaprtih množic? 
+        \item \colorbox{yellow!30}{\emph{Primer.}} \df{Topologija končnih komplementov}. Ali je metrizabilna?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Zaprtje množice $A$.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Čemu je enako $\Cl A$?
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Opis množice $\Cl A$. 
         \item \colorbox{yellow!30}{\emph{Primer.}} Kakšna zvezna med $\overline{A \cup B}$ in $\overline{A} \cup \overline{B}$ ter med $\overline{A \cap B}$ in $\overline{A} \cap \overline{B}$?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Mejna točka.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Meja množice.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Čemu je enaka $\Fr A$.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali je $\Fr A$ vedno zaprta množica?
     \end{itemize}
 \end{enumerate}
+
+\subsubsection*{Rezultati z vaj}
+\begin{itemize}
+    \item \df{Topologija vsebovane točke}. [2.3. naloga] 
+    \item Ali je presek poljubne družine topologij spet topologija? [2.5. naloga]
+\end{itemize}
+
+\subsection{Zvezne preslikave}
+\begin{enumerate}
+    \item Slike in praslike
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Praslika. Slika.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Motonost slike in praslike.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Praslika unije in preseka.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Slika unije in preseka.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Kadar slika ohranja preseke?
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Praslika komplementa.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Praslika slike. Slika praslike.
+    \end{itemize}
+
+    \item Zvezne preslikave
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Zvezna preslikava.
+        \item \colorbox{yellow!30}{\emph{Primer.}} Ali so zvezne:
+        \begin{itemize}
+            \item Vse zvezne funkcije v smislu metričnih prostorov.
+            \item Funkcije v prostor s trivialno topologijo.
+            \item Funkcije iz prostora z diskretno topologijo.
+            \item Konstante.            
+        \end{itemize}
+        \item \colorbox{yellow!30}{\emph{Primer.}} Ugotovi:
+        \begin{itemize}
+            \item Kadar je $\id: (X, \T) \to (X, \T')$ zvezna?
+            \item Katere funkcije $f: (\R, \T_{kk}) \to (\R, \T_{evkl})$ so zvezne?
+            \item Naj bosta $X, Y$ neskončni, $d$ metrika na $Y$. Katere funkcije $f: (X, \T_{kk}) \to (Y, \T_{d})$ so zvezne?
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Kaj lahko povemo o kompozitumu preslikav?
+        \item \colorbox{blue!30}{\textbf{Trditev.}} 3 ekvivalentne izjave o zveznosti preslikave $f: X \to Y$.
+    \end{itemize}
+\end{enumerate}
+
+\newpage
+\subsection{Homeomorfizmi}
+\begin{enumerate}
+    \item Homeomorfizmi
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Homeomorfizem.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Homeomorfna prostora.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali je homeomorfizem ekvivalenčna relacija? Kako nam to pomaga?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Odprta preslikava. Zaprta preslikava.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} 4 ekvivalentne izjave o homeomorfizme $f: X \to Y$.
+        \item \colorbox{yellow!30}{\emph{Primer.}} Ali sta prostora $[0, 1) \cup \set{2}$ in $[0,1]$ homeomorfna? Ali inverz zvezne bijekcije vedno zvezen?
+        \item \colorbox{yellow!30}{\emph{Primer.}} Pokaži, da vsak interval (končen ali neskončen) homeomorfen enemu izmed $[0,1], \ [0, 1), \ (0,1)$.
+        \item \colorbox{yellow!30}{\emph{Primer.}} Pokaži, da intervali $[0,1], \ [0, 1), \ (0,1)$ niso paroma homeomorfni.
+        \item Kaj je najboljša izbira za homeomorfizem $(-1, 1) \approx \R$?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Enotska $n$-krogla. Odprta enotska $n$-krogla. Enotska $n-1$-sfera.
+        \item \colorbox{yellow!30}{\emph{Primer.}} Kako lahko $(0, 1) \approx \R$ posplošimo do homeomorfizma med odprto kroglo $\mathring{B}^n$ in $\R^n$?
+        \item \colorbox{yellow!30}{\emph{Primer.}} Zakaj sfera $S^{n-1}$ v $\R^n$ topološko bolj podobna $\R^{n-1}$ kot $\R^n$? \df{Stereografska projekcija}.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Mnogoterosti.
+        \item \colorbox{yellow!30}{\emph{Primer.}}  Ali je $f: [0, 2 \pi] \to S^1, \ f(t) = e^{it}$ zvezna in bijektivna? Ali je zaprta? Kaj to pove o $f^{-1}$?
+        \item \colorbox{yellow!30}{\emph{Primer.}} Ali je projekcija $\pr: \R^2 \to \R, \ \pr(x,y) = x$ zaprta?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Topološka lastnost.
+        \item \colorbox{yellow!30}{\emph{Primer.}} Ali je omejenost in polnost topološka lastnost?
+        \item \colorbox{yellow!30}{\emph{Primer.}} Ali je možno, da $\R \approx \R^2$? Ali enak sklep deluje za $\R^3$ in $\R^2$?
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection*{Rezultati z vaj}
+\begin{itemize}
+    \item Ali so vse vektorski operaciji v evklidske topologiji zvezne? [3.2. naloga]
+    \item Kako lahko gledamo na ravnino $\R^2$? [3.2. naloga]
+    \item Ali so vse $p$-norme ekvivalentne med sabo? Kaj to pomeni o topologii oz. o kovergence zaporedij? [3.3. naloga]
+    \item \textcolor{red}{(?)} Kam zvezna preslikava preslika konvergentna zaporedja? [3.4. naloga]
+    \item Kaj lahko povemo o preslikavi $\R^n \to \R$, ki ima lokalni ekstrem? [3.5. naloga]
+\end{itemize}
+

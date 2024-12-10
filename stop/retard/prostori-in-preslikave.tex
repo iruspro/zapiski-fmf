@@ -1,5 +1,7 @@
 \section{Prostori in preslikave}
 \subsection{Topološki prostori}
+Topologija poda pojem \df{bližine} brez sklicevanja na implicitno funkcjio razdalja.
+
 \begin{definicija}
     Naj bo $X$ množica. \df{Topologija} na množici $X$ je družina $\T \subseteq P(X)$, ki zadošča naslednjim pogojem:
     \begin{enumerate}
@@ -11,15 +13,23 @@
 \end{definicija}
 
 \begin{opomba}
-    Aksiom (T2) zadošča preveriti za poljubne dve množice in uporabit indukcijo.
+    Aksiom (T2) zadošča preveriti za poljubne dve množice in uporabiti indukcijo.
 \end{opomba}
 
 \begin{definicija}
     \df{Topološki prostor} je množica $X$ z neko topologijo $\T$. Pišemo: $(X, \T)$.
 \end{definicija}
 
+\begin{definicija}
+    Če za topologiji $\T$ in $\T'$ na $X$ velja $\T \subseteq \T'$, pravimo, da je $\T'$ \df{finejša} od $\T$ in da je $\T$ \df{grobejša} od $\T'$. 
+\end{definicija}
+
 \begin{primer}[Topologija iz metrike]
     Naj bo $(X, d)$ metrični prostor. Definiramo $\T_d = \set{\text{vse možne unije odprtih krogel}}$. $\T_d$~je topologija, ki je \df{porojena (inducirana)} z metriko $d$.
+\end{primer}
+
+\begin{primer}
+    V $\R^n$ lahko podamo evklidsko metriko. Pripadajočemu topološkemu prostoru pravimo \df{$n$-razsežni evklidski prostor}.
 \end{primer}
 
 \begin{definicija}
@@ -27,36 +37,27 @@
 \end{definicija}
 
 \begin{primer}[Trivialna topologija]
-    Naj bo $X$ poljubna množica. Definiramo $\T = \set{\emptyset, X}$. $\T$ je topologija, rečemo ji \df{trivialna topologija}.
+    Naj bo $X$ poljubna množica. Definiramo $\T = \set{\emptyset, X}$. Potem $\T$ je topologija, rečemo ji \df{trivialna topologija}.
 
     Trivialna topologija ni metrizabilna, če ima $X$ vsaj $2$ elementa, ker v metričnem prostoru z množico z vsaj $2$ elementoma vedno lahko najdemo disjunktne odprte krogle.
 \end{primer}
 
 \begin{primer}[Diskretna topologija]
-    Definiramo $\T = P(x)$. $\T$ je topologija, rečemo ji \df{diskretna topologija}.
-
-    Je metrizabilna, ker inducirana z metriko $d(x, x') = 
-    \begin{cases}
-        0, &x = x' \\
-        1, &x \neq x'    
-    \end{cases}.$ Ker krogle s polmerom manj kot $1$ vsebujejo le središče, sklepamo, da so vse enoelementne množice odprte. Potem so pa vse podmnožice $X$ odprte, saj jih lahko predstavimo kot unije enoelementnih.
+    Naj bo $X$ poljubna množica. Definiramo $\T = P(X)$. Potem $\T$ je topologija, rečemo ji \df{diskretna topologija}.
+    Je metrizabilna, ker inducirana z diskretno metriko.
 \end{primer}
 
-\begin{opomba}
-    Topologija poda pojem \df{bližine} na implicitni način z pomočjo okolic. 
-\end{opomba}
-
 \begin{definicija}
-    Naj bo $(X, \T)$ topološki prostor in $A \subseteq X$. \df{Notranjost množice $A$} je največji element topolgije~$\T$, ki je vsebovan v $A$. Oznaka: $\Int A$.
+    Naj bo $(X, \T)$ topološki prostor in $A \subseteq X$. \df{Notranjost} množice $A$ je največji element topolgije~$\T$, ki je vsebovan v $A$. Oznaka: $\Int A$.
 \end{definicija}
 
-\begin{opomba}
-    Zakaj je definicija smiselna?
-    \begin{itemize}        
-        \item Pogoj za notranjo točko: $x \in U \subseteq A$, kjer $U \in \T$.
-        \item $\Int A$ je unija vseh odprtih množic, ki so vsebovane v $A$, torej $\Int A = \bigcup \set{U \in \T; \ U \subseteq A}$. Sledi, da je $\Int A$ največja odprta podmnožica $A$.
-    \end{itemize}
-\end{opomba}
+\begin{trditev}
+    $\Int A$ je unija vseh odprtih množic, ki so vsebovane v $A$, torej $\Int A = \bigcup \setb{U \in \T}{U \subseteq A}$.
+\end{trditev}
+
+\begin{trditev}
+    $\Int A$ je množica vseh \df{notranjih točk} množice $A$, tj. $\setb{x \in A}{\some{U \in T} x \in U \subseteq A}$.
+\end{trditev}
 
 \begin{definicija}
     Naj bo $(X, \T)$ topološki prostor in $A \subseteq X$. Množica $A$ je \df{zaprta}, če je $A^c = X - A \in \T$.
@@ -69,77 +70,120 @@
     \begin{enumerate}
         \item[(T0)] $\emptyset \in Z$, $X \in Z$.
         \item[(T1)] Poljuben presek elementov $Z$ je element $Z$.
-        \item[(T2)] Poljubena končna unija elementov $Z$ je element $Z$.
+        \item[(T2)] Poljubna končna unija elementov $Z$ je element $Z$.
     \end{enumerate}
     Potem komplementi množic iz $Z$ tvorijo topologijo na $X$ in $Z$ je ravno družina zaprtih množic v tej topologiji.
 \end{opomba}
 
 \begin{primer}
-    Če zahtevamo, da so točke $X$ zaprte množice, potem so tudi končne podmnožice $X$ so zaprte. Torej družina
-    $$\set{\text{končme podmnožice X}} \cup \set{X}$$
-    zadošča zahtevam (T1) in (T2). Torej komplementi
-    $$\T = \set{U \subset X; X - U \text{ končna}} \cup \set{\emptyset}$$
-    so topologija na $X$. Tej topologiji rečemo \df{topologija končnih komplementov $\T_{kk}$}.
+    Naj bo $X$ poljubna množica. Družina $\T = \setb{U \subseteq X}{X - U \text{ je končna}} \cup \set{\emptyset}$ je topologija na $X$. Tej topologiji rečemo \df{topologija končnih komplementov $\T_{kk}$}. Velja:
 
-    Topologija končnih komplementov je najmanjša topologja v kateri vse točke zaprte. 
-    
-    Če je $X$ končna, potem $\T_{\text{kk}}=\T_{\text{disk}}$ na $X$.
+    \begin{itemize}
+        \item Topologija končnih komplementov je najmanjša topologja v kateri vse točke zaprte. 
+        \item Če je $X$ končna, potem $\T_{\text{kk}}=\T_{\text{disk}}$ na $X$.
+    \end{itemize}    
 \end{primer}
 
 \begin{definicija}
-    Naj bo $(X, \T)$ topološki prostor in $A \subseteq X$. \df{Zaprtje množice $A$} je presek vseh zaprtih množic, ki vsebujejo $A$. Torej zaprtje množice $A$ je najmanjša zaprta množica v $X$, ki vsebuje $A$. Oznaka: $\Cl A = \overline{A}$.
+    Naj bo $(X, \T)$ topološki prostor in $A \subseteq X$. \df{Zaprtje} množice $A$ je najmanjša zaprta množica v $X$, ki vsebuje $A$. Oznaka: $\Cl A = \overline{A}$.
 \end{definicija}
+
+\begin{trditev}
+    $\Cl A$ je presek vseh zaprtih množic, ki vsebujejo $A$, torej $\Cl A = \bigcap \setb{F \in \T}{A \subseteq F}$.
+\end{trditev}
+
+\begin{trditev}
+    $\Cl A$ je množica vseh točk, vsaka okolica katerih seka $A$, tj. $\Cl A = \setb{x \in X}{\all{U \in \T} x \in U \lthen U \cap A \neq \emptyset}$.
+\end{trditev}
 
 \begin{primer}
     Velja:
     \begin{itemize}
-        \item $\overline{A \cup B} = \overline{A} \cup \overline{B}$. \df{Dokaz.} Definicija zaprtja.
-        \item $\overline{A \cap B} \subseteq \overline{A} \cap \overline{B}$. \df{Dokaz.} Definicija zaprtja in $(\N, \T_{kk})$.
+        \item $\overline{A \cup B} = \overline{A} \cup \overline{B}$. \textbf{Dokaz.} Definicija zaprtja.
+        \item $\overline{A \cap B} \subseteq \overline{A} \cap \overline{B}$. \textbf{Dokaz.} Definicija zaprtja in $(\N, \T_{kk})$.
     \end{itemize}
 \end{primer}
 
 \begin{definicija}
-    Naj bo $(X, \T)$ topološki prostor in $A \subseteq X$. \df{Meja množice $A$} je $\Fr A = \Cl A - \Int A$.
+    Naj bo $(X, \T)$ prostor in $A \subseteq X$. Točka $x \in X$ je \df{mejna} točka $A$, če vsaka okolica $x$ seka $A$ in~$A^c$.
 \end{definicija}
+
+\begin{definicija}
+    Naj bo $(X, \T)$ prostor in $A \subseteq X$. \df{Meja} množice $A$ je množica vseh mejnih točk $A$.
+\end{definicija}
+
+\begin{trditev}
+    Naj bo $(X, \T)$ topološki prostor in $A \subseteq X$. Meja množice $A$ je $\Fr A = \Cl A - \Int A$.
+\end{trditev}
 
 \begin{opomba}
     Meja $A$ je vedno zaprta množica, saj $\Fr A = \Cl A - \Int A = \Cl A \cap (\Int A)^c$.
 \end{opomba}
 
 \subsection{Zvezne preslikave}
+\subsubsection{Slike in praslike}
+\begin{definicija}
+    Naj bo $f: A \to B$ preslikava.
+    \begin{itemize}
+        \item \df{Praslika} podmnožice $S \in B$ je $f^*(S) := \setb{x \in A}{f(x) \in S}$.
+        \item \df{Slika} podmnožice $T \in A$ je $f_*(T) := \setb{y \in B}{\some{x \in T} f(x) = y}$.
+    \end{itemize}
+\end{definicija}
+
+\begin{trditev}
+    Naj bo $f: A \to B$ preslikava.
+    \begin{itemize}
+        \item Praslike so monotone: $S \subseteq T \subseteq B \lthen \invimg{f}(S) \subseteq \invimg{f}(T)$.
+        \item Slike so monotone: $X \subseteq Y \subseteq A \lthen \img{f}(X) \subseteq \img{f}(Y)$.
+    \end{itemize}
+\end{trditev}
+
+\begin{trditev}
+    Praslike ohranjajo preseke in unije.
+\end{trditev}
+
+\begin{trditev}
+    Naj bo $f: A \to B$ in $T: I \to P(A)$. Tedaj je
+    $$\img{f}(\bigcup_{i \in I} T_i) = \bigcup_{i \in I} \img{f}(T_i) \quad \text{in} \quad \img{f}(\bigcap_{i \in I} T_i) \subseteq \bigcap_{i \in I} \img{f}(T_i).$$
+    Enakost velja, če je $f$ injektivna.
+\end{trditev}
+
+\begin{trditev}
+    Naj bo $f: A \to B$ preslikava. Za $S \subseteq B$ velja $\invimg{f}(S^c) = (\invimg{f}(S))^c$.
+\end{trditev}
+
+\begin{trditev}
+    Naj bo $f: A \to B$ preslikava, $S \subseteq A, \ T \subseteq B$. Velja:
+    \begin{itemize}
+        \item $S \subseteq \invimg{f}(\img{f}(S))$.
+        \item $\img{f}(\invimg{f}(T)) \subseteq T$.
+    \end{itemize}
+\end{trditev}
+
+\subsubsection{Zvezne preslikave}
 \begin{definicija}    
-    Naj bosta $(X, \T_X)$ in $(Y, \T_Y)$ topološka prostora. Preslikava $f: (X, \T_X) \to (Y, \T_Y)$ je \df{zvezna}, če je praslika vsake odprte množice odprta, tj. če iz $V \in \T_Y$ sledi $\invimg{f}(V) \in \T_X$.
+    Naj bosta $(X, \T_X)$ in $(Y, \T_Y)$ topološka prostora. Preslikava $f: (X, \T_X) \to (Y, \T_Y)$ je \df{zvezna}, če je praslika vsake odprte množice odprta, tj. $\all{V \in \T_Y} \invimg{f}(V) \in \T_X$.
 \end{definicija}
 
 \begin{primer}
     Primeri zveznih preslikav.
-    \begin{enumerate}
+    \begin{itemize}
         \item Vse zvezne funkcije v smislu metričnih prostorov so zvezne kot funkcije med porojenimi topologijami.
         \item Naj bo $f: (X, \T_X) \to (Y, \T_Y)$. 
-        \begin{enumerate}
+        \begin{itemize}
             \item Naj bo $\T_Y$ trivilna topologija, potem $f$ je vedno zvezna.
             \item Naj bo $\T_X$ diskretna topologija, potem $f$ je vedno zvezna.
-        \end{enumerate}
+        \end{itemize}
         \item Naj bosta $(X, \T)$ in $(X, \T')$ topološka prostora. Funkcija $\id: X \to X'$ je zvezna natanko tedaj, ko $\T' \subseteq \T$.
         \item Če je $f: (X, \T_X) \to (Y, \T_Y)$ konstanta, tj. $\some{y_0 \in Y} \all{x \in X} f(x) = y_0$, potem je $f$ zvezna.
-        \item Naj bo $f: (\R, \T_{\text{kk}}) \to (\R, \T_{\text{evkl}})$. Potem konstante so edine zvezne funkcije. 
-        
-        \df{Dokaz.} V $(X, \T_{\text{kk}})$ ni disjunktnih nepraznih odprtih množic, če je $X$ neskončna.
-        
-        \df{Splošneje.} Naj bosta $X, Y$ neskončni množici, $d$ metrika na $Y$. Naj bo $f: (X, \T_{\text{kk}}) \to (Y, \T_d)$. Potem 
+        \item Naj bo $f: (\R, \T_{\text{kk}}) \to (\R, \T_{\text{evkl}})$. Potem konstante so edine zvezne funkcije.         
+        \item Naj bosta $X, Y$ neskončni množici, $d$ metrika na $Y$. Naj bo $f: (X, \T_{\text{kk}}) \to (Y, \T_d)$. Potem 
         $$f \text{ je zvezna} \liff f \text{ je konstanta}.$$
-    \end{enumerate}
+    \end{itemize}
 \end{primer}
 
-Uvedemo neke oznake in okrajšave:
-\begin{itemize}
-    \item Naj bosta $(X, \T_X), (Y, \T_Y)$ topološka prostota. Označimo z $C((X, \T_X), (Y, \T_Y))$ množico vseh zveznih preslikav $C(X, Y)$. Tudi $C(X) = C(X, \R)$.
-    \item \df{Prostor $X$} je množica z neko topologijo.
-    \item \df{Preslikava} je zvezna funkcija.
-\end{itemize}
-
 \begin{trditev}
-    Kompozitun preslikav je preslikava.
+    Kompozitum preslikav je preslikava.
 \end{trditev}
 
 \begin{proof}
@@ -151,7 +195,7 @@ Uvedemo neke oznake in okrajšave:
     \begin{enumerate}
         \item $f$ je zvezna.
         \item Praslika z $f$ vsake zaprte množice je zaprta.
-        \item $f(\overline{A}) \subseteq \overline{f(A)}$.
+        \item $\all{A \subseteq X} \img{f}(\overline{A}) \subseteq \overline{\img{f}(A)}$.
     \end{enumerate}
 \end{trditev}
 
@@ -162,12 +206,13 @@ Uvedemo neke oznake in okrajšave:
     $\invimg{f}(B) \text{ je zaprta} \liff \invimg{f}(B) = \overline{\invimg{f}(B)}$.
 \end{proof}
 
+\newpage
 \subsection{Homeomorfizmi}
 \begin{definicija}
     Naj bo $f: (X, \T_X) \to (Y, \T_Y)$ funkcija. Funkcija $f$ je \df{homeomorfizem}, če:
     \begin{itemize}
         \item $f$ je bijekcija.
-        \item $\img{f}$ je bijekcija med $\T_X$ in $\T_Y$, tj. $\all{U \in \T_X} \img{f}(U) \in \T_Y \land \all{V \in \T_Y} \invimg{f}(V) \in \T_X$.
+        \item $\img{f}$ je bijekcija med $\T_X$ in $\T_Y$.
     \end{itemize}
 \end{definicija}
 
@@ -184,7 +229,11 @@ Uvedemo neke oznake in okrajšave:
 \end{opomba}
 
 \begin{definicija}
-    Funkcija $f: (X, \T_X) \to (Y, \T_Y)$ je \df{odprta}, če je slika vsake odprte množice odprta. Funkcija $f$ je \df{zaprta}, če je slika vsake zaprte množice zaprta.
+    Naj bosta $(X, \T_X)$ in $(Y, \T_Y)$ topološka prostora.
+    \begin{itemize}
+        \item Funkcija $f: (X, \T_X) \to (Y, \T_Y)$ je \df{odprta}, če je slika vsake odprte množice odprta.
+        \item Funkcija $f$ je \df{zaprta}, če je slika vsake zaprte množice zaprta.
+    \end{itemize}     
 \end{definicija}
 
 \begin{trditev}
@@ -205,81 +254,111 @@ Uvedemo neke oznake in okrajšave:
     Ali sta prostora $[0, 1) \cup \set{2}$ in $[0,1]$ homeomorfna? Ali inverz zvezne bijekcije vedno zvezen?
 \end{primer}
 
-\newpage
-\begin{trditev}
-    Nekatere zvezne funkcije so avtomatično zaprte (oz. odprte):
-    \begin{itemize}
-        \item $f^{\text{zv}}: X^{\text{komp}} \to Y^{\text{metr}}$ je vedno zaprta.
-        \item Projekcija $X \times Y \to X$ je vedno odprta.
-        \item Preslikave $f: \R^n \to \R^n$, ki so gladke in imajo neničelni odvod, so vedno odprte.
-    \end{itemize}
-\end{trditev}
-
 \begin{primer}
     Pokaži, da vsak interval (končen ali neskončen) homeomorfen enemu izmed $[0,1], \ [0, 1), \ (0,1)$.
 
-    Pokaži, da intervali $[0,1], \ [0, 1), \ (0,1)$ niso paroma homeomorfni.
+    Pokaži, da intervali $[0,1], \ [0, 1), \ (0,1)$ niso paroma homeomorfni  (kompaktnost, povezanost).
 \end{primer}
+
+\begin{primer}
+    Najboljša izbira za homeomorfizem $(-1, 1) \approx \R$ je $f: (-1, 1) \to \R, \ f(x) = \frac{x}{1 - |x|}$ in $g: \R \to (-1, 1), \ g(x) = \frac{x}{1+|x|}$.
+\end{primer}
+
+\begin{definicija} Definiramo:
+    \begin{itemize}
+        \item $B^n := \setb{(x_1, \ldots, x_n) \in \R^n}{||\vec{x}|| \leq 1}$ je \df{enotska $n$-krogla}.
+        \item $\mathring{B}^n := \setb{(x_1, \ldots, x_n) \in \R^n}{||\vec{x}|| < 1}$ je \df{odprta enotska $n$-krogla}.
+        \item $S^{n-1} := \setb{(x_1, \ldots, x_n) \in \R^n}{||\vec{x}|| = 1}$ je \df{enotska $(n-1)$-sfera}.
+    \end{itemize}
+\end{definicija}
+
+\begin{primer}
+    Kako lahko homeomorfizem med $(0, 1)$ in $\R$ posplošimo do homeomorfizma med odprto kroglo $\mathring{B}^n$ in $\R^n$?
+\end{primer}
+
+\begin{primer}
+    Zakaj sfera $S^{n-1}$ v $\R^n$ topološko bolj podobna $\R^{n-1}$ kot $\R^n$? \df{Stereografska projekcija}.
+
+    Ali je $S^{n-1}$ \df{lokalno homeomorfna} prostoru $\R^{n-1}$?
+\end{primer}
+
+\begin{definicija}
+    Prostore, ki so lokalno homeomorfne kakemu evklidskemu prostoru, imenujemo \df{mnogoterosti}.
+\end{definicija}
+
+Oglejmo nekaj preslikav, ki jim v določenem smislu malo manjka do homeomorfizma.
+
+\begin{primer}
+    Ali je $f: [0, 2 \pi] \to S^1, \ f(t) = e^{it}$ zvezna in bijektivna? Ali je zaprta? Kaj to pove o $f^{-1}$?
+\end{primer}
+
+\begin{primer}
+    Ali je projekcija $\pr: \R^2 \to \R, \ \pr(x,y) = x$ zaprta?
+\end{primer}
+
+Pri dokazovanju, da dva prostora nista homeomorfna, igrajo kljucno vlogo topološke lastnosti.
 
 \begin{definicija}
     \df{Topološka lastnost} je katerakoli lastnost prostora, ki se ohranja pri homeomorfizmih.
 \end{definicija}
 
 \begin{primer}
-    Ali je kompaktnost/omejenost/polnost topološka lastnost?
+    Ali je omejenost in polnost topološki lastnosti?
 \end{primer}
 
-Upeljamo oznake:
-\begin{itemize}
-    \item $B^n := \set{\vec{x} \in \R^n; \ ||\vec{x}|| \leq 1}$ je \df{enotska $n$-krogla}.
-    \item $\mathring{B}^n := \set{\vec{x} \in \R^n; \ ||\vec{x}|| < 1}$ je \df{odprta enotska $n$-krogla}.
-    \item $S^{n-1} := \set{\vec{x} \in \R^n; \ ||\vec{x}|| = 1}$ je \df{enotska $(n-1)$-sfera}.
-\end{itemize}
+\begin{primer}
+    Ali je možno, da $\R \approx \R^2$ (povezanost)? Ali enak sklep deluje za $\R^3$ in $\R^2$?
+\end{primer}
 
-Homeomorfizem med $(0, 1)$ in $\R$ lahko posplošimo do homeomorfizma med odprto kroglo $\mathring{B}^n$ in $\R^n$. Navaden homeomorfizem je
-$$f: \mathring{B}^n \to \R^n, \ f(\vec{x}) := \frac{\vec{x}}{1 - ||\vec{x}||}, \ f^{-1}(\vec{x}) := \frac{\vec{x}}{1 + ||\vec{x}||},$$
-tj, raztegnimo vsak poltrak od $0$ do $\infty$.
-
-Sfera v $\R^n$ topološko bolj podobna $\R^{n-1}$ kot $\R^n$.
-
-Naj bo $N = (0, \ldots, 0, 1) \in \R^n$ severni tečaj sfere. Navaden homeomorfizem med $S^{n-1} - \set{N}$ in $\R^{n-1}$ je 
-
-$$f: S^{n-1} - \set{N} \to \R^{n-1}, \ f(x_1, \ldots, x_n) = \frac{1}{1 - x_n}(x_1, \ldots, x_{n-1}),$$
-tj. gledamo presek premic skozi točki $N$ in $T \in S^{n-1}$ z ravnino $\R^{n-1}$.
-
-Njen inverz je dan z
-$$\R^{n-1} \to S^{n-1} - \set{N},\  g(\vec{x}) = \left(\frac{2\vec{x}}{||\vec{x}||^2 + 1}, \frac{||\vec{x}||^2-1}{||\vec{x}||^2+1}\right).$$
-Bijekcijo $f$ imenujemo \df{stereografska projekcija}.
-
-Sledi, da $S^{n-1} - \set{N} \approx \R^{n-1}$. Jasno je, da bi enak rezultat dobili, če bi iz sfere izrezali katerokoli točko. Sklepamo, da ima vsaka točka $S^{n-1}$ okolico, ki je homeomorfna $\R^{n-1}$. Pravimo, da je $S^{n-1}$ \df{lokalno homeomorfna} prostoru $\R^{n-1}$.
+\newpage
+\subsection{Baze in predbaze}
+\subsubsection{Baza in lokalna baza}
+Lažje bi shajali, če bi zadoščalo preveriti zveznost ali odprtost preslikave na neki manjši in bolj obvladljivi družini podmnožic.
 
 \begin{definicija}
-    Prostore, ki so lokalno homeomorfne kakemu evklidskemu prostoru, imenujemo \df{mnogoterosti}.
+    Naj bo $(X, \T)$ prostor, $x \in X$. Družina $\B_x \subseteq \T$, $\all{B \in \B_x} x \in B$ je \df{lokalna baza okolic} točke $x$, če za vsako odprto okolico $U \in \T$ točke $x$, obstaja $B \in \B_x$, da $x \in B \subseteq U$.
 \end{definicija}
 
-\subsection{Baze in predbaze}
+\begin{opomba}
+    Običajno prevzamemo, da so množice iz $\B_x$ okolice točke $x$. S tem lahko poskusimo si predstaviti, kako zgleda prostor okoli vsake točke.
+\end{opomba}
+
+\begin{primer}
+    V metričnem prostoru $(X, d)$ je $\set{K(x,r); \ r \in \Q}$ lokalna baza pri $x$.
+\end{primer}
+
 \begin{definicija}
-    Naj bo $(X, \T)$ prostor. Družina $B \subseteq \T$ je \df{baza topologije $\T$}, če lahko vse elemente $\T$ zapišemo kot unije elementov $B$.
+    Naj bo $(X, \T)$ prostor. Družina $\B \subseteq \T$ je \df{baza} topologije $\T$, če lahko vse elemente $\T$ zapišemo kot unije elementov $\B$.
 \end{definicija}
 
 \begin{primer}
     Primeri baz. Ali so lahko baze majhne?
     \begin{itemize}
-        \item Naj bo $(X, d)$ metrični prostor. Krogle so baza metrične topologije $\T_d$. Še več: Dovolj je, če vzamemo samo majhne krogle, npr. z radijem $\frac{1}{n}$.
-        \item Če vzemimo $(X, \T_\text{disk})$, potem vsaka baza vsebuje vse enojčke.
-        \item Ali bi v $(\R^n, \T_\text{evkl})$ lahko za bazo vzeli le krogle s središči v $\Q^n$?
+        \item Naj bo $(X, d)$ metrični prostor. Krogle so baza metrične topologije $\T_d$. Tudi dovolj je, če vzamemo samo majhne krogle, npr. z radijem $\frac{1}{n}$.
+        \item Če vzemimo $(X, \T_\text{disk})$, potem vsaka baza vsebuje vse enojčke.        
     \end{itemize}
 \end{primer}
 
 \begin{trditev}
-    Naj bo $(X, \T_X)$ prostor, $B_x$ baza $\T_X$. Naj bo $(Y, \T_Y)$ prostor, $B_Y$ baza $\T_Y$. Velja:
+    Naj bo $(X, \T)$ topološki prostor. Velja:
+    \begin{itemize}
+        \item  Če je $\mathcal{B}$ baza topologije $\T$, potem je $B_x = \setb{B \in \mathcal{B}}{x \in B}$ je lokalna baza okolic $x$.
+        \item Obratno: $\mathcal{B} := \bigcup_{x \in X} \B_x$ je baza topologije $X$.
+    \end{itemize}    
+\end{trditev}
+
+\begin{proof}
+    Definicija baze in lokalne baze okolic.
+\end{proof}
+
+Pri računanju je klučno, da za bazo izberimo dovolj majhne in obvladljive okolice ter da potem na bazi preskusimo, ali veljajo določene lastnosti.
+
+\begin{trditev}
+    Naj bo $\B$ baza prostora $(X, \T)$, $\B'$ baza prostora $(X', \T')$ in $f: X \to X'$ poljubna funkcija. Velja:
     \begin{enumerate}
-        \item $A \subseteq X \text{ je odprta} \liff \all{a \in A} \some{B \in B_x} a \in B \subseteq A$.
-        \item Naj bo $f: X \to Y$ funkcija. Potem
-        \begin{itemize}
-            \item $f \text{ je zvezna} \liff \all{B \in B_Y} \invimg{f}(B) \in \T_X$.
-            \item $f \text{ je odprta} \liff \all{B \in B_X} \img{f}(B) \in \T_Y$.
-        \end{itemize}
+        \item $U \subseteq X \text{ je odprta} \liff \all{x \in U} \some{B \in \B} x \in B \subseteq U$.
+        \item $f \text{ je zvezna} \liff \all{B' \in \B'} \invimg{f}(B') \in \T$.
+        \item $f \text{ je odprta} \liff \all{B \in \B} \img{f}(B) \in \T'$.
     \end{enumerate}
 \end{trditev}
 
@@ -291,56 +370,52 @@ Sledi, da $S^{n-1} - \set{N} \approx \R^{n-1}$. Jasno je, da bi enak rezultat do
     Ali je $f: S^1 \to S^1 \subseteq \C \text{ (enotska kompleksna števila)}, \ f(z) = z^2$ odprta?
 \end{primer}
 
-\begin{definicija}
-    Naj bo $X$ prostor, $x \in X$. Družina $B_X \subseteq \T$ je \df{lokalna baza okolic $X$}, če za vsako odprto okolico $U$, ki vsebuje $x$, obstaja $B \in B_X$, da $x \in B \subseteq U$. 
-\end{definicija}
+\subsubsection{Topologija generirana z bazo}
 
-\begin{opomba}
-    Običajno prevzamemo, da so $B_X$ okolice $x$.
-\end{opomba}
-
-\begin{trditev}
-    Če je $\mathcal{B}$ baza topologije $\T$, potem je $B_x = \set{B \in \mathcal{B}; \ x \in B}$ je lokalna baza okolic $x$.
-
-    Obratno: $\mathcal{B} := \bigcup_{x \in X} B_x$ je baza topologije $X$.
-\end{trditev}
-
-\begin{primer}
-    V metričnem prostoru $(X, d)$ je $\set{K(x,r); \ r \in \Q}$ lokalna baza pri $x$.
-\end{primer}
-
-\newpage
-Vzemimo neko družino $B$. Definiramo $\T = \set{\text{unije elementov } B}$. Ali je $\T$ topologija?
+Pojem baze nam ponuja alternativno pot za vpeljavo topologije na neki množici: izberemo družino podmnožic $\B$ v $X$ in za odprte razglasimo vse podmnožice $X$, ki so unije elementov $B$. Vprašanje je, ali tako definirane odprte množice zadoščajo pogojem za topologijo? Izskaže se, da družine $\B$ ne smemo izbrati povsem poljubno.
 
 \begin{trditev}
     \label{trd:baza}
-    Naj bo $\mathcal{B}$ družina podmnožic $X$. Definiramo $\T = \set{\text{unije elementov } \mathcal{B}}$. Potem $\T$ je topologija na $X$ natanko tedaj, ko
+    Naj bo $\B$ družina podmnožic $X$, ki ustreza pogojema
     \begin{enumerate}
-        \item $\mathcal{B}$ je pokritje $X$,
-        \item za vse $B, B' \in \mathcal{B}$, za vse $x \in B \cap B'$, obstaja $B'' \in \mathcal{B}$, da $x \in B'' \subseteq B \cap B'$.
+        \item Unija elementov $\B$ je cel $X$ (pravimo, da je $\B$ \df{pokritje} za $X$).
+        \item Za vse $B_1, B_2 \in \B$, za vse $x \in B_1 \cap B_2$, obstaja tak $B_x \in \B$, da $x \in B_x \subseteq B_1 \cap B_2$.
     \end{enumerate} 
-    Rečemo, da je \df{topologija $\T$ generirana z bazo $\mathcal{B}$}.
+    Tedaj je družina vseh možnih unij elementov iz $\B$ topologija na $X$.     
+    Rečemo, da je \df{topologija $\T$ generirana z bazo~$\B$}.
 \end{trditev}
 
 \begin{proof}
     Enostavno preverimo lastnosti.
 \end{proof}
 
-Naj bosta $(X, \T_X), (Y, \T_Y)$ topologiji. Radi bi definirali topologijo na množici $X \times Y$.
-
+\begin{primer}
+    Naj bosta $(X, \T), (X', \T')$ topologiji. Ali obstaja kak naraven način za vpeljavo topologije na $X \times X'$?
+\end{primer}
+    
 \begin{definicija}
-    \df{Produktna topologija} $\T_{X \times Y}$ je topologija, ki je generirana z bazo $\set{U \times V; \ U \in \T_X, V \in \T_Y}$.
+    \df{Produktna topologija} $\T_{X \times X'}$ je topologija, ki jo kot baza generirana družina $\setb{U \times U'}{U \in \T, U' \in \T'}$.
 \end{definicija}
 
-\begin{zgled} 
-    Projekciji.
-    \begin{itemize}
-        \item Naj bo $(X \times Y, \T_{X \times Y})$ produktna topologija. Projekciji $\pr_x: X \times Y \to X, \ \pr_y$ sta zvezni in odprti.
-        \item Naj bo $\pr_1: \R^2 \to \R$. Ali je $\pr_1$ zaprta?
-    \end{itemize} 
-\end{zgled}
+\begin{opomba}
+    Če sta $\B$ in $\B'$ bazi topologij $\T$ in $\T'$, potem se hitro prepričamo, da tudi družina $\setb{U \times U'}{U \in \B, U' \in \B'}$ generira produtno topologijo.
+\end{opomba}
 
-Naj bo $\mathcal{P}$ poljubna družina podmnožic $X$. Kaj je najmanjša topologija $\T$ na $X$, ki vsebuje $\mathcal{P}$?
+\begin{primer}
+    Kaj generira produktno topologijo na $\R^2 = \R \times \R$? Ali je dobljena topologija ekvivalentna evklidske?
+\end{primer}
+
+\begin{trditev}
+    Naj bo $(X \times Y, \T_{X \times Y})$ produktna topologija. Projekciji $\pr_x: X \times Y \to X, \ \pr_y: X \times Y \to Y$ sta zvezni in odprti.
+\end{trditev}
+
+\begin{primer} 
+    Naj bo $\pr_1: \R^2 \to \R$. Ali je $\pr_1$ zaprta (graf funkcije $f(x) = \frac{1}{x}$)?    
+\end{primer}
+
+\subsubsection{Predbaza}
+
+Včasih imamo neko družino podmnožic $X$, recimo $\PP$, ki jih želimo razglasiti za odprte. Kaj je najmanjša topologija $\T$ na $X$, ki vsebuje $\mathcal{P}$?
 
 \begin{trditev}
     Naj bo $\mathcal{P}$ poljubna družina podmnožic $X$. Če je $\mathcal{P}$ pokritje $X$, potem je $\T$ topologija, ki jo kot baza generirajo končni preseki elementov $\mathcal{P}$.
@@ -348,16 +423,14 @@ Naj bo $\mathcal{P}$ poljubna družina podmnožic $X$. Kaj je najmanjša topolog
 \end{trditev}
 
 \begin{proof}
-    Družina vseh končnih presekov elementov $\mathcal{P}$ ustreza pogoju (2) iz trditve \ref{trd:baza}
+    Družina vseh končnih presekov elementov $\mathcal{P}$ ustreza pogoju (2) za bazo.
 \end{proof}
 
-\begin{primer}
-    Produktna topologia na $X \times Y$ je najmanjša topologija za katero sta projekciji $\pr_X$ in $\pr_Y$ zvezni. 
-    
-    Množica~$\mathcal{P} = \set{\invimg{\pr_X}(U), \ U \in \T_X} \cup \set{\invimg{\pr_Y}(V), \ V \in \T_Y}$ je predbaza. 
+\begin{opomba}
+    Družina $\T$ vseh množic, ki jih lahko zapišemo kot unije končnih presekov množic iz $\PP$ je najmanjša topologija na $X$, ki vsebuje vse množice iz $\PP$.
+\end{opomba}
 
-    S pomočjo predbaze $\mathcal{P}$ lahko definiramo produktno topologijo za poljubno mnogo faktorjev.
-\end{primer}
+Pojem predbaze nam ponuja zelo učinkovit način za definicijo topologije, ki ustreza nekemu pogoju. Poleg tega lahko na predbazi testiramo tudi zveznost preslikave.
 
 \begin{trditev}
     Naj bosta $(X, \T_X), (Y, \T_Y)$ prostora. Naj bo $\mathcal{P}$ predbaza $\T_Y$. Velja:
@@ -368,7 +441,16 @@ Naj bo $\mathcal{P}$ poljubna družina podmnožic $X$. Kaj je najmanjša topolog
     Enostavno.
 \end{proof}
 
-\textbf{\textcolor{red}{Pozor!}} Odprtost funkcije $f$ v splošnem ne moremo testirati na predbaze.
+
+\textbf{\textcolor{red}{Pozor!}} Odprtost funkcije $f$ v splošnem ne moremo testirati na predbaze. Saj slike ne ohranjajo preseke.
+
+\begin{primer}
+    Kako lahko na produktu prostorov $X \times Y$ definiramo najmanjšo topologijo, ki ustreza pogoju, da sta projekciji $\pr_x: X \times Y \to X, \ \pr_y: X \times Y \to Y$ zvezni? Čemu je enaka ta topologija?
+\end{primer}
+
+\begin{primer}
+    Kako lahko definiramo topologijo za poljubne produkte (poljubno mnogo faktorjev)?
+\end{primer}
 
 \begin{trditev}
     Naj bodo $X, Y, Z$ prostori. Velja:
@@ -381,36 +463,44 @@ Naj bo $\mathcal{P}$ poljubna družina podmnožic $X$. Kaj je najmanjša topolog
     $(\Leftarrow)$ Poglejmo prasliko predbaznih množic.
 \end{proof}
 
+\subsubsection{Aksiomi števnosti}
+
 Baze lahko uporabimo za neko grobo oceno velikosti topološkega prostora in bogatstva njegove topologie.
 
-\begin{aksiom}[1. aksiom števnosti]
+\begin{definicija}[1. aksiom števnosti]
     Naj bo $(X, \T)$ prostor. Vsaka točka $x \in X$ ima števno bazo okolic.
 
     Rečemo, da je prostor $(X, \T)$ \df{$1$-števen}. 
-\end{aksiom}
+\end{definicija}
 
-\begin{aksiom}[2. aksiom števnosti]
+\begin{primer}
+    Metrični prostori so $1$-števni.
+\end{primer}
+
+\begin{definicija}[2. aksiom števnosti]
     Naj bo $(X, \T)$ prostor. Obstaja kaka števna baza za topologijo $\T$.
 
     Rečemo, da je prostor $(X, \T)$ \df{$2$-števen}. 
-\end{aksiom}
+\end{definicija}
 
 \begin{primer}
-    $1$-števni in $2$-števni prostori. 
-    \begin{itemize}
-        \item Metrični prostori so $1$-števni. 
-        \item Neštevna množica z diskretno topologijo je $1$-števna (metrizabilna), ni pa $2$-števna, ker vsaka baza mora vsebovati vsi enojci.
-    \end{itemize}
+    $\R$ je $2$-števen, ker za bazo lahko vzamemo družino vseh intervalov z racionalnimi krajšči. 
+    
+    Podobno je tudi $\R^n$ $2$-števen.
 \end{primer}
 
-\begin{trditev}
-    Očitno velja: $2\text{-števnost} \lthen 1\text{-števnost}$. Obrat ne velja. 
-\end{trditev}
+\begin{opomba}
+    Očitno, da $2$-števnost implicira $1$-števnost.
+\end{opomba}
+
+\begin{primer}
+    Neštevna množica z diskretno topologijo je $1$-števna (metrizabilna), ni pa $2$-števna, ker vsaka baza mora vsebovati vsi enojci.
+\end{primer}
 
 \begin{trditev}
     Naj bo prostor $(X, \T)$ $1$-števen. Velja:
     \begin{enumerate}
-        \item Za vsako množico $A \subseteq X$ je $\Cl A = L(A) = \set{x; \ x \text{ je limita zaporedja v } A}$.
+        \item Za vsako množico $A \subseteq X$ je $\overline{A} = L(A) = \setb{x}{x \text{ je limita zaporedja v } A}$.
         \item Funkcija $f: (X, \T_X) \to (Y, \T_Y) \text{ je zvezna} \liff f(L(A)) \subseteq L(f(A))$.
     \end{enumerate}
 \end{trditev}
@@ -421,11 +511,12 @@ Baze lahko uporabimo za neko grobo oceno velikosti topološkega prostora in boga
     (2) \textcolor{red}{TODO.}
 \end{proof}
 
-\begin{primer}
-    $(\R, \T_{\text{evkl}})$ je $2$-števna.
-\end{primer}
-
 \newpage
+\subsubsection{Separabilnost}
+\begin{definicija}
+    Podmnožica $A$ je \df{povsod gosta} v $X$, če seka vsako odprto množico $X$, ali ekvivalentno, če je $\overline{A} = X$.
+\end{definicija}
+
 \begin{definicija}
     Prostor $(X, \T)$ je \df{separabilen}, če v $X$ obstaja števna gosta podmnožica.
 \end{definicija}
@@ -434,29 +525,45 @@ Baze lahko uporabimo za neko grobo oceno velikosti topološkega prostora in boga
     $\Q$ v $\R$ ali $\Q^n$ v $\R^n$.
 \end{primer}
 
-Ali separabilnost in $1$-števnost implicira $2$-števnost? Ne.
-Očitno: $2$-števnost implicira separabilnost.
-
 \begin{trditev}
-    V metričnih prostorih je separabilnost ekvivalentna $2$-števnosti.
+    $2$-števnost implicira separabilnost.
 \end{trditev}
+
+\begin{proof}
+    Iz vsake bazične okolice izberimo po eni točki
+\end{proof}
+
+\begin{opomba}
+    Ali separabilnost in $1$-števnost implicira $2$-števnost? Ne. \textcolor{red}{(?)}
+\end{opomba}
+
+\begin{izrek}
+    Metrični prostor $(X, d)$ je $2$-števen natanko takrat, ko v njem obstaja števna povsod gosta podmnožica.
+\end{izrek}
 
 \begin{proof}
     \textcolor{red}{TODO}
 \end{proof}
 
-\begin{primer}
-    Opazujemo množico $C([0,1])$. 
-    
-    Weierstrassov izrek pravi, da vsako zvezno funkcijo na poljubnem zaprtem intervalu lahko enakomerno aproksimiramo z polinomi.
-    Vsak polinom pa lahko enakomerno aproksimiramo z polinomi z racionalnimi koeficienti. Slida, da je množica polinomov z racionalnimi koeficienti je števna gosta v $C([0,1])$. Torej $C([0,1])$ je separabilen (in metričen) sledi, da je $2$-števen.
-\end{primer}
+\begin{opomba}
+    V metričnih prostorih je $2$-števnost ekvivalentna separabilnosti, slednjo pa je pogosto lažje dokazati (ali ovreči).
+\end{opomba}
 
+\newpage
 \subsection{Podprostori}
-Naj bo $(X, \T)$ prostor, $A \subseteq X$. Definiramo $\T_A := \setb{A \cap U}{U \in T}$. Trdimo, da je $\T_A$ topologija na $A$.
+\subsubsection{Podprostori}
+Poljubno podmnožico metričnega prostora lahko opremimo z metriko tako, da funkcijo razdalje preprosto zožimo na točke podmnožice. Tako dobimo metrični podprostor. Podobno ravnamo pri topoloških prostorih in vzamemo zožitve odprtih množic na dano podmnožico.
+
+\,
+
+Naj bo $(X, \T)$ prostor, $A \subseteq X$. Definiramo $\T_A := \setb{A \cap U}{U \in T}$.
+
+\begin{trditev}
+    $\T_A$ topologija na $A$.
+\end{trditev}
 
 \begin{definicija}
-    Topologija $\T_A$ je \df{inducirana} (oz. \df{podedovana}) topologija na $A$.
+    Topologiji $\T_A$ pravimo \df{inducirana} (oz. \df{podedovana}) topologija na $A$.
     Prostor $(A, \T_A)$ je \df{podprostor} prostora $(X, \T)$.
 \end{definicija}
 
@@ -464,45 +571,168 @@ Naj bo $(X, \T)$ prostor, $A \subseteq X$. Definiramo $\T_A := \setb{A \cap U}{U
     Podprostori.
     \begin{itemize}
         \item Evklidska topologija na $\R$ je inducirana z evklidsko topologijo na $\R^2$.
-        \item Naj bo $d$ metrika na $X$. Velja:
-        $$\xymatrix{
-            & (X, d) \ar@{->}[ld] \ar@{->}[rd] &  &  \\
-           (X, \mathcal{T}_d) \ar@{->}[d] &  & (A, d|_A) \ar@{->}[d] &  \\
-           (A, (\mathcal{T}_d)_A) & = & (A, \mathcal{T}_{(d_{|A})}) & \text{(odprte krogle so iste)}
-           }$$
-        \item Naj bo $B \subseteq A \subseteq (X, \T)$. Velja: $\T_B = (\T_A)_B$ (podprostor podprostora spet podprostor).
-        \item Opazujemo $(\R, \T_{\text{evkl}})$. Vzemimo $\N \subseteq \R$. Inducirana topologija je diskretna.
+        \item Vzemimo $\N \subseteq (\R, \T_\text{evkl})$. Kakšna je inducirana topologija?
+        \item Naj bo $d$ metrika na $X$. Pokaži, da $(\T_d)_A = \T_{(d_{|A})}$.        
+        \item Naj bo $B \subseteq A \subseteq (X, \T)$. Pokaži, da $\T_B = (\T_A)_B$, tj. podprostor podprostora spet podprostor.
     \end{itemize}
 \end{primer}
 
+\begin{opomba}
+    Pri delu s podprostori moramo upoštevati, da so topološki pojmi praviloma odvisni od tega, v katerem prostoru jih gledamo.
+\end{opomba}
+
 \begin{trditev}
-    Zaprte množice v $\T_A$ so preseki $A$ z zaprtimi podmnožicamo v $X$.
+    Naj bo $(X, \T)$ prostor in $(A, \T_A)$ njegov podprostor.
+    \begin{enumerate}
+        \item Če je $\B$ neka baza topologije $\T$, potem je $\B_A := \setb{A \cap B}{B \in \B}$ baza topologije $\T_A$. Analogna trditev velja za predbaze.
+        \item Množica $B \subseteq A$ je zaprta v topologiji $\T_A$, če in samo če je $F = A \cap F$ za neko množico $F$, ke je zaprta v topologiji~$\T$.
+        \item Veljajo formule:
+        \begin{itemize}
+            \item $\Cl_A B = A \cap \Cl_X B$.
+            \item $\Int_A B \supseteq A \cap \Int_X B$.
+            \item $\Fr_A B \subseteq A \cap \Fr_X B$.
+        \end{itemize}
+    \end{enumerate}
+    
 \end{trditev}
 
 \begin{proof}
     \textcolor{red}{TODO}
 \end{proof}
 
-Velja:
-\begin{itemize}
-    \item Če je $B$ baza $\T$, potem $B_A := \setb{A \cap U}{U \in B}$ je baza $\T_A$.
-    \item Če je $(X, \T)$ je $1$-števen/$2$-števen, potem $(A, \T_A)$ je $1$-števen/$2$-števen.
-\end{itemize}
+\begin{primer}
+    Naj bo $X = \R$ in $A = [0,1)$. Izračunaj notranjost, zaprtje in mejo $A$ v $\R$ in v $[0, 1)$.
+\end{primer}
 
+Množica, ki je odprta v podprostoru, ni nujno odprta v celem prostoru: na primer množica $A$, ki ni odprta v $X$, je vendarle odprta v sami sebi. Te teževa izognemo, če je $A$ odprta v $X$. Torej
+
+\begin{trditev}
+    Naj bo $(X, \T)$ prostor in $(A, \T_A)$ njegov podprostor.
+    \begin{enumerate}
+        \item Podmnožica odprtega podprostora odprta natanko tedaj, ko je odprta v celem prostoru.
+        \item Podmnožica zaprtega podprostora zaprta natanko tedaj, ko je zaprta v celem prostoru.
+    \end{enumerate}
+\end{trditev}
+
+\begin{primer}
+    Naj bo $(X, \T)$ prostor, $A \subseteq X$, $i: (A, \T_A) \hookrightarrow (X, \T)$ inkluzija.
+    \begin{itemize}
+        \item Ali je $i$ zvezna?
+        \item Kaj lahko povemo o topologiji $\T_A$?
+        \item Ali je zožitev zvezne funkcije $f: X \to (Y, \T')$ zvezna? Kaj velja za razšeritev?
+    \end{itemize}
+\end{primer}
+
+\subsubsection{Dednost}
 \begin{definicija}
     Topološka lastnost je \df{dedna}, če iz prevzetka, da $(X, \T)$ ima to lastnost sledi, da jo imajo tudi vsi podprostori.
 \end{definicija}
 
 \begin{primer}
-    Dedni lastnosti.
+    Pokaži, da
     \begin{itemize}
         \item Diskretnost in trivialnost topologije sta dedni.
         \item $1$-števnost in $2$-števnost sta dedni.
-        \item Metrizabilnost je dedsna.
+        \item Metrizabilnost je dedna.
         \item Separabilnost ni dedna.
-        
-        Naj bo $X$ neštevna množica, $a \in X$. Definiramo $\T := \setb{U \subseteq X}{a \in U} \cup \set{\emptyset}$. Topologija, ki je inducirana na $X - \set{a}$ je diskretna, ki ni separabilna.
-        
-        Velja: odprt podprostor separabilnega podprostora je separabilen. Očitno $\set{a}$ je gosta v $X$. 
+    \end{itemize}
+\end{primer}
+
+\begin{opomba}
+    Odprt podprostor separabilnega podprostora je separabilen.
+\end{opomba}
+
+\newpage
+\subsubsection{Odsekoma definirane funkcije}
+Funkcije pogosto definiramo odsekoma, na primer: funkcijo na $\R$ lahko  podamo z različno formulo na intervalih $[n, n+1]$ za $n \in \Z$. Tako podana funkcija je zvezna, če je zvezna na vsakem intervalu posebej in če se sosednji definiciji ujemata v skupnem krajišču. Pri splošnih topoloških prostorih lahko podamo zvezne predpise na vseh množicah nekega pokritja in poskrbimo, da se definicije na presekih ujemajo.
+
+\begin{definicija}
+    Naj bo $\set{X_\lambda}$ pokritje $X$. Za družino $f_\lambda: X_\lambda \to Y$ rečemo, da je \df{usklajena}, če je ${f_\lambda}_{|X_\lambda \cap X_\mu} =~{f_\mu}_{|X_\lambda \cap X_\mu}$ za poljubna indeksa $\lambda, \mu$.
+\end{definicija}
+
+\begin{trditev}
+    Vsaka usklajena družina določa funkcijo $f: X \to Y$, za katero je $f_{|X_\lambda} = f_\lambda$.
+\end{trditev}
+
+\begin{lema}
+    Naj bo $\set{X_\lambda}$ odprto pokritje $X$. Tedaj je $A \subseteq X$ odprta natanko tedaj, ko je $X_\lambda \cap A$ odprta v $X_\lambda$ za vse~$\lambda$.
+\end{lema}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+\begin{definicija}
+    Pokritje $\set{X_\lambda}$ za $X$ je \df{lokalno končno}, če za vsako točko $x \in X$ obstaja okolica, ki seka le končno mnogo različnih $X_\lambda$.
+\end{definicija}
+
+\begin{primer}
+    Ugotovi, ali je pokritje lokalno končno:
+    \begin{itemize}
+        \item Končna pokritja.
+        \item $X = \R$, pokritje z $\setb{[n, n+1]}{n \in \Z}$.
+        \item $X = \R$, pokritje z $\setb{[n, \infty)}{n \in \Z}$.
+        \item $X = \R$, pokritje z enojčki.
+    \end{itemize}
+\end{primer}
+
+\begin{lema}
+    Naj bo $\set{X_\lambda}$ zaprto pokritje $X$, ki je lokalno končno. Tedaj je $A \subseteq X$ zaprta natanko tedaj, ko je $X_\lambda \cap A$ zaprta v $X_\lambda$ za vse~$\lambda$.
+\end{lema}
+
+Formuliramo osnovni izrek o odsekoma definiranih preslikavih.
+\begin{izrek}
+    Naj bo $\set{X_\lambda}$ pokritje za $X$, ki je bodisi odprto bodisi lokalno končno in zaprto. Tedaj vsaka usklajena družina preslikav $f_\lambda: X_\lambda \to Y$ enolično določa preslikavo $f: X \to Y$, za katero je $f_{|X_\lambda} = f_\lambda$.
+\end{izrek}
+
+\begin{proof}
+    Dovolj, da preverimo zveznost.
+\end{proof}
+
+\begin{posledica}
+    Naj bo $\set{X_\lambda}$ pokritje za $X$, ki je bodisi odprto bodisi lokalno končno in zaprto. Tedaj je funkcija $f: X \to Y$ zvezna natanko tedaj, ko so zvezne vse zožitve $f_{|X_\lambda}$.
+\end{posledica}
+
+\subsubsection{Vložitve}
+Podprostori znanih prostorov so naravni vir mnogih zanimivih topoloških prostorov. Pogosto pa si želimo tudi kak abstrakto ustvarjen prostor obravnavati kot podprorostor nekega znanega prostora in v ta namen moramo preveriti, ali se abstraktno definirana topologja ujema s podedavano topologijo.
+
+\begin{primer}
+    Naj bo $X = \set{x_0, x_1, x_2, \ldots}$ števna množica, opremljena z diskretno topologijo. Naj bo $f: \N_0 \to \R$ preslikava. Ali je topologija na $X$ ujema z topologijo, ki jo slika $f$ podeduje od $\R$, če
+    \begin{itemize}
+        \item $f(x_k) = k$.
+        \item $g(x_k) = \begin{cases}
+            0; &k = 0 \\ \frac{1}{k}; & k \neq 0
+        \end{cases}.$
+    \end{itemize}
+\end{primer}
+
+\begin{opomba}
+    Primer pokaže, da če nek prostor lahko enačimo s podmnožico nekega drugega prostora, to še ne pomeni, da ga lahko gledamo kot podprostor.
+\end{opomba}
+
+\begin{definicija}
+    Preslikava $f: X \to Y$ je \df{vložitev}, če je $f$ homeomorfizem med $X$ in $\img{f}(X)$ (glede na od $Y$ podedovano topologijo).
+\end{definicija}
+
+\begin{opomba}
+    Potreben primer za homeomorfizem je injektivnost preslikave $f$. 
+\end{opomba}
+
+Preslikava $f: X \to \img{f}(X)$ mora biti odprta (in zaprta) preslikava glede na podedovano topologijo na $\img{f}(X)$, kar pa v splošnem ni v zvezi z odprtostjo (ali zaprtostjo) preslikave $f: X \to Y$. Pomembna izjema so primeri, ko je $\img{f}(X)$ odprt ali zaprt v $Y$.
+
+\begin{trditev}
+    Naj bo $f: X \to Y$ injektivna preslikava.
+    \begin{itemize}
+        \item Če je $f(X)$ odprt v $Y$, potem je $f$ vložitev natanko tedaj, ko je preslikava $f: X \to Y$ odprta.
+        \item Če je $f(X)$ zaprt v $Y$, potem je $f$ vložitev natanko tedaj, ko je preslikava $f: X \to Y$ zaprta.
+    \end{itemize}
+\end{trditev}
+
+\begin{primer}
+    Ugotovi, ali je vložitev:
+    \begin{itemize}
+        \item Preslikava, ki odprti interval navije na "`osmico'" (zaprtost).
+        \item Preslikava $g: (-\pi, \pi) \to \C$, $g(x) = e^{ix}$ (odprtost).
+        \item Naj bo $A$ zaprta in imejena podmnožica v $\R^n$. Kmalu bomo pokazali, da je vsaka preslikava $f: A \to \R^m$ zaprta, torej je vsaka injektivna preslikava iz $A$ v $\R^m$ vložitev.
     \end{itemize}
 \end{primer}

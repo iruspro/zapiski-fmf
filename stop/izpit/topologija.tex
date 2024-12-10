@@ -1,0 +1,400 @@
+\section{Prostori in preslikave}
+\subsection{Metrični prostori}
+
+Naj bo $(M, d)$ metrični prostor. Za $S \subseteq M, \ S \neq \emptyset$ definiramo funkcijo razdalje $d(-, S): M \to \R$ s predpisom $d(x, S) := \inf \setb{d(x,y)}{y \in S}$. Velja
+\begin{itemize}
+    \item $d(-, S)$ je dobro definirana zvezna preslikava.
+    \item $\overline{S} = d(-, S)^*(\set{0})$. $S \text{ je zaprta} \liff S = d(-, S)^*(\set{0})$.
+\end{itemize}
+
+\subsection{Topologija}
+\begin{itemize}
+    \item Dovolj, da preverimo presek nič množic in dveh množic.
+    \item Presek poljubne družine topologij je topologija.
+    \item Naj bo $A+ B = \setb{\text{in}_1(a)}{a \in A} \cup \setb{\text{in}_2(b)}{b \in B}$. $\T_{A+B}$ je topologija porojena z bazo $\set{\img{{\text{in}_1}}(\T_A)} \cup \set{\img{{\text{in}_2}}(\T_B)}.$ Torej $\T_{A+B} = \setb{\img{{\text{in}_1}}(U) \cup \img{{\text{in}_2}}(V)}{U \in T_A \land V \in \T_B}$.
+    \item $\B_S = \setb{[a, b)}{a \in \R, b \in \R, a < b}$ generira $\T_S$, ki jo imenujemo \df{Sorgenfreyeva premica}. Oznaka: $\R_S$.
+\end{itemize}
+
+\subsection{Zvezne preslikave}
+\subsubsection{Slike in praslike}
+\begin{definicija}
+    Naj bo $f: A \to B$ preslikava.
+    \begin{itemize}
+        \item \df{Praslika} podmnožice $S \in B$ je $f^*(S) := \setb{x \in A}{f(x) \in S}$.
+        \item \df{Slika} podmnožice $T \in A$ je $f_*(T) := \setb{y \in B}{\some{x \in T} f(x) = y}$.
+    \end{itemize}
+\end{definicija}
+
+\begin{trditev}
+    Naj bo $f: A \to B$ preslikava.
+    \begin{itemize}
+        \item Praslike so monotone: $S \subseteq T \subseteq B \lthen \invimg{f}(S) \subseteq \invimg{f}(T)$.
+        \item Slike so monotone: $X \subseteq Y \subseteq A \lthen \img{f}(X) \subseteq \img{f}(Y)$.
+    \end{itemize}
+\end{trditev}
+
+\begin{trditev}
+    Praslike ohranjajo preseke in unije.
+\end{trditev}
+
+\begin{trditev}
+    Slike ohranjajo in unije. Če je preslikava injektivna, potem slika ohranja tudi preseke.
+\end{trditev}
+
+\begin{trditev}
+    Naj bo $f: A \to B$ preslikava. Za $S \subseteq B$ velja $\invimg{f}(S^c) = (\invimg{f}(S))^c$.
+\end{trditev}
+
+\begin{trditev}
+    Naj bo $f: A \to B$ preslikava, $S \subseteq A, \ T \subseteq B$. Velja:
+    \begin{itemize}
+        \item $S \subseteq \invimg{f}(\img{f}(S))$.
+        \item $\img{f}(\invimg{f}(T)) \subseteq T$.
+    \end{itemize}
+\end{trditev}
+
+\subsection{Zvezne preslikave in homeomorfizmi}
+\begin{itemize}
+    \item Lahko si pomagamo z vektorji. Vse vektorske operacije v evklidske topologije so zvezne.
+    \item Lahko si pomagamo s kompleksni števili, ker jih znamo tudi množiti (korenjenje ni enolična preslikava).
+    \item Vse $p$-norme so med sabo ekvivalentne. Porodijo isto topologijo in isto konvergenco.
+    \item Zvezne preslikave slikajo konvergentna zaporedja v konvergentna zaporedja z isto limito.
+    \item Ni zaprtost preslikave lahko pokažemo s pomočjo slike zaporedja.
+    \item Najboljša izbira za homeomorfizem $(-1, 1) \approx \R$ je $f: (-1, 1) \to \R, \ f(x) = \frac{x}{1 - |x|}$ in $g: \R \to (-1, 1), \ g(x) = \frac{x}{1+|x|}$.
+\end{itemize}
+
+\subsection{Baze in predbaze}
+\subsubsection{Baza in lokalna baza}
+
+\begin{definicija}
+    Naj bo $(X, \T)$ prostor, $x \in X$. Družina $\B_x \subseteq \T$, $\all{B \in \B_x} x \in B$ je \df{lokalna baza okolic} točke~$x$, če za vsako odprto okolico $U \in \T$ točke $x$, obstaja $B \in \B_x$, da $x \in B \subseteq U$.
+\end{definicija}
+
+\begin{opomba}
+    Običajno prevzamemo, da so množice iz $\B_x$ okolice točke $x$. S tem lahko poskusimo si predstaviti, kako zgleda prostor okoli vsake točke.
+\end{opomba}
+
+\begin{definicija}
+    Naj bo $(X, \T)$ prostor. Družina $\B \subseteq \T$ je \df{baza} topologije $\T$, če lahko vse elemente $\T$ zapišemo kot unije elementov $\B$.
+\end{definicija}
+
+\begin{trditev}
+    Naj bo $(X, \T)$ topološki prostor. Velja:
+    \begin{itemize}
+        \item  Če je $\mathcal{B}$ baza topologije $\T$, potem je $B_x = \setb{B \in \mathcal{B}}{x \in B}$ je lokalna baza okolic $x$.
+        \item Obratno: $\mathcal{B} := \bigcup_{x \in X} \B_x$ je baza topologije $X$.
+    \end{itemize}    
+\end{trditev}
+
+\newpage
+\begin{trditev}
+    Naj bo $\B$ baza prostora $(X, \T)$, $\B'$ baza prostora $(X', \T')$ in $f: X \to X'$ poljubna funkcija. Velja:
+    \begin{enumerate}
+        \item $U \subseteq X \text{ je odprta} \liff \all{x \in U} \some{B \in \B} x \in B \subseteq U$.
+        \item $f \text{ je zvezna} \liff \all{B' \in \B'} \invimg{f}(B') \in \T$.
+        \item $f \text{ je odprta} \liff \all{B \in \B} \img{f}(B) \in \T'$.
+    \end{enumerate}
+\end{trditev}
+
+\subsubsection{Topologija generirana z bazo}
+
+\begin{trditev}
+    Naj bo $\B$ družina podmnožic $X$, ki ustreza pogojema
+    \begin{enumerate}
+        \item Unija elementov $\B$ je cel $X$ (vzemimo točko $x \in X$ in najdemo neko bazno množico $B$, da je $x \in B$).
+        \item Presek dveh baznih je unija baznih (vzemimo dve bazni okolici in točko v preseku, ter najdemo poljubno bazno okolico točke, ki še vedno v preseku)
+    \end{enumerate} 
+\end{trditev}
+    
+\begin{definicija}
+    \df{Produktna topologija} $\T_{X \times X'}$ je topologija, ki jo kot baza generirana $\setb{U \times U'}{U \in \T, U' \in \T'}$.
+\end{definicija}
+
+\begin{opomba}
+    Če sta $\B$ in $\B'$ bazi $\T$ in $\T'$, potem družina $\setb{U \times U'}{U \in \B, U' \in \B'}$ generira produktno topologijo.
+\end{opomba}
+
+\begin{trditev}
+    Naj bo $(X \times Y, \T_{X \times Y})$ produktna. Projekciji $\pr_x: X \times Y \to X, \ \pr_y: X \times Y \to Y$ sta zvezni in odprti.
+\end{trditev}
+
+\subsubsection{Predbaza}
+
+\begin{trditev}
+    Naj bo $\mathcal{P}$ poljubna družina podmnožic $X$. Če je $\mathcal{P}$ pokritje $X$, potem je $\T$ topologija, ki jo kot baza generirajo končni preseki elementov $\mathcal{P}$.
+    Pravimo, da je $\mathcal{P}$ \df{predbaza topologije $\T$}.
+\end{trditev}
+
+\begin{trditev}
+    Naj bosta $(X, \T_X), (Y, \T_Y)$ prostora. Naj bo $\mathcal{P}$ predbaza $\T_Y$. Velja:
+    $$\text{Funkcija } f: X \to Y \text{ je zvezna} \liff \all{B \in \mathcal{P}} \invimg{f}(B) \in \T_X.$$
+\end{trditev}
+
+\textbf{\textcolor{red}{Pozor!}} Odprtost funkcije $f$ v splošnem ne moremo testirati na predbaze. Saj slike ne ohranjajo preseke.
+
+\begin{trditev}
+    Naj bodo $X, Y, Z$ prostori. Velja:
+    $$\text{Funkcija } f:X \to Y \times Z, \ f = (f_Y, f_Z) \text{ je zvezna} \liff f_Y, f_Z \text{ sta zvezni}.$$
+\end{trditev}
+
+\subsubsection{Aksiomi števnosti}
+
+\begin{definicija}[1. aksiom števnosti]
+    Naj bo $(X, \T)$ prostor. Vsaka točka $x \in X$ ima števno bazo okolic.
+\end{definicija}
+
+\begin{definicija}[2. aksiom števnosti]
+    Naj bo $(X, \T)$ prostor. Obstaja kaka števna baza za topologijo $\T$.
+\end{definicija}
+
+\begin{opomba}
+    Očitno, da $2$-števnost implicira $1$-števnost.
+\end{opomba}
+
+\begin{trditev}
+    Naj bo prostor $(X, \T)$ $1$-števen. Velja:
+    \begin{enumerate}
+        \item Za vsako množico $A \subseteq X$ je $\overline{A} = L(A) = \setb{x}{x \text{ je limita zaporedja v } A}$.
+    \end{enumerate}
+\end{trditev}
+
+\subsubsection{Separabilnost}
+\begin{definicija}
+    Podmnožica $A$ je \df{povsod gosta} v $X$, če seka vsako odprto množico $X$, ali ekvivalentno, če je $\overline{A} = X$.
+\end{definicija}
+
+\begin{definicija}
+    Prostor $(X, \T)$ je \df{separabilen}, če v $X$ obstaja števna gosta podmnožica.
+\end{definicija}
+
+\begin{trditev}
+    $2$-števnost implicira separabilnost.
+\end{trditev}
+
+\begin{izrek}
+    Metrični prostor $(X, d)$ je $2$-števen natanko takrat, ko v njem obstaja števna povsod gosta podmnožica.
+\end{izrek}
+
+\begin{opomba}
+    V metričnih prostorih je $2$-števnost ekvivalentna separabilnosti, slednjo pa je pogosto lažje dokazati (ali ovreči).
+\end{opomba}
+
+\subsection{Podprostori}
+\subsubsection{Podprostori}
+
+Naj bo $(X, \T)$ prostor, $A \subseteq X$. Definiramo $\T_A := \setb{A \cap U}{U \in T}$.
+
+\begin{trditev}
+    $\T_A$ topologija na $A$.
+\end{trditev}
+
+\begin{definicija}
+    Topologiji $\T_A$ pravimo \df{inducirana} topologija na $A$.
+    Prostor $(A, \T_A)$ je \df{podprostor} prostora $(X, \T)$.
+\end{definicija}
+
+\begin{opomba}
+    Pri delu s podprostori moramo upoštevati, da so topološki pojmi praviloma odvisni od tega, v katerem prostoru jih gledamo.
+\end{opomba}
+
+\begin{trditev}
+    Naj bo $(X, \T)$ prostor in $(A, \T_A)$ njegov podprostor.
+    \begin{enumerate}
+        \item Če je $\B$ neka baza topologije $\T$, potem je $\B_A := \setb{A \cap B}{B \in \B}$ baza topologije $\T_A$. Analogna trditev velja za predbaze.
+        \item Množica $B \subseteq A$ je zaprta v topologiji $\T_A$, če in samo če je $F = A \cap F$ za neko množico $F$, ke je zaprta v topologiji~$\T$.
+        \item Veljajo formule: $\Cl_A B = A \cap \Cl_X B$, $\Int_A B \supseteq A \cap \Int_X B$, $\Fr_A B \subseteq A \cap \Fr_X B$.
+    \end{enumerate}    
+\end{trditev}
+
+Množica, ki je odprta v podprostoru, ni nujno odprta v celem prostoru: na primer množica $A$, ki ni odprta v $X$, je vendarle odprta v sami sebi. Te teževa izognemo, če je $A$ odprta v $X$. Torej
+
+\begin{trditev}
+    Naj bo $(X, \T)$ prostor in $(A, \T_A)$ njegov podprostor.
+    \begin{enumerate}
+        \item Podmnožica odprtega podprostora odprta natanko tedaj, ko je odprta v celem prostoru.
+        \item Podmnožica zaprtega podprostora zaprta natanko tedaj, ko je zaprta v celem prostoru.
+    \end{enumerate}
+\end{trditev}
+
+\subsubsection{Dednost}
+\begin{definicija}
+    Topološka lastnost je \df{dedna}, če iz prevzetka, da $(X, \T)$ ima to lastnost sledi, da jo imajo tudi vsi podprostori.
+\end{definicija}
+
+\begin{opomba}
+    Odprt podprostor separabilnega podprostora je separabilen.
+\end{opomba}
+
+\subsubsection{Odsekoma definirane funkcije}
+
+\begin{definicija}
+    Naj bo $\set{X_\lambda}$ pokritje $X$. Za družino $f_\lambda: X_\lambda \to Y$ rečemo, da je \df{usklajena}, če je ${f_\lambda}_{|X_\lambda \cap X_\mu} =~{f_\mu}_{|X_\lambda \cap X_\mu}$ za poljubna indeksa $\lambda, \mu$.
+\end{definicija}
+
+\begin{trditev}
+    Vsaka usklajena družina določa funkcijo $f: X \to Y$, za katero je $f_{|X_\lambda} = f_\lambda$.
+\end{trditev}
+
+\begin{lema}
+    Naj bo $\set{X_\lambda}$ odprto pokritje $X$. Tedaj je $A \subseteq X$ odprta natanko tedaj, ko je $X_\lambda \cap A$ odprta v $X_\lambda$ za vse~$\lambda$.
+\end{lema}
+
+\begin{definicija}
+    Pokritje $\set{X_\lambda}$ za $X$ je \df{lokalno končno}, če za vsako točko $x \in X$ obstaja okolica, ki seka le končno mnogo različnih $X_\lambda$.
+\end{definicija}
+
+\begin{lema}
+    Naj bo $\set{X_\lambda}$ zaprto pokritje $X$, ki je lokalno končno. Tedaj je $A \subseteq X$ zaprta natanko tedaj, ko je $X_\lambda \cap A$ zaprta v $X_\lambda$ za vse~$\lambda$.
+\end{lema}
+
+\begin{izrek}
+    Naj bo $\set{X_\lambda}$ pokritje za $X$, ki je bodisi odprto bodisi lokalno končno in zaprto. Tedaj vsaka usklajena družina preslikav $f_\lambda: X_\lambda \to Y$ enolično določa preslikavo $f: X \to Y$, za katero je $f_{|X_\lambda} = f_\lambda$.
+\end{izrek}
+
+\begin{posledica}
+    Naj bo $\set{X_\lambda}$ pokritje za $X$, ki je bodisi odprto bodisi lokalno končno in zaprto. Tedaj je funkcija $f: X \to Y$ zvezna natanko tedaj, ko so zvezne vse zožitve $f_{|X_\lambda}$.
+\end{posledica}
+
+\subsubsection{Vložitve}
+\begin{definicija}
+    Preslikava $f: X \to Y$ je \df{vložitev}, če je $f$ homeomorfizem med $X$ in $\img{f}(X)$ (glede na od $Y$ podedovano topologijo).
+\end{definicija}
+
+\begin{opomba}
+    Potreben primer za homeomorfizem je injektivnost preslikave $f$. 
+\end{opomba}
+
+\begin{trditev}
+    Naj bo $f: X \to Y$ injektivna preslikava.
+    \begin{itemize}
+        \item Če je $f(X)$ odprt v $Y$, potem je $f$ vložitev natanko tedaj, ko je preslikava $f: X \to Y$ odprta.
+        \item Če je $f(X)$ zaprt v $Y$, potem je $f$ vložitev natanko tedaj, ko je preslikava $f: X \to Y$ zaprta.
+    \end{itemize}
+\end{trditev}
+
+\section{Topološki lastnosti}
+\subsection{Ločljivost}
+\begin{definicija}
+    Za topologjo $\T$ na množici $X$ pravimo, da \df{loči} podmnožico $A \subseteq X$ od pomnožice $B \subseteq X$, če obstaja $U \in \T$, za katero je $A \subseteq U$ in $B \cap U = \emptyset$.
+\end{definicija}
+
+\begin{definicija}
+    Za topologjo $\T$ na množici $X$ pravimo, da \df{ostro loči} podmnožici $A \subseteq X$ in $B \subseteq X$, če obstajata $U, V \in \T$, za kateri je $A \subseteq U, \ B \subseteq V$ in $U \cap V = \emptyset$.
+\end{definicija}
+
+\subsubsection{Hausdorffova in Frechetova lastnosti}
+\begin{definicija}
+    Za prostor $(X, \T)$ pravimo, da je \df{Hausdorffov}, če $\T$ ostro loči vsaki dve različni točki $X$.
+\end{definicija}
+
+\begin{trditev}
+    Ekvivalentne so naslednje izjave:
+    \begin{enumerate}
+        \item $X$ je Hausdorffov.
+        \item $\all{x \in X} \bigcap_{U \in \mathcal{U}} \overline{U} = \set{x}$, kjer je $\mathcal{U}$ družina vseh okolic $x$ (ekvivalentno $x \neq y \lthen \some{U \in \T} x \in U \land y \notin \overline{U}$).
+        \item \df{Diagonala} $\Delta = \setb{(x,x) \in X \times X}{x \in X}$ je zaprt podprostor produkta $X \times X$.
+    \end{enumerate}
+\end{trditev}
+
+\begin{izrek}
+    Naj bo prostor $Y$ Hausdorffov. Velja:
+    \begin{enumerate}
+        \item Vsaka končna podmnožica $Y$ je zaprta. Posebej, točke so zaprte.
+        \item Točka $y$ je stekališče množice $A \subseteq Y$ natanko tedaj, ko vsaka okolica $Y$ vsebuje neskončno točk iz $A$.
+        \item Zaporedje v $Y$ ima največ eno limito.
+        \item Množica točk ujemanja $\setb{x \in X}{f(x) = g(x)}$ je zaprta v $X$ za poljubni preslikavi $f, g: X \to Y$.
+        \item Če se preslikavi $f, g: X \to Y$ ujemata na neki gosti podmnožici $X$, potem je $f = g$.
+        \item Graf preslikave $f: X \to Y$ je zaprt podprostor produkta $X \times Y$.
+    \end{enumerate}
+\end{izrek}
+
+\begin{izrek}
+    Naj bo prostor $X$ $1$-števen, prostor $Y$ pa Hausdorffov. Potem je funkcija $f: X \to Y$ zvezna natanko takrat, ko za vsako konvergentno zaporedje $(x_n)$ v $X$ velja $\lim f(x_n) = f(\lim x_n)$.
+\end{izrek}
+
+\begin{definicija}
+    Prostor $(X, \T)$ je \df{Frechetov}, če $\T$ vsako točko $X$ loči od vsake druge točke $X$.
+\end{definicija}
+
+\begin{opomba}
+    V Frechetovem prostoru lahko za vsak par različnih točk najdemo okolico ene, ki ne vsebuje druge. V Hausdorffovem prostoru pa lahko okolici izberemo tako, da sta disjunktni.
+\end{opomba}
+
+\begin{trditev}
+    Prostor $X$ je Frechetov natanko tedaj, ko so vse enojčki zaprte.
+\end{trditev}
+
+\begin{opomba}
+    Topologija je Frechetova natanko tedaj, ko vsebuje topologijo končnih komplementov.
+\end{opomba}
+
+\subsubsection{Regularnost in normalnost}
+Ostrejše zahteve za ločljivost dobimo, če točke nadomestimo z zaprtimi množicami.
+\begin{definicija}
+    Prostor $(X, \T)$ je \df{regularen} če je Frechetov in če $\T$ ostro loči točke od zaprtih množic.
+\end{definicija}
+
+\begin{definicija}
+    Prostor $(X, \T)$ je \df{normalen}, če je Frechetov in če $\T$ ostro loči disjunktne zaprte množice.
+\end{definicija}
+
+\begin{opomba}
+    Ker so v Frechetovem prostoru točke zaprte velja: Noramalnost $\lthen$ Regularnost $\lthen$ Hausdorff.
+\end{opomba}
+
+\begin{trditev}
+    Vsak metričen prostor je normalen.
+\end{trditev}
+
+\begin{trditev}
+    Zaprt podprostor normalnega prostora je normalen. 
+\end{trditev}
+
+\begin{izrek}[Izrek Tihonova]
+    Prostor, ki je regularen in $2$-števen je normalen.
+\end{izrek}
+
+\begin{opomba}
+    Iz izreka sledi, da je poljuben podprostor normalnega $2$-števnega prostora normalen. Podobno je tudi produkt $2$-števnih normalnih prostorov normalen.
+\end{opomba}
+
+\subsubsection{Aksiomi ločljivosti}
+\begin{itemize}
+    \item [] \df{X je $T_0$}: Za različni točki $x, x' \in X$ obstaja okolica ene izmed točk $x, x'$, ki jo loči od druge točke.
+    \item [] \df{X je $T_1$}: Za različni točki $x, x' \in X$ obstaja okolica $x$, ki jo loči od $x'$ in obenem obstaja okolica točke $x'$, ki jo loči od $x$.
+    \item [] \df{X je $T_2$}: Za različni točki $x, x' \in X$ obstajata okolici, ki ostro ločita $x$ in $x'$.
+    \item [] \df{X je $T_3$}: Za točko $x \in X$ in zaprto množico $A \subseteq X$, ki ne vsebuje $x$, obstajata okolici, ki ostro ločita $x$ in $A$.
+    \item [] \df{X je $T_4$}: Za disjunktni zaprti množici $A, B \subseteq X$ obstajata okolici, ki ostro ločita $A$ in $B$.
+\end{itemize}
+
+\begin{opomba}
+    $T_1$ je Frechetova lastnost, $T_2$ je Hausdorffova lastnost. Regularnost je $T_1 + T_3$, normalnost je $T_1 + T_4$.
+\end{opomba}
+
+\begin{trditev}
+    Prostor $X$ ima lastnost $T_3$ natanko tedaj, ko za vsak $x \in X$ in vsako odprto okolico $U$ za $x$ obstaja taka odprta množica $V$, da velja $x \in V \subseteq \overline{V} \subseteq U$.
+\end{trditev}
+
+\begin{trditev}
+    Prostor $X$ ima lastnost $T_4$ natanko tedaj, ko za vsako zaprto podmnožico $A \subseteq X$ in vsako odprto okolico $U$ za $A$ obstaja taka odprta množica $V$, da velja $A \subseteq V \subseteq \overline{V} \subseteq U$.
+\end{trditev}
+
+\section{Splošno}
+
+\begin{center}
+    \begin{tabular}{ |c| c |c| c| c| c | }
+    \hline
+     Lastnost & Top & Mul & Ded & Primeri & Proti primeri\\ \hline
+     Metrizabilnost & + & + & + & m. pr., $\T_{\text{disk}}$ & $\T_{\text{triv}}$, $\T_\text{kk}$ \\ \hline
+     $1$-števnost & + & + & + & m. pr., $\R_S$, $\T_{\text{evkl}}$ &  \\ \hline
+     $2$-števnost & + & + & + & $\T_{\text{evkl}}$ & $(X^\text{neštevna}, \T_{\text{disk}})$, $\R_S$ \\ \hline
+     Separabilnost (baza) & + & + &  & $(\R^n, \T_{\text{evkl}})$, $\R_S$ & \\ \hline  
+     $T_0$ (baza) & + & + & + & m. pr., $\R_S$ & $\T_{\text{triv}}$ \\ \hline
+     $T_1$ (baza) & + & + & + & m. pr., $\T_{\text{kk}}$, $\R_S$ & $\T_{\text{triv}}$ \\ \hline
+     $T_2$ (baza) & + & + & + & m. pr., $\R_S$ & $\T_{\text{triv}}$, $(X^\text{neskončna}, \T_{\text{kk}})$ \\ \hline
+     $T_3$ & + & + & + & m. pr., $\T_{\text{triv}}$, $\R_S$ &   \\ \hline
+     $T_4$ & + & &  & m. pr., $\T_{\text{triv}}$, $\R_S$ &  \\ \hline
+     Regularnost ($T_0/T_1 + T_3$) & + & + & + & m. pr. & $\T_{\text{triv}}$ \\ \hline
+     Normalnost ($T_0/T_1 + T_4$) & + & &  & m. pr. & $\T_{\text{triv}}$ \\ \hline
+    \end{tabular}
+\end{center}

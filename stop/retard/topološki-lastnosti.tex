@@ -1,0 +1,226 @@
+\section{Topološki lastnosti}
+
+Topološki prostori predstavljajo zelo splošen okvir, v katerega lahko umestimo velik del matematike, v katerem nastopa neko abstraktno pojmovanje bližine ali sorodnosti. Prav zaradi te širine v splošnih topoloških prostorih ne velja praktično nobeden od izrekov, ki smo jih vajeni iz evklidskih ali metričnih prostorov. Zato je pomembno ugotoviti, ali katere dovolj preprostre lastnosti zagotavljajo bolj normalno obnašanje, tako, ki bi omogočalo smiselno posplošitev rezultatov, ki jih poznamo iz metričnih prostorov.
+
+\,
+
+Druga pomembna uporaba topoloških lastnosti je pri razločevanju prostorov. Za dokaz, da sta dva prostora homeomorfna, zadošča poiskati homeomorfizem med njima. Kako pa naj preskusimo vse možne preslikave med dvema prostoroma, za katera se nam zdi, da nista homeomorfna?
+
+\subsection{Ločljivost}
+\subsubsection{Ločljivost}
+\begin{definicija}
+    Za topologjo $\T$ na množici $X$ pravimo, da \df{loči} podmnožico $A \subseteq X$ od pomnožice $B \subseteq X$, če obstaja $U \in \T$, za katero je $A \subseteq U$ in $B \cap U = \emptyset$.
+\end{definicija}
+
+\begin{definicija}
+    Za topologjo $\T$ na množici $X$ pravimo, da \df{ostro loči} podmnožici $A \subseteq X$ in $B \subseteq X$, če obstajata $U, V \in \T$, za kateri je $A \subseteq U, \ B \subseteq V$ in $U \cap V = \emptyset$.
+\end{definicija}
+
+\begin{primer}
+    Ugotovi kako trivialna in diskretna topologija ločita podmnožici.
+\end{primer}
+
+\begin{primer}
+    Ali obstaja topologija, ki loči množico $A$ od točke, ki je v zaprtju $A$? Med kakšnimi podmnožicami je smiselno opazovati ločljivost?
+\end{primer}
+
+\begin{primer}
+    Ali lahko podmnožici v prostoru ločeni, ne da bi bili ostro ločeni (topologija končnih komlementov)?
+\end{primer}
+
+\subsubsection{Hausdorffova in Frechetova lastnosti}
+\begin{definicija}
+    Za prostor $(X, \T)$ pravimo, da je \df{Hausdorffov}, če $\T$ ostro loči vsaki dve različni točki $X$.
+\end{definicija}
+
+\begin{primer}
+    Ugotovi, ali so Hausdorffovi
+    \begin{itemize}
+        \item Metrični prostori.
+        \item Prostori opremljeni s trivialno topologjo, in neskončni prostori, opremljeni s topologijo končnih komplementov.
+    \end{itemize}
+\end{primer}
+
+\begin{trditev}
+    Ekvivalentne so naslednje izjave:
+    \begin{enumerate}
+        \item $X$ je Hausdorffov.
+        \item $\all{x \in X} \bigcap_{U \in \mathcal{U}} \overline{U} = \set{x}$, kjer je $\mathcal{U}$ družina vseh okolic $x$ (ekvivalentno $x \neq y \lthen \some{U \in \T} x \in U \land y \notin \overline{U}$).
+        \item \df{Diagonala} $\Delta = \setb{(x,x) \in X \times X}{x \in X}$ je zaprt podprostor produkta $X \times X$.
+    \end{enumerate}
+\end{trditev}
+
+\begin{proof}
+    Pokažemo, da $(1) \liff (2)$ in $(1) \liff (3)$.
+\end{proof}
+
+\begin{izrek}
+    Naj bo prostor $Y$ Hausdorffov. Velja:
+    \begin{enumerate}
+        \item Vsaka končna podmnožica $Y$ je zaprta. Posebej, točke so zaprte.
+        \item Točka $y$ je stekališče množice $A \subseteq Y$ natanko tedaj, ko vsaka okolica $Y$ vsebuje neskončno točk iz $A$.
+        \item Zaporedje v $Y$ ima največ eno limito.
+        \item Množica točk ujemanja $\setb{x \in X}{f(x) = g(x)}$ je zaprta v $X$ za poljubni preslikavi $f, g: X \to Y$.
+        \item Če se preslikavi $f, g: X \to Y$ ujemata na neki gosti podmnožici $X$, potem je $f = g$.
+        \item Graf preslikave $f: X \to Y$ je zaprt podprostor produkta $X \times Y$.
+    \end{enumerate}
+\end{izrek}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+\begin{izrek}
+    Naj bo prostor $X$ $1$-števen, prostor $Y$ pa Hausdorffov. Potem je funkcija $f: X \to Y$ zvezna natanko takrat, ko za vsako konvergentno zaporedje $(x_n)$ v $X$ velja $\lim f(x_n) = f(\lim x_n)$.
+\end{izrek}
+
+\begin{definicija}
+    Prostor $(X, \T)$ je \df{Frechetov}, če $\T$ vsako točko $X$ loči od vsake druge točke $X$.
+\end{definicija}
+
+\begin{opomba}
+    V Frechetovem prostoru lahko za vsak par različnih točk najdemo okolico ene, ki ne vsebuje druge. V Hausdorffovem prostoru pa lahko okolici izberemo tako, da sta disjunktni.
+\end{opomba}
+
+\begin{primer}
+   Ugotovi, ali je Frechetov
+    \begin{itemize}
+        \item Vsak Hausdorffov prostor.
+        \item Prostor z trivialno topologjo.
+        \item Neskončen prostor s topologijo končnih komplementov.
+    \end{itemize}
+\end{primer}
+
+\newpage
+\begin{trditev}
+    Prostor $X$ je Frechetov natanko tedaj, ko so vse enojčki zaprte.
+\end{trditev}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+\begin{opomba}
+    Topologija je Frechetova natanko tedaj, ko vsebuje topologijo končnih komplementov.
+\end{opomba}
+
+\begin{trditev}
+    Velja:
+    \begin{enumerate}
+        \item Hausdorffova in Frechetova lastnost sta dedni.
+        \item Hausdorffova in Frechetova lastnost sta \df{multiplikativni} (če $X, Y$ imata lastnost, potem jo ima tudi $X \times Y$).
+    \end{enumerate}
+\end{trditev}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+\subsubsection{Regularnost in normalnost}
+Ostrejše zahteve za ločljivost dobimo, če točke nadomestimo z zaprtimi množicami.
+\begin{definicija}
+    Prostor $(X, \T)$ je \df{regularen} če je Frechetov in če $\T$ ostro loči točke od zaprtih množic.
+\end{definicija}
+
+\begin{definicija}
+    Prostor $(X, \T)$ je \df{normalen}, če je Frechetov in če $\T$ ostro loči disjunktne zaprte množice.
+\end{definicija}
+
+\begin{opomba}
+    Ker so v Frechetovem prostoru točke zaprte velja: Noramalnost $\lthen$ Regularnost $\lthen$ Hausdorff.
+\end{opomba}
+
+\begin{primer}
+    Naj bo $\T \subseteq \T'$, $\T$ normalna. Kaj lahko povemo o $\T'$?    Pokaži, da Hausdorff $\nRightarrow$ Regularnost.
+\end{primer}
+
+\begin{trditev}
+    Vsak metričen prostor je normalen.
+\end{trditev}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+\begin{trditev}
+    Velja:
+    \begin{enumerate}
+        \item Regularnost je dedna.
+        \item Zaprt podprostor normalnega prostora je normalen.
+    \end{enumerate}    
+\end{trditev}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+\begin{izrek}[Izrek Tihonova]
+    Prostor, ki je regularen in $2$-števen je normalen.
+\end{izrek}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+\begin{opomba}
+    Iz izreka sledi, da je poljuben podprostor normalnega $2$-števnega prostora normalen. Podobno je tudi produkt $2$-števnih normalnih prostorov normalen.
+\end{opomba}
+
+\begin{opomba}
+    Normalnost v splošnem ni dedna in ni multiplikativna.
+\end{opomba}
+
+\subsubsection{Aksiomi ločljivosti}
+Različne stopnje ločljivosti je mogoče sistematično predstaviti kot zaporedje vedno ostrejših zahtev.
+
+\begin{definicija}
+    \df{Aksiomi ločljivosti} je ime za zaporedje $T_0, \ T_1, \  T_2,\ T_3,\ T_4$ pogojev za ločljivost topologije, ki naj jim zadošča nek prostor. Če prostor $(X, \T)$ zadošča pogoju $T_i$, pravimo, da je $X$ $T_i$-prostor, in pišemo $X \in \T_i$.
+\end{definicija}
+
+
+\begin{itemize}
+    \item [] \df{X je $T_0$}: Za različni točki $x, x' \in X$ obstaja okolica ene izmed točk $x, x'$, ki jo loči od druge točke.
+    \item [] \df{X je $T_1$}: Za različni točki $x, x' \in X$ obstaja okolica $x$, ki jo loči od $x'$ in obenem obstaja okolica točke $x'$, ki jo loči od $x$.
+    \item [] \df{X je $T_2$}: Za različni točki $x, x' \in X$ obstajata okolici, ki ostro ločita $x$ in $x'$.
+    \item [] \df{X je $T_3$}: Za točko $x \in X$ in zaprto množico $A \subseteq X$, ki ne vsebuje $x$, obstajata okolici, ki ostro ločita $x$ in $A$.
+    \item [] \df{X je $T_4$}: Za disjunktni zaprti množici $A, B \subseteq X$ obstajata okolici, ki ostro ločita $A$ in $B$.
+\end{itemize}
+
+\begin{opomba}
+    $T_1$ je Frechetova lastnost, $T_2$ je Hausdorffova lastnost. Regularnost je $T_1 + T_3$, normalnost je $T_1 + T_4$.
+\end{opomba}
+
+\begin{trditev}
+    Prostor $X$ ima lastnost $T_3$ natanko tedaj, ko za vsak $x \in X$ in vsako odprto okolico $U$ za $x$ obstaja taka odprta množica $V$, da velja $x \in V \subseteq \overline{V} \subseteq U$.
+\end{trditev}
+
+\begin{opomba}
+    Ker v alternativni formulaciji govorimo le o okolicah točke $x$, pravimo, da smo podali lokalni opis lastnosti $T_3$ (in s tem tudi loklani opis regularnosti).
+\end{opomba}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+\begin{trditev}
+    Lastnost $T_3$ je multiplikativna.
+\end{trditev}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+\begin{posledica}
+    Produkt regularnih prostorov je regularen.
+\end{posledica}
+
+\newpage
+\begin{trditev}
+    Prostor $X$ ima lastnost $T_4$ natanko tedaj, ko za vsako zaprto podmnožico $A \subseteq X$ in vsako odprto okolico $U$ za $A$ obstaja taka odprta množica $V$, da velja $A \subseteq V \subseteq \overline{V} \subseteq U$.
+\end{trditev}
+
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+

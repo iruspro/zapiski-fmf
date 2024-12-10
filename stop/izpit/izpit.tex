@@ -11,19 +11,20 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{xypic}
-
 \usepackage{enumitem}
 \setlist{nosep}
-\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}
 
 \setlength{\parindent}{0mm}
+
+\usepackage{soul}
+\setulcolor{red}
 
 \usepackage{geometry}
 \geometry{
     a4paper,
     left=5mm,
-    right=5mm,
-    top=5mm,
+    right=10mm,
+    top=10mm,
     bottom=15mm
 }
 
@@ -48,17 +49,10 @@
 }
 
 
+
 \begin{document}
 
-\title{Spolšna topologija}
-\maketitle
+\input{topologija.tex}
 
-\input{metricni-prostori.tex}
-
-\newpage
-\input{prostori-in-preslikave.tex}
-
-\newpage
-\input{topološki-lastnosti.tex}
 
 \end{document}
