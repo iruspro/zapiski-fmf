@@ -1,3 +1,20 @@
+% Okolja
+\usepackage{amsthm}
+\theoremstyle{definition}{
+    \newtheorem*{definicija}{\textcolor{violet}{Definicija}}
+    \newtheorem*{izrek}{\textcolor{blue}{Izrek}}
+    \newtheorem*{trditev}{\textcolor{blue}{Trditev}}
+    \newtheorem*{posledica}{\textcolor{orange}{Posledica}}
+    \newtheorem*{lema}{\textcolor{blue}{Lema}}
+    \newtheorem*{aksiom}{\textcolor{blue}{Aksiom}}
+}
+
+\theoremstyle{remark}{    
+    \newtheorem*{opomba}{\textcolor{orange}{Opomba}}
+    \newtheorem*{primer}{\textcolor{orange}{Primer}}
+    \newtheorem*{zgled}{\textcolor{orange}{Zgled}}
+}
+
 % Standardne množice
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
@@ -42,6 +59,7 @@
 %% Algebra
 % Oeratorji
 \newcommand{\gen}[1]{\left\langle {#1} \right\rangle}
+\DeclareMathOperator{\ch}{char}
 
 \DeclareMathOperator{\Sim}{Sim}
 \DeclareMathOperator{\sgn}{sgn}
