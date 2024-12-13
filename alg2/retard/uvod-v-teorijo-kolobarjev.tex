@@ -222,3 +222,95 @@ Gledamo algebre nad $\R$:
 Pravimo, da je $\HH$ \df{kvaternionska algebra}. 
 
 Grupa za množenje $(\set{\pm 1, \pm i, \pm j, \pm k}, \cdot)$ je \df{kvaternionska grupa}. Označimo jo z $Q$.
+
+\subsection{Podkolobarji, podalgebre, podpolja}
+\begin{definicija}
+    Naj bo $K$ kolobar in naj bo $L \subseteq K, \ L \neq \emptyset$. Pravimo, da je $L$ \df{podkolobar} kolobarja $K$, če je $L$ na istih operacijah kolobar.
+\end{definicija}
+
+\begin{opomba}
+    Podobno definiramo tudi \df{podalgebro} in \df{podpolje}.
+\end{opomba}
+
+\begin{trditev}
+    Naj bo $K$ kolobar in $L \subseteq K, \ L \neq \emptyset$. Velja: 
+
+    $L$ je podkolobar kolobarja $K \liff$
+    \begin{itemize}
+        \item $1 \in L$.
+        \item $L$ je podgrupa za seštevanje v $(K,+)$.
+        \item $L$ je zaprta za množenje.
+    \end{itemize}
+\end{trditev}
+
+\begin{opomba}
+    Distributivnost se podeduje.
+\end{opomba}
+
+\begin{opomba}
+    Podobne trditve velja za podalgebre in podpolja:
+    \begin{itemize}
+        \item Podalgebra je vektorski podprostor in podkolobar. Torej treba še preveriti zaprtost za množenje s skalarji.
+        \item Podpolje je podkolobar v katerem je vsak neničeln element obrnljiv in množenje komutativno. Komutativnost se podeduje. Torej treba preveriti še zaprtost za invertiranje.
+    \end{itemize}
+\end{opomba}
+
+\begin{primer}
+    $\Z \subseteq \Q \subseteq \R \subseteq \C$.
+\end{primer}
+
+\begin{definicija}
+    Polje $E$ je \df{razšeritev} polja $F$, če je $F$ podpolje $E$.
+\end{definicija}
+
+\begin{primer}
+    $\R^{n \times n}$ je kolobar in tudi algebra mad $\R$. Definiramo $U := \setb{A \in \R^{n \times n}}{A \text{ je zgornje trikotna}}$. Pokaži, da je $U$ podkolobar in tudi podalgebra nad $\R$.
+\end{primer}
+
+\begin{primer}
+    Naj bo $X \subseteq \R$. Definiramo $\R^X := \set{f: X \to \R}$ in operacije $+$, $\cdot$, množenje s skalarji po točkah. Potem je $\R^X$ algebra nad $\R$. Naj bo $C(X) = \set{\text{vse zvezne } f: X \to \R}$. Pokaži, da je $C(X)$ podalgebra.
+\end{primer}
+
+\subsection{Kolobar ostankov in karakterizacija kolobarja}
+Vemo, da je $(\Z_n, +)$ Abelova grupa. Definiramo še množenje v $\Z_n$. Naj bo $a, b \in \Z_n$. Definiramo $(a+n\Z) \cdot (b + n\Z) = ab + n\Z$.
+
+\begin{lema}
+    Množenje je dobro definirano.
+\end{lema}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+\begin{trditev}
+    $(\Z_n, +, \cdot)$ je komutativen kolobar.
+\end{trditev}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+\begin{definicija}
+    Kolobarju $(\Z_n, +, \cdot)$ pravimo \df{kolobar ostankov po modulu $n$}.
+\end{definicija}
+
+\begin{definicija}
+    Naj bo $K$ kolobar. Najmanjšemu naravnemu številu $n$, za katerega je $n \cdot 1 = \underbrace{1 + 1 + \ldots + 1}_n = 0$, pravimo \df{karakteristika} kolobarja $K$. Oznaka: $\ch K$. Če tak $n$ ne obstaja, pravimo, da ima kolobar $K$ karakteristiko $0$.
+\end{definicija}
+
+\begin{primer}
+    Določi
+    \begin{itemize}
+        \item $\ch \Z_n$.
+        \item $\ch \Z$.
+    \end{itemize}
+\end{primer}
+
+\begin{trditev}
+    Naj bo $K$ kolobar z karakteristiko $n > 0$. Velja:
+    \begin{enumerate}
+        \item $n \cdot x = 0$ za vsak $x \in K$.
+        \item Naj bo $m \in \N$. $m \cdot 1 = 0 \liff n \, |  \, m$.
+        \item Če je $K$ neničeln kolobar in nima deljiteljev niča, potem je $n$ praštevilo.
+    \end{enumerate}
+\end{trditev}
