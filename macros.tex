@@ -83,3 +83,24 @@
 \DeclareMathOperator{\pr}{pr}
 
 \DeclareMathOperator{\Set}{Set}
+
+%DM
+\usepackage{tikz}
+\newcommand{\petersen}[2]{
+\begin{tikzpicture}[line width=0.4mm]
+	\node [circle, minimum size=4cm] (o) {};
+	\node [circle, minimum size=2cm] (i) {};
+	\foreach \x in {1,...,#1}{
+		\node[draw, minimum size=1mm, circle] (o\x) at (o.\x*360/#1) {};
+		\node[draw, minimum size=1mm, circle] (i\x) at (i.\x*360/#1) {};
+	}
+	\foreach \i [
+		evaluate=\i as \j using {int(floor((\i+1-Mod(\i+1,#1+1))/(\i+1)) + Mod(\i+1,#1+1))},
+		evaluate=\i as \k using {int(floor((\i+#2-Mod(\i+#2,#1+1))/(\i+1)) + Mod(\i+#2,#1+1))}
+	] in {1,...,#1} {
+		\path (o\i) edge node {} (i\i);
+		\path (o\i) edge node {} (o\j);
+		\path (i\i) edge node {} (i\k);
+	}
+\end{tikzpicture}
+}

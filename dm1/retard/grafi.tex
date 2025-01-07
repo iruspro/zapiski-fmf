@@ -1,0 +1,79 @@
+\section{Teorija grafov}
+\subsection{Osnovni pojmi}
+\begin{definicija}
+    \df{Graf} G je urejen par $(V(G), E(G))$, kjer je $V(G)$ množica \df{vozlišč} grafa $G$ in $E(G)$ množica \df{povezav} grafa~$G$, kjer je $E(G) \subseteq \binom{V(G)}{2}$.
+\end{definicija}
+
+\begin{opomba}
+    Če ne povemo drugače, bo množica $V(G)$ končna.
+\end{opomba}
+
+\begin{opomba}
+    Naj bo $\set{u, v} \in E(G)$:
+    \begin{itemize}
+        \item Krajše pišemo $uv$.
+        \item Pravimo, da sta $u$ in $v$ \df{krajišči} povezave $e$ in, da sta $u$ in $v$ \df{sosedni} vozlišči.        
+        Pišemo: $u \sim v$ ali $u \sim_G v$.
+    \end{itemize}
+\end{opomba}
+
+\begin{definicija}
+    Naj bo $G$ graf, $u \in V(G)$:
+    \begin{itemize}
+        \item $N_G(u) = \setb{v \in V(G)}{uv \in E(G)}$ je \df{soseščina} vozlišča $u$.
+        \item $\deg_G(u) = |N_G(u)|$ je \df{stopnja} vozlišča $u$.
+    \end{itemize}
+\end{definicija}
+
+\begin{definicija}
+    Graf $G$ je \df{regularen}, če imajo vsa vozlišča isto stopnjo.
+\end{definicija}
+
+\begin{opomba}
+    Če je ta stopnja $r$, pravimo, da je $G$ $r$-regularen graf.
+\end{opomba}
+
+\begin{primer}
+    Petersenov graf $P$ je graf
+    \petersen{5}{2}
+\end{primer}
+
+\begin{primer}
+    Grafe lahko predstavimo tudi z matrikami. Možnosti:
+    \begin{enumerate}
+        \item \df{Matrika sosednosti.} Za graf $G$ z vozlišči $v_1, \ldots, v_n$ je matrika sosednosti matrika $A(G) \in \R^{n \times n}$, definirana z $$a_{ij} = \begin{cases}
+            1, &v_i \sim v_j, \\
+            0, &v_i \nsim v_j.
+        \end{cases}.$$
+        \item \df{Incidenčna matrika}. Če ima graf $G$  vozlišča $v_1, \ldots, v_n$ in povezave $e_1, \ldots, e_m$, je to matrika $B(G) \in \R^{n \times m}$, podana s predpisom $$b_{ij} = \begin{cases}
+            1, &v_i \in e_j, \\
+            0, &v_i \notin e_j.
+        \end{cases}.$$
+    \end{enumerate}
+\end{primer}
+
+\subsection{Lema o rokovanju}
+\begin{lema}[o rokovanju]
+    Naj bo $G$ graf. Velja: $$\sum_{u \in V(G)} \deg_G(u) = 2 \cdot |E(G)|.$$
+\end{lema}
+
+\begin{proof}
+    Incidenčna matrika in načelo dvojnega preštevanja.
+\end{proof}
+
+\begin{posledica}
+    Število vozlišč lihe stopnje danega grafa je sodo.
+\end{posledica}
+
+\begin{proof}
+    Razbijemo vsoto na vozlišče sode in lihe stopnje.
+\end{proof}
+
+\subsection{Podgrafi}
+\begin{definicija}
+    Naj bosta $G$ in $H$ grafa. Če velja $V(H) \subseteq V(G)$ in $E(H) \subseteq E(G)$, tedaj rečemo, da je $H$ \df{podgraf} grafa~$G$, in pišemo $H \leq G$. Pri tem:
+    \begin{itemize}
+        \item Pograf $H$ je \df{vpet} podgraf, če je $V(H) = V(G)$ (odstranimo nekaj povezav).
+        \item Podgraf $H$ je \df{porojen} (oz. \df{induciran}), če velja:  $\all{u, v \in V(H)} u \sim_G v \lthen u \sim_H v$ (odstranimo nekaj vozlišč).
+    \end{itemize}
+\end{definicija}
