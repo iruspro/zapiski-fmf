@@ -554,7 +554,21 @@ Zaporedje $(a_n)_{n \geq 0}$ je podano takole:
 \end{definicija}
 
 \subsubsection*{Kako rešemo homogeno rekurzijo?}
-\textcolor{red}{TODO}
+Zaporedja gledamo v prostoru $\C^{\N_0}$ vseh kompleksnih zaproedij. Naredimo vektorski prostor $(\C^{\N_0}, +, \cdot)$ na naraven način. Gledamo še prostor $\End(\C^{\N_0})$ in naredimo vektorski prostor $(\End(\C^{\N_0}), +, \circ)$.
+
+Naj bo $E \in (\End(\C^{\N_0}))$, $E(a_0, a_1, a_2, \ldots) = (a_1, a_2, \ldots)$ (odrežemo prvi člen). BŠS: $c_d = 1$.
+\begin{enumerate}
+    \item Priredimo polinom: $Q(x) = x^d + c_{d-1}x^{d-1}+ \ldots + c_1x+c_0$.
+    \item \textcolor{red}{\textbf{(!)}} Poglejmo $\ker Q(E)$:
+    \begin{multline*}
+        (a_n)_{n} \in \ker Q(E) \liff Q(E)((a_n)_n)= 0 \liff (E^d +c_{d-1}E^{d-1}+ \ldots + c_1 E +c_0 I)(a_n)_n = 0 \liff \\ \liff E^d(a_n)_n +c_{d-1}E^{d-1}(a_n)_n + \ldots +  c_1E(a_n)_n + c_0 I (a_n)_n = 0 \liff \\ \liff (a_d, a_{d+1}, \ldots) + c_{d-1}(a_{d-1}, a_d, \ldots) + \ldots + c_1(a_1, a_2, \ldots) + c_0 (a_0, a_1, \ldots) = 0 \liff \\ \liff (a_d +c_{d-1}a_{d-1} + \ldots + c_1a_1 + c_0a_0, \, a_{d+1}+c_{d-1}a_d + \ldots + c_1a_2 + c_0 a_1, \ldots) = 0 \liff (a_n)_n \text{ reši } \textcolor{red}{(*)}.
+      \end{multline*}
+      Torej splošne rešitve homogene enačbe so natanko elementi iz $\ker(Q(E))$.
+      \item Polinom $Q(x)$ lahko zapišemo v obliki $Q(x) = (x-\lambda_1)^{s_1} \ldots (x-\lambda_k)^{s_k}$, potem       
+      $$\ker Q(E) = \ker((E - \lambda_1I)^{s_1}) \oplus \ldots \oplus \ker((E - \lambda_kI)^{s_k}).$$
+      Hočemo torej določiti $\ker ((E - \lambda I)^{s})$.
+      \item Vemo: $\dim (\ker ((E - \lambda I)^{s})) = s$. Baza prostora je $(\lambda^n)_{n \geq 0}, (n\lambda^n)_{n \geq 0}, \ldots, (n^{s-1}\lambda^n)_{n \geq 0}$ (dokaz težek).
+\end{enumerate}
 \begin{izrek}
     $(a_n)_{n \geq 0} \in \ker ((E - \lambda I)^s) \liff a_n \text{ je oblike } a_n = P(n) \lambda^n$, kjer je $P(n)$ polinom stopnje kvečjemu $s-1$.
 \end{izrek}
@@ -572,10 +586,89 @@ Rešitev nehomogene enačbe
 $$c_da_{n+d} + c_{d-1}a_{n+d-1} + \ldots + c_1 a _{n+1} + c_0 a_n = f(n) \ \textcolor{red}{(*)}$$
 je oblike 
 $$z_n + b_n,$$
-kjer je $z_n$ splošna rešitev ustrezne homogene enačne in je $b_n$ neka partikularna rešitev enačbe \textcolor{red}{(*)}.
+kjer je $z_n$ splošna rešitev ustrezne homogene enačbe in je $b_n$ neka partikularna rešitev enačbe \textcolor{red}{(*)}.
 
 Pri tem $b_n$ praviloma iščemo z ustreznim nastavkom, pri čemer upoštevamo, da če je $f(n)$ aditivna, torej $$f(n)~=~f_1(n)~+~\ldots~+~f_t(n),$$ potem $b_n$ lahko dobimo kot vsoto partikularnih rešitev od $$c_da_{n+d} + c_{d-1}a_{n+d-1} + \ldots + c_1 a _{n+1} + c_0 a_n = f_i(n).$$
 
 \begin{primer}
     Pri začetnih pogojah $a_0 = 0, \ a_1 = 1$, reši enačbo $a_n = 4a_{n-1} - 4a_{n-2} - 2n + 5 \cdot 3^n$.
 \end{primer}
+
+\subsection{Formalne potenčne vrste (Rodovne funkcije)}
+\begin{definicija}
+    Naj bo $a: \N \to \C$ zaporedje. Vrsta $\sum_{n \geq 0}a_n x^n$ je \df{formalna potenčna vrsta} zaporedja $a_n$.
+\end{definicija}
+
+\begin{definicija}
+    Naj bo $(a_n)_n, \, (b_n)_n \in \C^{\N_0}$.
+    \begin{itemize}
+        \item $\sum_{n \geq 0}a_n x^n + \sum_{n \geq 0}b_n x^n = \sum_{n \geq 0}(a_n + b_n) x^n$.
+        \item $\lambda \cdot \sum_{n \geq 0}a_n x^n = \sum_{n \geq 0}(\lambda a_n) x^n$.
+        \item $(\sum_{n \geq 0}a_n x^n) \cdot (\sum_{n \geq 0}b_n x^n) = \sum_{n \geq 0}c_n x^n$, kjer $c_n = \sum_{k=0}^{n}a_kb_{n-k}$.
+    \end{itemize}
+\end{definicija}
+
+\begin{opomba}
+    Formalne potenčne vrste tvorijo algebro.
+\end{opomba}
+
+\begin{definicija}
+    F.\ p.\ v.\ $A(x)$ je \df{obrnljiva}, če obstaja f.\ p.\ v.\ $B(x)$, da velja $A(x) \cdot B(x) = (1, 0, 0, \ldots)$.
+\end{definicija}
+
+\begin{trditev}
+    Formalna potenčna vrsta $A(x)$ je obrnljiva natanko tedaj, ko $a_0 \neq 0$
+\end{trditev}
+
+\begin{proof}
+    $(\lthen)$ Definicija množenja.
+
+    $(\Leftarrow)$ Induktivno konstruiramo členi f.\ p.\ v.\ $B(x)$.
+\end{proof}
+
+\begin{definicija}
+    Če je $(a_n)_n$ zaporedje, ki je rešitev nekega kombinatoričnega problema, potem $\sum_{n \geq 0}a_n x^n$ pravimo \df{rodovna funkcija}. Pišemo: $G(x) = \sum_{n \geq 0}a_n x^n$.
+\end{definicija}
+
+\begin{primer}
+    Določi rodovno funkcijio Fibonaccijeva zaporedja.
+\end{primer}
+
+\begin{definicija}
+    Naj bo $A(x) = \sum_{n \geq 0}a_n x^n$ f.\ p.\ v. \df{Odvod} f.\ p.\ v.\ je $A'(x) =  \sum_{n \geq 1}na_n x^{n-1} =  \sum_{n \geq 0}(n+1)a_n x^n$.
+\end{definicija}
+
+\begin{trditev}
+    $(A(x) \cdot B(x))' = A'(x)B(x) + A(x)B'(x)$.
+\end{trditev}
+
+\begin{proof}
+    Račun.
+\end{proof}
+
+\subsubsection*{Reševanje rekurzij z rodovnimi funkcijami}
+\begin{primer}
+    Naj bo $a_0 = 2, a_1 = 3, a_n = 2a_{n-1}-a_{n-2}, n \geq 2$. Določi splošno formulo za $a_n$.
+\end{primer}
+\paragraph{Koraki splošnega reševanja nekega kombinatoričnega problema}
+\begin{enumerate}
+    \item Rešitev problema zapišemo z rekurzivno enačbo.
+    \item Zapišemo rodovno funkcijio zaporedja z pomočjo rekurzivne zveze.
+    \item Z algebro nad rodovnimi funkcijami, rodovno funkcijo razvijemo v vrsto.
+    \item Iz razvoja preberemo rešitev našega začetnega problema.
+\end{enumerate}
+
+\subsection{Catalanova števila}
+Imejmo produkt $n$ števil $x_1x_2 \ldots x_n$. Na koliko načinov lahko izračunamo ta produkt, če po vrsti zmnožimo dve zaporedni števili in jih nadomestimo s produktom?
+
+\begin{definicija}
+    \df{Catalanovo število $C_n$} je število načinov, s katerimi lahko izračunamo produkt $x_1x_2 \ldots x_n$.
+\end{definicija}
+
+\begin{trditev}
+    $C_n = \frac{1}{n+1} \binom{2n}{n}$.
+\end{trditev}
+
+\begin{proof}
+    Rodovne funkcije.
+\end{proof}
