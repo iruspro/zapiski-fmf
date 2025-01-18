@@ -292,11 +292,11 @@ Permutacija multimnožice $M = (S, \mu)$ moči $n$ je zaporedje $(x_1, \ldots, x
 
 \subsection{Razčlenitve naravnega števila}
 \begin{definicija}
-    \emph{Razčlenitev naravnega števila $n$} je zaporedoje pozitivnih naravnih števil $\lambda = (\lambda_1, \ldots, \lambda_l)$, kjer je $\lambda_1 \geq \ldots \lambda_l$ in $\lambda_1 + \ldots + \lambda_l = n$. \emph{Dolžina} razčlenitve $\lambda$, $l(\lambda)$ je število elemetnov zaporedja, številu $n$ pa rečemo \emph{velikost razčlenitve}. Števila $\lambda_1, \ldots, \lambda_l$ imenujemo \emph{členi razčlenitve}. Razčlenitvam rečemo tudi \emph{particije}.
+    \emph{Razčlenitev $n \in \N$} je zaporedje pozitivnih naravnih števil $\lambda = (\lambda_1, \ldots, \lambda_l)$, kjer je $\lambda_1 \geq \ldots \geq \lambda_l$ in $\lambda_1 + \ldots + \lambda_l = n$. \emph{Dolžina} razčlenitve $\lambda$, $l(\lambda)$ je število elementov zaporedja, številu $n$ pa rečemo \emph{velikost razčlenitve}. Števila $\lambda_1, \ldots, \lambda_l$ imenujemo \emph{členi razčlenitve}. Razčlenitvam rečemo tudi \emph{particije}.
 \end{definicija}
 
 \begin{definicija}
-    Naj bo $\lambda = (\lambda_1, \ldots, \lambda_l)$ račlenitev naravnega števila $n$. \emph{Ferrersov diagram $\lambda$} je seznam vrstic oblike:
+    Naj bo $\lambda = (\lambda_1, \ldots, \lambda_l)$ razčlenitev naravnega števila $n$. \emph{Ferrersov diagram $\lambda$} je seznam vrstic oblike:
     \begin{align*}
         \text{1. vrsta: } &\underbrace{\circ \ \circ \ \circ \ \ldots \ \circ}_{\lambda_1 \text{ krožcev}} \\
         \text{2. vrsta: } &\underbrace{\circ \ \circ \ \ldots \ \circ}_{\lambda_2 \text{ krožcev}} \\
@@ -306,7 +306,7 @@ Permutacija multimnožice $M = (S, \mu)$ moči $n$ je zaporedje $(x_1, \ldots, x
 \end{definicija}
 
 \begin{definicija}
-    Naj bo $\lambda = (\lambda_1, \ldots, \lambda_l)$ račlenitev naravnega števila $n$. \emph{Konjugirana razčlenitev $\overline{\lambda}$} je razčlenitev, ki ima transponiran Ferrersov diagram.
+    Naj bo $\lambda = (\lambda_1, \ldots, \lambda_l)$ razčlenitev naravnega števila $n$. \emph{Konjugirana razčlenitev $\overline{\lambda}$} je razčlenitev, ki ima transponiran Ferrersov diagram.
 \end{definicija}
 
 Uvedemo oznake:
@@ -664,6 +664,10 @@ Imejmo produkt $n$ števil $x_1x_2 \ldots x_n$. Na koliko načinov lahko izraču
 \begin{definicija}
     \df{Catalanovo število $C_n$} je število načinov, s katerimi lahko izračunamo produkt $x_1x_2 \ldots x_n$.
 \end{definicija}
+
+\begin{opomba}
+    Velja rekurzivna zveza: $a_n = \sum_{k=0}^{n-1}a_ka_{n-k-1}$.
+\end{opomba}
 
 \begin{trditev}
     $C_n = \frac{1}{n+1} \binom{2n}{n}$.

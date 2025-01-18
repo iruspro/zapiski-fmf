@@ -1,21 +1,71 @@
+\section{Kombinatorika}
+\subsection{Formalne potenčne vrste (Rodovne funkcije)}
+\begin{definicija}
+    Naj bo $a: \N \to \C$ zaporedje. Vrsta $\sum_{n \geq 0}a_n x^n$ je \df{formalna potenčna vrsta} zaporedja $a_n$.
+\end{definicija}
+
+\begin{definicija}
+    Naj bo $(a_n)_n, \, (b_n)_n \in \C^{\N_0}$.
+    \begin{itemize}
+        \item $\sum_{n \geq 0}a_n x^n + \sum_{n \geq 0}b_n x^n = \sum_{n \geq 0}(a_n + b_n) x^n$.
+        \item $\lambda \cdot \sum_{n \geq 0}a_n x^n = \sum_{n \geq 0}(\lambda a_n) x^n$.
+        \item $(\sum_{n \geq 0}a_n x^n) \cdot (\sum_{n \geq 0}b_n x^n) = \sum_{n \geq 0}c_n x^n$, kjer $c_n = \sum_{k=0}^{n}a_kb_{n-k}$.
+    \end{itemize}
+\end{definicija}
+
+\begin{definicija}
+    F.\ p.\ v.\ $A(x)$ je \df{obrnljiva}, če obstaja f.\ p.\ v.\ $B(x)$, da velja $A(x) \cdot B(x) = (1, 0, 0, \ldots)$.
+\end{definicija}
+
+\begin{trditev}
+    Formalna potenčna vrsta $A(x)$ je obrnljiva natanko tedaj, ko $a_0 \neq 0$
+\end{trditev}
+
+\begin{definicija}
+    Če je $(a_n)_n$ zaporedje, ki je rešitev nekega kombinatoričnega problema, potem $\sum_{n \geq 0}a_n x^n$ pravimo \df{rodovna funkcija}. Pišemo: $G(x) = \sum_{n \geq 0}a_n x^n$.
+\end{definicija}
+
+\begin{definicija}
+    Naj bo $A(x) = \sum_{n \geq 0}a_n x^n$ f.\ p.\ v. \df{Odvod} f.\ p.\ v.\ je $A'(x) =  \sum_{n \geq 1}na_n x^{n-1} =  \sum_{n \geq 0}(n+1)a_n x^n$.
+\end{definicija}
+
+\begin{trditev}
+    $(A(x) \cdot B(x))' = A'(x)B(x) + A(x)B'(x)$.
+\end{trditev}
+
+\subsubsection*{Reševanje rekurzij z rodovnimi funkcijami}
+\paragraph{Koraki splošnega reševanja nekega kombinatoričnega problema}
+\begin{enumerate}
+    \item Rešitev problema zapišemo z rekurzivno enačbo.
+    \item Zapišemo rodovno funkcijio zaporedja z pomočjo rekurzivne zveze.
+    \item Z algebro nad rodovnimi funkcijami, rodovno funkcijo razvijemo v vrsto.
+    \item Iz razvoja preberemo rešitev našega začetnega problema.
+\end{enumerate}
+
+\subsection{Catalanova števila}
+Imejmo produkt $n$ števil $x_1x_2 \ldots x_n$. Na koliko načinov lahko izračunamo ta produkt, če po vrsti zmnožimo dve zaporedni števili in jih nadomestimo s produktom?
+
+\begin{definicija}
+    \df{Catalanovo število $C_n$} je število načinov, s katerimi lahko izračunamo produkt $x_1x_2 \ldots x_n$.
+\end{definicija}
+
+\begin{opomba}
+    Velja rekurzivna zveza: $a_n = \sum_{k=0}^{n-1}a_ka_{n-k-1}$.
+\end{opomba}
+
+\begin{trditev}
+    $C_n = \frac{1}{n+1} \binom{2n}{n}$.
+\end{trditev}
+
+\begin{proof}
+    $G(x) = \frac{1-\sqrt{1-4x}}{2}$, ker $G(0)= 0$.
+\end{proof}
+
 \section{Teorija grafov}
 \subsection{Osnovni pojmi}
 \begin{definicija}
     \df{Graf} G je urejen par $(V(G), E(G))$, kjer je $V(G)$ množica \df{vozlišč} grafa $G$ in $E(G)$ množica \df{povezav} grafa~$G$, kjer je $E(G) \subseteq \binom{V(G)}{2}$.
 \end{definicija}
-
-\begin{opomba}
-    Če ne povemo drugače, bo množica $V(G)$ končna.
-\end{opomba}
-
-\begin{opomba}
-    Naj bo $\set{u, v} \in E(G)$:
-    \begin{itemize}
-        \item Krajše pišemo $uv$.
-        \item Pravimo, da sta $u$ in $v$ \df{krajišči} povezave $e$ in, da sta $u$ in $v$ \df{sosedni} vozlišči.        
-        Pišemo: $u \sim v$ ali $u \sim_G v$.
-    \end{itemize}
-\end{opomba}
 
 \begin{definicija}
     Naj bo $G$ graf, $u \in V(G)$:
@@ -28,52 +78,6 @@
 \begin{definicija}
     Graf $G$ je \df{regularen}, če imajo vsa vozlišča isto stopnjo.
 \end{definicija}
-
-\begin{opomba}
-    Če je ta stopnja $r$, pravimo, da je $G$ $r$-regularen graf.
-\end{opomba}
-
-\begin{primer}
-    Petersenov graf $P$ je $3$-regularen graf:
-    \begin{tikzpicture}[scale=1, auto, node distance=2cm]
-
-        % Вершины внешнего цикла
-        \node[circle, draw, minimum size=4pt, inner sep=0pt] (A) at (90:1) {};
-        \node[circle, draw, minimum size=4pt, inner sep=0pt] (B) at (162:1) {};
-        \node[circle, draw, minimum size=4pt, inner sep=0pt] (C) at (234:1) {};
-        \node[circle, draw, minimum size=4pt, inner sep=0pt] (D) at (306:1) {};
-        \node[circle, draw, minimum size=4pt, inner sep=0pt] (E) at (18:1) {};
-        
-        % Вершины внутреннего звёздного графа
-        \node[circle, draw, minimum size=4pt, inner sep=0pt] (A1) at (90:0.5) {};
-        \node[circle, draw, minimum size=4pt, inner sep=0pt] (B1) at (162:0.5) {};
-        \node[circle, draw, minimum size=4pt, inner sep=0pt] (C1) at (234:0.5) {};
-        \node[circle, draw, minimum size=4pt, inner sep=0pt] (D1) at (306:0.5) {};
-        \node[circle, draw, minimum size=4pt, inner sep=0pt] (E1) at (18:0.5) {};
-        
-        % Рёбра внешнего цикла
-        \draw (A) -- (B);
-        \draw (B) -- (C);
-        \draw (C) -- (D);
-        \draw (D) -- (E);
-        \draw (E) -- (A);
-        
-        % Рёбра внутреннего цикла (звезды)
-        \draw (A1) -- (C1);
-        \draw (C1) -- (E1);
-        \draw (E1) -- (B1);
-        \draw (B1) -- (D1);
-        \draw (D1) -- (A1);
-        
-        % Соединения внешнего и внутреннего циклов
-        \draw (A) -- (A1);
-        \draw (B) -- (B1);
-        \draw (C) -- (C1);
-        \draw (D) -- (D1);
-        \draw (E) -- (E1);
-    
-    \end{tikzpicture}
-\end{primer}
 
 \begin{primer}
     Grafe lahko predstavimo tudi z matrikami. Možnosti:
@@ -90,7 +94,7 @@
 \end{primer}
 
 \subsection{Lema o rokovanju}
-\begin{lema}[o rokovanju]
+\begin{lema}[Lema o rokovanju]
     Naj bo $G$ graf. Velja: $$\sum_{u \in V(G)} \deg_G(u) = 2 \cdot |E(G)|.$$
 \end{lema}
 
@@ -102,10 +106,6 @@
     Število vozlišč lihe stopnje danega grafa je sodo.
 \end{posledica}
 
-\begin{proof}
-    Razbijemo vsoto na vozlišče sode in lihe stopnje.
-\end{proof}
-
 \subsection{Podgrafi}
 \begin{definicija}
     Naj bosta $G$ in $H$ grafa. Če velja $V(H) \subseteq V(G)$ in $E(H) \subseteq E(G)$, tedaj rečemo, da je $H$ \df{podgraf} grafa~$G$, in pišemo $H \leq G$. Pri tem:
@@ -115,10 +115,7 @@
     \end{itemize}
 \end{definicija}
 
-\newpage
 \subsection{Nekatere družine grafov}
-\paragraph{Polni grafi.} Naj bo $V$ poljubna neprazna množica. Tedaj grafu z množico vozlišč $V$ in množico povezav $\binom{V}{2}$ vseh neurejenih parov elementov iz $V$ rečemo \df{polni graf} z množico vozlišč $V$. Oznaka: $K_V$ ali $K_n$, če $V = [n]$.
-
 \paragraph{Poti.} Grafu z množico vozlišč $\Z_n$ in množico povezav $E(P_n) = \setb{i(i+1)}{i \in \set{0,1, \ldots, n-2}}$ rečemo \df{pot dolžine~$n$}. Oznaka: $P_n$.
 
 \paragraph{Cikli.} Za $n \in \N, n \geq 3$, s $C_n$ označimo graf z množico vozlišč $\Z_n$ in množico povezav $E(C_n) = \setb{i(i+1)}{i \in \Z_n}$. Grafu $C_n$ rečemo \df{cikel dolžine $n$}.
@@ -197,11 +194,6 @@ Označimo z $\Omega(G)$ število komponent grafa $G$.
     Naj bo $G$ povezan graf. Potem $(V(G), d_G)$ je metrični prostor.
 \end{trditev}
 
-\begin{proof}
-    Preverimo lastnosti.
-\end{proof}
-
-\newpage
 \begin{definicija}
     Naj bo $G$ povezan graf. \df{Ekscentričnost $\ecc_G(u)$} vozlišča $u$ je $\max_{v \in V(G)} d_g(u,v)$.
 \end{definicija}
@@ -221,23 +213,6 @@ Označimo z $\Omega(G)$ število komponent grafa $G$.
         \item $\diam(P_n) = n-1, \ \rad(P_n) = \lfloor \frac{n}{2} \rfloor$.
     \end{itemize} 
 \end{primer}
-
-\subsection{Inačice koncepta "`graf"'}
-\paragraph{Enostavni grafi.} Lahko dopuščamo \df{vzporedne povezave}, tj. množica povezav lahko multimnožica, in \df{zanke}, tj. povezave iz vozlišča vase.
-\begin{definicija}
-    Graf je \df{enostaven}, če nima vzporednih povezav in zank.
-\end{definicija}
-
-\paragraph{Uteženi grafi, omrežja.} Lahko definiramo:
-\begin{itemize}
-    \item $G = (V(G), E(G), w)$, kjer je $w: V(G) \to \R$ je \df{uteženi} graf.
-    \item $G = (V(G), E(G), l)$, kjer je $l: E(G) \to \R$ je \df{omrežje}.
-    \item $G = (V(G), E(G), w, l)$, je \df{uteženo omrežje}. 
-\end{itemize}
-
-\paragraph{Usmerjeni grafi.} Množica povezav $E(G)$ grafa $G$ lahko podmnožica $V(G) \times V(G)$, tj. povezave so urejeni pari.
-
-\paragraph{Hipergrafi.} Elementi $E(G)$ so lahko množice poljubne kardinalnosti.
 
 \subsection{Dvodelnost}
 \begin{definicija}
@@ -304,14 +279,6 @@ Označimo z $\Omega(G)$ število komponent grafa $G$.
 \end{definicija}
 
 \begin{opomba}
-    Izomorfnost je ekvivalenčna relacija.
-\end{opomba}
-
-\begin{primer}
-    Dokaži, da $Q_3 \cong K_{4,4}$
-\end{primer}
-
-\begin{opomba}
     Izomorfnost je algoritmično zahtevna naloga. Če za dva grafa domnevamo, da sta izomorfna, potem to dokažemo tako, da med njima poiščemo izomorfizem. Če za dva grafa domnevamo, da nista izomorfna, tedaj to najlažje dokažemo tako, da poiščemo neko številsko karakteristiko grafov, v kateri se razlikujeta, pri izomorfizmu pa se ohranja: število vozlišč, število povezav, ožina, število podgrafov izbrane vrste (trikotniki, cikli dolžine 4), urejeno zaporedje snopenj vozlišč. Lahko si pomagamo z lastnosti grafov: povezanost, dvodelnost.
 \end{opomba}
 
@@ -340,10 +307,6 @@ Definiramo $\Aut (G) = \setb{\varphi}{\varphi \text{ je avtomorfizem grafa } G}$
 \begin{trditev}
     Če graf $G$ ni povezan, potem je $\diam(\overline{G}) \leq 2$.
 \end{trditev}
-
-\begin{proof}
-    Enostavno.
-\end{proof}
 
 \begin{posledica}
     Za poljuben graf $G$ je vsaj eden od grafov $G$ in $\overline{G}$ povezan.
@@ -377,7 +340,6 @@ Naj bo $e \in E(G)$. Z $G/e$ označimo graf, ki ga dobimo iz grafa $G$ tako, da 
     Graf $H$ je minor grafa $G$ natanko tedaj, ko $H$ lahko dobimo z zaporedjem operacij: odstranevanje vozlišča, odstranevanje povezave, skčitev povezave v poljubnem vrstem redu.
 \end{opomba}
 
-\newpage
 \subsubsection*{Subdivizije povezav in glajenje vozlišč}
 \begin{definicija}
     \df{Subdivizija} povezave $e \in E(G)$ je zamenjava povezave s potjo dolžine $2$. Oznaka: $G^+(e)$.
@@ -415,17 +377,13 @@ Naj bo $e \in E(G)$. Z $G/e$ označimo graf, ki ga dobimo iz grafa $G$ tako, da 
     \end{itemize}
 \end{trditev}
 
-\begin{proof}
-    Poiščemo ustrezni izomorfizmi.
-\end{proof}
-
 Lastnost asociativnosti nam omogoča, da definiramo pojem \df{kartezične potence grafa}. Za graf $G$ in $n \in \N$ naj bo $$G^{\square n} = \underbrace{G \square G \square \ldots \square G}_\text{$n$ kopij}.$$
 
 \begin{primer}
     $K_2^{\square n} = Q_n$.
 \end{primer}
 
-\subsection{Prerezna vozlišč in $k$-povezanost}
+\subsection{Prerezna vozlišča in $k$-povezanost}
 \begin{definicija}
     Naj bo $G$ graf.
     \begin{itemize}
@@ -467,7 +425,6 @@ Lastnost asociativnosti nam omogoča, da definiramo pojem \df{kartezične potenc
     $(\lthen)$ Naj bo $u,v \in V(G)$. Obstoj dokažimo z indukcijo po $d_G(u,v)$.
 \end{proof}
 
-\newpage
 \subsection{Drevesa}
 \begin{definicija}
     \df{Gozd} je graf brez ciklov. \df{Drevo} je povezan gozd. \df{List} je vozlišče stopnje $1$.
@@ -501,10 +458,6 @@ Lastnost asociativnosti nam omogoča, da definiramo pojem \df{kartezične potenc
     Naj bo $G$ povezan graf, potem je $|E(G)| \geq |V(G)| -1$.
 \end{lema}
 
-\begin{proof}
-    Lema 2 + Lema 3.
-\end{proof}
-
 \begin{opomba}
     Drevesa so povezani grafi z najmanjšim številom povezav.
 \end{opomba}
@@ -519,16 +472,6 @@ Lastnost asociativnosti nam omogoča, da definiramo pojem \df{kartezične potenc
     \end{enumerate}
 \end{izrek}
 
-\begin{proof}
-    $(1. \lthen 2.)$ Kontropozicija.
-
-    $(2. \lthen 3.)$ Kontropozicija.
-
-    $(3. \lthen 4.)$ Indukcija na $|V(G)|$.
-
-    $(4. \lthen 1.)$ Lema 4 in Lema 3.
-\end{proof}
-
 \subsection{Vpeta drevesa}
 \begin{definicija}
     \df{Vpeto drevo} grafa je vpet podgraf, ki je drevo.
@@ -537,12 +480,6 @@ Lastnost asociativnosti nam omogoča, da definiramo pojem \df{kartezične potenc
 \begin{trditev}
     Graf je povezan natanko tedaj, ko vsebuje vpeto drevo.
 \end{trditev}
-
-\begin{proof}
-    $(\Leftarrow)$ Enostavno.
-
-    $(\lthen)$ Karakterizacija drevesa.
-\end{proof}
 
 Označimo z $\tau(G)$ število vpetih dreves grafa $G$.
 \begin{primer}
@@ -575,11 +512,6 @@ Označimo z $\tau(G)$ število vpetih dreves grafa $G$.
     $\tau(K_n) = n^{n-2}$
 \end{izrek}
 
-\begin{proof}
-    Determinanta.
-\end{proof}
-
-\newpage
 \subsection{Eulerjevi grafi}
 \begin{definicija}
     Sprehod v grafu je \df{Eulerjev}, če je enostaven in prehodi vse povezave. Sklenjen Eulerjev sprehod je \df{Eulerjev obhod}. Graf je \df{Eulerjev}, če premore Eulerjev obhod.
@@ -598,10 +530,6 @@ Označimo z $\tau(G)$ število vpetih dreves grafa $G$.
 \begin{izrek}
     Povezan graf premore Eulerjev sprehod natanko tedaj, ko ima kvečjemu dve vozlišči lihe stopnje.
 \end{izrek}
-
-\begin{proof}
-    Podobno kot prej.
-\end{proof}
 
 \paragraph{Fleuryjev algoritem} Kako poiščemo Eulerjev obhod v poljubnem Eulerjevem grafu?
 
@@ -669,7 +597,6 @@ Označimo z $\tau(G)$ število vpetih dreves grafa $G$.
     Če je $G$ graf vložen v ravnino, potem je $$2 \cdot |E(G)| = \sum_{f \in F(G)} l(f).$$
 \end{trditev}
 
-\newpage
 \begin{definicija}
     Naj bo $G$ graf, ki premore cikle. Potem je njegova \df{ožina} $g(G)$ je dolžina najkrajšega cikla v $G$.
 \end{definicija}
@@ -698,7 +625,7 @@ Označimo z $\tau(G)$ število vpetih dreves grafa $G$.
 \end{posledica}
 
 \begin{trditev}
-    Naj bo $G$ povezan graf vložen v ravnino. Potem
+    Naj bo $G$ povezan graf vložen v ravnino in ima vsaj en cikel. Potem
     $$|E(G)| \leq \frac{g(G)}{g(G)-2}(|V(G)| - 2)$$
 \end{trditev}
 
@@ -711,18 +638,22 @@ Označimo z $\tau(G)$ število vpetih dreves grafa $G$.
 \end{opomba}
 
 \begin{posledica}
-    Naj bo $G$ povezan graf vložen v ravnino. Potem $$|E(G)| \leq 3|V(G)| - 6.$$
+    Naj bo $G$ povezan graf vložen v ravnino in ima vsaj en cikel. Potem $$|E(G)| \leq 3|V(G)| - 6.$$
 \end{posledica}
 
 \begin{posledica}
-     Naj bo $G$ povezan graf vložen v ravnino, ki nima trikotnikov. Potem $$|E(G)| \leq 2|V(G)| - 4.$$
+     Naj bo $G$ povezan graf vložen v ravnino, ki nima trikotnikov in ima vsaj en cikel. Potem $$|E(G)| \leq 2|V(G)| - 4.$$
 \end{posledica}
+
+\begin{opomba}
+    1.\ in 2.\ posledica veljata tudi za drevesi z vsaj 3 vozlišči.
+\end{opomba}
 
 \begin{primer}
     Ni ravninski grafi:
     \begin{itemize}
-        \item $K_5$ ni ravninski (ima preveč povezav po 1. posledici).
-        \item $K_{3,3}$ ni ravninski (ima preveč povezav po 2. posledici).
+        \item $K_5$ ni ravninski (ima preveč povezav po 1.\ posledici).
+        \item $K_{3,3}$ ni ravninski (ima preveč povezav po 2.\ posledici).
     \end{itemize}
 \end{primer}
 

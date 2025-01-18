@@ -10,35 +10,29 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
-
-\usepackage{tikz}
-% \usetikzlibrary{graphs,graphdrawing}
-
+\usepackage{xypic}
 \usepackage{enumitem}
 \setlist{nosep}
-\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}
 
 \setlength{\parindent}{0mm}
+
+\usepackage{soul}
+\setulcolor{red}
 
 \usepackage{geometry}
 \geometry{
     a4paper,
     left=5mm,
-    right=5mm,
-    top=5mm,
+    right=10mm,
+    top=10mm,
     bottom=15mm
 }
 
 \input{../../macros.tex}
 
+
 \begin{document}
 
-\title{Diskretna matematika 1}
-\maketitle
-
-\input{kombinatorika.tex}
-
-\newpage
-\input{grafi.tex}
+\input{dm.tex}
 
 \end{document}
