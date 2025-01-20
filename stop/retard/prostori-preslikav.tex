@@ -1,0 +1,100 @@
+\section{Prostori preslikav}
+Velik del matematične analize se ukvarja s funkcijskimi zaporedji in vrstami. Pri tem je vedno eno izmen ključnih vprašanj, kdaj in kje dano zaporedje ali vrsta konvergira. Kadar se ukvarjamo z zveznimi funkcijami, nas večinoma zanimata dva tipa konvergence: konvergenca po točkah in enakomerna konvergenca.
+
+\begin{primer}
+    Razvoj logaritemske funkcije. \textcolor{red}{TODO}
+
+    Smiselno se je omejeti na zaprt interval in se vprašati, katere funkcije dobimo kot enakomerne limite polinomov.
+\end{primer}
+
+\subsection{Topologije na prostorih preslikav}
+Če želimo govoriti o konvergenci zaporedij preslikav med prostoroma $X$ in $Y$, moramo najprej množico vseh preslikav \(C(X, Y)\) opremiti s primerno topologijo. Opisali bomo konstrukcijo, ki na enovit način posploši oba najpomembnejša primera, točkasto in enakomerno konvergenco. Za \(A \subseteq X\) in \(U \subseteq Y\) označimo z $\left\langle A, U\right\rangle$ množico vseh preslikav, ki slikajo $A$ v $U$, tj. 
+$$\left\langle A, U \right\rangle = \setb{f \in C(X,Y)}{\img{f}(A) \subseteq U}.$$
+Naj bo $\T$ topologija na $C(X, Y)$, ki jo kot predbaza generira družina \(\mathcal{P} = \setb{\left\langle \set{x}, U \right\rangle}{x \in X, \, U \text{ odprta v } Y}.\) Tipična bazična okolica v tej topologiji je presel $\left\langle x_1, U_1 \right\rangle \cap \ldots \cap \left\langle x_n, U_n \right\rangle$, ki si ga lahko predstavljamo kot družino vseh funkcij, ki gredo po točkah $x_1, \ldots, x_n$ skozi predpisane prehode $U_1, \ldots, U_n$.
+
+\begin{trditev}
+    Naj bo \((f_n)\) zaporedje preslikav v \(C(X, Y)\). Funkcije \(f_n\) konvergirajo po točkah proti neki funkciji $f$ natanko takrat, ko zaporedje \((f_n)\) konvergira proti $f$ v topologiji $\T$. Zaradi tega \(\T\) imenujemo \df{topologija konvergnce po točkah}.
+\end{trditev}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+Opazimo, da pri definiciji topologije \(\T\) nismo uporabili topologije prostora $X$, zato ne preseneča, da je ta topologija precej pomankljiva, ko prostor $X$ ni diskreten. Tako na primer vemo, da funkcija, ki je limita po točkah zaporedje zveznih funkcij, v splošnem ni zvezna. Te pomankljivosti odpravimo s predbazo, ki upošteva tudi topologijo $X$ in je naravna posplošitev enakomerne konvergence.
+
+\begin{definicija}
+    \df{Kompaktno-odprta topologija} na $C(X,Y)$ je topologija, ki jo generira predbaza \[\mathcal{P'} = \setb{\left\langle K, U \right\rangle}{K \text{ kompakten v } X, \, U \text{ odprta v } Y}.\]
+    Prostor zveznih funkcij, opremljen s to topologijo, označimo $\widehat{C}(X,Y)$. 
+\end{definicija}
+
+Bazo kompaktno-odprte topologije tvorijo preseki predbazičnih množic. Delo s temi preseli je včasih precej nepregledno, zato pri preslikavah v metrični prostor $Y$ raje kompaktno-odprto topologijo podamo z bazo, ki je posplošitev baze iz krogel v metričnih prostorih. Denimo torej, da je $(Y, d)$ metrični prostor, ter za izbrano preslikavo $f: X \to Y$, kompakt \(K \subseteq X\) in $\epsilon > 0$ vpeljimo  
+$$\left\langle f, K, \epsilon \right\rangle = \setb{g \in C(X, Y)}{d(f(x), g(x)) < \epsilon \text{ za vse } x \in K}.$$
+
+\begin{trditev}
+    Naj bo $Y$ metrični prostor. Družina $\mathcal{B} = \setb{\left\langle f, K, \epsilon \right\rangle}{f \in C(X, Y), K \text{ kompakt v } X, \epsilon>0}$ je baza kompaktno-odprte topologije na $C(X, Y)$.
+\end{trditev}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+\begin{opomba}
+    \(\mathcal{B}\) generira kompaktno-odprto topologijo. \textcolor{red}{TODO}
+\end{opomba}
+
+Če je $K \subseteq K'$ ali $\epsilon > \epsilon'$, je $\left\langle f, K', \epsilon' \right\rangle \subseteq \left\langle f, K, \epsilon \right\rangle$, zato po potrebi lahko za bazo kompaktno-odprte topologije vzamemo le množice \(\left\langle f, K, \epsilon \right\rangle\) za velike kompakte $K$ ali majhne $\epsilon$. Posebej če je $X$ kompakten, se lahko omejimo na množice \(\left\langle f, X, \epsilon \right\rangle\), kar so ravno $\epsilon$ krogle v supremum metriki. Vidimo torej, da se za kompakten $X$ in metričen $Y$ kompaktno-odprta topologija ujema s topologijo enakomerne konvergence. Če pa $X$ ni kompakten, je glede na to topologijo konvergenca enakomerna le, kadar se omejimo na kompaktne podmnožice (tako kot pri Taylorjevih vrstah), zato ji pravimo tudi \df{topologija enakomerne konvergence na kompaktih}.
+
+Kodomeno $Y$ vedno lahko gledamo kot podprostor v $\widehat{C}(X,Y)$.
+\begin{trditev}
+    Preslikava $c: Y \to \widehat{C}(X,Y)$, ki vsakemu $y \in Y$ priredi konstantno preslikavo $c_y$, ki vse točke $X$ preslika v $y$, je vložitev. Če je prostor $Y$ Hausdorffov, je vložitev zaprta.
+\end{trditev}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+\begin{trditev}
+    Prostor $\widehat{C}(X,Y)$ je Hausdorffov natanko tedaj, ko je $Y$ Hausdorffov, in regularen natanko tedaj, ko je $Y$ regularen.
+\end{trditev}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+\begin{primer}
+    $X$ je diskreten. \textcolor{red}{TODO}
+\end{primer}
+
+\subsection{Preslikave na normalnih prostorih}
+Matematična analiza sloni na pojmu zvezne realne funkcije, ki je običajno definirana na kaki podmnožici evklidskega prostora. Kakor hitro pa obravnavamo splošnejše domene, se zastavi vprašanje, ali sploh obstajajo kakšne zvezne realne funkcije (razen konstantnih).
+\begin{primer}
+    Naj bo $X$ neskončna množica, opremljena s topologijo končnih komplementov. Potem poljubna preslikava $f:  X \to \R$ konstanta.
+\end{primer}
+Obstajajo primeri Hausdorffovih in celo regularnih prostorov, na katerih so edine realne preslikave konstante. Zakaj potem na evklidskih prostorih obstaja tako veliko zveznih preslikav? Morda je to metrika: v metričnem prostoru $(X,d)$ je za poljuben $x \in X$ funkcija $d(x,-_): X \to \R, \ x' \mapsto d(x, x')$ zvezna in nekonstantna. Še več, vrednosti funkcije lahko delno definiramo vnaprej: za poljubna $A, B \subseteq X$ postavimo $f(x) := \frac{d(x, A)}{d(x, A) + d(x, B)}$. Funkcija $f$ je definirana in zvezna, če je le imenovalec neničeln, to je takrat, ko $x$ ni hkrati v zaprtju $A$ in v zaprtju $B$. Če je $\overline{A} \cap \overline{B} = \emptyset$, potem zgornja formula definira preslikavo $f: X \to [0,1]$, ki ima vrednost $0$ na množici $A$ in vrednost $1$ na množici $B$. Lahko rečemo, da smo s preslikavo $f$ ločili $A$ in $B$.
+
+\begin{izrek}[Urisonova lema]
+    Hausdorffov prostor $X$ je normalen natanko takrat, ko za poljubni disjunktni neprazni zaprti podmnožici $A, B \subseteq X$ obstaja preslikava $f :(X, A, B) \to ([0,1], 0, 1)$.
+\end{izrek}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+Ko smo obravnavakki različne stopnje ločljivosti topologije, smo jih vseskozi imeli za približke ločljivosti metričnih prostorov, zata se je naravno vprašati, koliko topologiji normalnega prostora manjka do tega, da je v resnici porojena z neko metriko. Videli bomo, da mora biti normalen prostor, ki ni metrizabilen, v določenem smislu zelo velik. 
+
+\begin{izrek}[Urisonov metrizacijski izrek]
+    Vsak normalen, 2-števen prostor je metrizabilen.
+\end{izrek}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+\begin{posledica}
+    V $2$-števnih prostorih je metrizabilnost ekvivalentna regularnosti.
+\end{posledica}
+
+\begin{izrek}[Tietzejev razširitveni izrek]
+    najbo $A$ zaprt podprostor normalnega prostora $X$ in $J \subseteq \R$ poljuben interval. Tedaj vsako preslikavo $f: A \to J$ lahko razširimo do preslikave $F: X \to J$.
+\end{izrek}
+

@@ -224,3 +224,537 @@ Različne stopnje ločljivosti je mogoče sistematično predstaviti kot zaporedj
     \textcolor{red}{TODO}
 \end{proof}
 
+\subsection{Povezanost}
+Število ločenih kosov je ena najnazornejših lastnosti geometričnega objekta.
+
+\begin{primer}
+    \ 
+    \begin{itemize}
+        \item Graf funkcije $f(x) = \frac{1}{x}$ ima dva dela. Komplement tega grafa v $\R^2$ pa razpade na tri dele.
+        \item Če je $K$ enostavno sklenjena krivulja v ravnini, potem Jordanov izrek pravi, da razpade $\R^2-K$ na dva dela. Če je pa $K$ enostavna, nesklenjena krivulja, potem ima $\R^2-K$ le en del.
+        \item Lakes of Wada (\textcolor{red}{TODO})
+    \end{itemize}
+\end{primer}
+
+\begin{definicija}
+    \df{Razcep} prostora $X$ je zapis $X$ kot disjunktne unije dveh nepraznih odprtih množic. Če prostor dopušča kakšen razcep, pravimo, da je \df{nepovezan}, v nasprotnem primeru pa pravimo, da je \df{povezan}.
+\end{definicija}
+
+\begin{trditev}
+    Naslednje trditve so ekvivalentne:
+    \begin{enumerate}
+        \item Prostor $X$ je nepovezan.
+        \item Prostor $X$ je disjunktna unija dveh nepraznih zaprtih podmnožic.
+        \item Obstaja prava, neprazna, odprto-zaprta podmnožica $A \subseteq X$.
+        \item Obstaja surjektivna preslikava $f: X \to \set{0,1}^\text{disk}$. 
+    \end{enumerate}
+\end{trditev}
+
+\begin{proof}
+    Definicija nepovezanosti. Odprto pokritje.
+\end{proof}
+
+\begin{izrek}
+    Naj bo $X \subseteq \R$. Velja: $$X \text{ je povezan} \liff X \text{ je interval}.$$
+\end{izrek}
+
+\begin{proof}
+    Naj bo $I \subseteq \R$. $I$ je interval natanko takrat, ko $\all{x,y \in I} \all{z \in \R}x \leq z \leq y \lthen z \in I$.
+\end{proof}
+
+\begin{izrek}
+    Zvezna slika povezanega prostora je povezan prostor.
+\end{izrek}
+
+\begin{proof}
+    S protislovjem.
+\end{proof}
+
+\begin{opomba}
+    Povezanost je topološka lastnost.
+\end{opomba}
+
+\begin{izrek}[Izrek o vmesni vrednosti]
+    Naj bo $X$ povezan prostor. Če je funkcija $X \to \R$ zvezna, potem $\img{f}(X)$ je interval.
+\end{izrek}
+
+\begin{posledica}
+    Naj bo $X$ povezan prostor. Če je funkcija $X \to \R$ zvezna in zaloga vrednosti $f$ vsebuje pozitivne in negativne vrednosti, potem $f$ ima ničlo.
+\end{posledica}
+
+\begin{izrek}
+    Naj bo $X$ prostor. Zadostni pogoji za povezanost:
+    \begin{itemize}
+        \item Naj bo $\set{A_\lambda}_{\lambda \in \Lambda}$ družina povezanih podmnožic $X$ in $\bigcap A_\lambda \neq \emptyset$. Potem $\bigcup A_\lambda$ je povezan.
+        \item Topološki produkt povezanih prostorov je povezan.
+        \item Če za poljubna $a,b \in X$ obstaja pot od $a$ do $b$, kjer \df{pot v $X$} je preslikava $\gamma: [0,1] \to X, \gamma(0) = a, \gamma(1) = b$, potem $X$ je povezan.
+        \item Naj bo $A \subseteq X$ povezan. Če za $B \subseteq X$ velja, da $A \subseteq B \subseteq \overline{A}$, potem $B$ je povezan.
+    \end{itemize}
+\end{izrek}
+
+\begin{proof}
+    Definicija in karakterizacija nepovezanosti.
+\end{proof}
+
+\begin{primer}
+    \ 
+    \begin{itemize}
+        \item Vsaka konveksna podmnožica v $\R^n$ je povezana. Tudi vsaka zvezdasta podmožica v $\R^n$ je povezana.
+        \item Komplement končne množice v $\R^n, \ n \geq 2$ je povezan.
+        \begin{posledica}
+            Premica $\R$ ni homeomorfna prostoru $\R^n$ za $n \geq 2$.
+        \end{posledica}
+        \item Komplement števne množice v $\R^n, \ n \geq 2$ je povezan.
+    \end{itemize}
+\end{primer}
+
+\begin{primer}[Varšavski lok]
+    Naj bo $L \subseteq \R^2$ graf funkcije $f(x) = \sin \frac{\pi}{x}$ za $x \in [-1,0)$. Prostor $L$ je povezan, saj je homeomorfen intervalu $[-1,0)$. Njegovo zaprtje v ravnini je $\overline{L} = L \cup (\set{0} \times [-1,1])$. Po izreku je prostor $\overline{L}$ povezan, vendar iz točke $(-1,0)$ ne moremo zvezno priti do točke $(0,0)$. Prostor $\overline{L}$ imenujemo \df{varšavski lok}.
+\end{primer}
+
+\begin{definicija}
+    Prostor $X$ je \df{povezan s potmi}, če med poljubnima $a, b \in X$ obstaja pot v $X$ od $a$ do $b$.
+\end{definicija}
+
+Lastnosti povezanosti s potmi so podobne lastnostim povezanosti:
+\begin{itemize}
+    \item Povezanost s potmi je topološka lastnost.
+    \item Zvezna slika povezanega s potmi prostora je povezana s potmi.
+    \item Prostor, ki je povezan s potmi, je povezan.
+    \item Če je $\set{A_\lambda}_{\lambda \in \Lambda}$ družina povezanih s potmi podmnožic $X$ in $\bigcap A_\lambda \neq \emptyset$. Potem $\bigcup A_\lambda$ je povezan s potmi.
+    \item Zaprtje s potmi povezanega prostora v splošnem \textbf{ni} povezano s potmi.
+\end{itemize}
+
+\newpage
+\subsubsection{Komponente}
+Zdaj, ko smo razčistili, kateri prostori so povezani, se lotimo vprašanja, kaj so "`kosi"', na katere razpade nepovezan prostor.
+
+\begin{definicija}
+    \df{Komponenta} $C(x)$ točke $x \in X$ je unija vseh povezanih podmnožic $X$, ki vsebujejo $x$.
+\end{definicija}
+\begin{opomba}
+    \ 
+    \begin{itemize}
+        \item $x \in C(x)$.
+        \item $C(x)$ je povezana.
+        \item $C(x)$ je maksimalna povezana podmnožica v $X$ izmed vseh povezanih podmnožic $X$, ki vsebujejo $x$.
+        \item $C(x)$ je zaprta v $X$ (zaprtje je povezano).
+        \item $\all{x, y \in X} C(x) \cap C(y) = \emptyset \lor C(x) = C(y)$.
+    \end{itemize}
+\end{opomba}
+
+\begin{izrek}
+    Komponente prostora $X$ so maksimalne povezane podmnožice v $X$ in določajo particijo $X$ na disjunktne zaprte podmnožice. Za poljubno preslikava $f: X \to Y$ leži slika vsake komponente $X$ v celoti v neki komponenti $Y$.
+\end{izrek}
+
+\begin{proof}
+    Definicija komponente.
+\end{proof}
+
+\begin{primer}
+    \ 
+    \begin{itemize}
+        \item Povezan prostor ima eno samo komponento.
+        \item V diskretnem prostoru so komponente točke. Če so vse komponente nekega prostora točke, pravimo, da je prostor \df{popolnoma nepovezan}.
+        \item Komponente $\Q$ so točke, ker so edine povezane podmnožice v $\R$ intervali. To je primer prostora, katerega komponente so zaprte, niso pa odprte.
+    \end{itemize}
+\end{primer}
+
+\begin{opomba}
+    Lahko definiramo ekvivalenčno relacijo na množici $X$:
+    $$x \sim x' \liff \some{A^{\text{pov}} \subseteq X}x,x' \in A.$$
+    Potem komponente so ekvivalenčne razredi za to relacijo.
+\end{opomba}
+
+Videli smo, da so komponente prostora zaprte, niso pa vedno odprte podmnožice. Vsaka komponenta je komplement unije vseh ostalih komponent. Če ima prostor le končno mnogo komponent, je vsaka komponenta komplement končne unije zaprtih množic, torej je odprta. Če ima neka točka kako povezano okolico, potem je gotovo notranja točka svoje komponente. Torej, če ima vsaka točka $X$ kako povezano okolico, potem so vse komponente $X$ odprte. Velja tudi obratno, če so komponente odprte, potem ima vsaka točka vsaj eno povezano okolico, namreč komponento $X$, v kateri je vsebovana. Obravnavanje povezanih okolic nas pripelje do lokalne verzije povezanosti.
+
+\begin{definicija}
+    Prostor $X$ je \df{lokalno povezan}, če ima bazo iz povezanih množic.
+\end{definicija}
+
+\begin{primer}
+    \ 
+    \begin{itemize}
+        \item Prostor $\R^n$ je lokalno povezan, saj ima bazo iz krogel, ki so povezane. Še več, vsaka odprta podmnožica v $\R^n$ je lokalno povezana.
+        \item Vsak diskretni prostor je lokalno povezan, čeprav ni povezan.
+        \item Varšavski lok je povezan prostor, ki ni lokalno povezan, ker majhne okolice točke $(0,0)$ niso povezane.
+    \end{itemize}
+\end{primer}
+
+\begin{trditev}
+    Prostor $X$ je lokalno povezan natanko takrat, ko so komponente vsake odprt podmnožice $X$ odprte. Posebej so komponente vsakega lokalno povezanega prostora odprte.
+\end{trditev}
+
+\begin{proof}
+    Definicija baze in komponent.
+\end{proof}
+
+Pri katerih pogojih se povezanost s potmi ujema s povezanostjo? Izkaže se, da moramo primerjati komponente za povezanost s komponentami za povezanost s potmi. \df{Komponento za povezanosts potmi} točke $x \in X$ označimo z $\widetilde{C}(x)$ in definiramo kot unijo vseh povezanih s potmi podmnožic $X$, ki vsebujejo $x$.
+
+\begin{opomba}
+    \ 
+    \begin{itemize}
+        \item Potni komponente ravno maksimalne s potmi povezane podmnožice $X$.
+        \item Potni komponente razdelijo $X$ na disjunktne podmnožice.
+    \end{itemize}
+
+    V splošnem potni komponente niso zaprte: varšavski lok ima dve komponenti za povezanost s potmi od katerih je le ena zaprta. Za $X$ pravimo, da je \df{lokalno povezan s potmi}, če ima bazo iz s potmi povezanih množic.
+\end{opomba}
+
+\begin{izrek}
+    Če je prostor $X$ lokalno povezan s potmi, potem njegove komponente za povezanost sovpadajo s komponentami za povezanost s potmi.
+\end{izrek}
+
+\begin{proof}
+    Za poljuben $x \in X$ je komponenta za povezanost $\widetilde{C}(x)$ vsebovana v komponenti za povezanost $C(x)$, zato je dovolj, če dokaemo nasprotno vsebovanje.
+\end{proof}
+
+\newpage
+\begin{posledica}
+    Če je $X$ lokalno povezan s potmi, potem 
+    $$X \text{ je povezan} \liff X \text{ je povezan s potmi}.$$
+\end{posledica}
+
+\begin{posledica}
+    Odprte podmnožice v $\R^n$ so povezane natanko tadaj, ko so povezane s potmi.
+\end{posledica}
+
+\begin{opomba}
+    \
+    \begin{itemize}
+        \item Povezanost ni dedna.
+        \item Lokalna povezanost se deduje na odprte podprostore.
+    \end{itemize}
+\end{opomba}
+
+\subsection{Kompaktnost}
+Kompaktnost je v mnogih ozirih osrednja topološka lastnost. Posledica kompaktnosti so, na primer:
+\begin{itemize}
+    \item \textbf{Bolzano-Weierstrassov izrek}: Vsako omejeno zaporedje v $\R^n$ ima vsaj eno stekališče.
+    \item \textbf{Cantorjev izrek}: Presek padajočega zaporedja zaprtih intervalov $[a_1, b_1] \supseteq [a_2, b_2] \supseteq [a_3, b_3] \supseteq \ldots$ je neprazen. Če je še $\lim(b_i - a_i) = 0$, je v preseku natanko ena točka.
+    \item Zvezna funkcija iz zpartega intervala $[a,b]$ v $\R$ je 
+    \begin{enumerate}
+        \item omejena,
+        \item zavzame minimum in maksimum,
+        \item je enakomerno zvezna.
+    \end{enumerate}
+    \item Vsaka injektivna preslikava $f: [a,b] \to \R^n$ je vložitev.
+\end{itemize}
+
+Pokazali bomo, da vse te izreke lahko razširimo na kompaktne prostore.
+
+\begin{definicija}
+    Prostor $X$ je \df{kompakten}, če ima vsako odprto pokritje $X$ končno podpokritje.
+\end{definicija}
+
+\begin{opomba}
+    Bistveno za kompaktnost je, da iz še tako drobnega, neskončnega pokritja lahko izluščimo končno poddružino, ki je pokritje.
+\end{opomba}
+
+\begin{trditev}
+    Prostor $X$ je kompakten, če za vsako pokritje z množicami iz neke baze topologije obstaja končno podpokritje.
+\end{trditev}
+
+\begin{proof}
+    Definicija baze in kompaktnosti.
+\end{proof}
+
+\begin{opomba}
+    Naj bo $X$ prostor, $A \subseteq X$. Za dokaz kompaktnosti $A$ moramo (po definiciji) začeti z odprtim pokritjem $A$, npr. $\setb{U_\lambda \cap A}{U_\lambda^\text{odp} \subseteq X}$. Dovolj je dokazati, da za vsako pokritje $A$ z množicami, ki so odprte v $X$, obstaja končno podpokritje.
+\end{opomba}
+
+\begin{primer}
+    \
+    \begin{itemize}
+        \item Vsak končnen prostor je kompakten.
+        \item Naj bo $(x_n)$ konvergentno zaporedje v prostoru $X$ z limito $x = \lim x_n$. Tedaj je $A = \setb{x_n}{n \in \N} \cup \set{x}$ kompakten podprostor prostora $X$. 
+        \item \(\R\) ni kompakten prostor, saj je pokritje \(\setb{(-n, n)}{n \in \N}\) nima končnega podpokritja.
+        \item Kompaktnost je topološka lastnost, zato odprti interval ni kompakten, saj je homeomorfen $\R$. Tudi interval $[a,b)$ ni kompakten, saj je homeomorfen $[0, \infty)$.
+        \item Diskreten prostor je kompakten natanko tedaj, ko je končen.
+    \end{itemize}
+\end{primer}
+
+\begin{trditev}
+    Zaprti interval $[a,b]$ je kompakten podprostor $\R$.
+\end{trditev}
+
+\begin{proof}
+    Naj bo $\set{U_\lambda}$ odprto pokritje $[a,b]$ z intervali. Definiramo $$c := \sup \setb{x \in [a,b]}{[a,x] \text{lahko pokritjemo s končno mnogo } \set{U_\lambda}}.$$
+\end{proof}
+
+\begin{opomba}
+    Kompaktnost ni dedna, saj $[0,1]$ kompakten, vendar $[0,1)$ ni, obenem pa opazimo, da včasih dobimo kompakten prostor tako, da nekompaktnemu dodamo kakšno točko.
+\end{opomba}
+
+\begin{izrek}
+    V kompaktnem prostoru ima vsaka neskončna množica stekališče.
+\end{izrek}
+
+\begin{proof}
+    S protislovjem.
+\end{proof}
+
+Posebej, vsaka omejena neskončna podmnožica $A \subseteq \R$ leži na nekem zaprtem intervalu. Ker je le-ta kompakten, ima $A$ stekališče. Kaj pa lahko povemo o omejenih množicah neskončnih množicah v \(\R^n\)
+
+\newpage
+\begin{izrek}[Multiplikativnost kompaktnosti]
+    Če sta $X, Y$ kompaktna prostora, potem $X \times Y$ kompakten
+\end{izrek}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+Izrek z indukcijo razširimo na končne produkte.
+\begin{posledica}
+    Če so $X_1, \ldots, X_n$ kompaktni, potem $X_1 \times \ldots \times X_n$ kompakten.
+\end{posledica}
+
+\begin{opomba}
+    Posebej je poljuben produkt intervalov $[a_1, b_1] \times \ldots \times [a_n,b_n]$ kompakten prostor $\R^n$. Ker vsaka omejena podmnožica $\R^n$ leži v nekem produktu intervalov, dobimo kot posledico Bolzano-Weierstrassov izrek: vsaka neskončna omejena podmnožica v \(\R^n\) ina stekališče.
+\end{opomba}
+
+\begin{izrek}[Bolzano-Weierstrass]
+    Vsako omejeno zaporedje v $\R^n$ ima konvergentno podzaporedje.
+\end{izrek}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+\begin{opomba}
+    V metričnih prostorih obstoj stekališč v resnici karakterizira kompaktnost. Velja namreč, da je metrični prostor $X$ kompakten natanko tedaj, ko ima vsako zaporedje v $X$ vsaj eno stekališče.
+\end{opomba}
+
+\begin{trditev}
+    Kompaktna podmnožica metričnega prostora je omejena.
+\end{trditev}
+
+\begin{proof}
+    Pokritje s kroglami $K(x_0,n), \ n \in \N$.
+\end{proof}
+
+\begin{trditev}
+    Zaprt podprostor kompaktnega prostora je kompakten.
+\end{trditev}
+
+\begin{proof}
+    $\set{U_\lambda} \cup \set{A^c}$ je odprto pokritje $X$.
+\end{proof}
+
+\begin{trditev}
+    V Hausdorffovem prostoru topologija ostro loči kompakte od točk.
+\end{trditev}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+\begin{trditev}
+    Če je $X$ Hausdorffov in $K \subseteq X$ kompakten, potem je $K$ zaprt v $X$.
+\end{trditev}
+
+\begin{proof}
+    Hausdorffova topologija ostro loči kompakte od točk.
+\end{proof}
+
+Kompaktnost in Hausdorffova lastnost sta v zanimivem ravnovesju. Če je $X$ kompakten glede na topologijo \(\T\), potem je kompakten tudi glede na katerokoli topologijo, ki je šibkejša od \(\T\), saj je v taki manj odprtih pokritij, ki morajo imeti končna podpokritja. Obratno, če je neka topologija \(\T\) na \(X\) Hausdorffova, potem vsaka topologija, ki je od \(\T\) močnejša, kvečjemu bolje loči točke, torej je prav tako Hausdorffova. Kaj pa, če je $X$ glede na topologijo \(\T\) hkrati kompakten in Hausdorffov? Topologija, ki je strogo šibkejša od \(\T\), bi morala imeti več kompaktov in obenem manj kompaktov, saj manj odprtih množic pomeni tudi manj zaprtih množic. Ker je to nemogoče, sklepamo, da v od \(\T\) šibkejši topologiji $X$ ni Hausdorffov, in simetrično, v od \(\T\) močnejši topologiji $X$ ni kompakten.
+
+\begin{posledica}
+    Vsak kompakten Hausdorffov prostor je normalen.
+\end{posledica}
+
+\begin{proof}
+    Dovolj če pokažemo, da topologija ostro loči kompakte.
+\end{proof}
+
+Vrnimo se k našemu cilju, karakterizaciji kompaktnih podmnožic evklidskega prostora.
+\begin{izrek}[Heine-Borel-Lebesgue]
+    Podprostor v $\R^n$ je kompakten natanko tedaj, ko je zaprt in omejen.
+\end{izrek}
+
+\begin{proof}
+    \((\lthen)\) Omejenost kompakta + Hausdorff.
+
+    \((\Leftarrow)\) Omejena podmnožica vsebovana v produktu zaprtih intervalov + zaprtost.
+\end{proof}
+
+\begin{opomba}
+    Če je \(M\) metrični prostor, potem so zaprte krogle kompaktne natanko tedaj, ko velja Heine-Borelov izrek za ta prostor.
+\end{opomba}
+
+\begin{primer}
+    \
+    \begin{itemize}
+        \item Krogle $B^n$ in sfere $S^n$ so kompaktne.
+        \item Moebiusov trak, torus in večkratni torus so kompaktni podprostori \(\R^3\).
+        \item Množica rešitev enačb in množica ortogonalnih matrik. \textcolor{red}{TODO}
+    \end{itemize}
+\end{primer}
+
+Kompaktnost prostora smo doslej izražali z odprtimi množicami in pokritji, a jih tako kot vse topološke pojme lahko opišemo tudi z zaprtimi množicami.
+
+\begin{trditev}[Reformulacija definiciji kompaktnosti na zaprte množice]
+    Prostor $X$ je kompakten natanko tedaj, ko v vsaki družini zaprtih podmnožic s praznim presekom obstaja končna podmnožica, katere presek je prazen.
+\end{trditev}
+
+\begin{proof}
+    Prehod na komplemente.
+\end{proof}
+
+\begin{izrek}[Cantorjev izrek]
+    Naj bo $X$ kompakten in $F_1 \supseteq F_2 \supseteq \ldots$ padajoče zaporedje zaprtih nepraznih podmnožic. Potem je $\bigcap F_\lambda \neq \emptyset$.
+\end{izrek}
+
+\begin{proof}
+    Reformulacija definiciji kompaktnosti na zaprte množice.
+\end{proof}
+
+\newpage
+Podobno kot pri povezanosti je ena najpomemnejših lastnosti kompaktnosti ta, da se ohranja pri preslikavah.
+\begin{izrek}
+    Zvezna slika kompakta je kompakt.
+\end{izrek}
+
+\begin{proof}
+    Praslika odprtega pokritja.
+\end{proof}
+Če upoštevamo, da je podmnožica \(\R\) je kompaktna natanko takrat, ko je zaprta in omejena, dobimo naslednjo posledico:
+\begin{posledica}
+    Če je $X \subseteq \R^n$ kompakt, potem je vsaka preslikava $f: X \to \R$ omejena in zavzame minimum in maksimum.
+\end{posledica}
+
+V uvodu smo še povedali, da je vsaka zvezna funkcija iz $[a,b]$ v \(\R\) tudi enakomerno zvezna. Pokazali bomo, da je tudi to dejstvo posledica kompaktnosti.
+
+\begin{izrek}[Lebesgueova lema]
+    Za vsako odprto pokritje \(\mathcal{U}\) metričnega kompakta $X$ obstaja tako imenovano \df{Lebesgueovo število} $\lambda = \lambda (\mathcal{U})$ z lastnostjo, da vsaka krogla s polmerom manjšim od $\lambda$ leži v celoti v nekem elementu $\mathcal{U}$.
+\end{izrek}
+
+Iz Lebesgueove leme sledi znani in pogosto uporabljani izrek matematične analize:
+\begin{izrek}
+    Naj bosta $X$ in $Y$ metrična prostora. Če je $X$ kompakten, potem je vsaka preslikava $f: X \to Y$ enakomerno zvezna.
+\end{izrek}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+Naslednji rezultat podaja najpomembnejši sklop pogojev, ki zagotavljajo, da je neka preslikava zaprta (in posledično vložitev ali celo homeomorfizem).
+
+\begin{izrek}
+    Naj bo $X$ kompakten, $Y$ pa Hausdorffov prostor.
+    \begin{itemize}
+        \item Vsaka preslikava $f: X \to Y$ je zaprta.
+        \item Vsaka injektivna preslikava \(f:  X \to Y\) je vložitev.
+        \item Vsaka bijektivna preslikava \(f:  X \to Y\) je homeomorfizem.
+    \end{itemize}
+\end{izrek}
+
+\begin{proof}
+    Dovolj je dokazati prvo točko.
+\end{proof}
+
+Preostanek razdelka bomo posvetili loklani obliki pojma kompaktnosti. Definiramo jo podobno kot lokalno povezanost, ker pa kompaktne množice običajno niso odprte, vpeljamo pomožni pojem:
+\begin{definicija}
+    Odprta podmnožica $U \subseteq X$ je \df{relativno kompaktna}, če je njeno zaprtje \(\overline{U}\) kompaktno.
+\end{definicija}
+
+\begin{definicija}
+    Prostor $X$ je \df{lokalno kompakten}, če ima bazo iz relativno kompaktnih množic.
+\end{definicija}
+
+\begin{izrek}
+    Hausdorffov prostor $X$, v katerem ima vsaka točka kakšno kompaktno okolico, je lokalno kompakten. Posebej, vsak kompakten prostor je lokalno kompakten.
+\end{izrek}
+
+Krogle v evklidskih prostorih so relativno kompaktne, zato so evklidski prostori  tipični primeri nekompaktnih, a lokalno kompaktnih prostorov. Prav tako je jasno, da je vsak odprt podprostor lokalno kompaktnega prostora tudi lokalno kompakten.
+
+\begin{primer}
+    \(\Q\) ni lokalno kompakten.
+\end{primer}
+
+\begin{izrek}
+    Vsak lokalno kompaktni Hausdorffov prostor je regularen.
+\end{izrek}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+Najbolj daljnosežna lastnost lokalno kompaktnih prostorov je, da so "`debeli"', v smislu, da jih ni mogoče pokriti s števno mnogo podmnožic s prazno notranjostjo. Značilen primer takih podmnožic so enostavne krivulje v ravnini, tj. slike injektivnie preslikave iz intervala $[0,1]$ v $\R^2$. Po izreku je enostavna krivulja homeomorfna intervalu, zato ima v \(\R^2\) prazno notranjost. Naš cilj je dokazati sicer nazorno dejstvo, da nobena števna družina enostavnih krivulj ne pokrije cele ravnine.
+
+\begin{izrek}[Bairov izrek za lokalno kompaktne prostore]
+    Naj bo $F_1, F_2, F_3, \ldots$ števna družina zaprtih podmnožic s prazno notranjostjo v lokalno kompaktnem Hausdorffovem prostoru \(X\). Potem ima $\bigcup_{i=1}^\infty F_i$ prazno notranjost v $X$. 
+\end{izrek}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+\begin{definicija}
+    Prostorom s to lastnostjo pravimo \df{Bairovi prostori}.
+\end{definicija}
+
+\newpage
+\begin{primer}
+    \
+    \begin{itemize}
+        \item Če je $X$ lokalno kompakten Hausdorffov prostor brez izoliranih točk, potem so vse točke $X$ zaprte podmnožice s prazno notranjostjo. Po Bairovem izreku ima vsaka števna podmnožica $X$ prazno notranjost. Opazimo, da je $\Int_X(A) = \emptyset$ natanko takrat, ko je $X - A$ povsod gost v $X$, zato lahko rečemo tudi, da je v lokalno kompaktnem Hausdorffovem prostoru brez izoliranih točk komplement vsake števne množice povsod gost.
+        \item Enostavna krivulje v \(\R^n\). \textcolor{red}{TODO}
+    \end{itemize}
+\end{primer}
+
+V analizi večkrat potrebujemo varianto Bairovega izreka, ki velja v polnih metričnih prostorih.
+
+\begin{izrek}[Bairov izrek za polne metrične prostore]
+    Naj bo $F_1, F_2, F_3, \ldots$ števna družina zaprtih podmnožic s prazno notranjostjo v polnem metričnem prostoru $X$. Potem ima $\bigcup_{i=1}^\infty F_i$ prazno notranjost v $X$. 
+\end{izrek}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+Bairov izrek največkrat uporabimo pri dokazu obstaja točke ali preslikave, ki ima določene lastnosti. Ti dokazi so včasih videti prav nenavidni, ker obstoj vsaj enega objekta z dano lastnostjo ne dokažemo s konstrukcijo, temveč tako, da pokažemo, da imajo skoraj vsi opazovani objekti to lastnost.
+
+\begin{primer}
+    Odvedljivost zvezne funkcije. \textcolor{red}{TODO}
+\end{primer}
+
+Zaradi lepih lastnosti kompaktnih prostorov je pogosto ugodno, če prostor, ki ni kompakten, lahko obravnavamo kot podprostor nekega kompakta.
+
+\begin{definicija}
+    \df{Kompaktifikacija} prostora $X$ je gosta vložitev $h: X \to \widehat{X}$, kjer \(\widehat{X}\) kompakten Hausdorffov prostor.
+\end{definicija}
+
+Kompaktifikacija Aleksandrova. \textcolor{red}{TODO}
+
+\begin{izrek}
+    $(X^+, \T)$ je kompakten prostor. Če $X$ ni kompakten, je inkluzija $i: X \hookrightarrow X^+$ kompaktifikacija, ki ji pravimo \df{kompaktifikacija z eno točko} ali \df{Kompaktifikacija Aleksandrova}.
+\end{izrek}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+
+
+------------------------------------------
+\begin{trditev}
+    Prostor $X$ je lokalno kompakten in Hausdorffov natanko tedaj, ko $X^+$ je kompakten in Hausdorffov.
+\end{trditev}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+
+
+
+\begin{opomba}
+    Lokalno kompaktni Hausdorffovi prostori so Bairovi prostori.
+\end{opomba}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
