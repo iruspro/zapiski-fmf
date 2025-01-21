@@ -94,7 +94,6 @@ Naj bo $(M, d)$ metrični prostor. Za $S \subseteq M, \ S \neq \emptyset$ defini
     Pravimo, da je $\mathcal{P}$ \df{predbaza topologije $\T$}.
 \end{trditev}
 
-\newpage
 \begin{trditev}
     Naj bosta $(X, \T_X), (Y, \T_Y)$ prostora. Naj bo $\mathcal{P}$ predbaza $\T_Y$. Velja:
     $$\text{Funkcija } f: X \to Y \text{ je zvezna} \liff \all{B \in \mathcal{P}} \invimg{f}(B) \in \T_X.$$
@@ -198,7 +197,6 @@ Naj bo $(X, \T)$ prostor, $A \subseteq X$. Definiramo $\T_A := \setb{A \cap U}{U
     Naj bo $\set{X_\lambda}$ zaprto pokritje $X$, ki je lokalno končno. Tedaj je $A \subseteq X$ zaprta natanko tedaj, ko je $X_\lambda \cap A$ zaprta v $X_\lambda$ za vse~$\lambda$.
 \end{lema}
 
-\newpage
 \begin{izrek}
     Naj bo $\set{X_\lambda}$ pokritje za $X$, ki je bodisi odprto bodisi lokalno končno in zaprto. Tedaj vsaka usklajena družina preslikav $f_\lambda: X_\lambda \to Y$ enolično določa preslikavo $f: X \to Y$, za katero je $f_{|X_\lambda} = f_\lambda$.
 \end{izrek}
@@ -389,7 +387,6 @@ Lastnosti povezanosti s potmi so podobne lastnostim povezanosti:
     \end{itemize}
 \end{trditev}
 
-\newpage
 \begin{izrek}
     Komponente prostora $X$ so maksimalne povezane podmnožice v $X$ in določajo particijo $X$ na disjunktne zaprte podmnožice. Za poljubno preslikava $f: X \to Y$ leži slika vsake komponente $X$ v celoti v neki komponenti $Y$.
 \end{izrek}
@@ -500,7 +497,6 @@ Lastnosti povezanosti s potmi so podobne lastnostim povezanosti:
     Naj bo $X$ kompakten in $F_1 \supseteq F_2 \supseteq \ldots$ padajoče zaporedje zaprtih nepraznih podmnožic. Potem je $\bigcap F_\lambda \neq \emptyset$.
 \end{izrek}
 
-\newpage
 \begin{izrek}
     Zvezna slika kompakta je kompakt.
 \end{izrek}
@@ -622,10 +618,25 @@ Obstajajo primeri Hausdorffovih in celo regularnih prostorov, na katerih so edin
      $T_2$ (baza) & + & + & + & m. pr., $\R_S$ & $\T_{\text{triv}}$, $(X^\text{neskončna}, \T_{\text{kk}})$ \\ \hline
      $T_3$ & + & + & + & m. pr., $\T_{\text{triv}}$, $\R_S$ &   \\ \hline
      $T_4$ & + & &  & m. pr., $\T_{\text{triv}}$, $\R_S$ &  \\ \hline
-     Regularnost & + & + & + & m. pr. & $\T_{\text{triv}}$ \\ \hline
-     Normalnost & + & &  & m. pr. & $\T_{\text{triv}}$ \\ \hline
+     Regularnost (\(\liff T_0 \land T_3)\) & + & + & + & m. pr. & $\T_{\text{triv}}$ \\ \hline
+     Normalnost (\(\liff T_1 \land T_4)\)& + & &  & m. pr. & $\T_{\text{triv}}$ \\ \hline
      Povezanost & + & + & & & \\ \hline
      Povezanost s potmi & + & + & & & \\ \hline
      Kompaktnost & + & + & & & \\ \hline
     \end{tabular}
 \end{center}
+
+\begin{itemize} 
+    \item Vsaka izometrija med metričnimi prostori je vložitev.
+    \item Končna unija kompaktov je kompakt.
+\end{itemize}
+
+\begin{izrek}
+    Za metrične prostore NTSE:
+    \begin{itemize}
+        \item $M$ je kompakten.
+        \item Vsako zaporedje v $M$ ima stekališče.
+        \item $M$ je poln in popolnoma omejen (za vsak \(\epsilon > 0\) lahko $M$ pokrijemo s končno mnogo kroglami s polmerom \(\epsilon\)). 
+        \item Vsaka zvezna preslikava $f: M \to \R$ je omejena.
+    \end{itemize}
+\end{izrek}
