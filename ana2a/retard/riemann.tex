@@ -1,0 +1,260 @@
+\section{Riemannov integral v $\R^n$}
+\begin{definicija}
+    \df{Kvader} \([a,b]\) je množica \([a,b] = \setb{x = (x_1, \ldots, x_n)}{a_j \leq x_j \leq b_j, \ j = 1, \ldots, n}\) za \(a \leq b\). 
+
+    \df{Prostornina kvadra} je \(V([a,b]) = \prod_{j=1}^{n} (b_j - a_j)\).
+\end{definicija}
+
+\begin{definicija}
+    \df{Delitev \(D\)} kvadra \(K = [a,b]\) dobimo z delitvami robov kvadra K:
+    \[\all{j \in \set{1, \ldots, n}} a_j = x_o^j < x_1^j < \ldots < x_{m_j}^j = b_j.\]
+\end{definicija}
+
+\begin{opomba}
+    Delitev \(D\) je dana z delitvami robov. Lahko rečemo, da je delitev \(D\) sestavljena iz manjših kvadrov, ki jo delitev robov porodi in pišemo \(\sum_{Q \in D}\), tj. gremo po vseh kvadrih delitve \(D\).
+\end{opomba}
+
+\begin{definicija}
+    Delitev \(D'\) kvadra \(K\) je \df{finejša} od delitve \(D\), če vsebuje vse delilne točke delitve \(D\).
+\end{definicija}
+
+\begin{opomba}
+    \ 
+    \begin{itemize}
+        \item Če je \(D\) delitev \(K\), potem \(\sum_{Q \in D} V(Q) = V(K)\).
+        \item Če je \(D'\) finejša od \(D\), potem
+        \begin{itemize}
+            \item Vsak kvader iz \(D'\) leži v enem od kvadrov iz \(D\).
+            \item Vsak kvader iz \(D\) je unija kvadrov iz \(D'\).
+        \end{itemize}
+    \end{itemize}
+\end{opomba}
+
+Naj bo \(f: K = [a,b] \subseteq \R^n \to \R\) omejena funkcija. Definiramo
+\begin{align*}
+    &m = m(f) = m(f, K) = m(K) = \inf_K f(x)  \\
+    &M = M(f) = M(f, K) = M(K) = \sup_K f(x) 
+\end{align*}
+Naj bo \(D\) delitev kvadra \(K\). Naj bo \(Q \in D\) (nek manjši kvader). Definiramo
+\begin{align*}
+    &m(f, Q) = m(Q) = \inf_Q f(x)  \\
+    &M(f, Q) = M(Q) = \sup_Q f(x)  
+\end{align*}
+
+\begin{definicija}
+    \df{Spodnja Darbouxoeva vsota} funkcije \(f\) pri delitvni \(D\) je 
+    \[s(f, D) = s(D) = \sum_{Q \in D} m(Q) V(Q).\]
+    \df{Zgornja Darbouxoeva vsota} funkcije \(f\) pri delitvni \(D\) je 
+    \[S(f, D) = S(D) = \sum_{Q \in D} M(Q) V(Q).\]
+\end{definicija}
+\begin{opomba}
+    Velja: \(m(K)V(Q) \leq s(f, D) \leq S(f,D) \leq M(K)V(K)\).
+\end{opomba}
+\begin{lema}
+    Naj bo delitev \(D'\) finejša od delitve \(D\). Tedaj
+    \[s(f, D) \leq s(f, D') \leq S(f, D') \leq S(f, D).\]
+\end{lema}
+\begin{posledica}
+    Naj bosta \(D_1, D_2\) delitvi kvadra \(K\). Tedaj
+    \[s(f,D) \leq S(f, D).\]
+\end{posledica}
+
+Ker za poljubni delitvi \(D_1, D_2\) velja \(s(f,D) \leq S(f, D)\). Lahko Definiramo
+\begin{align*}
+    &s(f) = \sup_D s(f, D) \\
+    &S(f) = \inf_D S(f, d)
+\end{align*}
+Velja: \(s(f) \leq S(f)\).
+\begin{definicija}
+    Funkcija \(f\) je na kvadru \(K\) \df{integrabilna po Darbouxju}, če 
+    \[s(f) = S(f).\]
+\end{definicija}
+
+\begin{opomba}
+    Če velja enakost, to vrednost trenutno iznačimo z \(I_D\). Sicer to označimo \(\int_K f(x) \, dx = \int_K f(x) \, dV(K)\).
+\end{opomba}
+
+\begin{primer}
+    \
+    \begin{itemize}
+        \item[] \(n=2: \int \int_K f(x,y) dxdy\) je \df{dvojni integral}.
+        \item[] \(n=3: \int \int \int_K f(x,y,z) dxdydz\) je \df{trojni integral}.
+    \end{itemize}
+\end{primer}
+
+\newpage
+\subsection{Riemannov integral}
+\begin{definicija}
+    Naj bo \(K = [a,b]\) kvader, \(D\) delitev, \(f: K \to \R\) funkcija. Za vsak \(Q \in D\) izberimo neko točko \(\eta_Q \in Q\). \df{Riemannova vsota} funkcije \(f\) pri delitvi \(D\) in izboru točk \(\eta = \set{\eta_Q \in Q}\) je 
+    \[R(f, D, \eta) = \sum_{Q \in D} f(\eta_Q) V(Q).\]
+    Označimo z \(\Delta(D)\) maksimum vseh dolžin vseh tobov kvadrov delitve \(D\).
+\end{definicija}
+
+\begin{definicija}
+    Funkcija \(f\) je \df{integrabilna po Riemannu} na kvadru \(K\), če obstaja limita njenih Riemannovih vsot, tj.
+    \[\lim_{\Delta(D) \to 0} R(f, D, \eta) = I_R.\]
+\end{definicija}
+
+\begin{opomba}
+    To pomeni, da
+    \[\all{\epsilon > 0} \some{\delta > 0} \all{D^\text{delitev}} \Delta(D) < \delta \lthen \all{\eta^\text{izbor točk}} |R(f, D, \eta)| < \epsilon.\]
+\end{opomba}
+
+\begin{zgled}
+    \textcolor{red}{TODO}
+\end{zgled}
+
+\begin{opomba}
+    Če ima funkcija \(f: K \to \R\) limito Riemannovih vsot, je \(f\) omejena.
+\end{opomba}
+
+\begin{lema}
+    Naj bo \(D_0\) delitev kvadra \(K\). Naj bo \(\epsilon > 0\). Potem obstaja tak \(\delta > 0\), da za vsako delitev \(D\), za katero je \(\Delta(D) < \delta\), velja, da je vsota prostornin kvadrov delitve \(D\), ki niso vsebovani v kakšnem od kvadrov delitve \(D_0\) manja od \(\epsilon\).
+\end{lema}
+
+\begin{izrek}
+    Naj bo \(f: K \to \R\) omejena funkcija. NTSE:
+    \begin{enumerate}
+        \item \(f\) je na \(K\) integrabilna po Darbouxju.
+        \item \(f\) je na \(K\) integrabilna po Riemannu.
+        \item \(\all{\epsilon > 0} \some{D^\text{delitev}} S(f,D) - s(f, D) < \epsilon\).
+    \end{enumerate}
+    \emph{Dodatek.} V tem primeru je \(I_D = I_R\).
+\end{izrek}
+
+\begin{proof}
+    \todo
+\end{proof}
+
+\begin{trditev}
+    Naj bo \(f: K \to \R\) zvezna, potem je \(f\) na \(K\) integrabilna.
+\end{trditev}
+
+\begin{proof}
+    \todo
+\end{proof}
+
+\subsection{Osnovne lastnosti Riemannova integrala po kvadrih}
+Naj bo \(K \subseteq \R^n\) kvader, funkciji \(f, g\) integrabilni na \(K\).
+\begin{enumerate}
+    \item Naj bosta \(\lambda, \mu \in \R\). Tedaj je tudi 
+    \[\lambda f + \mu g\]
+    integrabilna na \(K\) in
+    \[\int_K (\lambda f + \mu g)(x) \, dx = \lambda \int_K f(x) \, dx + \mu  \int_K g(x) \, dx.\]
+    Torej množica integrabilnih funkcij na \(K\) je vektorski prostor nad \(\R\) in integral je linearen funkcional na tem prostoru.
+    \begin{proof}
+        \todo
+    \end{proof}
+    \item Če je \(f(x) \leq g(x)\) za vse \(x \in K\), je \[\int_K f(x) \, dx \leq \int_K g(x) \, dx.\]
+    \begin{proof}
+        \todo   
+    \end{proof}
+    \item Funkcija \(|f|\) je integrabilna in \[\left|\int_K f(x) \, dx\right| \leq \int_K |f(x)| \, dx.\]
+    \begin{proof}
+        \todo
+    \end{proof}
+\end{enumerate}
+
+\newpage
+\subsection{Fubinijev izrek}
+\begin{enumerate}
+    \item[I.] Naj bo \(A \subseteq \R^n\) kvader in \(B \subseteq \R^m\) kvader. Naj bo \(f: A \times B \subseteq \R^{n+m} \to \R\) integrabilna. Naj bo za vsak \(x \in A\) funkcija \(y \mapsto f(x,y)\) integrabilna na \(B\). Potem je funkcija \[x \mapsto \int_B f(x,y) \, dy\]
+    integrabilna na \(A\) in velja: \[\int \int_{A \times B} f(x,y) \, dxdy = \int_A \left(\int_B f(x,y) \, dy\right) \, dx.\]
+    \item[II.] Naj bo \(A \subseteq \R^n\) kvader in \(B \subseteq \R^m\) kvader. Naj bo \(f: A \times B \subseteq \R^{n+m} \to \R\) integrabilna. Naj bo za vsak \(y \in B\) funkcija \(x \mapsto f(x,y)\) integrabilna na \(A\). Potem je funkcija \[y \mapsto \int_A f(x,y) \, dy\]
+    integrabilna na \(B\) in velja: \[\int \int_{A \times B} f(x,y) \, dxdy = \int_B \left(\int_A f(x,y) \, dx\right) \, dy.\]
+\end{enumerate}
+
+\begin{posledica}
+    Če je \(f\) zvezna na \(A \times B\), potem \[\int \int_{A \times B} f(x,y) \, dxdy = \int_A \left(\int_B f(x,y) \, dy\right) \, dx = \int_B \left(\int_A f(x,y) \, dx\right) \, dy.\]
+\end{posledica}
+
+\begin{posledica}
+    Naj bo \(f:[a,b] \times [c,d] \to \R\) zvezna. Tedaj
+    \[\int \int_{[a,b] \times [c,d]} f(x,y) \, dxdy = \int_a^b \left(\int_c^d f(x,y) \, dy\right) \, dx = \int_c^d \left(\int_a^b f(x,y) \, dx\right) \, dy.\]
+\end{posledica}
+
+\begin{posledica}
+    Naj bo \(f: K = [a,b] \times [c,d] \times [g, h] \to \R\) zvezna. Tedaj
+    \[\int \int \int_K f(x,y) \, dxdy = \int_g^h \left( \int_c^d \left(\int_a^b f(x,y) \, dx\right) \, dy\right) \, dz = \text{še \(5\) drugih vrstnih redov}.\]
+\end{posledica}
+
+\begin{zgled}
+    \todo
+\end{zgled}
+
+\subsection{Riemannov integral na omejenih množicah}
+Naj bo podmnožica \(A \subseteq \R^n\) omejena, \(f: A \to \R\) omejena funkcija. 
+
+Kako bi lahko definirali \(\ds \int_A f(x) \, dx\)? Kaj bi bila prostornina \(V(A)\) množice \(A\)?
+
+\
+
+Ker je \(A\) omejena obstaja kvader \(K\), da je \(A \subseteq K\). Definiramo funkcijo \(\widetilde{f}(x) =  \begin{cases}
+    f(x); & x \in A \\ 0; & x \notin A
+\end{cases}.\)
+
+\begin{definicija}
+    Omejena funkcija \(f\) na \(A\) je \df{integrabilna} na omejeni množici \(A\), če je \(\ot{f}\) integrabilna na kvadru \(K\), kjer je \(A \subseteq K\). Tedaj \[\int_A f(x) \, dx = \int_K \ot{f}(x) \, dx.\]
+\end{definicija}
+
+\begin{opomba}
+    Dobra definiranost. \todo
+\end{opomba}
+
+\begin{opomba}
+    Kaj če je \(K\) že kvader? \todo
+\end{opomba}
+
+\begin{zgled}
+    \todo
+\end{zgled}
+
+\begin{trditev}
+    Naj bo \(A \subseteq \R^n\) omejena podmnožica. Naj bosta \(f, g : A \to \R\) integrabilni na \(A\) in naj bosta \(\lambda, \mu \in \R\). Teda je \[\lambda f + \mu g\] integrabilna na \(A\) in \[\int_A (\lambda f + \mu g)(x) \, dx = \lambda \int_A f(x) \, dx + \mu  \int_A g(x) \, dx.\]
+\end{trditev}
+\begin{proof}
+    \todo
+\end{proof}
+\begin{opomba}
+    Množica integrabilnih na \(A\) funkcij tvori vektroski prostor nad \(R\) in integral je linearen funkcional na tem prostoru.
+\end{opomba}
+
+\subsubsection{Prostornina omejene množice}
+Definiramo \df{karakteristično funkcijo} množice \(A\): \[\chi_A(x) = \begin{cases}
+    1; &x \in A \\ 0; &x \notin A
+\end{cases}.\]
+
+\begin{definicija}
+    Omejena množica \(A \subseteq \R^n\) \df{ima prostornino}, če je funkcija \(x \mapsto 1\) integrabilna na~\(A\). Tedaj \[V(A) = \int_A 1 \, dx.\] 
+\end{definicija}
+
+\begin{opomba}
+    To je Jordanova prostornina množice.
+\end{opomba}
+
+\begin{opomba}
+    \(\ds V(A) = \int_A 1 \, dx = \int_K \chi_A(x) \, dx\).
+\end{opomba}
+
+\begin{opomba}
+    Če ima \(A\) prostornino, so vse konstantne funkcije integrabilne na \(A\): \[\int_A \lambda \, dx = \lambda V(A).\]
+\end{opomba}
+
+\begin{zgled}
+    Ali \(A = [0,1]^2 \cap \Q\) ima prostornino?
+\end{zgled}
+
+\begin{trditev}
+    Omejena množica \(Q \subseteq \R^n\) ima prostornino natanko tedaj, ko \(V(\partial A) = 0\).
+\end{trditev}
+
+\begin{proof}
+    \todo
+\end{proof}
+
+\begin{zgled}
+    \todo
+\end{zgled}
+
+\subsection{Lastnosti omejenih množic s prostornino \(0\)}
+

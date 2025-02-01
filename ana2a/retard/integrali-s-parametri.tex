@@ -4,7 +4,7 @@ Naj bo $f:[a,b]_x \times [c,d]_y \to \R$ funkcija. Gledamo funkcijo $\ds F(y) = 
 Zanima nas v kakšni so povezavi lastnosti funkcije $f$ in funkcije $F$.
 
 \begin{zgled}
-    Izračunaj $F(y) = \int_{0}^{\pi} \sin (xy) \,dx$. Ali je $F(y)$ zvezna? Kaj je $D_F$?
+    Izračunaj $\ds F(y) = \int_{0}^{\pi} \sin (xy) \,dx$. Ali je $F(y)$ zvezna? Kaj je $D_F$?
 \end{zgled}
 
 \begin{zgled}
@@ -42,15 +42,18 @@ Zanima nas v kakšni so povezavi lastnosti funkcije $f$ in funkcije $F$.
 \end{trditev}
 
 \begin{proof}
-    \textcolor{red}{TODO}
+    Dokazujemo zveznost v točki $(u_0, v_0, y_0) \in I \times I \times D$. Ocenimo razliko $|F(u,v,y) - F(u_0, v_0, y_0)|$.
+    \begin{itemize}
+        \item  Kaj vemo o funkciji $f$ na nekem kompaktu? \qedhere
+    \end{itemize}
 \end{proof}
 
 \begin{posledica}
     Recimo, da velja
     \begin{enumerate}
-        \item $D \subseteq \R^n$ lokalno kompaktna podmnožica.
-        \item $I = [a,b]$.
-        \item Funkcija $f: I_x \times D_y$ zvezna.
+        \item $D \subseteq \R^n$ lokalno kompaktna podmnožica;
+        \item $I = [a,b]$;
+        \item funkcija $f: I_x \times D_y$ zvezna.
     \end{enumerate}
     Tedaj je funkcija $\ds F(y) = \int_{a}^{b}f(x,y) \, dx$, zvezna na $D$.
 \end{posledica}
@@ -59,9 +62,9 @@ Zanima nas v kakšni so povezavi lastnosti funkcije $f$ in funkcije $F$.
 \begin{trditev}
     Recimo, da velja
     \begin{enumerate}
-        \item Funkcija $f:[a,b]_x \times (c,d)_y \to \R$ zvezna.
-        \item $\all{(x,y) \in [a,b] \times (c,d)} f \text{ parcialno odvedljiva po } y$.
-        \item Funkcija $\podv{f}{y}(x,y)$ zvezna na $[a,b] \times (c,d)$.
+        \item funkcija $f:[a,b]_x \times (c,d)_y \to \R$ zvezna;
+        \item $\all{(x,y) \in [a,b] \times (c,d)} f \text{ parcialno odvedljiva po } y$;
+        \item funkcija $\podv{f}{y}(x,y)$ zvezna na $[a,b] \times (c,d)$.
     \end{enumerate}
     Tedaj je 
     \begin{enumerate}
@@ -71,35 +74,364 @@ Zanima nas v kakšni so povezavi lastnosti funkcije $f$ in funkcije $F$.
 \end{trditev}
 
 \begin{proof}
-    \textcolor{red}{TODO}
-\end{proof}
-
-\begin{posledica}
-    Recimo, da velja
-    \begin{enumerate}
-        \item Funkcija $f:[a,b]_x \times (c,d)_y \to \R$ zvezna.
-        \item Funkciji $\alpha, \beta: (c,d) \to [a,b]$ zvezno odvedljivi.
-    \end{enumerate}
-    Tedaj $F'(y) = \ds \frac{d}{dy} \int_{\alpha(y)}^{\beta(y)}f(x,y) \, dx = \int_{\alpha(y)}^{\beta(y)} \podv{f}{y}(x,y) \, dx + \beta'(y)f(\beta(y), y) - \alpha'(y)f(\alpha(y), y)$.
-\end{posledica}
-
-\begin{proof}
-    \textcolor{red}{TODO}
+    Dokazujemo, da je $F$ odvedljiva v točki $y \in (c,d)$. Ocenimo razliko $\ds \left|\frac{F(y+h)-F(y)}{h} - \int_{a}^{b} \podv{f}{y}(x,y) \,dx \right|$
+    \begin{itemize}
+        \item Lagrangeev izrek.
+        \item Ustrezni kompakti. \qedhere
+    \end{itemize}
 \end{proof}
 
 \newpage
 \begin{posledica}
     Recimo, da velja
     \begin{enumerate}
-        \item $D^\text{odp} \subseteq \R^n$.
-        \item Funkcija $f: [a,b]_x \times D_y \to \R$ zvezna.
-        \item $\all{(x,y) \in [a,b] \times D} \all{j \in [n]} f \text{ parcialno odvedljiva po } y_j$.
+        \item funkcija $f:[a,b]_x \times (c,d)_y \to \R$ zvezna;
+        \item $\all{(x,y) \in [a,b] \times (c,d)} f \text{ parcialno odvedljiva po } y$;
+        \item funkcija $\podv{f}{y}(x,y)$ zvezna na $[a,b] \times (c,d)$.
+        \item funkciji $\alpha, \beta: (c,d) \to [a,b]$ zvezno odvedljivi.
+    \end{enumerate}
+    Tedaj $F'(y) = \ds \frac{d}{dy} \int_{\alpha(y)}^{\beta(y)}f(x,y) \, dx = \int_{\alpha(y)}^{\beta(y)} \podv{f}{y}(x,y) \, dx + \beta'(y)f(\beta(y), y) - \alpha'(y)f(\alpha(y), y)$.
+\end{posledica}
+
+\begin{proof}
+    $\ds F(u,v,y) = \int_{u}^{v}f(x,y) \, dx \lthen \int_{\alpha(y)}^{\beta(y)} f(x,y)  \,dx = F(\alpha(y), \beta(y), y)$. Torej treba izračunati odvod funkcije treh spremenljivk. 
+    \begin{itemize}
+        \item Osnovni izrek analize. \qedhere
+    \end{itemize}
+\end{proof}
+
+\begin{posledica}
+    Recimo, da velja
+    \begin{enumerate}
+        \item podmnožica $D\subseteq \R^n$ odprta;
+        \item funkcija $f: [a,b]_x \times D_y \to \R$ zvezna;
+        \item $\all{(x,y) \in [a,b] \times D} \all{j \in [n]} f \text{ parcialno odvedljiva po } y_j$;
         \item $\all{j \in [n]} \podv{f}{y_j}(x,y) \text{ so zvezne funkcije na } [a,b] \times D$.
     \end{enumerate}
     Tedaj je 
     \begin{enumerate}
         \item $\ds F(y) = \int_{a}^{b} f(x,y) \, dx $ funkcija razreda $C^1$ na $D$.
         \item $\ds \podv{F}{y_j}(y) = \int_{a}^{b} \podv{f}{y_j}(x,y) \, dx$.
-    \end{enumerate}
-    
+    \end{enumerate}    
 \end{posledica}
+
+\begin{zgled}
+    S pomočjo integrala s parametrom $\ds F(a) = \int_{0}^{1} \frac{x^a-1}{\ln x} \,dx $ izračunaj $\ds \int_{0}^{1} \frac{x-1}{\ln x} \,dx $.
+\end{zgled}
+
+\subsection{Integral integrala s parametrom}
+\begin{izrek}
+    Recimo, da velja
+    \begin{enumerate}
+        \item funkcija \(f:[a,b] \times [c,d] \to \R\) zvezna.
+    \end{enumerate}
+    Tedaj je 
+    $$\int_{c}^{d} \left(\int_{a}^{b} f(x,y) \,dx \right) \,dy =  \int_{a}^{b} \left(\int_{c}^{d} f(x,y) \,dy \right) \,dx.$$
+\end{izrek}
+
+\begin{definicija}
+    Integrali tipa $\ds \int_{c}^{d} \left(\int_{a}^{b} f(x,y) \,dx \right) \,dy$ imenujemo \df{dvakratni integrali}. 
+\end{definicija}
+
+\begin{proof}
+    Definiramo $\ds \Psi(y) = \int_{c}^{y} \left(\int_{a}^{b} f(x,s) \,dx \right) \,ds $ in $\ds \Phi(y) = \int_{a}^{b} \left(\int_{c}^{y} f(x,s) \,ds \right) \,dx$. Dololj, da dokažemo:
+    \begin{itemize}
+        \item $\Psi$ in $\Phi$ se ujemata v eni točki.
+        \item $\Psi' = \Phi'$.
+    \end{itemize}
+    Pomagamo si s osnovnim izrekom analize.
+\end{proof}
+
+\begin{zgled}
+    Izračunaj $\ds \int_{0}^{1} \left(\int_{0}^{2} (x + y^2)  \,dx \right)  \,dy $ na dva načina.
+\end{zgled}
+
+\subsection{Posplošeni integrali s parametri}
+Naj bo $Y$ neka množica, $a \in \R$, $f: [a, \infty)_x \times Y_y \to \R$ funkcija. Standardni predpostavki:
+\begin{itemize}
+    \item Funkcija $f$ za vsak $y \in Y$ zvezna, tj. $x \mapsto f(x,y)$ zvezna na $[a, \infty)$ za vsak \(y \in Y\).
+    \item Za vsak \(y \in Y\) obstaja integral \( \ds F(y)= \int_{a}^{\infty} f(x,y) \,dx \)
+\end{itemize}
+
+\begin{opomba}
+    Integral \(\ds F(y) = \int_{a}^{\infty} f(x,y) \, dx\) obstaja po definiciji, če obstaja $\ds \lim_{b \to \infty} \int_{a}^{b} f(x,y) dx$. Ta limita obstaja natanko tedaj, ko $\ds \lim_{b \to \infty} \int_{b}^{\infty} f(x,y) \, dx = 0$, kar je ravno konvergenca po točkah. \textcolor{red}{?}
+\end{opomba}
+
+\begin{definicija}
+    Integral \(\ds F(y) = \int_{a}^{\infty} f(x,y) \, dx\) \df{konvergira enakomerno} na \(Y\), če 
+    $$\all{\epsilon > 0} \some{b_0 \geq a} \all{b \geq b_0} \all{y \in Y} \left|\int_{b}^{\infty} f(x,y) \, dx \right| < \epsilon.$$
+\end{definicija}
+
+\begin{zgled}
+    Izračunaj \(\ds F(y) = \int_{0}^{\infty} y e^{-xy} \, dx\) za \(y \in [0, \infty)\). Ali je konvergenca enakomerna na \([c, \infty), \ c > 0\)? Ali je konvergenca enakomerna na $(0, \infty)$?
+\end{zgled}
+
+\begin{opomba}
+    Recimo, da \(\ds F(y) = \int_{a}^{\infty} f(x,y) \, dx\) konvergira enakomerno. Kaj to pomeni? Naj bo $F_b(y) = \int_{a}^{\infty} f(x,y) \, dx$. Potem funkcijsko zaporedje $F_b(y)$ konvergira enakomerno proti $F(y)$ na $Y$.
+\end{opomba}
+
+\begin{trditev}
+    Recimo, da velja
+    \begin{itemize}
+        \item podmnožica \(Y \subseteq \R^n\) lokalno kompaktna;
+        \item funkcija \(f :[a, \infty) \times Y \to \R\) zvezna;
+        \item integral s parametri \(\ds F(y) = \int_{a}^{\infty} f(x,y) \, dx\) konvergira enakomerno na \(Y\).
+    \end{itemize}
+    Tedaj je \(F\) zvezna na \(Y\).
+\end{trditev}
+
+\begin{proof}
+    Enakomerna limita zveznih funkcij.
+\end{proof}
+
+\begin{opomba}
+    Zveznost (in odvedljivost) sta lokalni lastnosti (zvezna (oz. odvedljiva) v vsaki točki), tj. $f$ je zvezna na $Y$, če je zvezna v vsaki točki \(y \in Y\) (tudi, če je zvezna v okolici vsake točke \(y \in Y\)). Zato v prejšnji trditvi je za zveznost \(F\) na \(Y\) dovolj zahtevati, da je integral \df{lokalno enakomerno konvergira}, tj
+    $$\all{y\in Y} \some{r>0} F \text{ enakomerno konvergira na } Y \cap K(y,r).$$
+\end{opomba}
+
+\begin{trditev}[Test enakomerne konvergence]
+    Recimo, da velja
+    \begin{enumerate}
+        \item funkcija \(f:[a, \infty) \times Y \to \R\) zvezna za vsak $y \in Y$;
+        \item obstaja taka zvezna funkcija \(g:[a, \infty) \to \R\), da za vsak $(x,y) \in [a, \infty) \times Y$ velja $|f(x,y)| \leq g(x)$;
+        \item obstaja integral \(\ds \int_{a}^{\infty} g(x) \, dx\).
+    \end{enumerate}
+    Tedaj integral \(\ds F(y) = \int_{a}^{\infty} f(x,y) \, dx\) konvergira enakomerno na \(Y\).
+\end{trditev}
+
+\begin{proof}
+    Cauchyjev kriterij za konvergenco integralov.
+\end{proof}
+
+\begin{zgled}
+    Obravnavaj lokalno enakomerno konvergenco funkcij
+    \begin{itemize}
+        \item \(\ds s \mapsto \int_{1}^{\infty} x^{s-1} e^{-x} \, dx\).
+        \item \(\ds s \mapsto \int_{0}^{1} x^{s-1} e^{-x} \, dx\).
+    \end{itemize}
+
+    Vpeljava nove spremenljivke $x = t^N$ \textcolor{red}{?}
+\end{zgled}
+
+\begin{trditev}
+    Recimo, da velja
+    \begin{enumerate}
+        \item funkcija \(f:[a, \infty)_x \times [c,d]_y \to \R\) zvezna;
+        \item integral \(\ds F(y) = \int_{a}^{\infty} f(x,y) \, dx\) konvergira enakomerno na \([c,d]\).
+    \end{enumerate}
+    Tedaj \[\int_{c}^{d}\left(\int_{a}^{\infty} f(x,y) \, dx\right) \, dy = \int_{a}^{\infty}\left(\int_{c}^{d} f(x,y) \, dy\right) \, dx.\]
+\end{trditev}
+
+\begin{proof}
+    Račun.
+\end{proof}
+
+Kadar je \(\ds \int_{c}^{\infty}\left(\int_{a}^{\infty} f(x,y) \, dx\right) \, dy = \int_{a}^{\infty}\left(\int_{c}^{\infty} f(x,y) \, dy\right) \, dx\)?
+
+\begin{opomba}
+    Podobno vprašanje: Kadar je \(\sum_{i=1}^{\infty}\sum_{j=1}^{\infty}a_{ij} = \sum_{j=1}^{\infty}\sum_{i=1}^{\infty}a_{ij}\)?
+\end{opomba}
+\begin{trditev}
+    Recimo, da velja
+    \begin{enumerate}
+        \item funkcija \(f:[a, \infty)_x \times [c,\infty)_y \to [0, \infty)\) nenegativna in zvezna;
+        \item integral \(\ds F(y) = \int_{a}^{\infty} f(x,y) \, dx\) konvergira lokalno enakomerno na \([c, \infty)\) in
+        
+        integral \(\ds G(x) = \int_{c}^{\infty} f(x,y) \, dy\) konvergira lokalno enakomerno na \([a, \infty)\) (imamo zveznost $F$ in $G$).
+    \end{enumerate}
+    Tedaj 
+    \[\int_{c}^{\infty}\left(\int_{a}^{\infty} f(x,y) \, dx\right) \, dy = \int_{a}^{\infty}\left(\int_{c}^{\infty} f(x,y) \, dy\right) \, dx.\]
+    Torej ali sta oba enaka \(\infty\), ali pa sta oba končna in enaka.
+\end{trditev}
+
+\begin{proof}
+    Ocenimo navzgor \(\ds \int_{a}^{b} G(x) \, dx\) in \(\ds \int_{c}^{d} F(y) \, dy\).
+\end{proof}
+
+\begin{trditev}
+    Recimo, da velja
+    \begin{enumerate}
+        \item funckija \(f:[a, \infty) \times [c,\infty) \to \R\) zvezna;
+        \item integral \(\ds F(y) = \int_{a}^{\infty} |f(x,y)| \, dx\) konvergira lokalno enakomerno na \([c, \infty)\) in
+        
+        integral \(\ds G(x) = \int_{c}^{\infty} |f(x,y)| \, dy\) konvergira lokalno enakomerno na \([a, \infty)\);
+        \item Ali \(\ds \int_{c}^{\infty}\left(\int_{a}^{\infty} |f(x,y)| \, dx\right) \, dy\) končen ali \(\ds \int_{a}^{\infty}\left(\int_{c}^{\infty} |f(x,y)| \, dy\right) \, dx\) končen.
+    \end{enumerate}
+    Tedaj je 
+    \[\int_{c}^{\infty}\left(\int_{a}^{\infty} |f(x,y)| \, dx\right) \, dy = \int_{a}^{\infty}\left(\int_{c}^{\infty} |f(x,y)| \, dy\right) \, dx.\]
+\end{trditev}
+
+\begin{trditev}[Odvod posplošenega integrala s parametri]
+    Recimo, da velja
+    \begin{enumerate}
+        \item funkcija \(f:[a, \infty) \times (c,d) \to \R\) zvezna;
+        \item integral \(\ds F(y) = \int_{a}^{\infty} f(x,y) \, dx\) konvergira na \((c,d)\);
+        \item $\all{(x,y) \in [a,b] \times (c,d)} f \text{ parcialno odvedljiva po } y$;
+        \item funkcija $\podv{f}{y}(x,y)$ zvezna na $[a,b] \times (c,d)$;
+        \item integral \(\ds y \mapsto \int_{a}^{\infty} \podv{f}{y}(x,y) \, dx\) konvergira lokalno enakomerno na \((c,d)\).
+    \end{enumerate}
+    Tedaj je 
+    \begin{enumerate}
+        \item $\ds F(y) = \int_{a}^{\infty}f(x,y) \, dx$ zvezno odvedljiva funkcija na $(c,d)$;
+        \item $\ds F'(y) = \frac{dF}{dy}(y) = \frac{d}{dy} \int_{a}^{\infty}f(x,y) \, dx = \int_{a}^{\infty} \podv{f}{y}(x,y) \, dx$.
+    \end{enumerate}    
+\end{trditev}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+\begin{zgled}
+    Naj bo \(0<c<d\). Izračunaj \(\ds \int_{0}^{\infty} \frac{e^{-cx} - e^{-dx}}{x}\).
+\end{zgled}
+
+\begin{trditev}
+    Recimo, da velja
+    \begin{enumerate}
+        \item podmnožica \(D \subseteq \R^n\) odprta; 
+        \item funkcija \(f:[a,\infty) \times D \to \R\) zvezna;
+        \item za vsak \((z,y) \in [a,\infty) \times \) obstajajo \(\podv{f}{y_j}\) in so zvezni;
+        \item za vsak \(y \in D\) obstaja \(\ds F(y) = \int_{a}^{\infty} f(x,y) \, dx\);
+        \item za vsak \(j \in \set{1, \ldots, n}\) integral \(\ds F(y) = \int_{a}^{\infty} \podv{f}{y_j} \, dx\) konvergira lokalno enakomerno na \(D\).
+    \end{enumerate}
+    Tedaj je
+    \begin{enumerate}
+        \item $\ds F(y) = \int_{a}^{\infty}f(x,y) \, dx$ zvezno odvedljiva funkcija na $D$;
+        \item $\ds F'(y) = \frac{\partial F}{\partial y_j}(y) = \frac{\partial}{\partial y_j} \int_{a}^{\infty}f(x,y) \, dx = \int_{a}^{\infty} \podv{f}{y_j}(x,y) \, dx$ za vse \(j \in \set{1, \ldots, n}\).
+    \end{enumerate}    
+\end{trditev}
+
+\begin{zgled}
+   Opazujemo integral \(\ds \int_{0}^{\infty} \frac{\sin x}{x} \, dx\). Velja:
+   \begin{itemize}
+    \item \(\ds \frac{2}{\pi} \int_{0}^{\infty} \frac{\sin (ax)}{x} \, dx = \sgn (a)\).
+    \item \(\ds \frac{\sin x}{x}\) je nihanje z padajočo amplitudo, kar je podobno alternirajoče harmonične vrste.
+    \item Integral \(\ds \int_{0}^{\infty} \frac{|\sin x|}{x} \, dx\) ne obstaja.
+    \item \(\ds \int_{0}^{\infty} \frac{\sin x}{x} \, dx = \frac{\pi}{2}\). Dokaz \textcolor{red}{TODO}
+   \end{itemize}
+\end{zgled}
+
+\newpage
+\subsection{Eulerjeva funkcija gama}
+\begin{definicija}
+    Funkcija $\ds \Gamma (s) = \int_{0}^{\infty} x^{s-1}e^{-x} \, dx$ je \df{Eulerjeva funkcija gama}.
+\end{definicija}
+
+\begin{trditev}
+    Lastnosti Eulerjeve funkcije gama:
+    \begin{itemize}
+        \item $D_\Gamma = (0, \infty)$.
+        \item \(\Gamma(s+1) = s \Gamma(s)\). Če je \(n \in \N\), potem \(\Gamma(n+1) = n!\).
+        \item \(\Gamma(1) = 1\).
+        \item \(\Gamma  \in C((0, \infty))\).
+        \item \(\Gamma (s) = \frac{\Gamma (s+1)}{s}, \ s > 0\). Če je \(s \approx 0\), potem \(\Gamma(s) \approx \frac{1}{s}\).
+        \item \(\Gamma \in C^\infty ((0, \infty))\).
+        \item \(\Gamma(s)>0\).
+        \item \(\Gamma\) je konveksna funkcija na \((0, \infty)\). Tudi \(\ln \Gamma\) konveksna funkcija na \((0, \infty)\).
+    \end{itemize}
+\end{trditev}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+\begin{opomba}
+    O konveksnosti. \textcolor{red}{TODO}
+\end{opomba}
+
+\begin{zgled}
+    Naj bo \(a>0\). S pomočjo Eulerjeve funkcije gama izračunaj \(\ds \int_{0}^{\infty} e ^{-ax^2} \, dx\).
+\end{zgled}
+
+\begin{zgled}
+    Naj bo \(a \in \R, \ \sigma > 0\). S pomočjo prejšnjega zgleda izračunaj \(\ds \int_{-\infty}^{\infty} \exp \left(\frac{-(x-a)^2}{2\sigma^2}\right) \, dx\).
+\end{zgled}
+
+\begin{izrek}
+    Eulerjeva funkcija \(\Gamma\) je natanko določena z lastnostmi:
+    \begin{enumerate}
+        \item \(\Gamma(1) = 1\);
+        \item \(\Gamma(s+1) = s \Gamma(s)\);
+        \item \(\Gamma(s)>0\) in \(\Gamma\) je zvezna na \((0, \infty)\);
+        \item \(\ln \Gamma\) je konveksna.
+    \end{enumerate}
+\end{izrek}
+
+\subsection{Eulerjeva funkcija beta}
+\begin{definicija}
+    Funkcija \(\ds B(p,q) = \int_{0}^{1}x^{p-1}(1-x)^{q-1} \, dx\) je \df{Eulerjeva funkcija beta}.
+\end{definicija}
+
+\begin{trditev}
+    Lastnosti Eulerjeve funkcije beta:
+    \begin{itemize}
+        \item \(D_B = (0, \infty) \times (0, \infty)\).
+        \item \(B(p,q) = B(q,p)\).
+        \item \(\ds \frac{1}{2} B(\frac{\alpha + 1}{2}, \frac{\beta + 1}{2}) = \int_{0}^{\frac{\pi}{2}} \sin^\alpha t \cos^\beta t \, dt\) za \(\alpha, \beta > -1\).
+    \end{itemize}
+\end{trditev}
+
+\begin{trditev}
+    \(\ds B(p,q) = \int_{0}^{\infty} \frac{t^{p-1}}{(1+t)^{p+q}} \, dt\).
+\end{trditev}
+
+\begin{proof}
+    V \(B(p,q)\) vpeljamo \(t = \frac{x}{1-x}\).
+\end{proof}
+
+\begin{posledica}
+    \(\ds B(p, 1-p) \int_{0}^{\infty} \frac{t^{p-1}}{1+t} \, dt\) za \(0<p<1\).
+\end{posledica}
+
+\begin{posledica}
+    \(B(\frac{1}{2}, \frac{1}{2}) = \pi\).
+\end{posledica}
+
+\begin{proof}
+    Račun.
+\end{proof}
+
+\begin{opomba}
+    Za \(p \in (0,1)\) velja: \[B(p, 1-p) = \frac{\pi}{\sin (p \pi)}.\]
+\end{opomba}
+
+\begin{izrek}[Osnovna povezava med \(B\) in \(\Gamma\)]
+    \[B(p,q) = \frac{\Gamma(p) \Gamma(q)}{\Gamma(p+q)}.\]
+\end{izrek}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+\begin{posledica}
+    \(\Gamma(\frac{1}{2}) = \sqrt{\pi}\).
+\end{posledica}
+
+\begin{proof}
+    Račun z pomočjo osnovne povezave med \(B\) in \(\Gamma\).
+\end{proof}
+
+\begin{primer}
+    Izračunaj \(\Gamma(\frac{7}{2})\).
+\end{primer}
+
+\begin{primer}
+    S pomočjo Eulerjeve funkcije beta izračunaj \(\ds \int_{0}^{\frac{\pi}{2}} \sin^8x \cos^6x \, dx\).
+\end{primer}
+
+\newpage
+\begin{izrek}[Stirlingova formula]
+    \[\lim_{s \to \infty} \frac{\Gamma(s+1)}{s^s \, e^{-s} \, \sqrt{2 \pi s}} = 1.\]
+\end{izrek}
+
+\begin{proof}
+    \textcolor{red}{TODO}
+\end{proof}
+
+\begin{posledica}
+    \(\ds \lim_{n \to \infty} \frac{n!}{n^n \, e ^{-n} \, \sqrt{2 \pi n}} = 1\), tj. \(n! \approx \sqrt{2 \pi n} (\frac{n}{e})^n\).
+\end{posledica}
+
+\begin{primer}
+    Izračunaj \( \lim_{n \to \infty} \frac{(2n)!}{n! \, n^n \, 2^n}\).
+\end{primer}

@@ -68,7 +68,7 @@
 
 \begin{definicija}
     Naj bo $f: D \subseteq \R^n \to \R^m$ preslikava. Naj bo $a \in D$. \df{Preslikava $f$ je zvezna v točki $a$}, če 
-    $$\all{\epsilon > 0} \some{\delta >0} \all{x \in D} \norm{x-a} \lthen \norm{f(x)- f(a)}.$$
+    $$\all{\epsilon > 0} \some{\delta >0} \all{x \in D} \norm{x-a} < \delta \lthen \norm{f(x)- f(a)} < \epsilon.$$
     Preslikava $f$ je \df{zvezna na $D$}, če je zvezna v vsaki točki $a \in D$.
 \end{definicija}
 
@@ -782,7 +782,7 @@ Naj bo $f: D^{\text{odp}} \subseteq \R^n \to \R$ funkcija, $a \in D$. Funkcijo $
 \end{opomba}
 
 \begin{definicija}
-    Naj bo $D^\text{odp} \subseteq \R^n$ in $f: D \to \R$ funkcija razreda $C^1$ (dovolj, da diferenciabilna). 
+    Naj bo $D^\text{odp} \subseteq \R^n$ in $f: D \to \R$ funkcija razreda $C^1$ (dovolj, da je diferenciabilna). 
     
     Rečemo, da je točka $a \in D$ \df{stacionarna (oz. kritična) točka  funkcije $f$}, če $$(Df)(a) = 0, \text{ tj. } \podv{f}{x_1}(a) = \podv{f}{x_2}(a) = \ldots = \podv{f}{x_n}(a) = 0.$$
 \end{definicija}
@@ -802,11 +802,11 @@ Naj bo $f: D^{\text{odp}} \subseteq \R^n \to \R$ funkcija, $a \in D$. Funkcijo $
 
 \begin{zgled}
     Naj bo $K = \setb{(x, y) \in \R^2}{x^2+y^2 \leq 3}$, $f(x, y) = x^2 - xy + y^2 - 3x +4$. 
-    Poišči minimum in maksimum funkcije~$f$.
+    Poišči minimum in maksimum funkcije~$f$ na $K$.
 \end{zgled}
 
-\subsubsection{Potrebni in zadostni pogoji na 2. odvodi, da je kritična točka lokalni ekstrem}
-Naj bo $D \subseteq \R^n$ odprta, $f: D \to R$ funkcija razreda $C^2$. Definiramo \df{Hessejevo matriko} 2. odvodov:
+\subsubsection{Potrebni in zadostni pogoji na 2.\ odvodi, da je kritična točka lokalni ekstrem}
+Naj bo $D \subseteq \R^n$ odprta, $f: D \to R$ funkcija razreda $C^2$. Definiramo \df{Hessejevo matriko} 2.\ odvodov:
 $$(Hf) (x) = \begin{bmatrix}
     \frac{\partial^2 f}{\partial x_1^2} & \frac{\partial^2 f}{\partial x_1 \partial x_2} & \ldots & \frac{\partial^2 f}{\partial x_1 \partial x_n} \\
     \frac{\partial^2 f}{\partial x_2 \partial x_1} & \frac{\partial^2 f}{\partial x_2^2} & \ldots & \frac{\partial^2 f}{\partial x_2 \partial x_n} \\
