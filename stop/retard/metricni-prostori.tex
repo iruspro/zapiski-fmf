@@ -1,5 +1,4 @@
 \section*{Metrični prostori}
-\subsection*{Metrični prostori}
 \begin{definicija}
     \df{Metrični prostor} je množica $X$ skupaj z preslikavo $d: X \times X \to \R$, za katero velja:
     \begin{itemize}
@@ -25,11 +24,15 @@
         \item Točka $a \in X$ je \df{zunanja} točka množice $A$, če obstaja $r>0$, da $K(a,r) \cap A = \emptyset$.
         \item Točka $a \in X$ je \df{robna} točka množice $A$, če vsaka njena okolica seka $A$ in $A^c$.
     \end{itemize}
-    Množico $\Int A$ vseh notranjih točk množice $A$ imenujemo \df{notranjost} od $A$. 
+\end{definicija}
 
-    Množico $\Cl A$ vseh točk, za katere za vsak $r>0$, krogla $K(a, r)$ seka $A$, imenujemo \df{zaprtje} množice $A$.
-    
-    Množico $\partial A$ vseh robnih točk množice $A$ imenujemo \df{meja} množice $A$.     
+\begin{definicija}
+    Naj bo $(X, d)$ metrični prostor in $A \subset X$.
+    \begin{itemize}
+        \item Množico $\Int A$ vseh notranjih točk množice $A$ imenujemo \df{notranjost} od $A$.
+        \item Množico $\Cl A$ vseh točk, za katere za vsak $r>0$, krogla $K(a, r)$ seka $A$, imenujemo \df{zaprtje} množice $A$.
+        \item Množico $\partial A$ vseh robnih točk množice $A$ imenujemo \df{meja} množice $A$.     
+    \end{itemize}
 \end{definicija}
 
 \begin{trditev}
@@ -52,7 +55,7 @@
 \begin{trditev}
     Naj bo $(X, d)$ metrični prostor in $A \subset X$, potem 
 
-    $$A \text{ je odprta } \liff A^c \text{ je zaprt}.$$
+    $$A \text{ je zaprta } \liff A^c \text{ je odprta}.$$
 \end{trditev}
 
 \begin{izrek}
