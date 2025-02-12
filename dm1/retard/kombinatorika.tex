@@ -185,7 +185,8 @@ Naj bo $N$ $n$-mnižica. Opazujemo izbori $k$-elementov.
     Neurejenemu izboru $\underbrace{x_1\ldots x_1}_{k_1} \underbrace{x_2 \ldots x_2}_{k_2} \ldots \underbrace{x_n \ldots x_n}_{k_n}$ priredimo niz $\underbrace{1 \ldots 1}_{k_1} 0 \underbrace{1 \ldots 1}_{k_2} 0 \ldots 0 \underbrace{1 \ldots 1}_{k_n}$.
 \end{proof}
 
-\subsection{Permutacije in permutacije s ponavljanjem}
+\subsection{Multimnožice}
+\subsubsection{Permutacije}
 \begin{definicija}
     Naj bo $A$ $n$-množica. \df{Permutacija množice $A$} je bijektivna preslikava $\pi: A \to A$.
 
@@ -215,7 +216,7 @@ Naj bo $N$ $n$-mnižica. Opazujemo izbori $k$-elementov.
 
 \subsubsection{Multimnožice}
 \begin{definicija}
-    \df{Multimnožica z elementi v množici $S$} je preslikava $\mu: S \to \N_0$. Pri tem številu $\mu(a), a \in S$, rečemo \df{kratnost elementa $a$ v multimnožici $\mu$}, vsoti $\sum_{a \in S} \mu(a)$ pa \df{moč multimnožice $\mu$}. Multimnožica je \df{končna}, če je njena moč končna.
+    \df{Multimnožica} z elementi v množici $S$ je preslikava $\mu: S \to \N_0$. Pri tem številu $\mu(a), a \in S$, rečemo \df{kratnost elementa} $a$ v multimnožici $\mu$, vsoti $\sum_{a \in S} \mu(a)$ pa \df{moč multimnožice $\mu$}. Multimnožica je \df{končna}, če je njena moč končna.
 \end{definicija}
 
 \begin{opomba}
@@ -225,7 +226,9 @@ Naj bo $N$ $n$-mnižica. Opazujemo izbori $k$-elementov.
 \end{opomba}
 
 \subsubsection{Permutacije multimnožic}
-Permutacija multimnožice $M = (S, \mu)$ moči $n$ je zaporedje $(x_1, \ldots, x_n)$, kjer je $x_i \in S$ in se vsak $a \in S$ v zaporedju pojavi $\mu(a)$-krat.
+\begin{definicija}
+    \df{Permutacija multimnožice} $M = (S, \mu)$ moči $n$ je zaporedje $(x_1, \ldots, x_n)$, kjer je $x_i \in S$ in se vsak $a \in S$ v zaporedju pojavi $\mu(a)$-krat.
+\end{definicija}
 
 \begin{trditev}
     Število permutacij multimnožice $M=\set{1^{\alpha_1}, 2^{\alpha_2}, \ldots, k^{\alpha_k}}$ moči $n = \alpha_1 + \ldots + \alpha_k$ je 
@@ -276,7 +279,9 @@ Permutacija multimnožice $M = (S, \mu)$ moči $n$ je zaporedje $(x_1, \ldots, x
 \end{opomba}
 
 \subsubsection{Šibke kompozicije}
-\df{Šibka kompozicija števila $n$} ima isto definicijo kot kompozicija, le da dovolimo med členi tudi ničle.
+\begin{definicija}
+    \df{Šibka kompozicija števila $n$} ima isto definicijo kot kompozicija, le da dovolimo med členi tudi ničle.
+\end{definicija}
 
 \begin{trditev}
     Število šibkih kompozicij števila $n$ s $k$ členi je $\binom{n+k-1}{k-1} = \binom{n+k-1}{n}$.
@@ -334,9 +339,9 @@ Uvedemo oznake:
     \end{enumerate}
 \end{proof}
 
-\subsection{Stirlingova števila I. vrste}
+\subsection{Stirlingova števila I.\ vrste}
 \begin{definicija}
-    Naj bo $1 \leq k \leq n$. \df{Stirlingovo število I. vrste $C(n,k)$} je število permutacij množice $[n]$, ki se zapišejo kot produkt $k$ disjunktnih ciklov.
+    Naj bo $1 \leq k \leq n$. \df{Stirlingovo število I.\ vrste $C(n,k)$} je število permutacij množice $[n]$, ki se zapišejo kot produkt $k$ disjunktnih ciklov.
     Velja: $C(n, 0) = 0, \ n > 0$ in $C(0,0) = 1$.
 \end{definicija}
 
@@ -357,7 +362,7 @@ Uvedemo oznake:
     \end{enumerate}
 \end{proof}
 
-Za izračun $C(n,k)$ lahko si pomagamo s Stirlingovo matriko I. vrste, ki jo dobimo s pomočjo rekurzivne zveze.
+Za izračun $C(n,k)$ lahko si pomagamo s Stirlingovo matriko I.\ vrste, ki jo dobimo s pomočjo rekurzivne zveze.
 
 \begin{trditev}
     $x^{\overline{n}} = \sum_{k=0}^{\infty}C(n,k)x^k$.
@@ -388,10 +393,6 @@ Za izračun $C(n,k)$ lahko si pomagamo s Stirlingovo matriko I. vrste, ki jo dob
     Izračunaj $S(n, n), \ S(n, 1), \ S(n,2)$.
 \end{primer}
 
-\begin{definicija}
-    \df{Bellovo število $B(n) = \sum_{k=0}^{\infty} S(n,k)$} je število vseh razdelitev $n$-množice v neprazne razrede.
-\end{definicija}
-
 \begin{trditev}
     Naj bo $1 \leq k \leq n$. Velja:
     $$S(n,k) = S(n-1, k-1) + k S(n-1, k).$$
@@ -401,7 +402,7 @@ Za izračun $C(n,k)$ lahko si pomagamo s Stirlingovo matriko I. vrste, ki jo dob
     Vzemimo množico $[n]$. Razdelitve v $k$ razredov razdelimo takole:
     \begin{enumerate}
         \item tiste, ki imajo $\set{n}$ kot samostojni del in
-        \item ostale.
+        \item ostale. \qedhere
     \end{enumerate}
 \end{proof}
 
@@ -428,6 +429,10 @@ Za izračun $S(n,k)$ lahko si pomagamo s Stirlingovo matriko II. vrste, ki jo do
     Vsaka surjekcija določa razdelitev $n$-množice v $k$ nepraznih razredov.
 \end{proof}
 
+\begin{definicija}
+    \df{Bellovo število $B(n) = \sum_{k=0}^{\infty} S(n,k)$} je število vseh razdelitev $n$-množice v neprazne razrede.
+\end{definicija}
+
 \begin{trditev}
     $B(n+1) = \sum_{k=0}^{\infty} \binom{n}{k} B(k)$.
 \end{trditev}
@@ -436,11 +441,29 @@ Za izračun $S(n,k)$ lahko si pomagamo s Stirlingovo matriko II. vrste, ki jo do
     \textcolor{red}{TODO}
 \end{proof}
 
+\newpage
+\subsection{Lahova števila}
 \begin{definicija}
     Naj bo $1 \leq k \leq n$. \df{Lahovo število $L(n,k)$} je število razdelitev $n$-množice v $k$ linearno urejenih kosov.
 \end{definicija}
 
-\newpage
+\begin{trditev}
+    Naj bo \(1 \leq k \leq n - 1\). Velja: 
+    \[L(n, k) = L(n - 1, k - 1) + (n + k - 1)L(n - 1, k).\]
+\end{trditev}
+
+\begin{proof}
+    Vzemimo množico $[n]$. Razdelitve v $k$ linearno urejenih blokov razdelimo takole:
+    \begin{enumerate}
+        \item tiste, ki imajo $\set{n}$ kot samostojni del in
+        \item ostale. \qedhere
+    \end{enumerate}
+\end{proof}
+
+\begin{trditev}
+    Velja: \(L(n,k) = \frac{n!}{k!} \binom{n-1}{k-1}\).
+\end{trditev}
+
 \subsection{Dvajnastera pot}
 Naj bo $N$ $n$-množica (predmetov) in $K$ $k$-množica (predalov). 
 Gledamo "`funkcijo"' $f: N \to K$, ki predmeti razporedi po predalih.
@@ -512,7 +535,7 @@ Recimo, da sta $A, B$ poljubni množici, potem $|A \cup B| = |A| + |B| - |A \cap
 
 \begin{izrek}
     Če je $n = p_1^{e_1} \ldots p_r^{e^r}$ razcep $n \in \N$ na prafaktorji, potem je 
-    $$\phi(n) = n(1 - \frac{a}{p_1}) \ldots (1 - \frac{1}{p_r}) \text{ (Eulorjeva funkcija)}.$$
+    $$\phi(n) = n(1 - \frac{1}{p_1}) \ldots (1 - \frac{1}{p_r}) \text{ (Eulorjeva funkcija)}.$$
 \end{izrek}
 
 \begin{proof}
@@ -522,7 +545,7 @@ Recimo, da sta $A, B$ poljubni množici, potem $|A \cup B| = |A| + |B| - |A \cap
 \newpage
 \subsection{Rekurzivne enačbe}
 \begin{primer} 
-    Na koliko načinov lahko prehodimo $n$ stopnic, če vsakič pregodimo $1$ ali $2$?
+    Na koliko načinov lahko prehodimo $n$ stopnic, če vsakič prehodimo $1$ ali $2$?
 \end{primer}
 
 \begin{primer}
@@ -542,10 +565,14 @@ Recimo, da sta $A, B$ poljubni množici, potem $|A \cup B| = |A| + |B| - |A \cap
     \end{enumerate}
 \end{izrek}
 
+\begin{proof}
+    Z indukcijo in uporabo linearne algebre.
+\end{proof}
+
 \subsubsection*{Splošen primer}
 Zaporedje $(a_n)_{n \geq 0}$ je podano takole:
 \begin{enumerate}
-    \item $a_0 = b_0, a_1 = b_1, \ldots, a_{d-1} = d _{d-1}$, kjer so $b_0, b_1, \ldots, b_{d-1}$ fiksna števila.
+    \item $a_0 = b_0, a_1 = b_1, \ldots, a_{d-1} = b_{d-1}$, kjer so $b_0, b_1, \ldots, b_{d-1}$ fiksna števila.
     \item $c_da_{n+d} + c_{d-1}a_{n+d-1} + \ldots + c_1 a _{n+1} + c_0 a_n = f(n) \ \textcolor{red}{(*)}$, kjer so $c_d, \ldots, c_0$ fiksna števila, $f(n): \N_0 \to \C$.
 \end{enumerate}
 
@@ -554,7 +581,7 @@ Zaporedje $(a_n)_{n \geq 0}$ je podano takole:
 \end{definicija}
 
 \subsubsection*{Kako rešemo homogeno rekurzijo?}
-Zaporedja gledamo v prostoru $\C^{\N_0}$ vseh kompleksnih zaproedij. Naredimo vektorski prostor $(\C^{\N_0}, +, \cdot)$ na naraven način. Gledamo še prostor $\End(\C^{\N_0})$ in naredimo vektorski prostor $(\End(\C^{\N_0}), +, \circ)$.
+Zaporedja gledamo v prostoru $\C^{\N_0}$ vseh kompleksnih zaporedij. Naredimo vektorski prostor $(\C^{\N_0}, +, \cdot)$ na naraven način. Gledamo še prostor $\End(\C^{\N_0})$ in naredimo vektorski prostor $(\End(\C^{\N_0}), +, \circ)$.
 
 Naj bo $E \in (\End(\C^{\N_0}))$, $E(a_0, a_1, a_2, \ldots) = (a_1, a_2, \ldots)$ (odrežemo prvi člen). BŠS: $c_d = 1$.
 \begin{enumerate}
@@ -596,7 +623,7 @@ Pri tem $b_n$ praviloma iščemo z ustreznim nastavkom, pri čemer upoštevamo, 
 
 \subsection{Formalne potenčne vrste (Rodovne funkcije)}
 \begin{definicija}
-    Naj bo $a: \N \to \C$ zaporedje. Vrsta $\sum_{n \geq 0}a_n x^n$ je \df{formalna potenčna vrsta} zaporedja $a_n$.
+    Naj bo $a: \N_0 \to \C$ zaporedje. Vrsta $\sum_{n \geq 0}a_n x^n$ je \df{formalna potenčna vrsta} zaporedja $a_n$.
 \end{definicija}
 
 \begin{definicija}
@@ -662,12 +689,12 @@ Pri tem $b_n$ praviloma iščemo z ustreznim nastavkom, pri čemer upoštevamo, 
 Imejmo produkt $n$ števil $x_1x_2 \ldots x_n$. Na koliko načinov lahko izračunamo ta produkt, če po vrsti zmnožimo dve zaporedni števili in jih nadomestimo s produktom?
 
 \begin{definicija}
-    \df{Catalanovo število $C_n$} je število načinov, s katerimi lahko izračunamo produkt $x_1x_2 \ldots x_n$.
+    \df{Catalanovo število $C_n$} je število načinov, s katerimi lahko izračunamo produkt $x_1x_2 \ldots x_n$. \\ Velja: \(C_0 = C_1 = 1, \ C_2 = 2, C_3 = 5\).
 \end{definicija}
 
-\begin{opomba}
+\begin{trditev}
     Velja rekurzivna zveza: $a_n = \sum_{k=0}^{n-1}a_ka_{n-k-1}$.
-\end{opomba}
+\end{trditev}
 
 \begin{trditev}
     $C_n = \frac{1}{n+1} \binom{2n}{n}$.
@@ -676,3 +703,7 @@ Imejmo produkt $n$ števil $x_1x_2 \ldots x_n$. Na koliko načinov lahko izraču
 \begin{proof}
     Rodovne funkcije.
 \end{proof}
+
+\begin{primer}
+    S Catalonovi števili lahko preštejemo: št.\ dvojiških dreves s korenom na \(n\) vozliščih, št.\ triangulacij \(n\)-kotnika.
+\end{primer}
