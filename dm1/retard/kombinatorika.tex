@@ -250,7 +250,7 @@ Naj bo $N$ $n$-mnižica. Opazujemo izbori $k$-elementov.
 \begin{trditev}[Multinomski izrek]
     Velja 
     $$(x_1 + \ldots + x_k)^n = \sum \binom{n}{\alpha_1, \alpha_2, \ldots, \alpha_k}x_1^{\alpha_1} \ldots x_k^{\alpha_k},$$
-    kjer vsota teče po vseh izbirah naravnih števil $\alpha_1, \ldots, \alpha_k$, katerih vsota je $n$.
+    kjer vsota teče po vseh izbirah nenegativnih celih števil $\alpha_1, \ldots, \alpha_k$, katerih vsota je $n$.
 \end{trditev}
 
 \begin{proof}
@@ -259,7 +259,7 @@ Naj bo $N$ $n$-mnižica. Opazujemo izbori $k$-elementov.
 
 \subsection{Kompozicije naravnega števila}
 \begin{definicija}
-    \df{Kompožicija naravnega števila $n$} je zaporedje pozitivnih naravnih števil $\lambda = (\lambda_1, \ldots, \lambda_l)$, za katero velja $\lambda_1 + \ldots + \lambda_l = n$. \df{Dolžina} kompozicije $\lambda$, $l(\lambda)$ je število elemetnov zaporedja, številu $n$ pa rečemo \df{velikost kompozicije}. Števila $\lambda_1, \ldots, \lambda_l$ imenujemo \df{členi kompozicije}.
+    \df{Kompožicija naravnega števila $n$} je zaporedje pozitivnih naravnih števil $\lambda = (\lambda_1, \ldots, \lambda_l)$, za katero velja $\lambda_1 + \ldots + \lambda_l = n$. \df{Dolžina} kompozicije $\lambda$, $l(\lambda)$ je število elementov zaporedja, številu $n$ pa rečemo \df{velikost kompozicije}. Števila $\lambda_1, \ldots, \lambda_l$ imenujemo \df{členi kompozicije}.
 \end{definicija}
 
 \begin{trditev}
@@ -306,7 +306,7 @@ Naj bo $N$ $n$-mnižica. Opazujemo izbori $k$-elementov.
         \text{1. vrsta: } &\underbrace{\circ \ \circ \ \circ \ \ldots \ \circ}_{\lambda_1 \text{ krožcev}} \\
         \text{2. vrsta: } &\underbrace{\circ \ \circ \ \ldots \ \circ}_{\lambda_2 \text{ krožcev}} \\
         &\vdots \\
-        \text{k. vrsta: } &\underbrace{\circ \ \ldots \ \circ}_{\lambda_l \text{ krožcev}}
+        \text{l. vrsta: } &\underbrace{\circ \ \ldots \ \circ}_{\lambda_l \text{ krožcev}}
     \end{align*}
 \end{definicija}
 
@@ -678,7 +678,7 @@ Pri tem $b_n$ praviloma iščemo z ustreznim nastavkom, pri čemer upoštevamo, 
 \end{primer}
 
 \begin{definicija}
-    Naj bo $A(x) = \sum_{n \geq 0}a_n x^n$ f.\ p.\ v. \df{Odvod} f.\ p.\ v.\ je $A'(x) =  \sum_{n \geq 1}na_n x^{n-1} =  \sum_{n \geq 0}(n+1)a_n x^n$.
+    Naj bo $A(x) = \sum_{n \geq 0}a_n x^n$ f.\ p.\ v. \df{Odvod} f.\ p.\ v.\ je $A'(x) =  \sum_{n \geq 1}na_n x^{n-1} =  \sum_{n \geq 0}(n+1)a_{n+1} x^n$.
 \end{definicija}
 
 \begin{trditev}
