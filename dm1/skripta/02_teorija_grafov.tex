@@ -1,0 +1,218 @@
+\section{Teorija grafov}
+
+\begin{enumerate}
+    \item Osnovni pojmi
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Graf. Množica vozlišč, množica povezav.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Moč \(V(G)\). Krajišči povezave. Sosedni vozlišči.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Soseščina vozlišča. Stopnja vozlišča. Minimalna in maksimalna stopnja v grafu.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Regularen graf. \(r\)-regularen graf.
+        \item \colorbox{yellow!30}{\emph{Primer.}} Petersonov graf. Ali je regularen?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Matrika sosednosti. Incidenčna matrika.
+    \end{itemize}
+
+    \item Lema o rokovanju
+    \begin{itemize}
+        \item \colorbox{blue!30}{\textbf{Lema.}} Lema o rokovanju.
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Koliko lahko ima graf vozlišč lihe stopnje?
+    \end{itemize}
+
+    Izpitna vprašanja:
+    \begin{itemize}
+        \item Kaj je stopnja vozlišča grafa in kaj pravi lema o rokovanju? Kako dokažemo to lemo?
+    \end{itemize}    
+
+    \item Podgrafi
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Podgraf. Vpet podgraf. Induciran podgraf.
+    \end{itemize}
+
+    \item Nekatere družine grafov
+    \begin{itemize}
+        \item Polni grafi. Koliko ima povezav?
+        \item Poti.
+        \item Cikli.
+        \item Polni dvodelni grafi.
+        \item Hiperkocke. Koliko ima vozlišč in koliko ima povezav?
+        \item Posplošeni Petersenovi grafi.
+    \end{itemize}
+
+    \item Sprehodi, poti in cikli
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Sprehod. Enostaven sprehod. Pot.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Sklenjen sprehod. Enostaven sklenjen sprehod. Cikel.
+        \item \colorbox{blue!30}{\textbf{Lema.}} Kaj če ima graf \(uv\)-sprehod?
+        \item \colorbox{blue!30}{\textbf{Lema.}} Kaj če ima graf dve različini \(uv\)-poti?
+        \item \colorbox{blue!30}{\textbf{Lema.}} Kaj če graf ima sklenjen sprehod lihe dolžine?
+    \end{itemize}
+    Izpitna vprašanja:
+    \begin{itemize}
+        \item  Pojasnite sprehod, sklenjen sprehod, pot v grafu, cikel v grafu. Pokažite, da vsak graf, ki vsebuje sklenjen sprehod lihe dolžine, vsebuje tudi cikel lihe dolžine.
+    \end{itemize}  
+    
+    \item Povezane komponente, razdalja in premer
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Povezan graf. Komponente grafa. Število komponent grafa.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Razdalja med vozliščimi \(u\) in \(v\).
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Kakšno strukturo ima \((V(G), d_G)\), če je \(G\) povezan?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Ekscentričnost vozlišča. Premer grafa. Polmer grafa.
+        \item \colorbox{yellow!30}{\emph{Primer.}} Določi \(\diam(P_{5,2})\) in \(\rad(P_{5,2})\) ter \(\diam(P_n)\) in \(\rad(P_n)\).
+    \end{itemize}
+
+    \item Inačice kocepta "`graf"'
+    \begin{itemize}
+        \item Enostavni grafi. Vzporedne povezave in zanke.
+        \item Utežni grafi, omrežje, utežno omrežje.
+        \item Usmerjeni grafi.
+        \item Hipergrafi.
+    \end{itemize}
+
+    \item Dvodelnost
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Dvodelen graf.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Kako lahko raziščemo dvodelnost grafa?
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Karakterizacija dvodelnosti.
+    \end{itemize}
+
+    Izpitna vprašanja:
+    \begin{itemize}
+        \item Kaj so dvodelni grafi? Kako jih karakteriziramo? Kako dokažemo to karakterizacijo?
+    \end{itemize}  
+
+    \newpage
+    \item Morfizmi grafov
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Homomorfizem grafov. Vložitev.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Kaj če je \(G\) dvodelen?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Izometrična vložitev.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Izomorfizem grafov. Izomorfna grafa.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali je izomorfnost ekvivalenčna relacija?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Avtomorfizem grafa. Grupa avtomorfizmov grafa.
+    \end{itemize}
+
+    Izpitna vprašanja:
+    \begin{itemize}
+        \item Kaj je homomorfizem grafov, izomorfizem grafov in avtomorfizem grafa? Kaj je to \(\Aut(G)\)? Kakšno algebrsko strukturo ima?
+    \end{itemize}  
+
+    \item Operaciji z grafi
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Komplement grafa.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Recimo, da \(G\) ni povezan. Kako lahko ocenimo \(\diam (\overline{G})\)?
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Kaj lahko povemo o povezanosti \(G\) in \(\overline{G}\)?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Odstranevanje vozlišč in povezav.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Kako dobimo podgraf grafa \(G\)?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Skrčitev povezave. Minor.
+        \item \colorbox{yellow!30}{\emph{Primer.}} Ali je \(K_5\) minor \(P_{5,2}\)?
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Kako dobimo minor grafa \(G\)?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Subdivizija povezave. Subdivizija. Glajenje vozlišča.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Homeomorfna grafa.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Kartezični produkt grafov.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Komutativnost, asociativnost kartezičnega produkta. Enota. 
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Kartezična potenca grafa.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Čemu je enak \(Q_n\)?
+    \end{itemize}
+
+    Izpitna vprašanja:
+    \begin{itemize}
+        \item Kaj pomeni, da je graf \(H\) minor grafa \(G\)? Kdaj sta dva grafa homeomorfna? Pojasnite operacijo kartezičnega produkta grafov.
+    \end{itemize}  
+
+    \item Prerezna vozlišča in \(k\)-povezanost
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Prerezno vozlišče. Most. Prerez. Povezavni prerez.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} \(k\)-povezan graf. Povezanost grafa.
+        \item \colorbox{yellow!30}{\emph{Primer.}} Določi \(K(K_n), \ K(C_n), \ K(Q_n)\).
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Kako lahko ocenimo \(K(G)\)?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Notranji-disjunktni \(uv\)-poti.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Karakterizija \(2\)-povezanosti (Whitney).
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Mengerjev izrek.
+    \end{itemize}
+
+    Izpitna vprašanja:
+    \begin{itemize}
+        \item Kaj so to prerezna vozlišča in prerezne povezave grafa? Kdaj je graf \(k\)-povezan in kaj je to povezanost grafa?
+        \item Pojasnite Whitney-ev izrek, ki karakterizira \(2\)-povezane grafe. Skicirajte dokaz tega izreka. Zapišite Mengerjev izrek.
+    \end{itemize}  
+    
+    \item Drevesa
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Gozd. Drevo. List.
+        \item \colorbox{blue!30}{\textbf{Lema.}} Ali drevo vendo premore list?
+        \item \colorbox{blue!30}{\textbf{Lema.}} Število povezav v drevesu.
+        \item \colorbox{blue!30}{\textbf{Lema.}} Naj bo \(G\) povezan graf in \(e \in E(G)\) leži na nekem ciklu. Kaj lahko povemo o \(G - e\)?
+        \item \colorbox{blue!30}{\textbf{Lema.}} Kako lahko ocenimo število povezav v povezanem grafu?
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Kaj so drevesa z vidika števila povezav?
+        \item \colorbox{blue!30}{\textbf{Izrek.}} 3 karakterizaciji drevesa.
+    \end{itemize}
+
+    Izpitna vprašanja:
+    \begin{itemize}
+        \item Kaj je drevo in kaj je gozd? Katere karakterizacije dreves poznate?
+    \end{itemize}  
+
+    \newpage
+    \item Vpeta drevesa
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Vpeto drevo. Število vpetih dreves grafa.
+        \item \colorbox{yellow!30}{\emph{Primer.}} Določi \(\tau (C_n)\).
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Karakterizacija povezanosti grafa.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Rekurzivna formula za število vpetih dreves.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Laplaceova matrika.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Kako izračunamo število vpetih dreves s pomočjo Laplaceove matrike?
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Določi \(\tau(K_n)\) (Cayley).
+    \end{itemize}
+
+    Izpitna vprašanja:
+    \begin{itemize}
+        \item Kaj je vpeto drevo grafa? Kateri grafi premorejo vpeta drevesa? Kako lahko rekurzivno določimo število vpetih dreves povezanega grafa?
+    \end{itemize}      
+
+    \item Eulerjevi in Hamiltonovi grafi
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Eulerjev sprehod. Eulerjev obhod. Eulerjev graf.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Karakterizacija Eulerjevih grafov.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Kadar povezan graf premore Eulerjev obhod?
+        \item Fleuryjev algoritem za poisk Eulerjeva obhoda.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Hamiltonov cikel. Hamiltonov pot. Hamiltonov graf.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Potreben pogoj, da je graf Hamiltonov.
+        \item \colorbox{yellow!30}{\emph{Primer.}} Kadar je \(K_{n,m}\) Hamiltonov?
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Orejev izrek.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Diracov izrek.
+    \end{itemize}
+
+    Izpitna vprašanja:
+    \begin{itemize}
+        \item Kaj pomeni, da je graf eulerjev? Kako karakteriziramo eulerjeve grafe? Skicirajte dokaz slednjega rezultata.
+        \item Kdaj je graf hamiltonov? Navedite in pojasnite potrebni pogoj z razpadom grafa za obstoj hamiltonovega cikla v grafu.
+        \item Navedite Orejev zadostni pogoj za obstoj hamiltonovega cikla v grafu. Skicirajte dokaz tega izreka.
+    \end{itemize}  
+
+    \item Ravninski grafi
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Ravninski graf. Graf vložen v ravnino.
+        \item \colorbox{yellow!30}{\emph{Primer.}} Ali je \(K_{2,3}\) ravninski? Kaj pa \(K_{3,3}\)?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Lica grafa. Množica vseh lic grafa.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali je isto vložiti graf v ravnino in v sfero? Kaj to pomeni za lica?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Rob lica. Dolžina roba. 
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali je vsaka povezava leži na rovu dveh lic? Kaj pa če na robu le enega?
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Lema o rokovanju za ravninske grafe.
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Ožina grafa.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Ocena navzdol števila povezav, za graf, ki ima vsaj en cikel in vložen v ravnino.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Eulerjeva formula.
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Eulerjeva formula za povezane grafe.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Ocena navzgor števila povezav, za graf, ki ima vsaj en cikel in vložen v ravnino.
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Ocena, če upoštevamo, da je \(g(G) \geq 3\).
+        \item \colorbox{orange!30}{\textbf{Posledica.}} Ocena za graf, ki nima trikotnikov.
+        \item \colorbox{yellow!30}{\emph{Primer.}} Pokaži, da nista ravninska \(K_5\) in \(K_{3,3}\).
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Izrek Kuratowskega.
+        \item \colorbox{yellow!30}{\emph{Primer.}} Ali sta ravninska: Petersenov graf, \(Q_4\).
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Wagnerjev izrek.
+    \end{itemize}
+
+    Izpitna vprašanja:
+    \begin{itemize}
+        \item  Kaj so ravninski grafi? Kaj so lica ravninske vložitve grafa in čemu je enaka vsota dolžin vseh lic ravninske vložitve grafa? Kako lahko omejimo število povezav ravninskega grafa s pomočjo njegove ožine?
+        \item Kaj pravi Eulerjeva formula za ravninske grafe? Skicirajte njen dokaz. Katere posledice Eulerjeve formule poznate?
+    \end{itemize}  
+\end{enumerate}

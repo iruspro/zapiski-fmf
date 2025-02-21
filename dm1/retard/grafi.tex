@@ -125,7 +125,7 @@
 
 \paragraph{Polni dvodelni grafi.} Naj bosta $A$ in $B$ poljubni disjunktni neprazni množici. Grafu $K_{A, B}$ z množico vozlišč $A \cup B$ in množico povezav $E(K_{A,B}) = \setb{uv}{u \in A, v \in B}$ rečemo \df{polni dvodelni graf} na paru množic $A, B$. Oznaka: $K_{A, B}$ ali $K_{m, n}$, če $A = [m], \ B = [n]$.
 
-\paragraph{Hiperkocke.} Za $d \in \N$ naj $\Z_2^d$ predstavlja množico vseh urejenih $d$-teric ničel in enic. Na $\Z_2^d$ lahko gledamo kot na Abelovo grupo. Za $i \in {1, 2, \ldots, d}$ naj bo $e_i$ tisti element množice $\Z_2^d$, ki ima na $i$-tem mesu enico, povsod grugod pa ničlo. Pišimo $S = \set{e_1, e_2, \ldots, e_d}$. \df{Hiperkocka razsežnosti $d$} je graf z množico vozlišč $\Z_2^d$ in z dvema vozliščema $u, v \in \Z_2^d$ sosednjima, če in samo če je $u+ v \in S$, tj. $u$ in $v$ razlikujeta v natanko eni komponenti. Oznaka: $Q_n$. Velja:
+\paragraph{Hiperkocke.} Za $d \in \N$ naj $\Z_2^d$ predstavlja množico vseh urejenih $d$-teric ničel in enic. Na $\Z_2^d$ lahko gledamo kot na Abelovo grupo. Za $i \in {1, 2, \ldots, d}$ naj bo $e_i$ tisti element množice $\Z_2^d$, ki ima na $i$-tem mestu enico, povsod drugod pa ničlo. Pišimo $S = \set{e_1, e_2, \ldots, e_d}$. \df{Hiperkocka razsežnosti $d$} je graf z množico vozlišč $\Z_2^d$ in z dvema vozliščema $u, v \in \Z_2^d$ sosednjima, če in samo če je $u+ v \in S$, tj. $u$ in $v$ razlikujeta v natanko eni komponenti. Oznaka: $Q_n$. Velja:
 \begin{itemize}
     \item $|V(Q_n)| = 2^d$.
     \item $|E(Q_n)| = d \cdot 2 ^{d-1}$.
@@ -244,9 +244,9 @@ Označimo z $\Omega(G)$ število komponent grafa $G$.
     Graf $G$ je \df{dvodelen}, če obstaja razdelitev $V(G) = V_1 \cup V_2$, tako da velja: $$uv \in E(G) \lthen u \in V_1 \land v \in V_2.$$
 \end{definicija}
 
-\begin{primer}
+\begin{opomba}
     Dvodelnost grafa lahko raziščemo z barvanjo vozlišč z dvema barvama.
-\end{primer}
+\end{opomba}
 
 \begin{izrek}
     Graf $G$ je dvodelen natanko tedaj, ko ne vsebuje lihih ciklov.
@@ -425,7 +425,7 @@ Lastnost asociativnosti nam omogoča, da definiramo pojem \df{kartezične potenc
     $K_2^{\square n} = Q_n$.
 \end{primer}
 
-\subsection{Prerezna vozlišč in $k$-povezanost}
+\subsection{Prerezna vozlišča in $k$-povezanost}
 \begin{definicija}
     Naj bo $G$ graf.
     \begin{itemize}
@@ -458,7 +458,7 @@ Lastnost asociativnosti nam omogoča, da definiramo pojem \df{kartezične potenc
 \end{definicija}
 
 \begin{izrek}[Whitney]
-    Graf $G$ je $2$-povezan natanko tedaj, ko za vsak par vozlišč $u, v \in V(G), \ u \neq v$ obstajata dve notranji-disjunktni $uv$-poti.
+    Graf $G$ z vsaj \(3\) vozlišči je $2$-povezan natanko tedaj, ko za vsak par vozlišč $u, v \in V(G), \ u \neq v$ obstajata dve notranji-disjunktni $uv$-poti.
 \end{izrek}
 
 \begin{proof}
@@ -466,6 +466,14 @@ Lastnost asociativnosti nam omogoča, da definiramo pojem \df{kartezične potenc
 
     $(\lthen)$ Naj bo $u,v \in V(G)$. Obstoj dokažimo z indukcijo po $d_G(u,v)$.
 \end{proof}
+
+\begin{izrek}[Menger]
+    Naj bosta \(u\) in \(v\) dve nesosednji vozlišči povezanega grafa \(G\). Tedaj je največje število notranje-disjunktnih poti med \(u\) in \(v\) v grafu \(G\) enako moči najmanjšega prereza \(S\), za kateraga sta vozlišči \(u\) in \(v\) v različnih komponentah grafa \(G - S\).
+\end{izrek}
+
+\begin{posledica}
+    Graf $G$ z vsaj \(k+1\) vozlišči je $k$-povezan natanko tedaj, ko za vsak par vozlišč $u, v \in V(G), \ u \neq v$ obstajata vsak \(k\) notranje-disjunktnih $uv$-poti.
+\end{posledica}
 
 \newpage
 \subsection{Drevesa}
@@ -580,7 +588,8 @@ Označimo z $\tau(G)$ število vpetih dreves grafa $G$.
 \end{proof}
 
 \newpage
-\subsection{Eulerjevi grafi}
+\subsection{Eulerjevi in Hamiltonovi grafi}
+\subsubsection{Eulerjevi grafi}
 \begin{definicija}
     Sprehod v grafu je \df{Eulerjev}, če je enostaven in prehodi vse povezave. Sklenjen Eulerjev sprehod je \df{Eulerjev obhod}. Graf je \df{Eulerjev}, če premore Eulerjev obhod.
 \end{definicija}
@@ -611,9 +620,9 @@ Označimo z $\tau(G)$ število vpetih dreves grafa $G$.
     \item Na vsakem koraku izberimo poljubno povezavo, pri tem pa pazimo le na to, da na most gremo le v premeru, če ni druge možnosti.
 \end{enumerate}
 
-\subsection{Hamiltonovi grafi}
+\subsubsection{Hamiltonovi grafi}
 \begin{definicija}
-    \df{Hamiltonov cikel} grafa je cikel, ki vsebuje vsa vozlišča grafa. \df{Hamiltonov pot} je pot d grafu, ki vsebuje vsa vozlišča. Graf je \df{Hamiltonov}, če premore Hamiltonov cikel.
+    \df{Hamiltonov cikel} grafa je cikel, ki vsebuje vsa vozlišča grafa. \df{Hamiltonov pot} je pot v grafu, ki vsebuje vsa vozlišča. Graf je \df{Hamiltonov}, če premore Hamiltonov cikel.
 \end{definicija}
 
 \begin{izrek}
@@ -625,11 +634,11 @@ Označimo z $\tau(G)$ število vpetih dreves grafa $G$.
 \end{proof}
 
 \begin{primer}
-    $K_{n,n}$ je Hamiltonov natanko tedaj, ko $n=m$.
+    $K_{n,m}$ je Hamiltonov natanko tedaj, ko $n=m$.
 \end{primer}
 
 \begin{izrek}[Ore]
-    Če je $G$ povezan graf in za vsak par nesosednih vozlišč $u, v \in V(G)$ velja $$\deg(u)+\deg(v) \geq |V(G)|,$$ potem je $G$ Hamiltonov.
+    Če je $G$ povezan graf in za vsak par nesosednjih vozlišč $u, v \in V(G)$ velja $$\deg(u)+\deg(v) \geq |V(G)|,$$ potem je $G$ Hamiltonov.
 \end{izrek}
 
 \begin{proof}
@@ -642,7 +651,7 @@ Označimo z $\tau(G)$ število vpetih dreves grafa $G$.
 
 \subsection{Ravninski grafi}
 \begin{definicija}
-    Graf $G$ je \df{ravninski}, če ga lahko narišemo v ravnini tako, da se povezave ne križajo. Ravninski graf skupaj z ustrezni rusbi v ravnini, je graf \df{vložen v ravnino}.
+    Graf $G$ je \df{ravninski}, če ga lahko narišemo v ravnini tako, da se povezave ne križajo. Ravninski graf skupaj z ustrezni risbi v ravnini, je graf \df{vložen v ravnino}.
 \end{definicija}
 
 \begin{primer}

@@ -53,8 +53,8 @@ Označimo z $[k] = \set{1, 2, \ldots, k}$.
 
 \begin{definicija} Definiramo:
     \begin{itemize}
-        \item $n^{\underline{k}} = \underbrace{n(n-1) \ldots (n-k+1)}_\text{$k$ faktorjev}$ je \df{padajoča potenca.}
-        \item $n^{\overline{k}} = n(n+1) \ldots (n+k-1)$ je \df{naraščajoča potenca.}
+        \item $n^{\underline{k}} = \underbrace{n(n-1) \ldots (n-(k-1))}_\text{$k$ faktorjev}$ je \df{padajoča potenca.}
+        \item $n^{\overline{k}} = n(n+1) \ldots (n+(k-1))$ je \df{naraščajoča potenca.}
         \item $n! = ^{\underline{n}}$ je \df{$n$ fakulteta}.
         \item Množica z $n$ elementi se imenuje \df{$n$-množica.}
     \end{itemize}
@@ -70,13 +70,13 @@ Označimo z $[k] = \set{1, 2, \ldots, k}$.
 \end{trditev}
 
 \begin{proof}
-    Za 1. in 2. točko uporabimo načelo enakosti. V 3. točki upoštevamo, kadar je preslikava iz končne množice v končno množico bijektivna.
+    Za 1. in 2. točko uporabimo načelo enakosti. V 3. točki upoštevamo, kadar je preslikava iz končne množice v končno množico z isto močjo bijektivna.
 \end{proof}
 
 \newpage
 \subsection{Binomski koeficienti in binomski izrek}
 \begin{definicija}
-    Naj bo $x \in \C$. Naj bo $k \in \N_0 = \set{1, 2, \ldots}$. Definiramo $\binom{x}{k} = \frac{x^{\underline{k}}}{k!} = \frac{x(x-1)\ldots (x-k+1)}{k!}$. 
+    Naj bo $x \in \C$. Naj bo $k \in \N_0 = \set{1, 2, \ldots}$. Definiramo $\binom{x}{k} = \frac{x^{\underline{k}}}{k!} = \frac{x(x-1)\ldots (x-(k-1))}{k!}$. 
     
     Števila $\binom{x}{k}$ so \df{binomski koeficienti.}
     Če je $k \notin \N_0$ definiramo $\binom{x}{k} = 0$.
@@ -169,14 +169,14 @@ Naj bo $N$ $n$-mnižica. Opazujemo izbori $k$-elementov.
     \end{enumerate}
     \item Izbor je neurejen:
     \begin{enumerate}
-        \item Elementi si lahko ponavljajo [trditev]: $\binom{n+k-1}{k}$.
+        \item Elementi si lahko ponavljajo [trditev]: $\binom{k + n- 1}{n-1}$.
         \item Elementi se ne smejo ponavljati: $\binom{n}{k}$.
     \end{enumerate}
 \end{enumerate}
 
 \begin{trditev}
     Število neurejenih izborov s ponavljanjem dolžine $k$ iz $n$-množice $N$ je 
-    $$\binom{n+k-1}{k}.$$
+    $$\binom{k+n-1}{n-1}.$$
 \end{trditev}
 
 \begin{proof}
@@ -222,7 +222,7 @@ Naj bo $N$ $n$-mnižica. Opazujemo izbori $k$-elementov.
 \begin{opomba}
     Multimnožico $M$ formalno podamo z urejenim parom $(S, \mu)$. Namesto da elemente zapišemo večkrat, lahko kratnost označimo tudi s formalno potenco: $M = \set{a, a, b, c, c, c} = \set{a^2, b, c^3}$.
 
-    Multimnožica je isto kot neurejen izbor s ponavljanjem. Tojer obstaja $\binom{n+k-1}{k}$ $k$-elementnih multimnožic v množici z $n$ elementi.
+    Multimnožica je isto kot neurejen izbor s ponavljanjem. Tojer obstaja $\binom{k+n-1}{n-1}$ $k$-elementnih multimnožic v množici z $n$ elementi.
 \end{opomba}
 
 \subsubsection{Permutacije multimnožic}
@@ -413,7 +413,11 @@ Za izračun $S(n,k)$ lahko si pomagamo s Stirlingovo matriko II. vrste, ki jo do
 \end{trditev}
 
 \begin{proof}
-    \textcolor{red}{TODO}
+    Naj bo \(x \in \N\). Opazujemo množico \(X = \setb{(x_1, \ldots, x_n)}{x_i \in [x]}\). Preštejemo elementi te množice na \(2\) načina:
+    \begin{enumerate}
+        \item Naraven način.
+        \item Vektorji razdelimo glede na to, koliko različnih komponent ima. \qedhere
+    \end{enumerate}
 \end{proof}
 
 \begin{opomba}
@@ -438,7 +442,7 @@ Za izračun $S(n,k)$ lahko si pomagamo s Stirlingovo matriko II. vrste, ki jo do
 \end{trditev}
 
 \begin{proof}
-    \textcolor{red}{TODO}
+    Opazujemo razdelitev množice \([n+1]\). Recimo, da v razredu z elementom \(n+1\) natanko \(k+1\) elementov.
 \end{proof}
 
 \newpage
@@ -463,6 +467,18 @@ Za izračun $S(n,k)$ lahko si pomagamo s Stirlingovo matriko II. vrste, ki jo do
 \begin{trditev}
     Velja: \(L(n,k) = \frac{n!}{k!} \binom{n-1}{k-1}\).
 \end{trditev}
+
+\begin{proof}
+    Oglejmo si, koliko \emph{urejenih} razdelitev \([n]\) na \(k\) linearno urejenih blokov.
+\end{proof}
+
+\begin{trditev}
+    \(x^{\overline{n}} = \sum_{k=0}^{\infty} L(n,k)x^{\underline{n}}\)
+\end{trditev}
+
+\begin{proof}
+    Indukcija po \(n\).
+\end{proof}
 
 \subsection{Dvajnastera pot}
 Naj bo $N$ $n$-množica (predmetov) in $K$ $k$-množica (predalov). 
@@ -502,9 +518,6 @@ Imamo 12 možnosti: predmeti in predali lahko bodisi ločimo med seboj bodisi ne
 
 \subsection{Načelo vključitev in izključitev}
 Recimo, da sta $A, B$ poljubni množici, potem $|A \cup B| = |A| + |B| - |A \cap B|$.
-\begin{primer}
-    Koliko so števil v $[30]$ ni tujih s $30$? Koliko so tujih?
-\end{primer}
 
 \begin{izrek}[Načelo vključitev in izključitev]
     Naj bo $A_1, \ldots, A_n$ množice. Velja: 
@@ -515,6 +528,10 @@ Recimo, da sta $A, B$ poljubni množici, potem $|A \cup B| = |A| + |B| - |A \cap
 \begin{proof}
     Pokažemo, da če $x \in \bigcup_{i=1}^n A_i$, potem prispeva natanko $1$ k formuli.
 \end{proof}
+
+\begin{primer}
+    Koliko so števil v $[30]$ ni tujih s $30$? Koliko so tujih?
+\end{primer}
 
 \begin{primer}
     Na koliko načinov lahko razporedimo $n$ označenih predmetov v $k$ označenih predalov, če je vsaj en predal prazen?
@@ -539,10 +556,9 @@ Recimo, da sta $A, B$ poljubni množici, potem $|A \cup B| = |A| + |B| - |A \cap
 \end{izrek}
 
 \begin{proof}
-    \textcolor{red}{TODO}
+    Definiramo \(A_i = \setb{x \in [n]}{p_i \, | \, x}\).
 \end{proof}
 
-\newpage
 \subsection{Rekurzivne enačbe}
 \begin{primer} 
     Na koliko načinov lahko prehodimo $n$ stopnic, če vsakič prehodimo $1$ ali $2$?
