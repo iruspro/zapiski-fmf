@@ -1,0 +1,45 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[slovene]{babel}
+\usepackage{lmodern}
+
+\usepackage{tikz-cd}
+\usepackage{xcolor}
+\usepackage{bbold}
+\usepackage{amsmath}
+\usepackage{amssymb}
+% \usepackage{xypic}
+
+\usepackage{graphicx}
+
+\usepackage{enumitem}
+\setlist{nosep}
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}
+
+\setlength{\parindent}{0mm}
+
+\usepackage{geometry}
+\geometry{
+    a4paper,
+    left=5mm,
+    right=5mm,
+    top=5mm,
+    bottom=15mm
+}
+
+\input{../../macros.tex}
+
+\begin{document}
+
+\title{Uvod v geometrijsko topologijo}
+\maketitle
+
+\newpage
+\input{00_uvod.tex}
+
+\newpage
+\input{01_kvocientni_prostori.tex}
+
+\end{document}

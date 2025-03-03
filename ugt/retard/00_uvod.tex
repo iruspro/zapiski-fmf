@@ -1,0 +1,41 @@
+\section*{Uvod}
+
+\paragraph{Cilj topologije} Razumeti prostore in preslikave med njimi.
+
+\paragraph{Preslikave} \ 
+\begin{itemize}
+    \item Vedno zvezne;
+    \item Pomembne: Homeomorfizmi, vložitve;
+    \item Odprte ali zaprte.
+\end{itemize}
+
+\paragraph{Prostori} \
+\begin{itemize}
+    \item Osnovni interes so metrični prostori;
+    \item Različne konstrukcije dajo prostore, ki niso nujno metrični ali pa ne takoj jasno da so -- zato si pomagamo s topološkimi lastnostmi.
+\end{itemize}
+
+\paragraph{Konstrukcije prostorov} \
+\begin{itemize}
+    \item \textbf{Podprostor}. Naj bo \((X, \T)\) topološki prostor in \(A \subseteq X\). Potem \[\T_A = \setb{A \cap U}{U \in \T}\]
+    topologija na \(A\) in \((A, \T_A)\) topološki prostor.
+    \item \textbf{Vsota (oz. disjunktna unija)}. Naj bodo \(\setb{(X_\lambda, \T_\lambda)}{\lambda \in \Lambda}\) topološki prostori in \(X = \bigcup_{\lambda \in \Lambda} X_\lambda \times \set{\lambda}\). Potem \[\T = \setb{U \subseteq X}{\all{\lambda \in \Lambda} U \cap X_\lambda \text{ odprta v } X_\lambda}\]
+    je topologija na \(X\) porojena z bazo \(\bigcup_{\lambda \in \Lambda} \T_\lambda\).
+    \item \textbf{Produkt}. Naj bodo \(\setb{(X_\lambda, \T_\lambda)}{\lambda \in \Lambda}\) topološki prostori in \(\prod_{\lambda \in \Lambda} X_\lambda = \setb{(x_\lambda)_{\lambda \in \Lambda}}{x_\lambda \in X_\lambda}\).
+    \begin{itemize}
+        \item Na \(X \times Y\) definiramo bazo \[\mathcal{B} = \setb{U \times V}{U^\text{odp} \subseteq X, \ V^\text{odp} \subseteq Y}.\]
+        Topologija \(\T_{A \times B}\) na množici \(X \times Y\) je topologija porojena z bazo \(\mathcal{B}\). 
+        \begin{opomba}
+            Baza \(\mathcal{B}\) pride iz predbaze, ki je določena z pogojem, da so projekcije na faktorje zvezne.
+        \end{opomba}
+        \item Množico \(\prod_{\lambda \in \Lambda} X_\lambda = \setb{(x_\lambda)_{\lambda \in \Lambda}}{x_\lambda \in X_\lambda}\) opremimo z najslabšo topologijo, glede na katero so vse projekcije \[\gamma_\mu: \prod_{\lambda \in \Lambda} X_\lambda \to X_\mu, \ \mu \in \Lambda\]
+        zvezni.
+
+        Predbazo sestavljajo \[\invimg{\gamma_\mu}(U_\mu) = U_\mu \times \prod_{\lambda \neq \mu} X_\lambda, \ \text{kjer} \ U_\mu^\text{odp} \subseteq X_\mu.\]
+        Bazne množice so \[U_{\mu_1} \times U_{\mu_2} \times \ldots \times U_{\mu_k} \times \prod_{\lambda \neq \mu_1, \ldots, \mu_k}X_\lambda.\]        
+    \end{itemize}
+    \item \textbf{Kompaktifikacija z \(1\) točko}.
+    \item \textbf{"`Slika prostora pri zvezni preslikavi"'}. Naj bo \(f: X \to Y\) preslikava. Gledamo \(\img{f}(X)\). \(\img{f}(X)\) dobi topologijo iz \(Y\). Problem, da topologijo na \(Y\) lahko menjamo. Hočemo jo dobiti odvisno od \(X\).
+    
+    Družina \(\setb{\invimg{f}(y)}{y \in \img{f}(X)}\) je \df{razdelitev} množice \(X\). V tej družine so množice paroma disjunktne. Torej ta družina določa ekvivalenčno relacijo na \(X\) in obratno, vsaka ekvivalenčna relacija na \(X\) določna razdelitev na ekvivalenčne razrede.  
+\end{itemize}
