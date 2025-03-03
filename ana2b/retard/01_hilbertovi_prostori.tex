@@ -1,0 +1,127 @@
+\section{Hilbertovi prostori}
+\subsection{Vektorski prostori s skalarnim produktom}
+Naj bo \(X\) vektorski prostor nad \(\R\) (ali nad \(\C\)).
+\begin{definicija}
+    \df{Skalarni produkt} \(\scp{\ }{}\) je preslikava \(\scp{\ }{}: X \times X \to \R \text{ (oz. \(\C\))}\) za katero velja:
+    \begin{enumerate}
+        \item \(\all{x \in X} \scp{x}{x} \geq 0\);
+        \item \(\all{x \in X} \scp{x}{x} = 0 \liff x = 0\);
+        \item \(\all{x, y \in X} \scp{x}{y} = \overline{\scp{y}{x}}\);
+        \item \(\all{x,y,z \in X} \all{\lambda, \mu \in \R \text{ (oz. \(\C\))}} \scp{\lambda x + \mu y}{z} = \lambda \scp{x}{z} + \mu \scp{y}{z}\). 
+    \end{enumerate}
+\end{definicija}
+
+\begin{opomba}
+    1.\ -- 2.\ je \df{pozitivna definitnost} skalarnega produkta, 3.\ je \df{poševna simetričnost} (\df{simetričnost} nad \(\R\)), 4.\ je linearnost v prvem faktorju.
+\end{opomba}
+
+\begin{trditev}[Cauchy-Schwartzova neenakost]
+    Naj bo \(\scp{\ }{}\) skalarni produkt na \(X\). Velja: 
+    \[\all{x,y \in X} |\scp{x}{y}| \leq \sqrt{\scp{x}{x}} \cdot \sqrt{\scp{y}{y}} = \norm{x} \cdot \norm{y}.\]
+\end{trditev}
+
+\begin{proof}
+    Nad \(\R\): Definiramo \(t \to \scp{x + ty}{x + ty} = f(t) \geq 0\).
+
+    Nad \(\C\): Naj bo \(x, y \in X\). Obstaja \(\alpha \in \C, \ |\alpha| = 1\), da \(\scp{x}{y} = \alpha \cdot |\scp{x}{y}|\).
+\end{proof}
+
+\begin{definicija}
+    Norma na vektorskem prostoru \(X\) je preslikava \(\norm{\ }: X \to \R\) za katero velja:
+    \begin{enumerate}
+        \item \(\all{x \in X} \norm{x} \geq 0\);
+        \item \(\all{x \in X} \norm{x} = 0 \liff x = 0\);
+        \item \(\all{\lambda \in \R \text{ (oz. \(\C\))}} \norm{\lambda x} = |\lambda| \cdot \norm{x}\);
+        \item Trikotniška neenakost: \(\all{x, y \in X} \norm{x + y} \leq \norm{x} + \norm{y}\).
+    \end{enumerate}
+\end{definicija}
+
+\begin{trditev}
+    Naj bo \((X, \scp{\ }{})\) vektorski prostor s skalarnim produktom. Potem je \((X, \norm{\ })\), kjer je \(\all{x \in X} \norm{x} = \sqrt{\scp{x}{x}}\), vektorski prostor z normo.
+\end{trditev}
+
+\begin{proof}
+    Preverimo lastnosti. Za trikotniško neenakost uporabimo CS neenakost.
+\end{proof}
+
+\begin{trditev}
+    Naj bo \((X, \norm{\ })\) vektorski prostor s normo. Potem je \((X, d)\), kjer je \(\all{x, y \in X}d(x,y) = \norm{x - y}\), metrični prostor.
+\end{trditev}
+
+\begin{proof}
+    Preverimo lastnosti. 
+\end{proof}
+
+\subsection{Hilbertovi prostori}
+\begin{definicija}
+    \df{Hilbertov prostor} je vektorski prostor \(X\) s skalarnim produktom \(\scp{\ }{}\), ki je v metriki, porojeni iz skalarnega produkta, poln metrični prostor.
+\end{definicija}
+
+\begin{opomba}
+    \((X, \scp{\ }{}) \leadsto (X, \norm{\ }) \leadsto (X, d)\), kjer je \(\all{x, y \in X}d(x,y) = \norm{x - y}\).
+\end{opomba}
+
+\begin{opomba}
+    \df{Banachov prostor} je vektorski prostor \(X\) z normo \(\norm{\ }\), ki je v metriki, porojeni iz norme, poln metrični prostor.
+\end{opomba}
+
+\begin{zgled}
+\
+\begin{enumerate}
+    \item Naj bo \(X = \R^n\). Definiramo skalarni produkt. Naj bo \(x, y \in \R^n, \ x = (x_1 \ldots, x_n), \ y = (y_1, \ldots, y_n)\). \df{Standardni skalarni produkt} je \[x \cdot y = \sum_{k=1}^{n} x_ky_k.\]
+    Ta skalarni produkt nam da normo \[\norm{x} = \sqrt{\sum_{k=1}^{n} x_k^2},\]
+    ki porodi metriko \[d_2(x,y) = \sqrt{\sum_{k=1}^{n} (x_k - y_k)^2}.\]
+    Vemo, da je \((\R^n, d_2)\) poln metrični prostor. Torej \((\R^n, \cdot)\) Hilbertov prostor.
+    \newpage
+    \item Na \(\R^n\) lahko definiramo tudi druge norme, npr.
+    \begin{itemize}
+        \item \(\norm{x}_\infty = \max \set{|x_1|, \ldots, |x_n|}\);
+        \item \(\norm{x}_1 = |x_1| + \ldots + |x_n|\). 
+    \end{itemize}
+    Te dve normi ne prideta iz skalarnega produkta, ker za njih ne velja paralelogramsko pravilo.
+
+    \((\R^n, \norm{x}_\infty)\) in \((\R^n, \norm{x}_1)\) sta Banachova prostora.
+    \item Naj bo \(X = \C^n\). Definiramo skalarni produkt. Naj bo \(z, w \in \C^n, \ z = (z_1 \ldots, z_n), \ w = (w_1, \ldots, w_n)\). \df{Standardni skalarni produkt} je \[z \cdot w = \sum_{k=1}^{n} z_k\overline{w_k}.\]
+    Ta skalarni produkt nam da normo \[\norm{z} = \sqrt{\sum_{k=1}^{n} |z_k|^2},\]
+    ki porodi metriko \[d_2(z,w) = \sqrt{\sum_{k=1}^{n} |z_k - w_k|^2}.\]
+    Vemo, da je \((\C^n, d_2)\) poln metrični prostor. Torej \((\C^n, \cdot)\) Hilbertov prostor.
+\end{enumerate}
+\end{zgled}
+
+\subsection{Prostor \(L^2([a, b])\)}
+\begin{trditev}
+    Naj bo \(C([a,b])\) vektorski prostor nad \(\R\). Potem je s predpisom \[\all{f, g \in C([a,b])} \scp{f}{g} = \int_{a}^{b} f(x) g(x) \, dx\]
+    definiran skalarni produkt na \(\cf{}\).
+\end{trditev}
+
+\begin{proof}
+    Preverimo lastnosti.
+\end{proof}
+
+\begin{trditev}
+    \((\cf{}, \scp{\ }{})\) ni Hilbertov prostor.
+\end{trditev}
+
+\begin{proof}
+    Definiramo \(f_n(x) = \begin{cases}
+        1; &\frac{1}{n} \leq x \leq 1 \\
+        nx; &-\frac{1}{n} < x < \frac{1}{n} \\
+        -1; &-1 \leq x \leq -\frac{1}{n}
+    \end{cases}.\) Pokažemo, da je \((f_n)_n\) Cauchyjevo zaporedje v \(\cf{}\), ki nima limite.
+\end{proof}
+
+\begin{definicija}
+    Naj bo \((M, d)\) metrični prostor. Pravimo, da lahko \df{napolnimo} prostor \(M\), če obstaja prostor \((\overline{M}, \overline{d})\), za kateri velja:
+    \begin{enumerate}
+        \item \((\overline{M}, \overline{d})\) je poln metrični prostor;
+        \item \(M \subseteq \overline{M}\);
+        \item \(\overline{d}|_{M \times M} = d\);
+        \item \(M\) je gost v \(\overline{M}\), tj. \(\Cl M = \overline{M}\).
+    \end{enumerate}
+    Prostoru \(\overline{M}\) rečemo \df{napolnitev} prostora \(M\).
+\end{definicija}
+
+\begin{opomba}
+    Ideja: \(\overline{M}\) je prostor vseh limit Cauchyjevih zaporedij v \(M\) (+ kvocient).
+\end{opomba}
+
