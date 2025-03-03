@@ -92,3 +92,26 @@
 
 \newcommand{\todo}{\textcolor{red}{TODO}}
 \newcommand{\ot}[1]{\widetilde{#1}}
+
+%Fizika
+\newcommand{\vc}[3]{
+    \begin{bmatrix}
+        #1 \\ #2 \\ #3
+    \end{bmatrix}
+}
+
+% Analiza 2b
+\newcommand{\scp}[2]{\left\langle #1, \, #2 \right\rangle }
+\newcommand{\cf}[1]{C^{#1}([a,b])}
+
+%ugt
+\newcommand{\op}[1]{#1^{\text{odp}}}
+\newcommand{\cl}[1]{#1^{\text{zap}}}
+\newcommand{\qs}[1]{{#1/_\sim}}
+\newcommand{\q}[2]{#1/_{#2}}
+\newcommand{\qd}{
+    \begin{tikzcd}
+        X \arrow[swap]{d}{q} \arrow{rd}{f} &   \\%
+        X/_\sim \arrow[swap]{r}{g} & Y
+    \end{tikzcd}
+}
