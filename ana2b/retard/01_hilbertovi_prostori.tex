@@ -125,3 +125,141 @@ Naj bo \(X\) vektorski prostor nad \(\R\) (ali nad \(\C\)).
     Ideja: \(\overline{M}\) je prostor vseh limit Cauchyjevih zaporedij v \(M\) (+ kvocient).
 \end{opomba}
 
+\begin{primer}
+    Naj bo \(M = (0,1), \ d_2(x,y) = |x-y|\). Potem napolnitev \(\overline{M}\) prostora \(M\) je \(\overline{M} = [0, 1]\).
+\end{primer}
+
+\begin{opomba}
+    Označili smo z \(L^1(A) = \setb{f: A \to \R}{\int_{A} |f| \, dx \ \text{obstaja}} /_\sim\) prostor vseh absolutno integrabilnih funkcij, kjer je  \(\all{f, g \in L^1} f \sim g \liff f = g \ \text{s.p.}\)
+\end{opomba}
+
+Vpeljemo zdaj s kvadratom integrabilne funkcije: 
+\[L^2([a, b]) = \setb{f: [a,b] \to \R}{\int_{a}^{b} f^2(x) \, dx \ \text{obstaja}}/_\sim,\]
+kjer je \(\all{f, g \in L^2} f \sim g \liff f = g \ \text{s.p.}\)
+
+V tem prostoru gotovo so 
+\begin{itemize}
+    \item Zvezne funkcije: \(C([a,b]) \subseteq L^2([a,b])\);
+    \item Odsekoma zvezni funkciji;
+    \item \(f(x) = \frac{1}{\sqrt[4]{x-a}}\) itd.
+\end{itemize}
+
+\newpage
+\paragraph{Cilj} Želimo posplošiti prostor \((\R, \cdot)\).
+
+Naj bo \(f, g \in L^2\), potem \(|f \cdot g| \leq \frac{|f|^2 + |g|^2}{2} \lthen f \cdot g \in L^1([a, b])\). Torej lahko definiramo 
+\[\scp{f}{g} = \int_{a}^{b}f(x)g(x) \, dx.\]
+
+\begin{trditev}
+    \(L^2([a,b])\) je vektorski prostor.
+\end{trditev}
+
+\begin{proof}
+    Preverimo lastnosti.
+\end{proof}
+
+Torej \(L^2([a, b])\) je vektorski prostor nad \(\R\) s skalarnim produktom \[\scp{f}{g} = \int_{a}^{b}f(x)g(x) \, dx.\]
+
+Očitno, da je \(C([a,b]) \leq L^2([a, b])\).
+
+\begin{izrek}
+    \(L^2([a,b])\) je Hilbertov in \(L^2([a,b])\) je napolnitev \(C([a,b])\).
+\end{izrek}
+
+\begin{opomba}
+    \[\all{f \in L^2([a,b])} \some{f_n \in C([a,b])} \lim_{n \to \infty}  f_n = f\ \liff \lim_{n \to \infty} \norm{f_n - f} = 0 \liff \lim_{n \to \infty} \sqrt{\int_{a}^{b}(f_n(x) - f(x))^2} \, dx = 0\]
+\end{opomba}
+
+\begin{opomba}
+    Nad \(\C\): \(f = u + iv, \ u, v: [a, b] \to \R\). Potem 
+    \[\int_{a}^{b}f(x) \, dx = \int_{a}^{b}u(x) \, dx + i\int_{a}^{b}v(x) \, dx \]
+    in 
+    \[\scp{f}{g} = \int_{a}^{b}f(x) \overline{g(x)} \, dx.\]
+\end{opomba}
+
+\begin{zgled}
+    Vzemimo \([0, 1]\). Definiramo \(f_n(x) = \begin{cases}
+        \sqrt{n}; &0 < x \leq \frac{1}{n} \\ 0; &\text{sicer}
+    \end{cases}.\)
+
+    Velja: \(\lim_{n \to \infty} f_n(x) = 0\) za \(x \in [0, 1]\). Ali je \(\lim_{n \to \infty} f_n(x) = 0\) v \(L^2([0,1])\)?
+\end{zgled}
+
+\begin{zgled}
+    \todo
+\end{zgled}
+
+\subsection{Ortogonalnost}
+\begin{definicija}
+    Naj bo \((X, \scp{\ }{})\) vektorski prostor s skalarnim produktom, \(A \subseteq X, \ A \neq \emptyset\). Naj bosta \(x, y \in X\).
+    \begin{itemize}
+        \item \(x\) je \df{pravokoten} na \(y\), če \(\scp{x}{y} = 0\), tj. \(x \perp y \liff \scp{x}{y} = 0\).
+        \item \df{Ortogonalni komplement} množice \(A\) je \(A^\perp = \setb{x \in X}{\all{a \in A} x \perp a}\).
+    \end{itemize}
+\end{definicija}
+
+\begin{trditev}
+    \(A^\perp\) je vektorski podprostor v \(X\).
+\end{trditev}
+
+\begin{proof}
+    Preverimo homogenost in linearnost.
+\end{proof}
+
+\begin{opomba}
+    \(A \subseteq (A^\perp)^\perp\).
+\end{opomba}
+
+\begin{trditev}
+    Naj bo \((X, \scp{\ }{})\) vektorski prostor s skalarnim produktom, \(v \in X\). Definiramo \(f: X \to \R, \ f(x) = \scp{x}{v}\). Potem \(f\) je zvezna na \(X\).
+\end{trditev}
+
+\begin{proof}
+    Pokažemo, da je \(f\) Lipshitzeva.
+\end{proof}
+
+\begin{posledica}
+    \(A^\perp\) je zaprt vektorski podprostor.
+\end{posledica}
+
+\begin{proof}
+    Pokažemo, da je limita vsakega zaporedja v \(A^\perp\) tudi leži v \(A^\perp\).
+\end{proof}
+
+\begin{opomba}
+    \(C([a, b]) \subseteq L^2([a,b])\) ni zaprt podprostor.
+\end{opomba}
+
+\begin{opomba}
+    Če je \((X, \scp{\ }{})\) Hilbertov in \(A \subseteq X\) zaprt podprostor, potem \[(A^\perp)^\perp = A.\]
+\end{opomba}
+
+\begin{trditev}[Pitagorjev izrek]
+    Naj bo \((X, \scp{\ }{})\) vektorski prostor s skalarnim produktom. Naj bodo \(x_1, \ldots, x_n \in X\) taki, da \(\all{i, j \in [n]} i \neq j \lthen x_j \perp x_j\). Tedaj 
+    \[\norm{x_1 + \ldots + x_n}^2 = \norm{x_1}^2 + \ldots + \norm{x_n}^2.\]
+\end{trditev}
+
+\begin{proof}
+    Izračunamo normo po definiciji.
+\end{proof}
+
+\newpage
+\begin{definicija}
+    Naj bo \((X, \scp{\ }{})\) vektorski prostor s skalarnim produktom in \(Y \leq X\) podprostor X. Naj bo \(x \in X\). \df{Pravokotna projekcija} vektorja \(x\) na podprostor \(Y\) (če obstaja) je tak vektor \(P_Y(x) \in Y\), da je 
+    \[x - P_Y(x) \in Y^\perp.\]
+\end{definicija}
+
+\begin{trditev}
+    Če je pravokotna projekcija \(x\) na \(Y\) obstaja, je enolično določena. Če obstaja, je to najboljša aproksimacija vektorja \(x\) z vektorji iz \(Y\), tj.
+    \[\norm{x - P_y(x)} = \min_{w \in Y} \norm{x - w}.\]
+\end{trditev}
+
+\begin{proof}
+    Enoličnost: Običajen način.
+
+    Aproksimacija: Pitagorjev izrek.
+\end{proof}
+
+\begin{zgled}
+    Naj bosta \(Y = C([a,b])\) in \(X = L^2([a, b])\). Če si izberimo \(f \in X \setminus Y\), potem \(f\) nima najboljše aproksimacije z zveznimi funkcijami.
+\end{zgled}
