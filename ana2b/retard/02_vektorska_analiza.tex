@@ -1,0 +1,49 @@
+\section{Vektorska analiza}
+
+\todo
+
+\subsection{Integralski izreki}
+\paragraph{Motivacija} \todo \ (zvezek)
+\begin{izrek}[Gauss-Ostrogradsky] 
+    Recimo, da     
+    \begin{itemize}
+        \item \(\Omega \subseteq \R^3\) omejena odprta množica z robom, sestavljenum iz končnega števila odsekoma gladkih sklenjenih ploskev, orijentiranih z zunanjo normalo glede na \(\Omega\),
+        \item \(\vec{R}: \overline{\Omega} \to \R^3\) vektorsko polje, \(\vec{R} \in C^1(\overline{\Omega})\).
+    \end{itemize}
+    Tedaj 
+    \[\iint_{\partial \Omega} \vec{R} \, d \vec{S} = \iiint_\Omega \divr \vec{R} \, d V .\]
+\end{izrek}
+
+\begin{opomba}
+    \(\ds \iint_{\partial \Omega} \vec{R} \, d \vec{S} = \iint_{\partial D} \vec{R} \cdot \vec{N} dS\), kjer je \(\vec{N}\) zunanja enotska normala.
+\end{opomba}
+
+\begin{opomba}[\(n = 2\)]
+    Naj bo \(D\subseteq \R^2\) omejena odprta množica z robom, sestavljenum iz končnega števila odsekoma gladkih sklenjenih krivulj, orijentiranih pozitivno glede na \(D\). Naj bo \(\vec{R}: \overline{D} \to \R^2\) vektorsko polje, \(\vec{R} \in C^1(\overline{D})\). Tedaj je 
+    \[\iint_D \divr \vec{R} \, d \vec{S} = \int_{\partial D} \vec{R} \cdot \vec{n} \, dS,\]
+    kjer je \(\vec{n}\) zunanja enotska normala.
+\end{opomba}
+
+\begin{izrek}[Green, Greenova formula]
+    Recimo, da
+    \begin{itemize}
+        \item \(D \subseteq \R^2\) omejena odprta množica z odsekoma gladkim robom, sestavljenim iz končnega števila odsekoma gladkih sklenjenih krivulj, orientiranih pozitivno glede na \(D\),
+        \item \(X, Y \in C^1(\overline{D})\), kjer \(\vec{R} = (X, Y)\) vektorsko polje.
+    \end{itemize}
+    Tedaj 
+    \[\int_{\partial D} X \, dx + Y \, dy = \iint_D (Y_x - X_y) \, dxdy = \int_{\partial D} \vec{R} \, d \vec{r} \]
+\end{izrek}
+
+\begin{izrek}[Stokes]
+    Recimo, da
+    \begin{itemize}
+        \item \(\Sigma \subseteq \R^3\) omejena, orientirana, odsekoma gladka ploskev z odsekoma gladkim robom, sestavljenim iz končnega števila odsekoma gladkih sklenjenih krivulj, orientiranih skaldno z orientacijo \(\Sigma\),
+        \item \(\vec{R}: \overline{\Sigma} \to \R^3\) vektorsko polje, \(\vec{R} \in C^1(\overline{\Sigma})\).
+    \end{itemize}    
+    Tedaj
+    \[\int_{\partial \Sigma} \vec{R} \, d \vec{r} = \iint_\Sigma \rot \vec{R} \, d \vec{S}.\]
+\end{izrek}
+
+\begin{zgled}
+    \todo \ (album 03.17.25)
+\end{zgled}
