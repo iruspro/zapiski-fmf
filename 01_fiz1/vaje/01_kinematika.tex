@@ -32,7 +32,7 @@
         \includegraphics[width=0.35\textwidth]{img/01_001.jpg}      
     \end{center}
     \begin{itemize}
-        \item \(\boxed{x(t) = v_0 t, \ y(t) = \frac{1}{2}gt^2}\)
+        \item \(x(t) = v_0 t, \ y(t) = \frac{1}{2}gt^2\)
     \end{itemize}
     
     \item \textbf{Poševni met.}
@@ -40,8 +40,40 @@
         \includegraphics[width=0.35\textwidth]{img/01_002.jpg}      
     \end{center}
     \begin{itemize}
-        \item \(\boxed{x(t) = v_0 t \cos \phi, \ y(t) = v_0 t \sin \phi - \frac{1}{2}gt^2}\)
+        \item \(x(t) = v_0 t \cos \phi, \ y(t) = v_0 t \sin \phi - \frac{1}{2}gt^2\)
         \item \(\boxed{t_\text{max} = \frac{v_0 \sin \phi}{g}, \ D = \frac{v_0^2 \sin 2 \phi}{g}, \ H = \frac{v_0^2\sin^2 \phi}{2g}}\)
+        \item Gibanje lahko razdelimo na dva dela: do \(H_\text{max}\) (poševni met) in po \(H_\text{max}\) (vodoravni met)
+        \item Vodoravni met je posebni primer poševnega meta pri \(\phi = 0\)
+    \end{itemize}
+
+    \newpage
+    \item \textbf{Kroženje.} 
+    \begin{itemize}
+        \item \(\vec{r}(t) = r (\cos \phi, \sin \phi), \ \vec{v}(t) = r \omega (-\sin \phi, \cos \phi), \ a(t) = r \alpha (-\sin \phi, \cos \phi) + r \omega^2 (-\cos \phi, -\sin \phi)\)
+        \begin{itemize}
+            \item \(\vec{a}_t = r \alpha (-\sin \phi, \cos \phi)\) je tangentni pospešek in je posledica spreminjanja velikosti obodne hitrosti
+            \item \(\vec{a}_r = r \omega^2 (-\cos \phi, -\sin \phi)\) je radialni pospešek in je posledica spreminjanja smeri hitrosti
+            \item \(\ds \boxed{|v(t)| = r \omega,\ |\vec{a}_t| = r \alpha, \ |\vec{a}_r| = r \omega^2 = \frac{v^2}{r}, \ s = r \phi}\)
+            \item \(\ds \omega = 2 \pi \nu, \ \nu = \frac{1}{t_0}\), kjer \(t_0\) je čas enega obrata, \(\nu\) je frekvenca
+            \item Enakomerno pospešeno kroženje \((\alpha = \text{const})\) ima natanko iste enačbe kot enakomerno pospešeno gibanje
+        \end{itemize}
+    \end{itemize}
+
+    \item \textbf{Splošno gibanje.}
+    \begin{itemize}
+        \item Vsako gibanje je trenutno kroženje. Velja:
+        \begin{itemize}
+            \item \(\ds R = \frac{v^2}{a_r}, \ \omega = \frac{a_r}{v}, \ \alpha = \frac{a_t a_r}{v^2}\)
+        \end{itemize}
+    \end{itemize}
+
+    \item \textbf{Vektorski opis kroženja.}
+    \begin{itemize}
+        \item Definiramo \(\vec{\phi} = (0, 0, \phi)\), potem
+        \begin{itemize}
+            \item \(\boxed{\vec{v} = \vec{\omega} \times \vec{r}, \ \vec{a} = \vec{\alpha} \times \vec{r} + \vec{\omega} \times (\vec{\omega} \times \vec{r})}\)
+            \item Smer \(\vec{\phi}\) lahko dobimo po pravilu desnega vijaka
+        \end{itemize}
     \end{itemize}
 \end{itemize}
 
