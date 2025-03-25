@@ -1,0 +1,111 @@
+\section{Osnovni izreki topologije evklidskih prostorov}
+\subsection{Brouwerjev izrek o negibni točki}
+\begin{definicija}
+    Naj bo \(f: X \to X\) preslikava. Pravimo, da je \(a \in X\) \df{negibna točka} za preslikavo \(f\), če \(f(a) = a\).
+\end{definicija}
+
+\begin{opomba}
+    \ 
+    \begin{itemize}
+        \item Negibne točke lahko povežemo z reševanjem enačb. 
+        
+        Negibna točka je rešitev enačbe \(f(x)=  x\) oz.\ \(g(x) := f(x) - x = 0\).
+        \item Obstoj negibne točke je odvisen tako od lastnosti prostora \(X\) kot od lastnosti preslikave \(f\).
+        \item Banachovo skrčitveno načelo je primer izreka o negivni točki, ki deluje na presej splošnih prostorih (poln metrični prostor), je pa zelo restriktiven glede preslikave (skrčitev). Brouwerjev izrek pa zelo omeji topološki tip prostora, preslikava pa je lahko poljubna (zvezna).
+    \end{itemize}
+\end{opomba}
+
+Naj bo \(n \in \N\)
+
+\textcolor{blue}{\textbf{Izrek \(A_n\)}} (Brouwerjev izrek o negibni točki).
+Poljubna zvezna preslikava \(f: B^n \to B^n\) ima negibno točko.
+
+\begin{proof}
+    \todo{}
+\end{proof}
+
+\begin{opomba}
+    Enako velja za vsako prostor, ki je homeomorfen \(B^n\).
+\end{opomba}
+
+\begin{definicija}
+    Prostor \(X\) \df{ima lastnost negibne točke} (LNT), če ima vsaka zvezna preslikava \(f: X \to X\) negibno točko.
+\end{definicija}
+
+\begin{opomba}
+    Izrek \(A_n\) velja natanko tedaj, ko \(B^n \in \text{LNT}\).
+\end{opomba}
+
+\begin{zgled}
+    Pri \(n=1\) dobimo znani izrek o vmesni vrednosti iz Analize 1.
+\end{zgled}
+
+\begin{primer}
+    Ali so sferi imajo LNT?
+    \begin{itemize}
+        \item \(S^1 \notin \text{LNT} \), saj netrivialne rotacije ne fiksirajo nobene točke.
+        \item Preslikava \(f: S^m \to S^m, \ f(x) = -x\) nima negibne točke sledi, da \(S^m \notin \text{LNT} \).
+    \end{itemize}
+\end{primer}
+
+\begin{definicija}
+    Naj bo \(X\) prostor, \(A \subseteq X\). Zvezna preslikava \(r: X \to A\) je \df{retrakcija}, če je \(r|_A = \id_A\). V tem primeru rečemo, da je \(A\) \df{retrakt} prostora \(X\).
+\end{definicija}
+
+\begin{primer}
+    Retrakti.
+    \begin{itemize}
+        \item Naj bo \(X\) prostor, \(x_0 \in X\). Trdimo, da je \(A = \set{x_0}\) retrakt prostora \(X\) in, da je \(r: X \to A, \ f(x) = x_0\) retrakcija.
+        \item \(S_+^n = \setb{x \in R^{n+1}}{x_{n+1} \geq 0}\) je retrakt prostora \(S^n\). 
+        
+        Iskana retrakcija je \(r: S^n \to S^n_+, \ r(x_1, \ldots, x_n,  x_{n+1}) = (x_1, \ldots, x_n, |x_{n+1}|)\). 
+        \item Poišči vse retrakcije iz \(I = [0, 1]\) na \(A = \set{0, 1}\). Namig: zvezna slika povezanega prostora.
+    \end{itemize}
+\end{primer}
+
+\begin{trditev}
+    Naj bo \(X\) topološki prostor.
+    \begin{enumerate}
+        \item Retrakt povezanega (s potmi) prostora je povezan (s potmi).
+        \item Retrakt kompaktnega prostora je kompakten prostor.
+        \item Če je \(X \in T_2\), je retrakt prostora \(X\) zaprt v \(X\).
+    \end{enumerate}
+\end{trditev}
+
+\begin{proof}
+    1.\ - 2.\ \todo{}
+
+    3.\ Uporabimo, da se zvezni preslikavi \(f, g: X \to Y \in T_2\) ujemata na zaprti množici.
+\end{proof}
+
+\begin{trditev}
+    Naj bo \(X\) topološki prostor. Če ima \(X\) LNT, ima tudi vsak njegov retrakt LNT.
+\end{trditev}
+
+\begin{proof}
+    Definicija retrakta, LNT in inkluzija.
+\end{proof}
+
+\begin{primer}
+    Retrakti diska \(B^2\). \todo{Slika.}
+\end{primer}
+
+\begin{definicija}
+    Prostor \(Y\) je \df{absolutni ekstenzor} za neki razred topoloških prostorov \(\mathcal{R}\) (npr.\ \(T_2\) prostori), če 
+    \[\all{X \in \mathcal{R}} \all{\cl{A} \subseteq X} \all{f^\text{zv}: A \to Y} \some{F^\text{zv}: X \to Y},\]
+    kjer je preslikava \(F\) razširitev preslikave \(f\), tj.\ \(F|_A = f\).
+    \[
+    \begin{tikzcd}
+        A \arrow{r}{f} \arrow[swap, hook]{d}{i} & Y \\
+        X \arrow[swap]{ru}{F}
+    \end{tikzcd}
+    \]
+\end{definicija}
+
+\begin{primer}
+    Enojci so absolutni ekstenzorji.
+\end{primer}
+
+\begin{opomba}
+    Tietzejev razširitvini izrek.
+\end{opomba}
