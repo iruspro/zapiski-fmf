@@ -1,0 +1,220 @@
+\section*{Splošno}
+\begin{itemize}
+    \item Lahko izračunamo spremembo posamezne energije v odvisnosti od časa:
+    \begin{itemize}
+        \item \(W_\text{k}(t) = \frac{1}{2} m v^2(t)\) in \(W_\text{p}(t) = mgh(t).\)
+    \end{itemize}
+    \item \textbf{II.\ Newtonov zakon za vrtenje:} \(\sum \vec{M} = J \vec{\alpha}\)
+    \item \textbf{Steinerjev izrek:} Vztrajnostni moment \(J_\xi\) okrog osi \(\xi\) je enak \(J_\xi = J_T + mx^2\), kjer je \(J_T\) vztrajnostni moment okoli vzporedne osi skozi težišče, \(x\) pa razdalja med osema.
+\end{itemize}
+
+\newpage
+\section{Mehansko nihanje in valovanje}
+\subsection{Nihanje brez dušenja}
+\subsubsection*{Nihalo na vijačni vzmet}
+\begin{itemize}
+    \item Enačba gibanja:
+    \begin{itemize}
+        \item Zapišimo vse sile, ki delujejo na telo, ko je ono odmaknjeno za \(y\) od ravnovesne lege
+        \item Zapišemo II.\ Newtonov zakon. Dobimo enačbo \(\ddot{y} + \omega_0^2y = 0\)
+        \begin{itemize}
+            \item Splošna rešitev (vsota dveh posameznih rešitev): \(y(t) = A \cos (\omega_0t) + B \sin (\omega_0t)\)
+            \item Lahko jo zapišemo v obliki \(y(t) = C \sin(\omega_0 t + \delta), \ C > 0\), kjer \(C = \sqrt{A^2 + B^2}\) in \(\delta = \arctan \frac{B}{A}\).
+        \end{itemize}
+        \item Konstante določimo iz začetnih pogojev (položaj in hitrost pri \(t = 0\)). 
+        \begin{itemize}
+            \item Začetni trenutek (ki ustreza času \(t = 0\)) lahko izberimo poljubno
+        \end{itemize}
+    \end{itemize}
+    \item Energija nihanja \((W = W_\text{k} + W_\text{p} + W_\text{pr} - \frac{1}{2} k y_r^2 = \text{const})\):
+    \begin{itemize}
+        \item \(W_\text{k} = \frac{1}{2}m \dot{y}^2, \  W_\text{p} = -mgy, \ W_\text{pr} = \frac{1}{2}k (y + y_r)^2\)
+    \end{itemize}
+    \item Osnovne količine:
+    \begin{itemize}
+        \item \(\omega_0 = \sqrt{\frac{k}{m}}\), \(\omega_0\) je \df{lastna frekvenca}
+        \item \(t_0 = \frac{2 \pi}{\omega_0} = 2 \pi \sqrt{\frac{m}{k}}, \ \nu = \frac{1}{t_0}, \ \omega_0 = 2 \pi \nu\), \(t_0\) je \df{nihajni čas}
+    \end{itemize}
+\end{itemize}
+
+\subsubsection*{Matematično nihalo}
+\begin{itemize}
+    \item Enačba gibanja:
+    \begin{itemize}
+        \item Zapišemo navor na točkasto telo: \(\vec{M} = \vec{r} \times (\sum \vec{F})\)
+        \item Zapišemo II.\ Newtonov zakon za vrtenje. Dobimo enačbo \(\ddot{\phi} + \omega_0^2 \phi = 0\)
+    \end{itemize}
+    \item Energija nihanja \((W = W_k + W_p = \text{const})\):
+    \begin{itemize}
+        \item \(W_\text{k} = \frac{1}{2} m (l \dot{\phi})^2, \ W_\text{p} = -mgl \cos \phi \approx -mgl (1 - \frac{\phi^2}{2})\)
+    \end{itemize}
+    \item Osnovne količine:
+    \begin{itemize}
+        \item \(\omega_0 = \sqrt{\frac{g}{l}}\)
+        \item \(t_0 = \frac{2 \pi}{\omega_0} = 2 \pi \sqrt{\frac{l}{g}}, \ \nu = \frac{1}{t_0}, \ \omega_0 = 2 \pi \nu\)
+        \begin{itemize}
+            \item Če kroglica pri nihanju zadeva v horizontalni drog: \(\widetilde{t_0} = \frac{t_0}{2} + \frac{t_0'}{2}\), kjer je \(t_0'\) nihajni čas okrog droga.
+        \end{itemize}
+        \item \(v_\text{max} = l \dot{\phi}_\text{max}\) (ali preko energije)
+    \end{itemize}
+\end{itemize}
+
+\subsubsection*{Fizično nihalo}
+\begin{itemize}
+    \item Enačba gibanja:
+    \begin{itemize}
+        \item Zapišemo navor na togo telo: \(\vec{M} = \vec{M}_T + \vec{M}_* = \vec{r}_T \times (\sum_j \vec{F}_j) + \sum_{j} (\vec{r}_j \times (\sum^{'} \vec{F}_j))\)
+        \item Zapišemo II.\ Newtonov zakon za vrtenje. Dobimo enačbo \(\ddot{\phi} + \omega_0^2 \phi = 0\)
+        \begin{itemize}
+            \item \(J_z\) izračunamo z uporabo Steinerjevega izreka
+        \end{itemize}
+    \end{itemize}
+    \item Osnovne količine:
+    \begin{itemize}
+        \item \(\omega_0 = \sqrt{\frac{mgl^*}{J_z}}\)
+        \item \(t_0 = \frac{2 \pi}{\omega_0} = 2 \pi \sqrt{\frac{J_z}{mgl^*}}, \ \nu = \frac{1}{t_0}, \ \omega_0 = 2 \pi \nu\)
+    \end{itemize}
+\end{itemize}
+
+\subsubsection*{Torzijska vzmet (okrožna)}
+\begin{itemize}
+    \item \(F = kx \leadsto \vec{M} = D \vec{\phi}\), \(\vec{M}\) poskuša zavrteti vzmet nazaj, tj. ponavadi kaže v nasprotno smer od \(\vec{\phi}\)
+    \item \(\sum \vec{F} = m \vec{a} \leadsto \sum \vec{M} = J \vec{\alpha}\)
+\end{itemize}
+
+\subsubsection*{Splošni nasveti}
+\begin{itemize}
+    \item Lahko obravnavamo gibanje v neinercialnem sistemu z upoštevanjem sistemskih sil.
+\end{itemize}
+
+\newpage
+\subsection{Dušeno nihanje}
+\begin{itemize}
+    \item Enačba gibanja:
+    \begin{itemize}
+        \item Zapišimo vse sile, ki delujejo na telo, ko je ono odmaknjeno za \(y\) od ravnovesne lege
+        \begin{itemize}
+            \item Arhimedova sila normalizira silo teže in v končne faze ni pomembna.
+        \end{itemize}
+        \item Zapišemo II.\ Newtonov zakon. Dobimo enačbo \(\ddot{y} + 2\beta y + \omega_0^2y = 0\)
+        \begin{itemize}
+            \item Rešujemo z nastavkom \(x(t) = A e^{\lambda t}\)
+            \item Splošna rešitev: \(y(t) = A \exp ((-\beta + i \omega)t) + B \exp ((-\beta - i \omega)t)\), kjer \(\omega = \sqrt{\omega_0^2 - \beta^2}\)
+            \item Lahko jo zapišemo v obliki \(y(t) = C \exp(-\beta t) \sin(\omega t + \delta), \ C > 0\), kjer \(C = \sqrt{A^2 + B^2}\) in \(\delta = \arctan \frac{B}{A}\)
+        \end{itemize}
+    \end{itemize}
+    \item Zakoni upora:
+    \begin{itemize}
+        \item Linearni zakon: \(\vec{F} = C \vec{v}\). Ponavadi označimo \(\beta = \frac{C}{m}\) ali \(2 \beta = \frac{C}{m}\) in \(\beta\) imenujemo \df{koeficient dušenja}
+    \end{itemize}
+\end{itemize}
+
+\subsection{Vsiljeno nihanje}
+\begin{itemize}
+    \item Enačba gibanja:
+    \begin{itemize}
+        \item Zapišimo vse sile, ki delujejo na telo, ko je ono odmaknjeno za \(y\) od ravnovesne lege
+        \item Zapišemo II.\ Newtonov zakon. Dobimo enačbo \(\ddot{y} + 2 \beta \dot{y} + \omega_0^2y = \frac{F_0}{m} \sin(\omega_vt)\)
+        \item Splošna rešitev je oblike \(y = y_h + y_p\)
+        \begin{itemize}
+            \item Nastavek: \(y(t) = y_0 \exp (-\beta t) \sin (\omega t + \delta) + B_p \sin(\omega_v t - \delta_p)\), kjer \(\omega = \sqrt{\omega_0^2 - \beta^2}\)
+            \item \(y_h\) se zaduši za dovolj velike čase
+        \end{itemize}
+    \end{itemize}
+    \item Vrednosti \(B_p\) in \(\delta_p\):
+    \begin{itemize}
+        \item Izračunamo jih tako, da vstavimo nastavek v enačbo in izberimo \(t_1 = 0\) in \(\ds t_2 = \frac{\pi}{2 \omega_v}\)
+        \item V primeru harmoničnega vsiljevanja: \(\ds \tan \delta_p = \frac{2 \beta \omega_v }{\omega_0^2 - \omega_v^2}, \ \delta_p \in [0, \pi]\) in \(\ds B_p = \frac{F_0}{m} \frac{1}{\sqrt{(\omega_0^2 - \omega_v^2)^2 + (2 \beta \omega_v)^2}}\), \\ kjer je \(F_0\) amplituda sile vzbujanja
+        \item Pogoj za maksimalni odmik, hitrost, pospešek: odvajamo partikularni del
+    \end{itemize}
+    \item Moč pri vsiljenem nihanju:
+    \begin{itemize}
+        \item Povprečna moč: \(\overline{P} = \beta m B_p^2 \omega_v^2\)
+        \item Pogoj za največjo moč: \(\nu_v = \nu_0\)
+    \end{itemize}
+\end{itemize}
+
+\subsection{Sestavljeno nihanje}
+\begin{itemize}
+    \item Enačba gibanja (nihalo na vijačni vzmet):
+    \begin{itemize}
+        \item Zapišemo vse sile, ki delujejo na nihali
+        \item Zapišemo II.\ Newtonov zakon za vsako nihalo posebej. Dobimo enačbi:
+        \begin{itemize}
+            \item \(\ddot{x}_1 + \omega_1^2 x_1 + \omega_2^2(x_1 - x_2) = 0\)
+            \item \(\ddot{x}_2 + \omega_1^2x_2 - \omega_2^2(x_1 - x_2) = 0\)
+        \end{itemize}
+        \item Definiramo težiščni odmik: \(\phi^* = \phi_1 + \phi_2\) in relativni odmik \(x_r = x_2 - x_1\). Seštejemo in odštejemo enačbi, dobimo dve enačbi za vsako funkcijo posebej, ki imata rešitvi:
+        \begin{itemize}
+            \item \(x_1 = B_1 \sin(\omega_at + \delta_a) + B_2 \sin(\omega_bt + \delta_b)\)
+            \item \(x_2 = B_1 \sin(\omega_at + \delta_a) - B_2 \sin(\omega_bt + \delta_b)\)
+        \end{itemize}
+        \item Zveze med prvotnimi enačbi in rezultatom:
+        \begin{itemize}
+            \item \(\omega_a = \omega_1\) in \(\omega_b = \sqrt{\omega_1^2 + 2\omega_2^2}\)
+            \item \(\ds x_1 = \frac{x^* - x_r}{2}\) in \(\ds x_2 = \frac{x^* + x_r}{2}\)
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\newpage
+\subsection{Opis nihanja z Greenovimi funkcijami}
+Naj bo enačba gibanja \[m\ddot{x} = F(t) - kx \liff m \ddot{x} + kx = F(t),\] kjer je \(kx\) sila vzmeti in \(F(t) = \Delta G \cdot \delta(t)\) enkraten sunek sile. Funkcija \(\delta(t)\) je Diracova delta, za katero velja:
+\begin{itemize}
+    \item \(\delta(t) = \begin{cases}
+        0; &x \neq 0 \\ \infty^*; &x=0
+    \end{cases}\)
+    \item \(\ds \int \delta(t) dt = 1\)
+\end{itemize}
+%
+Rešitev tej enačbe je:
+\[\ds x(t) = \frac{v_0}{\omega_0} \sin(\omega_0 (t - t_i)) \lthen x(t) = \frac{mv_0}{m\omega_0} \sin(\omega_0 (t - t_i)) = \frac{\Delta G_i}{m\omega_0} \sin(\omega_0 (t - t_i))\]
+%
+Zdaj seštejemo po vseh enkratnih sunkih:
+\[
+x(t) = \sum_i \frac{\textcolor{blue}{m}v_0}{\textcolor{blue}{m}\omega_0} \sin(\omega_0 (t - t_i)) = \sum_i \frac{F_i \Delta t}{m\omega_0}\sin(\omega_0 (t - t_i))
+\]
+%
+Za zvezen potek časa dobimo:
+\[
+x(t) = \frac{1}{m\omega_0} \int_{-\infty}^{t} F(t') \sin(\omega_0 (t - t_i)) \, dt',
+\]
+%
+kjer je \(F(t')\) \df{časovni potek motnje} in \(\sin(\omega_0 (t - t_i))\) \df{Greenova funkcija nedušenega nihala}.
+%
+\paragraph{Postopek reševanja nalog:}
+\begin{itemize}
+    \item Določimo lastno frekvenco
+    \item Izračunamo integral
+\end{itemize}
+
+\subsection{Valovanje}
+\subsubsection*{Valovanje po vijačni vzmeti}
+\df{Newtonov zakon za \(i\)-ti utež} je
+%
+\[
+    \frac{\partial^2 u}{\partial t^2} = \frac{kl^2}{m} \cdot \frac{u(x+h, t) - 2u(x, t) + u(x -h, t)}{h^2}
+\]
+%
+Valovna enačba:
+%
+\[
+    \boxed{\frac{\partial^2 u(x, t)}{\partial t^2} = C^2 \frac{\partial^2u(x,t)}{\partial x^2}}
+\]
+%
+kjer \(\ds C^2 = \frac{kl^2}{m}\) \df{hitrost valovanja}.
+
+\subsubsection*{Valovanje v tekočini, zaprti v tanki togi cevi}
+\[C^2 = \frac{1}{\chi \rho}\]
+
+\subsubsection*{Valovanje po elastični palici}
+\[C^2 = \frac{E}{\rho}\]
+
+\subsubsection*{Valovanje pu strune}
+\[C^2 = \frac{F}{\rho S}\]
+
+\subsubsection*{Valovanje v plinu}
+\[C^2 = \frac{\kappa RT}{M}\]
+
+
+
