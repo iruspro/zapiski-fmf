@@ -1,0 +1,76 @@
+\section{Kvocientni prostori}
+
+\subsection{Kvocientna topologija}
+\begin{enumerate}
+    \item Kvocientna topologija
+    
+    Naj bo \((X, \T)\) topološki prostor in \(\sim\) ekvivalenčna relacija na \(X\).
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Ekvivalenčni razred elementa \(x \in X\). Kvocientna množica. Kvocientna projekcija.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Kako si lahko predtavljamo ekvivalenčni razredi?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Kvocientna topologija.
+        \item \colorbox{blue!30}{\textbf{Trditev.}} \(\T/_\sim\) je topologija na \(\qs{X}\)
+        \item \colorbox{yellow!30}{\emph{Opomba.}}  Karakteriziraj odprte/zaprte množice v \(\qs{X}\). Kaj pomeni vsaka implikacija posebej?
+        \item \colorbox{yellow!30}{\emph{Primer.}} Ali je kvocientna projekcija vedno odprta/zaprta?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Nasičenje množice \(A \subseteq X\)
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Naj bo \(A \subseteq X\) 
+        \begin{itemize}
+            \item Kdaj je \(\img{q}(A) \subseteq \qs{X}\) odprta/zaprta?
+            \item Zadosten pogoj, da je kvocientna projekcija odprta/zaprta.
+        \end{itemize}
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Kvocientne preslikave}
+\begin{enumerate}
+    \item Kvocientne preslikave
+    
+    Naj bo \((X, \T)\) topološki prostor in \(\sim\) ekvivalenčna relacija na \(X\).
+    \begin{itemize}
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Kdaj je \(f\) določa preslikavo \(\overline{f}: \qs{X} \to Y\)? Kaj za njo velja? Kdaj je \(\overline{f}\) zvezna, surjektivna ali injektivna?
+        %
+        \[
+            \begin{tikzcd}
+                X \arrow{r}{f} \arrow[swap]{d}{q} & Y \\
+                \qs{X} \arrow[dashed, swap]{ru}{\overline{f}}
+            \end{tikzcd}
+        \]
+        %
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Kdaj je \(\overline{f}\) homeomorfizem v jeziku množic iz \(Y\)?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Kvocientna preslikava. Kvocientnost v ožjem smislu. 
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali je kvocientna projekcija kvocientna preslikava?
+        \item \colorbox{blue!30}{\textbf{Lema.}} Naj bo \(f: X \to Y\) zvezna in surjektivna. Zadosten pogoj, da je \(f\) kvocientna.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} O prepoznavi kvocienta.
+    \end{itemize}
+    \item Operacije s kvocientnimi preslikavami
+    \begin{itemize}
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Naj bosta \(f: X \to Y\) in \(g: Y \to Z\) preslikavi.
+        \begin{itemize}
+            \item Kaj lahko povemo o kompozitumu kvocientnih presliakav?
+            \item Kaj če je \(g \circ f\) kvocientna in sta \(f, g\) zvezni?
+        \end{itemize}
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Zadostni pogoji na \(f\), da porodi homeomorfizem \(\overline{f}\):
+            %
+            \[
+                \begin{tikzcd}[column sep=2cm, row sep=1cm]
+                    X \arrow{r}{f} \arrow[swap]{d}{q_X} \arrow[draw=blue]{rd}{\textcolor{blue}{q_Y \circ f}} & Y \arrow{d}{q_Y} \\
+                    X/_{\sim_X} \arrow[dashed, swap]{r}{\overline{f}} & Y/_{\sim_Y}
+                \end{tikzcd}
+            \]
+            %
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Deljivost topoloških lastnosti}
+\begin{enumerate}
+    \item Deljivost topoloških lastnosti
+    
+    Naj bo \((X, \T)\) topološki prostor in \(\sim\) ekvivalenčna relacija na \(X\).
+    \begin{itemize}
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Kdaj rečemo, da je topološka lastnost deljiva?
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Karakterizacija \(T_1\) za prostor \(\qs{X}\)
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Izrek Aleksandrova [brez dokaza]
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Kako lahko karakteriziramo Cantorjevo množico? Kako jo lahko surjektivno zvezno preslikamo na interval \([0,1]\)? Ali je preslikava iz izreka Aleksandrova kvocientna?
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Deljive in nedeljive lastnosti. 
+    \end{itemize}
+\end{enumerate}

@@ -80,7 +80,7 @@ Pogoj \[\all{\op{V} \subseteq \qs{X}} \invimg{q}(V) \subseteq X \ \text{je odprt
 \begin{trditev}
     Naj bo \(X\) topološki prostor, \(\sim\) ekvivalenčna relacija, \(A \subseteq X\). Velja:
     \begin{itemize}
-        \item \(\img{q}(A) \ \text{je odprta/zaprta} \liff  \text{nasičenje} \ \invimg{q}(\img{q}(A)) \ \text{odprto/zaprto}\). 
+        \item \(\img{q}(A) \subseteq \qs{X} \ \text{je odprta/zaprta} \liff  \text{nasičenje} \ \invimg{q}(\img{q}(A)) \ \text{odprto/zaprto}\). 
         \item \(\all{\op{U} \subseteq X} \invimg{q}(\img{q}(U)) \ \text{odprto/zaprto} \lthen q \ \text{je odprta/zaprta}\).
     \end{itemize}
 \end{trditev}
@@ -180,7 +180,7 @@ Torej NTSE
         
         Obratno: vsako kvocientno preslikavo \(f: X \to Y\) lahko obravnavamo kot kvocientno projekcijo pri ekvivalenčni relaciji, določeni z razbitjem \(X\) na praslike točk.
         \item Kvocientna preslikava je vedno zvezna, ni pa nujno odprta niti zaprta.
-        \item Implikacija \((\Leftarrow)\) v definiciji kvocientne preslikave je posebna lastnost, tej včasih rečemo \df{kvocient v ožjem smislu}.
+        \item Implikacija \((\Leftarrow)\) v definiciji je posebna lastnost, tej včasih rečemo \df{kvocientnost v ožjem smislu}.
         
         Za zvezno surjekcijo je za njeno kvocientnost potrebno preveriti le ta pogoj.
         \item Surjektivna funkcija \(f\) je kvocientna preslikava natanko tedaj, ko 
@@ -221,7 +221,7 @@ Torej NTSE
     \end{itemize}
 \end{primer}
 
-\subsection{Operacije s kvocientnimi preslikavami}
+\subsubsection*{Operacije s kvocientnimi preslikavami}
 \begin{trditev}
     Naj bosta \(f: X \to Y\) in \(g: Y \to Z\) preslikavi.
     \begin{enumerate}
@@ -325,11 +325,8 @@ Torej NTSE
         \begin{itemize}
             \item \(T_0\): \(X=[0,1], \ A = X \cap \Q, \ B = X \setminus \Q \leadsto X/_{\set{A, B}}\)
             \item \(T_1\): \(X=[0,1], \ \mathcal{R} = \set{[0,1), \set{1}} \leadsto X/_\mathcal{R}\)
-            \item \(T_2\), metrizabilnost: \(X = \R \times \set{0,1}\), \(\all{x > 0}(x, 0) \sim (x, 1) \leadsto X/_\sim\) \todo{Ali je to tudi za \(T_3\) in \(T_4\)}? 
-            \item \(T_3\): \todo{}
-            \item \(T_4\): \todo{}
-            \item Lokalna kompaktnost: \todo{}
-            \item \(1\)-števnost, \(2\)-števnost: \(X=[0,1] \times \N\), \(A = \set{0} \times \N \leadsto X/_A\)
+            \item \(T_2, \ T_3, \ T_4\), metrizabilnost: \(X = \R \times \set{0,1}\), \(\all{x > 0}(x, 0) \sim (x, 1) \leadsto X/_\sim\)
+            \item \(1\)-števnost, \(2\)-števnost, lokalna kompaktnost: \(X=[0,1] \times \N\), \(A = \set{0} \times \N \leadsto X/_A\)
             \item Popolna nepovezanost: Izrek Aleksandrova \qedhere
         \end{itemize}
     \end{enumerate}    
