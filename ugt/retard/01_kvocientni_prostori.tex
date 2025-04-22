@@ -331,3 +331,150 @@ Torej NTSE
         \end{itemize}
     \end{enumerate}    
 \end{proof}
+
+\subsection{Topološke grupe in delovanja}
+\begin{definicija}
+    \df{Topološka grupa} je grupa \(G\), ki je opremljena s topologijo, glede na katero sta \[\text{množenje} \ \text{m}: G \times G \to G, \ (g, h) \mapsto gh \  \text{in invertiranje} \ \text{inv}: G \to G, \ g \mapsto g^{-1}\] zvezni.
+\end{definicija}
+
+\begin{opomba}
+    Poznamo že primer topološke algebre: \((C(X), \T_{\text{co}})\).
+\end{opomba}
+
+Mi bomo večinoma delali nad \(\R, \ \C, \ \HH\), ki so topološki obsegi. Obstajajo še drugi:
+\begin{itemize}
+    \item Končni obsegi: \(\Z_p, \ p \in \mathbb{P}\), kjer je \(\Z_p = Z/_{p\Z}\), ki jih običajno opremimo z diskretno topologijo.
+    \item \(p\)-adična števila, ki so napolnitev \(\Q\) v \(p\)-adični metriki:
+    \begin{itemize}
+        \item \(\frac{m}{n} = p^k \frac{m_1}{n_1}\), \(m_1, n_1\) tuja \(p\), \(k \in \Z \leadsto \norm{\frac{m}{n}}_p := p^{-k}\)
+    \end{itemize}
+\end{itemize}
+
+\begin{primer} \
+    \begin{itemize}
+        \item Naj bo \(G\) poljubna grupa, opremljena z diskretno topologijo. \(G\) je topološka grupa.
+        \item Če je \(G\) topološka grupa in \(H \leq G\), potem je \(H\) z inducirano topologijo topološka grupa.
+        \item \((\R, +), \ (\C, +), \ (\HH, +)\) so topološke grupe.
+        
+        Za poljuben obseg \(\F\) pišemo \(\F^* = \F \setminus \set{0}\). Dobimo, da so \((\R^*, \cdot), \ (\C^*, \cdot), \ (\HH^*, \cdot)\) so topološke grupe.
+        \item \(\R, \C, \HH\) so normirani obsegi, topologija je podana z normo. Ker norma je multiplikativna:
+        \begin{itemize}
+            \item \(\all{\mu, \lambda \in \F} \norm{\mu \lambda} = \norm{\mu} \cdot \norm{\lambda}\)
+        \end{itemize}
+        Posebej sledi, da so enotske sfere zaprte za množenje. Dobimo, da so \((S^0, \cdot), \ (S^1, \cdot), \ (S^3, \cdot)\) topološke grupe.
+        
+        \textbf{Vprašanje.} Ali tudi \(S^2\) dopušča strukturo topološke grupe? Ne. Najlažji dokaz gre z uporabo algebraične topologije.
+        \item Naj bodo \(\setb{G_\lambda}{\lambda \in \Lambda}\) topološke grupe. Potem je \(\prod_{\lambda \in \Lambda} G_\lambda\) opremljen z operacijama po komponentah in produktno topologijo tudi topološka grupa.
+        \begin{primer}
+            \(\Z_2^{\N} \approx C\), kjer je \(C\) označuje Cantorjevo množico.
+        \end{primer}
+        \item \textbf{Topološke grupe linearnih izomorfizmov.} Naj imamo obseg \(\F \in \set{\R, \C, \HH}\) in naj bo \(n \in \N\).
+        
+        \(\GL_n(\F) = \set{\text{lin. izomorfizmi: } \F^n \to \F^n} = \setb{A \in \F^{n \times n}}{\det A \neq 0}\) je \textbf{splošna linearna grupa} je topološka grupa:
+        \begin{itemize}
+            \item Množenje \((A, B) \mapsto A \cdot B\) je zvezno.
+            \item Invertiranje \(A \mapsto A^{-1} = \frac{1}{\det A} \cdot \widetilde{A}\) je zvezno.
+        \end{itemize}
+        \begin{opomba}
+            Še več, to je Lijeva grupa, tj.\ gladka mnogoterost in operacije sta gladki.
+        \end{opomba}
+        Enako velja za vse standardne podgrupe:
+        \begin{itemize}
+            \item \textbf{Specialna linearna grupa:} \(\SL_n(\F) = \setb{A \in \F^{n \times n}}{\det A = 1}\)            
+        \end{itemize}
+        Nad \(\R\):
+        \begin{itemize}
+            \item \textbf{Ortogonalna grupa:} \(\text{O}_n(\R) = \setb{A \in \R^{n \times n}}{AA^T = I}\)
+            \item \textbf{Specialna ortogonalna grupa:} \(\text{SO}_n(\R) = \setb{A \in \text{O}_n}{\det A = 1}\)
+        \end{itemize} 
+        Nad \(\C\):
+        \begin{itemize}
+            \item \textbf{Unitarna grupa:} \(\text{U}_n(\C) = \setb{A \in \C^{n \times n}}{AA^H = I}\)
+            \item \textbf{Specialna unitarna grupa:} \(\text{SU}_n(\C) = \setb{A \in \text{U}_n}{\det A = 1}\)
+        \end{itemize} 
+        Nad \(\HH\):
+        \begin{itemize}
+            \item \textbf{Simpletična grupa:} \(\text{Sp}_n(\HH) = \setb{A \in \HH^{n \times n}}{AA^H = I}\)
+            \begin{opomba}
+                Velja: \(\all{A \in \text{Sp}_n} \det A = 1\)
+            \end{opomba}
+        \end{itemize}
+    \end{itemize}   
+\end{primer}
+
+\begin{definicija}
+    Naj bo \(G\) topološka grupa, \(a \in G\):
+    \begin{itemize}
+        \item \df{Leva translacija} za \(a\) je preslikava \(L_a: G \to G, \ g \mapsto ag\)
+        \item \df{Desna translacija} za \(a\) je preslikava \(R_a: G \to G, \ g \mapsto ga\)
+    \end{itemize}
+\end{definicija}
+
+\begin{trditev}
+    Leva in desna translacija sta homeomorfizma.
+\end{trditev}
+
+\begin{proof}
+    Imamo homeomorfizem \(h: G \to G \times \set{a}\). Izrazimo \(L_a\) kot kompozitum zveznih preslikav in izračunamo njen inverz.
+\end{proof}
+
+\begin{posledica}
+    Vsaka topološka grupa \(G\) je \df{homogen prostor}, tj.
+    \[\all{x, y \in G} \some{h: G \to G \ \text{homeomorfizem}} h(x) = y\]
+\end{posledica}
+
+\begin{proof}
+    Vzemimo ustrezno levo ali desno rotacijo.
+\end{proof}
+
+\begin{definicija}
+    Naj bo \(X\) topološki prostor in \(G\) topološka grupa. \df{Levo delovanje} grupe \(G\) na prostor \(X\) je \underline{zvezna} preslikava
+    \begin{align*}
+        \varphi: \ G \times X &\longrightarrow X \\
+        (g, x) &\longmapsto \varphi(g,x) = g \cdot x,
+    \end{align*}
+    za katero velja:
+    \begin{enumerate}
+        \item \(\all{x \in X} e \cdot x = x\), kjer je \(e \in G\) enota grupe \(G\).
+        \item \(\all{x \in X} \all{a, b \in G} b\cdot(a \cdot x) = (ba) \cdot x\)
+    \end{enumerate}
+    V tem primeru rečemo, da je \(X\) \df{\(G\)-prostor.}
+\end{definicija}
+
+\begin{opomba}
+    Kot v primeru grupe delovanje določa translacijo, ki je homeomorfizem prostora \(X\): 
+    \[L_a: X \to X, \ x \mapsto a \cdot x.\]
+    Ampak v splošnem \(X\) ni homogen prostor za delovanje grupe \(G\): Za vse \(x \in X\) je \(G \cdot x = \setb{g \cdot x}{g \in G}\) orbita točke \(x\) in ta v splošnem ni cel \(X\). 
+\end{opomba}
+
+Vemo, da so orbite paroma disjunktne, torej delovanje grupe \(G\) na prostor \(X\) določa ekvivalenčno relacijo na \(X\):
+\[x \sim y \liff \some{g \in G} g \cdot x = y,\]
+za katero so ekvivalenčni razredi orbite delovanja:
+\[[x] = \setb{y = g \cdot x}{g \in G} = G \cdot x.\]
+%
+\begin{definicija}
+    Kvocientni prostor pri delovanju grupe \(G\) na prostor \(X\) označimo z \(X/_G\) in ga imenujemo \df{prostor orbit.}
+\end{definicija}
+
+\begin{definicija}
+    Za vsak \(x\) in \(X\) je \(G_x = \setb{g \in G}{g \cdot x = x}\) \df{stabilizatorska podgrupa} elementa \(x\)
+\end{definicija}
+
+\begin{opomba}
+    Velja, da sta \(G \cdot x\) in \(G/_{G_x}\) v bijektivni korespondenci.
+\end{opomba}
+
+\begin{primer}
+    \todo{}
+\end{primer}
+
+Vemo, da kvocientna projekcija v splošnem ni niti odprta niti zaprta. Pri delovanju pa imamo naslednjo trditev:
+\begin{trditev}
+    Naj topološka grupa \(G\) deluje na topološki prostor \(X\). Potem je kvocientna projekcija 
+    \[q: X \to X/_G \ \text{(prostor orbit)}\]
+    odprta.
+\end{trditev}
+
+\begin{proof}
+    Preveriti moramo, da je nasičenje vsake odprte množice v \(X\) odprto v \(X\).
+\end{proof}
