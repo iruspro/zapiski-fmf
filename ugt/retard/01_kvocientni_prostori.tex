@@ -270,7 +270,7 @@ Torej NTSE
 
 \begin{trditev}
     Naj bo \(X\) topološki prostor in \(\sim\) ekvivalenčna relacija na \(X\). Velja:
-    \[X/_\sim \in T_1 \liff \text{ekvivalenčni razredi so zaprti}.\]
+    \[X/_\sim \in T_1 \liff \text{ekvivalenčni razredi so zaprti v \(X\)}.\]
 \end{trditev}
 
 \begin{proof}
@@ -427,6 +427,7 @@ Mi bomo večinoma delali nad \(\R, \ \C, \ \HH\), ki so topološki obsegi. Obsta
     Vzemimo ustrezno levo ali desno rotacijo.
 \end{proof}
 
+\subsubsection*{Delovanje grup}
 \begin{definicija}
     Naj bo \(X\) topološki prostor in \(G\) topološka grupa. \df{Levo delovanje} grupe \(G\) na prostor \(X\) je \underline{zvezna} preslikava
     \begin{align*}
@@ -465,7 +466,12 @@ za katero so ekvivalenčni razredi orbite delovanja:
 \end{opomba}
 
 \begin{primer}
-    \todo{}
+    Za naslednja delovanja grup ugotovite, kateremu podprostoru evklidskega prostora je homeomorfen dobljeni kvocient:
+    \begin{itemize}
+        \item Podgrupa \(H \leq G\) deluje na \(G\) z zožitvijo množenja: \(H \times G \to G, \ (h, g) \mapsto hg\). Na primer, \(Z \leq (\R, +)\).
+        \item \(S^1\) deluje na \(\C\) z množenjem: \(S^1 \times \C \to \C, \ (\lambda, z) \mapsto \lambda z\).
+        \item \((F^*, \cdot)\) deluje na \(\F^n\) z množenjem s skalarjem: \(\F^* \times \F^n \to \F^n, \ (\lambda, (x_1, \ldots, x_n)) \mapsto \lambda \cdot (x_1, \ldots, x_n)\), kjer \(\F \in \set{\R, \C, \HH}\). 
+    \end{itemize}
 \end{primer}
 
 Vemo, da kvocientna projekcija v splošnem ni niti odprta niti zaprta. Pri delovanju pa imamo naslednjo trditev:
@@ -477,4 +483,53 @@ Vemo, da kvocientna projekcija v splošnem ni niti odprta niti zaprta. Pri delov
 
 \begin{proof}
     Preveriti moramo, da je nasičenje vsake odprte množice v \(X\) odprto v \(X\).
+\end{proof}
+
+\subsection{Konstrukcije kvocientov}
+\todo{Stožec, suspenzija nad \(X\), Simetrični produkt, Limita prostorov}
+
+\newpage
+\subsubsection*{Zlepki}
+\begin{definicija}
+    Naj bosta \(X, Y\) topološka prostora, \(A \subseteq X\) in \(f: A \to Y\) zvezna preslikava. \df{Zlepek} \(X\) in \(Y\) vzdolž preslikave \(f\) je 
+    \[X \cup_f Y = (X + Y)/_\sim,\]
+    kjer je \(\all{a \in A} \text{in}_1(a) \sim \text{in}_2(f(a))\).
+\end{definicija}
+
+Ekvivalenčni razredi so torej:
+\begin{itemize}
+    \item Če je \(x \in X \setminus A\), potem \([\text{in}_1(x)] = \set{\text{in}_1(x)}\)
+    \item Če je \(y \in Y \setminus \img{f}(A)\), potem \([\text{in}_2(y)] = \set{\text{in}_2(y)}\)
+    \item Če je \(y \in \img{f}(A)\), potem \([\text{in}_2(y)] = \img{{\text{in}_1}}(\invimg{f}(\set{y})) \cup \set{\text{in}_2(y)}\)
+\end{itemize} 
+
+\begin{primer}
+    \ 
+    \begin{itemize}
+        \item Naj bo \(X\) topološki prostor, \(Y = \set{()}, \ f: A \to Y\) konstantna preslikava. Potem \(X \cup_f Y \approx X /_A\)
+        \item Naj bo \(f: S^{n-1} \to S^{n-1}\) homeomorfizem. Potem \(B^n \cup_f B^n \approx S^n\)
+        \item Naj bo \(f: X \to Y\) zvezna preslikava. \df{Preslikavni cilinder} je zlepek 
+        \[M_f = X \times I \cup_f Y,\]
+        kjer je \(f\) definirana na \(X \times \set{0}\).
+    \end{itemize}
+\end{primer}
+
+\begin{izrek}[Normalnost zlepkov]
+    Naj bosta \(X, Y\) normalna prostora. Recimo, da je \(A \subseteq X\) zaprt in \(f: A \to Y\) zvezna. Potem je zlepek \(X \cup_f Y\) normalen.
+\end{izrek}
+
+\begin{proof}
+    \todo{}
+\end{proof}
+
+\begin{trditev}
+    Naj bo \(X\) prostor, \(A \subseteq X\) zaprta in \(f: A \to Y\) zaprta vložitev.
+    \begin{enumerate}
+        \item Če sta \(X, Y\) \(2\)-števna, potem je tudi zlepek \(X \cup_f Y\) \(2\)-števen.
+        \item Če sta \(X, Y \in T_2\), potem je tudi zlepek  \(X \cup_f Y \in T_2\)
+    \end{enumerate}
+\end{trditev}
+
+\begin{proof}
+    \todo{}
 \end{proof}
