@@ -1,0 +1,262 @@
+\section{Hausdorffova mera in dimenzija}
+\begin{itemize}
+    \item Pojem "`dimenzija"' je osrednji v fraktalni geometriji.
+    \item Na grobo povedano nam dimenzija množice pove, koliko prostora ta zavzema v ambientnem prostoru.
+    \item Hausdorffova dimenzija izmed vseh "`fraktalnih"' dimenzij, ki jih ljudje uporabljajo, je najbolj stara in verjetno najbolj pomembna. Lahko jo definiramo za poljubno množico in matematično je zelo priročna, ker je osnovana na mere, s katero lahko relativno preprosto kaj naredimo.
+    \item Glavna pomanjkljivost je, da jo v večini situacij težko izračunati ali oceniti z numerični metodi.
+    \item Nujna za razumevanje matematike fraktalov.
+\end{itemize}
+
+\subsection{Hausdorffova mera}
+\begin{definicija}
+    Naj bo \(F \subseteq \R^n\). Naj bo \(\set{U_i}\) števna družina množic iz \(R^n\), za katero velja:
+    \begin{enumerate}
+        \item \(\all{i \in \N} 0 \leq |U_i| \leq \delta\);
+        \item \(F \subseteq \bigcup_{i=1}^\infty U_i\).
+    \end{enumerate}
+    Potem \(\set{U_i}\) imenujemo \df{\(\delta\)-pokritje} množice \(F\).
+\end{definicija}
+%
+Naj bo \(F \subseteq \R^n\) in \(s \geq 0\). Za vsak \(\delta > 0\) definiramo 
+\[\mathcal{H}^s_\delta(F) = \inf \setb{\sum_{i=1}^{\infty}|U_i|^s}{\set{U_i} \ \text{je \(\delta\)-pokritje \(F\)}}\]
+%
+Ko \(\delta \to 0\), razred možnih pokritij \(F\) se zmanjšuje, torej \(\inf\) narašča, torej lahko definiramo:
+\[\mathcal{H}^s(F) = \lim_{\delta \to 0} \mathcal{H}^s_\delta(F)\]
+Ta limita vedno obstaja za vsako \(F \subseteq \R^n\) in običajno \(0\) ali \(\infty\). Število \(\mathcal{H}^s(F)\) imenujemo \df{\(s\)-dimenzionalna Hausdorffova mera} množice \(F\).
+
+\begin{trditev}
+    \(\mathcal{H}^s\) je mera na \(\R^n\).
+\end{trditev}
+\begin{proof}
+    \ 
+    \begin{enumerate}
+        \item \(\set{\emptyset}\) je pokritje \(\emptyset\) za vse \(\delta > 0\).
+        \item Če je \(E \subseteq F\), potem je vsako \(\delta\)-pokritje množice \(F\) tudi \(\delta\)-pokritje množice \(E\) sledi, da \(\mathcal{H}^s(E) \leq \mathcal{H}^s(F)\), ker gledamo infimum manjše množice.
+        \item Naj bo \(\epsilon > 0\). Izberimo pokritje \(\set{A_{ij}}_j\) množice \(A_i\) tako, da \(\sum_{j=1}^{\infty} |A_{ij}|^s < \mathcal{H}^s_\delta(A_i) + \frac{\epsilon}{2^i}\). 
+        
+        Družina \(\set{A_ij}_{i \geq 1, j \geq 1}\) je pokritje množice \(A\) (unije). Torej 
+        \[\mathcal{H}^s_\delta(A) \leq \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} |A_{ij}|^s < \sum_{i=1}^{\infty} \mathcal{H}^s_\delta (A_i) \frac{\epsilon}{2^i} = \left(\sum_{i=1}^{\infty} \mathcal{H}^s_\delta (A_i)\right) + \epsilon.\]
+        V limiti \(\epsilon \to 0\) dobimo želeno neenakost. 
+        \item Dokaz je težek. \qedhere
+    \end{enumerate}
+\end{proof}
+
+\begin{opomba}
+    Hausdorffova mera je posplošitev Lebesgueve mere na necele dimenzije. Se da pokazati, da 
+    \[\mathcal{H}^n(F) = \frac{1}{c_n} \mathcal{L}^n(F),\]
+    kjer \(c_n\) je volumen \(n\)-dim krogle z polmerom \(\frac{1}{2}\), tj. 
+    \[c_n = \frac{\pi^{(n/2)}}{2^n \, \Gamma(n/2 + 1)}\]
+\end{opomba}
+
+\subsubsection*{Lastnosti skaliranja}
+lastnosti skaliranja so temeljne za teorijo fraktalov.
+Dobro vemo, da je:
+\begin{itemize}
+    \item \(\mathcal{L}^1(\lambda F) = \lambda \mathcal{L}^1(F)\)
+    \item \(\mathcal{L}^2(\lambda F) = \lambda^2 \mathcal{L}^1(F)\)
+    \item \(\mathcal{L}^3(\lambda F) = \lambda^3 \mathcal{L}^1(F)\)
+\end{itemize}
+Ali isto velja za \(\mathcal{H}^s\)?
+\begin{trditev}
+    Naj bo \(P: \R^n \to \R^n\) podobnostna preslikava z podobnostnim koeficientom \(\lambda > 0\) in \(F \subseteq \R^n\). Velja:
+    \[\mathcal{H}^s(\img{P}(F)) = \lambda^s \mathcal{H}^s(F)\]
+\end{trditev}
+
+\begin{proof}
+    Naj bo \(\set{U_i}\) \(\delta\)-pokritje množice \(F\), potem \(\set{\img{P}(U_i)}\) je \(\lambda \delta\)-pokritje množice \(\img{P}(F)\), torej 
+    \[\sum_{i=1}^{\infty} |S(U_i)|^s = \lambda^s \sum_{i=1}^{\infty}|U_i|\]
+    Vzemimo infimum in dobimo:
+    \[\mathcal{H}^s_{\lambda \delta} (\img{P}(F)) \leq \lambda^s \mathcal{H}^s_{\delta}\]
+    Zdaj limita \(\delta \to 0\) implicira 
+    \[\mathcal{H}^s(P(F)) \leq \lambda^s \mathcal{H}^s(F).\]
+    Obratno: zamenjamo \(P\) na \(P^{-1}\), \(\lambda\) na \(1/\lambda\) in \(F\) na \(P(F)\).
+\end{proof}
+
+Z podobnim argumentom dobimo:
+\begin{trditev}
+    Naj bo \(F \subseteq \R^n\) in \(f: F \to \R^n\) Höldorjeva preslikava stopnje \(\alpha > 0\). Potem za vsak \(s \geq 0\) velja:
+    \[\mathcal{H}^{s/\alpha}(\img{f}(F)) \leq c^{s/\alpha} \mathcal{H}^s(F)\]
+\end{trditev}
+
+\begin{proof}
+    \todo{}
+\end{proof}
+
+\begin{opomba} \
+    \begin{itemize}
+        \item Posebej pomemben primer, ko je \(f\) Lipschitzova, tj.\ \(\alpha = 1\). Tedaj dobimo:
+        \[\mathcal{H}^{s}(\img{f}(F)) \leq c^{s} \mathcal{H}^s(F)\]
+        \item Če je \(f\) izometrija, potem 
+        \[\mathcal{H}^{s}(\img{f}(F)) = c^{s} \mathcal{H}^s(F)\]
+    \end{itemize}
+\end{opomba}
+
+\subsection{Hausdorffova dimenzija}
+Naj bo \(F \subseteq \R^n\). Gledamo funkcijo \(\mathcal{H}_F: [0, \infty) \to [0, \infty], \ \mathcal{H}_F(s) = \mathcal{H}^{s}(F)\).
+
+\begin{lema}
+    Naj bo \(f \subseteq \R^n\). Če je \(\mathcal{H}^{s}(F) < \infty\), potem \(\mathcal{H}^{t}(F) = 0\) za vse \(t > s\).
+\end{lema}
+
+\begin{proof}
+    Naj bo \(\set{U_i}\) \(\delta\)-pokritje množice \(F\), potem 
+    \[\sum_{i=1}^{\infty} |U_i|^t = \sum_{i=1}^{\infty}|U_i|^{t-s}|U_i|^s \leq \delta^{t-s} \sum_{i=1}^{\infty}|U_i|^s\]
+    Vzemimo infimum in dobimo:
+    \[\mathcal{H}^{t}_\delta(F) \leq \delta^{t-s}\mathcal{H}^{s}_\delta(F)\]
+    V limiti \(\delta \to 0\) dobimo želeni rezultat.
+\end{proof}
+
+Če oglejmo si graf funkcije \(\mathcal{H}_F\) vidimo, da obstaja kritična točka \(s_0\), ko \(\mathcal{H}_F\) skoči z \(\infty\) do \(0\).
+
+\begin{definicija}
+    \df{Hausdorffova dimenzija} množice \(F\) je 
+    \[\text{dim}_H F = \inf \setb{s \geq 0}{\mathcal{H}^{s}(F) = 0} = \sup \setb{s \geq 0}{\mathcal{H}^{s}(F) = \infty}\]
+\end{definicija}
+
+\begin{opomba} \
+    \begin{itemize}
+        \item Po dogovoru \(\sup (\emptyset) = 0\).
+        \item Ta dimenzija je definirana za poljubno podmnožico \(\R^n\).
+    \end{itemize}    
+\end{opomba}
+
+Imamo:
+\[
+    \mathcal{H}^{s}(F) = \begin{cases}
+        \infty; &0 \leq s < \text{dim}_H F \\ 
+        0; &s > \text{dim}_H F;
+    \end{cases}
+\]
+
+Če je \(s = \text{dim}_H F\), potem \(\mathcal{H}^{s}(F)\) lahko \(0, \  \infty\) ali \(a \in \R\)
+
+\begin{primer}
+    \(F = B^2 \subseteq \R^3\). \todo{}
+\end{primer}
+
+\newpage
+\subsubsection*{Lastnosti Hausdorffove dimenzije}
+\paragraph{(1) Monotonost.} Če je \(E \subseteq F\), potem \(\text{dim}_H E \leq \text{dim}_H F\).
+\begin{proof}
+    To sledi iz lastnosti mere: \(\mathcal{H}^{s}(E) \leq \mathcal{H}^{s}(F)\)
+\end{proof}
+
+\paragraph{(2) Števna stabilnost.} Če je \(F_1, F_2, \ldots\) števno zaporedje množic, potem 
+\[\text{dim}_H \bigcup_{i=1}^\infty F_i = \sup_{1 \leq i < \infty} (\text{dim}_H F_i)\]
+\begin{proof}
+    Ker za vsak \(j \in \N\) velja, da \(F_j \subseteq \bigcup_{i=1}^\infty F_i\) sledi (monotonost), da \(\text{dim}_H F_j \leq \text{dim}_H \bigcup_{i=1}^\infty F_i\), torej 
+    \[\text{dim}_H \bigcup_{i=1}^\infty F_i \geq \sup_{1 \leq i < \infty} (\text{dim}_H F_i)\]
+    Po drugi strani: Označimo z \(s = \sup_{1 \leq i < \infty} (\text{dim}_H F_i)\). Naj bo \(\epsilon > 0\) sledi, da za vsak \(i \in \N\) velja, da \\ \(\text{dim}_H F_i < s + \epsilon\), torej \(\mathcal{H}^{s + \epsilon}(F_i) = 0\). Iz lastnosti mere sledi, da \(\mathcal{H}^{s + \epsilon} \left(\bigcup_{i=1}^\infty F_i\right) \leq \sum_{i=1}^{\infty} \mathcal{H}^{s + \epsilon}(F_i) = 0\). Od tod sledi, da \(\text{dim}_H \bigcup_{i=1}^\infty F_i \leq s + \epsilon\). V limiti \(\epsilon \to 0\) dobimo želeno neenakost. 
+\end{proof}
+
+\paragraph{(3) Dimenzija števnih množic.} Če je \(F\) števna, potem \(\text{dim}_H  F = 0\)
+\begin{proof}
+    Elementi \(F\) lahko zapišemo v zaporedje: \(x_1, x_2, \ldots\) 
+    
+    Če pišimo \(F_i = \set{x_i}\), potem \(\mathcal{H}^{0}(F_i) = 1\), torej \(\text{dim}_H F_i = 0\). Po (2) je \(\text{dim}_H \bigcup_{i=1}^\infty F_i = 0\).
+\end{proof}
+
+\paragraph{(4) Dimenzija odprtih množic.} Naj bo \(F \subseteq \R^n\) odprta. Potem \(\text{dim}_H F = n\).
+\begin{proof}
+    Odprte krogle tvorijo bazo evklidske topologije. Ker je \(F\) odprta sledi, da vsebuje \(n\)-dim kroglo. Po (1) sledi, da \(\text{dim}_H F \geq n\). 
+
+    Pu drugi strani, ker je \(\R^n\) števna unija krogel, po (2) sledi, da \(\text{dim}_H \R^n = n\). Zdaj po (1) sledi, da \(\text{dim}_H F \leq n\).
+\end{proof}
+
+\paragraph{(5) Dimenzija gladkih podmnogoterosti.} Naj bo \(F \subseteq \R^n\) gladka podmnogoterost dimenzije \(m\), potem \(\text{dim}_H F = m\). Posebej:
+\begin{itemize}
+    \item Če je \(F\) gladka krivulja, potem \(\text{dim}_H F = 1\);
+    \item Če je \(F\) gladka ploskev, potem \(\text{dim}_H F = 2\).
+\end{itemize}
+
+\begin{proof}
+    Se da dokazati preko zveze med \(\mathcal{H}^{n}\) in \(\mathcal{L}^{n}\)
+\end{proof}
+
+\subsubsection*{Transformacijske lastnosti}
+\begin{trditev}
+    Naj bo \(F \subseteq \R^n\) in \(f: F \to \R^n\) Höldorjeva preslikava stopnje \(\alpha > 0\). Potem 
+    \[\text{dim}_H \img{f}(F) \leq \frac{1}{\alpha} \text{dim}_H F\]
+\end{trditev}
+\begin{proof}
+    Če je \(s > \text{dim}_H(F)\), potem \(\mathcal{H}^{s/\alpha} (\img{f}(F)) \leq c^{s/ \alpha} \mathcal{H}^{s}(F) = 0\). Torej \(\text{dim}_H \img{f}(F) \leq \frac{s}{\alpha}\) za vse \(s > \text{dim}_H(F)\).
+\end{proof}
+
+\begin{posledica}
+    \ 
+    \begin{enumerate}
+        \item Če je \(f: F \to \R^n\) Lipschitzova, potem \(\text{dim}_H \img{f}(F) \leq \text{dim}_H(F)\).
+        \item Če je \(f: F \to \R^n\) bi-Lipschitzova, potem \(\text{dim}_H \img{f}(F) = \text{dim}_H(F)\).
+    \end{enumerate}
+\end{posledica}
+
+\begin{proof}
+    2.\ Uporabimo \(f^{-1}: \img{f}(F) \to F\) na \(\img{f}(F)\) in dobimo obratno neenakost.
+\end{proof}
+
+Posledica pove, da je \(\text{dim}_H\) invariantna glede na bi-Lipschitzeve preslikave. V posebnem, če sta množici imata različni Hausdorffovi dimenziji, potem ne obstaja bi-Lipschitzova preslikava med njima.
+
+\newpage
+\subsubsection*{Topološke lastnosti}
+\begin{trditev}
+    Naj bo \(F \subseteq \R^n\). Če je \(\text{dim}_H F < 1\), potem je \(F\) popolnoma nepovezana.
+\end{trditev}
+
+\begin{proof}
+    Naj bo \(x, y \in F, \ x \neq y\). Definiramo
+    \begin{align*}
+        f: \R^n &\longrightarrow [0, \infty) \\
+        z &\longmapsto |z - x|
+    \end{align*}
+    Velja: 
+    \[|f(z) - f(w)| = ||z-x| - |w-x|| \leq |(z-x) - (w-x)| = |z-w|\]
+    Torej je \(f\) Lipschitzova. Sledi, da je \(\text{dim}_H \img{f}(F) \leq \text{dim}_H F< 1\). Ker je \(\text{dim}_H [0, \infty) = 1\), sledi, da \(f\) ni surjektivna. Izberimo \(r \in \img{f}(F)\) tak, da \(0 < r < f(y)\). Dobimo razcep množice \(F\) na disjunktni odprti množici: 
+    \[F = \setb{z \in F}{|z-x| < r} \cup \setb{z \in F}{|z-x| > r}\]
+    Velja: \(x \in \setb{z \in F}{|z-x| < r}\) in \(y \in \setb{z \in F}{|z-x| > r}\). Torej sta \(x\) in \(y\) v dveh različnih komponentah za povezanost in to velja za poljubne dve različne točke, torej komponente so enojci.
+\end{proof}
+
+\subsection{Primeri računanja Hausdorffove dimenzije}
+\begin{opomba} \ 
+    \begin{itemize}
+        \item Ponavadi naredimo spodnjo in zgornjo oceno in upamo, da sta enaki.
+    \end{itemize}
+\end{opomba}
+\begin{primer}(Cantorjev prah)
+    Naj bo \(F\) Cantorjev prah kot na slike.
+
+    Velja: \(1 \leq \mathcal{H}^{1}(F) \leq \sqrt{2}\). Posledično: \(\text{dim}_H F = 1\).
+\end{primer}
+
+\begin{proof}
+    Naj bo \(E_k\) \(k\)-ta generacija konstrukcije:
+    \begin{itemize}
+        \item Vsebuje \(4^k\) kvadrov s stranico \(\frac{1}{4^k}\) in premerom \(\frac{\sqrt{2}}{4^k}\).
+    \end{itemize}
+
+    Naj bo \(\delta > 0\). Obstaja \(k \in \N\), da \(\frac{\sqrt{2}}{4^k} \leq \delta\). Za \(\delta\)-pokritje \(F\) vzemimo kvadre iz \(E_k\), dobimo oceno:
+    \[\mathcal{H}^{1}_\delta \leq 4^k 4^{-k} \sqrt{2} = \sqrt{2}\]
+    V limiti \(\delta \to 0\) dobimo:
+    \[\mathcal{H}^{1}(F) \leq \sqrt{2}\]
+    Od tod sledi, da je \(\text{dim}_H P(F) \leq 1\)
+
+    Obratna neenakost: Naj bo \(P: \R^2 \to \R\) projekcija na \(x\)-os. 
+    
+    Projekcija je Lipschitzova, sledi da \(\text{dim}_H P(F) \leq \text{dim}_H F\). Velja: \(P(F) = [0,1]\), torej \(\text{dim}_H P(F) = 1\). \qedhere
+\end{proof}
+
+\begin{primer}(Cantorjeva množica)
+    Naj bo \(C\) Cantorjeva množica.
+
+    Velja: \(\text{dim}_H C = s = \frac{\ln2}{\ln3}\).
+\end{primer}
+
+\begin{proof}
+    \todo{Zgornja ocena in uporaba samopodobnosti}.
+\end{proof}
+
+\begin{opomba} \ 
+    \begin{itemize}
+        \item Se da pokazati, da \(\mathcal{H}^{s}(C) = 1\).
+        \item Vidimo, da je računanje komplicirano že za preproste množice.
+    \end{itemize}
+\end{opomba}

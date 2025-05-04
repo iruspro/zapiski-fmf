@@ -1,0 +1,255 @@
+\section{Uvod}
+
+\begin{quote}
+    Much of the beauty of fractals is to be found in their mathematics.\\
+\hfill --- Kenneth Falconer
+\end{quote}
+
+Danes bomo spoznali, katere množice imenujemo \df{fraktale}, kaj pomeni \df{fraktalna dimenzija}, katere vrste poznamo in po čem se razlikujejo. Izračunali bomo dimenzije različnih matematičnih in naravnih fraktalov, da bi bolje razumeli matematiko, ki se skriva v ozadju.
+
+Zgodovinsko gledano so se matematiki ukvarjali predvsem z množicami in funkcijami, ki jih je bilo mogoče obravnavati s klasičnimi metodami analize -- torej z gladkimi množicami, zveznimi in odvedljivimi funkcijami. Strukture, ki so bile videti nenaravne, so pogosto označili kot patološke primere in jih praviloma prezrli.
+
+V sodobni matematiki pa pomembno vlogo igrajo tudi fraktali, ki niso presenetljivo pogosto najboljše modele za naravne (fizične) objekte, v primerjavi s klasičnimi geometrijskimi liki. Fraktalna geometrija nam ponuja osnovno konstrukcijo za obravnavo množic, ki izgledajo nekako nenaravno.
+
+\ 
+
+Oglejmo si nekaj primerov "patoloških" množic:
+
+\begin{primer}(Cantorjeva množica)
+    Definiramo jo tako: Začnemo z zaprtim intervalom \(C_0 = [0,1]\), nato iz njega izrežemo srednjo tretjino, tj.\ interval \((\frac{1}{3}, \frac{2}{3})\). Ostaneta zaprta intervala \(C_1 = [0, \frac{1}{3}] \cup [\frac{2}{3}, 1]\). Postopek ponavljamo, torej na vsakem koraku iz preostalih intervalov izrežimo srednjo tretjino. \df{Cantorjevo množico \(C\)} nato definiramo kot presek množic \(C_n\): \[C = \bigcap_{n = 0}^\infty C_n.\]
+    \textbf{Lastnosti Cantorjeve množice:}
+    \begin{itemize}
+        \item Generacija \(C_k\) vsebuje \(2^k\) intervalov dolžine \(\frac{1}{3^k}\);
+        \item Samopodobna: levi in desni del \(C\), sta kopiji (geometrično podobni) \(C\), ki sta zmanjšani za factor \(\frac{1}{3}\);
+        \item Ima dolžino \(0\) (za poljubno smiselno definicijo dolžine): dolžina izrezanih intervalov je \[\frac{1}{3} + 2 \cdot \frac{1}{9} + 4 \cdot \frac{1}{81} + \ldots = \frac{1}{3} \left(1 + \frac{2}{3} + \left(\frac{2}{3}\right)^2 + \ldots \right) = 1;\]
+        \item Kljub temu, da ima dolžino \(0\), \(C\) ima neštevno mnogo točk;
+        \item Ima fino strukturo, tj.\ vsebuje podrobnosti pri vsaki povečavi;
+        \item Ima preprosto konstrukcijo, ker je definirana rekurzivno. Lahko jo poljubno dobro aproksimiramo z množicami \(C_n\);
+        \item Cantorjeva množica nima izoliranih točk, v okolici vsake točke \(C\) je neštevno mnogo drugih točk na različnih razdaljah, torej je težko opisati geometrijo množice \(C\).
+    \end{itemize}
+\end{primer}
+
+\begin{primer}(Kochova krivulja)
+    Definiramo jo tako: Začnemo z daljico dolžine \(1\), ki jo razdelimo na tri enako velike dele. Nato odstranimo srednji del in ga nadomestimo z dvema enako dolgima deloma, tako da tvorita trikotnik nad odstranjeno daljico.
+    V naslednjem koraku enak postopek ponovimo na vsaki od dobljenih štirih daljic. Ta postopek ponavljamo v neskončnost. Lahko si vprašamo, kakšno dolžino ima dobljena krivulja?    
+    \(k\)-ta generacija sestoji iz \(4^k\) premic, vsaka premica ima dolžino \(\frac{1}{3^k}\), torej dolžina krivulje na \(k\)-te generacije je enaka \(\left(\frac{4}{3}\right)^k\). To geometrijsko zaporedje divergira, ker \(\frac{4}{3} > 1\), torej Kochova krivulja ima neskončno dolžino. Po drugi strani, Kochova krivulja ima ploščino (Lebesguevo \(\mathcal{L}^2\) mero) enako \(0\).
+\end{primer}
+
+Kaj je narobe s temi primeri? Izkaže se, da dolžina, ploščina, volumen itn.\ (kaj bi to ni pomenilo) niso ustrezne dimenzije za opis nekaterih množic. Ampak kaj potem sploh so »prave« dimenzije?
+
+\newpage
+Besedo "`fraktal"' je uvedel matematik Benoit Mandelbrot v svojem temeljnem eseju leta 1975. Izvira iz latinske besede "`fractus"', kar pomeni "`zlomljen"'. To besedo Mendelbrot je uporabljal za opis patoloških množic, ki niso bili usklajene z običajno evklidsko geometrijo.
+
+Izkaže se, da metode iz klasične geometrije in analize ni uporabne za študij značilnosti fraktalov, zato potrebujemo neko drugo orodje in to orodje je fraktalna dimenzija, ki jo lahko definiramo na različne načine. Za nas je precej naravna ideja, da (gladke) krivulje imajo dimenzijo \(1\), geometrijske like kot so kvadre, krogle itn.\ imajo dimenzijo~\(2\). Manj očitno pa je, zakaj ima Cantorjeva množica dimenzijo \(\frac{\ln 2}{\ln 3} = 0.631...\) in zakaj Kochova krivulja ima dimenzijo \(\frac{\ln 4}{\ln 3} = 1.262...\) Vendar to je vsaj skladno z intuicijo, ker Cantorjeva množica ima neštevno mnogo točk (torej ni končna množica točk, torej ni \(0\)-dim), ampak ima dolžino \(0\) (torej je preprosta, da bi bila \(1\)-dim daljica) in Kochova krivulja ima neskončno dolžino, ampak ima ploščino \(0\).
+
+V splošnem lahko definiramo podobnostno dimenzijo:
+\begin{definicija}
+    Naj bo množica \(F\) sestavljena iz \(m\) kopij same sebe, kjer je vsaka kopija zmanjšana za faktor \(r\). Potem rečemo, da ima množica \(F\) podobnastno dimenzijo enako \(\frac{\ln m}{\ln r}\).
+\end{definicija}
+
+\begin{opomba}
+    V koliko krat se poveča masa, če \(2\)-krat povečamo dolžino?
+\end{opomba}
+
+Kaj je problem te definicije? Problem je v tem, da samopodobnih množic je zelo malo. Recimo, že krožnica ni taka, vendar za nekatere preproste primere, se izkaže, da je enaka tudi drugim.
+
+Na srečo obstajajo tudi druge definicije dimenzije, kot sta Hausdorffova dimenzija ali škatlasta dimenzija, ki ju lahko definiramo za poljubno podmnožico v \(\R^n\). Zelo na grobo povedano nam dimenzija množice pove, koliko prostora ta zavzema v ambientnem prostoru. Dimenzija meri kompleksnost množice na poljubno majhnih skalah ter opisuje nekatere njene geometrijske in topološke lastnosti.
+
+\ 
+
+V svojem originalnem eseju Benoit Mendelbrot je definiral fraktal kot množico, ki ima Hausdorffovo dimenzijo strogo večjo od njene topološke dimenzije. 
+\begin{definicija}[Lebesgueva topološka dimenzija]
+    Naj bo \(X\) normalni topološki prostor (posebej: metrizabilen). \df{Lebesgueva dimenzija} prostora \(X\) je najmanjše število \(n \in \N_0\), za katero velja: za vsako končno odprto pokritje \(\mathcal{U} = \set{U_i}_{1 \leq i \leq n}\) prostora \(X\) obstaja končno odprto pokritje \(\mathcal{V} =  \set{V_j}_{1 \leq j \leq m}\) prostora \(X\), za katero velja:
+    \begin{itemize}
+        \item \(\all{V \in \mathcal{V}} \some{i \in [n]} V \subseteq U_i\);
+        \item Vsaka točka \(x \in X\) je vsebovana k večjemu v \(n + 1\) članicah pokritja \(\mathcal{V}\).
+    \end{itemize} 
+\end{definicija}
+
+\begin{primer} \ 
+    \begin{itemize}
+        \item Ta definicija se ujema z običajno definicijo evklidske dimenzije.
+        \item Cantorjeva množica \(C\) ima topološko dimenzijo \(0\): \todo{}
+    \end{itemize}
+\end{primer}
+
+Izkaže se, da to ni najboljša definicija, ker ne vključuje množice, ki so gotovo fraktali, npr. Peanova krivulja ima topološko dimenzijo \(2\).
+
+Raje opišemo lastnosti, ki jih imajo fraktali. Če rečemo, da je neka množica \(F\) fraktal, potem se mislimo, da
+\begin{enumerate}
+    \item \(F\) ima fino strukturo, tj.\ podrobnosti na vseh skalah.
+    \item \(F\) je dovolj nenaravna, da bi jo lahko opisali s pomočjo elementarne geometrije tako lokalno kot globalno.
+    \item \(F\) včasih ima samopodobno obliko;
+    \item Običajno fraktalna dimenzija \(F\) je večja od njene topološke dimenzije;
+    \item V večini primerov \(F\) je definirana na zelo preprost način, običajno rekurzivno.
+\end{enumerate}
+
+\newpage
+\subsection{Matematično ozadje}
+\subsubsection*{Teorija množic}
+\begin{definicija}
+    Naj bo \(A \subseteq \R^n, \ \delta > 0\). \df{\(\delta\)-okolcija \(A_\delta\) množice \(A\)} je 
+    \[A_\delta = \setb{x \in \R^n}{\some{y \in A} |x-y| \leq \delta}\]
+\end{definicija}
+
+\begin{definicija}
+    Naj bosta \(A, B \subseteq \R^n\) in \(\lambda \in \R\), definiramo 
+    \begin{itemize}
+        \item \df{Vektorsko vsoto}: \(A + B = \setb{x +y}{x \in A \land y \in B}\);
+        \item \df{Skalarno množenje}: \(\lambda A = \setb{\lambda x}{x \in A}\).
+    \end{itemize}
+\end{definicija}
+
+\begin{definicija}
+    Naj bo \(A \subseteq \R^n, \ A \neq \emptyset\). \df{Premer množice \(A\)} je 
+    \[|A| = \sup \setb{|x - y|}{x, y \in A}\]
+\end{definicija}
+
+\begin{opomba} \
+    \begin{itemize}
+        \item \(|A| \in [0, \infty) \cup \set{\infty}\);
+        \item \(|B(x,r)| = 2r, \ |C(x, \delta)| = 2\delta \sqrt{n}\), kjer \(C(x, \delta) = \setb{y = (y_1, \ldots, y_n) \in \R^n}{\all{i \in [n]} |y_i - x_i| \leq \delta}\)
+    \end{itemize}
+\end{opomba}
+
+\begin{definicija}
+    Množica \(A \subseteq \R^n\) je \df{omejena}, če \(|A| < \infty\) (ekvivalentno: \(\some{\delta > 0} A \subseteq K(0, \delta)\)). 
+\end{definicija}
+
+\subsubsection*{Funkcije in limite}
+Zanimive so:
+\begin{itemize}
+    \item Preslikave, ki ohranjajo geometrijski lastnosti množic: izometrije, translacije, rotacije, zrcaljenja.
+\end{itemize}
+
+\begin{definicija}
+    \df{Podobnostna preslikava} z koeficientom podobnosti \(c > 0\) je preslikava \(P: \R^n \to \R^n\), za katero velja:
+    \[\all{x, y \in \R^n} |P(x) - P(y)| = c|x-y|\]
+\end{definicija}
+
+\begin{definicija} Naj bosta \(X \subseteq \R^n\) in \(Y \subseteq \R^m\).
+    \begin{itemize}
+        \item Preslikava \(f: X \to Y\) je \df{Höldorjeva} stopnje \(\alpha > 0\), če
+        \[\some{c > 0} \all{x, y \in X} |f(x) -f(y)| \leq c|x-y|^\alpha\]
+        \item Če je \(\alpha = 1\), potem pravimo, da je preslikava \(f\) je \df{Lipschitzova}:
+        \[\some{c > 0} \all{x, y \in X} |f(x) -f(y)| \leq c|x-y|\]
+        \item Preslikava \(f: X \to Y\) je \df{bi-Lipschitzova}, če 
+        \[\some{c_1, c_2 > 0} \all{x, y \in X} c_1 |x- y| \leq |f(x) - f(y)| \leq c_2 |x - y|\]
+    \end{itemize}    
+\end{definicija}
+
+Naj bo \(f: \R_{>0} \to \R\) funkcija. Nas ponavadi bo zanimalo obnašanje funkcije \(f\) v okolici točke \(0\). Za ta name definiramo spodnjo in zgornjo limito funkcije \(f\):
+\begin{definicija}
+    Naj bo \(f: \R_{>0} \to \R\) funkcija. 
+    \begin{itemize}
+        \item \df{Spodnja limita} funkcije \(f\) ko gre x proti \(0\) je 
+        \[\underline{\lim}_{x \to \infty} f(x) := \lim_{r \to 0} \left(\inf \setb{f(x)}{0< x < r}\right)\]
+        \item \df{Zgornja limita} funkcije \(f\) ko gre x proti \(0\) je 
+        \[\overline{\lim}_{x \to \infty} f(x) := \lim_{r \to 0} \left(\sup \setb{f(x)}{0< x < r}\right)\]
+    \end{itemize}
+\end{definicija}
+
+\begin{opomba} \
+    \begin{itemize}
+        \item Če \(A \subseteq B \subseteq \R\), potem \(\inf(A) \geq \inf(B)\) in \(\sup(A) \geq \sup(B)\). Torej \(\inf: \mathcal{P}(\R) \to \R\) je naraščajoča funkcija in \(\sup: \mathcal{P}(\R) \to \R\) je padajoča funkcija. Posledično, to pomeni, da spodnja in zgornja limita vedno obstajata (končni ali \(\pm \infty\)) in te limiti opisujeta ekstremne vrednosti funkcije \(f\) v okolici točke \(0\).
+        \item Če \(\underline{\lim}_{x \to \infty} f(x) = \overline{\lim}_{x \to \infty} f(x) = L\), potem \(\lim_{x \to 0} f(x)\) obstaja in \(\lim_{x \to 0} f(x) = L\).
+        \item Zakaj potrebujemo spodnjo in zgornjo limito? Problematična funkcija: \(f(x) = \sin \frac{1}{x}\)
+    \end{itemize}
+\end{opomba}
+
+\subsubsection*{Teorija mere}
+\begin{itemize}
+    \item Če želimo govoriti o fraktalne dimenzije, moramo poznati kaj je mera, vendar za naš namen bo dovolj poznati le osnovne ideje.
+    \item Bomo obravnavali le mere na \(\R^n\).
+    \item Mera je način opisati "`velikost"' množice.
+\end{itemize}
+\begin{definicija} \ 
+    \begin{itemize}
+        \item Družina podmnožic \(\Sigma\) množice \(\R^n\) je \(\sigma\)-algebra, če:
+        \begin{itemize}
+            \item \(\R^n \in \Sigma\);
+            \item Če je \(A \in \Sigma\), potem \(A^c \in \Sigma\);
+            \item Poljubna števna unija (presek) množic iz \(\Sigma\) je element \(\Sigma\)
+        \end{itemize}
+        \item Najmanjšo \(\sigma\)-algebro na \(\R^n\), ki vsebuje vse odprte množice imenujemo \df{Borelova \(\sigma\)-algebra} in jo označimo z \(B(\R^n)\).
+        \item Podmnožica \(A \subseteq \R^n\) je \df{Borelova}, če pripada Borelovi \(\sigma\)-algebri.
+    \end{itemize}
+\end{definicija}
+
+\begin{opomba} \ 
+    \begin{itemize}
+        \item Vse odprte in vse zaprte množice so Borelovi.
+        \item Poljubna števna unija (presek) odprtih (zaprtih) množic je Borelova množica. 
+        \item Vsi množici, ki smo jih bomo obravnavali bodo Borelovi.
+    \end{itemize}
+\end{opomba}
+
+\begin{definicija}
+    Preslikava \(\mu: \mathcal{P}(\R^n) \to [0, \infty) \cup \set{\infty}\) je \df{mera} na \(\R^n\), če 
+    \begin{enumerate}
+        \item \(\mu(\emptyset) = 0\);
+        \item Če je \(A \subseteq B\), potem \(\mu(A) \leq \mu(B)\);
+        \item Če je \(\set{A_i}\) števna (ali končna) družina, potem 
+        \[\mu\left(\bigcup_{i=1}^\infty A_i\right) \leq \sum_{i=1}^{\infty} \mu (A_i)\]
+        \item Če je \(\set{A_i}\) števna (ali končna) družina paroma disjunktnih Borelovih množic, potem 
+        \[\mu\left(\bigcup_{i=1}^\infty A_i\right) = \sum_{i=1}^{\infty} \mu (A_i)\]
+    \end{enumerate}
+    Pravimo tudi, da je \(\mu(A)\) \df{mera} množice \(A\).
+\end{definicija}
+\begin{opomba} \
+    \begin{itemize}
+        \item \(\mu(A)\) lahko si predstavljamo kot "`velikost"' množice \(A\), ki je izmerjena na nek način.
+        \item 4.\ pogoj pravi, da če množico \(A\) razbijemo na števno mnogo paroma disjunktnih Borelovih množic, potem vsota mer delov je enaka mere celotne množice (ponavadi ga težko dokazati).
+    \end{itemize}
+\end{opomba}
+
+\begin{lema}
+    Če sta \(A, B \subseteq \R^n\) Borelovi in \(B \subseteq A\), potem
+    \[\mu(A \setminus B) = \mu(B) - \mu(A)\]
+\end{lema}
+
+\begin{proof}
+    \(A = B \cup (A \setminus B)\) je disjunktna unija.
+\end{proof}
+
+\begin{lema}
+    Če je \(A_1 \subseteq A_2 \subseteq \ldots \) naraščajoče zaporedje Borelovih množic v \(\R^n\), potem 
+    \[\lim_{i \to \infty} \mu(A_i) = \mu\left(\bigcup_{i=1}^\infty A_i\right)\]
+\end{lema}
+
+\begin{proof}
+    \(\bigcup_{i=1}^\infty A_i = A_1 \cup (A_2 \setminus A_1) \cup (A_3 \setminus A_2) \cup \ldots\) je disjunktna unija Borelovih množic.
+\end{proof}
+
+\begin{primer} Primeri mer:
+    \begin{itemize}
+        \item \textbf{Mera štetja.}
+        
+        Naj bo \(A \subseteq \R^n\). Definiramo \(\mu(A) = \begin{cases}
+            n; &|A| = n \in \N, \\ \infty; &\text{sicer}
+        \end{cases}\).
+        Potem \(\mu\) je mera na \(R^n\).
+        \item \textbf{Točkasta masa.}
+        Naj bo \(a \in \R^n, \ A \subseteq \R^n\). Definiramo \(\mu(A) = \begin{cases}
+            1; &a \in A, \\ 0; &\text{sicer}
+        \end{cases}\).
+        Potem \(\mu\) je mera (porazdelitev mase) na \(\R^n\).
+        \newpage
+        \item \textbf{Lebesgueva mera \(\mathcal{L}^n\) na \(\R^n\)}
+        \begin{itemize}
+            \item Lebesgueva mera na \(\R^n\) je posplošitev pojmov "`dolžina"', "`ploščina"', "`volumen"' itn.\  na večji razred množic.                  
+        \end{itemize}
+        Naj bo \(A = \setb{(x_1, \ldots, x_n) \in \R^n}{ a_i \leq x_i \leq b_i}\) kvader v \(\R^n\), potem \(n\)-dimenzionalni volumen množice \(A\) je \(\text{vol}^n(A) := (b_1 - a_1)(b_2-a_2)\ldots(b_n - a_n)\).
+        \begin{definicija}
+            \df{Lebesgueva mera \(\mathcal{L}^n: \mathcal{P}(\R^n) \to [0, \infty]\)} je 
+            \[\mathcal{L}^n(A) = \inf \setb{\sum_{i=1}^{\infty} \text{vol}^n(A_i) }{A \subseteq \bigcup_{i =1}^\infty A_i},\]
+            kjer so \(A_i\) kvadri.
+        \end{definicija}  
+        \begin{opomba} \
+            \begin{itemize}
+                \item Gledamo vsa pokritja množice \(A\) z kvadri in vzemimo najmanjši možen volumen.
+                \item \(\mathcal{L}^1\) je posplošitev pojma "`dolžina"', \(\mathcal{L}^2\) je posplošitev pojma "`ploščina"' itn.
+            \end{itemize}            
+        \end{opomba}  
+    \end{itemize}
+\end{primer}
