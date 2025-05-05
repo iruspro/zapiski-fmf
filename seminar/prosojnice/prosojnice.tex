@@ -1,0 +1,413 @@
+\documentclass[10pt]{beamer}
+
+\usetheme{Berkeley}
+
+\usepackage[utf8]{inputenc}
+\usepackage[slovene]{babel}
+
+\usepackage{amsmath, amssymb}
+
+\usepackage{tikz}
+\usetikzlibrary{math}
+\usetikzlibrary{decorations.fractals}
+
+\usepackage{graphicx}
+
+\input{macros.tex}
+
+\title[Fraktalne dimenzije]{Fraktalne dimenzije}
+\author{Ruslan Urazbakhtin}
+\institute{Fakulteta za matematiko in fiziko, Univerza v Ljubljani}
+\date{6.\ maj 2025}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+
+  \vfill % Отодвигает цитату вниз
+
+  \begin{flushright}
+    \small
+    \textit{"`Much of the beauty of fractals is to be found in their mathematics"'} \\
+    \hspace{1em} --- Kenneth Falconer
+  \end{flushright}
+\end{frame}
+
+\begin{frame}{Kazalo}
+  \tableofcontents
+\end{frame}
+
+\section{Uvod}
+\subsection{Kaj so fraktali?}
+
+\begin{frame}{Kaj so fraktali?}
+    \centering
+    \includegraphics[width=0.5\textwidth]{img/mandelbrot.jpg} % путь к вашему изображению
+\end{frame}
+
+\begin{frame}{Kaj so fraktali?}
+    \begin{itemize}
+        \item Besedo "`fraktal"' je uvedel matematik Benoit Mandelbrot v svojem temeljnem eseju leta 1975. Izvira iz latinske besede "`fractus"'. 
+        \item Besedo "`fraktal"' Mendelbrot je uporabljal za opis patoloških množic, ki niso bili usklajene z običajno evklidsko geometrijo.
+        \item V svojem originalnem eseju Benoit Mendelbrot je definiral fraktal kot množico, ki ima Hausdorffovo dimenzijo strogo večjo od njene topološke dimenzije. 
+    \end{itemize}    
+\end{frame}
+
+\begin{frame}{Kaj so fraktali?}
+    Če rečemo, da je neka množica \(F\) fraktal, potem si mislimo, da
+    \begin{enumerate}
+        \item \(F\) ima fino strukturo, tj. podrobnosti se vidijo vedno enako (neodvisno od skale);
+        \item \(F\) je dovolj nenaravna, da je ne moremo opisat s pomocjo elementarne geometrije tako lokalno kot globalno;
+        \item \(F\) včasih ima samopodobno obliko;
+        \item Običajno je fraktalna dimenzija \(F\) večja od njene topološke dimenzije;
+        \item V večini primerov  je \(F\) definirana na zelo preprost način, običajno rekurzivno.
+    \end{enumerate}   
+\end{frame}
+
+\begin{frame}{Zakaj potrebujemo fraktalno dimenzijo?}
+    \begin{itemize}
+        \item Metode iz evklidske geometrije/analize niso dovolj, da opišemo lastnosti fraktalov.
+        \item Fraktalna geometrija nam ponuja osnovno konstrukcijo za obravnavo množic, ki izgledajo nekako nenaravno.
+        \item Zelo na grobo povedano nam dimenzija množice pove, koliko prostora ta zavzema v ambientnem prostoru. 
+        \item Dimenzija meri kompleksnost množice na poljubno majhnih skalah ter opisuje nekatere njene geometrijske in topološke lastnosti.
+    \end{itemize}    
+\end{frame}
+
+
+\subsection{Opomba o teorije mere}
+\begin{frame}{Mera}
+    \begin{itemize}
+        \item Če želimo govoriti o fraktalnih dimenzijah, moramo poznati osnovne ideje teorije mere.
+        \item Bomo obravnavali le mere na \(\R^n\).
+        \item Mera je način opisati "`velikost"' množice, ki je izmerjena na nek način.
+    \end{itemize}    
+\end{frame}
+
+\begin{frame}{Borelova \(\sigma\)-algebra}
+    \begin{definicija} 
+        Družina podmnožic \(\Sigma\) množice \(\R^n\) je \(\sigma\)-algebra, če:
+        \begin{enumerate}
+            \item \(\R^n \in \Sigma\);
+            \item Če je \(A \in \Sigma\), potem \(A^c \in \Sigma\);
+            \item Poljubna števna unija množic iz \(\Sigma\) je element \(\Sigma\).
+        \end{enumerate} 
+    \end{definicija}
+
+    \pause
+
+    \begin{definicija} \ 
+        \begin{itemize}
+            \item Najmanjšo \(\sigma\)-algebro na \(\R^n\), ki vsebuje vse odprte podmnožice \(\R^n\), imenujemo \df{Borelova \(\sigma\)-algebra}.
+            \item Podmnožica \(A \subseteq \R^n\) je \df{Borelova}, če pripada Borelovi \(\sigma\)-algebri.
+        \end{itemize}
+    \end{definicija}
+\end{frame}
+
+\begin{frame}{Borelova \(\sigma\)-algebra}
+    \begin{definicija} \ 
+        \begin{itemize}
+            \item Najmanjšo \(\sigma\)-algebro na \(\R^n\), ki vsebuje vse odprte podmnožice \(\R^n\), imenujemo \df{Borelova \(\sigma\)-algebra}.
+            \item Podmnožica \(A \subseteq \R^n\) je \df{Borelova}, če pripada Borelovi \(\sigma\)-algebri.
+        \end{itemize}
+    \end{definicija}
+
+    \begin{opomba}
+        \begin{itemize}
+            \item Vse odprte in vse zaprte množice so Borelovi.
+            \item Poljubna števna unija (presek) odprtih (zaprtih) množic je Borelova množica. 
+            \item Vsi množici, ki smo jih bomo obravnavali, bodo Borelovi.
+        \end{itemize}
+    \end{opomba}
+\end{frame}
+
+\begin{frame}{Mera na \(\R^n\)}
+    \begin{definicija}
+        Preslikava \(\mu: \mathcal{P}(\R^n) \to [0, \infty) \cup \set{\infty}\) je \df{mera} na \(\R^n\), če 
+        \begin{enumerate}
+            \item \(\mu(\emptyset) = 0\);
+            \item Če je \(A \subseteq B\), potem \(\mu(A) \leq \mu(B)\);
+            \item Če je \(\set{A_i}_{i \in \N}\) števna družina podmnožic \(\R^n\), potem 
+            \[\mu\left(\bigcup_{i=1}^\infty A_i\right) \leq \sum_{i=1}^{\infty} \mu (A_i)\]
+            \item Če je \(\set{A_i}_{i \in \N}\) števna družina paroma disjunktnih Borelovih podmnožic \(\R^n\), potem 
+            \[\mu\left(\bigcup_{i=1}^\infty A_i\right) = \sum_{i=1}^{\infty} \mu (A_i)\]
+        \end{enumerate}
+    \end{definicija}
+\end{frame}
+
+\begin{frame}{Mera na \(\R^n\)}
+    \begin{definicija}
+            Pravimo tudi, da je \(\mu(A)\) \df{mera množice \(A\)}.
+    \end{definicija}
+
+    \begin{opomba} \
+        \begin{itemize}
+            \item \(\mu(A)\) lahko si predstavljamo kot "`velikost"' množice \(A\), ki je izmerjena na nek način.
+            \item 4.\ pogoj pravi, da če množico \(A\) razbijemo na števno mnogo paroma disjunktnih Borelovih množic, potem vsota mer delov je enaka mere celotne množice (ponavadi ga težko dokazati).
+        \end{itemize}
+    \end{opomba}
+\end{frame}
+
+\begin{frame}{Primeri mer}
+    \begin{itemize}
+        \item \textbf{Mera štetja.}
+        
+        Naj bo \(A \subseteq \R^n\). Definiramo \(\mu(A) = \begin{cases}
+            n; &|A| = n \in \N, \\ \infty; &\text{sicer}
+        \end{cases}\).
+        
+        Potem \(\mu\) je mera na \(\R^n\).
+        \item \textbf{Točkasta masa.}
+        
+        Naj bo \(a \in \R^n, \ A \subseteq \R^n\). Definiramo \(\mu(A) = \begin{cases}
+            1; &a \in A, \\ 0; &\text{sicer}
+        \end{cases}\).
+    
+        Potem \(\mu\) je mera (porazdelitev mase) na \(\R^n\).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Lebesgueva \(\mathcal{L}^n\) mera}
+    \only<1>{Lebesgueva \(\mathcal{L}^n\) mera na \(\R^n\) je posplošitev evklidskih pojmov "`dolžina"', "`ploščina"', "`volumen"' itn.\  na večji razred množic.}
+
+    \only<2>{
+        Naj bo \(A = \setb{(x_1, \ldots, x_n) \in \R^n}{ a_i \leq x_i \leq b_i}\) kvader v \(\R^n\), potem \(n\)-dim volumen množice \(A\) je \[\text{vol}^n(A) := (b_1 - a_1)(b_2-a_2)\ldots(b_n - a_n).\]
+        \begin{definicija}
+            \df{Lebesgueva mera \(\mathcal{L}^n: \mathcal{P}(\R^n) \to [0, \infty]\)} je definirana s predpisom
+            \[\mathcal{L}^n(A) = \inf \setb{\sum_{i=1}^{\infty} \text{vol}^n(A_i) }{A \subseteq \bigcup_{i =1}^\infty A_i},\]
+            kjer so \(A_i\) kvadri.
+        \end{definicija}  
+    }
+\end{frame}
+
+\begin{frame}{Lebesgueva \(\mathcal{L}^n\) mera}
+    \begin{opomba} \
+        \begin{itemize}
+            \item Gledamo vsa pokritja množice \(A\) z kvadri in vzemimo najmanjši možen volumen.
+            \item \(\mathcal{L}^1\) je posplošitev pojma "`dolžina"', \(\mathcal{L}^2\) je posplošitev pojma "`ploščina"' itn.
+        \end{itemize}            
+    \end{opomba}  
+\end{frame}
+
+\begin{frame}[t]{Cantorjeva množica \(C\)}
+    Izračunamo dolžino \(\mathcal{L}^1(C)\) Cantorjeve množice \(C  = \bigcup_{n=1}^\infty C_n\).
+
+    \begin{center}
+        \drawCantor{5}
+    \end{center}  
+
+    \begin{lema}
+        Naj bosta \(A, B \subseteq \R^n\) Borelovi, \(A \subseteq B\). Naj bo \(\mu\) mera na~\(\R^n\). \\ Potem \(\mu(B \setminus A) = \mu(B) - \mu(A)\).
+    \end{lema}
+\end{frame}
+
+\begin{frame}[t]{Kochova krivulja \(K\)}
+    \begin{center}
+        \drawKoch
+    \end{center}    
+\end{frame}
+
+\subsection{Podobnostna dimenzija}
+
+\begin{frame}[t]{Kaj je narobe z \(C\) in \(K\)?}
+    \pause
+    \begin{itemize}
+        \item Očitno je, da je pri izbiri dimenzije nekaj narobe (torej z nami). 
+        \item Ni možnosti, da bi dobili kaj pametnega, če bi računali ploščino daljice ali šteli njene točke.
+    \end{itemize}  
+\end{frame}
+
+\begin{frame}[t]{Ali obstaja boljša možnost za izbiro dimenzije?}
+    \pause
+    Obstaja.
+\end{frame}
+
+\begin{frame}[t]{Podobnostna dimenzija}
+    \begin{itemize}
+        \item Kaj lahko povemo o masi daljice, če dvakrat zmanjšamo njeno dolžino?
+        \item Kaj lahko povemo o masi kvadrata, če dvakrat zmanjšamo dolžino njegove stranice?
+    \end{itemize}
+    \pause
+    Torej \[m(\lambda D) = \lambda^s m(D).\]
+\end{frame}
+
+\begin{frame}[t]{Podobnostna dimenzija}
+    Torej \[m(\lambda D) = \lambda^s m(D).\]
+    Kaj se zgodi z maso Cantorjeve množice, če trikrat zmanjšamo začetni interval?
+    \begin{center}
+        \drawCantor{5}
+    \end{center}   
+    
+\end{frame}
+
+\begin{frame}[t]{Podobnostna dimenzija}
+    Kaj se zgodi z maso Kochove krivulje, če trikrat zmanjšamo začetni interval?
+    \begin{center}
+        \drawKoch
+    \end{center}       
+\end{frame}
+
+\begin{frame}[t]{Podobnostna dimenzija}
+    \begin{definicija}
+        Naj bo množica \(F \subseteq \R^n\) sestavljena iz \(m\) kopij same sebe, kjer je vsaka kopija zmanjšana za faktor \(r\). Potem rečemo, da ima množica~\(F\) \df{podobnastno dimenzijo} enako \(\log_r m\).
+    \end{definicija}  
+    \pause
+    Spet imamo en problem... 
+    
+    \pause
+    Samopodobnih množic je zelo malo. Recimo, že krožnica ni taka.
+
+    \begin{center}
+        \drawSmile
+    \end{center}    
+\end{frame}
+
+\begin{frame}[t]{Podobnostna dimenzija}
+    \begin{definicija}
+        Naj bo množica \(F \subseteq \R^n\) sestavljena iz \(m\) kopij same sebe, kjer je vsaka kopija zmanjšana za faktor \(r\). Potem rečemo, da ima množica~\(F\) \df{podobnastno dimenzijo} enako \(\log_r m\).
+    \end{definicija}  
+    Spet imamo en problem... 
+    
+    Samopodobnih množic je zelo malo. Recimo, že krožnica ni taka.
+
+    \begin{center}
+        \drawSmileFunny
+    \end{center}    
+\end{frame}
+
+\section{Hausdorffova dimenzija}
+\begin{frame}{Hausdorffova dimenzija}
+    \begin{itemize}
+        \item Hausdorffova dimenzija izmed vseh "`fraktalnih"' dimenzij, ki jih ljudje uporabljajo, je najbolj stara in verjetno najbolj pomembna. 
+        \item Lahko jo definiramo za poljubno množico in matematično je zelo priročna, ker je osnovana na meri, s katero lahko relativno preprosto kaj naredimo.
+        \item Glavna pomanjkljivost je, da jo v večini situacij težko izračunati ali oceniti z numerični metodi.
+    \end{itemize}
+\end{frame}
+
+\subsection{Hausdorffova mera}
+\begin{frame}[t]{Hausdorffova mera}
+    \only<1> {
+        \begin{definicija}
+            Naj bo \(F \subseteq \R^n\). Naj bo \(\set{U_i}\) števna družina množic iz \(\R^n\), za katero velja:
+            \begin{enumerate}
+                \item \(\all{i \in \N} 0 \leq |U_i| \leq \delta\);
+                \item \(F \subseteq \bigcup_{i=1}^\infty U_i\).
+            \end{enumerate}
+            Potem \(\set{U_i}\) imenujemo \df{\(\delta\)-pokritje} množice \(F\).
+        \end{definicija}
+    }
+    \pause
+    Naj bo \(F \subseteq \R^n\) in \(s \geq 0\). Za vsak \(\delta > 0\) definiramo 
+    \[\mathcal{H}^s_\delta(F) = \inf \setb{\sum_{i=1}^{\infty}|U_i|^s}{\set{U_i} \ \text{je \(\delta\)-pokritje \(F\)}}\]
+    %
+    \pause
+    Ko \(\delta \to 0\), razred možnih pokritij \(F\) se zmanjšuje, torej \(\inf\) narašča, torej lahko definiramo:
+    \[\mathcal{H}^s(F) = \lim_{\delta \to 0} \mathcal{H}^s_\delta(F)\]
+    Ta limita vedno obstaja za vsako množico \(F \subseteq \R^n\). 
+
+    \pause    
+    Število \(\mathcal{H}^s(F)\) imenujemo \df{\(s\)-dim Hausdorffova mera} množice \(F\).
+
+    \begin{trditev}
+        \(\mathcal{H}^s\) je mera na \(\R^n\).
+    \end{trditev}      
+\end{frame}
+
+\begin{frame}[t]{Hausdorffova mera}
+    \begin{opomba}
+        Hausdorffova mera je posplošitev Lebesgueve mere na necele dimenzije. Se da pokazati, da 
+        \[\mathcal{H}^n(F) = \frac{1}{c_n} \mathcal{L}^n(F),\]
+        kjer je \(c_n\) volumen \(n\)-dim krogle z polmerom \(\frac{1}{2}\), tj. 
+        \[c_n = \frac{\pi^{(n/2)}}{2^n \, \Gamma(n/2 + 1)}\]
+    \end{opomba}  
+\end{frame}
+
+\begin{frame}[t]{Lastnosti skaliranja}
+    \only<1> {
+        \begin{definicija}
+            \df{Podobnostna preslikava} z koeficientom podobnosti \(c > 0\) je preslikava \(P: \R^n \to \R^n\), za katero velja:
+            \[\all{x, y \in \R^n} |P(x) - P(y)| = c|x-y|\]
+        \end{definicija}
+    }
+    \pause
+    Naj bo \(P: \R^n \to \R^n\) podobnostna preslikava z podobnostnim koeficientom \(c > 0\). Naj bo \(F \subseteq \R^n\).
+    
+    \only<2> {
+        Dobro poznamo lastnosti skaliranja dolžine, ploščine, volumna, npr.
+        \begin{itemize}
+            \item \(\mathcal{L}^1(\img{P}(F)) = c \mathcal{L}^1(F)\)
+            \item \(\mathcal{L}^2(\img{P}(F)) = c^2 \mathcal{L}^2(F)\)
+            \item \(\mathcal{L}^3(\img{P}(F)) = c^3 \mathcal{L}^3(F)\)
+        \end{itemize}
+        Ali velja enako tudi za \(\mathcal{H}^s\)?
+    }
+    \pause
+    \begin{trditev}
+        \[\mathcal{H}^s(\img{P}(F)) = c^s \mathcal{H}^s(F)\]
+    \end{trditev}   
+\end{frame}
+
+\begin{frame}[t]{Lastnosti skaliranja}
+    \only<1> {
+        \begin{definicija}
+            \df{Podobnostna preslikava} z koeficientom podobnosti \(c > 0\) je preslikava \(P: \R^n \to \R^n\), za katero velja:
+            \[\all{x, y \in \R^n} |P(x) - P(y)| = c|x-y|\]
+        \end{definicija}
+    }
+    \pause
+    Naj bo \(P: \R^n \to \R^n\) podobnostna preslikava z podobnostnim koeficientom \(c > 0\). Naj bo \(F \subseteq \R^n\).
+    
+    \only<2> {
+        Dobro poznamo lastnosti skaliranja dolžine, ploščine, volumna, npr.
+        \begin{itemize}
+            \item \(\mathcal{L}^1(\img{P}(F)) = c \mathcal{L}^1(F)\)
+            \item \(\mathcal{L}^2(\img{P}(F)) = c^2 \mathcal{L}^2(F)\)
+            \item \(\mathcal{L}^3(\img{P}(F)) = c^3 \mathcal{L}^3(F)\)
+        \end{itemize}
+        Ali velja enako tudi za \(\mathcal{H}^s\)?
+    }
+    \pause
+    \begin{trditev}
+        \[\mathcal{H}^s(\img{P}(F)) = c^s \mathcal{H}^s(F)\]
+    \end{trditev}   
+\end{frame}
+
+\begin{frame}[t]{Lastnosti skaliranja}
+    \begin{definicija} Naj bosta \(X \subseteq \R^n\) in \(Y \subseteq \R^m\).
+        Preslikava \(f: X \to Y\) je \df{Höldorjeva} stopnje \(\alpha > 0\), če
+        \[\some{c > 0} \all{x, y \in X} |f(x) -f(y)| \leq c|x-y|^\alpha\]             
+    \end{definicija}  
+    \pause
+    \begin{trditev}
+        Naj bo \(F \subseteq \R^n\) in \(f: F \to \R^n\) Höldorjeva preslikava stopnje \(\alpha > 0\). Potem za vsak \(s \geq 0\) velja:
+        \[\mathcal{H}^{s/\alpha}(\img{f}(F)) \leq c^{s/\alpha} \mathcal{H}^s(F)\]
+    \end{trditev}
+\end{frame}
+
+\begin{frame}[t]{Lastnosti skaliranja}
+    \begin{trditev}
+        Naj bo \(F \subseteq \R^n\) in \(f: F \to \R^n\) Höldorjeva preslikava stopnje \(\alpha > 0\). Potem za vsak \(s \geq 0\) velja:
+        \[\mathcal{H}^{s/\alpha}(\img{f}(F)) \leq c^{s/\alpha} \mathcal{H}^s(F)\]
+    \end{trditev}
+
+    \begin{posledica}
+        Če je \(f: F \to \R^n\) Lipschitzova, tj.
+        \[\some{c > 0} \all{x, y \in X} |f(x) -f(y)| \leq c|x-y|,\]
+        potem
+        \[\mathcal{H}^{s}(\img{f}(F)) \leq c^{s} \mathcal{H}^s(F)\]
+    \end{posledica}
+\end{frame}
+
+\subsection{Hausdorffova dimenzija}
+\begin{frame}[t]{Hausdorffova dimenzija}
+
+\end{frame}
+
+
+
+\begin{frame}
+  \centering
+  \Huge Hvala za pozornost!
+\end{frame}
+
+\end{document}

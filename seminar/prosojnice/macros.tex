@@ -1,0 +1,228 @@
+% Okolja
+\usepackage{amsthm}
+\theoremstyle{definition}{
+    \newtheorem*{definicija}{\textcolor{white}{Definicija}}
+    \newtheorem*{izrek}{\textcolor{white}{Izrek}}
+    \newtheorem*{trditev}{\textcolor{white}{Trditev}}
+    \newtheorem*{posledica}{\textcolor{white}{Posledica}}
+    \newtheorem*{lema}{\textcolor{white}{Lema}}
+    \newtheorem*{aksiom}{\textcolor{white}{Aksiom}}
+}
+
+\theoremstyle{remark}{    
+    \newtheorem*{opomba}{\textcolor{white}{Opomba}}
+    \newtheorem*{primer}{\textcolor{white}{Primer}}
+    \newtheorem*{zgled}{\textcolor{white}{Zgled}}
+}
+
+% Standardne množice
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\HH}{\mathbb{H}}
+
+%%% Quantifiers
+\newcommand{\all}[1]{\forall #1 \,.\,}
+\newcommand{\some}[1]{\exists #1 \,.\,}
+\newcommand{\exactlyone}[1]{\exists! #1 \,.\,}
+
+% Implikacija
+\newcommand{\lthen}{\implies}
+\newcommand{\liff}{\iff}
+
+%%% Množice
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\setb}[2]{\set{#1 \ | \  #2}}
+
+%% Preslikave
+\newcommand{\img}[1]{#1_{*}}
+\newcommand{\invimg}[1]{#1^{*}}
+\newcommand{\lin}[1]{\mathcal{#1}}
+
+%% Odvod
+\newcommand{\podv}[2]{\frac{\partial #1}{\partial #2}}
+
+%% Metrični prostori
+\newcommand{\norm}[1]{||#1||}
+
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\rang}{rang}
+
+%% New command
+\newcommand{\df}[1]{\textcolor{purple}{\textbf{#1}}}
+\newcommand*{\ds}{\displaystyle}
+
+%% Algebra
+% Oeratorji
+\newcommand{\gen}[1]{\left\langle {#1} \right\rangle}
+\DeclareMathOperator{\ch}{char}
+\DeclareMathOperator{\red}{red}
+
+\DeclareMathOperator{\Sim}{Sim}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Lin}{Lin}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Inn}{Inn}
+
+
+%% Topologija
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\PP}{\mathcal{P}}
+
+\DeclareMathOperator{\Int}{Int}
+\DeclareMathOperator{\Cl}{Cl}
+\DeclareMathOperator{\Fr}{Fr}
+\DeclareMathOperator{\pr}{pr}
+
+\DeclareMathOperator{\Set}{Set}
+
+%DM
+\DeclareMathOperator{\ecc}{ecc}
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\rad}{rad}
+
+
+\newcommand{\todo}[1]{\textcolor{red}{TODO: #1}}
+\newcommand{\ot}[1]{\widetilde{#1}}
+
+%Fizika
+\newcommand{\vc}[3]{
+    (#1, \, #2, \, #3)
+}
+
+% Analiza 2b
+\newcommand{\scp}[2]{\left\langle #1, \, #2 \right\rangle }
+\newcommand{\cf}[1]{C^{#1}([a,b])}
+\DeclareMathOperator{\divr}{div}
+\DeclareMathOperator{\rot}{rot}
+
+%ugt
+\newcommand{\op}[1]{#1^{\text{odp}}}
+\newcommand{\cl}[1]{#1^{\text{zap}}}
+\newcommand{\qs}[1]{{#1/_\sim}}
+\newcommand{\q}[2]{#1/_{#2}}
+\newcommand{\qd}{
+    \begin{tikzcd}
+        X \arrow[swap]{d}{q} \arrow{rd}{f} &   \\%
+        X/_\sim \arrow[swap]{r}{g} & Y
+    \end{tikzcd}
+}
+\newcommand{\sys}{(e_j)_{j=1}^\infty}
+
+% Seminar
+% Needed: \usetikzlibrary{math}
+\newcommand{\drawCantor}[1]{
+    \begin{tikzpicture}[xscale=6]
+        \draw (0,0) -- (1,0) node[pos=0, anchor=east]{$C_0$};  % initial 𝐶₀
+        \tikzmath{ % save arrays of left endpoints
+          int \myN, \numInt, \i, \j, \maxMumIdx, \maxSonIdx, \sonIdx1, \sonIdx2;
+          real \oldarr, \newarr, \intWidth, \rowsep, \vpos;
+          \myN = #1;  % number of Cantor iterations (must be positive)
+          \oldarr0 = 0;  % 𝐶ₙ₋₁
+          \rowsep = 0.7;  % visual parameter
+          \intWidth = 1;  % use recursive multiplication
+          \maxSonIdx = 0;  % to avoid exponentiation
+          \vpos = 0;  % vertical position
+          for \i in {1,...,\myN} {
+            \maxMumIdx = \maxSonIdx;  % max "parent" index
+            \maxSonIdx = 2 * (\maxSonIdx + 1) - 1;  % #intervals in 𝐶ₙ - 1
+            \intWidth = \intWidth / 3;  % length(𝐶ₙ) = (1/3)ⁿ
+            \vpos = \vpos - \rowsep;
+            { \node[anchor=east] at (0, \vpos cm) {$C_{\i}$}; };
+            for \j in {0,...,\maxMumIdx} {
+              \sonIdx1 = 2 * \j;
+              \sonIdx2 = \sonIdx1 + 1;
+              \newarr{\sonIdx1} = \oldarr{\j};
+              \newarr{\sonIdx2} = \oldarr{\j} + 2 * \intWidth;
+              {
+                \draw (\newarr{\sonIdx1} cm, \vpos cm) -- ++(\intWidth cm, 0);
+                \draw (\newarr{\sonIdx2} cm, \vpos cm) -- ++(\intWidth cm, 0);
+              };
+            };
+            % oldarr ← newarr
+            for \j in {0,...,\maxSonIdx} { \oldarr{\j} = \newarr{\j}; };
+          };
+        }
+    \end{tikzpicture}
+}
+
+% Needed: \usetikzlibrary{decorations.fractals}
+\newcommand{\drawKoch}{
+    \begin{tikzpicture}[decoration=Koch snowflake]
+        \draw (0,0) -- (4,0);
+        \node[anchor=west] at (4.2,0) {$K_{0}$};
+    
+        \begin{scope}[yshift=-1.4cm]
+            \draw decorate{ (0,0) -- (4,0) };
+            \node[anchor=west] at (4.2, 0) {$K_{1}$};
+        \end{scope}    
+    
+        \begin{scope}[yshift=-2.8cm]
+            \draw decorate {
+              decorate { (0,0) -- (4,0) }
+            };
+            \node[anchor=west] at (4.2, 0) {$K_{2}$};
+        \end{scope}
+    
+        
+        \begin{scope}[yshift=-4.2cm]
+            \draw decorate {
+              decorate {
+                decorate { (0,0) -- (4,0) }
+              }
+            };
+            \node[anchor=west] at (4.2, 0) {$K_{3}$};
+        \end{scope}
+    
+        \begin{scope}[yshift=-5.6cm]
+            \draw decorate {
+              decorate {
+                decorate {
+                  decorate { (0,0) -- (4,0) }
+                }
+              }
+            };
+            \node[anchor=west] at (4.2, 0) {$K_{4}$};
+        \end{scope}
+    \end{tikzpicture}
+}
+
+\newcommand{\drawSmile}{
+  \begin{tikzpicture}
+
+      % Окружность (лицо)
+      \draw[thick] (0, 0) circle (2);
+      
+      % Глаза
+      \fill (0.7, 1) circle (0.2);  % правый глаз
+      \fill (-0.7, 1) circle (0.2); % левый глаз
+      
+      % Рот (грустный)
+      \draw[thick] (-1.2, -1) .. controls (-0.5, 0) and (0.5, 0) .. (1.2, -1);
+    
+  \end{tikzpicture}
+}
+
+\newcommand{\drawSmileFunny}{
+  \begin{tikzpicture}
+
+      % Окружность (лицо)
+      \draw[thick] (0, 0) circle (2);
+      
+      % Глаза
+      \fill (0.7, 1) circle (0.2);  % правый глаз
+      \fill (-0.7, 1) circle (0.2); % левый глаз
+      
+      % Рот (грустный)
+      \draw[thick] (-1.2, -1) .. controls (-0.5, -1.5) and (0.5, -1.5) .. (1.2, -1);
+    
+  \end{tikzpicture}
+}
