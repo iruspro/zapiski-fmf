@@ -13,6 +13,9 @@
 
 \usepackage{graphicx}
 
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
 \input{macros.tex}
 
 \title[Fraktalne dimenzije]{Fraktalne dimenzije}
@@ -400,10 +403,62 @@
 
 \subsection{Hausdorffova dimenzija}
 \begin{frame}[t]{Hausdorffova dimenzija}
+    Naj bo \(F \subseteq \R^n\). Gledamo funkcijo 
+    \begin{align*}
+        \mathcal{H}_F: [0, \infty) &\longrightarrow [0, \infty] \\
+        s &\longmapsto \mathcal{H}^{s}(F)
+    \end{align*}
 
+    \begin{lema}
+        Naj bo \(F \subseteq \R^n\). Če je \(\mathcal{H}^{s}(F) < \infty\), potem \(\mathcal{H}^{t}(F) = 0\) za vse \(t > s\).
+    \end{lema}
 \end{frame}
 
+\begin{frame}[t]{Hausdorffova dimenzija}
+    \begin{lema}
+        Naj bo \(F \subseteq \R^n\). Če je \(\mathcal{H}^{s}(F) < \infty\), potem \(\mathcal{H}^{t}(F) = 0\) za vse \(t > s\).
+    \end{lema}
 
+    Oglejmo si graf funkcije \(\mathcal{H}_F\):
+    \begin{center}
+        \scalebox{0.8}{
+            \drawGraf
+        }        
+    \end{center}    
+\end{frame}
+
+\begin{frame}[t]{Hausdorffova dimenzija}
+    \begin{definicija}
+        \df{Hausdorffova dimenzija} množice \(F \subseteq \R^n\) je 
+        \[\text{dim}_H F = \inf \setb{s \geq 0}{\mathcal{H}^{s}(F) = 0} = \sup \setb{s \geq 0}{\mathcal{H}^{s}(F) = \infty}\]
+    \end{definicija} 
+
+    \pause
+    \only<2> {
+        \begin{opomba}
+            \begin{itemize}
+                \item Po dogovoru \(\sup (\emptyset) = 0\).
+                \item Ta dimenzija je definirana za poljubno podmnožico \(\R^n\).
+            \end{itemize}   
+        \end{opomba}
+    }
+    \pause 
+    Imamo:
+    \[
+        \mathcal{H}^{s}(F) = \begin{cases}
+            \infty; &0 \leq s < \text{dim}_H F \\ 
+            0; &s > \text{dim}_H F;
+        \end{cases}
+    \]
+    %
+    Če je \(s = \text{dim}_H F\), potem \(\mathcal{H}^{s}(F)\) lahko \(0, \  \infty\) ali \(a \in \R\).    
+\end{frame}
+
+\begin{frame}[t]{Hausdorffova dimenzija krogle \(B^n\)}
+    \begin{lema}
+        \[\text{dim}_H B^n = n\]
+    \end{lema}
+\end{frame}
 
 \begin{frame}
   \centering

@@ -226,3 +226,39 @@
     
   \end{tikzpicture}
 }
+
+\newcommand{\drawGraf}{
+  \begin{tikzpicture}
+    \begin{axis}[
+        axis lines=middle,
+        xlabel style={at={(ticklabel* cs:1)}, anchor=west},  % ось x — подпись справа
+        ylabel style={at={(ticklabel* cs:1)}, anchor=south}, % ось y — подпись сверху
+        xlabel={$x$},
+        ylabel={$f(x)$},
+        ymin=0, ymax=4.5,
+        xmin=0, xmax=5,
+        samples=100,
+        domain=0:5,
+        xtick={2},
+        xticklabels={$s_0$},  % замена 2 на s_0
+        ytick={0},
+        enlargelimits,
+        every axis plot/.append style={thick, blue},
+        axis line style={->},
+      ]
+  
+      % "Бесконечно" до s_0
+      \draw[->, thick, blue] (axis cs:0,4.5) -- (axis cs:1.98,4.5) node[above] {$\infty$};
+  
+      % Вертикальная пунктирная линия в s_0
+      \draw[dashed, blue] (axis cs:2,0) -- (axis cs:2,4.4);
+  
+      % Точка в (s_0, 3)
+      \node[circle, fill=blue, inner sep=1pt] at (axis cs:2,3) {};
+  
+      % f(x) = 0 после s_0
+      \draw[<-, thick, blue] (axis cs:2.02,0) -- (axis cs:6,0);
+  
+    \end{axis}
+  \end{tikzpicture}
+}
