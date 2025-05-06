@@ -10,6 +10,7 @@
 \usepackage{tikz}
 \usetikzlibrary{math}
 \usetikzlibrary{decorations.fractals}
+\usetikzlibrary{lindenmayersystems}
 
 \usepackage{graphicx}
 
@@ -46,7 +47,7 @@
 
 \begin{frame}{Kaj so fraktali?}
     \centering
-    \includegraphics[width=0.5\textwidth]{img/mandelbrot.jpg} % путь к вашему изображению
+    \includegraphics[width=0.5\textwidth]{img/mandelbrot.jpg} 
 \end{frame}
 
 \begin{frame}{Kaj so fraktali?}
@@ -60,7 +61,7 @@
 \begin{frame}{Kaj so fraktali?}
     Če rečemo, da je neka množica \(F\) fraktal, potem si mislimo, da
     \begin{enumerate}
-        \item \(F\) ima fino strukturo, tj. podrobnosti se vidijo vedno enako (neodvisno od skale);
+        \item \(F\) ima fino strukturo, tj.\ podrobnosti se vidijo vedno enako (neodvisno od skale);
         \item \(F\) je dovolj nenaravna, da je ne moremo opisat s pomocjo elementarne geometrije tako lokalno kot globalno;
         \item \(F\) včasih ima samopodobno obliko;
         \item Običajno je fraktalna dimenzija \(F\) večja od njene topološke dimenzije;
@@ -77,19 +78,18 @@
     \end{itemize}    
 \end{frame}
 
-
+% Скрыть
 \subsection{Opomba o teorije mere}
 \begin{frame}{Mera}
     \begin{itemize}
         \item Če želimo govoriti o fraktalnih dimenzijah, moramo poznati osnovne ideje teorije mere.
         \item Bomo obravnavali le mere na \(\R^n\).
-        \item Mera je način opisati "`velikost"' množice, ki je izmerjena na nek način.
     \end{itemize}    
 \end{frame}
 
 \begin{frame}{Borelova \(\sigma\)-algebra}
     \begin{definicija} 
-        Družina podmnožic \(\Sigma\) množice \(\R^n\) je \(\sigma\)-algebra, če:
+        Družina podmnožic \(\Sigma\) množice \(\R^n\) je \df{\(\sigma\)-algebra}, če:
         \begin{enumerate}
             \item \(\R^n \in \Sigma\);
             \item Če je \(A \in \Sigma\), potem \(A^c \in \Sigma\);
@@ -170,7 +170,7 @@
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Lebesgueva \(\mathcal{L}^n\) mera}
+\begin{frame}[t]{Lebesgueva \(\mathcal{L}^n\) mera}
     \only<1>{Lebesgueva \(\mathcal{L}^n\) mera na \(\R^n\) je posplošitev evklidskih pojmov "`dolžina"', "`ploščina"', "`volumen"' itn.\  na večji razred množic.}
 
     \only<2>{
@@ -183,6 +183,7 @@
     }
 \end{frame}
 
+% Скрыть
 \begin{frame}{Lebesgueva \(\mathcal{L}^n\) mera}
     \begin{opomba} \
         \begin{itemize}
@@ -321,7 +322,7 @@
         Hausdorffova mera je posplošitev Lebesgueve mere na necele dimenzije. Se da pokazati, da 
         \[\mathcal{H}^n(F) = \frac{1}{c_n} \mathcal{L}^n(F),\]
         kjer je \(c_n\) volumen \(n\)-dim krogle z polmerom \(\frac{1}{2}\), tj. 
-        \[c_n = \frac{\pi^{(n/2)}}{2^n \, \Gamma(n/2 + 1)}\]
+        \[c_n = \frac{\pi^{(n/2)}}{\Gamma(n/2 + 1)} \left(\frac{1}{2}\right)^n\]
     \end{opomba}  
 \end{frame}
 
@@ -350,30 +351,30 @@
     \end{trditev}   
 \end{frame}
 
-\begin{frame}[t]{Lastnosti skaliranja}
-    \only<1> {
-        \begin{definicija}
-            \df{Podobnostna preslikava} z koeficientom podobnosti \(c > 0\) je preslikava \(P: \R^n \to \R^n\), za katero velja:
-            \[\all{x, y \in \R^n} |P(x) - P(y)| = c|x-y|\]
-        \end{definicija}
-    }
-    \pause
-    Naj bo \(P: \R^n \to \R^n\) podobnostna preslikava z podobnostnim koeficientom \(c > 0\). Naj bo \(F \subseteq \R^n\).
+% \begin{frame}[t]{Lastnosti skaliranja}
+%     \only<1> {
+%         \begin{definicija}
+%             \df{Podobnostna preslikava} z koeficientom podobnosti \(c > 0\) je preslikava \(P: \R^n \to \R^n\), za katero velja:
+%             \[\all{x, y \in \R^n} |P(x) - P(y)| = c|x-y|\]
+%         \end{definicija}
+%     }
+%     \pause
+%     Naj bo \(P: \R^n \to \R^n\) podobnostna preslikava z podobnostnim koeficientom \(c > 0\). Naj bo \(F \subseteq \R^n\).
     
-    \only<2> {
-        Dobro poznamo lastnosti skaliranja dolžine, ploščine, volumna, npr.
-        \begin{itemize}
-            \item \(\mathcal{L}^1(\img{P}(F)) = c \mathcal{L}^1(F)\)
-            \item \(\mathcal{L}^2(\img{P}(F)) = c^2 \mathcal{L}^2(F)\)
-            \item \(\mathcal{L}^3(\img{P}(F)) = c^3 \mathcal{L}^3(F)\)
-        \end{itemize}
-        Ali velja enako tudi za \(\mathcal{H}^s\)?
-    }
-    \pause
-    \begin{trditev}
-        \[\mathcal{H}^s(\img{P}(F)) = c^s \mathcal{H}^s(F)\]
-    \end{trditev}   
-\end{frame}
+%     \only<2> {
+%         Dobro poznamo lastnosti skaliranja dolžine, ploščine, volumna, npr.
+%         \begin{itemize}
+%             \item \(\mathcal{L}^1(\img{P}(F)) = c \mathcal{L}^1(F)\)
+%             \item \(\mathcal{L}^2(\img{P}(F)) = c^2 \mathcal{L}^2(F)\)
+%             \item \(\mathcal{L}^3(\img{P}(F)) = c^3 \mathcal{L}^3(F)\)
+%         \end{itemize}
+%         Ali velja enako tudi za \(\mathcal{H}^s\)?
+%     }
+%     \pause
+%     \begin{trditev}
+%         \[\mathcal{H}^s(\img{P}(F)) = c^s \mathcal{H}^s(F)\]
+%     \end{trditev}   
+% \end{frame}
 
 \begin{frame}[t]{Lastnosti skaliranja}
     \begin{definicija} Naj bosta \(X \subseteq \R^n\) in \(Y \subseteq \R^m\).
@@ -458,6 +459,281 @@
     \begin{lema}
         \[\text{dim}_H B^n = n\]
     \end{lema}
+    
+    \pause
+    Spomnimo se
+    \begin{lema}
+        \[\mathcal{H}^n(F) = \frac{1}{c_n} \mathcal{L}^n(F),\]
+        kjer je \(c_n\) volumen \(n\)-dim krogle z polmerom \(\frac{1}{2}\), tj. 
+        \[c_n = \frac{\pi^{(n/2)}}{\Gamma(n/2 + 1)} \left(\frac{1}{2}\right)^n\]
+    \end{lema}
+\end{frame}
+
+\subsection{Lastnosti Hausdorffove dimenzije}
+\begin{frame}[t]{Lastnosti Hausdorffove dimenzije}
+    \begin{itemize}
+        \item[(1)] \textbf{Monotonost.} Če je \(E \subseteq F\), potem \(\text{dim}_H E \leq \text{dim}_H F\).
+        \pause
+        \item[(2)] \textbf{Števna stabilnost.} Če je \(F_1, F_2, \ldots\) števno zaporedje množic, potem 
+        \[\text{dim}_H \bigcup_{i=1}^\infty F_i = \sup_{1 \leq i < \infty} (\text{dim}_H F_i)\]
+        \pause
+        \item[(3)] \textbf{Dimenzija števnih množic.} Če je \(F\) števna, potem \(\text{dim}_H F = 0\).
+        \pause
+        \item[(4)] \textbf{Dimenzija odprtih množic.} Naj bo \(F \subseteq \R^n\) odprta podmnožica. Potem \(\text{dim}_H F = n\).
+        \pause
+        \item[(5)] \textbf{Dimenzija gladkih podmnogoterosti.} Naj bo \(F \subseteq \R^n\) gladka podmnogoterost dimenzije \(m\), potem \(\text{dim}_H F = m\). Posebej:
+        \begin{itemize}
+            \item Če je \(F\) gladka krivulja, potem \(\text{dim}_H F = 1\);
+            \item Če je \(F\) gladka ploskev, potem \(\text{dim}_H F = 2\).
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+% Скрыть
+\begin{frame}[t]{Lastnosti Hausdorffove dimenzije}
+    \begin{opomba}
+        To so osnovne lastnosti, ki jih lahko zahtevamo od dimenzije, če želimo, da je ta res posplošitev običajne evklidske dimenzije.
+    \end{opomba}
+\end{frame}
+
+\begin{frame}[t]{Transformacijeske lastnosti Hausdorffove dimenzije}
+    \begin{trditev}
+        Naj bo \(F \subseteq \R^n\) in \(f: F \to \R^n\) Höldorjeva preslikava stopnje \(\alpha > 0\). Potem 
+        \[\text{dim}_H \img{f}(F) \leq \frac{1}{\alpha} \text{dim}_H F\]        
+    \end{trditev}
+    \pause
+    \only<2> {
+        Spomnimo se
+        \begin{trditev}
+            Naj bo \(F \subseteq \R^n\) in \(f: F \to \R^n\) Höldorjeva preslikava stopnje \(\alpha > 0\). Potem za vsak \(s \geq 0\) velja:
+            \[\mathcal{H}^{s/\alpha}(\img{f}(F)) \leq c^{s/\alpha} \mathcal{H}^s(F)\]
+        \end{trditev}
+    }
+    \pause
+    \begin{posledica}
+        \ 
+        \begin{itemize}
+            \item Če je \(f: F \to \R^n\) Lipschitzova, potem \(\text{dim}_H \img{f}(F) \leq \text{dim}_H(F)\).
+            \pause
+            \item Če je \(f: F \to \R^n\) bi-Lipschitzova, tj.
+            \[\some{c_1, c_2 > 0} \all{x, y \in X} c_1 |x- y| \leq |f(x) - f(y)| \leq c_2 |x - y|,\] 
+            potem \(\text{dim}_H \img{f}(F) = \text{dim}_H(F)\).
+        \end{itemize}
+    \end{posledica}
+\end{frame}
+
+% Скрыть
+\begin{frame}[t]{Transformacijeske lastnosti Hausdorffove dimenzije}
+    \begin{opomba}
+        Posledica pove, da je \(\text{dim}_H\) invariantna glede na bi-Lipschitzeve preslikave. V posebnem, če sta množici imata različni Hausdorffovi dimenziji, potem ne obstaja bi-Lipschitzova preslikava med njima.
+    \end{opomba}
+\end{frame}
+
+\begin{frame}[t]{Topološke lastnosti Hausdorffove dimenzije}
+    \begin{trditev}
+        Naj bo \(F \subseteq \R^n\). Če je \(\text{dim}_H F < 1\), potem je \(F\) \only<1>{...}\pause popolnoma nepovezana.
+    \end{trditev}
+\end{frame}
+
+\subsection{Primeri računanja Hausdorffove dimenzije}
+\begin{frame}[t]{Hausdorffova dimenzija Cantorjeva praha}
+    \centering
+    \includegraphics[width=\textwidth]{img/cantor_dust.png} 
+\end{frame}
+
+\begin{frame}[t]{Hausdorffova dimenzija Cantorjeve množice in Kochove krivulje}
+    \begin{primer}
+        Naj bo \(C\) Cantorjeva množica in \(K\) Kochova krivulja, potem
+        \begin{itemize}
+            \item \(\text{dim}_H C = \log_3 2 = 0.6309\ldots\)
+            \item \(\text{dim}_H K = \log_3 4 = 1.2618\ldots\)
+        \end{itemize}
+    \end{primer}    
+\end{frame}
+
+\section{Škatlasta dimenzija}
+\subsection{Ekvivalentne definicije}
+\begin{frame}[t]{Druge vrste dimenzij}
+    \begin{opomba}
+        \begin{itemize}
+            \item Hausdorffova dimenzija je osnova.
+            \item Ni res, da vse definicije delujejo za vse množice.
+            \item Osnovna ideja za vse dimenzije je "`meritev"' v skali \(\delta > 0\), tj. za vsak \(\delta > 0\) merimo množico na način, ki ignorira nepravilnosti, ki so manjše od \(\delta\). Nato pa gledamo, kaj se zgodi v limiti \(\delta \to 0\).
+        \end{itemize}
+    \end{opomba}
+\end{frame}
+
+\begin{frame}[t]{Škatlasta dimenzija}
+    \only<1> {
+        \begin{definicija}
+            Naj bo \(f: \R_{>0} \to \R\) funkcija. 
+            \begin{itemize}
+                \item \df{Spodnja limita} funkcije \(f\) ko gre x proti \(0\) je 
+                \[\underline{\lim}_{x \to \infty} f(x) := \lim_{r \to 0} \left(\inf \setb{f(x)}{0< x < r}\right)\]
+                \item \df{Zgornja limita} funkcije \(f\) ko gre x proti \(0\) je 
+                \[\overline{\lim}_{x \to \infty} f(x) := \lim_{r \to 0} \left(\sup \setb{f(x)}{0< x < r}\right)\]
+            \end{itemize}
+        \end{definicija}
+    }
+
+    \pause
+    Naj bo \(F \subseteq \R^n\) omejena in neprazna. Označimo z \(N_\delta(F)\) najmanjšo število množic s premerom kvečjemu \(\delta>0\), ki jih potrebujemo za pokritje \(F\).
+    
+    \pause   
+    \begin{definicija}
+        \begin{itemize}
+            \item \df{Spodnja škatlasta dimenzija} množice \(F\) je 
+            \[\underline{\text{dim}}_B F = \underline{\lim}_{\delta \to 0} \frac{\ln N_\delta(F)}{-\ln \delta}\]
+            \item \df{Zgornja škatlasta dimenzija} množice \(F\) je 
+            \[\overline{\text{dim}}_B F = \overline{\lim}_{\delta \to 0} \frac{\ln N_\delta(F)}{-\ln \delta}\]
+        \end{itemize}  
+    \end{definicija}
+\end{frame}
+
+\begin{frame}[t]{Škatlasta dimenzija}  
+    \begin{definicija}
+        \begin{itemize}
+            \item \df{Spodnja škatlasta dimenzija} množice \(F\) je 
+            \[\underline{\text{dim}}_B F = \underline{\lim}_{\delta \to 0} \frac{\ln N_\delta(F)}{-\ln \delta}\]
+            \item \df{Zgornja škatlasta dimenzija} množice \(F\) je 
+            \[\overline{\text{dim}}_B F = \overline{\lim}_{\delta \to 0} \frac{\ln N_\delta(F)}{-\ln \delta}\]
+            \item Če \(\underline{\text{dim}}_B F = \overline{\text{dim}}_B F\), potem skupno število imenujemo \df{Škatlasta dimenzija} množice \(F\), tj. 
+            \[\text{dim}_B F = \lim_{\delta \to 0} \frac{\ln N_\delta(F)}{-\ln \delta}\]
+        \end{itemize}  
+    \end{definicija}
+\end{frame}
+
+% Скрыть
+\begin{frame}[t]{Škatlasta dimenzija}  
+    \begin{opomba}
+        \begin{itemize}
+            \item Upoštevamo, da je \(\delta > 0\) dovolj majhen, da \(- \ln \delta > 0\).
+            \item Da nimamo težav \(\ln \infty\) ali \(\ln 0\), obravnavamo le omejeni neprazni množici.
+        \end{itemize}
+    \end{opomba}
+\end{frame}
+
+\begin{frame}[t]{Škatlasta dimenzija (ekvivalentne oblike)}  
+    \begin{definicija}
+        Naj bo \(F \subseteq \R^n\) omejena in neprazna. \df{Škatlasta dimenzija} množice~\(F\) je 
+        \[\text{dim}_B F = \lim_{\delta \to 0} \frac{\ln N_\delta(F)}{-\ln \delta}\]
+        kjer je \(N_\delta(F)\) lahko:
+        \begin{itemize}
+            \item najmanjše število množic s premerom kvečjemu \(\delta\), ki pokrivajo \(F\);
+            \item najmanjše število zaprtih krogel z radijem \(\delta\), ki pokrivajo \(F\);
+            \item najmanjše število zaprtih kvadrov s stranico \(\delta\), ki pokrivajo \(F\);
+            \item število \(\delta\)-mreža kvadrov, ki sekajo \(F\);
+            \item največje število disjunktnih zaprtih krogel z radijem \(\delta\) in središči na množici \(F\).
+        \end{itemize}
+    \end{definicija}
+\end{frame}
+
+% Скрыть
+\begin{frame}[t]{Škatlasta dimenzija (ekvivalentne oblike)}  
+    \begin{opomba}
+        \begin{itemize}
+            \item Lahko nadaljujemo ta seznam. V praksi izberimo najbolj relevanten za podano podmnožico.
+            \item V definiciji \(\delta \to 0\) lahko nadomestimo s poljubnim padajočim zaporedjem \(\delta_k\), za katero velja: 
+            \[\lim_{k \to \infty} \delta_k = 0\]
+        \end{itemize}
+        
+    \end{opomba}
+\end{frame}
+
+\begin{frame}[t]{\(\delta\)-mreža}  
+    \[\text{dim}_B F = \lim_{\delta \to 0} \frac{\ln N_\delta(F)}{-\ln \delta}\]
+    \begin{center}
+        \scalebox{0.9}{
+            \drawMesh
+        }        
+    \end{center}   
+\end{frame}
+
+\begin{frame}[t]{Disjunktne zaprte krogle}  
+    \[\text{dim}_B F = \lim_{\delta \to 0} \frac{\ln N_\delta(F)}{-\ln \delta}\]
+\end{frame}
+
+\begin{frame}[t]{Škatlasta dimenzija Cantorjeve množice}  
+    \begin{primer}
+        Naj bo \(C\) Cantorjeva množica, potem 
+        \[\text{dim}_H C = \log_3 2 = 0.6309\ldots\]
+    \end{primer}
+\end{frame}
+
+\subsection{Relacija med Hausdorffovo in škatlasto dimenzijo}
+\begin{frame}[t]{Relacija med Hausdorffovo in škatlasto dimenzijo}
+    \begin{trditev}
+        \[\text{dim}_H F \leq \underline{\text{dim}}_B F \leq \overline{\text{dim}}_B F\]
+    \end{trditev}
+
+    \pause
+    \begin{opomba}
+        V splošnem enakost NE velja, ne glede na to, da za nekatere lepe množice enakost drži.
+    \end{opomba}
+\end{frame}
+
+\subsection{Lastnosti škatlaste dimenzije}
+\begin{frame}[t]{Lastnosti škatlaste dimenzije}
+    \begin{itemize}
+        \item[(1)] \textbf{Monotonost.} \(\underline{\text{dim}}_B\) in \(\overline{\text{dim}}_B\) sta monotoni.
+        \pause
+        \item[(2)] \textbf{Končna stabilnost.} \(\overline{\text{dim}}_B\) je končno stabilna, tj. 
+        \[\overline{\text{dim}}_B (E \cup F) = \max (\overline{\text{dim}}_B E, \overline{\text{dim}}_B F).\]
+        Ta identiteta v splošnem NE velja za \(\underline{\text{dim}}_B\).
+        \pause
+        \item[(3)] \textbf{Dimenzija odprtih množic.} Naj bo \(F \subseteq \R^n\) odprta podmnožica. Potem \(\text{dim}_B F = n\).
+        \pause
+        \item[(4)] \textbf{Dimenzija gladkih podmnogoterosti.} Naj bo \(F \subseteq \R^n\) gladka podmnogoterost dimenzije \(m\), potem \(\text{dim}_B F = m\). 
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[t]{Težave škatlaste dimenzije}
+    \begin{trditev}
+        Naj bo \(F \subseteq \R^n\) omejena in neprazna. Velja:
+        \begin{enumerate}
+            \item \(\underline{\text{dim}}_B \Cl F = \underline{\text{dim}}_B F\).
+            \item \(\overline{\text{dim}}_B \Cl F = \overline{\text{dim}}_B F\).
+        \end{enumerate}
+    \end{trditev}
+
+    \pause
+    \begin{posledica}
+        V splošnem 
+        \[\text{dim}_B \bigcup_{i=1}^\infty F_i \neq \sup_{1 \leq i < \infty} (\text{dim}_B F_i)\]
+    \end{posledica}
+\end{frame}
+
+\begin{frame}[t]{Težave škatlaste dimenzije}
+    Ali bomo še vedno imeli težave, če bomo gledali le zaprte množice?
+    \pause
+
+    \only<2> { Bomo... }
+    
+    \pause
+    \begin{primer}
+        Naj bo \(F = \setb{\frac{1}{n}}{n \in \N} \cup \set{0}\). 
+        
+        \(F\) je kompaktna množica z \(\text{dim}_B F = \frac{1}{2}\).
+    \end{primer}
+\end{frame}
+
+\begin{frame}[t]{Od kod pride ta težava?}
+    \begin{opomba}
+        \begin{itemize}
+            \item Pri računanju Hausdorffove dimenzije privzamemo, da množice pokritja \(\set{U_i}_{i \in \N}\) imajo različne velikosti.
+            \item Pri računanju škatlaste dimenzije pa je velikost množic pokritja \(\set{U_i}_{1 \leq i \leq k}\) vedno fiksna (je enaka \(\delta\)).
+            \pause
+            \item Se nam zdi, da bi belo smiselno definirati mero 
+            \[v(F) = \lim_{\delta \to 0} N_\delta(F) \delta^s\]
+        \end{itemize}
+    \end{opomba}
+\end{frame}
+
+\begin{frame}[t]{Povzetek o škatlasti dimenziji}
+    \begin{itemize}
+        \item Škatlasta dimenzija je zelo uporabna v praksi.
+        \item Pogosto se da dokazati, da je enaka Hausdorffovi.
+    \end{itemize}
 \end{frame}
 
 \begin{frame}
