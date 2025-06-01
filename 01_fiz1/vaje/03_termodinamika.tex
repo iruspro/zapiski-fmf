@@ -1,0 +1,162 @@
+\section{Termodinamika}
+\subsection{Osnovne količine in formule}
+\begin{itemize}
+    \item \(m\) -- masa snovi, \(V\) -- volumen snovi, \(\rho = \frac{m}{V}\) -- gostota snovi, tj.\ \(m = \rho V\)
+    \item \(N\) -- število atomov ali molekul (delcev) v snovi, \(m_0\) -- masa delca, tj.\ \(m = m_0 N\)
+    \item \(n = \frac{N}{V}\) -- številska gostota snovi, tj.\ \(N = nV\)
+    
+    Velja: \(m_0 n = m_0 \frac{N}{V} = \frac{m}{V} = \rho\), tj.\ \(\rho = m_0 n\)
+    \item V enem molu snovi so \(6,02 \cdot 10^{23}\) delcev. \(N_A = 6,02 \cdot 10^{23} \ \text{mol}^{-1}\) -- Avogadrovo število
+    \item \(\nu\) -- število snovi (število molov), tj. \(N = \nu N_A\)
+    \item \(\mu\) -- molska masa, \([\mu] = \frac{\text{kg}}{\text{ml}}\), tj.\ \(m = \mu \nu\) in \(\mu = m_0 N_A\)
+\end{itemize}
+
+\newpage
+\subsection{Tlak. Idealni plin}
+\paragraph{Tlak} \(p:= \frac{F}{S}, \ [p] = \frac{\text{N}}{\text{m}^2} = \text{Pa}\). \(1 \ \text{bar} = 10^5 \ \text{Pa}\)
+\paragraph{Povprečna kinetična energija delcev} \ 
+\begin{itemize}
+    \item Idealni plin, \(N\) delcev
+    \item \(v_1, v_2, \ldots, v_N\) -- hitrosti delcev
+    \item \(W_1 = \frac{1}{2}m_0v_1^2, W_2 = \frac{1}{2}m_0v_2^2, \ldots, W_N = \frac{1}{2}m_0v_N^2\) -- kinetična energija delcev
+\end{itemize}
+Dobimo
+\[\overline{W} = \frac{1}{2} m_0v^2,\]
+kjer \(v^2 = \frac{v_1^2 + v_2^2+\ldots+v_N^2}{N}\) - povprečni kvadrat hitrosti.
+\paragraph{Osnovna enačba MKT}
+\[p = \frac{2}{3}n\overline{W} = \frac{1}{3}nm_0 v^2 = \frac{1}{3} \rho v^2\]
+\paragraph{Povezava med \(T\) in \(\overline{W}\)} \
+
+V toplotnem ravnovesju velja:
+\[\overline{W} = \frac{3}{2}k_BT,\]
+kjer \(k_B = 1,38 \cdot10^{-23} \ \frac{\text{J}}{\text{K}}\) -- Boltzmannova konstanta. Iz te enačbe sledi, da 
+\[v = \sqrt{\frac{3RT}{\mu}},\]
+kjer \(R = kN_A = 8300 \ \frac{\text{J}}{\text{kmol} \cdot \text{K}}\) univerzalna plinska konstanta
+
+\paragraph{Enačba idealnega plina}
+\[pV = \nu RT = \frac{m}{\mu}RT, \qquad p = \frac{\rho}{\mu}RT\]
+
+\subsection{Raztezanje snovi}
+\begin{itemize}
+    \item Če palico segrejemo, se dolžina palice \(l\) poveča: 
+    \[\Delta l = \alpha l \Delta T,\]
+    kjer je \(\alpha\) koeficient dolžinskega raztezka:
+    \begin{itemize}
+        \item \(\alpha_\text{jeklo} = 1,1 \cdot 10^{-5} \ \text{K}^{-1}\)
+        \item \(\alpha_\text{steklo} = 0,9 \cdot 10^{-5} \ \text{K}^{-1}\)
+        \item \(\alpha_\text{medenina} = 1,9 \cdot 10^{-5} \ \text{K}^{-1}\)
+    \end{itemize}
+    \item Če kocko segrejemo, se volumen kocke \(V\) poveča:
+    \[\Delta V= \beta V \Delta T,\]
+    kjer je \(\beta\) koeficient prostorninskega raztezka:
+    \begin{itemize}
+        \item Za trdne snovi: \(\beta = 3 \alpha\)
+    \end{itemize}
+\end{itemize}
+
+\subsection{Energijski zakon. Toplota in delo}\ 
+
+Notranja energija \(W_n\)
+\begin{itemize}
+    \item Je enolična funkcija stanja
+\end{itemize}
+\textbf{Energijski zakon}
+\[\Delta W = \Delta A + \Delta Q,\]
+kjer je \(Q\) \df{toplota}.
+
+Če je \(\Delta W_k = \Delta W_p = 0\), potem \(dW_n = dA + dQ\), kjer
+\begin{itemize}
+    \item \(A = \int \, dA = - \int p \, dV\)
+    \item \(dQ = mc_v dT\), če je \(V = \text{const}\) oz.\ \(dQ = mc_p dT\), če je \(p = \text{const}\) (prosto gibljiv bat)
+\end{itemize}
+\newpage
+\paragraph{Energijske razmerje pri idealnem plinu}
+\begin{itemize}
+    \item Če \(V = \text{const}\), potem \[W_n(T) = mc_v T\]
+    To vedno velja za idealni plin.
+    \item Če \(p = \text{const}\), potem \(dQ = dW_n + pdV\), tj.\ \(mc_pdT = mc_vdT + pdV\), dobimo \[c_p = c_v + \frac{R}{\mu}\]
+\end{itemize}
+\paragraph{Specifične toplote}
+Definiramo \(\ds \kappa = \frac{c_p}{c_v}\), potem \(\ds c_v = \frac{R}{\mu (\kappa - 1)}\)
+\begin{itemize}
+    \item 1-atomni plin: \(c_v = \frac{3}{2} \frac{R}{\mu}\), \(\kappa = \frac{5}{3}\)
+    \item 2-atomni plin (brez nihanja): \(c_v = \frac{5}{2} \frac{R}{\mu}\), \(\kappa = \frac{7}{5}\): 
+    \begin{itemize}
+        \item zrak
+    \end{itemize}
+    \item 2-atomni plin (z nihanjem): \(c_v = \frac{7}{2} \frac{R}{\mu}\), \(\kappa = \frac{7}{5}\) 
+    \item Večatomni plit: \(c_v = 3 \frac{R}{\mu}\), \(\kappa = \frac{4}{3}\)
+\end{itemize}
+
+\subsection{Termodinamske spremebe (idealni plin)}
+
+\begin{itemize}
+    \item Običajno rišemo \(pV, \ VT \ \text{in} \ pT\) diagrami, kjer je prva črka \(y\)-os.
+\end{itemize}
+
+\paragraph{Izohorni proces (\(V = \text{const}\), zaprta posoda)}
+\begin{itemize}
+    \item \(\frac{p}{T} = \text{const}\)
+    \item \(A = -p \Delta V = 0 \lthen \Delta W_n =  \Delta Q = mc_v  \Delta T\)
+\end{itemize}
+
+\paragraph{Izobarni proces (\(p = \text{const}\), prosto gibljiv bat, oz.\ odprta posoda)}
+\begin{itemize}
+    \item \(p = p_\text{atm} + \frac{Mg}{S} = \text{const}\), kjer je \(M\) masa bata, \(\frac{V}{T} = \text{const}\)
+    \item \(A = -p\Delta V, \ Q = mc_p \Delta T\) in \(\Delta W_n = mc_v \Delta T\)
+\end{itemize}
+
+\paragraph{Izotermni proces (\(T = \text{const}\))}
+\begin{itemize}
+    \item \(pV = \text{const}\)
+    \item \(\ds A = -p_1V_1 \ln \frac{V_2}{V_1}\) in \(\Delta W_n = 0 \lthen Q = p_1V_1 \ln \frac{V_2}{V_1}\)
+\end{itemize}
+
+\paragraph{Adiabatski proces (\(S \  \text{[entropija]} = \text{const}\))}
+\begin{itemize}
+    \item Hitro razpenjanje: \(Q = 0\)
+    \item \(dW_n = dA \lthen mc_vdT = -pdV\)
+    \item \((pV)^\kappa = \text{const}\), \(TV^{\kappa-1} = \text{const}\) in \(T^\kappa p^{1 - \kappa} = \text{const}\)
+\end{itemize}
+
+\subsection{Fazne spremembe}
+\begin{itemize}
+    \item Trdno v tekoče: \(Q_\text{talilna} = q_\text{t}m\), kjer je \(q_\text{t}\) specifična talilna toplota in \(m\) masa snovi:
+    \begin{itemize}
+        \item voda: \(q_t = 336 \ \frac{\text{KJ}}{\text{kg}}\)
+    \end{itemize}
+    \item Kapljevina v plin: \(Q_\text{izparilna} = q_\text{i}m\), kjer je \(q_\text{i}\) specifična izparilna toplota in \(m\) masa snovi:
+    \begin{itemize}
+        \item voda: \(q_i = 2260 \ \frac{\text{KJ}}{\text{kg}}\)
+    \end{itemize}
+\end{itemize}
+
+\subsection{Entropija}
+\begin{itemize}
+    \item Obstaja količina \(S(T, V)\), ki je funkcija stanja, in velja 
+    \(\Delta S \geq 0\)
+    za zaprt sistem
+    \item Za reverzibilne spremembe velja: \(dS = \frac{dQ}{T}\)
+    \begin{itemize}
+        \item Idealni plin: \(\ds S(T, V) = \int_{1}^{2} \frac{dQ}{T} = mc_v \ln \frac{T_2}{T_1} + \frac{mR}{\mu} \ln \frac{V_2}{V_1}\)
+        \begin{itemize}
+            \item Razpenjanje v vakuumu: \(\Delta S = \frac{mR}{\mu} \ln \frac{V_2}{V_1} > 0\), tj.\ ireverzibilno
+            \item Izotermni stisk (plin + rezervoar): \(\Delta S = -\frac{Q}{T_0} + \frac{Q}{T_0} = 0\), tj.\ reverzibilno
+        \end{itemize}
+    \end{itemize}
+    \item \textbf{II.\ zakon termodinamike:} \(\Delta S \geq \int_{A \to B} \frac{dQ}{T}\). Če je \(T = \text{const}\), potem \(\Delta S \geq \frac{Q}{T}\)
+    \begin{itemize}
+        \item Enačaj velja za reverzibilne spremembe:
+        \begin{itemize}
+            \item Lahko neskončno počasi spreminjamo temperaturo
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\subsection{Toplotni stroji}
+\begin{itemize}
+    \item Izkoristek \(\ds \eta = \frac{|A|}{Q_\text{dovedena}}\)
+    \item \(A = Q_\text{dov} - Q_\text{odv} \lthen \eta = 1 - \frac{Q_\text{odv}}{Q_\text{dov}}\)
+    \item Adiabatna sprememba: \(Q_\text{dov} = 0\)
+\end{itemize}
+
