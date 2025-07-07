@@ -19,7 +19,7 @@
 \begin{itemize}
     \item \textbf{Podprostor}. Naj bo \((X, \T)\) topološki prostor in \(A \subseteq X\). Potem \[\T_A = \setb{A \cap U}{U \in \T}\]
     topologija na \(A\) in \((A, \T_A)\) topološki prostor.
-    \item \textbf{Vsota (oz. disjunktna unija)}. Naj bodo \(\setb{(X_\lambda, \T_\lambda)}{\lambda \in \Lambda}\) topološki prostori in \(X = \bigcup_{\lambda \in \Lambda} X_\lambda \times \set{\lambda}\). Potem \[\T = \setb{U \subseteq X}{\all{\lambda \in \Lambda} U \cap X_\lambda \text{ odprta v } X_\lambda}\]
+    \item \textbf{Vsota (oz.\ disjunktna unija)}. Naj bodo \(\setb{(X_\lambda, \T_\lambda)}{\lambda \in \Lambda}\) topološki prostori in \(X = \bigcup_{\lambda \in \Lambda} X_\lambda \times \set{\lambda}\). Potem \[\T = \setb{U \subseteq X}{\all{\lambda \in \Lambda} U \cap X_\lambda \text{ odprta v } X_\lambda}\]
     je topologija na \(X\) porojena z bazo \(\bigcup_{\lambda \in \Lambda} \T_\lambda\).
     \item \textbf{Produkt}. Naj bodo \(\setb{(X_\lambda, \T_\lambda)}{\lambda \in \Lambda}\) topološki prostori in \(\prod_{\lambda \in \Lambda} X_\lambda = \setb{(x_\lambda)_{\lambda \in \Lambda}}{x_\lambda \in X_\lambda}\).
     \begin{itemize}
@@ -36,6 +36,8 @@
     \end{itemize}
     \item \textbf{Kompaktifikacija z \(1\) točko}.
     \item \textbf{"`Slika prostora pri zvezni preslikavi"'}. Naj bo \(f: X \to Y\) preslikava. Gledamo \(\img{f}(X)\). \(\img{f}(X)\) dobi topologijo iz \(Y\). Problem, da topologijo na \(Y\) lahko menjamo. Hočemo jo dobiti odvisno od \(X\).
-    
-    Družina \(\setb{\invimg{f}(y)}{y \in \img{f}(X)}\) je \df{razdelitev} množice \(X\). V tej družine so množice paroma disjunktne. Torej ta družina določa ekvivalenčno relacijo na \(X\) in obratno, vsaka ekvivalenčna relacija na \(X\) določna razdelitev na ekvivalenčne razrede.  
 \end{itemize}
+
+\paragraph{Ideja za kvocientno konstrukcijo} \ 
+
+Naj bo \(f: X \to Y\) preslikava. Družina \(\setb{\invimg{f}(y)}{y \in \img{f}(X)}\) je \df{razdelitev} množice \(X\). V tej družine so množice paroma disjunktne. Torej ta družina določa ekvivalenčno relacijo na \(X\) in obratno, vsaka ekvivalenčna relacija na \(X\) določna razdelitev na ekvivalenčne razrede.  
