@@ -1,0 +1,305 @@
+\section{Škatlasta dimenzija}
+Osnovna ideja vseh definicij dimenzije temelji na principu ">meritve pri skali \(\delta > 0\)"<:
+za dano pozitivno vrednost \(\delta\) množico merimo tako, da prezremo podrobnosti, manjše od \(\delta\), in nato opazujemo vedenje, ko \(\delta \to 0\).
+Ali je neka definicija smiselna in uporabna, pokažeta praksa in matematična intuicija.
+Pričakujemo pa tudi, da bodo za tako definirano dimenzijo večinoma veljale naravne lastnosti, omenjene v uvodu.
+
+Škatlasta dimenzija je ena najbolj priljubljenih, saj jo lahko pogosto preprosto izračunamo ali vsaj numerično ocenimo. Kljub temu pa ima tudi svoje pomanjkljivosti, o katerih bomo govorili kasneje.
+
+\cite{matrika-fraktalna-dimenzija} Idejo za definicijo škatlaste dimenzije dobimo iz naslednjega razmisleka.
+
+Naj bo \(X \subseteq \R^n\). Prostor \(\R^n\) razdelimo na enakomerno mrežo kock s stranico \(\delta > 0\), in nato preštejemo število tistih kock, ki sekajo množico \(X\). Pričakujemo, da bo število teh kock, označeno z \(N_\delta(X)\), v odvisnosti od \(\delta\), odražalo ">velikost"< množice \(X\).
+Na primer:
+\begin{itemize}
+    \item Enotski interval \(K_1 = [0,1]\) lahko pokrijemo s \(\frac{1}{\delta}\) intervali dolžine \(\delta\).
+    \item Enotski kvadrat \(K_2 = [0,1]^2\) potrebujemo \(\frac{1}{\delta^2}\) kvadratov stranice \(\delta\).
+    \item Enotsko kocko \(K_3 = [0,1]^3\) pokrijemo z \(\frac{1}{\delta^3}\) kockami s stranico \(\delta\).
+\end{itemize}
+Opazimo torej, da za množico dimenzije \(D\) približno velja:
+\[
+N_\delta(X) \approx \frac{1}{\delta^D}.
+\]
+Logaritmiranje te zveze pripelje do formule:
+\[
+D \approx \frac{\log N_\delta(X)}{\log(1/\delta)}.
+\]
+
+To razmerje med številom potrebnih kock in njihovo velikostjo vodi k definiciji škatlaste dimenzije:
+
+\begin{definicija}
+    Naj bo \(A \subseteq \R^n\) omejena in neprazna množica. Naj bo \(\delta > 0\). Označimo z \(N_\delta(A)\) najmanjše število množic z diametrom kvečjemu \(\delta\), ki pokrivajo množico \(A\).
+    \begin{itemize}
+        \item \emph{Spodnja škatlasta dimenzija množice \(A\)} je 
+        \[
+        \underline{\dim}_B A = \liminf_{\delta \to 0} \frac{\log N_\delta(A)}{\log(1/\delta)}.
+        \]
+        \item \emph{Zgornja škatlasta dimenzija množice \(A\)} je 
+        \[
+        \overline{\dim}_B A = \limsup_{\delta \to 0} \frac{\log N_\delta(A)}{\log(1/\delta)}.
+        \]        
+    \end{itemize}
+    Če velja \(\underline{\dim}_B A = \overline{\dim}_B A\), potem se skupna vrednost
+    \[
+    \dim_B A = \lim_{\delta \to 0} \frac{\log N_\delta(A)}{\log(1/\delta)}
+    \] 
+    imenuje \emph{škatlasta dimenzija množice \(A\)}.
+\end{definicija}
+
+\begin{opomba} \ 
+    \begin{itemize}
+        \item Predpostavljamo, da je \(\delta > 0\) dovolj majhen, da je \(\log(1/\delta) > 0\).
+        \item Da se izognemo težavam s \(\log \infty\) ali \(\log 0\), definiramo dimenzijo le za neprazne in omejene množice.
+    \end{itemize}
+\end{opomba}
+
+\subsection{Ekvivalentne definicije škatlaste dimenzije}
+V tem razdelku bomo predstavili nekatere ekvivalentne definicije škatlaste dimenzije, ki so pogosto bolj uporabne in prijazne za praktično delo.
+
+Naj bo 
+\[\mc{K} = \setb{[m_1\delta, (m_1 + 1)\delta] \times \cdots \times [m_n\delta, (m_n + 1)\delta]}{m_1, \ldots, m_n \in \Z}\]
+množica kvadrov v \(\delta\)-mreži prostora \(\R^n\). 
+
+\begin{trditev}
+    Naj bo \(A \subseteq \R^n\) omejena in neprazna. Označimo z \(N_\delta'(A)\) število elementov množice \(\mc{K}\), ki sekajo \(A\). Definirajmo
+    \[
+    \dim_{B'} A = \lim_{\delta \to 0} \frac{\log N_\delta'(A)}{\log(1/\delta)}.
+    \]
+    Tedaj velja
+    \[
+    \dim_B A = \dim_{B'} A.
+    \] 
+\end{trditev}
+
+\begin{proof}
+    Naj bo \(0 < \delta < 1\). Množica kvadrov, ki sekajo množico \(A\), določa pokritje \(A\) s kockami premera največ \(\delta \sqrt{n}\), zato velja
+    \[N_{\delta\sqrt{n}}(A) \leq N_\delta'(A) \lthen \log N_{\delta\sqrt{n}}(A) \leq \log N_\delta'(A).\]
+    Ker je \(\log(1/\delta) > 0\), dobimo
+    \[
+        \lim_{\delta \to 0} \frac{\log N_{\delta\sqrt{n}}(A)}{\log(1/\delta)} \leq \lim_{\delta \to 0} \frac{\log N_\delta'(A)}{\log(1/\delta)},
+    \]
+    kar pomeni
+    \[\dim_B A \leq \dim_{B'} A\]
+
+    Po drugi strani, naj bo \((U_i)_{i \in \N}\) poljubno \(\delta\)-pokritje množice \(A\). Vsako množico \(U_i\) lahko pokrijemo z največ \(3^n\) kvadri iz \(\delta\)-mreže (ker je \(U_i\) premera največ \(\delta\), zadostuje razširitev po eno kocko v vsako smer). Torej velja
+    \[
+    N_\delta'(A) \leq 3^n N_\delta (A) \lthen \log N_\delta'(A) \leq n \log 3 + \log N_\delta (A).
+    \]
+    Sledi
+    \[
+        \lim_{\delta \to 0} \frac{\log N_\delta'(A)}{\log(1/\delta)} \leq \lim_{\delta \to 0} \frac{n \log 3 + \log N_\delta (A)}{\log(1/\delta)} = \lim_{\delta \to 0} \frac{\log N_\delta (A)}{\log(1/\delta)},
+    \]
+    torej
+    \[\dim_B A \geq \dim_{B'} A.\]
+
+    Skupaj s prvo neenakostjo sledi enakost.
+\end{proof}
+
+Ta verzija definicije je zelo uporabna, saj lahko narišemo mrežo in preštejemo število kock, ki sekajo množico. Zdaj je tudi jasno, zakaj se ta dimenzija imenuje škatlasta.
+
+Podobno lahko dokažemo, da za \(N_\delta(A)\) lahko vzamemo najmanjše število poljubnih kvadrov z stranico dolžine \(\delta\), ki pokrivajo množico \(A\) ali najmanjše število zaprtih krogel z radijem \(\delta\), ki pokrivajo množico \(A\).
+
+Ni povsem očitno, da lahko količino \(N_\delta(A)\) izrazimo tudi kot največje število paroma disjunktnih zaprtih krogel z radijem \(\delta\), katerih središča ležijo v množici \(A\). To dejstvo bomo utemeljili v naslednji trditvi.
+
+\begin{trditev}
+    Naj bo \(A \subseteq \R^n\) omejena in neprazna. Označimo z \(N_\delta'(A)\) največje število paroma disjunktnih zaprtih krogel z radijem \(\delta\), katerih središča ležijo v množici \(A\). Definirajmo
+    \[
+    \dim_{B'} A = \lim_{\delta \to 0} \frac{\log N_\delta'(A)}{\log(1/\delta)}.
+    \]
+    Tedaj velja
+    \[
+    \dim_B A = \dim_{B'} A.
+    \] 
+\end{trditev}
+
+\begin{proof}
+    Naj bo \(0 < \delta < 1\). Naj bo \(B_1, \ldots B_{N_\delta'(A)}\) družina paroma disjunktnih zaprtih krogel z radijem \(\delta\) in središči v množici \(A\). Trdimo, da množica krogel \(B_i'\), ki imajo ista središča kot \(B_i\), vendar radij \(2\delta\), tvori \(4\delta\)-pokritje množice \(A\). Namreč, če bi obstajala točka \(x \in A\), ki ni vsebovana v nobeni izmed krogel \(B_i'\), potem bi lahko okoli \(x\) postavili novo disjunktno kroglo z radijem \(\delta\) in s tem povečali družino \(B_i\), kar bi bilo v nasprotju z maksimalnostjo \(N_\delta'(A)\). Torej:
+    \[
+    N_{4\delta}(A) \leq N_\delta'(A).
+    \]
+
+    Po drugi strani, naj bo \((U_i)_{i \in \N}\) poljubno \(\delta\)-pokritje množice \(A\). Vsaka od disjunktnih krogel \(B_i\) mora vsebovati vsaj eno množico \(U_j\), saj pokritje pokriva središča teh krogel, in ker so krogle disjunktne, so to tudi pripadajoče množice \(U_j\). Torej velja:
+    \[
+    N_\delta'(A) \leq N_\delta(A).
+    \]
+
+    S tem smo dobili neenakosti:
+    \[
+    N_{4\delta}(A) \leq N_\delta'(A) \leq N_\delta(A).
+    \]
+    V limiti dobimo želeno enakost.
+\end{proof}
+
+
+Povzemimo
+\begin{definicija}
+    Naj bo \(A \subseteq \R^n\).
+    \emph{Spodnja in zgornja škatlasta dimenzija množice \(A\)} podani kot 
+    \[
+    \underline{\dim}_B A = \liminf_{\delta \to 0} \frac{\log N_\delta(A)}{\log(1/\delta)}
+    \]
+    in 
+    \[
+    \overline{\dim}_B A = \limsup_{\delta \to 0} \frac{\log N_\delta(A)}{\log(1/\delta)}.
+    \]     
+    \emph{Škatlasta dimenzija množice \(A\)} obstaja, če obstaja limita
+    \[
+    \dim_B A = \lim_{\delta \to 0} \frac{\log N_\delta(A)}{\log(1/\delta)},
+    \] 
+    kjer je \(N_\delta(A)\) lahko katera koli izmed naslednjih količin:
+    \begin{itemize}
+        \item najmanjše število zaprtih krogel z radijem \(\delta\), ki pokrivajo množico \(A\);
+        \item najmanjše število kvadrov s stranico \(\delta\), ki pokrivajo množico \(A\);
+        \item število kvadrov iz \(\delta\)-mreže, ki sekajo množico \(A\);
+        \item najmanjše število množic s premerom največ \(\delta\), ki pokrivajo množico \(A\);
+        \item največje število paroma disjunktnih zaprtih krogel z radijem \(\delta\), katerih središča ležijo v množici \(A\).
+    \end{itemize}
+\end{definicija}
+
+Ta seznam bi lahko še nadaljevali. V praksi pa izberemo tisto definicijo, ki je najbolj primerna za dano množico.
+
+\begin{zgled}
+    Škatlasta dimenzija Cantorjeve množice \(C\) je 
+    \[\dim_B C = \log_3 2.\]
+    Podroben izračun lahko najdemo v \cite[stran 47]{fk-fg}.
+\end{zgled}
+
+\subsection{Relacija med Hausdorffovo in škatlasto dimenzijo}
+Pomembno je razumeti relacijo med Hausdorffovo in škatlasto dimenzijo.
+
+Naj bo \(A \subseteq \R^n\) omejena in neprazna množica. Če lahko množico \(A\) pokrijemo z \(N_\delta(A)\) množicami s premerom kvečjemu \(\delta\), potem po definiciji \ref{def-haus-mera} velja
+\[
+    H^s_\delta(A) \leq N_\delta(A) \delta^s.
+\]
+
+Če je \(c = \mathcal{H}^s(A) = \lim_{\delta \to 0} H^s_\delta(A) > 0\), potem za dovolj majhne \(\delta\) velja
+\[
+    \log N_\delta(A) + s \log \delta > c \lthen s - \frac{c}{\log \delta} < \frac{\log N_\delta(A)}{\log (1 / \delta)}{}.
+\]
+V limiti \(\delta \to 0\) dobimo
+\[
+    s \leq \liminf_{\delta \to 0} \frac{\log N_\delta(A)}{\log (1 / \delta)},
+\]
+torej
+\[
+    \dim_H A \leq \underline{\dim}_B A \leq \overline{\dim}_B A
+\]
+za vsako množico \(A\).
+
+V splošnem enakost ne velja, čeprav za veliko znanih primerov velja.
+
+Vidimo torej, da lahko škatlasto dimenzijo uporabimo kot zgornjo oceno Hausdorffove dimenzije.
+
+
+\subsection{Lastnosti in slabosti škatlaste dimenzije}
+V tem razdelku si bomo ogledali lastnosti in slabosti škatlaste dimenzije.
+
+\subsubsection{Lastnosti škatlaste dimenzije}
+Škatlasta dimenzija ima naslednje lastnosti, ki jih lahko dokažemo podobno kot v primeru Hausdorffove dimenzije. Podrobni dokazi so na voljo v \cite[stran 47]{fk-fg}.
+
+\begin{itemize}
+    \item Če je \(M \subseteq \R^n\) gladka podmnogoterost dimenzije \(m \in \N\), potem 
+    \[\dim_B M = m.\]
+    \item Spodnja in zgornja škatlasta dimenzija sta monotoni.
+    \item Zgornja škatlasta dimenzija je končno stabilna, tj.
+    \[\overline{\dim}_B (A \cup B) = \max (\overline{\dim}_B A,\ \overline{\dim}_B  B).\]
+    Ta enakost v splošnem ne velja za spodnjo škatlasto dimenzijo.
+    \item Spodnja in zgornja škatlasta dimenzija sta invariantni pri bi-Lipschit\-zevih preslikavah.
+\end{itemize}
+
+Podobno kot Hausdorffova dimenzija ima tudi škatlasta dimenzija predvidljivo obnašanje pri H\"olderjevih in Lipschitzevih preslikavah.
+
+
+\subsubsection{Slabosti škatlaste dimenzije}
+Škatlasta dimenzija je zelo uporabna, vendar ima tudi določene pomanjkljivosti. Ena izmed njih je naslednja:
+
+\begin{trditev}
+    \label{slabost}
+    Naj bo \(A \subseteq \R^n\) omejena in neprazna množica. Tedaj velja 
+    \[
+        \overline{\dim}_B A = \overline{\dim}_B \overline{A} \quad \text{in} \quad \underline{\dim}_B A = \underline{\dim}_B \overline{A}
+    \]
+\end{trditev}
+
+\begin{proof}
+    Naj bo \(B_1, \ldots, B_k\) končna družina zaprtih krogel z radijem \(\delta\), ki pokrivajo množico \(A\), tj.
+    \[
+        A \subseteq \bigcup_{i=1}^k B_i.
+    \]
+    Ker so krogle zaprte, je tudi 
+    \[
+        \overline{A} \subseteq \bigcup_{i=1}^k B_i,
+    \]
+    saj zaprtje je najmanjša zaprta množica, ki vsebuje \(A\). Zato je najmanjše število zaprtih krogel z radijem \(\delta\), ki pokrivajo \(A\), enako najmanjšemu številu zaprtih krogel z radijem \(\delta\), ki pokrivajo \(\overline{A}\). Trditev sledi.
+\end{proof}
+
+Kot posledico na prvi pogled ugledne lastnosti dobimo:
+\begin{posledica}
+    Škatlasta dimenzija v splošnem ni števno stabilna.
+\end{posledica}
+
+\begin{proof}
+    Oglejmo si števno množico \(A = [0, 1] \cap \Q\).
+    Ker je \(A\) števna, jo lahko zapišemo v obliki
+    \[A = \set{a_1, a_2, \ldots}.\]
+    Za vsak \(i \in \N\) definirajmo \(A_i = \{a_i\}\). Tedaj velja
+    \[
+        A = \bigcup_{i \in \N} A_i.
+    \]
+    Po eni strani je \(\dim_B A_i = 0\) za vsak \(i \in \N\). Po drugi strani pa je \(\overline{A} = [0, 1]\) in po trditvi~\ref{slabost} sledi
+    \[
+        \dim_B A = \dim_B \overline{A} = \dim_B [0, 1] = 1.
+    \]
+    Torej
+    \[
+        \dim_B\left( \bigcup_{i \in \N} A_i \right) = 1 \neq \sup\left\{ \dim_B A_i \mid i \in \N \right\} = 0.
+    \]
+    S tem pokažemo, da škatlasta dimenzija ni števno stabilna.
+\end{proof}
+
+Lahko pa se vseeno vprašamo, ali je škatlasta dimenzija morda števno stabilna na zaprtih ali kompaktnih množicah. Odgovor je v splošnem negativen, kar pokaže naslednji zgled.
+
+\begin{zgled}
+    Naj bo \(A = \setb{\frac{1}{n}}{n \in \N} \cup \set{0}\). Vemo, da je \(A\) kompaktna množica. Trdimo, da je 
+    \[\dim_B A = \frac{1}{2} \neq 0.\]
+    
+    Naj bo \(0 < \delta < \frac{1}{2}\). Izberimo \(k \in \N\), da velja
+    \[
+    \frac{1}{k(k+1)} \leq \delta < \frac{1}{k(k-1)}.
+    \]
+
+    Naj bo \((U_i)_{i \in \N}\) poljubno \(\delta\)-pokritje množice \(A\). Ker je \(\diam U_i \leq \delta\), lahko vsak interval \(U_i\) pokrije največ eno točko iz množice  \(\set{1, \frac{1}{2}, \ldots, \frac{1}{k}}\), saj je razdalja med zaporednima točkama 
+    \[
+    \frac{1}{k-1} - \frac{1}{k} = \frac{1}{k(k-1)} > \delta.
+    \]
+    Torej je 
+    \[
+    N_\delta(A) \geq k,
+    \]
+    od koder sledi
+    \[
+    \frac{\log N_\delta(A)}{\log (1 / \delta)} \geq \frac{\log k}{\log (k(k+1))}.
+    \]
+    V limiti \(\delta \to 0\), oziroma \(k \to \infty\), dobimo
+    \[
+    \liminf_{\delta \to 0} \frac{\log N_\delta(A)}{\log (1 / \delta)} \geq \frac{1}{2}.
+    \]
+
+    Po drugi strani lahko interval \([0, \frac{1}{k}]\) pokrijemo z največ \(k+1\) intervali dolžine \(\delta\). Preostale \(k-1\) točk iz množice \(A\) lahko pokrijemo z enakim številom intervalov, torej skupaj 
+    \[
+    N_\delta(A) \leq 2k.
+    \]
+    Od tod sledi
+    \[
+    \frac{\log N_\delta(A)}{\log (1 / \delta)} \leq \frac{\log (2k)}{\log (k(k-1))}.
+    \]
+    V limiti \(\delta \to 0\), oziroma \(k \to \infty\), dobimo
+    \[
+    \limsup_{\delta \to 0} \frac{\log N_\delta(A)}{\log (1 / \delta)} \leq \frac{1}{2}.
+    \]
+    
+    Skupaj s prvo neenakostjo sledi enakost.
+\end{zgled}
+
+Zdaj pa vidimo da števna stabilnost ne drži niti za kompaktne ali zaprte množice.
+
+Kljub tej slabosti, da škatlasta dimenzija ni števno stabilna niti za zaprte ali kompaktne množice, je še vedno zelo pogosto uporabljena in uporabna dimenzija v različnih področjih matematike in aplikacij. Pogosto se tudi da pokazati, da se škatlasta dimenzija ujema z Hausdorffovo dimenzijo za nekatere množice. Zaradi svoje relativne enostavnosti izračuna in naravne interpretacije kot ">merjenje gostote"< množice pri manjših merilih je škatlasta dimenzija priljubljeno orodje pri proučevanju fraktalov in drugih kompleksnih množic.

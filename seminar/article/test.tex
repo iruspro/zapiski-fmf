@@ -1,0 +1,54 @@
+\begin{zgled}
+    Naj bo 
+    \[
+    A = \left\{ \frac{1}{n} \mid n \in \N \right\} \cup \{0\}.
+    \]
+    Vemo, da je \(A\) kompaktna množica. Trdimo, da je 
+    \[
+    \dim_B A = \frac{1}{2} \neq 0.
+    \]
+
+    Naj bo \(0 < \delta < \frac{1}{2}\). Izberimo \(k \in \N\), da velja
+    \[
+    \frac{1}{k(k+1)} \leq \delta < \frac{1}{k(k-1)}.
+    \]
+
+    Naj bo \((U_i)_{i \in \N}\) poljubno \(\delta\)-pokritje množice \(A\). Ker je \(\diam U_i \leq \delta\), lahko vsak interval \(U_i\) pokrije največ eno točko iz množice 
+    \[
+    \left\{1, \frac{1}{2}, \ldots, \frac{1}{k} \right\},
+    \]
+    saj je razdalja med zaporednima točkama 
+    \[
+    \frac{1}{k-1} - \frac{1}{k} = \frac{1}{k(k-1)} > \delta.
+    \]
+    Torej je 
+    \[
+    N_\delta(A) \geq k,
+    \]
+    od koder sledi
+    \[
+    \frac{\log N_\delta(A)}{\log (1 / \delta)} \geq \frac{\log k}{\log (k(k+1))}.
+    \]
+    V limiti \(\delta \to 0\), oziroma \(k \to \infty\), dobimo
+    \[
+    \liminf_{\delta \to 0} \frac{\log N_\delta(A)}{\log (1 / \delta)} \geq \frac{1}{2}.
+    \]
+
+    Po drugi strani lahko interval \([0, \frac{1}{k}]\) pokrijemo z največ \(k+1\) intervali dolžine \(\delta\). Preostale \(k-1\) točk iz množice \(A\) lahko pokrijemo z enakim številom intervalov, torej skupaj 
+    \[
+    N_\delta(A) \leq 2k.
+    \]
+    Od tod sledi
+    \[
+    \frac{\log N_\delta(A)}{\log (1 / \delta)} \leq \frac{\log (2k)}{\log (k(k-1))}.
+    \]
+    V limiti \(\delta \to 0\) oziroma \(k \to \infty\) dobimo
+    \[
+    \limsup_{\delta \to 0} \frac{\log N_\delta(A)}{\log (1 / \delta)} \leq \frac{1}{2}.
+    \]
+
+    Skupaj s prejšnjo neenakostjo sledi enakost
+    \[
+    \dim_B A = \frac{1}{2}.
+    \]
+\end{zgled}

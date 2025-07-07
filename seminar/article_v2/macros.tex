@@ -1,0 +1,93 @@
+\newcommand{\comp}[1]{#1^{\text{c}}}
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\borel}[1]{\mathcal{B}(#1)}
+
+%%% Množice
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\setb}[2]{\set{#1 \ | \  #2}}
+
+%%% Unije in preseke
+\newcommand{\un}[2]{\bigcup_{#1} #2}
+\newcommand{\pr}[2]{\bigcap_{#1} #2}
+
+%%% Logika
+\newcommand{\all}[1]{\forall #1 \,.\,}
+\newcommand{\some}[1]{\exists #1 \,.\,}
+\newcommand{\lthen}{\implies}
+\newcommand{\liff}{\iff}
+
+%%% Other
+\newcommand{\todo}[1]{\textcolor{red}{TODO: #1}}
+
+%%% math commands
+\DeclareMathOperator{\vol}{vol}
+\DeclareMathOperator{\diam}{diam}
+%%% custom macros
+\newcommand{\drawGraf}{
+  \begin{tikzpicture}
+    \begin{axis}[
+        axis lines=middle,
+        xlabel style={at={(ticklabel* cs:1)}, anchor=north},  
+        ylabel style={at={(ticklabel* cs:1)}, anchor=east}, 
+        xlabel={\(p\)},
+        ylabel={\(\mc{H}_A\)},
+        ymin=0, ymax=4.5,
+        xmin=0, xmax=5,
+        samples=100,
+        domain=0:5,
+        xtick={2},
+        xticklabels={$p_0$},
+        ytick={0},
+        enlargelimits,
+        every axis plot/.append style={thick, blue},
+        axis line style={->},
+      ]
+
+      \node[left] at (axis cs:0,4.5) {$\infty$};
+  
+      \draw[->, thick, blue] (axis cs:0,4.5) -- (axis cs:1.98,4.5);
+  
+      \draw[dashed, blue] (axis cs:2,0) -- (axis cs:2,4.4);
+  
+      \node[circle, fill=blue, inner sep=1.5pt] at (axis cs:2,3) {};
+  
+      \draw[<-, thick, blue] (axis cs:2.02,0) -- (axis cs:6,0);
+  
+    \end{axis}
+  \end{tikzpicture}
+}
+
+\newcommand{\drawCantor}[1]{
+    \begin{tikzpicture}[xscale=10]
+        \draw (0,0) -- (1,0) node[pos=0, anchor=east]{};  % initial 𝐶₀
+        \tikzmath{ % save arrays of left endpoints
+          int \myN, \numInt, \i, \j, \maxMumIdx, \maxSonIdx, \sonIdx1, \sonIdx2;
+          real \oldarr, \newarr, \intWidth, \rowsep, \vpos;
+          \myN = #1;  % number of Cantor iterations (must be positive)
+          \oldarr0 = 0;  % 𝐶ₙ₋₁
+          \rowsep = 0.7;  % visual parameter
+          \intWidth = 1;  % use recursive multiplication
+          \maxSonIdx = 0;  % to avoid exponentiation
+          \vpos = 0;  % vertical position
+          for \i in {1,...,\myN} {
+            \maxMumIdx = \maxSonIdx;  % max "parent" index
+            \maxSonIdx = 2 * (\maxSonIdx + 1) - 1;  % #intervals in 𝐶ₙ - 1
+            \intWidth = \intWidth / 3;  % length(𝐶ₙ) = (1/3)ⁿ
+            \vpos = \vpos - \rowsep;
+            % { \node[anchor=east] at (0, \vpos cm) {$C_{\i}$}; };
+            for \j in {0,...,\maxMumIdx} {
+              \sonIdx1 = 2 * \j;
+              \sonIdx2 = \sonIdx1 + 1;
+              \newarr{\sonIdx1} = \oldarr{\j};
+              \newarr{\sonIdx2} = \oldarr{\j} + 2 * \intWidth;
+              {
+                \draw (\newarr{\sonIdx1} cm, \vpos cm) -- ++(\intWidth cm, 0);
+                \draw (\newarr{\sonIdx2} cm, \vpos cm) -- ++(\intWidth cm, 0);
+              };
+            };
+            % oldarr ← newarr
+            for \j in {0,...,\maxSonIdx} { \oldarr{\j} = \newarr{\j}; };
+          };
+        }
+    \end{tikzpicture}
+}

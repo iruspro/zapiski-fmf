@@ -1,0 +1,97 @@
+\section{Teorija mere}
+Če želimo govoriti o fraktalni dimenziji, moramo najprej razumeti pojem mere. 
+Za naš namen pa bo dovolj, da se seznanimo le z osnovnimi idejami tega področja. 
+
+Zgledi za mero so dolžina podmnožic v \(\R\), ploščina ravninskih likov in prostornina teles v prostoru. Ta pojem želimo posplošiti na poljubne merljive prostore.
+
+\begin{definicija}
+    Naj bo \(X\) množica. Družino podmnožic \(\mc{A}\) množice \(X\) imenujemo \emph{\(\sigma\)-algebra na \(X\)}, če ima naslednje tri lastnosti:
+    \begin{enumerate}
+        \item \(X \in \mc{A}\);
+        \item za vsako podmnožico \(S \in \mc A\) je tudi \(\comp{S} \in \mc{A}\);
+        \item za vsako števno družino \((A_i)_{i \in \N}\) elementov iz \(\mc{A}\) velja, da je tudi njihova unija \(\un{i \in \N}{A_i}\) element \(\mc{A}\).
+    \end{enumerate}
+    Elemente družine \(\mc{A}\) imenujemo \emph{merljive množice}. Množico \(X\), opremljeno z družino \(\mc{A}\), pa imenujemo \emph{merljiv prostor}.
+\end{definicija}
+
+\begin{opomba}
+    Enostavno je videti, da za vsako \(\sigma\)-algebro \(\mc{A}\) na \(X\) velja \(\emptyset \in \mc{A}\) ter da je zaprta tudi za števne preseke.
+\end{opomba}
+
+Izkaže se, da je presek družine \(\sigma\)-algeber na množici \(X\) spet \(\sigma\)-algebra na \(X\). Zato lahko definiramo:
+
+\begin{definicija}
+    Naj bo \(X\) topološki prostor in \(\mc{O}\) družina vseh odprtih podmnožic v \(X\). Presek vseh \(\sigma\)-algeber, ki vsebujejo \(\mc{O}\), imenujemo \emph{Borelova \(\sigma\)-algebra}, njene elemente pa \emph{Borelove množice}. Označili jo bomo z \(\borel{X}\).
+\end{definicija}
+
+\begin{opomba}
+    Borelova \(\sigma\)-algebra je najmanjša \(\sigma\)-algebra, ki vsebuje vse odprte in vse zaprte podmnožice \(X\).
+\end{opomba}
+
+Zdaj lahko definiramo mero
+
+\begin{definicija}
+    \emph{Mera} na merljivem prostoru \((X, \mc{A})\) je funkcija 
+    \[\mu: \mc{A} \to [0, \infty],\]
+    ki zadošča naslednjima pogojema
+    \begin{enumerate}
+        \item \(\mu(\emptyset) = 0\) in
+        \item \(\mu\left(\un{n \in \N}{A_n}\right) = \sum_{n=1}^{\infty} \mu(A_n)\) za vsako števno družino disjunktnih množic \(A_n \in \mc A\).
+    \end{enumerate}
+    Drugemu pogoju pravimo \emph{števna aditivnost}.
+\end{definicija}
+
+Izredno pomembno orodje za konstruiranje mer na splošnih množicah je pojem zunanje mere. V nadaljevanju bomo tako Lebesgueovo kot Hausdorffovo mero definirali s pomočjo njunih zunanjih mer.
+
+\begin{definicija}
+    \emph{Zunanja mera} na množici \(X\) je preslikava 
+    \[\mu^*: \mc{P}(X) \to [0, \infty],\]
+    ki zadošča naslednjim trem pogojem:
+    \begin{enumerate}
+        \item \(\mu^*(\emptyset) = 0\);
+        \item \(\mu^*(A) \leq \mu^*(B)\), če je \(A \subseteq B\);
+        \item \(\mu^*(\un{n \in \N}{A_n}) \leq \sum_{n=1}^{\infty} \mu^*(A_n)\) za vsako števno družino množic \(A_n \subseteq X\).
+    \end{enumerate}
+
+    Tretjemu pogoju pravimo \emph{števna subaditivnost}.
+\end{definicija}
+
+Navedemo trditev, ki nam bo koristila pri konstrukciji Hausdorffove mere. Dokaz trditve je mogoče najti v \cite[stran 20]{mb-otm}.
+\begin{trditev}
+    \label{zun-mera}
+    Naj bo \(\mc{S}\) družina podmnožic množice \(X\), ki vsebuje \(\emptyset\) in \(X\). Naj bo \(\mu: \mc{S} \to [0, \infty]\) preslikava, za katero velja \(\mu(\emptyset) = 0\). Za vsako podmnožico \(A \subseteq X\) definiramo 
+    \[\mu^*(A) = \inf \setb{\sum_{i=1}^{\infty}\mu(A_i)}{A_i \in \mc{S} \land A \subseteq \un{i \in \N}{A_i}}.\]
+    Potem \(\mu^*\) je zunanja mera na \(X\).
+\end{trditev}
+
+\subsection{Lebesgueova mera}
+Lebesgueova mera je posplošitev klasičnih pojmov, kot so dolžina, ploščina in prostornina, na mnogo širši razred množic. 
+
+Natančna konstrukcija Lebesgueove mere presega okvir tega besedila in jo lahko najdemo v \cite[poglavje 1]{mb-otm}. Tukaj pa bomo predstavili osnovno idejo in rezultat, ki ga bomo uporabljali v nadaljevanju.
+
+\begin{definicija}
+    Za vsak interval \(I = (a, b) \subseteq \R\) definiramo \(l(I) := b -a\). \emph{Lebesgueova zunanja mera} je preslikava \(\mc{L}_*: \mc{P}(\R) \to [0, \infty]\) s predpisom 
+    \[\mc{L}_*(A) = \inf \setb{\sum_{i=1}^{\infty} l(I_i)}{A \subseteq \un{i \in \N}{I_i}},\]
+    kjer je \((I_i)_{i \in \N}\) števna družina odprtih intervalov v \(\R\).
+\end{definicija}
+
+To definicijo lahko naravno posplošimo tudi na višje dimenzije. Za vsak kvader \(K = I_1 \times \cdots \times I_n \subseteq \R^n\) z \(\vol(K) = l(I_1) \cdot \cdots \cdot l(I_n)\) definiramo njegovo prostornino.
+
+\begin{definicija}
+    Naj bo \(n \in \N\). \emph{Lebesgueova zunanja \(n\)-dimenzionalna mera} je preslikava \(\mc{L}_*^n: \mc{P}(\R^n) \to [0, \infty]\) s predpisom 
+    \[\mc{L}_*^n(A) = \inf \setb{\sum_{i=1}^{\infty} \vol(K_i)}{A \subseteq \un{i \in \N}{K_i}},\]
+    kjer je \((K_i)_{i \in \N}\) števna družina odprtih kvadrov v \(\R^n\).
+\end{definicija}
+
+\begin{trditev}
+    Zožitev Lebesgueve zunanje \(n\)-dimenzionalne mere na Borelovo \(\sigma\)-algebro
+    \[\mc{L}^n := \mc{L}_*^n|_{\mc{B}(\R^n)}\] je mera na merljivem prostoru \((\R^n,\, \mc{B}(\R^n))\).
+\end{trditev}
+
+\begin{zgled}
+    Cantorjeva množica je merljiva, saj je zaprta. Zato lahko govorimo o njeni dolžini.
+
+    Izkaže se, da je dolžina Cantorjeve množice enaka nič, torej \(\mc{L}^1(C) = 0\).
+\end{zgled}
+
+Cantorjeva množica nima dolžine, vendar pa vsebuje neštevno mnogo točk. Lahko se vprašamo: ali ji lahko pripišemo takšno smiselno dimenzijo, v kateri bo njena ">velikost"< končno, pozitivno število? In kaj nam ta dimenzija sploh pove o naravi Cantorjeve množice?

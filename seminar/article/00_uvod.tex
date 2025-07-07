@@ -1,0 +1,56 @@
+\section{Uvod}
+Pojem dimenzije igra osrednjo vlogo v fraktalni geometriji. Intuitivno nam dimenzija množice pove, koliko prostora ta zavzema znotraj ambientnega prostora. Za običajne geometrijske objekte, kot so točke, daljice ali ploskve, se ta predstava sklada z našo intuicijo: točka ima dimenzijo \(0\), daljica \(1\), kvadrat \(2\) in kocka \(3\).
+
+Fraktali pa pogosto kljubujejo tej klasični predstavi. Cantorjeva množica na primer nima dolžine, površine ali prostornine, pa vendar vsebuje neštevno mnogo točk in ima kompleksno strukturo. Zdi se, da »zavzema več kot nič, a manj kot eno dimenzijo«. Da bi takšne množice natančno opisali, potrebujemo bolj prefinjen pojem dimenzije.
+
+Naravno se pojavi vprašanje, kaj je dobra definicija dimenzije? Kenneth Falconer v knjigi \cite{fk-fg} navede naslednje lastnosti:
+
+\begin{itemize}
+    \item \textbf{Dimenzija gladkih podmnogoterosti.} Če je \(M \subseteq \R^n\) gladka podmnogoterost dimenzije \(m \in \N\), potem velja \(\dim M = m\).  
+    To lastnost želimo, saj dimenzija mora biti skladna z intuicijo in klasičnimi primeri, kjer so dimenzije dobro poznane in enostavne za izračun.
+
+    \item \textbf{Dimenzija odprtih množic.} Za vsako odprto množico \(A \subseteq \R^n\) velja \(\dim A = n\). 
+
+    \item \textbf{Dimenzija števnih množic.} Če je \(A \subseteq \R^n\) števna ali končna, potem velja \(\dim A = 0\).  
+
+    \item \textbf{Monotonost.} Če je \(A \subseteq B\), potem velja \(\dim A \leq \dim B\).  
+    Monotonost zagotavlja naravno vedenje dimenzije glede na inkluzijo -- večja množica ne more imeti manjše dimenzije od podmnožice.
+
+    \item \textbf{Števna stabilnost.} Velja 
+    \[
+        \dim \left(\bigcup_{i \in \N} A_i\right) = \sup_{i \in \N} \dim A_i.
+    \]  
+    Ta lastnost omogoča, da dimenzijo množice, sestavljene iz števno mnogo delov, razumemo preko dimenzij posameznih delov, kar je pomembno za analizo kompleksnih struktur.
+
+    \item \textbf{Geometrične invariance.} Za geometrijsko enake preslikave, kot so rotacije, translacije, zrcaljenja, velja 
+    \[
+        \dim f(A) = \dim A.
+    \]  
+    Ta lastnost zahteva, da dimenzija ostane nespremenjena pod običajnimi premiki in vrtenjem prostora, kar je ključno za geometrijsko smiselnost dimenzije.
+\end{itemize}
+
+V tem članku se bomo pogosto ukvarjali s Cantorjevo množico, ki je klasičen in hkrati izjemno pomemben primer množice s fraktalno strukturo. Zaradi svoje nenavadne geometrije in lastnosti dimenzij nam Cantorjeva množica omogoča podrobno preučevanje različnih pojmov dimenzij in mer v matematični analizi in teoriji fraktalov.
+
+Za nadaljevanje najprej definiramo Cantorjevo množico, saj bo služila kot osnovni primer skozi celotno delo.
+
+\begin{figure}[ht]
+    \centering
+    \drawCantor{7}
+    \caption{Cantorjeva množica.}
+    \label{fig:cantor-set}
+\end{figure}
+
+Izgradimo Cantorjevo množico (slika \ref{fig:cantor-set}) na intervalu \([0,1]\) po naslednjem postopku:
+\begin{enumerate}
+    \item Naj bo \(C_0 = [0,1]\).
+    \item Množico \(C_0\) razdelimo na tri enake dele in odstranimo odprti srednji interval \((1/3, 2/3)\). Tako dobimo množico \(C_1 = [0, 1/3] \cup [2/3, 1]\).
+    \item Recimo, da imamo množico \(C_n\), ki je unija \(2^n\) zaprtih intervalov dolžine \(3^{-n}\). Vsak izmed teh intervalov razdelimo na tri enake dele in odstranimo odprti srednji del. Tako dobimo množico \(C_{n+1}\), ki je unija \(2^{n+1}\) zaprtih intervalov dolžine \(3^{-(n+1)}\).
+    \item Postopek nadaljujemo induktivno.
+\end{enumerate}
+
+\begin{definicija}
+    \emph{Cantorjeva množica} je množica
+    \[
+        C = \bigcap_{n \in \N_0} C_n.
+    \]
+\end{definicija}
