@@ -1,12 +1,9 @@
 \section{Uvod}
-Pojem dimenzije igra osrednjo vlogo v fraktalni geometriji. Intuitivno nam dimenzija množice pove, koliko prostora ta zavzema znotraj ambientnega prostora. Za običajne geometrijske objekte, kot so točke, daljice ali ploskve, se ta predstava sklada z našo intuicijo: točka ima dimenzijo \(0\), daljica \(1\), kvadrat \(2\) in kocka \(3\).
+Intuitivno je dimenzija število, ki za dano množico pove, koliko prostora ta zavzema znotraj ambientnega prostora. Za običajne geometrijske objekte, kot so točke, daljice ali ploskve, se ta predstava dobro sklada z našim občutkom: točka ima dimenzijo \(0\), daljica \(1\), kvadrat \(2\) in kocka \(3\).
 
-Fraktali pa pogosto kljubujejo tej klasični predstavi. Cantorjeva množica (slika \ref{fig:cantor-set}) na primer nima dolžine, vendar vsebuje neštevno mnogo točk in ima kompleksno strukturo. Zdi se, da »zavzema več kot nič, a manj kot eno dimenzijo«. Da bi takšne množice natančno opisali, potrebujemo bolj prefinjen pojem dimenzije.
+Vendar obstajajo množice, ki kljubujejo tem klasičnim predstavam -- imenujemo jih \emph{fraktali}. V svojem temeljnem eseju \cite{zbMATH03794378} je Benoit Mandelbrot fraktale definiral kot množice, katerih Hausdorffova dimenzija (s katero se bomo seznanili v nadaljevanju) je strogo večja od njihove topološke dimenzije, ki je vedno nenegativno \emph{celo} število. Formalno si lahko topološko dimenzijo predstavljamo tako: množica ima dimenzijo \(n \in \N_0\), če lahko v njeni notranjosti vsak del ločimo z robovi, ki so za eno dimenzijo ">nižji"< -- na primer, ravnino, ki ima topološko dimenzijo \(2\), lahko ločimo z daljicami, ki imajo topološko dimenzijo \(1\), daljico z točkami, ki imajo topološko dimenzijo \(0\), itd.
 
-Naravno se pojavi vprašanje, kako lahko definiramo dimenzijo za splošne množice? Naše izhodišče bo formalna definicija Hausdorffove dimenzije, ki jo bomo skrbno razvili in utemeljili. Nato bomo raziskali njene osnovne lastnosti in pokazali, zakaj predstavlja naravno posplošitev klasičnega pojma dimenzije.
-
-\subsection{Cantorjeva množica}
-V tem članku se bomo pogosto ukvarjali s Cantorjevo množico, ki je klasičen in hkrati izjemno pomemben primer množice s fraktalno strukturo.
+Za občutek si oglejmo enega izmed najbolj znanih primerov fraktalne množice -- Cantorjevo množico (slika \ref{fig:cantor-set}). Dobimo jo tako, da z začetnega intervala \([0,1]\) v vsakem koraku postopka odstranimo odprto srednjo tretjino vsakega preostalega intervala. S tem dobimo množico, ki nima dolžine, a vseeno vsebuje neštevno mnogo točk. Zdi se, da ">zavzema več kot nič, a manj kot eno dimenzijo"<, torej ima \emph{necelo} dimenzijo med \(0\) in \(1\) -- in ta pojav želimo matematično razumeti.
 
 \begin{figure}[ht]
     \centering
@@ -15,17 +12,8 @@ V tem članku se bomo pogosto ukvarjali s Cantorjevo množico, ki je klasičen i
     \label{fig:cantor-set}
 \end{figure}
 
-Izgradimo Cantorjevo množico na intervalu \([0,1]\) po naslednjem postopku:
-\begin{enumerate}
-    \item Naj bo \(C_0 = [0,1]\).
-    \item Množico \(C_0\) razdelimo na tri enake dele in odstranimo odprti srednji interval \((1/3, 2/3)\). Tako dobimo množico \(C_1 = [0, 1/3] \cup [2/3, 1]\).
-    \item Recimo, da imamo množico \(C_n\), ki je unija \(2^n\) zaprtih intervalov dolžine \(3^{-n}\). Vsak izmed teh intervalov razdelimo na tri enake dele in odstranimo odprti srednji del. Tako dobimo množico \(C_{n+1}\), ki je unija \(2^{n+1}\) zaprtih intervalov dolžine \(3^{-(n+1)}\).
-    \item Postopek nadaljujemo induktivno.
-\end{enumerate}
+Naravno se pojavi vprašanje: kako definirati dimenzijo za takšne množice, ki ne sodijo v klasične kategorije?
 
-\begin{definicija}
-    \emph{Cantorjeva množica} je množica
-    \[
-        C = \bigcap_{n \in \N_0} C_n.
-    \]
-\end{definicija}
+V tej nalogi bomo odgovorili prav na to vprašanje. Naše izhodišče bo formalna definicija Hausdorffove dimenzije, ki jo bomo skrbno razvili in utemeljili. Nato bomo raziskali njene osnovne lastnosti in pokazali, zakaj gre za naravno posplošitev običajnega pojma dimenzije. Med drugim bomo izračunali dimenzijo Cantorjeve množice in za res pokazali, da ima necelo dimenzijo, ki je strogo večja od \(0\).
+
+Večina vsebine v tem članku je povzeta po knjigi \emph{Fractal Geometry: Mathematical Foundations and Applications} avtorja Kennetha Falconerja \cite{fk-fg}, ki predstavlja temeljni vir za razumevanje Hausdorffove mere, fraktalnih dimenzij ter povezanih konceptov.

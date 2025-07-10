@@ -45,7 +45,7 @@ Zdaj lahko definiramo Hausdorffovo zunanjo mero.
 \end{opomba}
 
 \begin{opomba} 
-    Po dogovoru \(\inf \emptyset = \infty\).
+    Po dogovoru je \(\inf \emptyset = \infty\).
 \end{opomba}
 
 \begin{opomba}
@@ -53,7 +53,7 @@ Zdaj lahko definiramo Hausdorffovo zunanjo mero.
     V definiciji so \(A_i \subseteq X\) poljubne. Enak rezultat lahko dobimo, če se omejimo le na zaprte podmnožice, saj velja \(\diam A_i = \diam \overline{A_i}\), ali pa le na odprte podmnožice, saj lahko vsako množico \(A_i\) nadomestimo z množico \(U_i = \setb{x \in X}{d(x, A_i) < \frac{\varepsilon}{2^{i+1}}}\), ki ima premer kvečjemu \((\diam A_i) + \frac{\varepsilon}{2^i}\).
 \end{opomba}
 
-Dokažemo osnovno lastnost \(\mc{H}_p\).
+Dokažimo osnovno lastnost \(\mc{H}_p\).
 \begin{trditev}
     \label{haus-m-zun}
     Naj bo \((X, d)\) metrični prostor. \(\mc{H}_p\) je metrična zunanja mera.
@@ -74,7 +74,7 @@ Dokažemo osnovno lastnost \(\mc{H}_p\).
     \[H_\delta^p(A \cup B) \geq H^p_\delta(A) + H^p_\delta(B).\]
     V limiti \(\delta \to 0\) dobimo:
     \[\mc{H}^p(A \cup B) \geq \mc{H}^p(A) + \mc{H}^p(B).\]
-
+%
     Po definiciji zunanje mere, ki je subaditivna, pa velja tudi:
     \[\mc{H}^p(A \cup B) \leq \mc{H}^p(A) + \mc{H}^p(B).\]
     Iz obeh neenakosti sledi enakost, torej \(\mc{H}^p\) zadošča pogoju metrike.
@@ -98,7 +98,7 @@ Brez dokaza navedemo še trditev, ki povezuje \(\mc{L}^n\) in \(\mc{H}^p\). Doka
     \[c_n = \frac{\pi^{n/2}}{2^n \Gamma(\frac{n}{2} + 1)}.\]
 \end{opomba}
 
-V nadaljevanju bomo za metrični prostor \((X, d)\)  privzeli navaden evklidski prostor \((\R^n, d_2)\).
+\noindent V nadaljevanju bomo za metrični prostor \((X, d)\)  privzeli navaden evklidski prostor \((\R^n, d_2)\).
 
 \subsection{Lastnosti Hausdorffove mere}
 V tem razdelku bomo našteli in dokazali nekatere geometrijske lastnosti Hausdorffove mere, ki jih lahko prenesemo tudi na Hausdorffovo dimenzijo.
@@ -108,7 +108,7 @@ Lastnosti skaliranja so temeljne za razumevanje fraktalnih struktur, saj fraktal
 
 Naj bo \(P: \R^n \to \R^n\) \emph{podobnostna preslikava} s podobnostnim koeficientom \(\lambda > 0\), tj.\ preslikava, za katero velja
 \[\all{x, y \in \R^n} |P(x) - P(y)| = c|x - y|.\]
-
+%
 Intuitivno je jasno, da če raztegnemo daljico \(\lambda\)-krat, se njena dolžina poveča \(\lambda\)-krat, torej 
 \[\mc{L}^1(P(A)) = \lambda\mc{L}^1(A),\]
 če povečamo stranico kvadrata za faktor \(\lambda\), se njegova ploščina poveča za faktor \(\lambda^2\), torej 
@@ -149,7 +149,7 @@ Navedemo eno pomembno posledico
     \[\mc{H}^p(P(A)) = \mc{H}^p(A).\]    
 \end{posledica}
 
-Primeri izometrij so rotacije, translacije, zrcaljenja ipd. Posledica pove, da je \(\mc{H}^p\) invariantna glede na rotacije, translacije in zrcaljenja, kar je pričakovano.
+\noindent Primeri izometrij so rotacije, translacije, zrcaljenja ipd. Posledica pove, da je \(\mc{H}^p\) invariantna glede na rotacije, translacije in zrcaljenja, kar je pričakovano.
 
 \subsubsection{Transformacijske lastnosti}
 Še en zanimiv razred preslikav so \emph{H\"oldorjeve preslikave} stopnje \(\alpha > 0\), to so preslikave \(f: X \subseteq \R^m \to \R^n\), za katere velja
@@ -206,7 +206,7 @@ Vidimo, da obstaja kritična točka \(p_0 \in [0, \infty)\), pri kateri vrednost
 \end{definicija}
 
 \begin{opomba} 
-    Po dogovoru \(\sup \emptyset = 0\).
+    Po dogovoru je \(\sup \emptyset = 0\).
 \end{opomba}
 
 \begin{zgled}
@@ -347,7 +347,7 @@ V primeru Lipschitzevih preslikav (kjer je \(\alpha = 1\)) dobimo naslednjo pome
     \[\dim_H f(A) \leq \dim_H A.\]
 \end{posledica}
 
-Poseben primer Lipschitzevih preslikav so bi-Lipschitzeve preslikave. V tem primeru se Hausdorffova dimenzija ne spremeni.
+\noindent Poseben primer Lipschitzevih preslikav so bi-Lipschitzeve preslikave. V tem primeru se Hausdorffova dimenzija ne spremeni.
 
 \begin{izrek}
     Naj bo \(X \subseteq \R^m\), \(A \subseteq X\) in \(f: X \to \R^n\) bi-Lipschitzeva preslikava, tj.\ preslikava \(f: X \to \R^n\), za katero velja:
@@ -364,7 +364,7 @@ Poseben primer Lipschitzevih preslikav so bi-Lipschitzeve preslikave. V tem prim
     Skupaj s prvo neenakostjo sledi enakost.
 \end{proof}
 
-Izrek pove, da je Hausdorffova dimenzija invariantna glede na bi-Lipschit\-zeve preslikave. To pomeni, da so bi-Lipschitzeve transformacije ">dimenzijsko ohranjajoče"<. Če imata dve množici različno Hausdorffovo dimenzijo, potem med njima ne more obstajati bi-Lipschitzeva preslikava.
+\noindent Izrek pove, da je Hausdorffova dimenzija invariantna glede na bi-Lipschit\-zeve preslikave. To pomeni, da so bi-Lipschitzeve transformacije ">dimenzijsko ohranjajoče"<. Če imata dve množici različno Hausdorffovo dimenzijo, potem med njima ne more obstajati bi-Lipschitzeva preslikava.
 
 \subsubsection{Topološke lastnosti}
 Hausdorffova dimenzija ima tudi zanimivo povezavo s topologijo. Naslednji rezultat kaže, da dovolj ">majhne"< množice (v smislu dimenzije) ne morejo biti povezane.
@@ -440,7 +440,7 @@ V tem razdelku bomo izračunali Hausdorffovo dimenzijo Cantorjeve množice. Obi�
     \[\mc{H}^s(C) \geq \frac{1}{3^s} = \frac{1}{2},\]
     torej 
     \[\dim_H C \geq s.\]
-
+%
     Skupaj s prvo neenakostjo sledi enakost.
 \end{proof}
 
@@ -461,4 +461,4 @@ Iz zgornjega računa in topoloških lastnosti Hausdorffove dimenzije sledi nasle
 
 Vidimo, da je izračun Hausdorffove dimenzije pogosto izredno zahteven, celo za preproste množice. Najprej je treba s pomočjo geometrijskih opažanj, simetrije ali samopodobnosti uganiti pravo vrednost dimenzije, nato pa to vrednost še dokazati. Ta postopek zahteva natančno analizo in pogosto precej tehničnega znanja.
 \newpage
-Obstajajo tudi druge definicije dimenzije, na primer škatlasta (box-counting) dimenzija, ki jih lahko najdemo v knjigi \cite{fk-fg}. Te so pogosto enostavnejše za izračun in se uporabljajo v različnih aplikacijah, vendar imajo tudi nekatere pomanjkljivosti. Na primer, škatlasta dimenzija v splošnem ni števno stabilna.
+Obstajajo tudi druge definicije dimenzije, na primer škatlasta (box-counting) dimenzija, ki jih lahko najdemo v knjigi \cite{fk-fg}. Te so pogosto enostavnejše za izračun in se uporabljajo v različnih aplikacijah, vendar imajo tudi nekatere pomanjkljivosti. Na primer, škatlasta dimenzija na splošno ni števno stabilna, torej trditev \ref{haus-stab} v splošnem ne velja.
