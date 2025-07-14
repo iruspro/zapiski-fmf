@@ -89,7 +89,7 @@
 
 \begin{frame}{Borelova \(\sigma\)-algebra}
     \begin{definicija} 
-        Družina podmnožic \(\Sigma\) množice \(\R^n\) je \df{\(\sigma\)-algebra}, če:
+        Družina podmnožic \(\Sigma\) množice \(\R^n\) je \emph{\(\sigma\)-algebra}, če:
         \begin{enumerate}
             \item \(\R^n \in \Sigma\);
             \item Če je \(A \in \Sigma\), potem \(A^c \in \Sigma\);
@@ -101,8 +101,8 @@
 
     \begin{definicija} \ 
         \begin{itemize}
-            \item Najmanjšo \(\sigma\)-algebro na \(\R^n\), ki vsebuje vse odprte podmnožice \(\R^n\), imenujemo \df{Borelova \(\sigma\)-algebra}.
-            \item Podmnožica \(A \subseteq \R^n\) je \df{Borelova}, če pripada Borelovi \(\sigma\)-algebri.
+            \item Najmanjšo \(\sigma\)-algebro na \(\R^n\), ki vsebuje vse odprte podmnožice \(\R^n\), imenujemo \emph{Borelova \(\sigma\)-algebra}.
+            \item Podmnožica \(A \subseteq \R^n\) je \emph{Borelova}, če pripada Borelovi \(\sigma\)-algebri.
         \end{itemize}
     \end{definicija}
 \end{frame}
@@ -110,8 +110,8 @@
 \begin{frame}{Borelova \(\sigma\)-algebra}
     \begin{definicija} \ 
         \begin{itemize}
-            \item Najmanjšo \(\sigma\)-algebro na \(\R^n\), ki vsebuje vse odprte podmnožice \(\R^n\), imenujemo \df{Borelova \(\sigma\)-algebra}.
-            \item Podmnožica \(A \subseteq \R^n\) je \df{Borelova}, če pripada Borelovi \(\sigma\)-algebri.
+            \item Najmanjšo \(\sigma\)-algebro na \(\R^n\), ki vsebuje vse odprte podmnožice \(\R^n\), imenujemo \emph{Borelova \(\sigma\)-algebra}.
+            \item Podmnožica \(A \subseteq \R^n\) je \emph{Borelova}, če pripada Borelovi \(\sigma\)-algebri.
         \end{itemize}
     \end{definicija}
 
@@ -126,7 +126,7 @@
 
 \begin{frame}{Mera na \(\R^n\)}
     \begin{definicija}
-        Preslikava \(\mu: \mathcal{P}(\R^n) \to [0, \infty) \cup \set{\infty}\) je \df{mera} na \(\R^n\), če 
+        Preslikava \(\mu: \mathcal{P}(\R^n) \to [0, \infty) \cup \set{\infty}\) je \emph{mera} na \(\R^n\), če 
         \begin{enumerate}
             \item \(\mu(\emptyset) = 0\);
             \item Če je \(A \subseteq B\), potem \(\mu(A) \leq \mu(B)\);
@@ -140,7 +140,7 @@
 
 \begin{frame}{Mera na \(\R^n\)}
     \begin{definicija}
-            Pravimo tudi, da je \(\mu(A)\) \df{mera množice \(A\)}.
+            Pravimo tudi, da je \(\mu(A)\) \emph{mera množice \(A\)}.
     \end{definicija}
 
     \begin{opomba} \
@@ -176,7 +176,7 @@
     \only<2>{
         Naj bo \(A = \setb{(x_1, \ldots, x_n) \in \R^n}{ a_i \leq x_i \leq b_i}\) kvader v \(\R^n\), potem \(n\)-dim volumen množice \(A\) je \[\text{vol}^n(A) := (b_1 - a_1)(b_2-a_2)\ldots(b_n - a_n).\]
         \begin{definicija}
-            \df{Lebesgueva mera \(\mathcal{L}^n: \mathcal{P}(\R^n) \to [0, \infty]\)} je definirana s predpisom
+            \emph{Lebesgueva mera \(\mathcal{L}^n: \mathcal{P}(\R^n) \to [0, \infty]\)} je definirana s predpisom
             \[\mathcal{L}^n(A) = \inf \setb{\sum_{i=1}^{\infty} \text{vol}^n(A_i) }{A \subseteq \bigcup_{i =1}^\infty A_i},\]
             kjer so \(A_i\) kvadri.
         \end{definicija}  
@@ -253,7 +253,7 @@
 
 \begin{frame}[t]{Podobnostna dimenzija}
     \begin{definicija}
-        Naj bo množica \(F \subseteq \R^n\) sestavljena iz \(m\) kopij same sebe, kjer je vsaka kopija zmanjšana za faktor \(r\). Potem rečemo, da ima množica~\(F\) \df{podobnastno dimenzijo} enako \(\log_r m\).
+        Naj bo množica \(F \subseteq \R^n\) sestavljena iz \(m\) kopij same sebe, kjer je vsaka kopija zmanjšana za faktor \(r\). Potem rečemo, da ima množica~\(F\) \emph{podobnastno dimenzijo} enako \(\log_r m\).
     \end{definicija}  
     \pause
     Spet imamo en problem... 
@@ -268,7 +268,7 @@
 
 \begin{frame}[t]{Podobnostna dimenzija}
     \begin{definicija}
-        Naj bo množica \(F \subseteq \R^n\) sestavljena iz \(m\) kopij same sebe, kjer je vsaka kopija zmanjšana za faktor \(r\). Potem rečemo, da ima množica~\(F\) \df{podobnastno dimenzijo} enako \(\log_r m\).
+        Naj bo množica \(F \subseteq \R^n\) sestavljena iz \(m\) kopij same sebe, kjer je vsaka kopija zmanjšana za faktor \(r\). Potem rečemo, da ima množica~\(F\) \emph{podobnastno dimenzijo} enako \(\log_r m\).
     \end{definicija}  
     Spet imamo en problem... 
     
@@ -297,7 +297,7 @@
                 \item \(\all{i \in \N} 0 \leq |U_i| \leq \delta\);
                 \item \(F \subseteq \bigcup_{i=1}^\infty U_i\).
             \end{enumerate}
-            Potem \(\set{U_i}\) imenujemo \df{\(\delta\)-pokritje} množice \(F\).
+            Potem \(\set{U_i}\) imenujemo \emph{\(\delta\)-pokritje} množice \(F\).
         \end{definicija}
     }
     \pause
@@ -310,7 +310,7 @@
     Ta limita vedno obstaja za vsako množico \(F \subseteq \R^n\). 
 
     \pause    
-    Število \(\mathcal{H}^s(F)\) imenujemo \df{\(s\)-dim Hausdorffova mera} množice \(F\).
+    Število \(\mathcal{H}^s(F)\) imenujemo \emph{\(s\)-dim Hausdorffova mera} množice \(F\).
 
     \begin{trditev}
         \(\mathcal{H}^s\) je mera na \(\R^n\).
@@ -329,7 +329,7 @@
 \begin{frame}[t]{Lastnosti skaliranja}
     \only<1> {
         \begin{definicija}
-            \df{Podobnostna preslikava} z koeficientom podobnosti \(c > 0\) je preslikava \(P: \R^n \to \R^n\), za katero velja:
+            \emph{Podobnostna preslikava} z koeficientom podobnosti \(c > 0\) je preslikava \(P: \R^n \to \R^n\), za katero velja:
             \[\all{x, y \in \R^n} |P(x) - P(y)| = c|x-y|\]
         \end{definicija}
     }
@@ -354,7 +354,7 @@
 % \begin{frame}[t]{Lastnosti skaliranja}
 %     \only<1> {
 %         \begin{definicija}
-%             \df{Podobnostna preslikava} z koeficientom podobnosti \(c > 0\) je preslikava \(P: \R^n \to \R^n\), za katero velja:
+%             \emph{Podobnostna preslikava} z koeficientom podobnosti \(c > 0\) je preslikava \(P: \R^n \to \R^n\), za katero velja:
 %             \[\all{x, y \in \R^n} |P(x) - P(y)| = c|x-y|\]
 %         \end{definicija}
 %     }
@@ -378,7 +378,7 @@
 
 \begin{frame}[t]{Lastnosti skaliranja}
     \begin{definicija} Naj bosta \(X \subseteq \R^n\) in \(Y \subseteq \R^m\).
-        Preslikava \(f: X \to Y\) je \df{Höldorjeva} stopnje \(\alpha > 0\), če
+        Preslikava \(f: X \to Y\) je \emph{Höldorjeva} stopnje \(\alpha > 0\), če
         \[\some{c > 0} \all{x, y \in X} |f(x) -f(y)| \leq c|x-y|^\alpha\]             
     \end{definicija}  
     \pause
@@ -430,7 +430,7 @@
 
 \begin{frame}[t]{Hausdorffova dimenzija}
     \begin{definicija}
-        \df{Hausdorffova dimenzija} množice \(F \subseteq \R^n\) je 
+        \emph{Hausdorffova dimenzija} množice \(F \subseteq \R^n\) je 
         \[\text{dim}_H F = \inf \setb{s \geq 0}{\mathcal{H}^{s}(F) = 0} = \sup \setb{s \geq 0}{\mathcal{H}^{s}(F) = \infty}\]
     \end{definicija} 
 
@@ -568,9 +568,9 @@
         \begin{definicija}
             Naj bo \(f: \R_{>0} \to \R\) funkcija. 
             \begin{itemize}
-                \item \df{Spodnja limita} funkcije \(f\) ko gre x proti \(0\) je 
+                \item \emph{Spodnja limita} funkcije \(f\) ko gre x proti \(0\) je 
                 \[\underline{\lim}_{x \to \infty} f(x) := \lim_{r \to 0} \left(\inf \setb{f(x)}{0< x < r}\right)\]
-                \item \df{Zgornja limita} funkcije \(f\) ko gre x proti \(0\) je 
+                \item \emph{Zgornja limita} funkcije \(f\) ko gre x proti \(0\) je 
                 \[\overline{\lim}_{x \to \infty} f(x) := \lim_{r \to 0} \left(\sup \setb{f(x)}{0< x < r}\right)\]
             \end{itemize}
         \end{definicija}
@@ -582,9 +582,9 @@
     \pause   
     \begin{definicija}
         \begin{itemize}
-            \item \df{Spodnja škatlasta dimenzija} množice \(F\) je 
+            \item \emph{Spodnja škatlasta dimenzija} množice \(F\) je 
             \[\underline{\text{dim}}_B F = \underline{\lim}_{\delta \to 0} \frac{\ln N_\delta(F)}{-\ln \delta}\]
-            \item \df{Zgornja škatlasta dimenzija} množice \(F\) je 
+            \item \emph{Zgornja škatlasta dimenzija} množice \(F\) je 
             \[\overline{\text{dim}}_B F = \overline{\lim}_{\delta \to 0} \frac{\ln N_\delta(F)}{-\ln \delta}\]
         \end{itemize}  
     \end{definicija}
@@ -593,11 +593,11 @@
 \begin{frame}[t]{Škatlasta dimenzija}  
     \begin{definicija}
         \begin{itemize}
-            \item \df{Spodnja škatlasta dimenzija} množice \(F\) je 
+            \item \emph{Spodnja škatlasta dimenzija} množice \(F\) je 
             \[\underline{\text{dim}}_B F = \underline{\lim}_{\delta \to 0} \frac{\ln N_\delta(F)}{-\ln \delta}\]
-            \item \df{Zgornja škatlasta dimenzija} množice \(F\) je 
+            \item \emph{Zgornja škatlasta dimenzija} množice \(F\) je 
             \[\overline{\text{dim}}_B F = \overline{\lim}_{\delta \to 0} \frac{\ln N_\delta(F)}{-\ln \delta}\]
-            \item Če \(\underline{\text{dim}}_B F = \overline{\text{dim}}_B F\), potem skupno število imenujemo \df{Škatlasta dimenzija} množice \(F\), tj. 
+            \item Če \(\underline{\text{dim}}_B F = \overline{\text{dim}}_B F\), potem skupno število imenujemo \emph{Škatlasta dimenzija} množice \(F\), tj. 
             \[\text{dim}_B F = \lim_{\delta \to 0} \frac{\ln N_\delta(F)}{-\ln \delta}\]
         \end{itemize}  
     \end{definicija}
@@ -615,7 +615,7 @@
 
 \begin{frame}[t]{Škatlasta dimenzija (ekvivalentne oblike)}  
     \begin{definicija}
-        Naj bo \(F \subseteq \R^n\) omejena in neprazna. \df{Škatlasta dimenzija} množice~\(F\) je 
+        Naj bo \(F \subseteq \R^n\) omejena in neprazna. \emph{Škatlasta dimenzija} množice~\(F\) je 
         \[\text{dim}_B F = \lim_{\delta \to 0} \frac{\ln N_\delta(F)}{-\ln \delta}\]
         kjer je \(N_\delta(F)\) lahko:
         \begin{itemize}

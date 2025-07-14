@@ -9,11 +9,11 @@ Druga pomembna uporaba topoloških lastnosti je pri razločevanju prostorov. Za 
 \subsection{Ločljivost}
 \subsubsection{Ločljivost}
 \begin{definicija}
-    Za topologjo $\T$ na množici $X$ pravimo, da \df{loči} podmnožico $A \subseteq X$ od pomnožice $B \subseteq X$, če obstaja $U \in \T$, za katero je $A \subseteq U$ in $B \cap U = \emptyset$.
+    Za topologjo $\T$ na množici $X$ pravimo, da \emph{loči} podmnožico $A \subseteq X$ od pomnožice $B \subseteq X$, če obstaja $U \in \T$, za katero je $A \subseteq U$ in $B \cap U = \emptyset$.
 \end{definicija}
 
 \begin{definicija}
-    Za topologjo $\T$ na množici $X$ pravimo, da \df{ostro loči} podmnožici $A \subseteq X$ in $B \subseteq X$, če obstajata $U, V \in \T$, za kateri je $A \subseteq U, \ B \subseteq V$ in $U \cap V = \emptyset$.
+    Za topologjo $\T$ na množici $X$ pravimo, da \emph{ostro loči} podmnožici $A \subseteq X$ in $B \subseteq X$, če obstajata $U, V \in \T$, za kateri je $A \subseteq U, \ B \subseteq V$ in $U \cap V = \emptyset$.
 \end{definicija}
 
 \begin{primer}
@@ -30,7 +30,7 @@ Druga pomembna uporaba topoloških lastnosti je pri razločevanju prostorov. Za 
 
 \subsubsection{Hausdorffova in Frechetova lastnosti}
 \begin{definicija}
-    Za prostor $(X, \T)$ pravimo, da je \df{Hausdorffov}, če $\T$ ostro loči vsaki dve različni točki $X$.
+    Za prostor $(X, \T)$ pravimo, da je \emph{Hausdorffov}, če $\T$ ostro loči vsaki dve različni točki $X$.
 \end{definicija}
 
 \begin{primer}
@@ -46,7 +46,7 @@ Druga pomembna uporaba topoloških lastnosti je pri razločevanju prostorov. Za 
     \begin{enumerate}
         \item $X$ je Hausdorffov.
         \item $\all{x \in X} \bigcap_{U \in \mathcal{U}} \overline{U} = \set{x}$, kjer je $\mathcal{U}$ družina vseh okolic $x$ (ekvivalentno $x \neq y \lthen \some{U \in \T} x \in U \land y \notin \overline{U}$).
-        \item \df{Diagonala} $\Delta = \setb{(x,x) \in X \times X}{x \in X}$ je zaprt podprostor produkta $X \times X$.
+        \item \emph{Diagonala} $\Delta = \setb{(x,x) \in X \times X}{x \in X}$ je zaprt podprostor produkta $X \times X$.
     \end{enumerate}
 \end{trditev}
 
@@ -75,7 +75,7 @@ Druga pomembna uporaba topoloških lastnosti je pri razločevanju prostorov. Za 
 \end{izrek}
 
 \begin{definicija}
-    Prostor $(X, \T)$ je \df{Frechetov}, če $\T$ vsako točko $X$ loči od vsake druge točke $X$.
+    Prostor $(X, \T)$ je \emph{Frechetov}, če $\T$ vsako točko $X$ loči od vsake druge točke $X$.
 \end{definicija}
 
 \begin{opomba}
@@ -108,7 +108,7 @@ Druga pomembna uporaba topoloških lastnosti je pri razločevanju prostorov. Za 
     Velja:
     \begin{enumerate}
         \item Hausdorffova in Frechetova lastnost sta dedni.
-        \item Hausdorffova in Frechetova lastnost sta \df{multiplikativni} (če $X, Y$ imata lastnost, potem jo ima tudi $X \times Y$).
+        \item Hausdorffova in Frechetova lastnost sta \emph{multiplikativni} (če $X, Y$ imata lastnost, potem jo ima tudi $X \times Y$).
     \end{enumerate}
 \end{trditev}
 
@@ -119,11 +119,11 @@ Druga pomembna uporaba topoloških lastnosti je pri razločevanju prostorov. Za 
 \subsubsection{Regularnost in normalnost}
 Ostrejše zahteve za ločljivost dobimo, če točke nadomestimo z zaprtimi množicami.
 \begin{definicija}
-    Prostor $(X, \T)$ je \df{regularen} če je Frechetov in če $\T$ ostro loči točke od zaprtih množic.
+    Prostor $(X, \T)$ je \emph{regularen} če je Frechetov in če $\T$ ostro loči točke od zaprtih množic.
 \end{definicija}
 
 \begin{definicija}
-    Prostor $(X, \T)$ je \df{normalen}, če je Frechetov in če $\T$ ostro loči disjunktne zaprte množice.
+    Prostor $(X, \T)$ je \emph{normalen}, če je Frechetov in če $\T$ ostro loči disjunktne zaprte množice.
 \end{definicija}
 
 \begin{opomba}
@@ -174,16 +174,16 @@ Ostrejše zahteve za ločljivost dobimo, če točke nadomestimo z zaprtimi množ
 Različne stopnje ločljivosti je mogoče sistematično predstaviti kot zaporedje vedno ostrejših zahtev.
 
 \begin{definicija}
-    \df{Aksiomi ločljivosti} je ime za zaporedje $T_0, \ T_1, \  T_2,\ T_3,\ T_4$ pogojev za ločljivost topologije, ki naj jim zadošča nek prostor. Če prostor $(X, \T)$ zadošča pogoju $T_i$, pravimo, da je $X$ $T_i$-prostor, in pišemo $X \in \T_i$.
+    \emph{Aksiomi ločljivosti} je ime za zaporedje $T_0, \ T_1, \  T_2,\ T_3,\ T_4$ pogojev za ločljivost topologije, ki naj jim zadošča nek prostor. Če prostor $(X, \T)$ zadošča pogoju $T_i$, pravimo, da je $X$ $T_i$-prostor, in pišemo $X \in \T_i$.
 \end{definicija}
 
 
 \begin{itemize}
-    \item [] \df{X je $T_0$}: Za različni točki $x, x' \in X$ obstaja okolica ene izmed točk $x, x'$, ki jo loči od druge točke.
-    \item [] \df{X je $T_1$}: Za različni točki $x, x' \in X$ obstaja okolica $x$, ki jo loči od $x'$ in obenem obstaja okolica točke $x'$, ki jo loči od $x$.
-    \item [] \df{X je $T_2$}: Za različni točki $x, x' \in X$ obstajata okolici, ki ostro ločita $x$ in $x'$.
-    \item [] \df{X je $T_3$}: Za točko $x \in X$ in zaprto množico $A \subseteq X$, ki ne vsebuje $x$, obstajata okolici, ki ostro ločita $x$ in $A$.
-    \item [] \df{X je $T_4$}: Za disjunktni zaprti množici $A, B \subseteq X$ obstajata okolici, ki ostro ločita $A$ in $B$.
+    \item [] \emph{X je $T_0$}: Za različni točki $x, x' \in X$ obstaja okolica ene izmed točk $x, x'$, ki jo loči od druge točke.
+    \item [] \emph{X je $T_1$}: Za različni točki $x, x' \in X$ obstaja okolica $x$, ki jo loči od $x'$ in obenem obstaja okolica točke $x'$, ki jo loči od $x$.
+    \item [] \emph{X je $T_2$}: Za različni točki $x, x' \in X$ obstajata okolici, ki ostro ločita $x$ in $x'$.
+    \item [] \emph{X je $T_3$}: Za točko $x \in X$ in zaprto množico $A \subseteq X$, ki ne vsebuje $x$, obstajata okolici, ki ostro ločita $x$ in $A$.
+    \item [] \emph{X je $T_4$}: Za disjunktni zaprti množici $A, B \subseteq X$ obstajata okolici, ki ostro ločita $A$ in $B$.
 \end{itemize}
 
 \begin{opomba}
@@ -237,7 +237,7 @@ Različne stopnje ločljivosti je mogoče sistematično predstaviti kot zaporedj
 \end{primer}
 
 \begin{definicija}
-    \df{Razcep} prostora $X$ je zapis $X$ kot disjunktne unije dveh nepraznih odprtih množic. Če prostor dopušča kakšen razcep, pravimo, da je \df{nepovezan}, v nasprotnem primeru pa pravimo, da je \df{povezan}.
+    \emph{Razcep} prostora $X$ je zapis $X$ kot disjunktne unije dveh nepraznih odprtih množic. Če prostor dopušča kakšen razcep, pravimo, da je \emph{nepovezan}, v nasprotnem primeru pa pravimo, da je \emph{povezan}.
 \end{definicija}
 
 \begin{trditev}
@@ -287,7 +287,7 @@ Različne stopnje ločljivosti je mogoče sistematično predstaviti kot zaporedj
     \begin{itemize}
         \item Naj bo $\set{A_\lambda}_{\lambda \in \Lambda}$ družina povezanih podmnožic $X$ in $\bigcap A_\lambda \neq \emptyset$. Potem $\bigcup A_\lambda$ je povezan.
         \item Topološki produkt povezanih prostorov je povezan.
-        \item Če za poljubna $a,b \in X$ obstaja pot od $a$ do $b$, kjer \df{pot v $X$} je preslikava $\gamma: [0,1] \to X, \gamma(0) = a, \gamma(1) = b$, potem $X$ je povezan.
+        \item Če za poljubna $a,b \in X$ obstaja pot od $a$ do $b$, kjer \emph{pot v $X$} je preslikava $\gamma: [0,1] \to X, \gamma(0) = a, \gamma(1) = b$, potem $X$ je povezan.
         \item Naj bo $A \subseteq X$ povezan. Če za $B \subseteq X$ velja, da $A \subseteq B \subseteq \overline{A}$, potem $B$ je povezan.
     \end{itemize}
 \end{izrek}
@@ -309,11 +309,11 @@ Različne stopnje ločljivosti je mogoče sistematično predstaviti kot zaporedj
 \end{primer}
 
 \begin{primer}[Varšavski lok]
-    Naj bo $L \subseteq \R^2$ graf funkcije $f(x) = \sin \frac{\pi}{x}$ za $x \in [-1,0)$. Prostor $L$ je povezan, saj je homeomorfen intervalu $[-1,0)$. Njegovo zaprtje v ravnini je $\overline{L} = L \cup (\set{0} \times [-1,1])$. Po izreku je prostor $\overline{L}$ povezan, vendar iz točke $(-1,0)$ ne moremo zvezno priti do točke $(0,0)$. Prostor $\overline{L}$ imenujemo \df{varšavski lok}.
+    Naj bo $L \subseteq \R^2$ graf funkcije $f(x) = \sin \frac{\pi}{x}$ za $x \in [-1,0)$. Prostor $L$ je povezan, saj je homeomorfen intervalu $[-1,0)$. Njegovo zaprtje v ravnini je $\overline{L} = L \cup (\set{0} \times [-1,1])$. Po izreku je prostor $\overline{L}$ povezan, vendar iz točke $(-1,0)$ ne moremo zvezno priti do točke $(0,0)$. Prostor $\overline{L}$ imenujemo \emph{varšavski lok}.
 \end{primer}
 
 \begin{definicija}
-    Prostor $X$ je \df{povezan s potmi}, če med poljubnima $a, b \in X$ obstaja pot v $X$ od $a$ do $b$.
+    Prostor $X$ je \emph{povezan s potmi}, če med poljubnima $a, b \in X$ obstaja pot v $X$ od $a$ do $b$.
 \end{definicija}
 
 Lastnosti povezanosti s potmi so podobne lastnostim povezanosti:
@@ -330,7 +330,7 @@ Lastnosti povezanosti s potmi so podobne lastnostim povezanosti:
 Zdaj, ko smo razčistili, kateri prostori so povezani, se lotimo vprašanja, kaj so "`kosi"', na katere razpade nepovezan prostor.
 
 \begin{definicija}
-    \df{Komponenta} $C(x)$ točke $x \in X$ je unija vseh povezanih podmnožic $X$, ki vsebujejo $x$.
+    \emph{Komponenta} $C(x)$ točke $x \in X$ je unija vseh povezanih podmnožic $X$, ki vsebujejo $x$.
 \end{definicija}
 \begin{opomba}
     \ 
@@ -355,7 +355,7 @@ Zdaj, ko smo razčistili, kateri prostori so povezani, se lotimo vprašanja, kaj
     \ 
     \begin{itemize}
         \item Povezan prostor ima eno samo komponento.
-        \item V diskretnem prostoru so komponente točke. Če so vse komponente nekega prostora točke, pravimo, da je prostor \df{popolnoma nepovezan}.
+        \item V diskretnem prostoru so komponente točke. Če so vse komponente nekega prostora točke, pravimo, da je prostor \emph{popolnoma nepovezan}.
         \item Komponente $\Q$ so točke, ker so edine povezane podmnožice v $\R$ intervali. To je primer prostora, katerega komponente so zaprte, niso pa odprte.
     \end{itemize}
 \end{primer}
@@ -369,7 +369,7 @@ Zdaj, ko smo razčistili, kateri prostori so povezani, se lotimo vprašanja, kaj
 Videli smo, da so komponente prostora zaprte, niso pa vedno odprte podmnožice. Vsaka komponenta je komplement unije vseh ostalih komponent. Če ima prostor le končno mnogo komponent, je vsaka komponenta komplement končne unije zaprtih množic, torej je odprta. Če ima neka točka kako povezano okolico, potem je gotovo notranja točka svoje komponente. Torej, če ima vsaka točka $X$ kako povezano okolico, potem so vse komponente $X$ odprte. Velja tudi obratno, če so komponente odprte, potem ima vsaka točka vsaj eno povezano okolico, namreč komponento $X$, v kateri je vsebovana. Obravnavanje povezanih okolic nas pripelje do lokalne verzije povezanosti.
 
 \begin{definicija}
-    Prostor $X$ je \df{lokalno povezan}, če ima bazo iz povezanih množic.
+    Prostor $X$ je \emph{lokalno povezan}, če ima bazo iz povezanih množic.
 \end{definicija}
 
 \begin{primer}
@@ -389,7 +389,7 @@ Videli smo, da so komponente prostora zaprte, niso pa vedno odprte podmnožice. 
     Definicija baze in komponent.
 \end{proof}
 
-Pri katerih pogojih se povezanost s potmi ujema s povezanostjo? Izkaže se, da moramo primerjati komponente za povezanost s komponentami za povezanost s potmi. \df{Komponento za povezanosts potmi} točke $x \in X$ označimo z $\widetilde{C}(x)$ in definiramo kot unijo vseh povezanih s potmi podmnožic $X$, ki vsebujejo $x$.
+Pri katerih pogojih se povezanost s potmi ujema s povezanostjo? Izkaže se, da moramo primerjati komponente za povezanost s komponentami za povezanost s potmi. \emph{Komponento za povezanosts potmi} točke $x \in X$ označimo z $\widetilde{C}(x)$ in definiramo kot unijo vseh povezanih s potmi podmnožic $X$, ki vsebujejo $x$.
 
 \begin{opomba}
     \ 
@@ -398,7 +398,7 @@ Pri katerih pogojih se povezanost s potmi ujema s povezanostjo? Izkaže se, da m
         \item Potni komponente razdelijo $X$ na disjunktne podmnožice.
     \end{itemize}
 
-    V splošnem potni komponente niso zaprte: varšavski lok ima dve komponenti za povezanost s potmi od katerih je le ena zaprta. Za $X$ pravimo, da je \df{lokalno povezan s potmi}, če ima bazo iz s potmi povezanih množic.
+    V splošnem potni komponente niso zaprte: varšavski lok ima dve komponenti za povezanost s potmi od katerih je le ena zaprta. Za $X$ pravimo, da je \emph{lokalno povezan s potmi}, če ima bazo iz s potmi povezanih množic.
 \end{opomba}
 
 \begin{izrek}
@@ -444,7 +444,7 @@ Kompaktnost je v mnogih ozirih osrednja topološka lastnost. Posledica kompaktno
 Pokazali bomo, da vse te izreke lahko razširimo na kompaktne prostore.
 
 \begin{definicija}
-    Prostor $X$ je \df{kompakten}, če ima vsako odprto pokritje $X$ končno podpokritje.
+    Prostor $X$ je \emph{kompakten}, če ima vsako odprto pokritje $X$ končno podpokritje.
 \end{definicija}
 
 \begin{opomba}
@@ -627,7 +627,7 @@ Podobno kot pri povezanosti je ena najpomemnejših lastnosti kompaktnosti ta, da
 V uvodu smo še povedali, da je vsaka zvezna funkcija iz $[a,b]$ v \(\R\) tudi enakomerno zvezna. Pokazali bomo, da je tudi to dejstvo posledica kompaktnosti.
 
 \begin{izrek}[Lebesgueova lema]
-    Za vsako odprto pokritje \(\mathcal{U}\) metričnega kompakta $X$ obstaja tako imenovano \df{Lebesgueovo število} $\lambda = \lambda (\mathcal{U})$ z lastnostjo, da vsaka krogla s polmerom manjšim od $\lambda$ leži v celoti v nekem elementu $\mathcal{U}$.
+    Za vsako odprto pokritje \(\mathcal{U}\) metričnega kompakta $X$ obstaja tako imenovano \emph{Lebesgueovo število} $\lambda = \lambda (\mathcal{U})$ z lastnostjo, da vsaka krogla s polmerom manjšim od $\lambda$ leži v celoti v nekem elementu $\mathcal{U}$.
 \end{izrek}
 
 Iz Lebesgueove leme sledi znani in pogosto uporabljani izrek matematične analize:
@@ -656,11 +656,11 @@ Naslednji rezultat podaja najpomembnejši sklop pogojev, ki zagotavljajo, da je 
 
 Preostanek razdelka bomo posvetili loklani obliki pojma kompaktnosti. Definiramo jo podobno kot lokalno povezanost, ker pa kompaktne množice običajno niso odprte, vpeljamo pomožni pojem:
 \begin{definicija}
-    Odprta podmnožica $U \subseteq X$ je \df{relativno kompaktna}, če je njeno zaprtje \(\overline{U}\) kompaktno.
+    Odprta podmnožica $U \subseteq X$ je \emph{relativno kompaktna}, če je njeno zaprtje \(\overline{U}\) kompaktno.
 \end{definicija}
 
 \begin{definicija}
-    Prostor $X$ je \df{lokalno kompakten}, če ima bazo iz relativno kompaktnih množic.
+    Prostor $X$ je \emph{lokalno kompakten}, če ima bazo iz relativno kompaktnih množic.
 \end{definicija}
 
 \begin{izrek}
@@ -692,7 +692,7 @@ Najbolj daljnosežna lastnost lokalno kompaktnih prostorov je, da so "`debeli"',
 \end{proof}
 
 \begin{definicija}
-    Prostorom s to lastnostjo pravimo \df{Bairovi prostori}.
+    Prostorom s to lastnostjo pravimo \emph{Bairovi prostori}.
 \end{definicija}
 
 \newpage
@@ -723,13 +723,13 @@ Bairov izrek največkrat uporabimo pri dokazu obstaja točke ali preslikave, ki 
 Zaradi lepih lastnosti kompaktnih prostorov je pogosto ugodno, če prostor, ki ni kompakten, lahko obravnavamo kot podprostor nekega kompakta.
 
 \begin{definicija}
-    \df{Kompaktifikacija} prostora $X$ je gosta vložitev $h: X \to \widehat{X}$, kjer \(\widehat{X}\) kompakten Hausdorffov prostor.
+    \emph{Kompaktifikacija} prostora $X$ je gosta vložitev $h: X \to \widehat{X}$, kjer \(\widehat{X}\) kompakten Hausdorffov prostor.
 \end{definicija}
 
 Kompaktifikacija Aleksandrova. \textcolor{red}{TODO}
 
 \begin{izrek}
-    $(X^+, \T)$ je kompakten prostor. Če $X$ ni kompakten, je inkluzija $i: X \hookrightarrow X^+$ kompaktifikacija, ki ji pravimo \df{kompaktifikacija z eno točko} ali \df{Kompaktifikacija Aleksandrova}.
+    $(X^+, \T)$ je kompakten prostor. Če $X$ ni kompakten, je inkluzija $i: X \hookrightarrow X^+$ kompaktifikacija, ki ji pravimo \emph{kompaktifikacija z eno točko} ali \emph{Kompaktifikacija Aleksandrova}.
 \end{izrek}
 
 \begin{proof}

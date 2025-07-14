@@ -3,9 +3,9 @@
 \begin{definicija}
     Naj bo \(X\) množica, \(\sim\) ekvivalenčna relacija na \(X\). 
     \begin{itemize}
-        \item Za poljuben \(x \in X\) označimo \([x] = \setb{y \in X}{y \sim x}\) \df{ekvivalenčni razred}, ki pripada \(x\).
-        \item \df{Kvocientna množica} množice \(X\) po relacije \(\sim\) je množica vseh ekvivalenčnih razredov \(\setb{[x]}{x \in X} =: X/_\sim\).
-        \item Preslikava \(q: X \to X/_\sim, \ q(x) = [x]\) je \df{kvocientna projekcija}.
+        \item Za poljuben \(x \in X\) označimo \([x] = \setb{y \in X}{y \sim x}\) \emph{ekvivalenčni razred}, ki pripada \(x\).
+        \item \emph{Kvocientna množica} množice \(X\) po relacije \(\sim\) je množica vseh ekvivalenčnih razredov \(\setb{[x]}{x \in X} =: X/_\sim\).
+        \item Preslikava \(q: X \to X/_\sim, \ q(x) = [x]\) je \emph{kvocientna projekcija}.
     \end{itemize}    
 \end{definicija}
 
@@ -36,7 +36,7 @@ Pogoj \[\all{\op{V} \subseteq \qs{X}} \invimg{q}(V) \subseteq X \ \text{je odprt
 
 \begin{definicija}
     Naj bo \((X, \T)\) topološki prostor in \(\sim\) ekvivalenčna relacija na \(X\).
-    \df{Kvocientna topologija} na \(\qs{X}\) je \[\T_\sim = \setb{V \subseteq \qs{X}}{\invimg{q}(V) \subseteq X \ \text{odprta}}.\]
+    \emph{Kvocientna topologija} na \(\qs{X}\) je \[\T_\sim = \setb{V \subseteq \qs{X}}{\invimg{q}(V) \subseteq X \ \text{odprta}}.\]
     
 \end{definicija}
 
@@ -72,7 +72,7 @@ Pogoj \[\all{\op{V} \subseteq \qs{X}} \invimg{q}(V) \subseteq X \ \text{je odprt
 \begin{definicija}
     Naj bo \(X\) množica in \(\sim\) ekvivalenčna relacija. 
     \begin{itemize}
-        \item Za \(A \subseteq X\) je njeno \df{nasičenje} enako \[\invimg{q}(\img{q}(A)) = \bigcup_{x \in A} [x] = \text{unija vseh ekvivalenčnih razredov, ki sekajo} \ A.\]
+        \item Za \(A \subseteq X\) je njeno \emph{nasičenje} enako \[\invimg{q}(\img{q}(A)) = \bigcup_{x \in A} [x] = \text{unija vseh ekvivalenčnih razredov, ki sekajo} \ A.\]
     \end{itemize}
 \end{definicija}
 
@@ -169,7 +169,7 @@ Torej NTSE
 \begin{definicija}
     Naj bosta \(X, Y\) topološka prostora in \(f: X \to Y\) funkcija. Če je \(f\) surjektivna in če 
     \[\all{V \subseteq Y} V \ \text{je odprta} \liff \invimg{f}(V) \subseteq X \ \text{je odprta},\]
-    potem \(f\) imenujemo \df{kvocientna preslikava}.
+    potem \(f\) imenujemo \emph{kvocientna preslikava}.
 \end{definicija}
 
 \begin{opomba}
@@ -179,7 +179,7 @@ Torej NTSE
         
         Obratno: vsako kvocientno preslikavo \(f: X \to Y\) lahko obravnavamo kot kvocientno projekcijo pri ekvivalenčni relaciji, določeni z razbitjem \(X\) na praslike točk.
         \item Kvocientna preslikava je vedno zvezna, ni pa nujno odprta niti zaprta.
-        \item Implikacija \((\Leftarrow)\) v definiciji je posebna lastnost, tej včasih rečemo \df{kvocientnost v ožjem smislu}.
+        \item Implikacija \((\Leftarrow)\) v definiciji je posebna lastnost, tej včasih rečemo \emph{kvocientnost v ožjem smislu}.
         
         Za zvezno surjekcijo je za njeno kvocientnost potrebno preveriti le ta pogoj.
         \item Surjektivna funkcija \(f\) je kvocientna preslikava natanko tedaj, ko 
@@ -255,14 +255,14 @@ Torej NTSE
 \end{proof}
 
 \begin{primer}
-    Naj bo \(1 \in S^1 \subseteq \C \equiv \R^2\). Naj bo \(A = S^1 \times \set{1} \cup \set{1} \times S^1 \subseteq S^1 \times S^1 = \mathbb{T}\), kjer je \(\mathbb{T}\) \df{torus}. Kaj je \(T/_A\)?
+    Naj bo \(1 \in S^1 \subseteq \C \equiv \R^2\). Naj bo \(A = S^1 \times \set{1} \cup \set{1} \times S^1 \subseteq S^1 \times S^1 = \mathbb{T}\), kjer je \(\mathbb{T}\) \emph{torus}. Kaj je \(T/_A\)?
 
     Ideja: Torus prerežemo vzdolž \(A\), da dobimo kvadrat z identifikacijami na robu.
 \end{primer}
 
 \subsection{Deljivost topoloških lastnosti}
 \begin{definicija}
-    Topološka lastnost \(\mathcal{L}\) je \df{deljiva}, če za vsak topološki prostor \(X \in \mathcal{L}\) in vsako ekvivalenčno relacijo \(\sim\) na \(X\) velja, da \(X/_\sim \in \mathcal{L}\).
+    Topološka lastnost \(\mathcal{L}\) je \emph{deljiva}, če za vsak topološki prostor \(X \in \mathcal{L}\) in vsako ekvivalenčno relacijo \(\sim\) na \(X\) velja, da \(X/_\sim \in \mathcal{L}\).
 
     Ekvivalentno: Lastnost \(\mathcal{L}\) je deljiva, če se ohranja pro kvocientnih preslikavah.
 \end{definicija}
@@ -333,7 +333,7 @@ Torej NTSE
 
 \subsection{Topološke grupe in delovanja}
 \begin{definicija}
-    \df{Topološka grupa} je grupa \(G\), ki je opremljena s topologijo, glede na katero sta \[\text{množenje} \ \text{m}: G \times G \to G, \ (g, h) \mapsto gh \  \text{in invertiranje} \ \text{inv}: G \to G, \ g \mapsto g^{-1}\] zvezni.
+    \emph{Topološka grupa} je grupa \(G\), ki je opremljena s topologijo, glede na katero sta \[\text{množenje} \ \text{m}: G \times G \to G, \ (g, h) \mapsto gh \  \text{in invertiranje} \ \text{inv}: G \to G, \ g \mapsto g^{-1}\] zvezni.
 \end{definicija}
 
 \begin{opomba}
@@ -404,8 +404,8 @@ Mi bomo večinoma delali nad \(\R, \ \C, \ \HH\), ki so topološki obsegi. Obsta
 \begin{definicija}
     Naj bo \(G\) topološka grupa, \(a \in G\):
     \begin{itemize}
-        \item \df{Leva translacija} za \(a\) je preslikava \(L_a: G \to G, \ g \mapsto ag\)
-        \item \df{Desna translacija} za \(a\) je preslikava \(R_a: G \to G, \ g \mapsto ga\)
+        \item \emph{Leva translacija} za \(a\) je preslikava \(L_a: G \to G, \ g \mapsto ag\)
+        \item \emph{Desna translacija} za \(a\) je preslikava \(R_a: G \to G, \ g \mapsto ga\)
     \end{itemize}
 \end{definicija}
 
@@ -418,7 +418,7 @@ Mi bomo večinoma delali nad \(\R, \ \C, \ \HH\), ki so topološki obsegi. Obsta
 \end{proof}
 
 \begin{posledica}
-    Vsaka topološka grupa \(G\) je \df{homogen prostor}, tj.
+    Vsaka topološka grupa \(G\) je \emph{homogen prostor}, tj.
     \[\all{x, y \in G} \some{h: G \to G \ \text{homeomorfizem}} h(x) = y\]
 \end{posledica}
 
@@ -428,7 +428,7 @@ Mi bomo večinoma delali nad \(\R, \ \C, \ \HH\), ki so topološki obsegi. Obsta
 
 \subsubsection*{Delovanje grup}
 \begin{definicija}
-    Naj bo \(X\) topološki prostor in \(G\) topološka grupa. \df{Levo delovanje} grupe \(G\) na prostor \(X\) je \underline{zvezna} preslikava
+    Naj bo \(X\) topološki prostor in \(G\) topološka grupa. \emph{Levo delovanje} grupe \(G\) na prostor \(X\) je \underline{zvezna} preslikava
     \begin{align*}
         \varphi: \ G \times X &\longrightarrow X \\
         (g, x) &\longmapsto \varphi(g,x) = g \cdot x,
@@ -438,7 +438,7 @@ Mi bomo večinoma delali nad \(\R, \ \C, \ \HH\), ki so topološki obsegi. Obsta
         \item \(\all{x \in X} e \cdot x = x\), kjer je \(e \in G\) enota grupe \(G\).
         \item \(\all{x \in X} \all{a, b \in G} b\cdot(a \cdot x) = (ba) \cdot x\)
     \end{enumerate}
-    V tem primeru rečemo, da je \(X\) \df{\(G\)-prostor.}
+    V tem primeru rečemo, da je \(X\) \emph{\(G\)-prostor.}
 \end{definicija}
 
 \begin{opomba}
@@ -453,11 +453,11 @@ za katero so ekvivalenčni razredi orbite delovanja:
 \[[x] = \setb{y = g \cdot x}{g \in G} = G \cdot x.\]
 %
 \begin{definicija}
-    Kvocientni prostor pri delovanju grupe \(G\) na prostor \(X\) označimo z \(X/_G\) in ga imenujemo \df{prostor orbit.}
+    Kvocientni prostor pri delovanju grupe \(G\) na prostor \(X\) označimo z \(X/_G\) in ga imenujemo \emph{prostor orbit.}
 \end{definicija}
 
 \begin{definicija}
-    Za vsak \(x\) in \(X\) je \(G_x = \setb{g \in G}{g \cdot x = x}\) \df{stabilizatorska podgrupa} elementa \(x\)
+    Za vsak \(x\) in \(X\) je \(G_x = \setb{g \in G}{g \cdot x = x}\) \emph{stabilizatorska podgrupa} elementa \(x\)
 \end{definicija}
 
 \begin{opomba}
@@ -490,7 +490,7 @@ Vemo, da kvocientna projekcija v splošnem ni niti odprta niti zaprta. Pri delov
 \newpage
 \subsubsection*{Zlepki}
 \begin{definicija}
-    Naj bosta \(X, Y\) topološka prostora, \(A \subseteq X\) in \(f: A \to Y\) zvezna preslikava. \df{Zlepek} \(X\) in \(Y\) vzdolž preslikave \(f\) je 
+    Naj bosta \(X, Y\) topološka prostora, \(A \subseteq X\) in \(f: A \to Y\) zvezna preslikava. \emph{Zlepek} \(X\) in \(Y\) vzdolž preslikave \(f\) je 
     \[X \cup_f Y = (X + Y)/_\sim,\]
     kjer je \(\all{a \in A} \text{in}_1(a) \sim \text{in}_2(f(a))\).
 \end{definicija}
@@ -507,7 +507,7 @@ Ekvivalenčni razredi so torej:
     \begin{itemize}
         \item Naj bo \(X\) topološki prostor, \(Y = \set{()}, \ f: A \to Y\) konstantna preslikava. Potem \(X \cup_f Y \approx X /_A\)
         \item Naj bo \(f: S^{n-1} \to S^{n-1}\) homeomorfizem. Potem \(B^n \cup_f B^n \approx S^n\)
-        \item Naj bo \(f: X \to Y\) zvezna preslikava. \df{Preslikavni cilinder} je zlepek 
+        \item Naj bo \(f: X \to Y\) zvezna preslikava. \emph{Preslikavni cilinder} je zlepek 
         \[M_f = X \times I \cup_f Y,\]
         kjer je \(f\) definirana na \(X \times \set{0}\).
     \end{itemize}

@@ -13,7 +13,7 @@ $$\left\langle A, U \right\rangle = \setb{f \in C(X,Y)}{\img{f}(A) \subseteq U}.
 Naj bo $\T$ topologija na $C(X, Y)$, ki jo kot predbaza generira družina \(\mathcal{P} = \setb{\left\langle \set{x}, U \right\rangle}{x \in X, \, U \text{ odprta v } Y}.\) Tipična bazična okolica v tej topologiji je presel $\left\langle x_1, U_1 \right\rangle \cap \ldots \cap \left\langle x_n, U_n \right\rangle$, ki si ga lahko predstavljamo kot družino vseh funkcij, ki gredo po točkah $x_1, \ldots, x_n$ skozi predpisane prehode $U_1, \ldots, U_n$.
 
 \begin{trditev}
-    Naj bo \((f_n)\) zaporedje preslikav v \(C(X, Y)\). Funkcije \(f_n\) konvergirajo po točkah proti neki funkciji $f$ natanko takrat, ko zaporedje \((f_n)\) konvergira proti $f$ v topologiji $\T$. Zaradi tega \(\T\) imenujemo \df{topologija konvergnce po točkah}.
+    Naj bo \((f_n)\) zaporedje preslikav v \(C(X, Y)\). Funkcije \(f_n\) konvergirajo po točkah proti neki funkciji $f$ natanko takrat, ko zaporedje \((f_n)\) konvergira proti $f$ v topologiji $\T$. Zaradi tega \(\T\) imenujemo \emph{topologija konvergnce po točkah}.
 \end{trditev}
 
 \begin{proof}
@@ -23,7 +23,7 @@ Naj bo $\T$ topologija na $C(X, Y)$, ki jo kot predbaza generira družina \(\mat
 Opazimo, da pri definiciji topologije \(\T\) nismo uporabili topologije prostora $X$, zato ne preseneča, da je ta topologija precej pomankljiva, ko prostor $X$ ni diskreten. Tako na primer vemo, da funkcija, ki je limita po točkah zaporedje zveznih funkcij, v splošnem ni zvezna. Te pomankljivosti odpravimo s predbazo, ki upošteva tudi topologijo $X$ in je naravna posplošitev enakomerne konvergence.
 
 \begin{definicija}
-    \df{Kompaktno-odprta topologija} na $C(X,Y)$ je topologija, ki jo generira predbaza \[\mathcal{P'} = \setb{\left\langle K, U \right\rangle}{K \text{ kompakten v } X, \, U \text{ odprta v } Y}.\]
+    \emph{Kompaktno-odprta topologija} na $C(X,Y)$ je topologija, ki jo generira predbaza \[\mathcal{P'} = \setb{\left\langle K, U \right\rangle}{K \text{ kompakten v } X, \, U \text{ odprta v } Y}.\]
     Prostor zveznih funkcij, opremljen s to topologijo, označimo $\widehat{C}(X,Y)$. 
 \end{definicija}
 
@@ -42,7 +42,7 @@ $$\left\langle f, K, \epsilon \right\rangle = \setb{g \in C(X, Y)}{d(f(x), g(x))
     \(\mathcal{B}\) generira kompaktno-odprto topologijo. \textcolor{red}{TODO}
 \end{opomba}
 
-Če je $K \subseteq K'$ ali $\epsilon > \epsilon'$, je $\left\langle f, K', \epsilon' \right\rangle \subseteq \left\langle f, K, \epsilon \right\rangle$, zato po potrebi lahko za bazo kompaktno-odprte topologije vzamemo le množice \(\left\langle f, K, \epsilon \right\rangle\) za velike kompakte $K$ ali majhne $\epsilon$. Posebej če je $X$ kompakten, se lahko omejimo na množice \(\left\langle f, X, \epsilon \right\rangle\), kar so ravno $\epsilon$ krogle v supremum metriki. Vidimo torej, da se za kompakten $X$ in metričen $Y$ kompaktno-odprta topologija ujema s topologijo enakomerne konvergence. Če pa $X$ ni kompakten, je glede na to topologijo konvergenca enakomerna le, kadar se omejimo na kompaktne podmnožice (tako kot pri Taylorjevih vrstah), zato ji pravimo tudi \df{topologija enakomerne konvergence na kompaktih}.
+Če je $K \subseteq K'$ ali $\epsilon > \epsilon'$, je $\left\langle f, K', \epsilon' \right\rangle \subseteq \left\langle f, K, \epsilon \right\rangle$, zato po potrebi lahko za bazo kompaktno-odprte topologije vzamemo le množice \(\left\langle f, K, \epsilon \right\rangle\) za velike kompakte $K$ ali majhne $\epsilon$. Posebej če je $X$ kompakten, se lahko omejimo na množice \(\left\langle f, X, \epsilon \right\rangle\), kar so ravno $\epsilon$ krogle v supremum metriki. Vidimo torej, da se za kompakten $X$ in metričen $Y$ kompaktno-odprta topologija ujema s topologijo enakomerne konvergence. Če pa $X$ ni kompakten, je glede na to topologijo konvergenca enakomerna le, kadar se omejimo na kompaktne podmnožice (tako kot pri Taylorjevih vrstah), zato ji pravimo tudi \emph{topologija enakomerne konvergence na kompaktih}.
 
 Kodomeno $Y$ vedno lahko gledamo kot podprostor v $\widehat{C}(X,Y)$.
 \begin{trditev}

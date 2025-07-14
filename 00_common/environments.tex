@@ -1,0 +1,20 @@
+% environments
+\usepackage{amsthm}
+
+\theoremstyle{definition}{
+    \newtheorem{definicija}{Definicija}[section]
+}
+
+\theoremstyle{plain} {
+    \newtheorem{izrek}[definicija]{Izrek}
+    \newtheorem{trditev}[definicija]{Trditev}
+    \newtheorem{posledica}[definicija]{Posledica}
+    \newtheorem{lema}[definicija]{Lema}
+    \newtheorem{aksiom}[definicija]{Aksiom}
+}
+
+\theoremstyle{remark}{    
+    \newtheorem{opomba}{Opomba}
+    \newtheorem{primer}{Primer}
+    \newtheorem{zgled}{Zgled}
+}

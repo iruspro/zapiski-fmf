@@ -1,7 +1,7 @@
 \section{Teorija grafov}
 \subsection{Osnovni pojmi}
 \begin{definicija}
-    \df{Graf} G je urejen par $(V(G), E(G))$, kjer je $V(G)$ množica \df{vozlišč} grafa $G$ in $E(G)$ množica \df{povezav} grafa~$G$, kjer je $E(G) \subseteq \binom{V(G)}{2}$.
+    \emph{Graf} G je urejen par $(V(G), E(G))$, kjer je $V(G)$ množica \emph{vozlišč} grafa $G$ in $E(G)$ množica \emph{povezav} grafa~$G$, kjer je $E(G) \subseteq \binom{V(G)}{2}$.
 \end{definicija}
 
 \begin{opomba}
@@ -12,7 +12,7 @@
     Naj bo $\set{u, v} \in E(G)$:
     \begin{itemize}
         \item Krajše pišemo $uv$.
-        \item Pravimo, da sta $u$ in $v$ \df{krajišči} povezave $e$ in, da sta $u$ in $v$ \df{sosedni} vozlišči.        
+        \item Pravimo, da sta $u$ in $v$ \emph{krajišči} povezave $e$ in, da sta $u$ in $v$ \emph{sosedni} vozlišči.        
         Pišemo: $u \sim v$ ali $u \sim_G v$.
     \end{itemize}
 \end{opomba}
@@ -20,13 +20,13 @@
 \begin{definicija}
     Naj bo $G$ graf, $u \in V(G)$:
     \begin{itemize}
-        \item $N_G(u) = \setb{v \in V(G)}{uv \in E(G)}$ je \df{soseščina} vozlišča $u$.
-        \item $\deg_G(u) = |N_G(u)|$ je \df{stopnja} vozlišča $u$. Označimo z $\delta(G) = \min_{v \in V(G)}\deg_G(v)$.
+        \item $N_G(u) = \setb{v \in V(G)}{uv \in E(G)}$ je \emph{soseščina} vozlišča $u$.
+        \item $\deg_G(u) = |N_G(u)|$ je \emph{stopnja} vozlišča $u$. Označimo z $\delta(G) = \min_{v \in V(G)}\deg_G(v)$.
     \end{itemize}
 \end{definicija}
 
 \begin{definicija}
-    Graf $G$ je \df{regularen}, če imajo vsa vozlišča isto stopnjo.
+    Graf $G$ je \emph{regularen}, če imajo vsa vozlišča isto stopnjo.
 \end{definicija}
 
 \begin{opomba}
@@ -78,11 +78,11 @@
 \begin{primer}
     Grafe lahko predstavimo tudi z matrikami. Možnosti:
     \begin{enumerate}
-        \item \df{Matrika sosednosti.} Za graf $G$ z vozlišči $v_1, \ldots, v_n$ je matrika sosednosti matrika $A(G) \in \R^{n \times n}$, definirana z $$a_{ij} = \begin{cases}
+        \item \emph{Matrika sosednosti.} Za graf $G$ z vozlišči $v_1, \ldots, v_n$ je matrika sosednosti matrika $A(G) \in \R^{n \times n}$, definirana z $$a_{ij} = \begin{cases}
             1, &v_i \sim v_j, \\
             0, &v_i \nsim v_j.
         \end{cases}.$$
-        \item \df{Incidenčna matrika}. Če ima graf $G$  vozlišča $v_1, \ldots, v_n$ in povezave $e_1, \ldots, e_m$, je to matrika $B(G) \in \R^{n \times m}$, podana s predpisom $$b_{ij} = \begin{cases}
+        \item \emph{Incidenčna matrika}. Če ima graf $G$  vozlišča $v_1, \ldots, v_n$ in povezave $e_1, \ldots, e_m$, je to matrika $B(G) \in \R^{n \times m}$, podana s predpisom $$b_{ij} = \begin{cases}
             1, &v_i \in e_j, \\
             0, &v_i \notin e_j.
         \end{cases}.$$
@@ -108,43 +108,43 @@
 
 \subsection{Podgrafi}
 \begin{definicija}
-    Naj bosta $G$ in $H$ grafa. Če velja $V(H) \subseteq V(G)$ in $E(H) \subseteq E(G)$, tedaj rečemo, da je $H$ \df{podgraf} grafa~$G$, in pišemo $H \leq G$. Pri tem:
+    Naj bosta $G$ in $H$ grafa. Če velja $V(H) \subseteq V(G)$ in $E(H) \subseteq E(G)$, tedaj rečemo, da je $H$ \emph{podgraf} grafa~$G$, in pišemo $H \leq G$. Pri tem:
     \begin{itemize}
-        \item Podgraf $H$ je \df{vpet} podgraf, če je $V(H) = V(G)$ (odstranimo nekaj povezav).
-        \item Podgraf $H$ je \df{porojen} (oz. \df{induciran}), če velja:  $\all{u, v \in V(H)} u \sim_G v \lthen u \sim_H v$ (odstranimo nekaj vozlišč).
+        \item Podgraf $H$ je \emph{vpet} podgraf, če je $V(H) = V(G)$ (odstranimo nekaj povezav).
+        \item Podgraf $H$ je \emph{porojen} (oz. \emph{induciran}), če velja:  $\all{u, v \in V(H)} u \sim_G v \lthen u \sim_H v$ (odstranimo nekaj vozlišč).
     \end{itemize}
 \end{definicija}
 
 \newpage
 \subsection{Nekatere družine grafov}
-\paragraph{Polni grafi.} Naj bo $V$ poljubna neprazna množica. Tedaj grafu z množico vozlišč $V$ in množico povezav $\binom{V}{2}$ vseh neurejenih parov elementov iz $V$ rečemo \df{polni graf} z množico vozlišč $V$. Oznaka: $K_V$ ali $K_n$, če $V = [n]$.
+\paragraph{Polni grafi.} Naj bo $V$ poljubna neprazna množica. Tedaj grafu z množico vozlišč $V$ in množico povezav $\binom{V}{2}$ vseh neurejenih parov elementov iz $V$ rečemo \emph{polni graf} z množico vozlišč $V$. Oznaka: $K_V$ ali $K_n$, če $V = [n]$.
 
-\paragraph{Poti.} Grafu z množico vozlišč $\Z_n$ in množico povezav $E(P_n) = \setb{i(i+1)}{i \in \set{0,1, \ldots, n-2}}$ rečemo \df{pot dolžine~$n$}. Oznaka: $P_n$.
+\paragraph{Poti.} Grafu z množico vozlišč $\Z_n$ in množico povezav $E(P_n) = \setb{i(i+1)}{i \in \set{0,1, \ldots, n-2}}$ rečemo \emph{pot dolžine~$n$}. Oznaka: $P_n$.
 
-\paragraph{Cikli.} Za $n \in \N, n \geq 3$, s $C_n$ označimo graf z množico vozlišč $\Z_n$ in množico povezav $E(C_n) = \setb{i(i+1)}{i \in \Z_n}$. Grafu $C_n$ rečemo \df{cikel dolžine $n$}.
+\paragraph{Cikli.} Za $n \in \N, n \geq 3$, s $C_n$ označimo graf z množico vozlišč $\Z_n$ in množico povezav $E(C_n) = \setb{i(i+1)}{i \in \Z_n}$. Grafu $C_n$ rečemo \emph{cikel dolžine $n$}.
 
-\paragraph{Polni dvodelni grafi.} Naj bosta $A$ in $B$ poljubni disjunktni neprazni množici. Grafu $K_{A, B}$ z množico vozlišč $A \cup B$ in množico povezav $E(K_{A,B}) = \setb{uv}{u \in A, v \in B}$ rečemo \df{polni dvodelni graf} na paru množic $A, B$. Oznaka: $K_{A, B}$ ali $K_{m, n}$, če $A = [m], \ B = [n]$.
+\paragraph{Polni dvodelni grafi.} Naj bosta $A$ in $B$ poljubni disjunktni neprazni množici. Grafu $K_{A, B}$ z množico vozlišč $A \cup B$ in množico povezav $E(K_{A,B}) = \setb{uv}{u \in A, v \in B}$ rečemo \emph{polni dvodelni graf} na paru množic $A, B$. Oznaka: $K_{A, B}$ ali $K_{m, n}$, če $A = [m], \ B = [n]$.
 
-\paragraph{Hiperkocke.} Za $d \in \N$ naj $\Z_2^d$ predstavlja množico vseh urejenih $d$-teric ničel in enic. Na $\Z_2^d$ lahko gledamo kot na Abelovo grupo. Za $i \in {1, 2, \ldots, d}$ naj bo $e_i$ tisti element množice $\Z_2^d$, ki ima na $i$-tem mestu enico, povsod drugod pa ničlo. Pišimo $S = \set{e_1, e_2, \ldots, e_d}$. \df{Hiperkocka razsežnosti $d$} je graf z množico vozlišč $\Z_2^d$ in z dvema vozliščema $u, v \in \Z_2^d$ sosednjima, če in samo če je $u+ v \in S$, tj. $u$ in $v$ razlikujeta v natanko eni komponenti. Oznaka: $Q_n$. Velja:
+\paragraph{Hiperkocke.} Za $d \in \N$ naj $\Z_2^d$ predstavlja množico vseh urejenih $d$-teric ničel in enic. Na $\Z_2^d$ lahko gledamo kot na Abelovo grupo. Za $i \in {1, 2, \ldots, d}$ naj bo $e_i$ tisti element množice $\Z_2^d$, ki ima na $i$-tem mestu enico, povsod drugod pa ničlo. Pišimo $S = \set{e_1, e_2, \ldots, e_d}$. \emph{Hiperkocka razsežnosti $d$} je graf z množico vozlišč $\Z_2^d$ in z dvema vozliščema $u, v \in \Z_2^d$ sosednjima, če in samo če je $u+ v \in S$, tj. $u$ in $v$ razlikujeta v natanko eni komponenti. Oznaka: $Q_n$. Velja:
 \begin{itemize}
     \item $|V(Q_n)| = 2^d$.
     \item $|E(Q_n)| = d \cdot 2 ^{d-1}$.
 \end{itemize}
 
-\paragraph{Posplošeni Petersenovi grafi.} Naj bosta $n, k \in \N, \ n \geq 3, \ 2k < n$. Naj bosta $U = \set{u_0, u_1, \ldots, u_{n-1}}$ in $V~=~\set{v_0, v_1, \ldots, v_{n-1}}$ dve disjunktni $n$-elementni množici. \df{Posplošeni Petersonov graf $P_{n,k}$} je graf z množico vozlišč $V(P_{n,k}) = U \cup V$ in množico povezav enako $E(P_{n,k}) = E_1 \cup E_2 \cup E_3$, kjer je 
+\paragraph{Posplošeni Petersenovi grafi.} Naj bosta $n, k \in \N, \ n \geq 3, \ 2k < n$. Naj bosta $U = \set{u_0, u_1, \ldots, u_{n-1}}$ in $V~=~\set{v_0, v_1, \ldots, v_{n-1}}$ dve disjunktni $n$-elementni množici. \emph{Posplošeni Petersonov graf $P_{n,k}$} je graf z množico vozlišč $V(P_{n,k}) = U \cup V$ in množico povezav enako $E(P_{n,k}) = E_1 \cup E_2 \cup E_3$, kjer je 
 $$E_1 = \setb{u_iu_{i+1}}{i \in \Z_n}, \quad E_2 = \setb{v_iv_{i+k}}{i \in Z_n}, \quad E_3 = \setb{u_iv_i}{i \in \Z_n}.$$
 
 \subsection{Sprehodi, poti in cikli}
 \begin{definicija}
-    \df{Sprehod} v grafu $G$ je zaporedje vozlišč grafa $G$: $v_0v_1\ldots v_k$, tako da je $v_iv_{i+1} \in E(G)$ za $i \in [k-1]$. Rečemo, da je to $v_0v_k$-sprehod. Sprehod je \df{enostaven}, če so vse njegove povezave paroma različne.
+    \emph{Sprehod} v grafu $G$ je zaporedje vozlišč grafa $G$: $v_0v_1\ldots v_k$, tako da je $v_iv_{i+1} \in E(G)$ za $i \in [k-1]$. Rečemo, da je to $v_0v_k$-sprehod. Sprehod je \emph{enostaven}, če so vse njegove povezave paroma različne.
 \end{definicija}
 
 \begin{definicija}
-    \df{Pot} v grafu $G$ je sprehod s samimi različnimi vozlišči.
+    \emph{Pot} v grafu $G$ je sprehod s samimi različnimi vozlišči.
 \end{definicija}
 
 \begin{definicija}
-    Če ima sprehod v grafu $G$ isti začetek in konec pravimo, da je sprehod \df{sklenjen}. \df{Enostaven sklenjen sprehod} je sklenjen sprehod, ki je enostaven. \df{Cikel} v grafu $G$ je sklenjen sprehod z samimi različnimi vozlišči.
+    Če ima sprehod v grafu $G$ isti začetek in konec pravimo, da je sprehod \emph{sklenjen}. \emph{Enostaven sklenjen sprehod} je sklenjen sprehod, ki je enostaven. \emph{Cikel} v grafu $G$ je sklenjen sprehod z samimi različnimi vozlišči.
 \end{definicija}
 
 \begin{lema}
@@ -173,16 +173,16 @@ $$E_1 = \setb{u_iu_{i+1}}{i \in \Z_n}, \quad E_2 = \setb{v_iv_{i+k}}{i \in Z_n},
 
 \subsection{Povezane komponente, razdalja in premer}
 \begin{definicija}
-    Graf $G$ je \df{povezan}, če za vsak par vozlišč $u, v \in V(G)$ obstaja $uv$-sprehod (ekvivalentno: $uv$-pot).
+    Graf $G$ je \emph{povezan}, če za vsak par vozlišč $u, v \in V(G)$ obstaja $uv$-sprehod (ekvivalentno: $uv$-pot).
 \end{definicija}
 
 \begin{definicija}
-    Maksimalni podgrafi grafa, ki so povezani, so \df{komponente} grafa. 
+    Maksimalni podgrafi grafa, ki so povezani, so \emph{komponente} grafa. 
 \end{definicija}
 Označimo z $\Omega(G)$ število komponent grafa $G$.
 
 \begin{definicija}
-    Naj bo $G$ povezan graf, $u, v \in V(G)$. \df{Razdalja $d_G(u,v)$} med $u$ in $v$ je število povezav na najkrajši $uv$-poti.
+    Naj bo $G$ povezan graf, $u, v \in V(G)$. \emph{Razdalja $d_G(u,v)$} med $u$ in $v$ je število povezav na najkrajši $uv$-poti.
 \end{definicija}
 
 \begin{opomba}
@@ -203,15 +203,15 @@ Označimo z $\Omega(G)$ število komponent grafa $G$.
 
 \newpage
 \begin{definicija}
-    Naj bo $G$ povezan graf. \df{Ekscentričnost $\ecc_G(u)$} vozlišča $u$ je $\max_{v \in V(G)} d_g(u,v)$.
+    Naj bo $G$ povezan graf. \emph{Ekscentričnost $\ecc_G(u)$} vozlišča $u$ je $\max_{v \in V(G)} d_g(u,v)$.
 \end{definicija}
 
 \begin{definicija}
-    Naj bo $G$ povezan graf. \df{Premer $\diam G$} grafa $G$ je $\max_{u \in V(G)} \ecc_G(u) = \max_{u,v \in V(G)} d_G(u,v)$.
+    Naj bo $G$ povezan graf. \emph{Premer $\diam G$} grafa $G$ je $\max_{u \in V(G)} \ecc_G(u) = \max_{u,v \in V(G)} d_G(u,v)$.
 \end{definicija}
 
 \begin{definicija}
-    Naj bo $G$ povezan graf. \df{Polmer $\rad(G)$} grafa $G$ je $\min_{u \in V(G)} \ecc_G(u)$
+    Naj bo $G$ povezan graf. \emph{Polmer $\rad(G)$} grafa $G$ je $\min_{u \in V(G)} \ecc_G(u)$
 \end{definicija}
 
 \begin{primer}
@@ -223,16 +223,16 @@ Označimo z $\Omega(G)$ število komponent grafa $G$.
 \end{primer}
 
 \subsection{Inačice koncepta "`graf"'}
-\paragraph{Enostavni grafi.} Lahko dopuščamo \df{vzporedne povezave}, tj. množica povezav lahko multimnožica, in \df{zanke}, tj. povezave iz vozlišča vase.
+\paragraph{Enostavni grafi.} Lahko dopuščamo \emph{vzporedne povezave}, tj. množica povezav lahko multimnožica, in \emph{zanke}, tj. povezave iz vozlišča vase.
 \begin{definicija}
-    Graf je \df{enostaven}, če nima vzporednih povezav in zank.
+    Graf je \emph{enostaven}, če nima vzporednih povezav in zank.
 \end{definicija}
 
 \paragraph{Uteženi grafi, omrežja.} Lahko definiramo:
 \begin{itemize}
-    \item $G = (V(G), E(G), w)$, kjer je $w: V(G) \to \R$ je \df{uteženi} graf.
-    \item $G = (V(G), E(G), l)$, kjer je $l: E(G) \to \R$ je \df{omrežje}.
-    \item $G = (V(G), E(G), w, l)$, je \df{uteženo omrežje}. 
+    \item $G = (V(G), E(G), w)$, kjer je $w: V(G) \to \R$ je \emph{uteženi} graf.
+    \item $G = (V(G), E(G), l)$, kjer je $l: E(G) \to \R$ je \emph{omrežje}.
+    \item $G = (V(G), E(G), w, l)$, je \emph{uteženo omrežje}. 
 \end{itemize}
 
 \paragraph{Usmerjeni grafi.} Množica povezav $E(G)$ grafa $G$ lahko podmnožica $V(G) \times V(G)$, tj. povezave so urejeni pari.
@@ -241,7 +241,7 @@ Označimo z $\Omega(G)$ število komponent grafa $G$.
 
 \subsection{Dvodelnost}
 \begin{definicija}
-    Graf $G$ je \df{dvodelen}, če obstaja razdelitev $V(G) = V_1 \cup V_2$, tako da velja: $$uv \in E(G) \lthen u \in V_1 \land v \in V_2.$$
+    Graf $G$ je \emph{dvodelen}, če obstaja razdelitev $V(G) = V_1 \cup V_2$, tako da velja: $$uv \in E(G) \lthen u \in V_1 \land v \in V_2.$$
 \end{definicija}
 
 \begin{opomba}
@@ -261,8 +261,8 @@ Označimo z $\Omega(G)$ število komponent grafa $G$.
 \subsection{Morfizmi grafov}
 \subsubsection*{Homomorfizmi grafov}
 \begin{definicija}
-    Naj bosta $G, H$ grafa. Preslikava $f: V(G) \to V(H)$ je \df{homomorfizem}, če velja: $$uv \in E(G) \lthen f(u)f(v) \in E(H).$$
-    Injektivni homomorfizem je \df{vložitev} grafa $G$ v graf $H$.
+    Naj bosta $G, H$ grafa. Preslikava $f: V(G) \to V(H)$ je \emph{homomorfizem}, če velja: $$uv \in E(G) \lthen f(u)f(v) \in E(H).$$
+    Injektivni homomorfizem je \emph{vložitev} grafa $G$ v graf $H$.
 \end{definicija}
 
 \begin{opomba}
@@ -270,7 +270,7 @@ Označimo z $\Omega(G)$ število komponent grafa $G$.
 \end{opomba}
 
 \begin{definicija}
-    Vložitev $f: V(G) \to V(H)$ grafa $G$ v graf $H$ je \df{izometrična}, če velja:
+    Vložitev $f: V(G) \to V(H)$ grafa $G$ v graf $H$ je \emph{izometrična}, če velja:
     $$\all{u, v \in V(G)}d_G(u,v)=d_H(f(u), f(v)).$$
 \end{definicija}
 
@@ -287,7 +287,7 @@ Označimo z $\Omega(G)$ število komponent grafa $G$.
 
 \subsubsection*{Izomorfizmi grafov}
 \begin{definicija}
-    Naj bosta $G, H$ grafa. Preslikava $f: V(G) \to V(H)$ je \df{izomorfizem}, če
+    Naj bosta $G, H$ grafa. Preslikava $f: V(G) \to V(H)$ je \emph{izomorfizem}, če
     \begin{enumerate}
         \item $f$ je bijekcija;
         \item $f$ je homomorfizem;
@@ -300,7 +300,7 @@ Označimo z $\Omega(G)$ število komponent grafa $G$.
 \end{opomba}
 
 \begin{definicija}
-    Grafa $G$ in $H$ sta \df{izomorfna}, če obstaja izomorfizem med njima. Oznaka: $G \cong H$.
+    Grafa $G$ in $H$ sta \emph{izomorfna}, če obstaja izomorfizem med njima. Oznaka: $G \cong H$.
 \end{definicija}
 
 \begin{opomba}
@@ -317,10 +317,10 @@ Označimo z $\Omega(G)$ število komponent grafa $G$.
 
 \subsubsection*{Grupa avtomorfizmov grafa}
 \begin{definicija}
-    \df{Avtomorfizem} grafa $G$ je izomorfizem $f: G \to G$.
+    \emph{Avtomorfizem} grafa $G$ je izomorfizem $f: G \to G$.
 \end{definicija}
 
-Definiramo $\Aut (G) = \setb{\varphi}{\varphi \text{ je avtomorfizem grafa } G}$. Dodamo še komponiranje in dobimo \df{grupo avtomorfizmov grafa $G$}.
+Definiramo $\Aut (G) = \setb{\varphi}{\varphi \text{ je avtomorfizem grafa } G}$. Dodamo še komponiranje in dobimo \emph{grupo avtomorfizmov grafa $G$}.
 
 \begin{opomba}
     Velja:
@@ -334,7 +334,7 @@ Definiramo $\Aut (G) = \setb{\varphi}{\varphi \text{ je avtomorfizem grafa } G}$
 \subsection{Operacije z grafi}
 \subsubsection*{Komplementarni graf}
 \begin{definicija}
-    \df{Komplement $\overline{G}$} grafa $G$ je graf z isto množico vozlišč kot $G$ in z dvema vozliščema sosednjima v $\overline{G}$, če in samo če nista sosednji v grafu $G$.
+    \emph{Komplement $\overline{G}$} grafa $G$ je graf z isto množico vozlišč kot $G$ in z dvema vozliščema sosednjima v $\overline{G}$, če in samo če nista sosednji v grafu $G$.
 \end{definicija}
 
 \begin{trditev}
@@ -363,10 +363,10 @@ Naj bo $G$ graf.
 \end{opomba}
 
 \subsubsection*{Skrčitev povezav in minorji}
-Naj bo $e \in E(G)$. Z $G/e$ označimo graf, ki ga dobimo iz grafa $G$ tako, da identificiramo krajišči povezave $e$ in odstranimo zanko ter morebitne vzporedne povezave. Pri tem rečemo, da smo $G / e$ dobili s \df{skrčitvijo} povezave $e$.
+Naj bo $e \in E(G)$. Z $G/e$ označimo graf, ki ga dobimo iz grafa $G$ tako, da identificiramo krajišči povezave $e$ in odstranimo zanko ter morebitne vzporedne povezave. Pri tem rečemo, da smo $G / e$ dobili s \emph{skrčitvijo} povezave $e$.
 
 \begin{definicija}
-    Graf $H$ je \df{minor} grafa $G$, če ga lahko dobimo iz nekega podgrafa grafa $G$ s skrčitvijo nekaj povezav.
+    Graf $H$ je \emph{minor} grafa $G$, če ga lahko dobimo iz nekega podgrafa grafa $G$ s skrčitvijo nekaj povezav.
 \end{definicija}
 
 \begin{primer}
@@ -380,20 +380,20 @@ Naj bo $e \in E(G)$. Z $G/e$ označimo graf, ki ga dobimo iz grafa $G$ tako, da 
 \newpage
 \subsubsection*{Subdivizije povezav in glajenje vozlišč}
 \begin{definicija}
-    \df{Subdivizija} povezave $e \in E(G)$ je zamenjava povezave s potjo dolžine $2$. Oznaka: $G^+(e)$.
+    \emph{Subdivizija} povezave $e \in E(G)$ je zamenjava povezave s potjo dolžine $2$. Oznaka: $G^+(e)$.
 \end{definicija}
 \begin{definicija}
-    Graf $H$ je \df{subdivizija} grafa $G$, če $H$ lahko dobimo iz $G$ z zaporedjem subdivizij povezav.
+    Graf $H$ je \emph{subdivizija} grafa $G$, če $H$ lahko dobimo iz $G$ z zaporedjem subdivizij povezav.
 \end{definicija}
 \begin{opomba}
     Graf $H$ je subdivizija grafa $G$, če vsako povezavo v $G$ nadomestimo z neko potjo in vse te poti so paroma disjunktne po povezavih.
 \end{opomba}
 \begin{definicija}
-    Grafa $G$ in $H$ sta \df{homeomorfna}, če obstaja graf $X$, tako da $G$ in $H$ subdiviziji grafa $X$.
+    Grafa $G$ in $H$ sta \emph{homeomorfna}, če obstaja graf $X$, tako da $G$ in $H$ subdiviziji grafa $X$.
 \end{definicija}
 
 \begin{definicija}
-    Obratna operacija od subdivizije povezave, je \df{glajenje} vozlišča $w \in V(G)$ stopnje $2$. Oznaka: $G^-(w)$.
+    Obratna operacija od subdivizije povezave, je \emph{glajenje} vozlišča $w \in V(G)$ stopnje $2$. Oznaka: $G^-(w)$.
 \end{definicija}
 
 \begin{opomba}
@@ -402,7 +402,7 @@ Naj bo $e \in E(G)$. Z $G/e$ označimo graf, ki ga dobimo iz grafa $G$ tako, da 
 
 \subsubsection*{Kartezični produkt}
 \begin{definicija}
-    \df{Kartezični produkt} grafov $G_1 = (V_1, E_1)$ in $G_2 = (V_2, E_2)$ je graf $G = G_1 \square G_2$ z množico vozlišč $V(G) = V_1 \times V_2$ in relacijo sosednosi $\sim$, določeno s predpisom
+    \emph{Kartezični produkt} grafov $G_1 = (V_1, E_1)$ in $G_2 = (V_2, E_2)$ je graf $G = G_1 \square G_2$ z množico vozlišč $V(G) = V_1 \times V_2$ in relacijo sosednosi $\sim$, določeno s predpisom
     $$(u_1, v_1) \sim_G (u_2, v_2) \liff (u_1 \sim_{G_1} u_2 \land v_1 = v_2) \lor (u_1 = u_2 \land v_1 \sim_{G_2} v_2).$$
 \end{definicija}
 
@@ -419,7 +419,7 @@ Naj bo $e \in E(G)$. Z $G/e$ označimo graf, ki ga dobimo iz grafa $G$ tako, da 
     Poiščemo ustrezni izomorfizmi.
 \end{proof}
 
-Lastnost asociativnosti nam omogoča, da definiramo pojem \df{kartezične potence grafa}. Za graf $G$ in $n \in \N$ naj bo $$G^{\square n} = \underbrace{G \square G \square \ldots \square G}_\text{$n$ kopij}.$$
+Lastnost asociativnosti nam omogoča, da definiramo pojem \emph{kartezične potence grafa}. Za graf $G$ in $n \in \N$ naj bo $$G^{\square n} = \underbrace{G \square G \square \ldots \square G}_\text{$n$ kopij}.$$
 
 \begin{primer}
     $K_2^{\square n} = Q_n$.
@@ -429,15 +429,15 @@ Lastnost asociativnosti nam omogoča, da definiramo pojem \df{kartezične potenc
 \begin{definicija}
     Naj bo $G$ graf.
     \begin{itemize}
-        \item Vozlišče $u \in V(G)$ je \df{prerezno}, če $\Omega(G-u) > \Omega(G)$.
-        \item Povezava $f \in E(G)$ je \df{prerezna} ali \df{most}, če $\Omega(G-f) > \Omega(G)$.
-        \item Množica vozlišč $S \subseteq V(G)$ je \df{prerez}, če $\Omega(G-S) > \Omega(G)$.
-        \item Množica povezav $F \subseteq E(G)$, če \df{povezavni prerez}, če $\Omega(G-F) > \Omega(G)$.
+        \item Vozlišče $u \in V(G)$ je \emph{prerezno}, če $\Omega(G-u) > \Omega(G)$.
+        \item Povezava $f \in E(G)$ je \emph{prerezna} ali \emph{most}, če $\Omega(G-f) > \Omega(G)$.
+        \item Množica vozlišč $S \subseteq V(G)$ je \emph{prerez}, če $\Omega(G-S) > \Omega(G)$.
+        \item Množica povezav $F \subseteq E(G)$, če \emph{povezavni prerez}, če $\Omega(G-F) > \Omega(G)$.
     \end{itemize}
 \end{definicija}
 
 \begin{definicija}
-    Graf $G$ je \df{$k$-povezan}, če ima vsaj $k+1$ vozlišč in nima prerezov moči strogo manj kot $k$. \df{Povezanost} grafa~$G$ je največji $k$, za katerega je $G$ $k$-povezan. Oznaka: $K(G)$.
+    Graf $G$ je \emph{$k$-povezan}, če ima vsaj $k+1$ vozlišč in nima prerezov moči strogo manj kot $k$. \emph{Povezanost} grafa~$G$ je največji $k$, za katerega je $G$ $k$-povezan. Oznaka: $K(G)$.
 \end{definicija}
 
 \begin{primer}
@@ -454,7 +454,7 @@ Lastnost asociativnosti nam omogoča, da definiramo pojem \df{kartezične potenc
 \end{opomba}
 
 \begin{definicija}
-    Naj bo $G$ graf, $u,v \in V(G)$. $uv$-poti $P$ in $Q$ sta \df{notranji-disjunktni}, če je $V(P) \cap V(Q) = \set{u,v}$.
+    Naj bo $G$ graf, $u,v \in V(G)$. $uv$-poti $P$ in $Q$ sta \emph{notranji-disjunktni}, če je $V(P) \cap V(Q) = \set{u,v}$.
 \end{definicija}
 
 \begin{izrek}[Whitney]
@@ -478,7 +478,7 @@ Lastnost asociativnosti nam omogoča, da definiramo pojem \df{kartezične potenc
 \newpage
 \subsection{Drevesa}
 \begin{definicija}
-    \df{Gozd} je graf brez ciklov. \df{Drevo} je povezan gozd. \df{List} je vozlišče stopnje $1$.
+    \emph{Gozd} je graf brez ciklov. \emph{Drevo} je povezan gozd. \emph{List} je vozlišče stopnje $1$.
 \end{definicija}
 
 \begin{lema}
@@ -539,7 +539,7 @@ Lastnost asociativnosti nam omogoča, da definiramo pojem \df{kartezične potenc
 
 \subsection{Vpeta drevesa}
 \begin{definicija}
-    \df{Vpeto drevo} grafa je vpet podgraf, ki je drevo.
+    \emph{Vpeto drevo} grafa je vpet podgraf, ki je drevo.
 \end{definicija}
 
 \begin{trditev}
@@ -570,7 +570,7 @@ Označimo z $\tau(G)$ število vpetih dreves grafa $G$.
 \end{proof}
 
 \begin{definicija}
-    Naj bo $G$ graf. \df{Laplaceova matrika $L(G)$} grafa $G$ z množico vozlišč $V(G) = \set{v_1, v_2, \ldots, v_n}$ je $n \times n$ matrika, za katero velja: $$L(G)_{ij} = \begin{cases}
+    Naj bo $G$ graf. \emph{Laplaceova matrika $L(G)$} grafa $G$ z množico vozlišč $V(G) = \set{v_1, v_2, \ldots, v_n}$ je $n \times n$ matrika, za katero velja: $$L(G)_{ij} = \begin{cases}
         \deg(v_i); &i=j \\ - \text{število povezav med $v_i$ in $v_j$}; &i \neq j
     \end{cases}.$$
 \end{definicija}
@@ -591,7 +591,7 @@ Označimo z $\tau(G)$ število vpetih dreves grafa $G$.
 \subsection{Eulerjevi in Hamiltonovi grafi}
 \subsubsection{Eulerjevi grafi}
 \begin{definicija}
-    Sprehod v grafu je \df{Eulerjev}, če je enostaven in prehodi vse povezave. Sklenjen Eulerjev sprehod je \df{Eulerjev obhod}. Graf je \df{Eulerjev}, če premore Eulerjev obhod.
+    Sprehod v grafu je \emph{Eulerjev}, če je enostaven in prehodi vse povezave. Sklenjen Eulerjev sprehod je \emph{Eulerjev obhod}. Graf je \emph{Eulerjev}, če premore Eulerjev obhod.
 \end{definicija}
 
 \begin{izrek}
@@ -622,7 +622,7 @@ Označimo z $\tau(G)$ število vpetih dreves grafa $G$.
 
 \subsubsection{Hamiltonovi grafi}
 \begin{definicija}
-    \df{Hamiltonov cikel} grafa je cikel, ki vsebuje vsa vozlišča grafa. \df{Hamiltonov pot} je pot v grafu, ki vsebuje vsa vozlišča. Graf je \df{Hamiltonov}, če premore Hamiltonov cikel.
+    \emph{Hamiltonov cikel} grafa je cikel, ki vsebuje vsa vozlišča grafa. \emph{Hamiltonov pot} je pot v grafu, ki vsebuje vsa vozlišča. Graf je \emph{Hamiltonov}, če premore Hamiltonov cikel.
 \end{definicija}
 
 \begin{izrek}
@@ -651,7 +651,7 @@ Označimo z $\tau(G)$ število vpetih dreves grafa $G$.
 
 \subsection{Ravninski grafi}
 \begin{definicija}
-    Graf $G$ je \df{ravninski}, če ga lahko narišemo v ravnini tako, da se povezave ne križajo. Ravninski graf skupaj z ustrezni risbi v ravnini, je graf \df{vložen v ravnino}.
+    Graf $G$ je \emph{ravninski}, če ga lahko narišemo v ravnini tako, da se povezave ne križajo. Ravninski graf skupaj z ustrezni risbi v ravnini, je graf \emph{vložen v ravnino}.
 \end{definicija}
 
 \begin{primer}
@@ -659,15 +659,15 @@ Označimo z $\tau(G)$ število vpetih dreves grafa $G$.
 \end{primer}
 
 \begin{definicija}
-    Naj bo $G$ graf vložen v ravnino. Med seboj ločeni povezani območji imenujemo \df{lica}. Označimo z $F(G)$ množico vseh lic grafa.
+    Naj bo $G$ graf vložen v ravnino. Med seboj ločeni povezani območji imenujemo \emph{lica}. Označimo z $F(G)$ množico vseh lic grafa.
 \end{definicija}
 
 \begin{opomba}
-    Graf lahko vložimo v ravnino natanko tedaj, ko ga lahko vložimo v sfero (obratno implikacijo naredimo z stereografsko projekcijo). Torej imamo še \df{zunanje lice}, ki je neomejeno v ravnini in omejeno na sfere.
+    Graf lahko vložimo v ravnino natanko tedaj, ko ga lahko vložimo v sfero (obratno implikacijo naredimo z stereografsko projekcijo). Torej imamo še \emph{zunanje lice}, ki je neomejeno v ravnini in omejeno na sfere.
 \end{opomba}
 
 \begin{definicija}
-    Vsako lice $f \in F(G)$ je omejeno s sklenjenim sprehodom v grafu $G$, ki mu rečemo \df{rob} lica $f$. Rob lica $f$ označimo z $\partial f$, njegovo dolžino (tj. število povezav na robu lica) pa z $l(f)$.
+    Vsako lice $f \in F(G)$ je omejeno s sklenjenim sprehodom v grafu $G$, ki mu rečemo \emph{rob} lica $f$. Rob lica $f$ označimo z $\partial f$, njegovo dolžino (tj. število povezav na robu lica) pa z $l(f)$.
 \end{definicija}
 
 \begin{opomba}
@@ -680,7 +680,7 @@ Označimo z $\tau(G)$ število vpetih dreves grafa $G$.
 
 \newpage
 \begin{definicija}
-    Naj bo $G$ graf, ki premore cikle. Potem je njegova \df{ožina} $g(G)$ je dolžina najkrajšega cikla v $G$.
+    Naj bo $G$ graf, ki premore cikle. Potem je njegova \emph{ožina} $g(G)$ je dolžina najkrajšega cikla v $G$.
 \end{definicija}
 
 \begin{trditev}

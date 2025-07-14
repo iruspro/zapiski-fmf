@@ -31,7 +31,7 @@
         \begin{itemize}
             \item[(1)] Sila teže: \(\vec{F}_\text{g} = -mg_0 \widehat{e}_y\), kjer je \(\widehat{e}_y\) enotski vektor v smeri \(y\); 
             \item[(2)] Sila vzmeti: \(\vec{F}_\text{vz} = -ky\widehat{e}_y\);
-            \item[(3)] Sila upora (linearni zakon upora, viskoznost): \(\vec{F}_\text{u} = -C \vec{v} = -C \dot{y} \widehat{e}_y\), kjer je \(C > 0\) \df{koeficient upora}.
+            \item[(3)] Sila upora (linearni zakon upora, viskoznost): \(\vec{F}_\text{u} = -C \vec{v} = -C \dot{y} \widehat{e}_y\), kjer je \(C > 0\) \emph{koeficient upora}.
             \begin{itemize}
                 \item Sila upora se pojavi, ker nismo v vakuumu.
             \end{itemize}            
@@ -47,12 +47,12 @@
         \left( \ddot{y} + \frac{C}{m} \dot{y} + \frac{k}{m} y + g_0 \right) \widehat{e}_y = 0 \implies 
         \ddot{y} + \frac{C}{m} \dot{y} + \frac{k}{m} y + g_0 = 0.
         \]
-        \item Vpeljemo oznake: \(\beta := \frac{C}{m}, \ [\beta]  = s^{-1}\) je \df{koeficient dušenja}; in \( \omega_0^2 := \frac{k}{m}, \ [\omega_0^2] = s^{-2}\) je \df{lastna frekvenca}. Dobimo enačbo:
+        \item Vpeljemo oznake: \(\beta := \frac{C}{m}, \ [\beta]  = s^{-1}\) je \emph{koeficient dušenja}; in \( \omega_0^2 := \frac{k}{m}, \ [\omega_0^2] = s^{-2}\) je \emph{lastna frekvenca}. Dobimo enačbo:
         \[
         \ddot{y} + \beta \dot{y} + \omega_0^2 y + g_0 = 0.
         \]
         \item Iz \(\textcolor{red}{(*)}\) sledi, da \(g_0 = -\frac{k}{m}y_0 = - \omega_0^2y_0\).  
-        \df{Enačba dušenega nihanja} je:
+        \emph{Enačba dušenega nihanja} je:
         \[
         \boxed{\ddot{y} + \beta \dot{y} +  \omega_0^2 (y - y_0) = 0}
         \]        
@@ -71,14 +71,14 @@
 
 \paragraph{Postopek reševanja enačbe dušenega nihanja}
 \begin{enumerate}
-    \item Definiramo \(y' := y - y_0\) \df{odmik od ravnovesne lege}. S tem enačba postane homogena.
+    \item Definiramo \(y' := y - y_0\) \emph{odmik od ravnovesne lege}. S tem enačba postane homogena.
     \item Enačbo rešujemo z nastavkov \(y' = A e^{\lambda t}\), kjer sta \(A, \ \lambda\) neki konstanti, \([\lambda] = s^{-1}, \ [A] = m\). 
     
     Dobimo karakteristični polinom \(\lambda^2 + \beta \lambda + \omega_0^2 = 0\).
     \item Karakteristični polinom ima diskriminanto \(D = \beta^2 - 4 \omega_0^2\). Definiramo \(\boxed{\omega^2 := \omega_0^2 - \left(\frac{\beta}{2}\right)^2}\). Dobimo \(D = - 4 \omega^2\). Ločimo možnosti.
 \end{enumerate}
 
-\textbf{(a) \(D < 0 \ (\omega^2 > 0)\)}. V tem primeru dobimo \df{podkritično dušenje}.
+\textbf{(a) \(D < 0 \ (\omega^2 > 0)\)}. V tem primeru dobimo \emph{podkritično dušenje}.
 
 Splošna rešitev (vsota dveh rešitev) je 
 \[
@@ -88,7 +88,7 @@ Lahko jo zapišemo v obliki:
 \[
     \boxed{y' = B \exp\left(-\frac{\beta}{2}t\right) \sin (\omega t + \delta)}
 \]
-kjer je \(\delta\) \df{fazni zamik}.
+kjer je \(\delta\) \emph{fazni zamik}.
 
 \begin{primer}
     Če je \(\delta = 0\), potem \(y'(t) = B \exp (-\frac{\beta}{2} t) \sin (\omega t)\).
@@ -100,8 +100,8 @@ kjer je \(\delta\) \df{fazni zamik}.
     
     Definiramo količine:
     \begin{itemize}
-        \item \(t_0 = \frac{2pi}{\omega}\) je \df{nihajni čas} (čas enega nihaja).
-        \item \(\nu = \frac{1}{t_0}\) je \df{frekvenca}.
+        \item \(t_0 = \frac{2pi}{\omega}\) je \emph{nihajni čas} (čas enega nihaja).
+        \item \(\nu = \frac{1}{t_0}\) je \emph{frekvenca}.
         \begin{itemize}
             \item \(\nu = \frac{1}{t_0} = \frac{\omega}{2 \pi} \lthen \boxed{\omega = 2 \pi \nu}\)
         \end{itemize}
@@ -118,7 +118,7 @@ kjer je \(\delta\) \df{fazni zamik}.
 Rešimo enostaven sistem enačb in definiramo \(\ds r:= \frac{a}{b}\), potem \(\boxed{\delta = \arctan \left(\frac{r \omega}{1+\frac{r\beta}{2}}\right)}\) in \(\boxed{B = \frac{|b|}{\omega}}\)
 
 \newpage
-\textbf{(b) \(D = 0 \ (\omega = 0)\)}. V tem primeru dobimo \df{kritično dušenje}.
+\textbf{(b) \(D = 0 \ (\omega = 0)\)}. V tem primeru dobimo \emph{kritično dušenje}.
 
 Rešitvi sta \(y_1' = B_1 \exp \left(-\frac{\beta}{2}t\right)\) in \(y_2' = B_2 t \exp \left(-\frac{\beta}{2}t\right)\). Splošna rešitev je 
 \[\boxed{(B_1 + B_2t) \exp \left(-\frac{\beta}{2} t\right)}\]
@@ -133,7 +133,7 @@ Rešitvi sta \(y_1' = B_1 \exp \left(-\frac{\beta}{2}t\right)\) in \(y_2' = B_2 
     \caption{Dušeno nihanje v primeru kritičnega dušenja}      
 \end{figure}
 
-\textbf{(c) \(D > 0 \ (\omega^2 < 0)\)}. V tem primeru dobimo \df{nadkritično dušenje}. 
+\textbf{(c) \(D > 0 \ (\omega^2 < 0)\)}. V tem primeru dobimo \emph{nadkritično dušenje}. 
 
 Splošna rešitev je 
 \[
@@ -380,7 +380,7 @@ Po drugi strani:
 F_i = m_1 \cdot \frac{d^2u(x, t)}{dt^2} = m_1 \cdot \frac{\partial^2 u}{\partial t^2} = \frac{m}{n}h \frac{\partial^2 u}{\partial t^2}
 \]
 %
-\df{Newtonov zakon za \(i\)-ti utež} je torej
+\emph{Newtonov zakon za \(i\)-ti utež} je torej
 %
 \[
     \frac{\partial^2 u}{\partial t^2} = \frac{kl^2}{m} \cdot \frac{u(x+h, t) - 2u(x, t) + u(x -h, t)}{h^2}
@@ -393,7 +393,7 @@ F_i = m_1 \cdot \frac{d^2u(x, t)}{dt^2} = m_1 \cdot \frac{\partial^2 u}{\partial
 \frac{\partial^2u(x,t)}{\partial x^2} = \lim_{h \to 0} \frac{u(x+h, t) - 2u(x, t) + u(x -h, t)}{h^2} \ \textcolor{red}{(*)}
 \]
 %
-\(\ds \frac{\partial^2u(x,t)}{\partial x^2}\) imenujemo \df{drugi simetrični odvod} \(u\) po \(x\). Ta odvod je enak limiti na desni v izrazu \textcolor{red}{(*)}, če obstaja.
+\(\ds \frac{\partial^2u(x,t)}{\partial x^2}\) imenujemo \emph{drugi simetrični odvod} \(u\) po \(x\). Ta odvod je enak limiti na desni v izrazu \textcolor{red}{(*)}, če obstaja.
 
 Torej v limiti dobimo enačbo
 %
@@ -401,9 +401,9 @@ Torej v limiti dobimo enačbo
     \boxed{\frac{\partial^2 u(x, t)}{\partial t^2} = C^2 \frac{\partial^2u(x,t)}{\partial x^2}}
 \]
 %
-kjer \(\ds C^2 = \frac{kl^2}{m}\). Tej enačbe pravimo \df{valovna enačba}.
+kjer \(\ds C^2 = \frac{kl^2}{m}\). Tej enačbe pravimo \emph{valovna enačba}.
 \begin{itemize}
-    \item \([C^2] = \frac{\text{m}^2}{\text{s}^2} \lthen [C] = \frac{\text{m}}{\text{s}}\). \(C\) je \df{hitrost valovanja}.
+    \item \([C^2] = \frac{\text{m}^2}{\text{s}^2} \lthen [C] = \frac{\text{m}}{\text{s}}\). \(C\) je \emph{hitrost valovanja}.
 \end{itemize}
 
 \subsubsection*{Valovanje v tekočini, zaprti v tanki togi cevi}

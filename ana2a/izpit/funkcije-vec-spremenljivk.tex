@@ -49,7 +49,7 @@ Tedaj obstaja okolica $a \in U \subseteq \R^n$ in okolica $b \in V \subseteq \R^
 \end{enumerate}
 
 \subsection*{Podmnogoterosti}
-Naj bo $M \subseteq \R^{n+m}, \ M \neq \emptyset$. Množica $M$ je \df{gladka podmnogoterost} dimenzije $n$ prostora $\R^{n+m}$, če za vsako točko~$a \in M$ obstaja okolica $U$ v $\R^{n+m}$ in take $C^1$ funkcije $F_1, \ldots, F_m: U \to \R$, da velja:
+Naj bo $M \subseteq \R^{n+m}, \ M \neq \emptyset$. Množica $M$ je \emph{gladka podmnogoterost} dimenzije $n$ prostora $\R^{n+m}$, če za vsako točko~$a \in M$ obstaja okolica $U$ v $\R^{n+m}$ in take $C^1$ funkcije $F_1, \ldots, F_m: U \to \R$, da velja:
 \begin{enumerate}
     \item $M \cap U = \setb{x \in U}{F_1(x) = \ldots = F_m(x) = 0} = F^*(\set{0})$.
     \item $\rang(F_1, \ldots, F_m) = m$ na $U$.
@@ -65,7 +65,7 @@ $M$ podajamo kot $F(\underbrace{x_1, \ldots, x_{n}}_x) = 0 $, kjer $F = (f_1, \l
 \subsection*{Taylorjeva formula}
 \textbf{Taylorjeva formula:} $\displaystyle f(a+h) = f(a) + (D_hf)(a) + \frac{1}{2!}(D_h^2f)(a) + \ldots + \frac{1}{k!} (D_h^kf)(a) + R_k$,
 
-kjer je $D_h = h_1D_1 + h_2D_2 + \ldots + h_nD_n$ \df{odvod v smeri $h$} in $R_k = \frac{1}{(k+1)!} (D_h^{k+1}f)(a + \theta h)$ \df{ostanek}.
+kjer je $D_h = h_1D_1 + h_2D_2 + \ldots + h_nD_n$ \emph{odvod v smeri $h$} in $R_k = \frac{1}{(k+1)!} (D_h^{k+1}f)(a + \theta h)$ \emph{ostanek}.
 
 \textbf{Iskanje odvodov:}
 $\displaystyle \frac{\partial^{i+j}}{\partial x^i \partial y^j}(a, b) = C_{ij}\, i !j!$, kjer je $C_{ij}$ koeficient pred členom $x^iy^j$ v razvoju $f$ v Taylorjevo vrsto.

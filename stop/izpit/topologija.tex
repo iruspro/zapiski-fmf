@@ -10,15 +10,15 @@ Naj bo $(M, d)$ metrični prostor. Za $S \subseteq M, \ S \neq \emptyset$ defini
 \subsection{Topologija}
 \begin{itemize}
     \item Naj bo $A+ B = \setb{\text{in}_1(a)}{a \in A} \cup \setb{\text{in}_2(b)}{b \in B}$. $\T_{A+B}$ je topologija porojena z bazo $\set{\img{{\text{in}_1}}(\T_A)} \cup \set{\img{{\text{in}_2}}(\T_B)}.$ Torej $\T_{A+B} = \setb{\img{{\text{in}_1}}(U) \cup \img{{\text{in}_2}}(V)}{U \in T_A \land V \in \T_B}$. Injekciji sta odprti in zaprti vložitvi.
-    \item $\B_S = \setb{[a, b)}{a \in \R, b \in \R, a < b}$ generira $\T_S$, ki jo imenujemo \df{Sorgenfreyeva premica}. Oznaka: $\R_S$.
+    \item $\B_S = \setb{[a, b)}{a \in \R, b \in \R, a < b}$ generira $\T_S$, ki jo imenujemo \emph{Sorgenfreyeva premica}. Oznaka: $\R_S$.
 \end{itemize}
 
 \subsection{Slike in praslike}
 \begin{definicija}
     Naj bo $f: A \to B$ preslikava.
     \begin{itemize}
-        \item \df{Praslika} podmnožice $S \in B$ je $f^*(S) := \setb{x \in A}{f(x) \in S}$.
-        \item \df{Slika} podmnožice $T \in A$ je $f_*(T) := \setb{y \in B}{\some{x \in T} f(x) = y}$.
+        \item \emph{Praslika} podmnožice $S \in B$ je $f^*(S) := \setb{x \in A}{f(x) \in S}$.
+        \item \emph{Slika} podmnožice $T \in A$ je $f_*(T) := \setb{y \in B}{\some{x \in T} f(x) = y}$.
     \end{itemize}
 \end{definicija}
 
@@ -45,7 +45,7 @@ Naj bo $(M, d)$ metrični prostor. Za $S \subseteq M, \ S \neq \emptyset$ defini
 \subsection{Baze in predbaze}
 
 \begin{definicija}
-    Naj bo $(X, \T)$ prostor, $x \in X$. Družina $\B_x \subseteq \T$, $\all{B \in \B_x} x \in B$ je \df{lokalna baza okolic} točke~$x$, če za vsako odprto okolico $U \in \T$ točke $x$, obstaja $B \in \B_x$, da $x \in B \subseteq U$.
+    Naj bo $(X, \T)$ prostor, $x \in X$. Družina $\B_x \subseteq \T$, $\all{B \in \B_x} x \in B$ je \emph{lokalna baza okolic} točke~$x$, če za vsako odprto okolico $U \in \T$ točke $x$, obstaja $B \in \B_x$, da $x \in B \subseteq U$.
 \end{definicija}
 
 \begin{opomba}
@@ -53,7 +53,7 @@ Naj bo $(M, d)$ metrični prostor. Za $S \subseteq M, \ S \neq \emptyset$ defini
 \end{opomba}
 
 \begin{definicija}
-    Naj bo $(X, \T)$ prostor. Družina $\B \subseteq \T$ je \df{baza} topologije $\T$, če lahko vse elemente $\T$ zapišemo kot unije elementov $\B$.
+    Naj bo $(X, \T)$ prostor. Družina $\B \subseteq \T$ je \emph{baza} topologije $\T$, če lahko vse elemente $\T$ zapišemo kot unije elementov $\B$.
 \end{definicija}
 
 \begin{trditev}
@@ -76,7 +76,7 @@ Naj bo $(M, d)$ metrični prostor. Za $S \subseteq M, \ S \neq \emptyset$ defini
 \end{trditev}
     
 \begin{definicija}
-    \df{Produktna topologija} $\T_{X \times X'}$ je topologija, ki jo kot baza generirana $\setb{U \times U'}{U \in \T, U' \in \T'}$.
+    \emph{Produktna topologija} $\T_{X \times X'}$ je topologija, ki jo kot baza generirana $\setb{U \times U'}{U \in \T, U' \in \T'}$.
 \end{definicija}
 
 \begin{opomba}
@@ -91,7 +91,7 @@ Naj bo $(M, d)$ metrični prostor. Za $S \subseteq M, \ S \neq \emptyset$ defini
 
 \begin{trditev}
     Naj bo $\mathcal{P}$ poljubna družina podmnožic $X$. Če je $\mathcal{P}$ pokritje $X$, potem je $\T$ topologija, ki jo kot baza generirajo končni preseki elementov $\mathcal{P}$.
-    Pravimo, da je $\mathcal{P}$ \df{predbaza topologije $\T$}.
+    Pravimo, da je $\mathcal{P}$ \emph{predbaza topologije $\T$}.
 \end{trditev}
 
 \begin{trditev}
@@ -125,11 +125,11 @@ Naj bo $(M, d)$ metrični prostor. Za $S \subseteq M, \ S \neq \emptyset$ defini
 
 \subsubsection{Separabilnost}
 \begin{definicija}
-    Podmnožica $A$ je \df{povsod gosta} v $X$, če seka vsako odprto množico $X$, ali ekvivalentno, če je $\overline{A} = X$.
+    Podmnožica $A$ je \emph{povsod gosta} v $X$, če seka vsako odprto množico $X$, ali ekvivalentno, če je $\overline{A} = X$.
 \end{definicija}
 
 \begin{definicija}
-    Prostor $(X, \T)$ je \df{separabilen}, če v $X$ obstaja števna gosta podmnožica.
+    Prostor $(X, \T)$ je \emph{separabilen}, če v $X$ obstaja števna gosta podmnožica.
 \end{definicija}
 
 \begin{trditev}
@@ -149,8 +149,8 @@ Naj bo $(M, d)$ metrični prostor. Za $S \subseteq M, \ S \neq \emptyset$ defini
 Naj bo $(X, \T)$ prostor, $A \subseteq X$. Definiramo $\T_A := \setb{A \cap U}{U \in T}$. $\T_A$ topologija na $A$.
 
 \begin{definicija}
-    Topologiji $\T_A$ pravimo \df{inducirana} topologija na $A$.
-    Prostor $(A, \T_A)$ je \df{podprostor} prostora $(X, \T)$.
+    Topologiji $\T_A$ pravimo \emph{inducirana} topologija na $A$.
+    Prostor $(A, \T_A)$ je \emph{podprostor} prostora $(X, \T)$.
 \end{definicija}
 
 \begin{trditev}
@@ -172,13 +172,13 @@ Naj bo $(X, \T)$ prostor, $A \subseteq X$. Definiramo $\T_A := \setb{A \cap U}{U
 
 \subsubsection{Dednost}
 \begin{definicija}
-    Topološka lastnost je \df{dedna}, če iz prevzetka, da $(X, \T)$ ima to lastnost sledi, da jo imajo tudi vsi podprostori.
+    Topološka lastnost je \emph{dedna}, če iz prevzetka, da $(X, \T)$ ima to lastnost sledi, da jo imajo tudi vsi podprostori.
 \end{definicija}
 
 \subsubsection{Odsekoma definirane funkcije}
 
 \begin{definicija}
-    Naj bo $\set{X_\lambda}$ pokritje $X$. Za družino $f_\lambda: X_\lambda \to Y$ rečemo, da je \df{usklajena}, če je ${f_\lambda}_{|X_\lambda \cap X_\mu} =~{f_\mu}_{|X_\lambda \cap X_\mu}$ za poljubna indeksa $\lambda, \mu$.
+    Naj bo $\set{X_\lambda}$ pokritje $X$. Za družino $f_\lambda: X_\lambda \to Y$ rečemo, da je \emph{usklajena}, če je ${f_\lambda}_{|X_\lambda \cap X_\mu} =~{f_\mu}_{|X_\lambda \cap X_\mu}$ za poljubna indeksa $\lambda, \mu$.
 \end{definicija}
 
 \begin{trditev}
@@ -190,7 +190,7 @@ Naj bo $(X, \T)$ prostor, $A \subseteq X$. Definiramo $\T_A := \setb{A \cap U}{U
 \end{lema}
 
 \begin{definicija}
-    Pokritje $\set{X_\lambda}$ za $X$ je \df{lokalno končno}, če za vsako točko $x \in X$ obstaja okolica, ki seka le končno mnogo različnih $X_\lambda$.
+    Pokritje $\set{X_\lambda}$ za $X$ je \emph{lokalno končno}, če za vsako točko $x \in X$ obstaja okolica, ki seka le končno mnogo različnih $X_\lambda$.
 \end{definicija}
 
 \begin{lema}
@@ -207,7 +207,7 @@ Naj bo $(X, \T)$ prostor, $A \subseteq X$. Definiramo $\T_A := \setb{A \cap U}{U
 
 \subsubsection{Vložitve}
 \begin{definicija}
-    Preslikava $f: X \to Y$ je \df{vložitev}, če je $f$ homeomorfizem med $X$ in $\img{f}(X)$ (glede na od $Y$ podedovano topologijo).
+    Preslikava $f: X \to Y$ je \emph{vložitev}, če je $f$ homeomorfizem med $X$ in $\img{f}(X)$ (glede na od $Y$ podedovano topologijo).
 \end{definicija}
 
 \begin{opomba}
@@ -225,16 +225,16 @@ Naj bo $(X, \T)$ prostor, $A \subseteq X$. Definiramo $\T_A := \setb{A \cap U}{U
 \section{Topološki lastnosti}
 \subsection{Ločljivost}
 \begin{definicija}
-    Za topologjo $\T$ na množici $X$ pravimo, da \df{loči} podmnožico $A \subseteq X$ od pomnožice $B \subseteq X$, če obstaja $U \in \T$, za katero je $A \subseteq U$ in $B \cap U = \emptyset$.
+    Za topologjo $\T$ na množici $X$ pravimo, da \emph{loči} podmnožico $A \subseteq X$ od pomnožice $B \subseteq X$, če obstaja $U \in \T$, za katero je $A \subseteq U$ in $B \cap U = \emptyset$.
 \end{definicija}
 
 \begin{definicija}
-    Za topologjo $\T$ na množici $X$ pravimo, da \df{ostro loči} podmnožici $A \subseteq X$ in $B \subseteq X$, če obstajata $U, V \in \T$, za kateri je $A \subseteq U, \ B \subseteq V$ in $U \cap V = \emptyset$.
+    Za topologjo $\T$ na množici $X$ pravimo, da \emph{ostro loči} podmnožici $A \subseteq X$ in $B \subseteq X$, če obstajata $U, V \in \T$, za kateri je $A \subseteq U, \ B \subseteq V$ in $U \cap V = \emptyset$.
 \end{definicija}
 
 \subsubsection{Hausdorffova in Frechetova lastnosti}
 \begin{definicija}
-    Za prostor $(X, \T)$ pravimo, da je \df{Hausdorffov}, če $\T$ ostro loči vsaki dve različni točki $X$.
+    Za prostor $(X, \T)$ pravimo, da je \emph{Hausdorffov}, če $\T$ ostro loči vsaki dve različni točki $X$.
 \end{definicija}
 
 \begin{trditev}
@@ -242,7 +242,7 @@ Naj bo $(X, \T)$ prostor, $A \subseteq X$. Definiramo $\T_A := \setb{A \cap U}{U
     \begin{enumerate}
         \item $X$ je Hausdorffov.
         \item $\all{x \in X} \bigcap_{U \in \mathcal{U}} \overline{U} = \set{x}$, kjer je $\mathcal{U}$ družina vseh okolic $x$ (ekvivalentno $x \neq y \lthen \some{U \in \T} x \in U \land y \notin \overline{U}$).
-        \item \df{Diagonala} $\Delta = \setb{(x,x) \in X \times X}{x \in X}$ je zaprt podprostor produkta $X \times X$.
+        \item \emph{Diagonala} $\Delta = \setb{(x,x) \in X \times X}{x \in X}$ je zaprt podprostor produkta $X \times X$.
     \end{enumerate}
 \end{trditev}
 
@@ -263,7 +263,7 @@ Naj bo $(X, \T)$ prostor, $A \subseteq X$. Definiramo $\T_A := \setb{A \cap U}{U
 \end{izrek}
 
 \begin{definicija}
-    Prostor $(X, \T)$ je \df{Frechetov}, če $\T$ vsako točko $X$ loči od vsake druge točke $X$.
+    Prostor $(X, \T)$ je \emph{Frechetov}, če $\T$ vsako točko $X$ loči od vsake druge točke $X$.
 \end{definicija}
 
 \begin{trditev}
@@ -273,11 +273,11 @@ Naj bo $(X, \T)$ prostor, $A \subseteq X$. Definiramo $\T_A := \setb{A \cap U}{U
 \subsubsection{Regularnost in normalnost}
 Ostrejše zahteve za ločljivost dobimo, če točke nadomestimo z zaprtimi množicami.
 \begin{definicija}
-    Prostor $(X, \T)$ je \df{regularen} če je Frechetov in če $\T$ ostro loči točke od zaprtih množic.
+    Prostor $(X, \T)$ je \emph{regularen} če je Frechetov in če $\T$ ostro loči točke od zaprtih množic.
 \end{definicija}
 
 \begin{definicija}
-    Prostor $(X, \T)$ je \df{normalen}, če je Frechetov in če $\T$ ostro loči disjunktne zaprte množice.
+    Prostor $(X, \T)$ je \emph{normalen}, če je Frechetov in če $\T$ ostro loči disjunktne zaprte množice.
 \end{definicija}
 
 \begin{trditev}
@@ -298,11 +298,11 @@ Ostrejše zahteve za ločljivost dobimo, če točke nadomestimo z zaprtimi množ
 
 \subsubsection{Aksiomi ločljivosti}
 \begin{itemize}
-    \item [] \df{X je $T_0$}: Za točki $x, x' \in X$ obstaja okolica ene izmed točk $x, x'$, ki jo loči od druge točke.
-    \item [] \df{X je $T_1$}: Za točki $x, x' \in X$ obstaja okolica $x$, ki jo loči od $x'$ in obstaja okolica točke $x'$, ki jo loči od~$x$.
-    \item [] \df{X je $T_2$}: Za točki $x, x' \in X$ obstajata okolici, ki ostro ločita $x$ in $x'$.
-    \item [] \df{X je $T_3$}: Za točko $x \in X$ in zaprto množico $A \subseteq X$, ki ne vsebuje $x$, obstajata okolici, ki ostro ločita $x$ in $A$.
-    \item [] \df{X je $T_4$}: Za disjunktni zaprti množici $A, B \subseteq X$ obstajata okolici, ki ostro ločita $A$ in $B$.
+    \item [] \emph{X je $T_0$}: Za točki $x, x' \in X$ obstaja okolica ene izmed točk $x, x'$, ki jo loči od druge točke.
+    \item [] \emph{X je $T_1$}: Za točki $x, x' \in X$ obstaja okolica $x$, ki jo loči od $x'$ in obstaja okolica točke $x'$, ki jo loči od~$x$.
+    \item [] \emph{X je $T_2$}: Za točki $x, x' \in X$ obstajata okolici, ki ostro ločita $x$ in $x'$.
+    \item [] \emph{X je $T_3$}: Za točko $x \in X$ in zaprto množico $A \subseteq X$, ki ne vsebuje $x$, obstajata okolici, ki ostro ločita $x$ in $A$.
+    \item [] \emph{X je $T_4$}: Za disjunktni zaprti množici $A, B \subseteq X$ obstajata okolici, ki ostro ločita $A$ in $B$.
 \end{itemize}
 
 \begin{opomba}
@@ -320,7 +320,7 @@ Ostrejše zahteve za ločljivost dobimo, če točke nadomestimo z zaprtimi množ
 \subsection{Povezanost}
 
 \begin{definicija}
-    \df{Razcep} prostora $X$ je zapis $X$ kot disjunktne unije dveh nepraznih odprtih množic. Če prostor dopušča kakšen razcep, pravimo, da je \df{nepovezan}, v nasprotnem primeru pa pravimo, da je \df{povezan}.
+    \emph{Razcep} prostora $X$ je zapis $X$ kot disjunktne unije dveh nepraznih odprtih množic. Če prostor dopušča kakšen razcep, pravimo, da je \emph{nepovezan}, v nasprotnem primeru pa pravimo, da je \emph{povezan}.
 \end{definicija}
 
 \begin{trditev}
@@ -354,13 +354,13 @@ Ostrejše zahteve za ločljivost dobimo, če točke nadomestimo z zaprtimi množ
     \begin{itemize}
         \item Naj bo $\set{A_\lambda}_{\lambda \in \Lambda}$ družina povezanih podmnožic $X$ in $\bigcap A_\lambda \neq \emptyset$. Potem $\bigcup A_\lambda$ je povezan.
         \item Topološki produkt povezanih prostorov je povezan.
-        \item Če za poljubna $a,b \in X$ obstaja pot od $a$ do $b$, kjer \df{pot v $X$} je preslikava $\gamma: [0,1] \to X, \gamma(0) = a, \gamma(1) = b$, potem $X$ je povezan.
+        \item Če za poljubna $a,b \in X$ obstaja pot od $a$ do $b$, kjer \emph{pot v $X$} je preslikava $\gamma: [0,1] \to X, \gamma(0) = a, \gamma(1) = b$, potem $X$ je povezan.
         \item Naj bo $A \subseteq X$ povezan. Če za $B \subseteq X$ velja, da $A \subseteq B \subseteq \overline{A}$, potem $B$ je povezan.
     \end{itemize}
 \end{izrek}
 
 \begin{definicija}
-    Prostor $X$ je \df{povezan s potmi}, če med poljubnima $a, b \in X$ obstaja pot v $X$ od $a$ do $b$.
+    Prostor $X$ je \emph{povezan s potmi}, če med poljubnima $a, b \in X$ obstaja pot v $X$ od $a$ do $b$.
 \end{definicija}
 
 Lastnosti povezanosti s potmi so podobne lastnostim povezanosti:
@@ -374,7 +374,7 @@ Lastnosti povezanosti s potmi so podobne lastnostim povezanosti:
 
 \subsubsection{Komponente}
 \begin{definicija}
-    \df{Komponenta} $C(x)$ točke $x \in X$ je unija vseh povezanih podmnožic $X$, ki vsebujejo $x$.
+    \emph{Komponenta} $C(x)$ točke $x \in X$ je unija vseh povezanih podmnožic $X$, ki vsebujejo $x$.
 \end{definicija}
 \begin{trditev}
     Lastnosti komponent:
@@ -392,18 +392,18 @@ Lastnosti povezanosti s potmi so podobne lastnostim povezanosti:
 \end{izrek}
 
 \begin{definicija}
-    Prostor $X$ je \df{lokalno povezan}, če ima bazo iz povezanih množic.
+    Prostor $X$ je \emph{lokalno povezan}, če ima bazo iz povezanih množic.
 \end{definicija}
 
 \begin{opomba}
-    Prostor $X$ je \df{lokalno povezan}, če vsaka okolica vsake točke ima manjšo povezano okolico.
+    Prostor $X$ je \emph{lokalno povezan}, če vsaka okolica vsake točke ima manjšo povezano okolico.
 \end{opomba}
 
 \begin{trditev}
     Prostor $X$ je lokalno povezan natanko takrat, ko so komponente vsake odprte podmnožice $X$ odprte. Posebej so komponente vsakega lokalno povezanega prostora odprte.
 \end{trditev}
 
-\df{Komponenta za povezanost potmi} točke $x \in X$ označimo z $\widetilde{C}(x)$ in definiramo kot unijo vseh povezanih s potmi podmnožic $X$, ki vsebujejo $x$.
+\emph{Komponenta za povezanost potmi} točke $x \in X$ označimo z $\widetilde{C}(x)$ in definiramo kot unijo vseh povezanih s potmi podmnožic $X$, ki vsebujejo $x$.
 
 \begin{opomba}
     \ 
@@ -412,11 +412,11 @@ Lastnosti povezanosti s potmi so podobne lastnostim povezanosti:
         \item Potni komponente razdelijo $X$ na disjunktne podmnožice.
     \end{itemize}
 
-    V splošnem potni komponente niso zaprte: varšavski lok ima dve komponenti za povezanost s potmi od katerih je le ena zaprta. Za $X$ pravimo, da je \df{lokalno povezan s potmi}, če ima bazo iz s potmi povezanih množic.
+    V splošnem potni komponente niso zaprte: varšavski lok ima dve komponenti za povezanost s potmi od katerih je le ena zaprta. Za $X$ pravimo, da je \emph{lokalno povezan s potmi}, če ima bazo iz s potmi povezanih množic.
 \end{opomba}
 
 \begin{opomba}
-    Prostor $X$ je \df{lokalno povezan s potmi}, če vsaka okolica vsake točke ima manjšo povezano s potmi okolico.
+    Prostor $X$ je \emph{lokalno povezan s potmi}, če vsaka okolica vsake točke ima manjšo povezano s potmi okolico.
 \end{opomba}
 
 \begin{izrek}
@@ -434,7 +434,7 @@ Lastnosti povezanosti s potmi so podobne lastnostim povezanosti:
 
 \subsection{Kompaktnost}
 \begin{definicija}
-    Prostor $X$ je \df{kompakten}, če ima vsako odprto pokritje $X$ končno podpokritje.
+    Prostor $X$ je \emph{kompakten}, če ima vsako odprto pokritje $X$ končno podpokritje.
 \end{definicija}
 
 \begin{trditev}
@@ -506,7 +506,7 @@ Lastnosti povezanosti s potmi so podobne lastnostim povezanosti:
 \end{posledica}
 
 \begin{izrek}[Lebesgueova lema]
-    Za vsako odprto pokritje \(\mathcal{U}\) metričnega kompakta $X$ obstaja tako imenovano \df{Lebesgueovo število} $\lambda = \lambda (\mathcal{U})$ z lastnostjo, da vsaka krogla s polmerom manjšim od $\lambda$ leži v celoti v nekem elementu~$\mathcal{U}$.
+    Za vsako odprto pokritje \(\mathcal{U}\) metričnega kompakta $X$ obstaja tako imenovano \emph{Lebesgueovo število} $\lambda = \lambda (\mathcal{U})$ z lastnostjo, da vsaka krogla s polmerom manjšim od $\lambda$ leži v celoti v nekem elementu~$\mathcal{U}$.
 \end{izrek}
 
 \begin{izrek}
@@ -523,11 +523,11 @@ Lastnosti povezanosti s potmi so podobne lastnostim povezanosti:
 \end{izrek}
 
 \begin{definicija}
-    Odprta podmnožica $U \subseteq X$ je \df{relativno kompaktna}, če je njeno zaprtje \(\overline{U}\) kompaktno.
+    Odprta podmnožica $U \subseteq X$ je \emph{relativno kompaktna}, če je njeno zaprtje \(\overline{U}\) kompaktno.
 \end{definicija}
 
 \begin{definicija}
-    Prostor $X$ je \df{lokalno kompakten}, če ima bazo iz relativno kompaktnih množic.
+    Prostor $X$ je \emph{lokalno kompakten}, če ima bazo iz relativno kompaktnih množic.
 \end{definicija}
 
 \begin{izrek}
@@ -550,11 +550,11 @@ $$\left\langle A, U \right\rangle = \setb{f \in C(X,Y)}{\img{f}(A) \subseteq U}.
 Naj bo $\T$ topologija na $C(X, Y)$, ki jo kot predbaza generira družina \(\mathcal{P} = \setb{\left\langle \set{x}, U \right\rangle}{x \in X, \, U \text{ odprta v } Y}.\) Tipična bazična okolica v tej topologiji je presel $\left\langle x_1, U_1 \right\rangle \cap \ldots \cap \left\langle x_n, U_n \right\rangle$, ki si ga lahko predstavljamo kot družino vseh funkcij, ki gredo po točkah $x_1, \ldots, x_n$ skozi predpisane prehode $U_1, \ldots, U_n$.
 
 \begin{trditev}
-    Naj bo \((f_n)\) zaporedje preslikav v \(C(X, Y)\). Funkcije \(f_n\) konvergirajo po točkah proti neki funkciji $f$ natanko takrat, ko zaporedje \((f_n)\) konvergira proti $f$ v topologiji $\T$. Zaradi tega \(\T\) imenujemo \df{topologija konvergnce po točkah}.
+    Naj bo \((f_n)\) zaporedje preslikav v \(C(X, Y)\). Funkcije \(f_n\) konvergirajo po točkah proti neki funkciji $f$ natanko takrat, ko zaporedje \((f_n)\) konvergira proti $f$ v topologiji $\T$. Zaradi tega \(\T\) imenujemo \emph{topologija konvergnce po točkah}.
 \end{trditev}
 
 \begin{definicija}
-    \df{Kompaktno-odprta topologija} na $C(X,Y)$ je topologija, ki jo generira predbaza \[\mathcal{P'} = \setb{\left\langle K, U \right\rangle}{K \text{ kompakten v } X, \, U \text{ odprta v } Y}.\]
+    \emph{Kompaktno-odprta topologija} na $C(X,Y)$ je topologija, ki jo generira predbaza \[\mathcal{P'} = \setb{\left\langle K, U \right\rangle}{K \text{ kompakten v } X, \, U \text{ odprta v } Y}.\]
     Prostor zveznih funkcij, opremljen s to topologijo, označimo $\widehat{C}(X,Y)$. 
 \end{definicija}
 
@@ -569,7 +569,7 @@ $$\left\langle f, K, \epsilon \right\rangle = \setb{g \in C(X, Y)}{d(f(x), g(x))
     \(\mathcal{B}\) generira kompaktno-odprto topologijo.
 \end{opomba}
 
-Če je $K \subseteq K'$ ali $\epsilon > \epsilon'$, je $\left\langle f, K', \epsilon' \right\rangle \subseteq \left\langle f, K, \epsilon \right\rangle$, zato po potrebi lahko za bazo kompaktno-odprte topologije vzamemo le množice \(\left\langle f, K, \epsilon \right\rangle\) za velike kompakte $K$ ali majhne $\epsilon$. Posebej če je $X$ kompakten, se lahko omejimo na množice \(\left\langle f, X, \epsilon \right\rangle\), kar so ravno $\epsilon$ krogle v supremum metriki. Vidimo torej, da se za kompakten $X$ in metričen $Y$ kompaktno-odprta topologija ujema s topologijo enakomerne konvergence. Če pa $X$ ni kompakten, je glede na to topologijo konvergenca enakomerna le, kadar se omejimo na kompaktne podmnožice (tako kot pri Taylorjevih vrstah), zato ji pravimo tudi \df{topologija enakomerne konvergence na kompaktih}.
+Če je $K \subseteq K'$ ali $\epsilon > \epsilon'$, je $\left\langle f, K', \epsilon' \right\rangle \subseteq \left\langle f, K, \epsilon \right\rangle$, zato po potrebi lahko za bazo kompaktno-odprte topologije vzamemo le množice \(\left\langle f, K, \epsilon \right\rangle\) za velike kompakte $K$ ali majhne $\epsilon$. Posebej če je $X$ kompakten, se lahko omejimo na množice \(\left\langle f, X, \epsilon \right\rangle\), kar so ravno $\epsilon$ krogle v supremum metriki. Vidimo torej, da se za kompakten $X$ in metričen $Y$ kompaktno-odprta topologija ujema s topologijo enakomerne konvergence. Če pa $X$ ni kompakten, je glede na to topologijo konvergenca enakomerna le, kadar se omejimo na kompaktne podmnožice (tako kot pri Taylorjevih vrstah), zato ji pravimo tudi \emph{topologija enakomerne konvergence na kompaktih}.
 
 \ 
 

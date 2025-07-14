@@ -1,12 +1,12 @@
 \section{Riemannov integral v $\R^n$}
 \begin{definicija}
-    \df{Kvader} \([a,b]\) je množica \([a,b] = \setb{x = (x_1, \ldots, x_n)}{a_j \leq x_j \leq b_j, \ j = 1, \ldots, n}\) za \(a \leq b\). 
+    \emph{Kvader} \([a,b]\) je množica \([a,b] = \setb{x = (x_1, \ldots, x_n)}{a_j \leq x_j \leq b_j, \ j = 1, \ldots, n}\) za \(a \leq b\). 
 
-    \df{Prostornina kvadra} je \(V([a,b]) = \prod_{j=1}^{n} (b_j - a_j)\).
+    \emph{Prostornina kvadra} je \(V([a,b]) = \prod_{j=1}^{n} (b_j - a_j)\).
 \end{definicija}
 
 \begin{definicija}
-    \df{Delitev \(D\)} kvadra \(K = [a,b]\) dobimo z delitvami robov kvadra K:
+    \emph{Delitev \(D\)} kvadra \(K = [a,b]\) dobimo z delitvami robov kvadra K:
     \[\all{j \in \set{1, \ldots, n}} a_j = x_o^j < x_1^j < \ldots < x_{m_j}^j = b_j.\]
 \end{definicija}
 
@@ -15,7 +15,7 @@
 \end{opomba}
 
 \begin{definicija}
-    Delitev \(D'\) kvadra \(K\) je \df{finejša} od delitve \(D\), če vsebuje vse delilne točke delitve \(D\).
+    Delitev \(D'\) kvadra \(K\) je \emph{finejša} od delitve \(D\), če vsebuje vse delilne točke delitve \(D\).
 \end{definicija}
 
 \begin{opomba}
@@ -42,9 +42,9 @@ Naj bo \(D\) delitev kvadra \(K\). Naj bo \(Q \in D\) (nek manjši kvader). Defi
 \end{align*}
 
 \begin{definicija}
-    \df{Spodnja Darbouxoeva vsota} funkcije \(f\) pri delitvni \(D\) je 
+    \emph{Spodnja Darbouxoeva vsota} funkcije \(f\) pri delitvni \(D\) je 
     \[s(f, D) = s(D) = \sum_{Q \in D} m(Q) V(Q).\]
-    \df{Zgornja Darbouxoeva vsota} funkcije \(f\) pri delitvni \(D\) je 
+    \emph{Zgornja Darbouxoeva vsota} funkcije \(f\) pri delitvni \(D\) je 
     \[S(f, D) = S(D) = \sum_{Q \in D} M(Q) V(Q).\]
 \end{definicija}
 \begin{opomba}
@@ -66,7 +66,7 @@ Ker za poljubni delitvi \(D_1, D_2\) velja \(s(f,D) \leq S(f, D)\). Lahko Defini
 \end{align*}
 Velja: \(s(f) \leq S(f)\).
 \begin{definicija}
-    Funkcija \(f\) je na kvadru \(K\) \df{integrabilna po Darbouxju}, če 
+    Funkcija \(f\) je na kvadru \(K\) \emph{integrabilna po Darbouxju}, če 
     \[s(f) = S(f).\]
 \end{definicija}
 
@@ -77,21 +77,21 @@ Velja: \(s(f) \leq S(f)\).
 \begin{primer}
     \
     \begin{itemize}
-        \item[] \(n=2: \int \int_K f(x,y) dxdy\) je \df{dvojni integral}.
-        \item[] \(n=3: \int \int \int_K f(x,y,z) dxdydz\) je \df{trojni integral}.
+        \item[] \(n=2: \int \int_K f(x,y) dxdy\) je \emph{dvojni integral}.
+        \item[] \(n=3: \int \int \int_K f(x,y,z) dxdydz\) je \emph{trojni integral}.
     \end{itemize}
 \end{primer}
 
 \newpage
 \subsection{Riemannov integral}
 \begin{definicija}
-    Naj bo \(K = [a,b]\) kvader, \(D\) delitev, \(f: K \to \R\) funkcija. Za vsak \(Q \in D\) izberimo neko točko \(\eta_Q \in Q\). \df{Riemannova vsota} funkcije \(f\) pri delitvi \(D\) in izboru točk \(\eta = \set{\eta_Q \in Q}\) je 
+    Naj bo \(K = [a,b]\) kvader, \(D\) delitev, \(f: K \to \R\) funkcija. Za vsak \(Q \in D\) izberimo neko točko \(\eta_Q \in Q\). \emph{Riemannova vsota} funkcije \(f\) pri delitvi \(D\) in izboru točk \(\eta = \set{\eta_Q \in Q}\) je 
     \[R(f, D, \eta) = \sum_{Q \in D} f(\eta_Q) V(Q).\]
     Označimo z \(\Delta(D)\) maksimum vseh dolžin vseh tobov kvadrov delitve \(D\).
 \end{definicija}
 
 \begin{definicija}
-    Funkcija \(f\) je \df{integrabilna po Riemannu} na kvadru \(K\), če obstaja limita njenih Riemannovih vsot, tj.
+    Funkcija \(f\) je \emph{integrabilna po Riemannu} na kvadru \(K\), če obstaja limita njenih Riemannovih vsot, tj.
     \[\lim_{\Delta(D) \to 0} R(f, D, \eta) = I_R.\]
 \end{definicija}
 
@@ -123,7 +123,7 @@ Velja: \(s(f) \leq S(f)\).
 \end{izrek}
 
 \begin{proof}
-    \todo
+    \todo{}
 \end{proof}
 
 \begin{trditev}
@@ -131,7 +131,7 @@ Velja: \(s(f) \leq S(f)\).
 \end{trditev}
 
 \begin{proof}
-    \todo
+    \todo{}
 \end{proof}
 
 \subsection{Osnovne lastnosti Riemannova integrala po kvadrih}
@@ -143,15 +143,15 @@ Naj bo \(K \subseteq \R^n\) kvader, funkciji \(f, g\) integrabilni na \(K\).
     \[\int_K (\lambda f + \mu g)(x) \, dx = \lambda \int_K f(x) \, dx + \mu  \int_K g(x) \, dx.\]
     Torej množica integrabilnih funkcij na \(K\) je vektorski prostor nad \(\R\) in integral je linearen funkcional na tem prostoru.
     \begin{proof}
-        \todo
+        \todo{}
     \end{proof}
     \item Če je \(f(x) \leq g(x)\) za vse \(x \in K\), je \[\int_K f(x) \, dx \leq \int_K g(x) \, dx.\]
     \begin{proof}
-        \todo   
+        \todo{}
     \end{proof}
     \item Funkcija \(|f|\) je integrabilna in \[\left|\int_K f(x) \, dx\right| \leq \int_K |f(x)| \, dx.\]
     \begin{proof}
-        \todo
+        \todo{}
     \end{proof}
 \end{enumerate}
 
@@ -179,7 +179,7 @@ Naj bo \(K \subseteq \R^n\) kvader, funkciji \(f, g\) integrabilni na \(K\).
 \end{posledica}
 
 \begin{zgled}
-    \todo
+    \todo{}
 \end{zgled}
 
 \subsection{Riemannov integral na omejenih množicah}
@@ -194,38 +194,38 @@ Ker je \(A\) omejena obstaja kvader \(K\), da je \(A \subseteq K\). Definiramo f
 \end{cases}.\)
 
 \begin{definicija}
-    Omejena funkcija \(f\) na \(A\) je \df{integrabilna} na omejeni množici \(A\), če je \(\ot{f}\) integrabilna na kvadru \(K\), kjer je \(A \subseteq K\). Tedaj \[\int_A f(x) \, dx = \int_K \ot{f}(x) \, dx.\]
+    Omejena funkcija \(f\) na \(A\) je \emph{integrabilna} na omejeni množici \(A\), če je \(\wt{f}\) integrabilna na kvadru \(K\), kjer je \(A \subseteq K\). Tedaj \[\int_A f(x) \, dx = \int_K \wt{f}(x) \, dx.\]
 \end{definicija}
 
 \begin{opomba}
-    Dobra definiranost. \todo
+    Dobra definiranost. \todo{}
 \end{opomba}
 
 \begin{opomba}
-    Kaj če je \(K\) že kvader? \todo
+    Kaj če je \(K\) že kvader? \todo{}
 \end{opomba}
 
 \begin{zgled}
-    \todo
+    \todo{}
 \end{zgled}
 
 \begin{trditev}
     Naj bo \(A \subseteq \R^n\) omejena podmnožica. Naj bosta \(f, g : A \to \R\) integrabilni na \(A\) in naj bosta \(\lambda, \mu \in \R\). Teda je \[\lambda f + \mu g\] integrabilna na \(A\) in \[\int_A (\lambda f + \mu g)(x) \, dx = \lambda \int_A f(x) \, dx + \mu  \int_A g(x) \, dx.\]
 \end{trditev}
 \begin{proof}
-    \todo
+    \todo{}
 \end{proof}
 \begin{opomba}
     Množica integrabilnih na \(A\) funkcij tvori vektroski prostor nad \(R\) in integral je linearen funkcional na tem prostoru.
 \end{opomba}
 
 \subsubsection{Prostornina omejene množice}
-Definiramo \df{karakteristično funkcijo} množice \(A\): \[\chi_A(x) = \begin{cases}
+Definiramo \emph{karakteristično funkcijo} množice \(A\): \[\chi_A(x) = \begin{cases}
     1; &x \in A \\ 0; &x \notin A
 \end{cases}.\]
 
 \begin{definicija}
-    Omejena množica \(A \subseteq \R^n\) \df{ima prostornino}, če je funkcija \(x \mapsto 1\) integrabilna na~\(A\). Tedaj \[V(A) = \int_A 1 \, dx.\] 
+    Omejena množica \(A \subseteq \R^n\) \emph{ima prostornino}, če je funkcija \(x \mapsto 1\) integrabilna na~\(A\). Tedaj \[V(A) = \int_A 1 \, dx.\] 
 \end{definicija}
 
 \begin{opomba}
@@ -247,14 +247,6 @@ Definiramo \df{karakteristično funkcijo} množice \(A\): \[\chi_A(x) = \begin{c
 \begin{trditev}
     Omejena množica \(Q \subseteq \R^n\) ima prostornino natanko tedaj, ko \(V(\partial A) = 0\).
 \end{trditev}
-
-\begin{proof}
-    \todo
-\end{proof}
-
-\begin{zgled}
-    \todo
-\end{zgled}
 
 \subsection{Lastnosti omejenih množic s prostornino \(0\)}
 

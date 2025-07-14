@@ -1,6 +1,6 @@
 \section*{Metrični prostori}
 \begin{definicija}
-    \df{Metrični prostor} je množica $X$ skupaj z preslikavo $d: X \times X \to \R$, za katero velja:
+    \emph{Metrični prostor} je množica $X$ skupaj z preslikavo $d: X \times X \to \R$, za katero velja:
     \begin{itemize}
         \item $d(x, x') = 0 \liff x=x'$,
         \item $d(x, x') = d(x', x)$,
@@ -11,27 +11,27 @@
 \begin{definicija}
     Naj bo $(X, d)$ metrični prostor. 
     \begin{itemize}
-        \item \df{Odprta krogla} s središčem v $a$ in polmerom $r$ je množica $K(a, r) = \setb{x \in X}{d(a,x) < r}$.
-        \item \df{Zaprta krogla} s središčem v $a$ in polmerom $r$ je množica $K(a, r) = \setb{x \in X}{d(a,x) \leq r}$. 
-        \item \df{Okolica} točke $a$ je vsaka taka množica, ki vsebuje odprto kroglo $K(a, r)$ za nek $r>0$.
+        \item \emph{Odprta krogla} s središčem v $a$ in polmerom $r$ je množica $K(a, r) = \setb{x \in X}{d(a,x) < r}$.
+        \item \emph{Zaprta krogla} s središčem v $a$ in polmerom $r$ je množica $K(a, r) = \setb{x \in X}{d(a,x) \leq r}$. 
+        \item \emph{Okolica} točke $a$ je vsaka taka množica, ki vsebuje odprto kroglo $K(a, r)$ za nek $r>0$.
     \end{itemize}    
 \end{definicija}
 
 \begin{definicija}
     Naj bo $(X, d)$ metrični prostor in $A \subset X$.
     \begin{itemize}
-        \item Točka $x \in X$ je \df{notranja} točka množice $A$, če obstaja $r>0$, da $K(a,r) \subset A$.
-        \item Točka $a \in X$ je \df{zunanja} točka množice $A$, če obstaja $r>0$, da $K(a,r) \cap A = \emptyset$.
-        \item Točka $a \in X$ je \df{robna} točka množice $A$, če vsaka njena okolica seka $A$ in $A^c$.
+        \item Točka $x \in X$ je \emph{notranja} točka množice $A$, če obstaja $r>0$, da $K(a,r) \subset A$.
+        \item Točka $a \in X$ je \emph{zunanja} točka množice $A$, če obstaja $r>0$, da $K(a,r) \cap A = \emptyset$.
+        \item Točka $a \in X$ je \emph{robna} točka množice $A$, če vsaka njena okolica seka $A$ in $A^c$.
     \end{itemize}
 \end{definicija}
 
 \begin{definicija}
     Naj bo $(X, d)$ metrični prostor in $A \subset X$.
     \begin{itemize}
-        \item Množico $\Int A$ vseh notranjih točk množice $A$ imenujemo \df{notranjost} od $A$.
-        \item Množico $\Cl A$ vseh točk, za katere za vsak $r>0$, krogla $K(a, r)$ seka $A$, imenujemo \df{zaprtje} množice $A$.
-        \item Množico $\partial A$ vseh robnih točk množice $A$ imenujemo \df{meja} množice $A$.     
+        \item Množico $\Int A$ vseh notranjih točk množice $A$ imenujemo \emph{notranjost} od $A$.
+        \item Množico $\Cl A$ vseh točk, za katere za vsak $r>0$, krogla $K(a, r)$ seka $A$, imenujemo \emph{zaprtje} množice $A$.
+        \item Množico $\partial A$ vseh robnih točk množice $A$ imenujemo \emph{meja} množice $A$.     
     \end{itemize}
 \end{definicija}
 
@@ -47,8 +47,8 @@
 \begin{definicija}    
     Naj bo $(X, d)$ metrični prostor in $A \subset X$.
     \begin{itemize}
-        \item Množica $A$ je \df{odprta} v metričnem prostoru $X$, če je vsaka njena točka notranja.
-        \item Množica $A$ je \df{zaprta} v metričnem prostoru $X$, če vsebuje vse svoje robne točke.
+        \item Množica $A$ je \emph{odprta} v metričnem prostoru $X$, če je vsaka njena točka notranja.
+        \item Množica $A$ je \emph{zaprta} v metričnem prostoru $X$, če vsebuje vse svoje robne točke.
     \end{itemize}
 \end{definicija}
 
@@ -78,7 +78,7 @@
 \end{trditev}
 
 \begin{definicija}
-    Naj bo $(X, d)$ metrični prostor in $A \subset X$. Točka $a \in X$ je \df{stekališče množice} $A$, če vsaka okolica točke~$a$ vsebuje neskončno mnogo točk iz množice $A$.
+    Naj bo $(X, d)$ metrični prostor in $A \subset X$. Točka $a \in X$ je \emph{stekališče množice} $A$, če vsaka okolica točke~$a$ vsebuje neskončno mnogo točk iz množice $A$.
 \end{definicija}
 
 \begin{trditev}
@@ -89,18 +89,18 @@
 \newpage
 \subsection*{Zaporedja v metričnih prostorih}
 \begin{definicija}
-    Naj bo $(X, d)$ metrični prostor. \df{Zaporedje} v metričnem prostoru $X$ je preslikava $\N \to X$.
+    Naj bo $(X, d)$ metrični prostor. \emph{Zaporedje} v metričnem prostoru $X$ je preslikava $\N \to X$.
 \end{definicija}
 
 \begin{definicija}
-    Naj bo $(X, d)$ metrični prostor. Pravimo, da zaporedje $(a_n)_n$ v $X$ \df{konvergira proti $a \in X$}, če
+    Naj bo $(X, d)$ metrični prostor. Pravimo, da zaporedje $(a_n)_n$ v $X$ \emph{konvergira proti $a \in X$}, če
 
     $$\all{\epsilon > 0} \some{n_0 \in \N} \all{n \in \N} n \geq n_0 \lthen d(a_n, a) < \epsilon.$$
-    V tem primeru $a$ imenujemo \df{limita} zaporedja.
+    V tem primeru $a$ imenujemo \emph{limita} zaporedja.
 \end{definicija}
 
 \begin{definicija}
-    Naj bo $(X, d)$ metrični prostor. Pravimo, da zaporedje $(a_n)_n$ v $X$ \df{izpolnjuje Cauchyjev pogoj}, če
+    Naj bo $(X, d)$ metrični prostor. Pravimo, da zaporedje $(a_n)_n$ v $X$ \emph{izpolnjuje Cauchyjev pogoj}, če
 
     $$\all{\epsilon > 0} \some{n_0 \in \N} \all{n, m \in \N} n, m \geq n_0 \lthen d(a_n, a_m) < \epsilon.$$
 \end{definicija}
@@ -110,7 +110,7 @@
 \end{izrek}
 
 \begin{definicija}
-    Pravimo, da je metrični prostor $(X, d)$ \df{poln}, ce je vsako Cauchyjevo zaporedje iz $X$ tudi konvergentno v~$X$.
+    Pravimo, da je metrični prostor $(X, d)$ \emph{poln}, ce je vsako Cauchyjevo zaporedje iz $X$ tudi konvergentno v~$X$.
 \end{definicija}
 
 \begin{izrek}
@@ -126,7 +126,7 @@
 Naj bosta $(X, d)$ in $(X', d')$ metrična prostora. Naj bo $D \subset X, \ D \neq \emptyset$. Obravnamo preslikave $f: D \to X'$.
 
 \begin{definicija}
-    Preslikava $f: D \to X'$ je \df{zvezna v točki} $a \in X$, če
+    Preslikava $f: D \to X'$ je \emph{zvezna v točki} $a \in X$, če
     $$\all{\epsilon > 0} \some{\delta > 0} \all{x \in D} d(x, a) < \delta \lthen d'(f(x), f(a)) < \epsilon.$$
 \end{definicija}
 
@@ -135,16 +135,16 @@ Naj bosta $(X, d)$ in $(X', d')$ metrična prostora. Naj bo $D \subset X, \ D \n
 \end{izrek}
 
 \begin{definicija}
-    Pravimo, da je preslikava $f: D \to X'$ je \df{zvezna}, če je zvezna v vsaki točki iz $D$.
+    Pravimo, da je preslikava $f: D \to X'$ je \emph{zvezna}, če je zvezna v vsaki točki iz $D$.
 \end{definicija}
 
 \begin{definicija}
-    Preslikava $f: D \to X'$ je \df{enakomerno zvezna}, če
+    Preslikava $f: D \to X'$ je \emph{enakomerno zvezna}, če
     $$\all{\epsilon > 0} \some{\delta > 0} \all{x, x' \in D} d(x, x') < \delta \lthen d'(f(x), f(x')) < \epsilon.$$
 \end{definicija}
 
 \begin{definicija}
-    Preslikava $f: D \to X'$ je \df{$C$-lipschitzova}, če
+    Preslikava $f: D \to X'$ je \emph{$C$-lipschitzova}, če
     $$\all{x, x' \in D} d'(f(x), f(x')) \leq Cd(x, x').$$
 \end{definicija}
 

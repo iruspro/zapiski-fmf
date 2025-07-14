@@ -1,5 +1,5 @@
 \section{Integrali s parametri}
-Naj bo $f:[a,b]_x \times [c,d]_y \to \R$ funkcija. Gledamo funkcijo $\ds F(y) = \int_{a}^{b}f(x,y) \, dx$, kjer $y \in [c,d]$ je \df{parameter}.
+Naj bo $f:[a,b]_x \times [c,d]_y \to \R$ funkcija. Gledamo funkcijo $\ds F(y) = \int_{a}^{b}f(x,y) \, dx$, kjer $y \in [c,d]$ je \emph{parameter}.
 
 Zanima nas v kakšni so povezavi lastnosti funkcije $f$ in funkcije $F$.
 
@@ -8,7 +8,7 @@ Zanima nas v kakšni so povezavi lastnosti funkcije $f$ in funkcije $F$.
 \end{zgled}
 
 \begin{zgled}
-    \df{Eulerjeva funkcija gama} je $\ds \Gamma (s) = \int_{0}^{\infty} x^{s-1} e^{-x} \, dx$.
+    \emph{Eulerjeva funkcija gama} je $\ds \Gamma (s) = \int_{0}^{\infty} x^{s-1} e^{-x} \, dx$.
     \begin{itemize}
         \item Določi $D_\Gamma$.
         \item Kakšen predznak ima $\Gamma$ na $D_\Gamma$?
@@ -19,7 +19,7 @@ Zanima nas v kakšni so povezavi lastnosti funkcije $f$ in funkcije $F$.
 \end{zgled}
 
 \begin{definicija}
-    Podmnožica $D \subseteq \R^n$ je \df{lokalno kompaktna}, če
+    Podmnožica $D \subseteq \R^n$ je \emph{lokalno kompaktna}, če
     $$\all{a \in D} \some{r \in \R \, . \, r > 0} D \cap \overline{K(a,r)} \text{ kompaktna množica}.$$
 \end{definicija}
 
@@ -130,7 +130,7 @@ Zanima nas v kakšni so povezavi lastnosti funkcije $f$ in funkcije $F$.
 \end{izrek}
 
 \begin{definicija}
-    Integrali tipa $\ds \int_{c}^{d} \left(\int_{a}^{b} f(x,y) \,dx \right) \,dy$ imenujemo \df{dvakratni integrali}. 
+    Integrali tipa $\ds \int_{c}^{d} \left(\int_{a}^{b} f(x,y) \,dx \right) \,dy$ imenujemo \emph{dvakratni integrali}. 
 \end{definicija}
 
 \begin{proof}
@@ -158,7 +158,7 @@ Naj bo $Y$ neka množica, $a \in \R$, $f: [a, \infty)_x \times Y_y \to \R$ funkc
 \end{opomba}
 
 \begin{definicija}
-    Integral \(\ds F(y) = \int_{a}^{\infty} f(x,y) \, dx\) \df{konvergira enakomerno} na \(Y\), če 
+    Integral \(\ds F(y) = \int_{a}^{\infty} f(x,y) \, dx\) \emph{konvergira enakomerno} na \(Y\), če 
     $$\all{\epsilon > 0} \some{b_0 \geq a} \all{b \geq b_0} \all{y \in Y} \left|\int_{b}^{\infty} f(x,y) \, dx \right| < \epsilon.$$
 \end{definicija}
 
@@ -185,7 +185,7 @@ Naj bo $Y$ neka množica, $a \in \R$, $f: [a, \infty)_x \times Y_y \to \R$ funkc
 \end{proof}
 
 \begin{opomba}
-    Zveznost (in odvedljivost) sta lokalni lastnosti (zvezna (oz. odvedljiva) v vsaki točki), tj. $f$ je zvezna na $Y$, če je zvezna v vsaki točki \(y \in Y\) (tudi, če je zvezna v okolici vsake točke \(y \in Y\)). Zato v prejšnji trditvi je za zveznost \(F\) na \(Y\) dovolj zahtevati, da je integral \df{lokalno enakomerno konvergira}, tj
+    Zveznost (in odvedljivost) sta lokalni lastnosti (zvezna (oz. odvedljiva) v vsaki točki), tj. $f$ je zvezna na $Y$, če je zvezna v vsaki točki \(y \in Y\) (tudi, če je zvezna v okolici vsake točke \(y \in Y\)). Zato v prejšnji trditvi je za zveznost \(F\) na \(Y\) dovolj zahtevati, da je integral \emph{lokalno enakomerno konvergira}, tj
     $$\all{y\in Y} \some{r>0} F \text{ enakomerno konvergira na } Y \cap K(y,r).$$
 \end{opomba}
 
@@ -314,7 +314,7 @@ Kadar je \(\ds \int_{c}^{\infty}\left(\int_{a}^{\infty} f(x,y) \, dx\right) \, d
 \newpage
 \subsection{Eulerjeva funkcija gama}
 \begin{definicija}
-    Funkcija $\ds \Gamma (s) = \int_{0}^{\infty} x^{s-1}e^{-x} \, dx$ je \df{Eulerjeva funkcija gama}.
+    Funkcija $\ds \Gamma (s) = \int_{0}^{\infty} x^{s-1}e^{-x} \, dx$ je \emph{Eulerjeva funkcija gama}.
 \end{definicija}
 
 \begin{trditev}
@@ -359,7 +359,7 @@ Kadar je \(\ds \int_{c}^{\infty}\left(\int_{a}^{\infty} f(x,y) \, dx\right) \, d
 
 \subsection{Eulerjeva funkcija beta}
 \begin{definicija}
-    Funkcija \(\ds B(p,q) = \int_{0}^{1}x^{p-1}(1-x)^{q-1} \, dx\) je \df{Eulerjeva funkcija beta}.
+    Funkcija \(\ds B(p,q) = \int_{0}^{1}x^{p-1}(1-x)^{q-1} \, dx\) je \emph{Eulerjeva funkcija beta}.
 \end{definicija}
 
 \begin{trditev}
