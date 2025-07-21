@@ -6,8 +6,8 @@
         \item \colorbox{purple!30}{\textbf{Definicija.}} Prostor $\R^n$. Seštevanje in množenje s skalarjem na $\R^n$. Ali je $\R^n$ vektorksi prostor?
         \item \colorbox{purple!30}{\textbf{Definicija.}} Skalarni produkt na $\R^n$. Norma vektorja na $\R^n$. Metrika na $\R^n$.
         \item \colorbox{purple!30}{\textbf{Definicija.}} Zaprt kvader. Odprt kvader.
-        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali imata prostori $(\R^n, \norm{\,. \,}_2)$ in $(\R^n, \norm{\,. \,}_\infty)$ isto topologijo?
-        \item \colorbox{blue!30}{\textbf{Izrek.}} Karakterizacija kompaktnosti množic v $\R^n$.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali imata prostori $(\R^n, d_2)$ in $(\R^n, d_\infty)$ isto topologijo?
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Karakterizacija kompaktnosti množic v $\R^n$. \todo{*}
     \end{itemize}
 
     \item Zaporedja v $\R^n$
@@ -20,30 +20,25 @@
 
 \subsection{Zveznost preslikav iz $\R^n$ v $\R^m$}
 \begin{enumerate}
-    \item Zveznost preslikav iz $\R^n$ v $R$ 
+    \item Zveznost preslikav
     
     Naj bo $D \subseteq \R^n$, $f: D \to \R^m$ preslikava. 
-    \begin{itemize}        
-        \item \colorbox{yellow!30}{\emph{Opomba.}} Kako rečemo preslikave iz $\R^n$ v $\R$?
+    \begin{itemize}
         \item \colorbox{purple!30}{\textbf{Definicija.}} Kadar je $f$ zvezna v točki $a \in D$? Kadar je $f$ zvezna na~$D$?
         \item \colorbox{blue!30}{\textbf{Trditev.}} Karakterizacija zveznosti $f$ v točki $a \in D$ z zaporedji.
         \item \colorbox{purple!30}{\textbf{Definicija.}} Kadar je $f$ enakomerno zvezna na $D$?
-        \item \colorbox{blue!30}{\textbf{Trditev.}} Kaj lahko povemo o zvezni preslikavi na kompaktu?
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Kaj lahko povemo o zvezni preslikavi na kompaktu? \todo{*}
         \item \colorbox{blue!30}{\textbf{Trditev.}} Kaj lahko povemo o slike zvezne preslikave na kompaktu?
-        \item \colorbox{purple!30}{\textbf{Definicija.}} Kadar je $f$ $C$-lipshitzova?
-        \item \colorbox{blue!30}{\textbf{Trditev.}} V kakšni zvezi so $C$-lipshitzovost, enakomerna zveznost in zveznost?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Kadar je $f$ $C$-Lipschitzova?
+        \item \colorbox{blue!30}{\textbf{Trditev.}} V kakšni zvezi so $C$-Lipschitzovost, enakomerna zveznost in zveznost?
         \item \colorbox{blue!30}{\textbf{Trditev.}} Kaj lahko povemo o vsote, razlike, produktu in kvocientu zveznih v točki $a \in D$ funkcij?
         \item \colorbox{blue!30}{\textbf{Trditev.}} Kaj lahko povemo o kompozitume zveznih preslikav?
         \item \colorbox{yellow!30}{\emph{Zgled.}} Ali je projekcija zvezna na $\R^n$? Kaj pa polinomi in racionalne funkcije?
         \item \colorbox{purple!30}{\textbf{Definicija.}} Funkcija $n$-spremenljivk.
         \item \colorbox{yellow!30}{\emph{Opomba.}} Ali je vsaka zožitev zvezne funkcije zvezna funkcija?
         \item \colorbox{blue!30}{\textbf{Trditev.}} Ali je zvezna v točki $a \in D$ funkcija zvezna v točki $a \in D$ kot funkcija posameznih spremenljivk?
-        \item \colorbox{yellow!30}{\emph{Zgled.}} Ali je $f(x, y) = \begin{cases}
-            \frac{2xy}{x^2+y^2}; &(x, y) \neq (0,0) \\ 0; &(x, y) = (0,0)
-        \end{cases}$ zvezna kot funkcija posameznih spremenljivk? Ali je $f$ zvezna?
-        \item \colorbox{yellow!30}{\emph{Zgled.}} Ali je $f(x, y) = \begin{cases}
-            \frac{2x^2y}{x^4+y^2}; &(x, y) \neq (0,0) \\ 0; &(x, y) = (0,0)
-        \end{cases}$ zvezna na vsake premice? Ali je $f$ zvezna?
+        \item \colorbox{yellow!30}{\emph{Zgled.}} Navedi primer funkcije, ki je zvezna kot funkcija posameznih spremenljivk, vendar ni zvezna.
+        \item \colorbox{yellow!30}{\emph{Zgled.}} Navedi primer funkcije, ki ima zvezne zožitve na premice, vendar ni zvezna.
     \end{itemize}
 
     \item Zveznost preslikav iz $\R^n$ v $\R^m$
@@ -53,9 +48,9 @@
     Lahko pišemo $F(x) = (f_1(x), \ldots, f_m(x))$. Torej $F$ določa $m$ funkcij $n$-spremenljivk.
     \begin{itemize}
         \item \colorbox{blue!30}{\textbf{Trditev.}} Karakterizacija zveznosti $F$ v točki $a \in D$ z koordinatnimi funkciji.
-        \item \colorbox{yellow!30}{\emph{Zgled.}} Pokaži, da so linearne preslikave omejene: $\norm{\mc{A}x} \leq M \norm{x}$.
-        \item \colorbox{blue!30}{\textbf{Trditev.}} Ali so linearne preslikave zvezne?
-        \item \colorbox{blue!30}{\textbf{Trditev.}} Čemu je ekvivalentna zveznost linearne preslikave?
+        \item \colorbox{yellow!30}{\emph{Zgled.}} Kaj pomeni, da so linearne preslikave omejene? \todo{*}
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Čemu je ekvivalentna omejenost linearnih preslikav?
+        \item \colorbox{blue!30}{\textbf{Trditev.}} Ali so linearne preslikave zvezne? Matrična norma.
         \item \colorbox{purple!30}{\textbf{Definicija.}} Afina preslikava.
     \end{itemize}
 \end{enumerate}
@@ -79,16 +74,16 @@
     \begin{itemize}
         \item \colorbox{purple!30}{\textbf{Definicija.}} Kadar je $f$ diferenciabilna v točki $a \in D$? Diferencial $f$ v točki $a \in D$.
         \item \colorbox{yellow!30}{\emph{Opomba.}} Ali je diferencial, če obstaja, enolično določen?
-        \item \colorbox{yellow!30}{\emph{Opomba.}} Kaj je diferencial v smislu aproksimacije funkcije?
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Kaj je diferencial v smislu aproksimacije funkcije? Zapis diferenciala v matrične oblike.
         \item \colorbox{blue!30}{\textbf{Trditev.}} (Potrebni pogoji za diferenciabilnost). Zveza med diferencialom, parcialnimi odvodi in zveznostjo.
         \item \colorbox{yellow!30}{\emph{Opomba.}} Kako lahko izrazimo diferencial z parcialnimi odvodi? Gradient funkcije. Operator nabla.
         \item \colorbox{yellow!30}{\emph{Zgled.}} Ali je $f(x, y) = \begin{cases}
             \frac{2xy}{x^2+y^2}; &(x, y) \neq (0,0) \\ 0; &(x, y) = (0,0)
         \end{cases}$ diferenciabilna?
-        \item Ali je $f(x, y) = \begin{cases}
+        \item \colorbox{yellow!30}{\emph{Zgled.}} Ali je $f(x, y) = \begin{cases}
             \frac{2x^2y}{x^2+y^2}; &(x, y) \neq (0,0) \\ 0; &(x, y) = (0,0)
         \end{cases}$ zvezna, parcialno odvedljiva, diferenciabilna?
-        \item \colorbox{blue!30}{\textbf{Izrek.}} Zadosten pogoj za diferenciabilnost $f$ v točki $a \in D$.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Zadosten pogoj za diferenciabilnost $f$ v točki $a \in D$. \todo{*}
     \end{itemize}
 
     \item Višji parcialni odvodi
@@ -109,7 +104,7 @@
         \item \colorbox{purple!30}{\textbf{Definicija.}} Kadar je $F$ diferenciabilna v točki $a \in D$? Diferencial $F$ v točki $a \in D$.
         \item \colorbox{yellow!30}{\emph{Opomba.}} Ali je diferencial, če obstaja, enolično določen?
         \item \colorbox{yellow!30}{\emph{Zgled.}} Ali sta diferenciabilni $\mc{A}: \R^n \to \R^m$ linearna, $F(x) = \mc{A}x$ in $F: 
-        R^{n \times n} \to R^{n \times n}, \ F(X) = X^2$?
+        \R^{n \times n} \to \R^{n \times n}, \ F(X) = X^2$?
         \item \colorbox{blue!30}{\textbf{Izrek.}} Karakterizacija diferenciabilnosti $F$ v točki $a \in D$ s koordinatnimi funkciji. 
         \item \colorbox{yellow!30}{\emph{Opomba.}} Kako se izraže diferencial $F$ v točki $a \in D$ z koordinatnimi funkciji? Jacobijeva matrika.
         \item \colorbox{orange!30}{\textbf{Posledica.}} Zadosten pogoj za diferenciabilnost $F$ v točki $a$.

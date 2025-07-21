@@ -1,8 +1,7 @@
 \section{Funkcije več spremenljivk}
 \subsection{Prostor $\R^n$}
-\subsubsection{Prostor $\R^n$}
 \begin{definicija}
-    \emph{Prostor $\R^n$} je kartezični produkt
+    \textbf{Prostor $\R^n$} je kartezični produkt
     $\underbrace{\R \times \dots \times \R}_n$. Na njem definiramo
     seštevanje in množenje s skalarjem po komponentah. S tema
     operacijama je $(\R,+,\cdot)$ vektorski prostor nad $\R$. Posebej
@@ -16,13 +15,13 @@
 
 \begin{definicija}
     Naj bosta $a,b \in \R^n$ vektorja, za katera je $a_i \leq b_i$ za
-    vse $i \in \set{1,\dots,n}$. \emph{Zaprt kvader}\index{Kvader}, ki
+    vse $i \in \set{1,\dots,n}$. \textbf{Zaprt kvader}\index{Kvader}, ki
     ga določata $a$ in $b$, je množica
     \[
     [a,b] = \setb{x\in\R^n}{\forall i \in \set{1,\dots,n} \colon
     a_i \leq x_i \leq b_i}.
     \]
-    Podobno definiramo \emph{odprt kvader} kot
+    Podobno definiramo \textbf{odprt kvader} kot
     \[
     (a,b) = \setb{x\in\R^n}{\forall i \in \set{1,\dots,n} \colon
     a_i < x_i < b_i}.
@@ -40,7 +39,7 @@
 
 \subsubsection{Zaporedja v $\R^n$}
 \begin{definicija}
-    \emph{Zaporedje v $\R^n$} je preslikava $a: \N \to \R^n$. Namesto $a(m)$ pišemo $a_m$, kjer $a_m = (a_1^m, \ldots, a_n^m)$.
+    \textbf{Zaporedje v $\R^n$} je preslikava $a: \N \to \R^n$. Namesto $a(m)$ pišemo $a_m$, kjer $a_m = (a_1^m, \ldots, a_n^m)$.
 \end{definicija}
 
 \begin{opomba}
@@ -60,16 +59,10 @@
 
 \newpage
 \subsection{Zveznost preslikav iz $\R^n$ v $\R^m$}
-\subsubsection{Zveznost preslikav iz $\R^n$ v $\R$}
-
-\begin{opomba}
-    Če je $m=1$, potem preslikave rečemo \emph{funkcija}.
-\end{opomba}
-
 \begin{definicija}
-    Naj bo $f: D \subseteq \R^n \to \R^m$ preslikava. Naj bo $a \in D$. \emph{Preslikava $f$ je zvezna v točki $a$}, če 
+    Naj bo $f: D \subseteq \R^n \to \R^m$ preslikava. Naj bo $a \in D$. \textbf{Preslikava $f$ je zvezna v točki $a$}, če 
     $$\all{\epsilon > 0} \some{\delta >0} \all{x \in D} \norm{x-a} < \delta \lthen \norm{f(x)- f(a)} < \epsilon.$$
-    Preslikava $f$ je \emph{zvezna na $D$}, če je zvezna v vsaki točki $a \in D$.
+    Preslikava $f$ je \textbf{zvezna na $D$}, če je zvezna v vsaki točki $a \in D$.
 \end{definicija}
 
 \begin{trditev}
@@ -77,7 +70,7 @@
 \end{trditev}
 
 \begin{definicija}
-    Naj bo $f: D \subseteq \R^n \to \R^m$ preslikava. Preslikava $f$ je \emph{enakomerno zvezna na $D$}, če
+    Naj bo $f: D \subseteq \R^n \to \R^m$ preslikava. Preslikava $f$ je \textbf{enakomerno zvezna na $D$}, če
     $$\all{\epsilon > 0} \some{\delta > 0} \all{x, x' \in D} \norm{x - x'} < \delta \lthen \norm{f(x) - f(x')} < \epsilon.$$
 \end{definicija}
 
@@ -90,7 +83,7 @@
 \end{trditev}
 
 \begin{definicija}
-    Preslikava $f: D \subseteq \R^n \to \R^m$ je \emph{$C$-lipschitzova}, če
+    Preslikava $f: D \subseteq \R^n \to \R^m$ je \textbf{$C$-lipschitzova}, če
     $$\some{C \in \R} \all{x, x' \in D} \norm{f(x) - f(x')} \leq C \norm{x - x'}.$$
 \end{definicija}
 
@@ -118,14 +111,14 @@
 \begin{zgled}
     Nekaj primerov zveznih preslikav.
     \begin{itemize}
-        \item Preslikava $\Pi_j(x_1, \ldots, x_n) = x_j$ je zvezna na $\R^n$ za vsak $j = 1, \ldots, n$.
+        \item Preslikava $\pi_j(x_1, \ldots, x_n) = x_j$ je zvezna na $\R^n$ za vsak $j = 1, \ldots, n$.
         \item Vse polinomi v $n$-spremenljivkah so zvezne funkcije na $\R^n$.
         \item Vse racionalne funkcije so zvezne povsod, razen tam, kjer je imenovalec enak $0$.
     \end{itemize}
 \end{zgled}
 
 \begin{definicija}
-    Preslikava $f: D \subset \R^n \to \R$ je \emph{funkcija $n$-spremenljivk.}
+    Preslikava $f: D \subset \R^n \to \R$ je \textbf{funkcija $n$-spremenljivk.}
 \end{definicija}
 
 \begin{opomba}
@@ -133,7 +126,7 @@
 \end{opomba}
 
 \begin{trditev}
-    Naj bosta $D \subseteq \R^n$ in $D_j = \Pi_j(D)$. Naj bo $a \in D, \ a =(a_1, \ldots, a_n)$ in $f: D \to \R$ zvezna v $a$. Tedaj za vsak $j = 1, \ldots, n$ funkcija $\varphi_j: D_j \to \R, \ \varphi_j(t) = f(a_1, \ldots, a_{j-1}, t, a_{j+1}, \ldots, a_n)$ zvezna v $a_j$.
+    Naj bosta $D \subseteq \R^n$ in $D_j = \pi_j(D)$. Naj bo $a \in D, \ a =(a_1, \ldots, a_n)$ in $f: D \to \R^m$ zvezna v $a$. Tedaj za vsak $j = 1, \ldots, n$ preslikava \(\varphi_j: D_j \to \R^m\) s predpisom \(\varphi_j(t) = f(a_1, \ldots, a_{j-1}, t, a_{j+1}, \ldots, a_n)$ zvezna v $a_j\).
 \end{trditev}
 
 \begin{proof}
@@ -162,10 +155,9 @@
     Zgleda pokažeta, da obrat v prejšnji trditvi ne velja.
 \end{opomba}
 
-\newpage
-\subsubsection{Zveznost preslikav iz $\R^n$ v $\R^m$}
-Naj bo $D \subseteq \R^n$ in $F: D \to \R^m$ preslikava. Naj bo $x \in D$, potem $F(x) \in \R^m, \ F(x) = y = (y_1, \ldots, y_m)$.
+\ 
 
+Naj bo $D \subseteq \R^n$ in $F: D \to \R^m$ preslikava. Naj bo $x \in D$, potem je  $F(x) \in \R^m$, kjer je $F(x) = (y_1, \ldots, y_m)$.
 Lahko pišemo $F(x) = (f_1(x), \ldots, f_m(x))$. Torej $F$ določa $m$ funkcij $n$-spremenljivk.
 
 \begin{trditev}
@@ -178,41 +170,46 @@ Lahko pišemo $F(x) = (f_1(x), \ldots, f_m(x))$. Torej $F$ določa $m$ funkcij $
 \end{proof}
 
 \begin{zgled}[Omejenost linearnih preslikav]
-    Naj bo $\mc{A}: \R^n \to \R^m$ linearna preslikava, potem $$\some{ M \in \R \, . \, M \geq 0} \all{x \in \R^n \, . \, x \neq 0 }  \frac{\norm{\mc{A}x}}{\norm{x}} \leq M \ (\text{oz. } \norm{\mc{A}x} \leq M \norm{x} ).$$
+    Naj bo $\mc{A}: \R^n \to \R^m$ linearna preslikava, potem $$\some{ M \in \R \, . \, M > 0} \all{x \in \R^n \, . \, x \neq 0 }  \frac{\norm{\mc{A}x}}{\norm{x}} \leq M \ (\text{oz. } \norm{\mc{A}x} \leq M \norm{x} ).$$
 \end{zgled}
 
 \begin{trditev}
-    Linearne preslikave so zvezne
-\end{trditev}
-
-\begin{proof}
-    Vse koordinatne funkcije linearne (polinomi 1. stopnje).
-\end{proof}
-
-\begin{trditev}
     Naj bo $\mc{A}: \R^n \to \R^m$ linearna preslikava. Velja:
-    $$\text{Preslikava } \mc{A} \text{ je zvezna} \liff \text{Preslikava } \mc{A} \text{ je zvezna v točki } 0 \liff \text{Preslikava } \mc{A} \text{ je omejena}.$$
+    $$\mc{A} \text{ je zvezna} \liff \mc{A} \text{ je zvezna v točki } 0 \liff \mc{A} \text{ je omejena}.$$
 \end{trditev}
 
 \begin{proof}
     Definicija zveznosti in omejenosti.
 \end{proof}
 
+\begin{trditev}
+    Naj bo $\mc{A}: \R^n \to \R^m$ linearna preslikava. Tedaj \(\mc{A}\) je zvezna.
+\end{trditev}
+
+\begin{proof}
+    Na linearno preslikavo lahko gledamo kot na množenje s matriko.
+\end{proof}
+
+\begin{opomba}
+    Ker so linearne preslikave omejene, obstaja supremum, ki nam da matrično normo
+    \[\sup_{x \in \R^n \setminus \set{0}} \frac{\norm{\mc{A} x}}{\norm{x}} = \sup_{\norm{x} = 1} \norm{\mc{A} x}= \norm{\mc{A}}.\]
+\end{opomba}
+
 \begin{definicija}
-    Naj bo $\mc{A}: \R^n \to \R^m$ linearna preslikava. Preslikavo $\mc{A}: \R^n \to \R^m, \ x \mapsto \mc{A}x + b, \ b \in \R^m$ imenujemo \emph{afina preslikava}.
+    Naj bo $\mc{A}: \R^n \to \R^m$ linearna preslikava. Preslikavo $\mc{A}: \R^n \to \R^m$ s predpisom $x \mapsto \mc{A}x + b, \ b \in \R^m$ imenujemo \textbf{afina preslikava}.
 \end{definicija}
 
 \newpage
 \subsection{Parcialni odvodi in diferenciabilnost}
 \subsubsection{Parcialni odvod}
 \begin{definicija}
-    Naj bo $f: D \subset \R^n \to \R$ funkcija. Naj bo $a = (a_1, \ldots, a_n) \in D$ notranja točka. Funkcija $f$ je \emph{parcialno odvedljiva po spremenljivki $x_j$ v točki $a$}, če obstaja limita 
+    Naj bo $f: D \subset \R^n \to \R$ funkcija. Naj bo $a = (a_1, \ldots, a_n) \in D$ notranja točka. Funkcija $f$ je \textbf{parcialno odvedljiva po spremenljivki $x_j$ v točki $a$}, če obstaja limita 
     $$\lim_{h \to 0} \frac{f(a_1, \ldots, a_{j-1}, a_j+h, a_{j+1}, \ldots, a_n) - f(a_1, \ldots, a_n)}{h},$$
     oz. če je funkcija 
     $$x_j \mapsto f(a_1, \ldots, a_{j-1}, x_j, a_{j+1}, \ldots, a_n)$$
     odvedliva v točki $a_j$.
 
-    Če je ta limita obstaja, je to \emph{parcialni odvod} funkcije $f$ po spremenljivki $x_j$ v točki $a$.
+    Če je ta limita obstaja, je to \textbf{parcialni odvod} funkcije $f$ po spremenljivki $x_j$ v točki $a$.
     Oznaki: $\frac{\partial f}{\partial x_j}(a), \ f_{x_j}(a), \ (D_jf)(a)$.
 \end{definicija}
 
@@ -226,7 +223,7 @@ Lahko pišemo $F(x) = (f_1(x), \ldots, f_m(x))$. Torej $F$ določa $m$ funkcij $
 
 \subsubsection{Diferenciabilnost}
 \begin{definicija}
-    Naj bo $f: D \subset \R^n \to \R$ funkcija. Naj bo $a = (a_1, \ldots, a_n) \in D$ notranja točka. Funkcija $f$ je \emph{diferenciabilna v točki $a$}, če obstaja tak linearen funkcional $\mc{L}: \R^n \to \R$, da velja:
+    Naj bo $f: D \subset \R^n \to \R$ funkcija. Naj bo $a = (a_1, \ldots, a_n) \in D$ notranja točka. Funkcija $f$ je \textbf{diferenciabilna v točki $a$}, če obstaja tak linearen funkcional $\mc{L}: \R^n \to \R$, da velja:
     $$f(a+h) = f(a) + \mc{L}(h) + o(h),$$
     kjer $\lim_{h \to 0} \frac{\norm{o(h)}}{\norm{h}} = 0.$
 \end{definicija}
@@ -240,11 +237,11 @@ Lahko pišemo $F(x) = (f_1(x), \ldots, f_m(x))$. Torej $F$ določa $m$ funkcij $
 \end{proof}
 
 \begin{definicija}
-    Če je $f$ diferenciabilna v $a$ je $\mc{L}$ natanko določen in ga imenujemo \emph{diferencial} funkcije $f$ v točki $a$. Oznaka: $\mc{L} = df_a$. Linearen funkcional $\mc{L}$ imenujemo tudi \emph{odvod} funkcije $f$ v točki $a$. Oznaka: $(Df)(a)$.
+    Če je $f$ diferenciabilna v $a$ je $\mc{L}$ natanko določen in ga imenujemo \textbf{diferencial} funkcije $f$ v točki $a$. Oznaka: $\mc{L} = df_a$. Linearen funkcional $\mc{L}$ imenujemo tudi \textbf{odvod} funkcije $f$ v točki $a$. Oznaka: $(Df)(a)$.
 \end{definicija}
 
 \begin{opomba}
-    Recimo, da je funkcija $f$ diferenciabilna v točki $a$. Preslikava $h \mapsto f(a) + (df_a)(h)$ je najboljša afina aproksimacija funkcije $h \to f(a+h)$.
+    Recimo, da je funkcija $f$ diferenciabilna v točki $a$. Preslikava s predpisom $h \mapsto f(a) + (df_a)(h)$ je najboljša afina aproksimacija funkcije $h \mapsto f(a+h)$.
 \end{opomba}
 
 \begin{trditev}
@@ -253,7 +250,7 @@ Lahko pišemo $F(x) = (f_1(x), \ldots, f_m(x))$. Torej $F$ določa $m$ funkcij $
 \end{trditev}
 
 \begin{opomba}
-    Naj bo $\mc{L}: \R^n \to \R$ linearen funkcional, $x \in \R^n$, potem $\mc{L}(x) = l_1x_1+\ldots+l_nx_n = \begin{bmatrix}
+    Naj bo $\mc{L}: \R^n \to \R$ linearen funkcional, $x \in \R^n$, potem lahko zapišemo $\mc{L}(x) = l_1x_1+\ldots+l_nx_n = \begin{bmatrix}
         l_1 & \ldots & l_n
     \end{bmatrix} \cdot \begin{bmatrix}
         x_1 \\ \vdots \\ x_n
@@ -273,7 +270,7 @@ Lahko pišemo $F(x) = (f_1(x), \ldots, f_m(x))$. Torej $F$ določa $m$ funkcij $
 
     Zapis: $(\vec{\nabla} f) (a) = (\grad f)(a) = (\podv{f}{x_1}(a), \ldots, \podv{f}{x_n}(a))$.
 
-    Vektor $(\grad f)(a)$ imenujemo \emph{gradient funkcije} $f$ v točki $a$. Operator $\vec{\nabla} = (\frac{\partial}{\partial x_1}, \ldots, \frac{\partial}{\partial x_n})$ je \emph{operator nabla}.
+    Vektor $(\grad f)(a)$ imenujemo \textbf{gradient funkcije} $f$ v točki $a$. Operator $\vec{\nabla} = (\frac{\partial}{\partial x_1}, \ldots, \frac{\partial}{\partial x_n})$ je \textbf{operator nabla}.
 \end{opomba}
 
 \begin{zgled}
@@ -303,17 +300,17 @@ Lahko pišemo $F(x) = (f_1(x), \ldots, f_m(x))$. Torej $F$ določa $m$ funkcij $
 \end{proof}
 
 \subsubsection{Višji parcialni odvodi}
-Naj bo $f: D^{\text{odp}} \subseteq \R^n \to \R$ funkcija. Denimo, da je $f$ parcialno odvedljiva po vseh spremenljivkah na $D$: $f_{x_1}, \ldots, f_{x_n}$. To so tudi funkcije $n$-spremenljivk in morda so tudi te parcialno odvedljive po vseh oz. nekatarih spremenljivkah.
+Naj bo $f: D^{\text{odp}} \subseteq \R^n \to \R$ funkcija. Denimo, da je $f$ parcialno odvedljiva po vseh spremenljivkah na $D$: $f_{x_1}, \ldots, f_{x_n}$. To so tudi funkcije $n$-spremenljivk in morda so tudi te parcialno odvedljive po vseh oz.\ nekatarih spremenljivkah.
 
 \begin{trditev}
-    Naj bo funkcija $f$ definirana v okolici $a \in \R^n$. Naj bosta $i, j \in \set{1, 2, \ldots, n}$. Denimo, da na tej okolici obstajata $\podv{f}{x_i}, \ \podv{f}{x_j}$ in tudi druga odvoda $\frac{\partial}{\partial x_j} (\podv{f}{x_i}), \ \frac{\partial}{\partial x_i} (\podv{f}{x_j})$. Če sta $\frac{\partial}{\partial x_j} (\podv{f}{x_i}), \ \frac{\partial}{\partial x_i} (\podv{f}{x_j})$ zvezna v $a$, potem sta enaka v točki $a$: 
+    Naj bo $f: D \subseteq \R^n \to \R$ funkcija, \(a \in \Int(D)\). Naj bosta $i, j \in \set{1, 2, \ldots, n}$. Denimo, da v točki \(a\) obstajata $\podv{f}{x_i}, \ \podv{f}{x_j}$ in tudi druga odvoda $\frac{\partial}{\partial x_j} \left(\podv{f}{x_i}\right), \ \frac{\partial}{\partial x_i} \left(\podv{f}{x_j}\right)$. Če sta $\frac{\partial}{\partial x_j} \left(\podv{f}{x_i}\right), \ \frac{\partial}{\partial x_i} \left(\podv{f}{x_j}\right)$ zvezni v točki $a$, potem sta enaki v točki $a$: 
     $$\frac{\partial}{\partial x_j} \left(\podv{f}{x_i}\right)(a) = \frac{\partial}{\partial x_i} \left(\podv{f}{x_j}\right)(a).$$
 \end{trditev}
 
 \begin{proof}
     Dovolj za $n=2$. 
     
-    Definiramo $J = f(a+h, b+k) - f(a+h, b) - f(a, b+k) + f(a,b)$ in $\varphi(x) = f(x, b+k) - f(x, b), \ \psi(y) = f(a+h, y) - f(a, y)$. Zapišemo $J$ s pomočjo funkcij $\varphi, \ \psi$ ter uporabimo 2-krat Lagrangeev izrek in upoštevamo zveznost.
+    Definiramo funkcijo $J(h, k) = f(a+h, b+k) - f(a+h, b) - f(a, b+k) + f(a,b)$ ter funkciji $\varphi(x) = f(x, b+k) - f(x, b)$ in $\psi(y) = f(a+h, y) - f(a, y)$. Zapišemo $J$ prvič s pomočjo funkcije \(\varphi\), drugič pa s pomočjo funkcije \(\psi\) ter uporabimo 2-krat Lagrangeev izrek in upoštevamo zveznost.
 \end{proof}
 
 \begin{opomba}
@@ -321,11 +318,11 @@ Naj bo $f: D^{\text{odp}} \subseteq \R^n \to \R$ funkcija. Denimo, da je $f$ par
 \end{opomba}
 
 \begin{definicija}
-    Naj bo $D^\text{odp} \subseteq \R^n$. Pravimo, da je funkcija $f: D \to \R$ \emph{razreda $C^k$ na $D$}, če obstajajo vse parcialne odvodi funkcije $f$ do reda $k$ in so vse ti parcialni odvodi zvezni na $D$.
+    Naj bo $D^\text{odp} \subseteq \R^n$. Pravimo, da je funkcija $f: D \to \R$ \textbf{razreda $C^k$ na $D$}, če obstajajo vse parcialne odvodi funkcije $f$ do reda $k$ in so vse ti parcialni odvodi zvezni na $D$.
 \end{definicija}
 
 \begin{definicija}
-    Naj bo $D^\text{odp} \subseteq \R^n$. \emph{Množico vseh $k$-krat zvezno parcialno odvedljivih funkcij} označimo z~$C^k(D)$. \emph{Množica gladkih funkcij} je $C^\infty(D) = \bigcap_{k=1}^\infty C^k(D)$. \emph{Množica zveznih funkcij na $D$} je $C(D)$.
+    Naj bo $D^\text{odp} \subseteq \R^n$. \textbf{Množico vseh $k$-krat zvezno parcialno odvedljivih funkcij} označimo z~$C^k(D)$. \textbf{Množica gladkih funkcij} je $C^\infty(D) = \bigcap_{k=1}^\infty C^k(D)$. \textbf{Množica zveznih funkcij na $D$} je $C(D)$.
 \end{definicija}
 
 \begin{opomba}
@@ -335,11 +332,11 @@ Naj bo $f: D^{\text{odp}} \subseteq \R^n \to \R$ funkcija. Denimo, da je $f$ par
 \subsubsection{Diferenciabilnost preslikav}
 
 \begin{definicija}
-    Naj bo $F: D \subseteq \R^n \to \R^m$ preslikava, $a \in D$ notranja točka. Preslikava $F$ je \emph{diferenciabilna} v točki~$a$, če obstaja taka linearna preslikava $\mc{L}: \R^n \to \R^m$, da velja:
+    Naj bo $F: D \subseteq \R^n \to \R^m$ preslikava, $a \in D$ notranja točka. Preslikava $F$ je \textbf{diferenciabilna} v točki~$a$, če obstaja taka linearna preslikava $\mc{L}: \R^n \to \R^m$, da velja:
     $$F(a+h) = F(a) + \mc{L}(h) + o(h),$$
     kjer je $\lim_{h \to 0} \frac{|o(h)|_m}{|h|_n}$. 
 
-    Preslikavo $\mc{L}$ imenujemo \emph{diferencial} $F$ v točki $a$. Oznaka: $dF_a$. Imenujemo ga tudi \emph{odvod} $F$ v točki $a$. Oznaka: $(DF)(a)$.
+    Preslikavo $\mc{L}$ imenujemo \textbf{diferencial} $F$ v točki $a$. Oznaka: $dF_a$. Imenujemo ga tudi \textbf{odvod} $F$ v točki $a$. Oznaka: $(DF)(a)$.
 \end{definicija}
 
 \begin{opomba}
@@ -351,7 +348,7 @@ Naj bo $f: D^{\text{odp}} \subseteq \R^n \to \R$ funkcija. Denimo, da je $f$ par
     \begin{itemize}
         \item $\mc{A}: \R^n \to \R^m$ linearna, $F(x) = \mc{A}x$.
         \item $F: \R^{n \times n} \to \R^{n \times n}, \ F(X) = X^2$.         
-        Namig: S pomočjo neenakosti CSB pokažimo, da $|H^2| \leq |H|^2$.
+        Namig: S pomočjo CSB neenakosti pokažimo, da je $|H^2| \leq |H|^2$.
     \end{itemize}
 \end{zgled}
 
@@ -364,7 +361,7 @@ Naj bo $f: D^{\text{odp}} \subseteq \R^n \to \R$ funkcija. Denimo, da je $f$ par
         \vdots & & \vdots \\
         \podv{f_m}{x_1}(a) & \ldots & \podv{f_m}{x_n}(a) 
     \end{bmatrix}$$
-    Matrika linearne preslikave $(DF)(a)$, ki je zapisana v standardnih bazah, se imenuje \emph{Jacobijeva matrika}.
+    Matrika linearne preslikave $(DF)(a)$, ki je zapisana v standardnih bazah, se imenuje \textbf{Jacobijeva matrika}.
 \end{izrek}
 
 \begin{proof}
@@ -374,8 +371,7 @@ Naj bo $f: D^{\text{odp}} \subseteq \R^n \to \R$ funkcija. Denimo, da je $f$ par
 \end{proof}
 
 \begin{posledica}
-    Naj bo $a \in D$ notranja točka. Naj bo $F = (f_1, \ldots, f_m): D \to \R^m$ preslikava. Velja:
-    
+    Naj bo $a \in D$ notranja točka. Naj bo $F = (f_1, \ldots, f_m): D \to \R^m$ preslikava. Tedaj velja:    
     Če so vse funkcije $f_1, \ldots, f_m$ v točki $a$ parcialno odvedlivi po vseh spremenljivkah in so ti vse odvodi zvezni v točki $a$, potem je $F$ diferenciabilna v točki $a$.
 \end{posledica}
 
@@ -384,7 +380,7 @@ Naj bo $f: D^{\text{odp}} \subseteq \R^n \to \R$ funkcija. Denimo, da je $f$ par
 \end{zgled}
 
 \begin{definicija}
-    Preslikava $F: D^{\text{odp}} \subseteq \R^n \to \R^m$ je razreda $C^k(D)$, če so $f_1, \ldots, f_m \in C^k(D)$.
+    Preslikava $F: D^{\text{odp}} \subseteq \R^n \to \R^m$ je razreda $C^k(D)$, če so vse koordinatne funkcije $f_1, \ldots, f_m \in C^k(D)$.
 \end{definicija}
 
 \begin{izrek}[Verižno pravilo]
@@ -415,7 +411,6 @@ Naj bo $f: D^{\text{odp}} \subseteq \R^n \to \R$ funkcija. Denimo, da je $f$ par
     Naj bo $F(x,y) = (x^2 + y, xy), \ g(u, v) = uv + v^2$. Naj bo $\Phi = g \circ F$. Izračunaj $(D\Phi)(x,y)$ na dva načina.
 \end{zgled}
 
-\newpage
 \subsection{Izrek o implicitni funkciji}
 \subsubsection{Osnovna verzija izreka o implicitni funkciji}
 Radi bi poiskali zadostni pogoji na funkcijo $f(x, y)$, da bi enačba $f(x, y) = 0$ lokalno v okolici točki $(a,b)$, za katero velja $f(a,b) = 0$, predstavljala graf funkcije $y = \varphi(x)$.
@@ -457,13 +452,13 @@ Radi bi poiskali zadostni pogoji na funkcijo $f(x, y)$, da bi enačba $f(x, y) =
 \subsubsection{Izrek o inverzni preslikavi}
 Naj bo $\Phi: D^\text{odp} \subseteq \R^m \to \R^m$ preslikava, $\Phi \in C^1(D)$. Kakšne so zadostni pogoji za (lokalno) obrnljivost preslikave $\Phi$?
 \begin{definicija}
-    Naj bosta $D, \, \Omega \subseteq \R^m$ odprti. Preslikava $\Phi: D  \to \Omega$ je \emph{$C^1$-difeomorfizem}, če
+    Naj bosta $D, \, \Omega \subseteq \R^m$ odprti. Preslikava $\Phi: D  \to \Omega$ je \textbf{$C^1$-difeomorfizem}, če
     \begin{enumerate}
         \item $\Phi$ je bijekcija, 
         \item $\Phi \in C^1(D)$,
         \item $\Phi^{-1} \in C^1(\Omega)$.
     \end{enumerate} 
-    Podobno definiramo \emph{$C^k$-difeomorfizem} za $k \in \N \cup \set{\infty}$.
+    Podobno definiramo \textbf{$C^k$-difeomorfizem} za $k \in \N \cup \set{\infty}$.
 \end{definicija}
 
 \begin{zgled}
@@ -516,7 +511,7 @@ Naj bo $\Phi: D^\text{odp} \subseteq \R^m \to \R^m$ preslikava, $\Phi \in C^1(D)
 \end{izrek}
 
 \begin{definicija}
-    Če je $F: D \to \Omega$ preslikava med odprtimi množicami v $\R^m$ in je $\det(DF)(x) \neq 0$ za vse $x \in D$, pravimo, da je $F$ \emph{lokalni difeomorfizem}.
+    Če je $F: D \to \Omega$ preslikava med odprtimi množicami v $\R^m$ in je $\det(DF)(x) \neq 0$ za vse $x \in D$, pravimo, da je $F$ \textbf{lokalni difeomorfizem}.
 \end{definicija}
 
 \begin{proof}
@@ -537,7 +532,6 @@ Naj bo $\Phi: D^\text{odp} \subseteq \R^m \to \R^m$ preslikava, $\Phi \in C^1(D)
     Naj bo $F: \R^{n \times n} \to \R^{n \times n}, \ F(X) = X^2$. Ali je $F$ v okolici točke $I \in \R^{n \times n}$ lokalni difeomorfizem? Kaj to pomeni?
 \end{zgled}
 
-\newpage
 \subsubsection{Izrek o implicitni preslikavi}
 Imamo $n+m$ spremenljivk: $(x, y)$, kjer $x = (x_1, \ldots, x_n), \ y = (y_1, \ldots, y_m)$ in $m$ enačb. Pričakujemo, da bomo lahko $m$~spremenljivk izrazili kot funkcijo ostalih, tj. najdemo preslikavo $\Phi: D \subseteq \R^n \to \R^m$, da velja $y = \Phi(x)$.
 
@@ -550,9 +544,9 @@ Imamo $n+m$ spremenljivk: $(x, y)$, kjer $x = (x_1, \ldots, x_n), \ y = (y_1, \l
 
 Naj bo $F: D^\text{odp} \subseteq \R^n_x \times \R^m_y \to \R^m, \ F = (f_1, \ldots, f_m)$ preslikava razreda $C^1$. 
 
-Za vsak $y \in \R^m$ naj bo $\podv{F}{x}$ diferencial preslikave $x \mapsto F(x,y)$. Imenujemo ga \emph{parcialni diferenical na prvo spremenljivko}. 
+Za vsak $y \in \R^m$ naj bo $\podv{F}{x}$ diferencial preslikave $x \mapsto F(x,y)$. Imenujemo ga \textbf{parcialni diferenical na prvo spremenljivko}. 
 
-Za vsak $x \in \R^n$ naj bo $\podv{F}{y}$ diferencial preslikave $y \mapsto F(x,y)$. Imenujemo ga \emph{parcialni diferenical na drugo spremenljivko}. 
+Za vsak $x \in \R^n$ naj bo $\podv{F}{y}$ diferencial preslikave $y \mapsto F(x,y)$. Imenujemo ga \textbf{parcialni diferenical na drugo spremenljivko}. 
 
 Velja: 
 $\podv{F}{x}(x,y) = \begin{bmatrix}
@@ -616,9 +610,9 @@ Diferencial preslikave $F$ je potem enak $(DF)(x,y) = \begin{bmatrix}
 \begin{definicija}
     Naj bo $D^\text{odp} \in \R^n$ in $F: D \to \R^m$ preslikava razreda $C^1$, $a \in D$. 
     \begin{enumerate}
-        \item \emph{Rang preslikave $F$ v točki $a$} je~$\rang_aF := \rang (DF)(a)$.
+        \item \textbf{Rang preslikave $F$ v točki $a$} je~$\rang_aF := \rang (DF)(a)$.
         \item Če je $\rang_aF$ konstanten na $D$, je $F$ tega ranga na $D$, tj. $\rang F = \rang_aF$.
-        \item Preslikava $F$ je \emph{maksimalnega ranga v točki $a$}, če je $\rang_aF = \min \set{m, n}$.
+        \item Preslikava $F$ je \textbf{maksimalnega ranga v točki $a$}, če je $\rang_aF = \min \set{m, n}$.
     \end{enumerate}      
 \end{definicija}
 
@@ -658,7 +652,7 @@ Diferencial preslikave $F$ je potem enak $(DF)(x,y) = \begin{bmatrix}
 Podmnogoterost je posplošitev pojmov "`krivulja"' in "`ploskev"'.
 
 \begin{definicija}
-    Naj bo $M \subseteq \R^{n+m}, \ M \neq \emptyset$. Množica $M$ je \emph{gladka (vsaj razreda $C^1$) podmnogoterost dimenzije $n$ in kodimenzije~$m$ prostora $\R^{n+m}$}, če 
+    Naj bo $M \subseteq \R^{n+m}, \ M \neq \emptyset$. Množica $M$ je \textbf{gladka (vsaj razreda $C^1$) podmnogoterost dimenzije $n$ in kodimenzije~$m$ prostora $\R^{n+m}$}, če 
     za vsako točko $a \in M$ obstaja okolica $U$ v $\R^{n+m}$ in take $C^1$ funkcije $F_1, \ldots, F_m: U \to \R$, da velja:
     \begin{enumerate}
         \item $M \cap U = \setb{x \in U}{F_1(x) = \ldots = F_m(x) = 0} = F^*(\set{0})$.
@@ -667,7 +661,7 @@ Podmnogoterost je posplošitev pojmov "`krivulja"' in "`ploskev"'.
 \end{definicija}
 
 \begin{opomba}
-    Funkcije $F_1, \ldots, F_m$ se imenujejo \emph{lokalne definicijske funkcije za $M \cap U$}.
+    Funkcije $F_1, \ldots, F_m$ se imenujejo \textbf{lokalne definicijske funkcije za $M \cap U$}.
 \end{opomba}
 
 \textcolor{red}{TODO}
@@ -685,9 +679,9 @@ Naj bo $f: D^{\text{odp}} \subseteq \R^n \to \R$ funkcija, $a \in D$. Funkcijo $
     \end{enumerate}
     Tedaj obstaja tak $\theta \in (0,1)$, da je 
     $$f(a+h) = f(a) + (D_hf)(a) + \frac{1}{2!}(D_h^2f)(a) + \ldots + \frac{1}{k!} (D_h^kf)(a) + R_k \ \textcolor{red}{(*)},$$
-    kjer je $D_h = h_1D_1 + h_2D_2 + \ldots + h_nD_n$ \emph{odvod v smeri $h$} in $R_k = \frac{1}{(k+1)!} (D_h^{k+1}f)(a + \theta h)$ \emph{ostanek}.
+    kjer je $D_h = h_1D_1 + h_2D_2 + \ldots + h_nD_n$ \textbf{odvod v smeri $h$} in $R_k = \frac{1}{(k+1)!} (D_h^{k+1}f)(a + \theta h)$ \textbf{ostanek}.
 
-    Izraz \textcolor{red}{(*)} je \emph{Taylorjeva formula} za funkcijo več spremenljivk.
+    Izraz \textcolor{red}{(*)} je \textbf{Taylorjeva formula} za funkcijo več spremenljivk.
 \end{izrek}
 
 \begin{proof}
@@ -711,7 +705,7 @@ Naj bo $f: D^{\text{odp}} \subseteq \R^n \to \R$ funkcija, $a \in D$. Funkcijo $
 \end{opomba}
 
 \begin{opomba}
-    Če je funkcija $f$ razreda $C^\infty(D)$ lahko tvorimo \emph{Taylorjevo vrsto}:
+    Če je funkcija $f$ razreda $C^\infty(D)$ lahko tvorimo \textbf{Taylorjevo vrsto}:
     $$\sum_{j=1}^{\infty} \frac{1}{j!} (D_h^j f)(a).$$
     \begin{itemize}
         \item Vrsta sigurno konvergira za $h=0$.
@@ -722,7 +716,7 @@ Naj bo $f: D^{\text{odp}} \subseteq \R^n \to \R$ funkcija, $a \in D$. Funkcijo $
 \begin{definicija}
     Če Taylorjeva vrsta konvergira k $f(a+h)$ za vse vse $\norm{h} \leq \delta$ za nek $\delta > 0$, tj. 
     $$f(a+h) = \sum_{j=1}^{\infty} \frac{1}{j!} (D_h^j f)(a),$$
-    potem rečemo, da je \emph{funkcija $f$ v okolici točke $a$ (realno) analitična}.
+    potem rečemo, da je \textbf{funkcija $f$ v okolici točke $a$ (realno) analitična}.
 \end{definicija}
 
 \begin{zgled}
@@ -766,14 +760,14 @@ Naj bo $f: D^{\text{odp}} \subseteq \R^n \to \R$ funkcija, $a \in D$. Funkcijo $
 \begin{definicija}
     Naj bo $f: D \subseteq \R^n \to \R$ funkcija, $a \in D$.
     \begin{enumerate}
-        \item Funkcija $f$ ima v točki $a$ \emph{lokalni maksimum}, če 
+        \item Funkcija $f$ ima v točki $a$ \textbf{lokalni maksimum}, če 
         $$\some{r>0} \all{x \in D \cap K(a,r)} f(a) \geq f(x).$$ 
-        Funkcija $f$ ima v točki $a$ \emph{strogi lokalni maksimum}, če
+        Funkcija $f$ ima v točki $a$ \textbf{strogi lokalni maksimum}, če
         $$\some{r>0} \all{x \in D \cap K(a,r)} f(a) > f(x).$$ 
-        \item Funkcija $f$ ima v točki $a$ \emph{(globalni) maksimum na $D$}, če 
+        \item Funkcija $f$ ima v točki $a$ \textbf{(globalni) maksimum na $D$}, če 
         $$\all{x \in D} f(a) \geq f(x).$$
-        \item Podobno definiramo: \emph{lokalni minimum}, \emph{(globalni) minimum}.
-        \item \emph{Lokalni ekstrem} (oz. \emph{globalni ekstrem}) je skupno ime za lokalni (oz. globalni) minumum in maksimum.
+        \item Podobno definiramo: \textbf{lokalni minimum}, \textbf{(globalni) minimum}.
+        \item \textbf{Lokalni ekstrem} (oz. \textbf{globalni ekstrem}) je skupno ime za lokalni (oz. globalni) minumum in maksimum.
     \end{enumerate}
 \end{definicija}
 
@@ -784,7 +778,7 @@ Naj bo $f: D^{\text{odp}} \subseteq \R^n \to \R$ funkcija, $a \in D$. Funkcijo $
 \begin{definicija}
     Naj bo $D^\text{odp} \subseteq \R^n$ in $f: D \to \R$ funkcija razreda $C^1$ (dovolj, da je diferenciabilna). 
     
-    Rečemo, da je točka $a \in D$ \emph{stacionarna (oz. kritična) točka  funkcije $f$}, če $$(Df)(a) = 0, \text{ tj. } \podv{f}{x_1}(a) = \podv{f}{x_2}(a) = \ldots = \podv{f}{x_n}(a) = 0.$$
+    Rečemo, da je točka $a \in D$ \textbf{stacionarna (oz. kritična) točka  funkcije $f$}, če $$(Df)(a) = 0, \text{ tj. } \podv{f}{x_1}(a) = \podv{f}{x_2}(a) = \ldots = \podv{f}{x_n}(a) = 0.$$
 \end{definicija}
 
 \begin{trditev}
@@ -806,7 +800,7 @@ Naj bo $f: D^{\text{odp}} \subseteq \R^n \to \R$ funkcija, $a \in D$. Funkcijo $
 \end{zgled}
 
 \subsubsection{Potrebni in zadostni pogoji na 2.\ odvodi, da je kritična točka lokalni ekstrem}
-Naj bo $D \subseteq \R^n$ odprta, $f: D \to R$ funkcija razreda $C^2$. Definiramo \emph{Hessejevo matriko} 2.\ odvodov:
+Naj bo $D \subseteq \R^n$ odprta, $f: D \to R$ funkcija razreda $C^2$. Definiramo \textbf{Hessejevo matriko} 2.\ odvodov:
 $$(Hf) (x) = \begin{bmatrix}
     \frac{\partial^2 f}{\partial x_1^2} & \frac{\partial^2 f}{\partial x_1 \partial x_2} & \ldots & \frac{\partial^2 f}{\partial x_1 \partial x_n} \\
     \frac{\partial^2 f}{\partial x_2 \partial x_1} & \frac{\partial^2 f}{\partial x_2^2} & \ldots & \frac{\partial^2 f}{\partial x_2 \partial x_n} \\
@@ -818,15 +812,15 @@ $$(Hf) (x) = \begin{bmatrix}
     Če je $f \in C^2(D)$, potem mešani odvodi so enaki, tj. $(Hf)^T = Hf$. Torej Hessejeva matrika je simetrična, torej ima v vsaki točki realne lastne vrednosti. 
 \end{opomba}
 
-$\left\langle (Hf)h, h\right\rangle$ je \emph{Hessejeva forma} (kvadratna forma, ki pripada matrike $(Hf)(a)$).
+$\left\langle (Hf)h, h\right\rangle$ je \textbf{Hessejeva forma} (kvadratna forma, ki pripada matrike $(Hf)(a)$).
 
 \begin{definicija}
     Hessejeva matrika $Hf$ je
     \begin{itemize}
-        \item \emph{pozitivno semidefinitna} (pišemo $Hf \geq 0$), če $\all{v \in D} \left\langle (Hf)v, v\right\rangle \geq 0 \liff \text{vse lastne vrednosti so nenagitvne}$;
-        \item \emph{pozitivno definitna} (pišemo $Hf > 0$), če $\all{v \in D} v \neq 0 \lthen \left\langle (Hf)v, v\right\rangle > 0 \liff \text{vse lastne vrednosti so pozitivne}$;
-        \item \emph{negativno semidefinitna} (pišemo $Hf \leq 0$), če $\all{v \in D}\left\langle (Hf)v, v\right\rangle \leq 0 \liff \text{vse lastne vrednosti so nepozitivne}$;
-        \item \emph{negativno definitna} (pišemo $Hf < 0$), če $\all{v \in D} v \neq 0 \lthen \left\langle (Hf)v, v\right\rangle < 0 \liff \text{vse lastne vrednosti so negativne}$.
+        \item \textbf{pozitivno semidefinitna} (pišemo $Hf \geq 0$), če $\all{v \in D} \left\langle (Hf)v, v\right\rangle \geq 0 \liff \text{vse lastne vrednosti so nenagitvne}$;
+        \item \textbf{pozitivno definitna} (pišemo $Hf > 0$), če $\all{v \in D} v \neq 0 \lthen \left\langle (Hf)v, v\right\rangle > 0 \liff \text{vse lastne vrednosti so pozitivne}$;
+        \item \textbf{negativno semidefinitna} (pišemo $Hf \leq 0$), če $\all{v \in D}\left\langle (Hf)v, v\right\rangle \leq 0 \liff \text{vse lastne vrednosti so nepozitivne}$;
+        \item \textbf{negativno definitna} (pišemo $Hf < 0$), če $\all{v \in D} v \neq 0 \lthen \left\langle (Hf)v, v\right\rangle < 0 \liff \text{vse lastne vrednosti so negativne}$.
     \end{itemize}
 \end{definicija}
 
@@ -928,7 +922,7 @@ $\left\langle (Hf)h, h\right\rangle$ je \emph{Hessejeva forma} (kvadratna forma,
             \item $D_xF = (Df)(x) - \sum_{j=1}^{m}\lambda_j(Dg_j)(x) = 0$ ($n$ enačb).
             \item $D_{\lambda_j}F = -g_j(x) = 0$ za $j = 1, \ldots, m$ ($m$ enačb).
         \end{itemize}
-        Konstante $\lambda_1, \ldots, \lambda_m$ so \emph{Lagrangeevi multiplikatorji}.
+        Konstante $\lambda_1, \ldots, \lambda_m$ so \textbf{Lagrangeevi multiplikatorji}.
     \end{enumerate}    
 \end{opomba}
 
