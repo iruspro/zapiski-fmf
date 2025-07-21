@@ -1,11 +1,36 @@
-\usepackage{geometry}
-\geometry{
-    a4paper,
-    left=5mm,
-    right=5mm,
-    top=5mm,
-    bottom=15mm
+% page size
+\setlength{\textwidth}{15cm}
+\setlength{\textheight}{224mm}
+\setlength{\topmargin}{0cm}
+\setlength{\evensidemargin}{0cm}
+\setlength{\oddsidemargin}{\paperwidth}
+\addtolength{\oddsidemargin}{-\textwidth}
+\addtolength{\oddsidemargin}{-2in}
+
+\setlength\parindent{0pt}
+
+% header and footer
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+
+\lhead[\fancyplain{}{{\thepage}}]%
+      {\fancyplain{}{{\rightmark}}}
+\rhead[\fancyplain{}{{\leftmark}}]%
+      {\fancyplain{}{\thepage}}
+\cfoot{\footnotesize [verzija \today]}
+\lfoot[]{}
+\rfoot[]{}
+
+% hyperlinks
+\usepackage[colorlinks]{hyperref}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
 }
 
+% style
 \usepackage{enumitem}
 \setlist{nosep}
