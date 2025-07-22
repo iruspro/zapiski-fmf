@@ -386,7 +386,7 @@ Naj bo $f: D^{\text{odp}} \subseteq \R^n \to \R$ funkcija. Denimo, da je $f$ par
 \begin{izrek}[Verižno pravilo]
     Naj bo $a \in D \subseteq \R^n$ notranja točka. Naj bo $b \in \Omega \subseteq \R^m$ notranja točka. Naj bo $F: D \to \Omega$ diferenciabilna v točki $a$ in velja $F(a) = b$. Naj bo $G: \Omega \to \R^k$ diferenciabilna v točki $b$. Tedaj $G \circ F$ diferenciabilna v točki $a$ in velja:
     $$D(G \circ F)(a) = (DG)(b) \circ (DF)(a) = (DG)(F(a)) \circ (DF)(a).$$
-    Označimo $F(x_1, \ldots, x_n) = (f_1(x_1, \ldots, x_n), \ldots, f_m(x_1, \ldots, x_n))$ in $G(y_1, \ldots, y_m) = (g_1(y_1, \ldots, y_m), \ldots, g_k(y_1, \ldots, y_m))$. Potem 
+    Označimo $$F(x_1, \ldots, x_n) = (f_1(x_1, \ldots, x_n), \ldots, f_m(x_1, \ldots, x_n))$$ in $$G(y_1, \ldots, y_m) = (g_1(y_1, \ldots, y_m), \ldots, g_k(y_1, \ldots, y_m)).$$ Potem 
     $$D(G \circ F)(a) = \begin{bmatrix}
         \podv{g_1}{y_1} & \ldots & \podv{g_1}{y_m} \\
         \vdots & & \vdots \\
@@ -403,52 +403,15 @@ Naj bo $f: D^{\text{odp}} \subseteq \R^n \to \R$ funkcija. Denimo, da je $f$ par
 \end{proof}
 
 \begin{posledica}[$k=1$, $G = g$ funkcija]
-    Naj bo $\Phi(x_1, \ldots, x_n) = g(f_1(x_1, \ldots, x_n), \ldots, f_m(x_1, \ldots, x_n))$. Potem 
+    Naj bo $$\Phi(x_1, \ldots, x_n) = g(f_1(x_1, \ldots, x_n), \ldots, f_m(x_1, \ldots, x_n)).$$ Potem 
     $$\podv{\Phi}{x_j}(a) = \podv{g}{y_1}(b) \cdot \podv{f_1}{x_j}(a) + \podv{g}{y_2}(b) \cdot \podv{f_2}{x_j}(a) + \ldots + \podv{g}{y_m}(b) \cdot \podv{f_m}{x_j}(a)$$
 \end{posledica}
 
 \begin{zgled}
-    Naj bo $F(x,y) = (x^2 + y, xy), \ g(u, v) = uv + v^2$. Naj bo $\Phi = g \circ F$. Izračunaj $(D\Phi)(x,y)$ na dva načina.
+    Naj bo $F(x,y) = (x^2 + y, xy), \ g(u, v) = uv + v^2$. Naj bo $\Phi = g \circ F$. Izračunaj odvod $(D\Phi)(x,y)$ na dva načina.
 \end{zgled}
 
 \subsection{Izrek o implicitni funkciji}
-\subsubsection{Osnovna verzija izreka o implicitni funkciji}
-Radi bi poiskali zadostni pogoji na funkcijo $f(x, y)$, da bi enačba $f(x, y) = 0$ lokalno v okolici točki $(a,b)$, za katero velja $f(a,b) = 0$, predstavljala graf funkcije $y = \varphi(x)$.
-
-\begin{izrek}[Osnovna verzija izreka o implicitni funkciji]
-    Naj bo $D \subseteq \R^2$ odprta,  $(a, b) \in D$,  $f: D^\text{odp} \to \R$ funkcija razreda $ C^1(D)$ in naj velja:
-    \begin{enumerate}
-        \item $f(a,b) = 0$.
-        \item $f_y(a,b) \neq 0$.
-    \end{enumerate}
-    Potem obstajata $\delta > 0$ in $\epsilon > 0$, da velja: $I \times J \subseteq D$, kjer je $I = (a - \delta, a + \delta), \ J = (b-\epsilon, b+\epsilon)$ in enolično določena funkcija $\varphi: I \to J$ razreda $C^1$, za katero velja:
-    \begin{enumerate}
-        \item $\varphi(a) = b$.
-        \item $\all{(x,y) \in I \times J} f(x, y) = 0 \liff y = \varphi (x)$ (rešitve enačbe $f(x,y) = 0$ so natanko graf funkcije $\varphi$).
-        \item $\varphi'(x) = -\frac{f_x(x, \varphi(x))}{f_y(x, \varphi(x))}$ za vsak $x \in I$.
-    \end{enumerate}
-\end{izrek}
-
-\begin{proof}
-    Funkcijo $\varphi$ konstruiramo s pomočjo izreka o bisekciji z upoštevanjem stroge monotonosti funkciji $y \mapsto f(x, y)$.
-
-    Zveznost ($\overline{I} \times \overline{J}$ je kompaktna), odvedljivost in zveznost odvoda pokažemo z pomočjo izraza $f(x + \Delta x, y + \Delta y) - f(x,y) = 0$ in Lagrangeeva izreka, kjer $x + \Delta x \in (a - \delta, a + \delta), \ y= \varphi (x), \ y + \Delta y = \varphi(x + \Delta x)$.
-\end{proof}
-
-\begin{posledica}
-    Če je funkcija $f$ razreda $C^k$, potem je tudi funkcija $\varphi$ razreda $C^k$.
-\end{posledica}
-
-\begin{zgled}
-    Kaj če pogoji niso izpolnjeni?
-    \begin{enumerate}
-        \item $f(x,y) = (x-y)^2, \ f(x,y) = 0$ v okolici točke $(0,0)$ (pogoji ni potrebni).
-        \item $f(x,y) = y^3 - x, \ f(x,y) = 0$ v okolici točke $(0,0)$ (odvedljivost $\varphi$).
-        \item $f(x,y) = y^2-x^2-x^4, \ f(x,y) = 0$ v okolici točke $(0,0)$ (enoličnost $\varphi$).
-        \item $f(x,y) = y^2+x^2+x^4, \ f(x,y) = 0$ v okolici točke $(0,0)$ (množica rešitev).
-    \end{enumerate}
-\end{zgled}
-
 \subsubsection{Izrek o inverzni preslikavi}
 Naj bo $\Phi: D^\text{odp} \subseteq \R^m \to \R^m$ preslikava, $\Phi \in C^1(D)$. Kakšne so zadostni pogoji za (lokalno) obrnljivost preslikave $\Phi$?
 \begin{definicija}
@@ -531,6 +494,44 @@ Naj bo $\Phi: D^\text{odp} \subseteq \R^m \to \R^m$ preslikava, $\Phi \in C^1(D)
 \begin{zgled}
     Naj bo $F: \R^{n \times n} \to \R^{n \times n}, \ F(X) = X^2$. Ali je $F$ v okolici točke $I \in \R^{n \times n}$ lokalni difeomorfizem? Kaj to pomeni?
 \end{zgled}
+
+\subsubsection{Osnovna verzija izreka o implicitni funkciji}
+Radi bi poiskali zadostni pogoji na funkcijo $f(x, y)$, da bi enačba $f(x, y) = 0$ lokalno v okolici točki $(a,b)$, za katero velja $f(a,b) = 0$, predstavljala graf funkcije $y = \varphi(x)$.
+
+\begin{izrek}[Osnovna verzija izreka o implicitni funkciji]
+    Naj bo $D \subseteq \R^2$ odprta,  $(a, b) \in D$,  $f: D^\text{odp} \to \R$ funkcija razreda $ C^1(D)$ in naj velja:
+    \begin{enumerate}
+        \item $f(a,b) = 0$.
+        \item $f_y(a,b) \neq 0$.
+    \end{enumerate}
+    Potem obstajata $\delta > 0$ in $\epsilon > 0$, da velja: $I \times J \subseteq D$, kjer je $I = (a - \delta, a + \delta), \ J = (b-\epsilon, b+\epsilon)$ in enolično določena funkcija $\varphi: I \to J$ razreda $C^1$, za katero velja:
+    \begin{enumerate}
+        \item $\varphi(a) = b$.
+        \item $\all{(x,y) \in I \times J} f(x, y) = 0 \liff y = \varphi (x)$ (rešitve enačbe $f(x,y) = 0$ so natanko graf funkcije $\varphi$).
+        \item $\varphi'(x) = -\frac{f_x(x, \varphi(x))}{f_y(x, \varphi(x))}$ za vsak $x \in I$.
+    \end{enumerate}
+\end{izrek}
+
+\begin{proof}
+    Funkcijo $\varphi$ konstruiramo s pomočjo izreka o bisekciji z upoštevanjem stroge monotonosti funkciji $y \mapsto f(x, y)$.
+
+    Zveznost ($\overline{I} \times \overline{J}$ je kompaktna), odvedljivost in zveznost odvoda pokažemo z pomočjo izraza $f(x + \Delta x, y + \Delta y) - f(x,y) = 0$ in Lagrangeeva izreka, kjer $x + \Delta x \in (a - \delta, a + \delta), \ y= \varphi (x), \ y + \Delta y = \varphi(x + \Delta x)$.
+\end{proof}
+
+\begin{posledica}
+    Če je funkcija $f$ razreda $C^k$, potem je tudi funkcija $\varphi$ razreda $C^k$.
+\end{posledica}
+
+\begin{zgled}
+    Kaj če pogoji niso izpolnjeni?
+    \begin{enumerate}
+        \item $f(x,y) = (x-y)^2, \ f(x,y) = 0$ v okolici točke $(0,0)$ (pogoji ni potrebni).
+        \item $f(x,y) = y^3 - x, \ f(x,y) = 0$ v okolici točke $(0,0)$ (odvedljivost $\varphi$).
+        \item $f(x,y) = y^2-x^2-x^4, \ f(x,y) = 0$ v okolici točke $(0,0)$ (enoličnost $\varphi$).
+        \item $f(x,y) = y^2+x^2+x^4, \ f(x,y) = 0$ v okolici točke $(0,0)$ (množica rešitev).
+    \end{enumerate}
+\end{zgled}
+
 
 \subsubsection{Izrek o implicitni preslikavi}
 Imamo $n+m$ spremenljivk: $(x, y)$, kjer $x = (x_1, \ldots, x_n), \ y = (y_1, \ldots, y_m)$ in $m$ enačb. Pričakujemo, da bomo lahko $m$~spremenljivk izrazili kot funkcijo ostalih, tj. najdemo preslikavo $\Phi: D \subseteq \R^n \to \R^m$, da velja $y = \Phi(x)$.
