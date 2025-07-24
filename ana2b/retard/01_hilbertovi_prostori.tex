@@ -87,6 +87,9 @@ Naj bo \(X\) vektorski prostor nad \(\R\) (ali nad \(\C\)).
 \end{zgled}
 
 \subsection{Prostor \(L^2([a, b])\)}
+\begin{opomba}
+    Števili \(a, b\) sta lahko končni ali \(\pm\infty\).
+\end{opomba}
 \begin{trditev}
     Naj bo \(C([a,b])\) vektorski prostor nad \(\R\). Potem je s predpisom \[\all{f, g \in C([a,b])} \scp{f}{g} = \int_{a}^{b} f(x) g(x) \, dx\]
     definiran skalarni produkt na \(\cf{}\).
@@ -183,21 +186,36 @@ Očitno, da je \(C([a,b]) \subseteq L^2([a, b])\).
 
 \begin{zgled}
     Vzemimo \([0, 1]\). Definiramo \(f_n(x) = \begin{cases}
-        \sqrt{n}; &0 \leq x \leq \frac{1}{n} \\ 0; &\text{sicer}
+        \sqrt{n}; &0 < x \leq \frac{1}{n} \\ 0; &\text{sicer}
     \end{cases}.\)
 
-    Čemu je enaka \(\lim_{n \to \infty} f_n(x)\) za \(x \in [0, 1]\). Ali je \(\lim_{n \to \infty} f_n(x) = 0\) v \(L^2([0,1])\)?
+    Čemu je enaka \(\lim_{n \to \infty} f_n(x)\) za vse \(x \in [0, 1]\) (po točkah)? Ali je \(\lim_{n \to \infty} f_n(x) = 0\) v \(L^2([0,1])\)?
 \end{zgled}
 
 \begin{zgled}
-    \todo{}
+    Definiramo zaporedje \(f_n: [0, 1] \to \R\) po pravilu: začnemo z \(f_1 \equiv 1\). Nato nadaljujemo
+    \[
+    f_2 = \begin{cases}
+            1; &x \in [0, \frac{1}{2}] \\ 0, &\text{sicer}
+        \end{cases}, \ 
+    f_3 = \begin{cases}
+            1; &x \in [\frac{1}{2}, 1] \\ 0, &\text{sicer}
+        \end{cases}, \ 
+    f_4 = \begin{cases}
+            1; &x \in [0, \frac{1}{3}] \\ 0, &\text{sicer}
+        \end{cases}, \
+    f_5 = \begin{cases}
+            1; &x \in [\frac{1}{3}, \frac{2}{3}] \\ 0, &\text{sicer}
+        \end{cases}
+    \]
+    in tako naprej. Ali obstaja limita po točkah? Ali obstaja limita v \(L^2\) smislu?
 \end{zgled}
 
 \subsection{Ortogonalnost}
 \begin{definicija}
-    Naj bo \((X, \scp{\ }{})\) vektorski prostor s skalarnim produktom, \(A \subseteq X, \ A \neq \emptyset\). Naj bosta \(x, y \in X\).
+    Naj bo \((X, \scp{\ }{})\) vektorski prostor s skalarnim produktom, \(A \subseteq X\), \(A \neq \emptyset\). Naj bosta \(x, y \in X\).
     \begin{itemize}
-        \item \(x\) je \textbf{pravokoten} na \(y\), če \(\scp{x}{y} = 0\), tj. \(x \perp y \liff \scp{x}{y} = 0\).
+        \item \(x\) je \textbf{pravokoten} na \(y\), če \(\scp{x}{y} = 0\), tj.\ \(x \perp y \liff \scp{x}{y} = 0\).
         \item \textbf{Ortogonalni komplement} množice \(A\) je \(A^\perp = \setb{x \in X}{\all{a \in A} x \perp a}\).
     \end{itemize}
 \end{definicija}
@@ -239,6 +257,7 @@ Očitno, da je \(C([a,b]) \subseteq L^2([a, b])\).
 \end{opomba}
 
 \begin{trditev}[Pitagorjev izrek]
+    \label{trd:pitagor}
     Naj bo \((X, \scp{\ }{})\) vektorski prostor s skalarnim produktom. Naj bodo \(x_1, \ldots, x_n \in X\) taki, da \(\all{i, j \in [n]} i \neq j \lthen x_j \perp x_j\). Tedaj 
     \[\norm{x_1 + \ldots + x_n}^2 = \norm{x_1}^2 + \ldots + \norm{x_n}^2.\]
 \end{trditev}
@@ -247,7 +266,6 @@ Očitno, da je \(C([a,b]) \subseteq L^2([a, b])\).
     Izračunamo normo po definiciji.
 \end{proof}
 
-\newpage
 \begin{definicija}
     Naj bo \((X, \scp{\ }{})\) vektorski prostor s skalarnim produktom in \(Y \leq X\) podprostor X. Naj bo \(x \in X\). \textbf{Pravokotna projekcija} vektorja \(x\) na podprostor \(Y\) (če obstaja) je tak vektor \(P_Y(x) \in Y\), da je 
     \[x - P_Y(x) \in Y^\perp.\]
@@ -261,39 +279,40 @@ Očitno, da je \(C([a,b]) \subseteq L^2([a, b])\).
 \begin{proof}
     Enoličnost: Običajen način.
 
-    Aproksimacija: Pitagorjev izrek.
+    Aproksimacija: Definicija minimuma in Pitagorjev izrek \ref{trd:pitagor}.
 \end{proof}
 
 \begin{zgled}
-    Naj bosta \(Y = C([a,b])\) in \(X = L^2([a, b])\). Če si izberimo \(f \in X \setminus Y\), potem \(f\) nima najboljše aproksimacije z zveznimi funkcijami.
+    Naj bosta \(Y = C([a,b])\) in \(X = L^2([a, b])\). Če si izberimo \(f \in X \setminus Y\), potem \(f\) nima najboljše aproksimacije z zveznimi funkcijami, saj, ker je \(\Cl (C([a,b])) = L^2([a, b])\), bi veljalo \(\norm{f - P_{C([a,b])}(f)} = 0\) in posledično \(f \in C([a, b])\).
 \end{zgled}
 
 \begin{opomba}
     \ 
     \begin{enumerate}
         \item \(P_Y^2 = P_Y\).
-        \item \(x = \underbrace{x - P_Y(x)}_{Y^\perp} + \underbrace{P_Y(x)}_Y \lthen \norm{x}^2 = \norm{x - P_Y(x)}^2 + \norm{P_Y(x)}^2 \lthen \norm{x} \geq \norm{P_Y(x)}\).
+        \item \(\norm{x} \geq \norm{P_Y(x)}\), saj \(x = \underbrace{x - P_Y(x)}_{Y^\perp} + \underbrace{P_Y(x)}_Y\).
         \item Če je \(P_Y\) definiran na \(X\), potem je linearen in zvezen.
         \begin{proof}
-            \todo{}
+            Definicija in enoličnost projekcije.
         \end{proof}
         \item Če je \(P_Y\) definiran na \(X\), je \(Y\) zaprt podprostor.
         \begin{proof}
-            \todo{}
+            Vzamemo konvergentno zaporedje v \(Y\) in upoštevamo zveznost \(P_Y\).
         \end{proof}
+        \newpage
         \item Če ima \(x\) pravokotno projekcijo na \(Y\), ima tudi pravokotno projekcijo na \(Y^\perp\).
         \begin{proof}
-            \todo{}
+            Vzamemo \(x - P_Y(x)\).
         \end{proof}
     \end{enumerate}
 \end{opomba}
 
 \begin{trditev}
-    Naj bo \(Y \leq X\) končno dimenzionalen podprostor z ON bazo \(\set{e_1, \ldots, e_n}\), tj. \(\scp{e_i}{e_j} = \delta_{ij}\). Naj bo \(x \in X\). Tedaj je \[P_Y(x) = \sum_{j=1}^{n} \scp{x}{e_j}e_j.\]
+    Naj bo \(Y \leq X\) končno dimenzionalen podprostor z ON bazo \(\set{e_1, \ldots, e_n}\), tj.\ \(\scp{e_i}{e_j} = \delta_{ij}\). Naj bo \(x \in X\). Tedaj je \[P_Y(x) = \sum_{j=1}^{n} \scp{x}{e_j}e_j.\]
 \end{trditev}
 
 \begin{proof}
-    Definicija.
+    Definicija projekcije.
 \end{proof}
 
 \begin{opomba}
