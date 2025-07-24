@@ -1,0 +1,24 @@
+\section{Dodatek}
+\subsection{Banachovo skrčitveno načelo}
+\begin{definicija}
+    Naj bo \((M, d)\) metrični prostor. Preslikava \(f: M \to M\) je \textbf{skrčitev}, če 
+    \[
+        \some{q \in [0, 1)} \all{x, y \in M} d(f(x), f(y)) \leq qd(x, y)
+    \]
+\end{definicija}
+
+\begin{izrek}[Banachovo skrčitveno načelo]
+    \label{izr:banachovo-skrcitveno-nacelo}
+    Naj bo 
+    \begin{itemize}
+        \item prostor \((M, d)\) je poln metrični prostor;
+        \item preslikava \(f: M \to M\) je skrčitev.
+    \end{itemize}
+    Tedaj ima preslikava \(f\) natanko eno negibno točko, tj.
+    \[\exactlyone{a \in M} f(a) = a\]
+    ter za vsak \(x \in M\) zaporedje 
+    \[
+        x, f(x), f(f(x)), \ldots
+    \]
+    konvergira proti točki \(a\).
+\end{izrek}

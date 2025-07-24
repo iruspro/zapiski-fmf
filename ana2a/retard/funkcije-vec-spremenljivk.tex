@@ -384,6 +384,7 @@ Naj bo $f: D^{\text{odp}} \subseteq \R^n \to \R$ funkcija. Denimo, da je $f$ par
 \end{definicija}
 
 \begin{izrek}[Verižno pravilo]
+    \label{ver-pr}
     Naj bo $a \in D \subseteq \R^n$ notranja točka. Naj bo $b \in \Omega \subseteq \R^m$ notranja točka. Naj bo $F: D \to \Omega$ diferenciabilna v točki $a$ in velja $F(a) = b$. Naj bo $G: \Omega \to \R^k$ diferenciabilna v točki $b$. Tedaj $G \circ F$ diferenciabilna v točki $a$ in velja:
     $$D(G \circ F)(a) = (DG)(b) \circ (DF)(a) = (DG)(F(a)) \circ (DF)(a).$$
     Označimo $$F(x_1, \ldots, x_n) = (f_1(x_1, \ldots, x_n), \ldots, f_m(x_1, \ldots, x_n))$$ in $$G(y_1, \ldots, y_m) = (g_1(y_1, \ldots, y_m), \ldots, g_k(y_1, \ldots, y_m)).$$ Potem 
@@ -413,9 +414,9 @@ Naj bo $f: D^{\text{odp}} \subseteq \R^n \to \R$ funkcija. Denimo, da je $f$ par
 
 \subsection{Izrek o implicitni funkciji}
 \subsubsection{Izrek o inverzni preslikavi}
-Naj bo $\Phi: D^\text{odp} \subseteq \R^m \to \R^m$ preslikava, $\Phi \in C^1(D)$. Kakšne so zadostni pogoji za (lokalno) obrnljivost preslikave $\Phi$?
+Naj bo $\Phi: D^\text{odp} \subseteq \R^n \to \R^n$ preslikava, $\Phi \in C^1(D)$. Kakšne so zadostni pogoji za (lokalno) obrnljivost preslikave $\Phi$?
 \begin{definicija}
-    Naj bosta $D, \, \Omega \subseteq \R^m$ odprti. Preslikava $\Phi: D  \to \Omega$ je \textbf{$C^1$-difeomorfizem}, če
+    Naj bosta $D, \, \Omega \subseteq \R^n$ odprti. Preslikava $\Phi: D  \to \Omega$ je \textbf{$C^1$-difeomor\-fizem}, če
     \begin{enumerate}
         \item $\Phi$ je bijekcija, 
         \item $\Phi \in C^1(D)$,
@@ -429,15 +430,15 @@ Naj bo $\Phi: D^\text{odp} \subseteq \R^m \to \R^m$ preslikava, $\Phi \in C^1(D)
 \end{zgled}
 
 \begin{trditev}
-    Naj bosta $D, \, \Omega \subseteq \R^m$ odprti. Naj bo $\Phi: D  \to \Omega$ $C^1$-difeomorfizem. Tedaj je $\det(D\Phi) \neq 0$ na $D$. 
+    Naj bosta $D, \, \Omega \subseteq \R^n$ odprti. Naj bo $\Phi: D  \to \Omega$ $C^1$-difeomorfizem. Tedaj je $\det(D\Phi) \neq 0$ na $D$. 
 \end{trditev}
 
 \begin{proof}
-    Pogledamo $\Phi^{-1} \circ \Phi = \id_D$ (verižno pravilo).
+    Pogledamo $\Phi^{-1} \circ \Phi = \id_D$ (verižno pravilo \ref{ver-pr}).
 \end{proof}
 
 \begin{posledica}
-    $(D\Phi^{-1})(y) = (D\Phi)^{-1}(x)$, kjer $y = \Phi(x)$.
+    $(D\Phi^{-1})(y) = ((D\Phi)(x))^{-1}$, kjer $y = \Phi(x)$.
 \end{posledica}
 
 \begin{zgled}
@@ -446,49 +447,107 @@ Naj bo $\Phi: D^\text{odp} \subseteq \R^m \to \R^m$ preslikava, $\Phi \in C^1(D)
 \end{zgled}
 
 \begin{lema}[Lagrangeev izrek za funkcijo več spremenljivk]
-    Naj bo $D \subseteq \R^n$ odprta množica, točki $a, b \in D$ taki, da za vsak $t \in [0,1]$ daljica $(1-t)a + tb \in D$, $f: D \to \R$ funkcija razreda $C^1$.     
-    Tedaj obstaja taka točka $\xi$ iz daljice med~$a$~in~$b$, da je $f(b)-f(a) = (Df)(\xi)(b-a)$.
+    \label{lagr-many-var}
+    Naj bo $D \subseteq \R^n$ odprta množica, točki $a, b \in D$ sta taki, da za vsak $t \in [0,1]$ daljica $(1-t)a + tb$ leži v $D$, funkcija $f: D \to \R$ razreda $C^1$.     
+    Tedaj obstaja taka točka $\xi$ iz daljice med~$a$~in~$b$, da je 
+    $$f(b)-f(a) = (Df)(\xi)(b-a).$$
 \end{lema}
 
 \begin{proof}
     Lagrangeev izrek za funkcijo $\varphi(t) = f((1-t)a + tb)$.
 \end{proof}
 
-\begin{lema}
-    Predpostavki kot prej. Naj obstaja tak $M \in \R$, da za vsak $j = 1, \ldots, n$ in vsak $x \in D$ velja: $\left|\podv{f}{x_j}(x)\right| \leq M$. Tedaj~$|f(b)-f(a)| \leq M \sqrt{n}|b-a|$.
-\end{lema}
+\begin{posledica}
+    \label{posl-lagr-many-var}
+    Naj bo $D \subseteq \R^n, \ a,b \in D$ ter funkcija \(f\) kot prej. Naj obstaja tak $M \in \R$, da za vsak $j = 1, \ldots, n$ in vsak $x \in D$ velja: $\left|\podv{f}{x_j}(x)\right| \leq M$. Tedaj $$|f(b)-f(a)| \leq M \sqrt{n}\norm{b-a}.$$
+\end{posledica}
 
 \begin{proof}
-    Uporabimo prejšnjo trditev.
-\end{proof}
-
-\begin{lema}
-    Naj bo $D \subseteq \R^n, \ a,b \in D$ kot prej. Naj bo $F: D \subseteq \R^n \to \R^m, \ F = (f_1, \ldots, f_m)$ preslikava razreda~$C^1$. Naj obstaja tak $M \in \R$, da za vsak $j = 1, \ldots, n$, vsak $i = 1, \ldots, m$ in vsak $x \in D$ velja: $\left|\podv{f_i}{x_j}(x)\right| \leq M$. 
-    
-    Tedaj~$\norm{F(b) - F(a)}~\leq~M~\sqrt{mn}~\norm{b - a}$.
-\end{lema}
-
-\begin{izrek}[Izrek o inverzni preslikavi]
-    Naj bo $D \subseteq \R^m$ odprta, $F: D \to \R^m$ preslikava razreda $C^1$,  $a \in D$ in $b = F(a)$.
-    Če je $\det(DF)(a) \neq 0$, potem obstajata okolici $a \in U \subseteq \R^m$ in $b \in V \subseteq \R^m$, da je $F: U \to V$ $C^1$-difeomorfizem.    
-\end{izrek}
-
-\begin{definicija}
-    Če je $F: D \to \Omega$ preslikava med odprtimi množicami v $\R^m$ in je $\det(DF)(x) \neq 0$ za vse $x \in D$, pravimo, da je $F$ \textbf{lokalni difeomorfizem}.
-\end{definicija}
-
-\begin{proof}
-    Dovolj, da izrek dokažemo za primer, ko $a=b=0, \ (DF)(0) = I$.
-
-    \textcolor{red}{TODO}
+    Uporabimo trditev \ref{lagr-many-var} in CSB neenakost.
 \end{proof}
 
 \begin{posledica}
-    Če je $\Phi$ razreda $C^k$ za $k \in \N \cup \set{\infty}$, je $\Phi$ lokalni $C^k$ difeomorfizem.
+    Naj bo $D \subseteq \R^n, \ a,b \in D$ kot prej. Naj bo $F: D \subseteq \R^n \to \R^m$, kjer $F = (f_1, \ldots, f_m)$, preslikava razreda~$C^1$. Naj obstaja tak $M \in \R$, da za vsak $j = 1, \ldots, n$, vsak $i = 1, \ldots, m$ in vsak $x \in D$ velja: $\left|\podv{f_i}{x_j}(x)\right| \leq M$. 
+    
+    Tedaj $$\norm{F(b) - F(a)} \leq M \sqrt{mn} \norm{b - a}.$$
 \end{posledica}
 
+\begin{proof}
+    Zapišemo po komponentah ter uporabimo posledico \ref{posl-lagr-many-var}.
+\end{proof}
+
+\begin{lema}
+    \label{pomozna-trditev}
+    Naj bo 
+    \begin{itemize}
+        \item množica $D \subseteq \R^n$ odprta;
+        \item preslikava $F: D \to \R^n$ razreda $C^1$ ter
+        \item \(F(0) = 0\) in \(DF(0) = I\).
+    \end{itemize}
+    Definiramo \(H(x) := F(x) - x\). Tedaj 
+    \[\some{r > 0} \all{x_1, x_2 \in \overline{K(0, r)}} \norm{H(x_1) - H(x_2)} \leq \frac{1}{2} \norm{x_1 - x_2}.\]
+\end{lema}
+
 \begin{opomba}
-    Če je $m=1$, potem $f: I \subseteq \R \to \R$. Naj bo $a \in I, \ f \in C^1(I), \ f'(a) \neq 0$. Potem $f'(x) \neq 0$ v okolici $a$, torej~$f$ ima lokalni $C^1$ inverz.
+    \label{poenastovitev}
+    Izrek o inverzni preslikavi in izrek o implicitni funkciji sta invariantna glede na linearne premike in raztezke. Recimo, da imamo preslikavo \(\Phi: D \subseteq \R^n \to \R^n\), za katero velja \(\det(D\Phi(x)) \neq 0\) za vse \(x \in D\), in naj bo \(\Phi(a) = b\). Definirajmo novo preslikavo
+    \[
+        F(x) := (D\Phi(a))^{-1}(\Phi(a + x) - \Phi(a)),
+    \]
+    ki zadošča \(F(0) = 0\) in \(DF(0) = I\). Če izrek dokažemo za preslikavo \(F\), ga dokažemo za
+    \[
+        \Phi(x) = D\Phi(a) F(x - a) + \Phi(a),
+    \]
+    saj
+    \[
+        \Phi^{-1}(y) = F^{-1}[(D\Phi(a))^{-1}(y - \Phi(a))] + a.
+    \]
+\end{opomba}
+
+\newpage
+\begin{izrek}[Izrek o inverzni preslikavi]
+    Naj bo 
+    \begin{itemize}
+        \item množica $D \subseteq \R^n$ odprta;
+        \item preslikava $F: D \to \R^n$ razreda $C^1$ na \(D\) ter
+        \item $a \in D$ in $b = F(a)$.
+    \end{itemize}
+    Recimo, da $\det(DF)(a) \neq 0$, tedaj obstajata okolici $a \in U \subseteq \R^m$ in $b \in V \subseteq \R^n$, da je preslikava $F: U \to V$ $C^1$-difeomorfizem. 
+\end{izrek}
+
+\begin{proof}
+    BŠS (opomba \ref{poenastovitev}) \(a = b = 0\) ter \(DF(0) = I\).
+    
+    Definiramo \(H(x) := F(x) - x\). Za to preslikavo velja pomožna trditev \ref{pomozna-trditev}, dobimo \(r > 0\). 
+    \begin{enumerate}
+        \item \(F\) je injektivna na \(\overline{K(0, r)}\).
+        \item \(F: \overline{K(0, r)} \to \img{F}(\overline{K(0, r)})\) je bijekcija in inverz je zvezen.
+        \item Slika je dovolj velika, tj.\ \(\overline{K(0, r/2)} \subseteq \img{F}(\overline{K(0, r)})\). Torej 
+        \[\all{y \in \overline{K(0, r / 2)} } \some{x \in \overline{K(0, r)}}F(x) = y.\]
+        S pomočjo Banachova skrčitvenega načela \ref{izr:banachovo-skrcitveno-nacelo} poiščemo negibno točko preslikave 
+        \[T_y(x) := -H(x) + y.\]
+        Lahko sklepamo tudi, da \(K(0, r/2) \subseteq \img{F}(K(0, r))\).
+    \end{enumerate}
+    Izberimo okolici \(V = K(0, r/2)\) in \(K(0, r) \cap \invimg{F}(V)\).
+    \begin{enumerate}
+        \item[4.] Pokažemo, da je preslikava \(F^{-1}: V \to U\) razreda \(C^1\). \qedhere 
+    \end{enumerate}
+\end{proof}
+
+\begin{definicija}
+    Če je $F: D \to \Omega$ preslikava med odprtimi množicami v $\R^n$ in je $\det(DF)(x) \neq 0$ za vse $x \in D$, pravimo, da je $F$ \textbf{lokalni difeomorfizem}.
+\end{definicija}
+
+\begin{posledica}
+    Če je $F$ razreda $C^k$ \(D\) za $k \in \N \cup \set{\infty}$, je $F$ lokalni $C^k$-difeomorfizem.
+\end{posledica}
+
+\begin{proof}
+    Verižno pravilo \ref{ver-pr} in indukcija.
+\end{proof}
+
+\begin{opomba}
+    Če je $n=1$, potem $f: I \subseteq \R \to \R$. Naj bo $a \in I, \ f \in C^1(I), \ f'(a) \neq 0$. Potem $f'(x) \neq 0$ v okolici $a$, torej~$f$ ima lokalni $C^1$ inverz.
 \end{opomba}
 
 \begin{zgled}
@@ -496,31 +555,38 @@ Naj bo $\Phi: D^\text{odp} \subseteq \R^m \to \R^m$ preslikava, $\Phi \in C^1(D)
 \end{zgled}
 
 \subsubsection{Osnovna verzija izreka o implicitni funkciji}
-Radi bi poiskali zadostni pogoji na funkcijo $f(x, y)$, da bi enačba $f(x, y) = 0$ lokalno v okolici točki $(a,b)$, za katero velja $f(a,b) = 0$, predstavljala graf funkcije $y = \varphi(x)$.
+Radi bi poiskali zadostni pogoji na funkcijo $f: \R^2 \to \R$, da bi enačba $f(x, y) = 0$ lokalno v okolici točki $(a,b)$, za katero velja $f(a,b) = 0$, predstavljala graf funkcije $y = \varphi(x)$.
 
 \begin{izrek}[Osnovna verzija izreka o implicitni funkciji]
-    Naj bo $D \subseteq \R^2$ odprta,  $(a, b) \in D$,  $f: D^\text{odp} \to \R$ funkcija razreda $ C^1(D)$ in naj velja:
-    \begin{enumerate}
-        \item $f(a,b) = 0$.
-        \item $f_y(a,b) \neq 0$.
-    \end{enumerate}
-    Potem obstajata $\delta > 0$ in $\epsilon > 0$, da velja: $I \times J \subseteq D$, kjer je $I = (a - \delta, a + \delta), \ J = (b-\epsilon, b+\epsilon)$ in enolično določena funkcija $\varphi: I \to J$ razreda $C^1$, za katero velja:
+    Naj bo 
+    \begin{itemize}
+        \item množica $D \subseteq \R^2$ odprta, $(a, b) \in D$;
+        \item funkcija $f: D^\text{odp} \to \R$ razreda $ C^1$ na \(D\) ter
+        \item \(f(a, b) = 0\) in \(f_y(a, b) \neq 0\).
+    \end{itemize}
+    Tedaj obstajata $\delta > 0$ in $\epsilon > 0$, da velja: $I \times J \subseteq D$, kjer je $I = (a - \delta, a + \delta), \ J = (b-\epsilon, b+\epsilon)$ in enolično določena funkcija $\varphi: I \to J$ razreda $C^1$ na \(I\), za katero velja:
     \begin{enumerate}
         \item $\varphi(a) = b$.
         \item $\all{(x,y) \in I \times J} f(x, y) = 0 \liff y = \varphi (x)$ (rešitve enačbe $f(x,y) = 0$ so natanko graf funkcije $\varphi$).
-        \item $\varphi'(x) = -\frac{f_x(x, \varphi(x))}{f_y(x, \varphi(x))}$ za vsak $x \in I$.
+        \item $\ds \varphi'(x) = -\frac{f_x(x, \varphi(x))}{f_y(x, \varphi(x))}$ za vsak $x \in I$.
     \end{enumerate}
 \end{izrek}
 
-\begin{proof}
-    Funkcijo $\varphi$ konstruiramo s pomočjo izreka o bisekciji z upoštevanjem stroge monotonosti funkciji $y \mapsto f(x, y)$.
-
-    Zveznost ($\overline{I} \times \overline{J}$ je kompaktna), odvedljivost in zveznost odvoda pokažemo z pomočjo izraza $f(x + \Delta x, y + \Delta y) - f(x,y) = 0$ in Lagrangeeva izreka, kjer $x + \Delta x \in (a - \delta, a + \delta), \ y= \varphi (x), \ y + \Delta y = \varphi(x + \Delta x)$.
+\begin{proof} \
+    \begin{enumerate}
+        \item Konstruiramo funkcijo $\varphi$ s pomočjo izreka o bisekciji z upoštevanjem stroge monotonosti funkciji $y \mapsto f(x, y)$.
+        \item Pokažemo zveznost \(\varphi\) s pomočjo izraza \(f(x + \Delta x, y + \Delta y) - f(x, y)\) z uporabo Lagrangeeva izreka ter upoštevanja, da smo skoraj na kompaktu.
+        \item Odvedljivost in zveznost odvoda sledi iz obstoja limite \(\lim_{\Delta x \to 0} \frac{\Delta y}{\Delta x}\). \qedhere
+    \end{enumerate}
 \end{proof}
 
 \begin{posledica}
     Če je funkcija $f$ razreda $C^k$, potem je tudi funkcija $\varphi$ razreda $C^k$.
 \end{posledica}
+
+\begin{proof}
+    Uporabimo formulo za odvod in indukcijo.
+\end{proof}
 
 \begin{zgled}
     Kaj če pogoji niso izpolnjeni?
@@ -616,6 +682,8 @@ Diferencial preslikave $F$ je potem enak $(DF)(x,y) = \begin{bmatrix}
         \item Preslikava $F$ je \textbf{maksimalnega ranga v točki $a$}, če je $\rang_aF = \min \set{m, n}$.
     \end{enumerate}      
 \end{definicija}
+
+\todo{zgledi po dokazu izreka o inverzni preslikavi}
 
 \begin{opomba}
     Ta pogoj je lokalno stabilen, tj. če je $\rang_aF = \min \set{n, m}$, potem obstaja okolica od $a$, kjer $\rang F$~maksimalen.
