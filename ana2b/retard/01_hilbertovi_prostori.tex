@@ -108,13 +108,17 @@ Naj bo \(X\) vektorski prostor nad \(\R\) (ali nad \(\C\)).
     \end{cases}.\) Pokažemo, da je \((f_n)_n\) Cauchyjevo zaporedje v \(\cf{}\), ki nima limite.
 \end{proof}
 
+\begin{zgled}
+    Vzemimo prostor \(((0,1), d_2)\). Z dodajanjem limitnih točk \(\set{-1, 1}\) ta prostor postane poln.
+\end{zgled}
+
 \begin{definicija}
     Naj bo \((M, d)\) metrični prostor. Pravimo, da lahko \textbf{napolnimo} prostor \(M\), če obstaja prostor \((\overline{M}, \overline{d})\), za kateri velja:
     \begin{enumerate}
         \item \((\overline{M}, \overline{d})\) je poln metrični prostor;
         \item \(M \subseteq \overline{M}\);
         \item \(\overline{d}|_{M \times M} = d\);
-        \item \(M\) je gost v \(\overline{M}\), tj. \(\Cl M = \overline{M}\).
+        \item \(M\) je gost v \(\overline{M}\), tj.\ \(\Cl M = \overline{M}\).
     \end{enumerate}
     Prostoru \(\overline{M}\) rečemo \textbf{napolnitev} prostora \(M\).
 \end{definicija}
@@ -123,17 +127,16 @@ Naj bo \(X\) vektorski prostor nad \(\R\) (ali nad \(\C\)).
     Ideja: \(\overline{M}\) je prostor vseh limit Cauchyjevih zaporedij v \(M\) (+ kvocient).
 \end{opomba}
 
-\begin{primer}
-    Naj bo \(M = (0,1), \ d_2(x,y) = |x-y|\). Potem napolnitev \(\overline{M}\) prostora \(M\) je \(\overline{M} = [0, 1]\).
-\end{primer}
-
 \begin{opomba}
-    Označili smo z \(L^1(A) = \setb{f: A \to \R}{\int_{A} |f| \, dx \ \text{obstaja}} /_\sim\) prostor vseh absolutno integrabilnih funkcij, kjer je  \(\all{f, g \in L^1} f \sim g \liff f = g \ \text{s.p.}\)
+    Označili smo z \(L^1(A) = \setb{f: A \to \R}{\int_{A} |f| \, dx \ \text{obstaja}, \ f \ \text{zvezna s.p.}} /_\sim\) prostor vseh absolutno integrabilnih funkcij, kjer je  \(\all{f, g \in L^1} f \sim g \liff f = g \ \text{s.p.}\)
 \end{opomba}
 
 Vpeljemo zdaj s kvadratom integrabilne funkcije: 
-\[L^2([a, b]) = \setb{f: [a,b] \to \R}{\int_{a}^{b} f^2(x) \, dx \ \text{obstaja}}/_\sim,\]
-kjer je \(\all{f, g \in L^2} f \sim g \liff f = g \ \text{s.p.}\)
+\begin{definicija}
+    Prostor \(L^2([a,b])\) je 
+    \[L^2([a, b]) = \setb{f: [a,b] \to \R}{\int_{a}^{b} f^2(x) \, dx \ \text{obstaja}, \ f \ \text{zvezna s.p.}}/_\sim,\]
+    kjer je \(\all{f, g \in L^2} f \sim g \liff f = g \ \text{s.p.}\)
+\end{definicija}
 
 V tem prostoru gotovo so 
 \begin{itemize}
@@ -142,14 +145,13 @@ V tem prostoru gotovo so
     \item \(f(x) = \frac{1}{\sqrt[4]{x-a}}\) itd.
 \end{itemize}
 
-\newpage
 \paragraph{Cilj} Želimo posplošiti prostor \((\R, \cdot)\).
 
 Naj bo \(f, g \in L^2\), potem \(|f \cdot g| \leq \frac{|f|^2 + |g|^2}{2} \lthen f \cdot g \in L^1([a, b])\). Torej lahko definiramo 
 \[\scp{f}{g} = \int_{a}^{b}f(x)g(x) \, dx.\]
 
 \begin{trditev}
-    \(L^2([a,b])\) je vektorski prostor.
+    \(L^2([a,b])\) je vektorski prostor nad \(\R\).
 \end{trditev}
 
 \begin{proof}
@@ -158,14 +160,18 @@ Naj bo \(f, g \in L^2\), potem \(|f \cdot g| \leq \frac{|f|^2 + |g|^2}{2} \lthen
 
 Torej \(L^2([a, b])\) je vektorski prostor nad \(\R\) s skalarnim produktom \[\scp{f}{g} = \int_{a}^{b}f(x)g(x) \, dx.\]
 
-Očitno, da je \(C([a,b]) \leq L^2([a, b])\).
+Očitno, da je \(C([a,b]) \subseteq L^2([a, b])\).
 
 \begin{izrek}
     \(L^2([a,b])\) je Hilbertov in \(L^2([a,b])\) je napolnitev \(C([a,b])\).
 \end{izrek}
 
-\begin{opomba}
-    \[\all{f \in L^2([a,b])} \some{f_n \in C([a,b])} \lim_{n \to \infty}  f_n = f\ \liff \lim_{n \to \infty} \norm{f_n - f} = 0 \liff \lim_{n \to \infty} \sqrt{\int_{a}^{b}(f_n(x) - f(x))^2} \, dx = 0\]
+\begin{opomba} Prostor \(C([a, b])\) je gost v prostoru \(L^2([a, b])\), tj.
+    \[\all{f \in L^2([a,b])} \some{f_n \in C([a,b])} \lim_{n \to \infty}  f_n = f,\]
+    kjer
+    \[
+        \lim_{n \to \infty}  f_n = f \liff \lim_{n \to \infty} \norm{f_n - f} = 0 \liff \lim_{n \to \infty} \sqrt{\int_{a}^{b}(f_n(x) - f(x))^2} \, dx = 0.
+    \]
 \end{opomba}
 
 \begin{opomba}
@@ -177,10 +183,10 @@ Očitno, da je \(C([a,b]) \leq L^2([a, b])\).
 
 \begin{zgled}
     Vzemimo \([0, 1]\). Definiramo \(f_n(x) = \begin{cases}
-        \sqrt{n}; &0 < x \leq \frac{1}{n} \\ 0; &\text{sicer}
+        \sqrt{n}; &0 \leq x \leq \frac{1}{n} \\ 0; &\text{sicer}
     \end{cases}.\)
 
-    Velja: \(\lim_{n \to \infty} f_n(x) = 0\) za \(x \in [0, 1]\). Ali je \(\lim_{n \to \infty} f_n(x) = 0\) v \(L^2([0,1])\)?
+    Čemu je enaka \(\lim_{n \to \infty} f_n(x)\) za \(x \in [0, 1]\). Ali je \(\lim_{n \to \infty} f_n(x) = 0\) v \(L^2([0,1])\)?
 \end{zgled}
 
 \begin{zgled}
