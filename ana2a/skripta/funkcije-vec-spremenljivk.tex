@@ -134,7 +134,7 @@
         \item \colorbox{orange!30}{\textbf{Posledica.}} Kaj če so vsi parcialno odvodi omejeni in je \(f\) preslikava (ocena razlike)?
         \item \colorbox{blue!30}{\textbf{Lema.}} Pomožna trditev za dokaz izreka o inverzni preslikavi.
         \item \textbf{Opomba.} Poenostavitev.
-        \item \colorbox{blue!30}{\textbf{Izrek.}} Izrek o inverzni preslikavi. Lokalni difeomorfizem.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Izrek o inverzni preslikavi. Lokalni difeomorfizem. \todo{*}
         \item \colorbox{orange!30}{\textbf{Posledica.}} Kaj če je $F$ razreda $C^k(D)$?
         \item \colorbox{purple!30}{\textbf{Definicija.}} Kadar rečemo, da je $\Phi$ lokalni $C^k$-difeomorfizem?
         \item \colorbox{yellow!30}{\emph{Opomba.}} Kaj pravi izrek, če je $n = 1$?
@@ -146,14 +146,14 @@
     
     Naj bo $D \subseteq \R^2$ odprta, $(a, b) \in D$, $f: D \to \R$ funkcija razreda $C^1(D)$.
     \begin{itemize}
-        \item \colorbox{blue!30}{\textbf{Izrek.}} Osnovna verzija izreka o implicitni funkciji.
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Osnovna verzija izreka o implicitni funkciji. \todo{*}
         \item \colorbox{orange!30}{\textbf{Posledica.}} Kaj če je $f$ razreda $C^k(D)$?
         \item \colorbox{yellow!30}{\emph{Zgled.}} Kaj če pogoji niso izpolnjeni:
         \begin{enumerate}
-            \item $f(x,y) = (x-y)^2, \ f(x,y) = 0$ v okolici točke $(0,0)$.
-            \item $f(x,y) = y^3-x, \ f(x,y) = 0$ v okolici točke $(0,0)$.
-            \item $f(x,y) = y^2-x^2-x^4, \ f(x,y) = 0$ v okolici točke $(0,0)$.
-            \item $f(x,y) = y^2+x^2+x^4,  \ f(x,y) = 0$ v okolici točke $(0,0)$.
+            \item $f(x,y) = (x-y)^2, \ f(x,y) = 0$ v okolici točke $(0,0)$. Pogoji niso zadostni.
+            \item $f(x,y) = y^3-x, \ f(x,y) = 0$ v okolici točke $(0,0)$. Funkcija ni odvedljiva v \(x = 0\).
+            \item $f(x,y) = y^2-x^2-x^4, \ f(x,y) = 0$ v okolici točke $(0,0)$. Ni enoličnosti.
+            \item $f(x,y) = y^2+x^2+x^4,  \ f(x,y) = 0$ v okolici točke $(0,0)$. Rešitev je točka.
         \end{enumerate}
     \end{itemize}
 
@@ -169,7 +169,8 @@
         \item \colorbox{yellow!30}{\emph{Opomba.}} Kako ta diferenical deluje na vektorju $\begin{bmatrix}
             h \\ k
         \end{bmatrix}, \ h \in \R^n, \ k \in \R^m$?
-        \item \colorbox{blue!30}{\textbf{Izrek.}} Izrek o implicitni funkciji.
+        \item \colorbox{yellow!30}{\emph{Opomba.}} Kako lahko odvajamo izraz \(F(x, \varphi(x)) = 0\) po spremenljivke \(x\)?
+        \item \colorbox{blue!30}{\textbf{Izrek.}} Izrek o implicitni funkciji. \todo{*}
         \item \colorbox{orange!30}{\textbf{Posledica.}} Kaj če je $F$ razreda $C^k(D)$?
         \item \colorbox{yellow!30}{\emph{Zgled.}} Naj bo $F(x,y) = x^2+y^2-1$ in naj rešujemo enačbo $F(x,y) = 0$ v okolici točke $(0,1)$. \\ S pomočjo dokaza izreka o implicitni preslikavi določi $y = \varphi(x)$. 
         \item \colorbox{yellow!30}{\emph{Zgled.}} Naj bosta $f(x,y,z)= y +xy+xz^2$ in $g(x,y,z) = z + zy+x^2$. Dokaži, da sistem enačb $f(x,y,z) = 0$ in $g(x,y,z) = 0$ v okolici točke $(0,0,0)$ enolično določa $C^\infty$ funkciji $y = y(x)$ in $z = z(x)$ in razvij jih v Taylorjevo vrsto do členov reda $2$.
@@ -182,7 +183,7 @@
     \begin{itemize}
         \item \colorbox{yellow!30}{\emph{Zgled.}} Naj bo $F: \R^3 \to \R$ funkcija. Recimo, da rešujemo enačbo $F(x,y,z) = 0$ in vemo, da $F(a,b,c) = 0$. Kakšen je zadosten pogoj za to, da bi lahko vsaj eno spremenljivko izrazili kot funkcijo ostalih?
         \item \colorbox{yellow!30}{\emph{Zgled.}} Naj bosta $F: \R^3 \to \R$ in $G: \R^3 \to \R$ funkciji. Recimo, da rešujemo sistem enačb $F(x,y,z) = 0$ in $G(x,y,z) = 0$ in vemo, da  $F(a,b,c) = 0$ in  $G(a,b,c) = 0$. Kakšen je zadosten pogoj za to, da bi lahko vsaj dve spremenljivke izrazili kot funkcijo tretje?
-        \item \colorbox{purple!30}{\textbf{Definicija.}} Rang $F$ v točki $a \in D$. Rang $F$. Kadar rečemo, da je $F$ v točki $a \in D$ maksimalnega ranga?
+        \item \colorbox{purple!30}{\textbf{Definicija.}} Rang preslikave $F$ v točki $a \in D$. Rang $F$. Kadar rečemo, da je $F$ v točki $a \in D$ maksimalnega ranga?
         \item \colorbox{yellow!30}{\emph{Opomba.}} Ali je maksimalnost ranga lokalno stabilna?
         \item \colorbox{yellow!30}{\emph{Primer.}} Obrnljiva matrika in permutacija koordinat. \textcolor{red}{TODO}
         \item \colorbox{orange!30}{\textbf{Posledica IIF.}} Čemu je ekvivalentna enačba $F(x) = 0$, če je $m < n$?
@@ -191,7 +192,6 @@
     \end{itemize}
 \end{enumerate}
 
-\newpage
 \subsection{Podmnogoterosti v $\R^n$}
 Podmnogoterosti je posplošitev pojmov "`krivulja"' in "`ploskev"'.
 \begin{enumerate}
@@ -205,10 +205,6 @@ Podmnogoterosti je posplošitev pojmov "`krivulja"' in "`ploskev"'.
             \item $M = \setb{(x,y,z) \in \R^3}{x^2+y^2+z^2 = 1}$.
             \item $M = \setb{(x,y,z) \in \R^3}{x^2+y^2+z^2 = 1, \ x+y+z = 0}$.
             \item $M = (\set{0} \times \R) \cup (\R \times \set{0})$.
-        \end{itemize}
-        \item \colorbox{yellow!30}{\emph{Opomba.}} Ali je rob kvadrata z stranico $2$ in središčem v $(0,0)$ gladka podmnogoterost v $\R^2$?
-        \item \colorbox{yellow!30}{\emph{Zgled.}} Ugotovi, ali je podmnogoterost:
-        \begin{itemize}
             \item $\GL_n(\R) = \setb{A \in \R^{n \times n}}{\det A \neq 0}$.
             \item $\SL_n(\R) = \setb{A \in \R^{n \times n}}{\det A = 1}$.
         \end{itemize}

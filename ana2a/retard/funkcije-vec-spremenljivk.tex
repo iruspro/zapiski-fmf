@@ -506,6 +506,7 @@ Naj bo $\Phi: D^\text{odp} \subseteq \R^n \to \R^n$ preslikava, $\Phi \in C^1(D)
 
 \newpage
 \begin{izrek}[Izrek o inverzni preslikavi]
+    \label{izr:inverzna-preslikava}
     Naj bo 
     \begin{itemize}
         \item množica $D \subseteq \R^n$ odprta;
@@ -600,12 +601,11 @@ Radi bi poiskali zadostni pogoji na funkcijo $f: \R^2 \to \R$, da bi enačba $f(
 
 
 \subsubsection{Izrek o implicitni preslikavi}
-Imamo $n+m$ spremenljivk: $(x, y)$, kjer $x = (x_1, \ldots, x_n), \ y = (y_1, \ldots, y_m)$ in $m$ enačb. Pričakujemo, da bomo lahko $m$~spremenljivk izrazili kot funkcijo ostalih, tj. najdemo preslikavo $\Phi: D \subseteq \R^n \to \R^m$, da velja $y = \Phi(x)$.
+Imamo $n+m$ spremenljivk: $(x, y)$, kjer $x = (x_1, \ldots, x_n), \ y = (y_1, \ldots, y_m)$ in $m$ enačb. Pričakujemo, da bomo lahko $m$~spremenljivk izrazili kot funkcijo ostalih, tj.\ najdemo preslikavo $\Phi: D \subseteq \R^n \to \R^m$, da velja $y = \Phi(x)$.
 
 
 \begin{primer}[Linearen primer]
-    Naj bosta $\mc{A}: \R^n \to \R^m, \ \mc{B}: \R^m \to \R^m$ linearni, $b \in \R^m$. Naj rešujemo enačbo $Ax + By = b$. Kdaj lahko za vsak $b \in \R^m$ iz te  enačbe $y$ razrišemo kot funkcijo $x$? 
-
+    Naj bosta $\mc{A}: \R^n \to \R^m, \ \mc{B}: \R^m \to \R^m$ linearni, $b \in \R^m$. Naj rešujemo enačbo $Ax + By = b$. Kdaj lahko za vsak $b \in \R^m$ iz te  enačbe $y$ razrešimo kot funkcijo $x$? 
     Če je $n=0$, potem rešujemo enačbo $By = b$. Kdaj lahko to enačbo enolično rešimo za vsak $b \in \R^m$?
 \end{primer}
 
@@ -653,75 +653,95 @@ Diferencial preslikave $F$ je potem enak $(DF)(x,y) = \begin{bmatrix}
 \end{izrek}
 
 \begin{proof}
-    Uporabimo izrek o inverzni preslikavi. 
-    
-    Definiramo preslikavo $\Phi: D \subseteq \R^n \times \R^m \to  \R^n \times \R^m, \ \Phi(x,y) = (x, F(x,y))$. Kandidata za preslikavo $\varphi$ najdemo v oblike inverza $\Phi^{-1}$, nato enostavno preverimo lastnosti.
+    Uporabimo izrek o inverzni preslikavi \ref{izr:inverzna-preslikava}. 
+
+    \begin{enumerate}
+        \item Definiramo preslikavo $\Phi: D \subseteq \R^n \times \R^m \to  \R^n \times \R^m, \ \Phi(x,y) = (x, F(x,y))$.
+        \item Preverimo zahteve izreka o inverzni preslikavi za preslikavo \(\Phi\).
+        \item Kandidata za preslikavo $\varphi$ najdemo v oblike inverza $\Phi^{-1}$.
+        \item Preverimo lastnosti. \qedhere
+    \end{enumerate}
 \end{proof}
 
 \begin{posledica}
     Če je preslikava $F$ razreda $C^k$, je tudi preslikava $\varphi$ razreda $C^k$.
 \end{posledica}
 
+\begin{proof}
+    Z indukcijo.
+\end{proof}
+
 \begin{zgled}
-    Naj bo $x,y \in \R, \ F(x, y) = x^2 + y^2 -1$. S pomočjo izreka o implicitni preslikavi pokaži, da v okolici točke $(0,1)$ rešitve enačbe $F(x,y) = 0$ graf neke preslikave $\varphi$. Določi tudi preslikavo $\varphi$.
+    Naj bo $x,y \in \R, \ F(x, y) = x^2 + y^2 -1$. S pomočjo izreka o implicitni preslikavi pokaži, da v okolici točke $(0,1)$ rešitve enačbe $F(x,y) = 0$ je graf neke preslikave $\varphi$. Določi tudi preslikavo $\varphi$.
 \end{zgled}
 
 \begin{zgled}
     Naj bo $F(x,y,z) = (y + xy+xz^2, z+zy+x^2), \ F = (f, g)$ in naj rešujemo enačbo $F(x,y,z) = 0$. Preveri zahteve izreka v okolici točke $(0,0,0)$ in zapiši spremenljivki $y$ in $z$ kot funkciji spremenljivke $x$. Določi tudi prvi in drugi odvod funkcij $f$ in $g$ po spremenljivke $x$. Kaj je rezultat?
 \end{zgled}
 
+\subsubsection{Rang preslikave}
 \begin{zgled}
-    Naj bo $F: \R^3 \to \R$ in naj rešuejmo enačbo $F(x,y,z) = 0$. Recimo, da $F(a,b,c) = 0$. Kakšna povezava med zadostnimi pogajami in rangom $(DF)(a,b,c)$? Kaj če gledamo preslikavo $F: \R^3 \to \R^2$?
+    Naj bo $F: \R^3 \to \R$ in naj rešujemo enačbo $F(x,y,z) = 0$. Recimo, da $F(a,b,c) = 0$. Kakšna povezava med zadostnimi pogoji in rangom $(DF)(a,b,c)$? Kaj če gledamo preslikavo $F: \R^3 \to \R^2$?
 \end{zgled}
 
 \begin{definicija}
     Naj bo $D^\text{odp} \in \R^n$ in $F: D \to \R^m$ preslikava razreda $C^1$, $a \in D$. 
     \begin{enumerate}
         \item \textbf{Rang preslikave $F$ v točki $a$} je~$\rang_aF := \rang (DF)(a)$.
-        \item Če je $\rang_aF$ konstanten na $D$, je $F$ tega ranga na $D$, tj. $\rang F = \rang_aF$.
+        \item Če je $\rang_aF$ konstanten na $D$, je $F$ tega ranga na $D$, tj.\ $\rang F = \rang_aF$.
         \item Preslikava $F$ je \textbf{maksimalnega ranga v točki $a$}, če je $\rang_aF = \min \set{m, n}$.
     \end{enumerate}      
 \end{definicija}
-
-\todo{zgledi po dokazu izreka o inverzni preslikavi}
 
 \begin{opomba}
     Ta pogoj je lokalno stabilen, tj. če je $\rang_aF = \min \set{n, m}$, potem obstaja okolica od $a$, kjer $\rang F$~maksimalen.
 \end{opomba}
 
-\newpage
 \begin{posledica}
-    Naj bo $F: D^\text{odp} \subseteq \R^n \to \R^m$ preslikava razreda $C^k, \ k \in \N$ in naj velja $m < n$. Naj bo $a \in D, \ F(a) = 0$ in $F$ maksimalnega ranga v točki $a$. Tedaj obstajajo indeksi $i_1 < i_2 < \ldots < i_{n-m}$, $j_1 < j_2 < \ldots <j_m$, $i_k \neq j_l$ za vse $k$ in $l$ in take funkcije $\varphi_1, \ldots, \varphi_m$ razreda $C^k$ definirane v okolici točke $(a_{i_1}, \ldots, a_{i_{n-m}})$, da je v neki okolici~$U$ točke $a$ enačba $F(x) = 0$ ekvivalentna sistemu enačb: 
+    \label{posl:permutacija}
+    Naj bo 
+    \begin{itemize}
+        \item preslikava $F: D^\text{odp} \subseteq \R^n \to \R^m$ razreda $C^k, \ k \in \N$ in naj velja $m < n$, \(a \in D\);
+        \item preslikava $F$ je maksimalnega ranga v točki $a$;
+        \item \(F(a) =0\).
+    \end{itemize}
+    Tedaj obstajajo indeksi $i_1 < i_2 < \ldots < i_{n-m}$, $j_1 < j_2 < \ldots <j_m$, $i_k \neq j_l$ za vse $k$ in $l$ in take funkcije $\varphi_1, \ldots, \varphi_m$ razreda $C^k$ definirane v okolici točke $(a_{i_1}, \ldots, a_{i_{n-m}})$, da je v neki okolici~$U$ točke $a$ enačba $F(x) = 0$ ekvivalentna sistemu enačb: 
     \begin{align*}
         x_{j_1} = \varphi_1(x_{i_1}, \ldots, x_{i_{n-m}}) \\
         \vdots \\
         x_{j_m} = \varphi_m(x_{i_1}, \ldots, x_{i_{n-m}})
     \end{align*}
     Ekvivalentno: Obstaja permutacija $\sigma \in S_n$, da v okolici točke $a$ velja:
-    $$F(x) = 0 \liff (x_{\sigma(1)}, \ldots, x_{\sigma(n)}) = (x_{\sigma(1)}, \ldots, x_{\sigma(n-m)}, \varphi(x_\sigma')), \text{ kjer } \varphi = (\varphi_1, \ldots, \varphi_m).$$
+    $$F(x) = 0 \liff (x_{\sigma(1)}, \ldots, x_{\sigma(n)}) = (\underbrace{x_{\sigma(1)}, \ldots, x_{\sigma(n-m)}}_{x_\sigma'}, \varphi(x_\sigma')),$$
+    kjer \(\varphi = (\varphi_1, \ldots, \varphi_m)\).
 \end{posledica}
 
 \begin{proof}
-    \textcolor{red}{TODO}
+    Poiščemo obrnljivo \(m \times m\) podmatriko ter permutiramo koordinate. 
 \end{proof}
 
 \begin{primer}
-    Naj bo $\mc{A}: \R^n \to \R^m$ linearna, $m \leq n$, $\rang \mc{A} = m$ ($\mc{A}$ je surjektivna). Rešujemo enačno $\mc{A}x=b$. Prostor rešitev je $n-m$ dimenzialen.
+    Naj bo $\mc{A}: \R^n \to \R^m$ linearna, $m \leq n$, $\rang \mc{A} = m$ ($\mc{A}$ je surjektivna). Rešujemo enačbo $\mc{A}x=b$. Prostor rešitev je $n-m$ dimenzialen.
 \end{primer}
 
 \begin{posledica}
-    Naj bo $F: D^\text{odp} \subseteq \R^n \to \R^m$ preslikava razreda $C^1$, $m \leq n$, $a \in D$ in naj velja $\rang_aF=m$. Tedaj obstaja okolica $V$ točke $F(a) = b$ in okolica $U$ točke $a$, da je $F: U \to V$ surjektivna.
+    Naj bo 
+    \begin{itemize}
+        \item preslikava $F: D^\text{odp} \subseteq \R^n \to \R^m$ preslikava razreda $C^1$, $m \leq n$ in \(a \in D\);
+        \item $\rang_aF=m$.
+    \end{itemize}
+    Tedaj obstaja okolica $V$ točke $F(a) = b$ in okolica $U$ točke $a$, da je $F: U \to V$ surjektivna.
 \end{posledica}
 
 \begin{proof}
-    \textcolor{red}{TODO}
+    Oglejmo si preslikavo \(\Phi: \R^{n + m} \to \R^m, \ \Phi(x, y) = F(x) - y\). Uporabimo posledico \ref{posl:permutacija}.
 \end{proof}
 
 \subsection{Podmnogoterosti v $\R^n$}
 Podmnogoterost je posplošitev pojmov "`krivulja"' in "`ploskev"'.
 
 \begin{definicija}
-    Naj bo $M \subseteq \R^{n+m}, \ M \neq \emptyset$. Množica $M$ je \textbf{gladka (vsaj razreda $C^1$) podmnogoterost dimenzije $n$ in kodimenzije~$m$ prostora $\R^{n+m}$}, če 
+    Naj bo $M \subseteq \R^{n+m}, \ M \neq \emptyset$. Množica $M$ je gladka (vsaj razreda $C^1$) \textbf{podmnogoterost} dimenzije $n$ in kodimenzije~$m$ prostora $\R^{n+m}$, če 
     za vsako točko $a \in M$ obstaja okolica $U$ v $\R^{n+m}$ in take $C^1$ funkcije $F_1, \ldots, F_m: U \to \R$, da velja:
     \begin{enumerate}
         \item $M \cap U = \setb{x \in U}{F_1(x) = \ldots = F_m(x) = 0} = F^*(\set{0})$.
@@ -730,10 +750,40 @@ Podmnogoterost je posplošitev pojmov "`krivulja"' in "`ploskev"'.
 \end{definicija}
 
 \begin{opomba}
-    Funkcije $F_1, \ldots, F_m$ se imenujejo \textbf{lokalne definicijske funkcije za $M \cap U$}.
+    Funkcije $F_1, \ldots, F_m$ imenujemo \textbf{lokalne definicijske funkcije} za $M \cap U$.
 \end{opomba}
 
-\textcolor{red}{TODO}
+\begin{opomba}
+    Če je \(m = 0\), potem je \(M\) odprta množica. 
+\end{opomba}
+
+\begin{zgled}
+    Naj bo \(M \subseteq \R^3\) ter \(\mc{A}_1, \mc{A}_2, \mc{A}_3\) linearne funkcije. 
+
+    \begin{itemize}
+        \item Če \(\mc{A}_1(x, y, z) = 0, \mc{A}_1 \not \equiv 0\), potem dobimo ravnino dimenzije \(2\) in kodimenzije \(1\).
+        \item Če \(\mc{A}_{1, 2}(x, y, z) = 0, \mc{A}_{1, 2} \not \equiv 0\), potem dobimo premico dimenzije \(1\) in kodimenzije \(2\).
+    \end{itemize}
+    V splošnem, če je \(\dim M = 1\), govorimo o krivuljah, če je \(\dim M = 2\), govorimo o ploskvah.
+    \begin{itemize}
+        \item Če \(\mc{A}_{1, 2, 3}(x, y, z) = 0, \mc{A}_{1, 2, 3} \not \equiv 0\) ter funkcije linearno neodvisni, potem dobimo točko dimenzije \(0\) in kodimenzije \(3\).
+    \end{itemize}
+\end{zgled}
+
+\begin{zgled}
+    Ugotovi ali so naslednje množice mnogoterosti in če so, določi tudi njihovo dimenzijo.
+    \begin{itemize}
+        \item $M = \setb{(x,y,z) \in \R^3}{x^2+y^2+z^2 = 1}$.
+        \item $M = \setb{(x,y,z) \in \R^3}{x^2+y^2+z^2 = 1, \ x+y+z = 0}$.
+        \item $M = (\set{0} \times \R) \cup (\R \times \set{0})$.
+        \item $\GL_n(\R) = \setb{A \in \R^{n \times n}}{\det A \neq 0}$.
+        \item $\SL_n(\R) = \setb{A \in \R^{n \times n}}{\det A = 1}$.
+    \end{itemize}
+\end{zgled}
+
+\begin{opomba}
+    Če $M \cap U = \setb{x \in U}{F_1(x) = \ldots = F_m(x) = 0}$, \(\rang F = m\), rečemo, da je mnogoterost podana implicitno.
+\end{opomba}
 
 \newpage
 \subsection{Taylorjeva formula}
