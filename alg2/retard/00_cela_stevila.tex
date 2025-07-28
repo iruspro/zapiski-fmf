@@ -1,0 +1,50 @@
+\section{Cela števila}
+\subsection{Osnovni izrek o deljenju celih števil}
+\paragraph{Načela dobre urejenosti} \ 
+\begin{itemize}
+    \item Vsaka neprazna podmnožica množice \(\N\) vsebuje najmanjši element.
+    \item Vsaka neprazna navzdol omejena podmnožica \(\Z\) vsebuje najmanjši element.
+    \item Vsaka neprazna navzgor omejena podmnožica \(\Z\) vsebuje največji element.
+\end{itemize}
+
+\begin{izrek}[Osnovni izrek o deljenju celih števil]
+    Za vsaki števili \(m \in Z\) in \(n \in \N\) obstajata taki enolično določeni števili \(q, r \in Z\), da je 
+    \[m = qn + r \quad \text{in} \quad 0 \leq r < n.\]
+    Število \(r\) imenujemo \textbf{ostanek} pri deljenju števila \(m\) s številom \(n\).
+\end{izrek}
+
+\subsection{Največji skupni delitelj}
+\begin{definicija}
+    Pravimo, da celo število \(k \neq 0\) \textbf{deli} celo število \(m\), če obstaja celo število \(q\), da velja 
+    \[m = qk.\]
+    Pravimo, da je število \(d\) \textbf{največji skupni delitelj} števil \(m\) in \(n\), če 
+    \begin{enumerate}
+        \item \(d \in \N\);
+        \item \(d\) je skupni delitelj \(m\) in \(n\), tj.\ \(d\, |\, m\) in \(d\, |\, n\);
+        \item če je \(c\) skupni delitelj \(m\) in \(n\), potem \(c\, |\, d\).
+    \end{enumerate}
+\end{definicija}
+
+\begin{izrek}
+    Vsak par celih števil \(m\) in \(n\), od katerih vsaj eno ni enako \(0\), ima največji skupni delitelj \(d\). Lahko ga zapišemo v obliki
+    \[d = mx+ny\]
+    za neka \(x, y \in \Z\).
+\end{izrek}
+
+\begin{definicija}
+    Za celi števili \(m\) in \(n\), ne obe enaki \(0\), pravimo, da sta \textbf{tuji}, če je njun največji skupni delitelj enak \(1\).    
+\end{definicija}
+
+\begin{posledica}
+    Celi števili \(m\) in \(n\) sta tuji natanko tedaj, ko obstajata taki celi števili \(x\) in \(y\), da je 
+    \[mx+ny = 1.\]
+\end{posledica}
+
+\subsection{Osnovni izrek aritmetike}
+\begin{lema}[Evklidova lema]
+    Naj bo \(p\) praštevilo in \(m , n\) celi števili. Če \(p\, |\, mn\), potem \(p\, |\, m\) ali \(p\, | \, n\).
+\end{lema}
+
+\begin{izrek}[Osnovni izrek aritmetike]
+    Vsako naravno število \(n > 1\) lahko zapišemo kot produkt praštevil. Ta zapis je enoličen do vrstnega reda faktorjev natančno.
+\end{izrek}

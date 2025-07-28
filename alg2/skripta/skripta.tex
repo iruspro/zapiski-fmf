@@ -1,37 +1,24 @@
-\documentclass[11pt, a4paper]{article}
+\input{../../00_common/base.tex}
 
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[slovene]{babel}
-\usepackage{lmodern}
+\input{../../00_common/environments.tex}
+\input{../../00_common/settings.tex}
 
-\usepackage{xcolor}
-\usepackage{bbold}
-\usepackage{amsmath}
-\usepackage{amssymb}
+\input{../../00_common/macroses/00_common_macroses.tex}
+\input{../../00_common/macroses/01_groups.tex}
+\input{../../00_common/macroses/02_math_operators.tex}
+\input{../../00_common/macroses/03_shortcuts.tex}
+\input{../../00_common/macroses/21_alg2.tex}
+
 \usepackage{xypic}
-
-\usepackage{enumitem}
-\setlist{nosep}
-
-\usepackage{geometry}
-\geometry{
-    a4paper,
-    left=5mm,
-    right=5mm,
-    top=5mm,
-    bottom=15mm
-}
-\setlength{\parindent}{0mm}
-
-\input{../../macros.tex}
+\usepackage{multirow}
+\usepackage{array}
 
 \begin{document}
 
-\input{cela-stevila.tex}
+\input{00_cela-stevila.tex}
 
 \newpage
-\input{uvod-algebra.tex}
+\input{01_uvod-algebra.tex}
 
 \newpage
 \input{uvod-grupe.tex}
