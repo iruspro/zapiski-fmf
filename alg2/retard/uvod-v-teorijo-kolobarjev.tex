@@ -1,13 +1,13 @@
 \section{Uvod v teorijo kolobarjev}
 
 \begin{definicija}
-    Naj bo $K$ neprazna množica z operacijama $+$ in $\cdot$. Pravimo, da je $(K, +, \cdot)$ \emph{kolobar}, če
+    Naj bo $K$ neprazna množica z operacijama $+$ in $\cdot$. Pravimo, da je $(K, +, \cdot)$ \textbf{kolobar}, če
     \begin{enumerate}
         \item $(K, +)$ je Abelova grupa (enota: $0$, inverz od $a$: $-a$).
-        \item $(K, \cdot)$ je monoid, tj. kolobar vedno ima enoto za $\cdot$, označimo jo z $1$, in rečemo, da je $1$ \emph{enica} kolobarja $K$.
+        \item $(K, \cdot)$ je monoid, tj.\ kolobar vedno ima enoto za $\cdot$, označimo jo z $1$, in rečemo, da je $1$ \textbf{enica} kolobarja $K$.
         \item Za vse $a, b, c \in K$ velja, da $a(b+c) = ab+ac$ in $(a+b)c = ac+bc$.
     \end{enumerate}
-    Če je množenje komutativno, pravimo, da je $K$ \emph{komutativen kolobar}.
+    Če je množenje komutativno, pravimo, da je $K$ \textbf{komutativen kolobar}.
 \end{definicija}
 
 \begin{zgled}
@@ -23,11 +23,11 @@
 \begin{definicija}
     Naj bo $K$ kolobar.
     \begin{itemize}
-        \item $l \in K \setminus \set{0}$ je \emph{levi delitelj niča}, če $\some{y \in K \setminus \set{0}. ly = 0}$.
-        \item $d \in K \setminus \set{0}$ je \emph{desni delitelj niča}, če $\some{y \in K \setminus \set{0}. yd = 0}$.
-        \item $x \in K \setminus \set{0}$ je \emph{delitelj niča}, če je levi ali desni delitelj niča. 
-        \item $x \in K$ je \emph{idempotent}, če $x^2 = x$.
-        \item $x \in K$ je \emph{nilpotent}, če $\some{n \in \N} x^n = 0$.
+        \item $l \in K \setminus \set{0}$ je \textbf{levi delitelj niča}, če $\some{y \in K \setminus \set{0}. ly = 0}$.
+        \item $d \in K \setminus \set{0}$ je \textbf{desni delitelj niča}, če $\some{y \in K \setminus \set{0}. yd = 0}$.
+        \item $x \in K \setminus \set{0}$ je \textbf{delitelj niča}, če je levi ali desni delitelj niča. 
+        \item $x \in K$ je \textbf{idempotent}, če $x^2 = x$.
+        \item $x \in K$ je \textbf{nilpotent}, če $\some{n \in \N} x^n = 0$.
     \end{itemize}
 \end{definicija}
 
@@ -51,7 +51,7 @@
 \end{zgled}
 
 \begin{definicija}
-    \emph{Cel kolobar} je komutativen kolobar brez deliteljev niča.
+    \textbf{Cel kolobar} je komutativen kolobar brez deliteljev niča.
 \end{definicija}
 
 \begin{primer}
@@ -61,8 +61,8 @@
 \begin{definicija}
     Naj bo $K$ kolobar.
     \begin{itemize}
-        \item Kolobar $K$ je \emph{obseg}, če je vsak neničeln element kolobarja $K$ obrnljiv, tj. $K^* = K \setminus \set{0}$. 
-        \item \emph{Polje} je komutativen obseg.
+        \item Kolobar $K$ je \textbf{obseg}, če je vsak neničeln element kolobarja $K$ obrnljiv, tj. $K^* = K \setminus \set{0}$. 
+        \item \textbf{Polje} je komutativen obseg.
     \end{itemize}
 \end{definicija}
 
@@ -79,7 +79,7 @@
 \end{proof}
 
 \begin{definicija}
-    Naj bo $A$ kolobar in $F$ polje. $A$ je \emph{algebra} nad $F$, če 
+    Naj bo $A$ kolobar in $F$ polje. $A$ je \textbf{algebra} nad $F$, če 
     \begin{enumerate}
         \item $A$ je vektorski prostor nad $F$.
         \item $\alpha(xy) = (\alpha x)y = x(\alpha y)$.
@@ -96,7 +96,7 @@ Bolj splošno: Naj bo $V$ vektorski prostor nad $F$. Vzemimo množico $\End V$. 
 Naj bo $X \subseteq \R^n, \ X \neq \emptyset$. Gledamo funkcije $\R^X$. Na $\R^X$ lahko definiramo $+$, $\cdot$ in množenje s skalarjem iz $\R$ po točkah. $\R^X$ je algebra nad $\R$.
 
 \subsubsection*{Polinomi}
-Naj bo $K$ kolobar. \emph{Polinom} s koeficienti iz $K$ je formalna vrsta oblike
+Naj bo $K$ kolobar. \textbf{Polinom} s koeficienti iz $K$ je formalna vrsta oblike
 $$p(x) = \sum_{i \geq 0} a_iX^i = a_0 + a_1X + a_2 X^2 + \ldots + a_k X^k, \ a_i \in K, \ k \geq 0.$$
 Manj baročno:
 $$(a_0, a_1, \ldots, a_k, 0, 0, \ldots).$$
@@ -115,10 +115,10 @@ S temi operacijami $K[X]$ postane kolobar.
     \end{itemize} 
     Potem $K[X]$ postane algebra nad $K$.
 \end{opomba}
-\emph{Možni pospološitvi $K[X]$:}
+\textbf{Možni pospološitvi $K[X]$:}
 \begin{itemize}
     \item Polinomi več spremenljivk: $K[X_1, \ldots, X_n] = K[X_1, \ldots, X_n][X_n]$.
-    \item Če se ne omejimo na končne formalne vsote, dobimo \emph{kolobar formalnih potenčnih vrst $K[[X]]$}.
+    \item Če se ne omejimo na končne formalne vsote, dobimo \textbf{kolobar formalnih potenčnih vrst $K[[X]]$}.
 \end{itemize}     
 
 \begin{trditev}
@@ -153,7 +153,7 @@ Definiramo $F = P/_\sim$. Ekvivalenčni razred para $(a,b)$ označimo z $\frac{a
 \end{itemize}
 Preveriti moramo, da sta seštevanje in množenje na $F$ res dobro definirani.
 \begin{trditev}
-    Množica $F$ s tema operacijama je polje. Pravimo mu \emph{polje ulomkov kolobarja $K$}.
+    Množica $F$ s tema operacijama je polje. Pravimo mu \textbf{polje ulomkov kolobarja $K$}.
 \end{trditev}
 
 \begin{primer}
@@ -166,7 +166,7 @@ Preveriti moramo, da sta seštevanje in množenje na $F$ res dobro definirani.
         \item $\frac{a}{1} + \frac{b}{1} = \frac{a+b}{1}$.
         \item $\frac{a}{1} \cdot \frac{b}{1} = \frac{ab}{1}$
     \end{itemize}
-    Zato lahko $\frac{a}{1}$ identificiramo z $a$. Torej kolobar $K$ je \emph{vložen} v $F$.
+    Zato lahko $\frac{a}{1}$ identificiramo z $a$. Torej kolobar $K$ je \textbf{vložen} v $F$.
 \end{opomba}
 
 \subsubsection*{Algebre, ki so obsege}
@@ -198,9 +198,9 @@ Gledamo algebre nad $\R$:
            }$$
         Torej ko gremo v smeri urinega kazalca, dobimo naslednji element ($ij = k$), ki gremo v nasprotni smeri dobimo nasprotni element naslednjega elementa ($kj = -i$).
     \end{itemize}
-    Elementi množice $\HH$ imenujemo \emph{kvaternione}.
+    Elementi množice $\HH$ imenujemo \textbf{kvaternione}.
 
-    Naj bo $z = \lambda_1 \cdot 1 + \lambda_2 \cdot i + \lambda_3 \cdot j + \lambda_4 \cdot k$. Element $\overline{z} = \lambda_1 \cdot 1 - \lambda_2 \cdot i - \lambda_3 \cdot j - \lambda_4 \cdot k$ je \emph{konjugirani kvaternion}.    
+    Naj bo $z = \lambda_1 \cdot 1 + \lambda_2 \cdot i + \lambda_3 \cdot j + \lambda_4 \cdot k$. Element $\overline{z} = \lambda_1 \cdot 1 - \lambda_2 \cdot i - \lambda_3 \cdot j - \lambda_4 \cdot k$ je \textbf{konjugirani kvaternion}.    
 \end{primer}
 
 \begin{trditev}
@@ -219,17 +219,17 @@ Gledamo algebre nad $\R$:
     Preverimo usklajenost množenja in množenja s skalarjem.
 \end{proof}
 
-Pravimo, da je $\HH$ \emph{kvaternionska algebra}. 
+Pravimo, da je $\HH$ \textbf{kvaternionska algebra}. 
 
-Grupa za množenje $(\set{\pm 1, \pm i, \pm j, \pm k}, \cdot)$ je \emph{kvaternionska grupa}. Označimo jo z $Q$.
+Grupa za množenje $(\set{\pm 1, \pm i, \pm j, \pm k}, \cdot)$ je \textbf{kvaternionska grupa}. Označimo jo z $Q$.
 
 \subsection{Podkolobarji, podalgebre, podpolja}
 \begin{definicija}
-    Naj bo $K$ kolobar in naj bo $L \subseteq K, \ L \neq \emptyset$. Pravimo, da je $L$ \emph{podkolobar} kolobarja $K$, če je $L$ na istih operacijah kolobar.
+    Naj bo $K$ kolobar in naj bo $L \subseteq K, \ L \neq \emptyset$. Pravimo, da je $L$ \textbf{podkolobar} kolobarja $K$, če je $L$ na istih operacijah kolobar.
 \end{definicija}
 
 \begin{opomba}
-    Podobno definiramo tudi \emph{podalgebro} in \emph{podpolje}.
+    Podobno definiramo tudi \textbf{podalgebro} in \textbf{podpolje}.
 \end{opomba}
 
 \begin{trditev}
@@ -260,7 +260,7 @@ Grupa za množenje $(\set{\pm 1, \pm i, \pm j, \pm k}, \cdot)$ je \emph{kvaterni
 \end{primer}
 
 \begin{definicija}
-    Polje $E$ je \emph{razšeritev} polja $F$, če je $F$ podpolje $E$.
+    Polje $E$ je \textbf{razšeritev} polja $F$, če je $F$ podpolje $E$.
 \end{definicija}
 
 \begin{primer}
@@ -291,11 +291,11 @@ Vemo, da je $(\Z_n, +)$ Abelova grupa. Definiramo še množenje v $\Z_n$. Naj bo
 \end{proof}
 
 \begin{definicija}
-    Kolobarju $(\Z_n, +, \cdot)$ pravimo \emph{kolobar ostankov po modulu $n$}.
+    Kolobarju $(\Z_n, +, \cdot)$ pravimo \textbf{kolobar ostankov po modulu $n$}.
 \end{definicija}
 
 \begin{definicija}
-    Naj bo $K$ kolobar. Najmanjšemu naravnemu številu $n$, za katerega je $n \cdot 1 = \underbrace{1 + 1 + \ldots + 1}_n = 0$, pravimo \emph{karakteristika} kolobarja $K$. Oznaka: $\ch K$. Če tak $n$ ne obstaja, pravimo, da ima kolobar $K$ karakteristiko $0$.
+    Naj bo $K$ kolobar. Najmanjšemu naravnemu številu $n$, za katerega je $n \cdot 1 = \underbrace{1 + 1 + \ldots + 1}_n = 0$, pravimo \textbf{karakteristika} kolobarja $K$. Oznaka: $\ch K$. Če tak $n$ ne obstaja, pravimo, da ima kolobar $K$ karakteristiko $0$.
 \end{definicija}
 
 \begin{primer}

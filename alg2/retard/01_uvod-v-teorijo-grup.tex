@@ -322,7 +322,7 @@ Naj bo $G$ grupa in $H \leq G$. Definiramo relacijo na $G$ s predpisom $$\all{a,
 \subsection{Generatorji grup. Ciklične grupe}
 
 \begin{definicija}
-    Naj bo $G$ grupa in $X$ podmnožica v $G$. Potem označimo z $\gen{X}$ najmanjšo podgrupo v $G$, ki vsebuje množico $X$. To podgrupo imenujemo \textbf{podgrupa generirana z množico $X$}.
+    Naj bo $G$ grupa in $X$ podmnožica v $G$. Potem označimo z $\gen{X}$ najmanjšo podgrupo v $G$, ki vsebuje množico $X$. To podgrupo imenujemo \textbf{podgrupa, generirana z množico $X$}.
 \end{definicija}
 
 \begin{opomba}
@@ -342,24 +342,30 @@ Naj bo $G$ grupa in $H \leq G$. Definiramo relacijo na $G$ s predpisom $$\all{a,
 \end{definicija}
 
 \begin{trditev}
-    Naj bo $G$ grupa in $X \subseteq G$. $\gen{X} = \setb{x_{i_1}^{\pm 1} x_{i_2}^{\pm 1} \ldots x_{i_r}^{\pm 1}}{x_{i_j} \in X; \ r \in \N_0} =: S$.
+    Naj bo $G$ grupa in $X \subseteq G$. Tedaj  $$\gen{X} = \setb{x_{i_1}^{\pm 1} x_{i_2}^{\pm 1} \ldots x_{i_r}^{\pm 1}}{x_{i_j} \in X; \ r \in \N_0}.$$
 \end{trditev}
 
 \begin{proof}
-    Dovolj dokazati, da je $S$ podgrupa grupe $G$.
+    Dovolj dokazati, da je $\gen{X}$ podgrupa grupe $G$.
 \end{proof}
 
 \begin{posledica}
+    \label{posl:oblika-el-v-gen}
     Naj bo $G$ grupa, $a \in G$. Potem $\gen{a} = \setb{a^n}{n \in \Z}$.
 \end{posledica}
 
-\begin{primer}
+\newpage
+\begin{zgled}
     Primeri generatorjev grup:
     \begin{itemize}
         \item $\Z = \gen{1}$. Velja tudi: $\Z = \gen{p, q}$, kjer sta $p$ in $q$ tuji.
         \item $\Z_n = \gen{1 + n\Z}$.
     \end{itemize}
-\end{primer}
+\end{zgled}
+
+\begin{zgled}
+    Grupa \(\Q^*\) ni končno generirana. Recimo, da \(\gen{x_1, \ldots, x_n} = \Q^*\). Pokažemo, da če praštevilo \(p \notin \set{x_1, \ldots, x_n}\), potem \(p \notin \gen{x_1, \ldots, x_n}\).
+\end{zgled}
 
 \begin{definicija}
     Naj bo $G$ grupa in $a \in G$. Najmanjšemu naravnemu številu $n$, za katerega velja $a^n=1$, pravimo \textbf{red}~elementa $a$. Če tak $n$ ne obstaja, pravimo, da ima $a$ neskončen red.
@@ -374,11 +380,12 @@ Naj bo $G$ grupa in $H \leq G$. Definiramo relacijo na $G$ s predpisom $$\all{a,
 \end{primer}
 
 \begin{trditev}
-    Naj bo $G$ grupa, $a \in G$. Potem je red elementa $a$ enak $n$ natanko tedaj, ko $|\gen{a}| = n$.
+    Naj bo $G$ grupa, $a \in G$. Tedaj je 
+    \[|a| = n \liff |\gen{a}| = n.\]
 \end{trditev}
 
 \begin{proof}
-    Uporabimo ustrezne definicije in izreki o celih številih.
+    Uporabimo posledico \ref{posl:oblika-el-v-gen} ter izrek o deljenju celih števil \ref{izr:osnovni-izrek-o-deljenju-stevil}.
 \end{proof}
 
 \begin{posledica}
@@ -389,7 +396,3 @@ Naj bo $G$ grupa in $H \leq G$. Definiramo relacijo na $G$ s predpisom $$\all{a,
         \item Če je $|G|$ praštevilo, potem je $G$ ciklična grupa. 
     \end{enumerate}
 \end{posledica}
-
-\begin{proof}
-    Uporabimo ustrezne definicije in izreki.
-\end{proof}
