@@ -308,6 +308,7 @@ Očitno, da je \(C([a,b]) \subseteq L^2([a, b])\).
 \end{opomba}
 
 \begin{trditev}
+    \label{trd:projekcija-koncnoraz}
     Naj bo \(Y \leq X\) končno dimenzionalen podprostor z ON bazo \(\set{e_1, \ldots, e_n}\), tj.\ \(\scp{e_i}{e_j} = \delta_{ij}\). Naj bo \(x \in X\). Tedaj je \[P_Y(x) = \sum_{j=1}^{n} \scp{x}{e_j}e_j.\]
 \end{trditev}
 
@@ -323,18 +324,24 @@ Očitno, da je \(C([a,b]) \subseteq L^2([a, b])\).
 \begin{definicija}
     Naj bo \((X, \scp{\ }{})\) vektorski prostor s skalarnim produktom. 
     \begin{itemize}
-        \item Sistem vektorjev \((e_j)_{j=1}^\infty\) je \textbf{ortogonalen sistem (ON)}, če \[\all{i,j \in \N} i \neq j \lthen \scp{e_i}{e_j} = 0.\]
+        \item Sistem vektorjev \((e_j)_{j=1}^\infty\) je \textbf{ortogonalen sistem (OS)}, če \[\all{i,j \in \N} i \neq j \lthen \scp{e_i}{e_j} = 0.\]
         \item Tak sistem je \textbf{ortonormiran (ONS)}, če \[\all{i,j \in \N} \scp{e_i}{e_j} = \delta_{ij}.\]
     \end{itemize}   
 \end{definicija}
 
 \begin{trditev}[Besselova neenakost]
-    Naj bo \((X, \scp{\ }{})\) vektorski prostor s skalarnim produktom. Naj bo \(\sys\) ONS. Naj bo \(x \in X\). Tedaj 
+    \label{trd:besselova-neenakost}
+    Naj bo 
+    \begin{itemize}
+        \item \(X\) vektorski prostor s skalarnim produktom, \(x \in X\);
+        \item \(\sys\) ONS.
+    \end{itemize}
+    Tedaj 
     \[\sum_{j=1}^{\infty}|\scp{x}{e_j}|^2 \leq \norm{x}^2.\]  
 \end{trditev}
 
 \begin{proof}
-    Definiramo \(Y_n = L(\set{e_1, \ldots, e_n})\). Uporabimo formulo za pravokotno projekcijo na končnorazsežen prostor.
+    Definiramo \(Y_n = \lin(\set{e_1, \ldots, e_n})\). Uporabimo formulo za pravokotno projekcijo na končnorazsežen prostor \ref{trd:projekcija-koncnoraz} ter Pitagorjev izrek \ref{trd:pitagor}.
 \end{proof}
 
 \begin{posledica}
@@ -349,8 +356,82 @@ Očitno, da je \(C([a,b]) \subseteq L^2([a, b])\).
 \end{opomba}
 
 \begin{trditev}
-    Naj bo \((c_j)_{j=1}^\infty\) zaporedje števil (ali \(\R\), ali \(\C\)) za katero velja \(\sum_{j=1}^{\infty} |c_j|^2 < \infty\). Naj bo \((X, \scp{\ }{})\) Hilbertov prostor in \(\sys\) ONS. Tedaj obstaja \(x \in X\), za katerega velja 
+    \label{trd:obstoj-x}
+    Naj bo 
+    \begin{itemize}
+        \item \(X\) vektorski prostor s skalarnim produktom;
+        \item \(\sys\) ONS.
+        \item \((c_j)_{j=1}^\infty\) zaporedje števil (bodisi \(\R\) bodisi \(\C\));
+        \item \(\sum_{j=1}^{\infty} |c_j|^2 < \infty\);
+    \end{itemize}
+    Tedaj obstaja \(x \in X\), za katerega velja 
     \[\all{j \in \N} c_j = \scp{x}{e_j}.\]
     Velja tudi:
     \[x = \sum_{j = 1}^{\infty}c_je_j = \lim_{N \to \infty} \sum_{j=1}^{N}c_je_j.\]
 \end{trditev}
+
+\begin{proof}
+    Trdimo, da je \(\left(\sum_{j=1}^{N}c_je_j\right)_N\) Cauchyjevo zaporedje.
+\end{proof}
+
+\begin{opomba}
+    Naj bo \(X\) Hilbertov prostor ter \(\sys\) ONS. Vzemimo \(x \in X\). 
+    
+    Iz Besselovi neenakosti \ref{trd:besselova-neenakost} sledi, da za zaporedje \(c_j = \scp{x}{e_j}\) velja, da 
+    \[\sum_{j=1}^{\infty} |c_j|^2 < \infty.\]
+    Torej po trditvi \ref{trd:obstoj-x} sledi, da obstaja \(\wt{x}\), za kateri velja
+    \[
+    \wt{x} = \sum_{j=1}^{\infty} \scp{x}{e_j} e_j.
+    \]
+    Ali je \(\wt{x} = x\)?
+\end{opomba}
+
+\begin{definicija}
+    Naj bo \(X\) Hilbertov prostor. ONS \(\sys\) je \textbf{kompleten} (KONS) ali \textbf{poln}, če 
+    \[\all{x \in X} x = \sum_{j=1}^{\infty} \scp{x}{e_j}e_j.\]
+\end{definicija}
+
+\begin{izrek}
+    Naj bo 
+    \begin{itemize}
+        \item \(X\) Hilbertov prostor;
+        \item \(\sys\) ONS.
+    \end{itemize}
+    NTSE 
+    \begin{enumerate}
+        \item \(\sys\) je KONS;
+        \item \(\all{x, y \in X} \scp{x}{y} = \sum_{j=1}^{\infty} \scp{x}{e_j} \scp{e_j}{y}\);
+        \item Parsevalova enakost: \(\all{x \in X} \norm{x}^2 = \sum_{j=1}^{\infty} |\scp{x}{e_j}|^2\);
+        \item ONS \(\sys\) ni vsebovan v nobenem strogo večjem ONS;
+        \item Edini vektor, ki je pravokoten na vse vektorji \(e_j\), je vektor \(0\);
+        \item Končne linearne kombinacije vektorjev \(e_j\) so goste v \(X\).
+    \end{enumerate}
+\end{izrek}
+
+\begin{proof}
+    Dokažemo \((1) \lthen (2) \lthen (3) \lthen (4) \lthen (5)\) in \((1) \lthen (6) \lthen (5)\).
+    
+    \((5) \lthen (1)\): Uporabimo trditev \ref{trd:obstoj-x} ter oglejmo razliko \(x - \wt{x}\).
+\end{proof}
+
+\begin{zgled}[Modelni Hilbertov prostor]
+    Definiramo 
+    \[l^2 = \setb{(a_j)_j}{a_j \in \R, \sum_{j=1}^{\infty} |a_j|^2 < \infty}.\]
+    Vpeljemo skalarni produkt s predpisom 
+    \[\scp{(a_j)_j}{(b_j)_j} = \sum_{j=1}^{\infty}a_jb_j \quad \text{(oz.}\, \sum_{j=1}^{\infty}a_j\overline{b_j} \ \text{nad}\ \C).\]
+    Tedaj velja 
+    \[\norm{(a_i)_i}_2^2 = \sum_{j=1}^{\infty}|a_j|^2.\]
+    Naj bo zdaj \(X\) Hilbertov prostor, \(x \in X\) ter \(\sys\) KONS. Tedaj 
+    \[(\scp{x}{e_j})_j \in l^2.\]
+\end{zgled}
+
+\newpage
+\subsection{Prostor \(L^2([-\pi, \pi])\)}
+Definiramo sistem 
+\[
+    \set{\frac{1}{\sqrt{2\pi}}, \frac{1}{\sqrt{\pi}} \cos x, \frac{1}{\sqrt{\pi}} \sin x, \frac{1}{\sqrt{\pi}} \cos 2x, \frac{1}{\sqrt{\pi}} \sin 2x, \ldots, \frac{1}{\sqrt{\pi}} \cos nx, \frac{1}{\sqrt{\pi}} \sin nx, \ldots}.
+\]
+Trdimo, da je to ONS. Nad \(\C\):
+\[
+    \setb{\frac{1}{\sqrt{2\pi}} e^{inx}}{n \in \N}.
+\]
