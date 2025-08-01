@@ -23,8 +23,8 @@
 \begin{definicija}
     Naj bo $K$ kolobar.
     \begin{itemize}
-        \item $l \in K \setminus \set{0}$ je \textbf{levi delitelj niča}, če $\some{y \in K \setminus \set{0}. ly = 0}$.
-        \item $d \in K \setminus \set{0}$ je \textbf{desni delitelj niča}, če $\some{y \in K \setminus \set{0}. yd = 0}$.
+        \item $l \in K \setminus \set{0}$ je \textbf{levi delitelj niča}, če $\some{y \in K \setminus \set{0}} ly = 0$.
+        \item $d \in K \setminus \set{0}$ je \textbf{desni delitelj niča}, če $\some{y \in K \setminus \set{0}} yd = 0$.
         \item $x \in K \setminus \set{0}$ je \textbf{delitelj niča}, če je levi ali desni delitelj niča. 
         \item $x \in K$ je \textbf{idempotent}, če $x^2 = x$.
         \item $x \in K$ je \textbf{nilpotent}, če $\some{n \in \N} x^n = 0$.
@@ -34,7 +34,7 @@
 \begin{zgled}
     Primeri deliteljev niča, idempotentov in nilpotentov.
     \begin{itemize}
-        \item V $\R^2$ velja $\begin{bmatrix}
+        \item V $\R^{2 \times 2}$ velja $\begin{bmatrix}
             1 & 0 \\ 0 & 0
         \end{bmatrix} \begin{bmatrix}
             0 & 0 \\ 0 & 1
@@ -61,7 +61,7 @@
 \begin{definicija}
     Naj bo $K$ kolobar.
     \begin{itemize}
-        \item Kolobar $K$ je \textbf{obseg}, če je vsak neničeln element kolobarja $K$ obrnljiv, tj. $K^* = K \setminus \set{0}$. 
+        \item Kolobar $K$ je \textbf{obseg}, če je vsak neničeln element kolobarja $K$ obrnljiv, tj.\ $$K^* = K \setminus \set{0}.$$ 
         \item \textbf{Polje} je komutativen obseg.
     \end{itemize}
 \end{definicija}
@@ -74,10 +74,6 @@
     Obrnljiv element kolobarja $K$ ne more biti delitelj niča.
 \end{trditev}
 
-\begin{proof}
-    Enostavno.
-\end{proof}
-
 \begin{definicija}
     Naj bo $A$ kolobar in $F$ polje. $A$ je \textbf{algebra} nad $F$, če 
     \begin{enumerate}
@@ -88,7 +84,7 @@
 
 \subsection{Primeri kolobarjev in algeber}
 \subsubsection*{Kolobar (algebra) kvadratnih matrik}
-Naj bo $K$ kolobar, $K^{n \times n} = M_n(K) = \set{n \times n \text{ matrike z elementi iz } K}$. $K^{n \times n}$ z običajnima $+$ in $\cdot$ je kolobar. Če~je~$F$~polje, potem $F^{n \times n}$ je vektorski prostor in hitro vidimo, da je $F^{n \times n}$ algebra nad $F$.
+Naj bo $K$ kolobar. Definiramo $$K^{n \times n} = M_n(K) = \set{n \times n \text{ matrike z elementi iz } K}.$$ $K^{n \times n}$ z običajnima $+$ in $\cdot$ je kolobar. Če~je~$F$~polje, potem $F^{n \times n}$ je vektorski prostor in hitro vidimo, da je $F^{n \times n}$ algebra nad $F$.
 
 Bolj splošno: Naj bo $V$ vektorski prostor nad $F$. Vzemimo množico $\End V$. Potem $\End V$ je algebra nad $F$ (rečemo tudi $F$-algebra).
 
@@ -124,15 +120,11 @@ S temi operacijami $K[X]$ postane kolobar.
 \begin{trditev}
     Velja:
     \begin{itemize}
-        \item Če je $K$ komutativen kolobar, je tudi $K[X]$ komutativen.
+        \item $K$ je komutativen kolobar natanko tedaj, ko $K[X]$ komutativen.
         \item $K$ je brez deliteljev nična natanko tedaj, ko $K[X]$ brez deliteljev niča.
         \item $K$ je cel kolobar natanko tedaj, ko $K[X]$ cel.
     \end{itemize}
 \end{trditev}
-
-\begin{proof}
-    Enostavno.
-\end{proof}
 
 \subsubsection*{Polje ulomkov celega kolobarja}    
 Naj bo $K$ cel kolobar. Gledamo množico $P = \setb{(a,b)}{a \in K; b \in K \setminus \set{0}}$. Na $P$ vpeljamo relacijo:
@@ -197,6 +189,7 @@ Gledamo algebre nad $\R$:
            k \ar@{->}[ru] &  & j \ar@{->}[ll]
            }$$
         Torej ko gremo v smeri urinega kazalca, dobimo naslednji element ($ij = k$), ki gremo v nasprotni smeri dobimo nasprotni element naslednjega elementa ($kj = -i$).
+        \item \(i^2=j^2=k^2 = -1\)
     \end{itemize}
     Elementi množice $\HH$ imenujemo \textbf{kvaternione}.
 
@@ -264,31 +257,23 @@ Grupa za množenje $(\set{\pm 1, \pm i, \pm j, \pm k}, \cdot)$ je \textbf{kvater
 \end{definicija}
 
 \begin{primer}
-    $\R^{n \times n}$ je kolobar in tudi algebra mad $\R$. Definiramo $U := \setb{A \in \R^{n \times n}}{A \text{ je zgornje trikotna}}$. Pokaži, da je $U$ podkolobar in tudi podalgebra nad $\R$.
+    $\R^{n \times n}$ je kolobar in tudi algebra mad $\R$. Definiramo $$U := \setb{A \in \R^{n \times n}}{A \text{ je zgornje trikotna}}.$$ Pokaži, da je $U$ podkolobar in tudi podalgebra nad $\R$.
 \end{primer}
 
 \begin{primer}
     Naj bo $X \subseteq \R$. Definiramo $\R^X := \set{f: X \to \R}$ in operacije $+$, $\cdot$, množenje s skalarji po točkah. Potem je $\R^X$ algebra nad $\R$. Naj bo $C(X) = \set{\text{vse zvezne } f: X \to \R}$. Pokaži, da je $C(X)$ podalgebra.
 \end{primer}
 
-\subsection{Kolobar ostankov in karakterizacija kolobarja}
-Vemo, da je $(\Z_n, +)$ Abelova grupa. Definiramo še množenje v $\Z_n$. Naj bo $a, b \in \Z_n$. Definiramo $(a+n\Z) \cdot (b + n\Z) = ab + n\Z$.
+\subsection{Kolobar ostankov in karakteristika kolobarja}
+Vemo, da je $(\Z_n, +)$ Abelova grupa. Definiramo še množenje v $\Z_n$. Naj bo $a, b \in \Z_n$. Definiramo $$(a+n\Z) \cdot (b + n\Z) = ab + n\Z.$$
 
 \begin{lema}
     Množenje je dobro definirano.
 \end{lema}
 
-\begin{proof}
-    \textcolor{red}{TODO}
-\end{proof}
-
 \begin{trditev}
     $(\Z_n, +, \cdot)$ je komutativen kolobar.
 \end{trditev}
-
-\begin{proof}
-    \textcolor{red}{TODO}
-\end{proof}
 
 \begin{definicija}
     Kolobarju $(\Z_n, +, \cdot)$ pravimo \textbf{kolobar ostankov po modulu $n$}.
@@ -307,6 +292,7 @@ Vemo, da je $(\Z_n, +)$ Abelova grupa. Definiramo še množenje v $\Z_n$. Naj bo
 \end{primer}
 
 \begin{trditev}
+    \label{trd:char-klbr}
     Naj bo $K$ kolobar z karakteristiko $n > 0$. Velja:
     \begin{enumerate}
         \item $n \cdot x = 0$ za vsak $x \in K$.
@@ -314,3 +300,27 @@ Vemo, da je $(\Z_n, +)$ Abelova grupa. Definiramo še množenje v $\Z_n$. Naj bo
         \item Če je $K$ neničeln kolobar in nima deljiteljev niča, potem je $n$ praštevilo.
     \end{enumerate}
 \end{trditev}
+
+\begin{lema}
+    \label{lema:koncen-cel-klbr}
+    Končen cel kolobar je vedno polje.
+\end{lema}
+
+\begin{proof}
+    Dokazujemo, da je vsak element kolobarja \(K\) obrnljiv. Naj bo \(a \in K\). Definiramo preslikavo \(\varphi: K \to K\) s predpisom \(\varphi(x) = ax\). Pokažemo, da je bijektivna.
+\end{proof}
+
+\begin{trditev}
+    Naj bo \(n \neq 1\). Velja:
+    \[\Z_n \ \text{je polje} \liff n \ \text{je praštevilo}.\]
+\end{trditev}
+
+\begin{proof}
+    (\(\Rightarrow\)) Sledi iz trditve \ref{trd:char-klbr}.
+
+    (\(\Leftarrow\)) Uporabimo lemo \ref{lema:koncen-cel-klbr}.
+\end{proof}
+
+\begin{izrek}[Mali Fermatov izrek]
+    Naj bo \(p\) praštevilo in \(a \in \N\). Tedaj je \[a^p \equiv a \mod p.\]
+\end{izrek}
