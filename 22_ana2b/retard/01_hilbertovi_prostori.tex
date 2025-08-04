@@ -2,7 +2,7 @@
 \subsection{Vektorski prostori s skalarnim produktom}
 Naj bo \(X\) vektorski prostor nad \(\R\) (ali nad \(\C\)).
 \begin{definicija}
-    \textbf{Skalarni produkt} je preslikava \(\scp{\ }{}: X \times X \to \R \text{ (oz. \(\C\))}\) za katero velja:
+    \textbf{Skalarni produkt} je preslikava \(\scp{\ }{}: X \times X \to \R \text{ (oz.\ \(\C\))}\) za katero velja:
     \begin{enumerate}
         \item \(\all{x \in X} \scp{x}{x} \geq 0\);
         \item \(\all{x \in X} \scp{x}{x} = 0 \liff x = 0\);
@@ -392,6 +392,7 @@ Očitno, da je \(C([a,b]) \subseteq L^2([a, b])\).
 \end{definicija}
 
 \begin{izrek}
+    \label{izr:parsevalova-enakost}
     Naj bo 
     \begin{itemize}
         \item \(X\) Hilbertov prostor;
@@ -427,11 +428,69 @@ Očitno, da je \(C([a,b]) \subseteq L^2([a, b])\).
 
 \newpage
 \subsection{Prostor \(L^2([-\pi, \pi])\)}
-Definiramo sistem 
+Na prostoru \(L^2(-\pi, \pi)\) definiramo sistem 
 \[
     \set{\frac{1}{\sqrt{2\pi}}, \frac{1}{\sqrt{\pi}} \cos x, \frac{1}{\sqrt{\pi}} \sin x, \frac{1}{\sqrt{\pi}} \cos 2x, \frac{1}{\sqrt{\pi}} \sin 2x, \ldots, \frac{1}{\sqrt{\pi}} \cos nx, \frac{1}{\sqrt{\pi}} \sin nx, \ldots}.
 \]
-Trdimo, da je to ONS. Nad \(\C\):
+Če delamo nad \(\C\), dobimo:
 \[
     \setb{\frac{1}{\sqrt{2\pi}} e^{inx}}{n \in \N}.
 \]
+Trdimo, da je to ONS. Kasneje bomo tudi dokazali, da je to KONS.
+
+\begin{opomba}
+    V tem kontekstu vsako funkcijo \(f: [-\pi, \pi] \to \R\) vidimo kot zožitev periodične funkcije s periodo \(2\pi\) na interval \([\pi, \pi]\).
+    Vsako tako periodično funkcijo želimo zapisati kot "`vsoto osnovnih nihanj"'.
+\end{opomba}
+
+Vpeljemo klasične Fourierjevi koeficienti
+\begin{align*}
+    a_n &= \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \cos (nx) \, dx, \ n = 1, 2, \ldots \\
+    b_n &= \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \sin (nx) \, dx, \ n = 1, 2, \ldots
+\end{align*}
+Pripadajoča klasična Fourierjeva vrsta je 
+\[
+    f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty} a_n \cos(nx) + b_n \sin(nx).
+\]
+
+Torej za \(n = 1, 2, \ldots\) velja
+
+\begin{align*}
+    a_n &= \frac{1}{\pi} \int_{-\pi}^{\pi}f(x) \cos(nx) \, dx = \frac{1}{\sqrt{\pi}} \scp{f}{\frac{1}{\sqrt{\pi}} \cos(nx)} \\
+    b_n &= \frac{1}{\pi} \int_{-\pi}^{\pi}f(x) \sin(nx) \, dx = \frac{1}{\sqrt{\pi}} \scp{f}{\frac{1}{\sqrt{\pi}} \sin(nx)}
+\end{align*}
+ter
+\[
+a_0 = \frac{1}{\pi} \int_{-\pi}^{\pi} f(x) \, dx = \frac{\sqrt{2}}{\pi} \scp{f}{\frac{1}{\sqrt{2\pi}}}.
+\]
+
+Iz Besselove neenakosti \ref{trd:besselova-neenakost} sledi
+\begin{trditev}[Riemann-Lebesgueva lema]
+    Naj bo \(f \in L^2(-\pi, \pi)\). Tedaj 
+    \[
+        \lim_{n \to \infty} a_n = 0 \quad \text{ter} \quad \lim_{n \to \infty} b_n = 0.
+    \]
+\end{trditev}
+
+Če pa vemo, da imamo KONS, dobimo Parsevalovo enakost \ref{izr:parsevalova-enakost}
+\begin{trditev}[Parsevalova enakost]
+    Naj bo \(f \in L^2(-\pi, \pi)\). Tedaj 
+    \[
+        \frac{1}{\pi} \int_{-\pi}^{\pi}|f(x)|^2 \, dx = \frac{|a_0|^2}{2} + \sum_{n=1}^{\infty}(|a_n|^2+|b_n|^2).
+    \]
+\end{trditev}
+
+\begin{zgled}
+    Definiramo funkcijo \(f: [-\pi, \pi] \to \R\) s predpisom
+    \[
+        f(x) = \begin{cases}
+            1; &0 \leq x \leq \pi \\
+            0; &-\pi < x < 0.
+        \end{cases}
+    \]
+    Razvij funkcijo \(f\) v Fourierjevo vrsto ter s pomočjo Parsevalove enakosti določi vsoto 
+    \[
+        S = 1 + \frac{1}{2^2} + \frac{1}{3^2} + \frac{1}{4^2} + \ldots
+    \]
+\end{zgled}
+
