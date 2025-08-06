@@ -481,6 +481,7 @@ Iz Besselove neenakosti \ref{trd:besselova-neenakost} sledi
 \end{trditev}
 
 \begin{zgled}
+    \label{zgl:nič-ena}
     Definiramo funkcijo \(f: [-\pi, \pi] \to \R\) s predpisom
     \[
         f(x) = \begin{cases}
@@ -493,4 +494,69 @@ Iz Besselove neenakosti \ref{trd:besselova-neenakost} sledi
         S = 1 + \frac{1}{2^2} + \frac{1}{3^2} + \frac{1}{4^2} + \ldots
     \]
 \end{zgled}
+
+\begin{lema}
+    Naj bo \(f: \R \to \R\) odsekoma zvezna periodična funkcija s periodo \(2\pi\). Tedaj je 
+    \[
+         \all{a \in \R} \int_{a}^{a+p} f(x) \, dx = \int_{0}^{p}  f(x) \, dx.
+    \]
+\end{lema}
+
+\begin{proof}
+    \(\int_{a}^{a+p} f(x) \, dx = \int_{a}^{p} f(x) \, dx + \int_{p}^{a+p} f(x) \, dx\)
+\end{proof}
+
+\begin{lema}[Dirichletovo jedro]
+    \[\frac{1}{2} + \sum_{k=1}^{\infty} \cos(kx) = \frac{1}{2} \frac{\sin((n+1/2)x)}{\sin(x/2)} =: D_n(x).\]
+\end{lema}
+
+\begin{proof}
+    Kompleksna eksponenta.
+\end{proof}
+
+\begin{lema}
+    Za Dirichletovo jedro velja
+    \begin{enumerate}
+        \item \(\ds \int_{-\pi}^{\pi} D_n(x) \, dx = \pi\).
+        \item \(D_n(x)\) je gladka soda funkcija s periodo \(2\pi\).
+        \item \(D_n(x) = \frac{1}{2} \left(\sin(nx)\frac{\cos(x/2)}{\sin(x/2)}  + \cos(nx)\right)\).
+    \end{enumerate}
+\end{lema}
+
+\begin{proof}
+    Račun.
+\end{proof}
+
+\begin{opomba}
+    Sode/lihe funkcije. \todo{}.
+\end{opomba}
+
+\begin{izrek}[Fourierjeva vrsta]
+    Naj bo
+    \begin{itemize}
+        \item funkcija \(f\) odsekoma zvezna in odsekoma odvedljiva periodična funkcijo s periodo \(2\pi\);
+        \item funkcija \(f\) na vsakem intervalu dolžine \(2\pi\) ima največ končno mnogo točk nezveznosti in v vsaki točki obstaja leva in desna limita;
+        \item funkcija \(f\) ima v vsaki točki levi in desni odvod.
+    \end{itemize}
+    Tedaj za vsak \(x \in \R\) velja 
+    \[
+        \frac{f(x+) + f(x-)}{2} = \frac{a_0}{2} + \sum_{n=1}^{\infty} a_n \cos(nx) + b_n \sin(nx).
+    \]
+\end{izrek}
+
+\begin{proof}
+    \todo{}
+\end{proof}
+
+\begin{zgled}
+    Vzemimo funkcijo iz zgleda \ref{zgl:nič-ena}. Kaj velja v točki \(x =0\) ter v točki \(x = \frac{\pi}{2}\)? Izračunaj \[
+        \sum_{k=0}^{\infty}(-1)^{k}\frac{1}{2k+1}.
+    \]
+\end{zgled}
+
+\begin{zgled}
+    Naj bo \(f(x) = x\) na \([-\pi, \pi]\) periodična funkcija s periodo \(2\pi\). Kaj velja v točkah \(0, \pi\) in \(\frac{\pi}{2}\)? Kaj pravi Parsevalova enakost?
+\end{zgled}
+
+
 
