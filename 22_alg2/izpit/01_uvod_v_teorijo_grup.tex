@@ -33,7 +33,7 @@
 
 \subsection{Generatorji grup}
 \begin{itemize}
-    \item Oglejmo vsi možni produkti in poiščemo izomorfizem.
+    \item Oglejmo množico vseh možnih produktov in inverzov ter pokažemo, da je podgrupa.
 \end{itemize}
 
 \subsection{Splošno}
@@ -48,13 +48,33 @@
 \section{Uvod v teorijo kolobarjev}
 \begin{itemize}
     \item Kolobar \(K\) je Boolov, če \(\all{x \in K}x^2 = x\). Boolov kolobar je komutativen in ima karakteristiko 2. 
+    \item Kolobar \(\Z\) ni algebra nad nobenim poljem.
+    \item Naj bo \(A\) končno-razsežna algebra. Tedaj 
+    \begin{itemize}
+        \item \(\all{a \in A \setminus \set{0}} (\some{b \in A \setminus \set{0}} a b = 0 \lor ba = 0) \lor (\some{a^{-1}} a^{-1}a=aa^{-1} = 1)\).
+        \item \(\all{a \in A} \some{b \in A} ab = 1 \lor ba = 1 \lthen a^{-1} = b\).
+        \item Če je \(A\) obseg, je vsaka podalgebra podobseg.
+    \end{itemize}
 \end{itemize}
 
 \subsection{Algebra kvaternionov}
 \begin{itemize}
     \item \(i^2=j^2=k^2=ijk=-1\)
+    \item \(Z(\HH) = \R, \ Z(Q) = \set{-1, 1}\).
+    \item \(\all{h \in \HH} \some{\alpha, \beta \in \R} h^2 + \alpha h + \beta = 0\), kjer \(-\alpha = h + \overline{h}\) in \(\beta = h \overline{h}\).
 \end{itemize}
 
+\subsection{Kolobar \(Z_n\)}
+\begin{itemize}
+    \item Kolobar \(Z\) ima 2 obrnljivih elementa: \(1\) in \(-1\)
+    \item V \(\Z_n\) element \(k \in \Z_n\) je obrnljiv natanko tedaj, ko \(\gcd (k, n) = 1\).
+    \item \(|\Z_n^*| = \phi(n)\), kjer je \(\phi\) Eulerjeva funkcija. Če he \(p\) praštevilo, potem \(|\Z_p| = p - 1\).
+\end{itemize}
+
+\subsection{Generatorji}
+\begin{itemize}
+    \item Poglejmo kaj mora vsebovati kolobar (vedno vsebuje enoto), ki je generiran z neko množico \(A\), ter pokažemo, da je dobljena množica podkolobar.
+\end{itemize}
 
 
 \section{homomorfizem}
@@ -66,4 +86,5 @@
 \subsection{Matrike}
 \begin{itemize}
     \item Naj bo \(A \in M_n(\R), \ \rang A = 1\). Tedaj \(\some{\lambda \in \R} A^2 = \lambda A\). Tako matriko lahko zapišemo tudi v obliki: stolpec krat vrstica.
+    \item \(E_{ij} \cdot E_{kl} = \delta_{jk}E_{il}\)
 \end{itemize}
