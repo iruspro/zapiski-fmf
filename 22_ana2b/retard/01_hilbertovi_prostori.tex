@@ -428,6 +428,7 @@ Očitno, da je \(C([a,b]) \subseteq L^2([a, b])\).
 
 \newpage
 \subsection{Prostor \(L^2([-\pi, \pi])\)}
+\subsubsection{Fourierjeva vrsta}
 Na prostoru \(L^2(-\pi, \pi)\) definiramo sistem 
 \[
     \set{\frac{1}{\sqrt{2\pi}}, \frac{1}{\sqrt{\pi}} \cos x, \frac{1}{\sqrt{\pi}} \sin x, \frac{1}{\sqrt{\pi}} \cos 2x, \frac{1}{\sqrt{\pi}} \sin 2x, \ldots, \frac{1}{\sqrt{\pi}} \cos nx, \frac{1}{\sqrt{\pi}} \sin nx, \ldots}.
@@ -528,7 +529,7 @@ Iz Besselove neenakosti \ref{trd:besselova-neenakost} sledi
 \end{proof}
 
 \begin{opomba}
-    Sode/lihe funkcije. \todo{}.
+    Sode/lihe funkcije. \todo{}
 \end{opomba}
 
 \begin{izrek}[Fourierjeva vrsta]
@@ -557,6 +558,65 @@ Iz Besselove neenakosti \ref{trd:besselova-neenakost} sledi
 \begin{zgled}
     Naj bo \(f(x) = x\) na \([-\pi, \pi]\) periodična funkcija s periodo \(2\pi\). Kaj velja v točkah \(0, \pi\) in \(\frac{\pi}{2}\)? Kaj pravi Parsevalova enakost?
 \end{zgled}
+
+\begin{zgled}
+    Razvij funkcijo \(f: [-\pi, \pi] \to \R, \ f(x) = \pi^2 - x^2\) v Fourierjevo vrsto. Ter seštej vsoti 
+    \[
+        S_1 = \sum_{n=1}^{\infty} (-1)^{n+1} \frac{1}{n^2} \quad \text{ter} \quad S_2 = \sum_{n=1}^{\infty} \frac{1}{n^2}.
+    \]
+\end{zgled}
+
+\subsubsection{Cesarjeve delne vsote}
+Definiramo \(n\)-to delno vsoto
+\[
+    S_n(x_0) = \frac{1}{\pi} \int_{-\pi}^{\pi} f(x_0 + y)D_n(y) \, dy
+\]
+ter \textbf{Cesarjeve delne vsote}
+\[
+    G_n(x) = \frac{S_0(x) + S_1(x) + \ldots + S_{n-1}(x)}{n}.
+\]
+
+Velja: \(G_n(x)\) konvergira proti funkcije \(f\). Če je \(f\) zvezna, potem konvergenca enakomerna. 
+
+Definiramo \textbf{Fourierjevo jedro}
+\[
+    F_N(x) = \frac{1}{N}\sum_{n=0}^{N-1} D_n(x)
+\]
+
+\begin{trditev}[Lastnosti Fourierjeva jedra]
+    \ 
+    \begin{enumerate}
+        \item \(F_N(x) = \frac{1}{2N} \left(\frac{\sin(NX/2)}{\sin(x/2)}\right)^2\).
+        \item \(F_N\) je soda funkcija.
+        \item \(\all{x \in D_f} F_N(x) \leq 0\).
+        \item \(\frac{1}{\pi} \int_{-\pi}^{\pi} F_N(x) \, dx = 1\).
+        \item Za vsak \(0 < a < \pi\) limita \(\lim_{N \to \infty} F_N(x) = 0\) je enakomerna na \(a \leq |x| \leq \pi\).
+    \end{enumerate}
+\end{trditev}
+
+\begin{proof}
+    \todo{}
+\end{proof}
+
+\begin{izrek}
+    Naj bo funkcija \(f\) \(2\pi\) periodična zvezna funkcija. Tedaj Cesarjeve delne vsote konvergirajo k \(f\) enakomerno na \([-\pi, \pi]\) (oz.\ na \(\R\)).
+\end{izrek}
+
+\begin{proof}
+    \todo{}
+\end{proof}
+
+\begin{opomba}
+    O trigonometričnih polinomih. \todo{}
+\end{opomba}
+
+\begin{izrek}
+    Sistem
+    \[
+        \set{\frac{1}{\sqrt{2\pi}}, \frac{1}{\sqrt{\pi}} \cos x, \frac{1}{\sqrt{\pi}} \sin x, \frac{1}{\sqrt{\pi}} \cos 2x, \frac{1}{\sqrt{\pi}} \sin 2x, \ldots, \frac{1}{\sqrt{\pi}} \cos nx, \frac{1}{\sqrt{\pi}} \sin nx, \ldots}.
+    \]
+    je KONS v \(L^2(-\pi, \pi)\).
+\end{izrek}
 
 
 
