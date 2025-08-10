@@ -3,13 +3,13 @@
 Topologija poda pojem \emph{bližine} brez sklicevanja na implicitno funkcjio razdalja.
 
 \begin{definicija}
-    Naj bo $X$ množica. \emph{Topologija} na množici $X$ je družina $\T \subseteq P(X)$, ki zadošča naslednjim pogojem:
+    Naj bo $X$ množica. \textbf{Topologija} na množici $X$ je družina $\T \subseteq P(X)$, ki zadošča naslednjim pogojem:
     \begin{enumerate}
         \item[(T0)] $\emptyset \in \T$, $X \in \T$.
         \item[(T1)] Poljubna unija elementov $\T$ je element $\T$.
         \item[(T2)] Poljuben končen presek elementov $\T$ je element $\T$.
     \end{enumerate}
-    Elemente $\T$ razglasimo za \emph{odprte množice} v $X$.
+    Elemente $\T$ razglasimo za \textbf{odprte množice} v $X$.
 \end{definicija}
 
 \begin{opomba}
@@ -17,38 +17,37 @@ Topologija poda pojem \emph{bližine} brez sklicevanja na implicitno funkcjio ra
 \end{opomba}
 
 \begin{definicija}
-    \emph{Topološki prostor} je množica $X$ z neko topologijo $\T$. Pišemo: $(X, \T)$.
+    \textbf{Topološki prostor} je množica $X$ z neko topologijo $\T$. Pišemo: $(X, \T)$.
 \end{definicija}
 
 \begin{definicija}
-    Če za topologiji $\T$ in $\T'$ na $X$ velja $\T \subseteq \T'$, pravimo, da je $\T'$ \emph{finejša} od $\T$ in da je $\T$ \emph{grobejša} od $\T'$. 
+    Če za topologiji $\T$ in $\T'$ na $X$ velja $\T \subseteq \T'$, pravimo, da je $\T'$ \textbf{finejša} od $\T$ in da je $\T$ \textbf{grobejša} od $\T'$. 
 \end{definicija}
 
 \begin{primer}[Topologija iz metrike]
-    Naj bo $(X, d)$ metrični prostor. Definiramo $\T_d = \set{\text{vse možne unije odprtih krogel}}$. $\T_d$~je topologija, ki je \emph{porojena (inducirana)} z metriko $d$.
+    Naj bo $(X, d)$ metrični prostor. Definiramo $$\T_d = \set{\text{vse možne unije odprtih krogel}}.$$ $\T_d$~je topologija, ki je \textbf{porojena (inducirana)} z metriko $d$.
 \end{primer}
 
 \begin{primer}
-    V $\R^n$ lahko podamo evklidsko metriko. Pripadajočemu topološkemu prostoru pravimo \emph{$n$-razsežni evklidski prostor}.
+    V $\R^n$ lahko podamo evklidsko metriko. Pripadajočemu topološkemu prostoru pravimo \textbf{$n$-razsežni evklidski prostor}.
 \end{primer}
 
 \begin{definicija}
-    Topološki prostor je \emph{metrizabilen}, če je porojen z neko metriko.
+    Topološki prostor je \textbf{metrizabilen}, če je porojen z neko metriko.
 \end{definicija}
 
 \begin{primer}[Trivialna topologija]
-    Naj bo $X$ poljubna množica. Definiramo $\T = \set{\emptyset, X}$. Potem $\T$ je topologija, rečemo ji \emph{trivialna topologija}.
-
+    Naj bo $X$ poljubna množica. Definiramo $$\T = \set{\emptyset, X}.$$ Tedaj $\T$ je topologija, rečemo ji \textbf{trivialna topologija}.
     Trivialna topologija ni metrizabilna, če ima $X$ vsaj $2$ elementa, ker v metričnem prostoru z množico z vsaj $2$ elementoma vedno lahko najdemo disjunktne odprte krogle.
 \end{primer}
 
 \begin{primer}[Diskretna topologija]
-    Naj bo $X$ poljubna množica. Definiramo $\T = P(X)$. Potem $\T$ je topologija, rečemo ji \emph{diskretna topologija}.
+    Naj bo $X$ poljubna množica. Definiramo $$\T = P(X).$$ Tedaj $\T$ je topologija, rečemo ji \textbf{diskretna topologija}.
     Je metrizabilna, ker inducirana z diskretno metriko.
 \end{primer}
 
 \begin{definicija}
-    Naj bo $(X, \T)$ topološki prostor in $A \subseteq X$. \emph{Notranjost} množice $A$ je največji element topolgije~$\T$, ki je vsebovan v $A$. Oznaka: $\Int A$.
+    Naj bo $(X, \T)$ topološki prostor in $A \subseteq X$. \textbf{Notranjost} množice $A$ je največji element topolgije~$\T$, ki je vsebovan v $A$. Oznaka: $\Int A$.
 \end{definicija}
 
 \begin{trditev}
@@ -56,16 +55,15 @@ Topologija poda pojem \emph{bližine} brez sklicevanja na implicitno funkcjio ra
 \end{trditev}
 
 \begin{trditev}
-    $\Int A$ je množica vseh \emph{notranjih točk} množice $A$, tj. $\setb{x \in A}{\some{U \in T} x \in U \subseteq A}$.
+    $\Int A$ je množica vseh \textbf{notranjih točk} množice $A$, tj. $$\setb{x \in A}{\some{U \in T} x \in U \subseteq A}.$$
 \end{trditev}
 
 \begin{definicija}
-    Naj bo $(X, \T)$ topološki prostor in $A \subseteq X$. Množica $A$ je \emph{zaprta}, če je $A^c = X - A \in \T$.
+    Naj bo $(X, \T)$ topološki prostor in $A \subseteq X$. Množica $A$ je \textbf{zaprta}, če je $A^c = X - A \in \T$.
 \end{definicija}
 
 \begin{opomba}
     Lahko topologijo vpeljemo tudi tako, da predpišemo, katere množice so zaprte.
-
     Denimo, da je dana družina $Z$ podmnožic $X$, za katero velja:
     \begin{enumerate}
         \item[(T0)] $\emptyset \in Z$, $X \in Z$.
@@ -76,24 +74,25 @@ Topologija poda pojem \emph{bližine} brez sklicevanja na implicitno funkcjio ra
 \end{opomba}
 
 \begin{primer}
-    Naj bo $X$ poljubna množica. Družina $\T = \setb{U \subseteq X}{X - U \text{ je končna}} \cup \set{\emptyset}$ je topologija na $X$. Tej topologiji rečemo \emph{topologija končnih komplementov $\T_{kk}$}. Velja:
+    Naj bo $X$ poljubna množica. Družina $$\T = \setb{U \subseteq X}{X - U \text{ je končna}} \cup \set{\emptyset}$$ je topologija na $X$. Tej topologiji rečemo \textbf{topologija končnih komplementov $\T_{kk}$}. Velja:
 
     \begin{itemize}
         \item Topologija končnih komplementov je najmanjša topologja v kateri vse točke zaprte. 
         \item Če je $X$ končna, potem $\T_{\text{kk}}=\T_{\text{disk}}$ na $X$.
+        \item Če je \(X\) neskončna, potem \(\T_{\text{kk}}\) ni metrizabilna, saj poljubni dve neprazni odprti množici imajo neprazen presek.
     \end{itemize}    
 \end{primer}
 
 \begin{definicija}
-    Naj bo $(X, \T)$ topološki prostor in $A \subseteq X$. \emph{Zaprtje} množice $A$ je najmanjša zaprta množica v $X$, ki vsebuje $A$. Oznaka: $\Cl A = \overline{A}$.
+    Naj bo $(X, \T)$ topološki prostor in $A \subseteq X$. \textbf{Zaprtje} množice $A$ je najmanjša zaprta množica v $X$, ki vsebuje $A$. Oznaka: $\Cl A = \overline{A}$.
 \end{definicija}
 
 \begin{trditev}
-    $\Cl A$ je presek vseh zaprtih množic, ki vsebujejo $A$, torej $\Cl A = \bigcap \setb{F \in \T}{A \subseteq F}$.
+    $\Cl A$ je presek vseh zaprtih množic, ki vsebujejo $A$, torej $$\Cl A = \bigcap \setb{F \in \T}{A \subseteq F}.$$
 \end{trditev}
 
 \begin{trditev}
-    $\Cl A$ je množica vseh točk, vsaka okolica katerih seka $A$, tj. $\Cl A = \setb{x \in X}{\all{U \in \T} x \in U \lthen U \cap A \neq \emptyset}$.
+    $\Cl A$ je množica vseh točk, vsaka okolica katerih seka $A$, tj. $$\Cl A = \setb{x \in X}{\all{U \in \T} x \in U \lthen U \cap A \neq \emptyset}.$$
 \end{trditev}
 
 \begin{primer}
@@ -105,15 +104,15 @@ Topologija poda pojem \emph{bližine} brez sklicevanja na implicitno funkcjio ra
 \end{primer}
 
 \begin{definicija}
-    Naj bo $(X, \T)$ prostor in $A \subseteq X$. Točka $x \in X$ je \emph{mejna} točka $A$, če vsaka okolica $x$ seka $A$ in~$A^c$.
+    Naj bo $(X, \T)$ prostor in $A \subseteq X$. Točka $x \in X$ je \textbf{mejna} točka $A$, če vsaka okolica $x$ seka $A$ in~$A^c$.
 \end{definicija}
 
 \begin{definicija}
-    Naj bo $(X, \T)$ prostor in $A \subseteq X$. \emph{Meja} množice $A$ je množica vseh mejnih točk $A$.
+    Naj bo $(X, \T)$ prostor in $A \subseteq X$. \textbf{Meja} množice $A$ je množica vseh mejnih točk $A$.
 \end{definicija}
 
 \begin{trditev}
-    Naj bo $(X, \T)$ topološki prostor in $A \subseteq X$. Meja množice $A$ je $\Fr A = \Cl A - \Int A$.
+    Naj bo $(X, \T)$ topološki prostor in $A \subseteq X$. Meja množice $A$ je $$\Fr A = \Cl A - \Int A.$$
 \end{trditev}
 
 \begin{opomba}
@@ -125,8 +124,8 @@ Topologija poda pojem \emph{bližine} brez sklicevanja na implicitno funkcjio ra
 \begin{definicija}
     Naj bo $f: A \to B$ preslikava.
     \begin{itemize}
-        \item \emph{Praslika} podmnožice $S \in B$ je $f^*(S) := \setb{x \in A}{f(x) \in S}$.
-        \item \emph{Slika} podmnožice $T \in A$ je $f_*(T) := \setb{y \in B}{\some{x \in T} f(x) = y}$.
+        \item \textbf{Praslika} podmnožice $S \in B$ je $f^*(S) := \setb{x \in A}{f(x) \in S}$.
+        \item \textbf{Slika} podmnožice $T \in A$ je $f_*(T) := \setb{y \in B}{\some{x \in T} f(x) = y}$.
     \end{itemize}
 \end{definicija}
 
@@ -162,7 +161,7 @@ Topologija poda pojem \emph{bližine} brez sklicevanja na implicitno funkcjio ra
 
 \subsubsection{Zvezne preslikave}
 \begin{definicija}    
-    Naj bosta $(X, \T_X)$ in $(Y, \T_Y)$ topološka prostora. Preslikava $f: (X, \T_X) \to (Y, \T_Y)$ je \emph{zvezna}, če je praslika vsake odprte množice odprta, tj. $\all{V \in \T_Y} \invimg{f}(V) \in \T_X$.
+    Naj bosta $(X, \T_X)$ in $(Y, \T_Y)$ topološka prostora. Preslikava $f: (X, \T_X) \to (Y, \T_Y)$ je \textbf{zvezna}, če je praslika vsake odprte množice odprta, tj. $\all{V \in \T_Y} \invimg{f}(V) \in \T_X$.
 \end{definicija}
 
 \begin{primer}
@@ -206,10 +205,9 @@ Topologija poda pojem \emph{bližine} brez sklicevanja na implicitno funkcjio ra
     $\invimg{f}(B) \text{ je zaprta} \liff \invimg{f}(B) = \overline{\invimg{f}(B)}$.
 \end{proof}
 
-\newpage
 \subsection{Homeomorfizmi}
 \begin{definicija}
-    Naj bo $f: (X, \T_X) \to (Y, \T_Y)$ funkcija. Funkcija $f$ je \emph{homeomorfizem}, če:
+    Naj bo $f: (X, \T_X) \to (Y, \T_Y)$ funkcija. Funkcija $f$ je \textbf{homeomorfizem}, če:
     \begin{itemize}
         \item $f$ je bijekcija.
         \item $\img{f}$ je bijekcija med $\T_X$ in $\T_Y$.
@@ -217,7 +215,7 @@ Topologija poda pojem \emph{bližine} brez sklicevanja na implicitno funkcjio ra
 \end{definicija}
 
 \begin{definicija}
-    Če obstaja homeomorfizem $f: (X, \T_X) \to (Y, \T_Y)$, potem rečemo, da sta prostora $X$ in $Y$ \emph{homeomorfna}. Oznaka: $X \approx  Y$.
+    Če obstaja homeomorfizem $f: (X, \T_X) \to (Y, \T_Y)$, potem rečemo, da sta prostora $X$ in $Y$ \textbf{homeomorfna}. Oznaka: $X \approx  Y$.
 \end{definicija}
 
 \begin{opomba}
@@ -227,8 +225,8 @@ Topologija poda pojem \emph{bližine} brez sklicevanja na implicitno funkcjio ra
 \begin{definicija}
     Naj bosta $(X, \T_X)$ in $(Y, \T_Y)$ topološka prostora.
     \begin{itemize}
-        \item Funkcija $f: (X, \T_X) \to (Y, \T_Y)$ je \emph{odprta}, če je slika vsake odprte množice odprta.
-        \item Funkcija $f$ je \emph{zaprta}, če je slika vsake zaprte množice zaprta.
+        \item Funkcija $f: (X, \T_X) \to (Y, \T_Y)$ je \textbf{odprta}, če je slika vsake odprte množice odprta.
+        \item Funkcija $f$ je \textbf{zaprta}, če je slika vsake zaprte množice zaprta.
     \end{itemize}     
 \end{definicija}
 
@@ -262,9 +260,9 @@ Topologija poda pojem \emph{bližine} brez sklicevanja na implicitno funkcjio ra
 
 \begin{definicija} Definiramo:
     \begin{itemize}
-        \item $B^n := \setb{(x_1, \ldots, x_n) \in \R^n}{||\vec{x}|| \leq 1}$ je \emph{enotska $n$-krogla}.
-        \item $\mathring{B}^n := \setb{(x_1, \ldots, x_n) \in \R^n}{||\vec{x}|| < 1}$ je \emph{odprta enotska $n$-krogla}.
-        \item $S^{n-1} := \setb{(x_1, \ldots, x_n) \in \R^n}{||\vec{x}|| = 1}$ je \emph{enotska $(n-1)$-sfera}.
+        \item $B^n := \setb{(x_1, \ldots, x_n) \in \R^n}{||\vec{x}|| \leq 1}$ je \textbf{enotska $n$-krogla}.
+        \item $\mathring{B}^n := \setb{(x_1, \ldots, x_n) \in \R^n}{||\vec{x}|| < 1}$ je \textbf{odprta enotska $n$-krogla}.
+        \item $S^{n-1} := \setb{(x_1, \ldots, x_n) \in \R^n}{||\vec{x}|| = 1}$ je \textbf{enotska $(n-1)$-sfera}.
     \end{itemize}
 \end{definicija}
 
@@ -273,13 +271,13 @@ Topologija poda pojem \emph{bližine} brez sklicevanja na implicitno funkcjio ra
 \end{primer}
 
 \begin{primer}
-    Zakaj sfera $S^{n-1}$ v $\R^n$ topološko bolj podobna $\R^{n-1}$ kot $\R^n$? \emph{Stereografska projekcija}.
+    Zakaj sfera $S^{n-1}$ v $\R^n$ topološko bolj podobna $\R^{n-1}$ kot $\R^n$? \textbf{Stereografska projekcija}.
 
-    Ali je $S^{n-1}$ \emph{lokalno homeomorfna} prostoru $\R^{n-1}$?
+    Ali je $S^{n-1}$ \textbf{lokalno homeomorfna} prostoru $\R^{n-1}$?
 \end{primer}
 
 \begin{definicija}
-    Prostore, ki so lokalno homeomorfne kakemu evklidskemu prostoru, imenujemo \emph{mnogoterosti}.
+    Prostore, ki so lokalno homeomorfne kakemu evklidskemu prostoru, imenujemo \textbf{mnogoterosti}.
 \end{definicija}
 
 Oglejmo nekaj preslikav, ki jim v določenem smislu malo manjka do homeomorfizma.
@@ -295,7 +293,7 @@ Oglejmo nekaj preslikav, ki jim v določenem smislu malo manjka do homeomorfizma
 Pri dokazovanju, da dva prostora nista homeomorfna, igrajo kljucno vlogo topološke lastnosti.
 
 \begin{definicija}
-    \emph{Topološka lastnost} je katerakoli lastnost prostora, ki se ohranja pri homeomorfizmih.
+    \textbf{Topološka lastnost} je katerakoli lastnost prostora, ki se ohranja pri homeomorfizmih.
 \end{definicija}
 
 \begin{primer}
@@ -306,13 +304,12 @@ Pri dokazovanju, da dva prostora nista homeomorfna, igrajo kljucno vlogo topolo�
     Ali je možno, da $\R \approx \R^2$ (povezanost)? Ali enak sklep deluje za $\R^3$ in $\R^2$?
 \end{primer}
 
-\newpage
 \subsection{Baze in predbaze}
 \subsubsection{Baza in lokalna baza}
 Lažje bi shajali, če bi zadoščalo preveriti zveznost ali odprtost preslikave na neki manjši in bolj obvladljivi družini podmnožic.
 
 \begin{definicija}
-    Naj bo $(X, \T)$ prostor, $x \in X$. Družina $\B_x \subseteq \T$, $\all{B \in \B_x} x \in B$ je \emph{lokalna baza okolic} točke $x$, če za vsako odprto okolico $U \in \T$ točke $x$, obstaja $B \in \B_x$, da $x \in B \subseteq U$.
+    Naj bo $(X, \T)$ prostor, $x \in X$. Družina $\B_x \subseteq \T$, $\all{B \in \B_x} x \in B$ je \textbf{lokalna baza okolic} točke $x$, če za vsako odprto okolico $U \in \T$ točke $x$, obstaja $B \in \B_x$, da $x \in B \subseteq U$.
 \end{definicija}
 
 \begin{opomba}
@@ -324,7 +321,7 @@ Lažje bi shajali, če bi zadoščalo preveriti zveznost ali odprtost preslikave
 \end{primer}
 
 \begin{definicija}
-    Naj bo $(X, \T)$ prostor. Družina $\B \subseteq \T$ je \emph{baza} topologije $\T$, če lahko vse elemente $\T$ zapišemo kot unije elementov $\B$.
+    Naj bo $(X, \T)$ prostor. Družina $\B \subseteq \T$ je \textbf{baza} topologije $\T$, če lahko vse elemente $\T$ zapišemo kot unije elementov $\B$.
 \end{definicija}
 
 \begin{primer}
@@ -374,11 +371,11 @@ Pojem baze nam ponuja alternativno pot za vpeljavo topologije na neki množici: 
     \label{trd:baza}
     Naj bo $\B$ družina podmnožic $X$, ki ustreza pogojema
     \begin{enumerate}
-        \item Unija elementov $\B$ je cel $X$ (pravimo, da je $\B$ \emph{pokritje} za $X$).
+        \item Unija elementov $\B$ je cel $X$ (pravimo, da je $\B$ \textbf{pokritje} za $X$).
         \item Za vse $B_1, B_2 \in \B$, za vse $x \in B_1 \cap B_2$, obstaja tak $B_x \in \B$, da $x \in B_x \subseteq B_1 \cap B_2$.
     \end{enumerate} 
     Tedaj je družina vseh možnih unij elementov iz $\B$ topologija na $X$.     
-    Rečemo, da je \emph{topologija $\T$ generirana z bazo~$\B$}.
+    Rečemo, da je \textbf{topologija $\T$ generirana z bazo~$\B$}.
 \end{trditev}
 
 \begin{proof}
@@ -390,7 +387,7 @@ Pojem baze nam ponuja alternativno pot za vpeljavo topologije na neki množici: 
 \end{primer}
     
 \begin{definicija}
-    \emph{Produktna topologija} $\T_{X \times X'}$ je topologija, ki jo kot baza generirana družina $\setb{U \times U'}{U \in \T, U' \in \T'}$.
+    \textbf{Produktna topologija} $\T_{X \times X'}$ je topologija, ki jo kot baza generirana družina $\setb{U \times U'}{U \in \T, U' \in \T'}$.
 \end{definicija}
 
 \begin{opomba}
@@ -415,7 +412,7 @@ Včasih imamo neko družino podmnožic $X$, recimo $\PP$, ki jih želimo razglas
 
 \begin{trditev}
     Naj bo $\mathcal{P}$ poljubna družina podmnožic $X$. Če je $\mathcal{P}$ pokritje $X$, potem je $\T$ topologija, ki jo kot baza generirajo končni preseki elementov $\mathcal{P}$.
-    Pravimo, da je $\mathcal{P}$ \emph{predbaza topologije $\T$}.
+    Pravimo, da je $\mathcal{P}$ \textbf{predbaza topologije $\T$}.
 \end{trditev}
 
 \begin{proof}
@@ -466,7 +463,7 @@ Baze lahko uporabimo za neko grobo oceno velikosti topološkega prostora in boga
 \begin{definicija}[1. aksiom števnosti]
     Naj bo $(X, \T)$ prostor. Vsaka točka $x \in X$ ima števno bazo okolic.
 
-    Rečemo, da je prostor $(X, \T)$ \emph{$1$-števen}. 
+    Rečemo, da je prostor $(X, \T)$ \textbf{$1$-števen}. 
 \end{definicija}
 
 \begin{primer}
@@ -476,7 +473,7 @@ Baze lahko uporabimo za neko grobo oceno velikosti topološkega prostora in boga
 \begin{definicija}[2. aksiom števnosti]
     Naj bo $(X, \T)$ prostor. Obstaja kaka števna baza za topologijo $\T$.
 
-    Rečemo, da je prostor $(X, \T)$ \emph{$2$-števen}. 
+    Rečemo, da je prostor $(X, \T)$ \textbf{$2$-števen}. 
 \end{definicija}
 
 \begin{primer}
@@ -507,14 +504,13 @@ Baze lahko uporabimo za neko grobo oceno velikosti topološkega prostora in boga
     (2) \textcolor{red}{TODO.}
 \end{proof}
 
-\newpage
 \subsubsection{Separabilnost}
 \begin{definicija}
-    Podmnožica $A$ je \emph{povsod gosta} v $X$, če seka vsako odprto množico $X$, ali ekvivalentno, če je $\overline{A} = X$.
+    Podmnožica $A$ je \textbf{povsod gosta} v $X$, če seka vsako odprto množico $X$, ali ekvivalentno, če je $\overline{A} = X$.
 \end{definicija}
 
 \begin{definicija}
-    Prostor $(X, \T)$ je \emph{separabilen}, če v $X$ obstaja števna gosta podmnožica.
+    Prostor $(X, \T)$ je \textbf{separabilen}, če v $X$ obstaja števna gosta podmnožica.
 \end{definicija}
 
 \begin{primer}
@@ -558,8 +554,8 @@ Naj bo $(X, \T)$ prostor, $A \subseteq X$. Definiramo $\T_A := \setb{A \cap U}{U
 \end{trditev}
 
 \begin{definicija}
-    Topologiji $\T_A$ pravimo \emph{inducirana} (oz. \emph{podedovana}) topologija na $A$.
-    Prostor $(A, \T_A)$ je \emph{podprostor} prostora $(X, \T)$.
+    Topologiji $\T_A$ pravimo \textbf{inducirana} (oz. \textbf{podedovana}) topologija na $A$.
+    Prostor $(A, \T_A)$ je \textbf{podprostor} prostora $(X, \T)$.
 \end{definicija}
 
 \begin{primer}
@@ -620,7 +616,7 @@ Množica, ki je odprta v podprostoru, ni nujno odprta v celem prostoru: na prime
 
 \subsubsection{Dednost}
 \begin{definicija}
-    Topološka lastnost je \emph{dedna}, če iz prevzetka, da $(X, \T)$ ima to lastnost sledi, da jo imajo tudi vsi podprostori.
+    Topološka lastnost je \textbf{dedna}, če iz prevzetka, da $(X, \T)$ ima to lastnost sledi, da jo imajo tudi vsi podprostori.
 \end{definicija}
 
 \begin{primer}
@@ -641,7 +637,7 @@ Množica, ki je odprta v podprostoru, ni nujno odprta v celem prostoru: na prime
 Funkcije pogosto definiramo odsekoma, na primer: funkcijo na $\R$ lahko  podamo z različno formulo na intervalih $[n, n+1]$ za $n \in \Z$. Tako podana funkcija je zvezna, če je zvezna na vsakem intervalu posebej in če se sosednji definiciji ujemata v skupnem krajišču. Pri splošnih topoloških prostorih lahko podamo zvezne predpise na vseh množicah nekega pokritja in poskrbimo, da se definicije na presekih ujemajo.
 
 \begin{definicija}
-    Naj bo $\set{X_\lambda}$ pokritje $X$. Za družino $f_\lambda: X_\lambda \to Y$ rečemo, da je \emph{usklajena}, če je ${f_\lambda}_{|X_\lambda \cap X_\mu} =~{f_\mu}_{|X_\lambda \cap X_\mu}$ za poljubna indeksa $\lambda, \mu$.
+    Naj bo $\set{X_\lambda}$ pokritje $X$. Za družino $f_\lambda: X_\lambda \to Y$ rečemo, da je \textbf{usklajena}, če je ${f_\lambda}_{|X_\lambda \cap X_\mu} =~{f_\mu}_{|X_\lambda \cap X_\mu}$ za poljubna indeksa $\lambda, \mu$.
 \end{definicija}
 
 \begin{trditev}
@@ -657,7 +653,7 @@ Funkcije pogosto definiramo odsekoma, na primer: funkcijo na $\R$ lahko  podamo 
 \end{proof}
 
 \begin{definicija}
-    Pokritje $\set{X_\lambda}$ za $X$ je \emph{lokalno končno}, če za vsako točko $x \in X$ obstaja okolica, ki seka le končno mnogo različnih $X_\lambda$.
+    Pokritje $\set{X_\lambda}$ za $X$ je \textbf{lokalno končno}, če za vsako točko $x \in X$ obstaja okolica, ki seka le končno mnogo različnih $X_\lambda$.
 \end{definicija}
 
 \begin{primer}
@@ -705,7 +701,7 @@ Podprostori znanih prostorov so naravni vir mnogih zanimivih topoloških prostor
 \end{opomba}
 
 \begin{definicija}
-    Preslikava $f: X \to Y$ je \emph{vložitev}, če je $f$ homeomorfizem med $X$ in $\img{f}(X)$ (glede na od $Y$ podedovano topologijo).
+    Preslikava $f: X \to Y$ je \textbf{vložitev}, če je $f$ homeomorfizem med $X$ in $\img{f}(X)$ (glede na od $Y$ podedovano topologijo).
 \end{definicija}
 
 \begin{opomba}
