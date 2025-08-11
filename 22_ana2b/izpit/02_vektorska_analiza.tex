@@ -1,0 +1,83 @@
+\section{Vektorska analiza}
+\subsection{Krivuljni integral skalarnega polja}
+Naj bo \(K\) krivulja z regularno parametrizacijo \(\vec{r}: [a,b] \to \R^3, \ \vec{r} = (x, y, z)\). Tedaj 
+\[
+    ds = |\dot{\vec{r}}(t)| dt = \sqrt{\dot{x}^2 + \dot{y}^2 + \dot{z}^2}.
+\]
+Naj bo \(u: D \subseteq \R^3 \to \R\) skalarno polje. Definiramo 
+\[
+    \int_{K} u \, ds = \int_{a}^{b} u(\vec{r}(t)) |\dot{\vec{r}}(t)| dt.
+\]
+
+\subsection{Ploskovni integral skalarnega polja}
+Naj bo \(S\) ploskev z regularno paramaterizacijo \(\vec{r}: \triangle = [a, b] \times [c,d] \to \R^3\).  Tedaj
+\[
+    dS = \sqrt{EG-F^2} \, dudv
+\]
+Naj bo \(\mu: D \subseteq \R^3 \to \R\) skalarno polje. Definiramo 
+\[
+    \int_{S} \mu \, dS = \int_{\triangle} \mu(\vec{r}(u, v)) |\vec{r}_u \times \vec{r}_v| \, dudv.
+\]
+
+\begin{itemize}
+    \item Če je \(S \subseteq \R \times \R \times \set{a}\), potem 
+    \[
+        \int_{S} \mu \, dS = \int_{\triangle} \mu(x,y,a) \, dxdy,
+    \]
+    kjer je \(\triangle\) projekcija v \(xy\)-ravnino. Podobno za poljubno permutacijo koordinat.
+\end{itemize}
+
+\subsection{Krivuljni integral vektorskega polja}
+Naj bo \(K\) krivulja z regularno parametrizacijo \(\vec{r}: [a,b] \to \R^3, \ \vec{r} = (x, y, z)\). 
+
+Naj bo \(\vec{f}: D \subseteq \R^3 \to \R^3\) vektorsko polje. Definiramo 
+\[
+    \int_{K} \vec{f} \cdot \, d\vec{r} = \int_{a}^{b} (\vec{f}(\vec{r}(t)) \cdot \dot{\vec{r}}(t)) \, dt.
+\]
+
+\begin{itemize}
+    \item Parametrizacija krivulje določa tudi njeno orientacijo.
+    \item \textbf{Cirkulacija} je integral vektorskega polja vzdolž sklenjene krivulje.
+\end{itemize}
+
+\subsection{Ploskovni integral vektorskega polja}
+Naj bo \(S\) ploskev z regularno paramaterizacijo \(\vec{r}: \triangle = [a, b] \times [c,d] \to \R^3\).
+
+Naj bo \(\vec{f}: D \subseteq \R^3 \to \R^3\) vektorsko polje. Definiramo
+\[
+    \int_{S} \vec{f} \cdot d \vec{S} = \int_{S} (\vec{f} \cdot \vec{n})\, dS,
+\]
+kjer je \(\vec{n}\) enotska normala. Orientacija ploskve je potem določna z smerjo normale. Za izračun uporabljamo formulo
+\[
+    \int_{S} \vec{f} \cdot d \vec{S} = \int_{\triangle} \vec{f}(\vec{r}(u, v)) \cdot (\vec{r}_u \times \vec{r}_v) \, dudv,
+\]
+pri čemer smer \(\vec{r}_u \times \vec{r}_v\) se mora ujemati s predpisano orientacijo.
+\begin{itemize}
+    \item \todo{Naloga na strani 8: parametrizacija sfere}.
+\end{itemize}
+
+\subsection{Integralski izreki}
+Naj bo \(\vec{f}: D \subseteq \R^3 \to \R^3\) vektorsko polje.
+\begin{izrek}[Stokesov izrek]
+    Naj bo \(\partial S\) sklenjena krivulja. Tedaj
+    \[
+        \int_{\partial S} \vec{f} \cdot d\vec{r} = \iint_{S} \rot \vec{f} \cdot d \vec{S},
+    \]
+    pri čemer orientacije za \(\partial S\) in \(S\) morajo biti usklajeni: Če hodimo po \(\partial S\) v smeri predpisane orientacije in je \(S\) na naši levi strani, glava določa normalo \(\vec{N}\).
+\end{izrek}
+
+\begin{izrek}[Gaussov izrek]
+    Naj bo \(\partial D\) sklenjena ploskev. Tedaj
+    \[
+        \int_{\partial D} \vec{f} \cdot d\vec{S} = \int_{D} \divr \vec{f} \, dV
+    \]
+\end{izrek}
+
+\subsection{Splošno}
+\begin{itemize}
+    \item Naj bo \(f(\vec{r}) = \frac{1}{|\vec{r} - \vec{a}|}\) skalarno polje. \(\divr (\grad f) = 0\). Torej je \(\grad f = - \frac{\vec{r} - \vec{a}}{|\vec{r} - \vec{a}|^3}\) solenoidalno polje.
+    \item \(\rot (\vec{r} \times \vec{a}) = - 2 \vec{a}\); \(\rot (\vec{a} \times \vec{r}) = 2 \vec{a}\).
+    \item Potencial polja dobimo z unijo členov po integraciji parcialnih odvodov.
+    \item Pri parametrizaciji lahko si pomagamo s sferični, cilindrični itn.\ koordinati.
+\end{itemize}
+
