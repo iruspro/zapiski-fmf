@@ -34,28 +34,104 @@
         \item \textbf{Zgled.} Ali je polje \(\vec{f}(x,y,z) = (y^2z^3 + 2, 2xyz^3 + 1, 3xe^2z^2)\) potencialno? Čemu je enak \(\rot \vec{f}\)? Ali je polje \(\vec{g}(x,y,z) = (2y-1, -1, 4x - 2xy)\) solenoidalno?
         \item \textbf{Opomba.} V kakšni obliki lahko lokalno zapišemo vsako vektorsko polje?
     \end{itemize}
+\end{enumerate}
 
-    \item Krivuljni integral
+\subsection{Krivuljni in ploskovni integral}
+\begin{enumerate}
+    \item Dolžina krivulje
     \begin{itemize}
         \item Regularna parametrizacija krivulje.
         \item \textbf{Definicija.} Dolžina krivulje.
-        \item \textbf{Opomba.} Ali je definicija neodvisna od izbire regularne parametrizacije? 
+        \item \textbf{Trditev.} Ali je definicija neodvisna od izbire regularne parametrizacije? 
         \item \textbf{Zgled.} Naravni parameter.
-        \item \textbf{Zgled.} Vijačnico lahko parametriziramo s predpisom \(t \mapsto (a\cos t, a \sin t, bt)\). Določi naravno parametrizacijo vijačnice.
-        \newpage
+        \item \textbf{Zgled.} Vijačnico lahko parametriziramo s predpisom \(t \mapsto (a\cos t, a \sin t, bt)\). Določi naravno parametrizacijo vijačnice.        
+    \end{itemize}
+
+    \item Krivuljni integral skalarnega polja
+    \begin{itemize}
         \item \textbf{Definicija.} Orientacija krivulje. Usklajen izbor orientacije. Orientirana krivulja.
         \item \textbf{Opomba.} Ali je vsaka krivulja orientabilna? Kaj če je krivulja odsekoma gladka? Krivulja z robom.
         \item \textbf{Definicija.} Integral skalarnega polja vzdolž krivulje.
         \item \textbf{Opomba.} Kaj je dolžina krivulje? Ali je vrednost odvisna od izbire regularne parametrizacije? Kaj je skalarno polje v fizikalnem smislu? Kaj če je krivulja odsekoma gladka?
         \item \textbf{Zgled.} Naj bo \(\Gamma = \setb{(x,y) \in \R^2}{x^2+y^2 = a^2, \ y \geq 0}\) homogena polkrožnica. Določi lego težišča \(\Gamma\).
+    \end{itemize}
+
+    \item Krivuljni integral vektorskega polja
+    \begin{itemize}
         \item \textbf{Definicija.} Integral vektorskega polja vzdolž krivulje.
         \item \textbf{Opomba.} Fizikalni pomen. Ali je definicija odvisna od izbire regularne parametrizacije?
         \item \textbf{Zgled.} Naj bo \(\vec{f}(x,y,z) = (xy, z, x- z)\) ter \(\Gamma: \vec{r}(t) = (t, t, \frac{1}{2}t^2), t \in [0,1]\). Izračunaj integral \(\vec{f}\) po \(\Gamma\).
         \item \textbf{Zgled.} \todo{Delo sile teže.}
-        \item \textbf{Opomba.} Zapis integrala vektorskega polja v diferenciabilni formi. Integral po sklenjeni krivulji. 
+        \item \textbf{Opomba.} Zapis integrala vektorskega polja v diferencialni formi. Integral po sklenjeni krivulji. 
         \item \textbf{Trditev.} Kaj če integriramo potencialno polje?
         \item \textbf{Posledica.} Kaj če integriramo potencialno polje po sklenjeni krivulji?
         \item \textbf{Zgled.} Izračunaj integral polja \(\vec{f}(x,y,z) = \left(-\frac{y}{x^2 + y^2}, \frac{x}{x^2+y^2}, 0\right)\) po krožnice.
         \item \textbf{Izrek.} Karakterizacija potencialnih vektorskih polj.
+    \end{itemize}
+
+    \item Površina ploskve
+    \begin{itemize}
+        \item Intuitivna izpeljava formule za površine ploskve.
+        \item \textbf{Definicija.} Površina ploskve.
+        \item \textbf{Trditev.} Ali je definicija odvisna od izbire regularne parametrizacije?
+    \end{itemize}
+
+    \item Orientacija ploskev
+    
+    Naj bo \(\Sigma \subseteq \R^3\) gladka ploskev.
+    \begin{itemize}
+        \item \textbf{Definicija.} Orientacija \(\Sigma\). Orientabilna ploskev.
+        \item \textbf{Opomba.} Koliko orientacij lahko ima orientabilna povezana ploskev?
+        \item \textbf{Zgled.} Določi ali je ploskev \(\Sigma\) orientabilna, če 
+        \begin{itemize}
+            \item \(\Sigma\) je graf funkcije;
+            \item \(\Sigma\) je sfera;
+            \item \(\Sigma\) je plašč valja;
+            \item \(\Sigma\) je torus; je sklenjena ploskev;
+            \item \(\Sigma\) je Mobiusov trak.
+        \end{itemize}
+        \item \textbf{Definicija.} Gladka ploskev z robom. Rob ploskve. Skladna orientacija roba.
+        \item \textbf{Opomba.} Orientacija, ki je usklajena z parametrizacijo.
+        \item \textbf{Definicija.} Odsekoma gladka ploskev. Orientacija odsekoma gladke ploskve.
+    \end{itemize}
+
+    \item Ploskovni integral skalarnega polja
+    \begin{itemize}
+        \item \textbf{Definicija.} Ploskovni integral skalarnega polja.
+        \item \textbf{Opomba.} Kaj je površina ploskve?
+        \item \textbf{Trditev.} Ali je integral odvisen od izbire regularne parametrizacije?
+        \item \textbf{Opomba.} Ali je orientacija ploskve pomembna? Ali je ta integral obstaja na Mobiusovem traku?
+        \item \textbf{Opomba.} Kaj je masa ploskve? Homogena ploskev.
+        \item \textbf{Zgled.} Izračunaj vztrajnostni moment homogene sfere z polmerom \(\R\) okoli \(z\)-osi.
+    \end{itemize}
+
+    \item Ploskovni integral vektorskega polja
+    \begin{itemize}
+        \item \textbf{Definicija.} Ploskovni integral vektorskega polja. Pretok vektorskega polja skozi ploskev.
+        \item \textbf{Trditev.} Ali je integral odvisen od izbire regularne parametrizacije?
+        \item \textbf{Opomba.} Kaj pravi formula, če izberimo orientacijo, ki je usklajena z regularno parametrizacijo? Kaj če imamo odsekoma gladko ploskev?
+        \item \textbf{Zgled.} \todo{sfera}.
+        \item \textbf{Opomba.} Diferencialna 1-forma.
+    \end{itemize}
+
+    \item Integralski izreki
+    \begin{itemize}
+        \item \textbf{Izrek.} Gauss-Ostrogradski.
+        \begin{proof}
+            \todo{}
+        \end{proof}
+        \item \textbf{Izrek.} Stokesov izrek.
+        \begin{proof}
+            \todo{}
+        \end{proof}
+        \item \textbf{Izrek.} Greenova formula.
+        \begin{proof}
+            \todo{}
+        \end{proof}
+        \item \textbf{Zgled.} \todo{Račun integralov.}
+        \item \textbf{Definicija.} Divergenca, ki je neodvisna od izbire koordinatnega sistema.
+        \item \textbf{Definicija.} Rotor, ki je neodvisen od izbire koordinatnega sistema.
+        \item \textbf{Izrek.} Greenovi identiteti.
+        \item \textbf{Opomba.} O diferencialnih formah.
     \end{itemize}
 \end{enumerate}
