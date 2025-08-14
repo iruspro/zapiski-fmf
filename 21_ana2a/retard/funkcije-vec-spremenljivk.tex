@@ -782,7 +782,26 @@ Podmnogoterost je posplošitev pojmov "`krivulja"' in "`ploskev"'.
 \end{zgled}
 
 \begin{opomba}
-    Če $M \cap U = \setb{x \in U}{F_1(x) = \ldots = F_m(x) = 0}$, \(\rang F = m\), rečemo, da je mnogoterost podana implicitno.
+    Če $M \cap U = \setb{x \in U}{F_1(x) = \ldots = F_m(x) = 0}$, \(\rang F = m\), rečemo, da je \textbf{mnogoterost podana implicitno}.
+\end{opomba}
+
+\begin{trditev}
+    Neprazna podmnožica \(M \subseteq \R^{n+m}\) je podmnogoterost dimenzije \(n\) natanko tedaj, ko za vsako točko \(a \in M\) obstaja odprta okolica \(U \subseteq \R^{n+m}\) točke \(a\) in taka permutacija koordinat \(\sigma\):
+    \[
+        (x_1, \ldots, x_{n+m}) \mapsto (x_{\sigma(1)}, \ldots, x_{\sigma(n+m)}),
+    \] 
+    da je \(M \cap U\) graf neke \(C^1\) preslikave \(\varphi: D^\text{odp} \subseteq \R^n \to \R^m\), tj.\ 
+    \[
+        M \cup U = \setb{x \in U}{(x_1, \ldots, x_{n+m}) = (x_{\sigma(1)}, \ldots, x_{\sigma(n)}, \varphi(x_1, \ldots, x_{\sigma(n)}))}.
+    \]
+\end{trditev}
+
+\begin{proof}
+    \todo{}
+\end{proof}
+
+\begin{opomba}
+    Če mnogoterost podajamo kot graf, rečemo, da je \textbf{mnogoterost podana eksplicitno.}
 \end{opomba}
 
 \newpage
