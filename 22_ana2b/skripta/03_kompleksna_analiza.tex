@@ -7,7 +7,7 @@
         \item Imaginarna enota \(i\). Kvadrat imaginarne enote \(i^2\).
         \item Algebraičen zapis kompleksnega števila. Realni in kompleksni del. Gaussova ravnina.
         \item Konjugiranje. Absolutna vrednost. Kaj velja za absolutno vrednost?
-        \item Polarni zapis kompleksnega števila.
+        \item Polarni zapis kompleksnega števila. Argument kompleksnega števila.
         \item Metrika (topologija) na \(\C\). Odprt krog v \(\C\).
         \item Zaporedja v \(\C\).
         \item Karakterizacija povezanih množic v \(\C\). Komponente za povezanost.
@@ -21,7 +21,7 @@
     
     Naj bo \(D \subseteq \C\) območje ter \(f: D \to \C\) kompleksna funkcija.
     \begin{itemize}
-        \item \textbf{Definicija.} Kompleksni odvod funkcije \(f\) v točki \(a \in D\). Holomorfna funkcija. Množica vseh holomorfnih funkcij.
+        \item \textbf{Definicija.} Kompleksni odvod funkcije \(f\) v točki \(a \in D\). Holomorfna funkcija. Cela funkcija. Množica vseh holomorfnih funkcij. 
         \item \textbf{Opomba.} Ali je kompleksni odvod močnejši od običajnega?
         \item \textbf{Posledica.} Ali je kompleksno odvedljiva funkcija v točki \(a \in D\) diferenciabilna? Ali je zvezna?
         \item \textbf{Opomba.} Ali je \(f(z) = \overline{z}\) kompleksno linearna? Ali je linearna? Ali je kompleksno odvedljiva?
@@ -42,7 +42,7 @@
         \item \textbf{Opomba.} Kdaj je intuitivno \(f\) holomorfna?
         \item \textbf{Trditev.} Kdaj je \(f\) holomorfna na \(D \subseteq \C\) (diferencial)?
         \item \textbf{Izrek.} Zadosten pogoj, da je \(f\) konstanta.
-        \item \textbf{Izrek.} kaj če je \(f\) holomorfna na območju \(D\) ter \(\img{f}(D) \subseteq \R\)?
+        \item \textbf{Izrek.} Kaj če je \(f\) holomorfna na območju \(D\) ter \(\img{f}(D) \subseteq \R\)?
         \item \textbf{Izrek.} Pišimo \(f = u + iv\). Recimo, da je \(f \in O(D)\) ter \(f \in C^2(D)\). Kaj lahko povemo o \(u\) in \(v\)?
         \item \textbf{Definicija.} Harmonična konjugiranka.
         \item \textbf{Opomba.} Kaj če imamo eno harmonično konjugiranko? V čim se razlikujeta dve harmonični konjugiranki?
@@ -54,7 +54,7 @@
     \begin{itemize}
         \item \textbf{Definicija.} Kdaj kompleksna številska vrsta konvergira? Kdaj vrsta konvergira absolutno?
         \item \textbf{Opomba.} Kakšno strukturo ima množica konvergentnih številskih vrst? Ali pri absolutni konvergenci lahko seštevamo v poljubnem vrstnem redu?
-        \item \textbf{Definicija.} Kdaj funkcijska vrsta konvergira po točkah? Kdaj konvergira enakomerno? Kdaj konvergira enakomerno na kompaktih?
+        \item \textbf{Definicija.} Kdaj funkcijska vrsta konvergira po točkah? Kdaj konvergira enakomerno? Kdaj konvergira enakomerno po kompaktih?
         \item \textbf{Zgled.} Gledamo \(f_n(z) = z^n\) kot zaporedje oziroma 
         \[g_1(z) = 1, \ g_n(z) = z^n - z^{n-1}, \ n \geq 2\]
         kot vrsto. Ali vrsta \(\sum_{n=1}^{\infty} g_n(z)\) konvergira enakomerno na \(\triangle\)? Ali konvergira po kompaktih v \(\triangle\)? 
@@ -62,7 +62,7 @@
         \item \textbf{Definicija.} Potenčna vrsta.
         \item \textbf{Izrek.} Konvergenčni polmer. Obstoj in formula.
         \item \textbf{Definicija.} Kdaj pravimo, da kompleksno funkcijo se da razviti v potenčno vrsto?
-        \item \textbf{Izrek.} Kaj lahko povemo o funkciji, če jo se da razviti v kompleksno vrsto?
+        \item \textbf{Izrek.} Kaj lahko povemo o funkciji, če jo se da razviti v potenčno vrsto v okolice točke \(a \in D\)?
         \item \textbf{Posledica.} Ali je vsota konvergentne potenčne vrste holomorfna funkcija? Kaj je njen odvod?
         \item \textbf{Posledica.} Lokalna oblika prejšnje posledice.
         \item \textbf{Zgled.} Razvoj v potenčno vrsto. Koeficienti.
@@ -81,5 +81,68 @@
         \item Logaritemska funkcija.
         \item Korenska funkcija.
     \end{itemize}
+
+    \item Krivuljni integral v \(\C\)
+    \begin{itemize}
+        \item \textbf{Definicija.} Krivuljni integral v \(\C\).
+        \item \textbf{Trditev.} Trikotniška neenakost.
+        \item \textbf{Trditev.} Ocena vrednosti integrala po krivulje.
+        \item \textbf{Opomba.} Zapis diferencialne \(1\)-forme v kompleksne oblike. Integral po \(d\overline{z}\).
+        \item \textbf{Trditev.} Osnovna formula integralskega računa v kompleksnem.
+        \item \textbf{Posledica.} Naj bo \(n \in \N\). Čemu je enak integral \(\int_{\gamma} z^n \, dz\), če je \(\gamma\) sklenjena pot v \(\C\)?
+        \item \textbf{Posledica.} Verzija prejšnje posledice za \(n \in \Z\).
+    \end{itemize}
+
+    \item Greenova formula v kompleksnem
+    \begin{itemize}
+        \item \textbf{Trditev.} Greenova formula v kompleksnem.
+        \item \textbf{Posledica.} Cauchyjev izrek.
+        \item \textbf{Izrek.} Cauchyjeva formula.
+        \item \textbf{Opomba.} S čim je enolično določena holomorfna funkcija? Cauchyjevo jedro.
+        \item \textbf{Posledica.} Lastnost povprečne vrednosti.
+        \item \textbf{Opomba.} Ali je potrebna predpostavka, da je \(f \in C^1(\Omega)\)? Kaj pravi posledica?
+        \item \textbf{Posledica.} Kaj če \(f \in O(\Omega) \cap C^1(\Omega)\)? Formula za odvod.
+        \item \textbf{Izrek.} Morerov (Morera) izrek.
+        \item \textbf{Izrek.} Goursatov (Goursat) izrek. 
+        \item \textbf{Trditev.} Princip maksima.
+        \item \textbf{Posledica.}  Recimo, da \(f \in C(\overline{\Omega}) \cap O(\Omega)\). Čemu je enak maksimum \(f\)?
+        \item \textbf{Trditev.} O funkcijskem zaporedju holomorfnih funkcij.
+    \end{itemize}
+
+    \item Razvoj holomorfne funkcije v vrsto
+    \begin{itemize}
+        \item \textbf{Izrek.} Ali lahko vsako holomorfno funkcijo razvijemo v vrsto? Kje konvergira ta vrsta? Kaj je njena vsota?
+        \item \textbf{Izrek.} Cauchyjeve ocene.
+        \item \textbf{Izrek.} Liouvilleov (Liouville) izrek.
+        \item \textbf{Posledica.} Zadosten pogoj, da je \(f\) konstanta.
+        \item \textbf{Izrek.} Osnovni izrek algebre.
+        \item \textbf{Posledica.} Koliko ničel ima vsak nekonstanten polinom stopnje \(n\) v \(\C\)?
+        \item \textbf{Trditev.} Razcep funkcije \(f \in O(\triangle (a, r))\). Stopnja ničle.
+        \item \textbf{Izrek.} Princip identičnosti.
+        \item \textbf{Posledica.} Zadosten pogoj za enakost holomorfnih funkcij.
+        \item \textbf{Posledica.} O izoliranih ničlah.
+    \end{itemize}
+
+    \item Izolirane singularne točke
+    \begin{itemize}
+        \item \textbf{Definicija.} Kdaj pravimo, da ima \(f\) v \(a\) izolirno singularno točko? Singularna točka.
+        \item \textbf{Trditev.} Odpravljiva singularna točka.
+        \item \textbf{Izrek.} Punktiran disk. Laurentova vrsta. Koeficienti. Regularni in glavni del vrste.
+        \item \textbf{Opomba.} Ali so integrali, ki določajo koeficienti odvisni od izbire \(r\)? Kje konvergira glavni del in kje regularni?
+        \item \textbf{Zgled.} \todo{Odpravljiva sungularnost.}
+        \item \textbf{Definicija.} Odpravljiva singularnost. Pol stopnje \(n\). Bistvena singularnost.
+        \item \textbf{Zgled.} \todo{Tipi singularnosti.}
+        \item \textbf{Trditev.} Karakterizacija odpravljive singularnosti.
+        \item \textbf{Trditev.} Karakterizacija pola.
+        \item \textbf{Posledica.} Karakterizacija pola (limita).
+        \item \textbf{Izrek.} Karakterizacija bistvene singularnosti.
+        \item \textbf{Izrek.} Veliki Picardov izrek.
+        \item \textbf{Zgled.} \todo{}
+        \item \textbf{Posledica.} Mali Picardov izrek.
+        \item \textbf{Opomba.} \todo{O točke \(\infty\) na Riemmanovi sferi.}
+        \item \textbf{Zgled.} \todo{} 
+    \end{itemize}
+
+    \item Residui
 
 \end{enumerate}

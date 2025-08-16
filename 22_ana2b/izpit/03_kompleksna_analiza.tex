@@ -1,0 +1,20 @@
+\section{Kompleksna analiza}
+\subsection{Holomorfne funkcije}
+Naj bo \(f: D \subseteq \C \to \C, \ f(z) = f(x+iy) = u(x,y) + iv(x,y)\) funkcija.
+\begin{itemize}
+    \item CR sistem: \(u_x = v_y, u_y = - v_x\). \(f\) je holomorfna natanko tedaj, ko velja CR sistem.
+    \item Naj bo \(D^\text{odp} \subseteq \C\) povezana, \(f, g \in O(D)\). Če obstaja \(A \subseteq D, A \neq \emptyset\) s stekališčem v \(D\) in \(f|_A = g|A\), tedaj \(f = g\).
+    \item \(f\) je holomorfna natanko tedaj, ko sta \(u\) in \(v\) harmonični.
+    \item Če poznamo realni del, zožitev funkcije na \((a,b) \subseteq \R\) dobimo tako: \[f(x) = u(x, 0) + iv(x,0), \quad v(x, 0) = \int -u_y(x,0) \, dx.\]
+    \item \(\ln_\C(z) = \ln_\R|z| + i \arg (z)\).
+\end{itemize}
+
+\subsection{Potenčne vrste}
+\begin{itemize}
+    \item Konvergenčni polmer vrste \(f(z) = \sum_{n=0}^{\infty} c_n(z-a)^n\):
+    \begin{itemize}
+        \item \(1/R = \limsup_{n \to \infty} \sqrt[n]{|c_n|}\).
+        \item \(1/R = \lim_{n \to \infty} \sqrt[n]{|c_n|}\).
+        \item \(1/R = \lim_{n \to \infty} \frac{|c_{n+1}|}{|c_n|}\).
+    \end{itemize}
+\end{itemize}
