@@ -175,6 +175,7 @@ Naj ima krivulja \(K\) parametrizacijo \(\vec{r}(t) =  x(t) + iy(t), \ t \in [a,
 \begin{itemize}
     \item Običajna območja: Zgornja polkrožnica, zgornji polkolobar, zgornji pravokotnik.
     \item \(\int_{0}^{2\pi} h(\cos x, \sin x)\, dx = \int_{|z| = 1} h(\frac{z^2+1}{2z}, \frac{z^2-1}{2iz})\, \frac{dz}{iz}\).
+    \item Če želimo integrirati po enotske krožnice, vpeljemo \(z = e^{i\phi}\).
 \end{itemize}
 %%%%%%%%%%%%%
 %%%%%%%%%%%%%
@@ -188,12 +189,42 @@ Postopek je standarden. Najprej s pomočjo lomljene linearne preslikave poskusim
 \begin{itemize}
     % TODO: Slike
     \item Naj bo \(E = \setb{z \in \C}{r \in (0, \infty), \phi \in (0, \frac{\pi}{r}), r \in (0 ,1)}\). Definiramo \(f(z) = z^r,\ \arg z \in (\, \frac{\pi}{r})\). Tedaj \(\img{f}(E) = \R \times (0, \infty) =: \text{Im}_+\).
-    \item \(f_0: \text{Im}_+ \to \triangle,\ f_0(z) = \frac{iz+1}{iz-1}\).
     \item Naj bo \(E = \setb{z \in \C}{\text{Im}(z) \in (0, a)}\). Najprej preslikamo ta vodoraven pas v \(F = \setb{z \in \C}{\text{Im}(z) \in (0, \pi)} \) z preslikavo \(f(z) = \frac{\pi z}{a}\). Nato pa ta pas z preslikavo \(f(z) = e^z\) preslikamo v \(\text{Im}_+\).\\ 
     \emph{Splošno:} Če imamo pas, vzemimo preslikavo \(f(z) = e^z\) in poglejmo njen del \(e^x\), ki nam da meji za \(r\), in del \(e^{iy}\), ki nam da meji za \(\phi\). S tem je slika v polarnih koordinatah natančno določena.
+
+    \item \(f_0: \text{Im}_+ \to \triangle,\ f_0(z) = \frac{iz+1}{iz-1}\).
+    \item \(f_\infty: \triangle \to \complement{\overline{\triangle}},\ f(z) = \frac{1}{z}\).
 \end{itemize}
 Opazimo tudi, da pot v sliki gre skozi točko \(\infty\) natanko tedaj, ko gre v prasliki skozi točko, ki slika v točko \(\infty\).
 
+\newpage
+\section{Fouriereva analiza}
+\textbf{Fouriereva vrsta.} Naj bo funkcija \(f: [-\pi, \pi]\) nezvezna v končno mnogo točkah, kjer obstajata levi in desni odvod, vmes pa je med tema točkama odvedljiva. Tedaj 
+\[
+    \text{FV}(f)(x) = a_0 + \sum_{n=1}^{\infty}(a_n \cos(nx) + b_n \sin(nx)),
+\]
+kjer \(a_0 = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(x) \, dx\) ter 
+\[a_n = \frac{1}{\pi} \int_{-\pi}^{\pi} f(x)  \cos(nx) \, dx\ \text{in}\ b_n = \frac{1}{\pi} \int_{-\pi}^{\pi} f(x)  \sin(nx) \, dx.\]
+%
+Za vsak \(x \in [-\pi, \pi]\) Fourierjeva vrsta funkcije \(f\) konvergira proti 
+\begin{itemize}
+    \item \(f(x)\), če je \(f\) zvezna v \(x\) in 
+    \item \(\frac{f(x-) + f(x+)}{2}\), če \(f\) ni zvezna v \(x\).
+\end{itemize}
+%
+\subsection*{Vaje}
+\textbf{\textcolor{red}{Razširjenje funkcije}}\\
+Naj bo \(f: [0, \pi] \to \R\) funkcija. Funkcijo \(f: [0, \pi] \to \R\) s predpisom \(f(x) = f(-x), x < 0\) lahko razširimo do sode funkcije ter s predpisom \(f(x) = -f(-x)\) do lihe. Tedaj 
+\[
+    \FV_{\cos}(f)(x) = \FV(f_{\text{soda}}(x)) \quad \text{ter} \quad \FV_{\sin}(f)(x) = \text{FV}(f_{\text{liha}}(x))
+\]
+
+\
+
+Parsevalova enakost:
+\[
+    \int_{-\pi}^{\pi} f^2(x) \, dx = 2\pi a_0^2 + \pi \sum_{n=1}^{\infty} (a_n^2 + b_n^2).
+\]
 
 \end{multicols*}
 
