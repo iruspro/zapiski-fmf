@@ -1,0 +1,200 @@
+\documentclass[a4paper,oneside,8pt,landscape]{extarticle}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[slovene]{babel}
+\usepackage{lmodern}
+
+\usepackage{xcolor}
+\usepackage{bbold}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\input{../../00_common/environments.tex}
+\input{../../00_common/settings_a4.tex}
+
+\input{../../00_common/macroses/00_common_macroses.tex}
+\input{../../00_common/macroses/02_math_operators.tex}
+\input{../../00_common/macroses/03_shortcuts.tex}
+
+\input{../../00_common/macroses/21_ana2a_macroses.tex}
+\input{../../00_common/macroses/22_ana2b_macroses.tex}
+
+\begin{document}
+
+\begin{multicols*}{3}
+
+\section{Kompleksna analiza}
+Naj bo \(f: D \subseteq \C \to \C, \ f = u+iv, \ f \in C^1(D)\) kompleksna funkcija.\\
+%
+\textbf{\textcolor{red}{Elementarne funkcije v \(\C\)}}
+%
+\begin{itemize}
+    \item \(\ln_\C z = \ln_\R |z| + i \arg (z)\), \(\ln \in \OO(\C \setminus (-\infty, 0])\).
+    \item \(e^{iz} = \cos (z) + i\sin (z), \ z \in \C\).
+    \begin{itemize}
+        \item \(\sin z = \frac{1}{2i}(e^{iz} - e^{-iz}),\ \cos z = \frac{1}{2} (e^{iz} + e^{-iz})\); \\
+        \(\sinh z = \frac{1}{2} (e^z - e^{-z}), \ \cosh = \frac{1}{2}(e^z + e^{-z})\).
+        \item  \(\cosh(iz) = \cos z,\ \cos(iz) = \cosh z,\\ \sinh(iz) = i\sin z,\ \sin(iz) = i \sinh(z)\).
+        \item \(\sin(x+iy) = \sin x \cosh y + i \cos x \sinh y, \\
+        \cos(x+ iy) = \cos x \cosh y - i \sin x \sinh y\).
+    \end{itemize}
+    \item Naj bo \(a \in \C\). \(z^a = e^{a \ln_\C z}\).
+\end{itemize}
+%
+\textbf{\textcolor{red}{Holomorfne funkcije}}\\
+\textbf{Izr.} \(f \in \OO(D) \liff u_x = v_y, \ u_y = -v_x \liff \podv{f}{\overline{z}} = 0\). \\
+\textbf{Trd.} [\(D\) je območje] Če \(f \in \OO(D)\) in \(\img{f}(D) \subseteq \R \lthen f \equiv \text{const}\). \\
+\textbf{Izr.} Če je \(f \in \OO(D) \lthen \triangle u = 0, \ \triangle v = 0\). \\
+\textbf{Izr.} Harmonična konjugiranka na odp.\ zvezd.\ območju vedno obstaja.\\
+\textbf{Izr.} [\(D\) območje, \(f \in \OO(D)\)] \(f \not \equiv \text{const} \lthen f \) je odprta.\\
+%
+\textbf{\textcolor{red}{Razvoj v vrsto}}\\
+\textbf{Def.} \textbf{Potenčna vrsta} je vrsta oblike \(f(z) = \sum_{n=0}^{\infty} c_n(z-a)^n\).\\
+%
+\textbf{Izr.} Vsaka potenčna vrsta ima \textbf{konvergenčni polmer} \(R \in [0, \infty]\):
+\begin{itemize}
+    \item \(1/R = \limsup \sqrt[n]{|c_n|}\).
+    \item \(1/R = \lim_{n \to \infty} \sqrt[n]{|c_n|}\).
+    \item \(1/R = \lim_{n \to \infty} \frac{|c_{n+1}|}{|c_n|}\).
+\end{itemize}
+Vsota potenčne vrste je holomorfna funkcija. Obrat: Vsako holomorfno funkcijo se da razviti v vrsto.\\
+%
+\textbf{Def.} Naj bo \(f \in \OO(A(a; r, R))\) ter \(A(a; r, R) = \setb{z \in \C}{|z-a| \in (r, R)}\). Tedaj \(f(z) = \sum_{n = -\infty}^{\infty} c_n(z-a)^n\). To je \textbf{Laurentova vrsta}.\\
+%
+\textbf{\textcolor{red}{Krivuljni integral}}\\
+\textbf{Green.} \(\int_{\partial D} f\, dz + g\, d\overline{z} = 2i \iint_D (f_{\overline{z}} - g_z)\, dx\, dy\).\\
+%
+\textbf{Cauchy.} [\(f \in \OO(D) \cap C^1(\overline{D})\)] \(\int_{\partial D} f(z) \, dz = 0\).\\
+%
+\textbf{Cauchyjeva formula.} [\(f \in \OO(D) \cap C^1(\overline{D})\)] \(\int_{\partial D} \frac{f(z)}{z-z_0}\, dz = 2\pi i f(z_0)\), kjer \(z_0 \in D\).\\
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+\textbf{\textcolor{red}{Singularnosti}}\\
+Naj bo \(a\) \textbf{izolirana singularnost} za \(f\), tj.\ \(f \in \OO(D \setminus \set{a})\). Tedaj \(a\) je
+\begin{itemize}
+    \item \textbf{odpravljiva singularnost}, če \(\some{\lim_{z \to a} f(z) = \alpha}\);
+    \item \textbf{pol stopnje \(n\)}, če
+    \begin{itemize}
+        \item \(f(z)(z-a)^n\) ima odpravljivo singularnost v \(a\);
+        \item \(f(z) = \sum_{k=-n}^{\infty} c_k (z-a)^k,\ c_{-n} \neq 0\);
+    \end{itemize}
+    \item \textbf{bistvena singularnost}, če \(f(z) = \sum_{k = -\infty}^{\infty}c_k(z-a)^k\) ter \(c_{-l} \neq 0\) za neskončno indeksov \(l \in \N\).
+\end{itemize}
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+\textbf{\textcolor{red}{Residui}}\\
+\textbf{Def.} \textbf{Residuum} je \(\Res(f, a) = c_{-1}\), kjer je \(c_{-1}\) koeficient pri \((z-a)^{-1}\) v Laurentovi vrsti.\\
+%
+\textbf{Trd.} Če ima \(f\) v točki\ \(a\) pol stopnje kvečjemu \(n\), potem 
+\[\Res(f, a) = \frac{1}{(n-1)!} \lim_{z \to a} ((z-a)^nf(z))^{(n-1)}.\]\\
+%
+\textbf{Izr.} [\(D\) območje] Naj bodo \(a_1, \ldots, a_m \in D\) izolirane singularne točke in \(f \in C^1(\overline{D} \setminus \set{a_1, \ldots, a_m}) \cap \OO(D \setminus \set{a_1, \ldots, a_m})\). Tedaj 
+\[
+    \int_{\partial D} f(z)\, dz = 2 \pi i \sum_{j=1}^{m} \Res(f, a_j).
+\]
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+\textbf{\textcolor{red}{Holomorfne funkcije kot preslikave}}\\
+\textbf{Def.} Naj bosta \(D, E \subseteq \C\) odprti. Preslikava \(f: D \to E,\ f \in C^1(D)\) je \textbf{konformna}, če ohranja kote (in njihovo orientacijo) med krivuljami.\\
+\textbf{Izr.} \(f\) je konformna v okolici \(a \in D \liff f \in \OO(D),\ f'(a) \neq 0\).\\ 
+\textbf{Def.} \textbf{Lomljena linearna preslikava} je \(z \mapsto \frac{az+b}{cz+d}, \ ad-bc \neq 0\).\\
+\textbf{Trd.} \(\CP = \C \cup \set{\infty}\). V \(\CP\) so premice ravno krožnice, skozi~\(\infty\). Vsako lomljeno linearno preslikavo \(f\) lahko razširimo do biholomorfne preslikave \(\widehat{f}: \CP \to \CP,\ \widehat{f}(\infty) = \lim_{z \to \infty} f(z) = \frac{a}{c}\).\\
+\textbf{Def.} Območji \(D\) in \(E\) sta \textbf{biholomorfni}, če obstaja bijektivna holomorfna preslikava \(f: D \to E\).\\
+\textbf{Riemann.} Naj bo \(D^\text{odp} \subseteq \C\). \(D \sim \triangle \liff D \neq \C,\ D\) je enostavno povezana (brez lukenj).\\
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+\textbf{\textcolor{red}{Osnovni izreki}}\\
+%
+\textbf{Identičnost.} [\(D\) območje, \(f \in \OO(D)\)] Če ima \(Z_f = \setb{z \in D}{f(z) = 0}\) stekališče v \(D \lthen f \equiv 0\).\\
+%
+\textbf{Posl.} [\(D\) območje, \(f, g \in \OO(D)\)] Če se \(f, g\) ujemata na množici, ki ima stekališče v \(D\), potem sta enaki.\\
+%
+\textbf{Maksimum.} [\(D\) območje, \(f \in \OO(D)\) omejena] Funkcija \(f\) bodisi konstanta bodisi \(\all{z \in D} |f(z)| < \sup_{w \in D} |f(w)|\).\\
+%
+\textbf{Liouville.} [\(f \in \OO(D)\)] Če obstajata \(c > 0\) in \(n \in \N_0\), da velja \(\all{z \in \C} |f(z)| \leq c (1 + |z|^n)\), potem je \(f\) polinom stopnje največ~\(n\).\\
+%
+\textbf{Posl.} \(f \in \OO(D)\) Če je \(f\) omejena, je konstanta.\\
+%
+\textbf{Argument.} Naj bo \(f\) meromorfna na \(D\) in \(\Omega \subseteq D\) območje. Denimo, da \(f\) nima ničel in polov na \(\partial \Omega\). Tedaj
+\[
+    \int_{\partial \Omega} \frac{f'(z)}{f(z)} \, dz = 2 \pi i(Z_f - S_f),
+\]
+kjer je \(Z_j\) \# ničel \(f\) v \(\Omega\), \(S_f\) pa \# polov \(f\) v \(D\) štetih z večkratnostjo.\\
+%
+\textbf{Rouche.} Naj bosta \(f, g \in \OO(D)\). Naj velja \(\all{z \in \partial D} |g(z)| < |f(z)|\). Tedaj imata \(f\) in \(f+ g\) na \(D\) enako število ničel, štetih z večkratnostjo. \emph{Dodatek:} \(f + g\) nima ničel na \(\partial D\).\\
+\textbf{Posl.} [\(f \in \OO(D)\)] Naj bo \(\overline{\triangle(a, r)} \subseteq D\) ter \(|f(a)| < \min_{|z-a|=r}|f(z)|\). Tedaj ima \(f\) ničlo na \(\triangle(a, r)\).
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+\subsection*{Vaje}
+%
+\textbf{\textcolor{red}{Določanje holomorfne funkcije}}
+% TODO: Komentar: vse funkcije so določene do konstante natančno} 
+\begin{itemize}
+    \item Poznamo \(u\): [\(D\) območje, \(f \in \OO(D)\)] Naj bo \(A \subseteq (\R \times \set{0}) \cap D\). Dovolj je določiti predpis za \(f|_{A}\) in uporabiti princip identičnosti:
+    \[
+        f(x + i \cdot 0) = u(x, 0) + i \int -u_y(x, 0) \, dx.
+    \]
+    \item Poznamo \(|f|\) ali \(\arg(f)\): Definiramo \(g(z) = \ln(f(z))\).
+    \item Če je treba ugotoviti, ali obstaja \(f \in \OO(D)\), poglejmo zveznost, pripadajočo vrsto itn.
+\end{itemize}
+%
+\textbf{\textcolor{red}{Razvoj funkcije v vrsto}}\\
+Če razvijemo okoli točke \(z_0 = a\), vpeljemo novo spr.\ \(w = z - z_0\). Nato uporabimo znane Taylorjeve razvoje. Splošna formula: \(c_n = \frac{f^{(n)}(z_0)}{n!}\).\\
+%
+Pri razvoju na kolobarjih običajno uporabimo geometrijsko vrsto. Včasih pa razvijemo "`navzven"'. tj.\ v imenovalcu izpostavimo \(z\).\\
+Geometrijska vrsta: \(\frac{1}{1-q} = \sum_{k=0}^{\infty}q^k, \ |q| < 1\).\\
+%
+\textbf{\textcolor{red}{Krivuljni integral}}\\
+Naj ima krivulja \(K\) parametrizacijo \(\vec{r}(t) =  x(t) + iy(t), \ t \in [a,b]\). Tedaj 
+\[
+    I = \int_{K} f(z) \, dz = \int_{K} (u\, dx - v\, dy) + i \int_{K} (u\, dy + v\, dx).
+\]
+\ 
+
+\textbf{Standardne parametrizacije:}
+\begin{itemize}
+    \item Krožnica z polmerom \(R\): \(z = Re^{i \phi},\ dz = ie^{i\phi}\, d\phi\).
+    \item Navpična premica: \(z = it,\ dz = i\, dt\).
+    \item Vodoravna premica: \(z = x,\ dz = dx\).
+\end{itemize}
+\(I\) izračunamo tako, da vstavimo namesto \(z\) pravo parametrizacijo ali uporabimo Greenovo formulo.\\
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+\textbf{\textcolor{red}{Kompleksna integracija}}\\
+Želimo izračunati posplošen integral funkcije \(g\), npr.\ \(\int_{a}^{\infty}g(x)\, dx\).
+\begin{enumerate}
+    \item Nadomestimo \(g\) z ustreznim kompleksnim analogom:
+    \begin{itemize}
+        \item \(\cos x, \ \sin x \leadsto e^{ix} = \cos x + i \sin x\).
+        \item \(x \leadsto z\).
+    \end{itemize}
+    \item Integriramo po robu danega območja na dva načina. Običajno celoten integral je nič ali pa enak vsote residuumov. Nato integral računamo na vsakem kosu roba posebej. Za dokaz, da je nek integral v limiti enak \(0\), uporabimo trikotniško neenakost.
+\end{enumerate}
+\textbf{Rezultati z vaj:}
+\begin{itemize}
+    \item Običajna območja: Zgornja polkrožnica, zgornji polkolobar, zgornji pravokotnik.
+    \item \(\int_{0}^{2\pi} h(\cos x, \sin x)\, dx = \int_{|z| = 1} h(\frac{z^2+1}{2z}, \frac{z^2-1}{2iz})\, \frac{dz}{iz}\).
+\end{itemize}
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+\textbf{\textcolor{red}{Ničla funkcije}}\\
+Za dokaz, da ima enačba le realne ničle, določimo \# vseh realnih ničel na \(\triangle(0, R_n)\) (\((R_n)_n\) je neko ustrezno zaporedje radijev) in \# vseh kompleksnih ničel na \(\triangle(0, R_n)\) z pomočjo Rouchejevega izreka. Nato ugotovimo, da sta števili enaki.\\
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+\textbf{\textcolor{red}{Biholomorfnost}}\\
+Postopek je standarden. Najprej s pomočjo lomljene linearne preslikave poskusimo "`izravnavati"' podano območje. To storimo tako, da izberimo slike za \(3\) točke na robu (ponavadi presek robnih komponent in vmesni točki). Eno točko preslikamo  v \(\infty\), drugi pa v \(0\) in \(1\). Kako zgleda slika razberemo iz dejstva, da biholomorfne preslikave ohranjajo kot in orientacijo. Lahko tudi eksplicitno izračunamo sliko kake točke.
+\textbf{Standardne preslikave:}
+\begin{itemize}
+    % TODO: Slike
+    \item Naj bo \(E = \setb{z \in \C}{r \in (0, \infty), \phi \in (0, \frac{\pi}{r}), r \in (0 ,1)}\). Definiramo \(f(z) = z^r,\ \arg z \in (\, \frac{\pi}{r})\). Tedaj \(\img{f}(E) = \R \times (0, \infty) =: \text{Im}_+\).
+    \item \(f_0: \text{Im}_+ \to \triangle,\ f_0(z) = \frac{iz+1}{iz-1}\).
+    \item Naj bo \(E = \setb{z \in \C}{\text{Im}(z) \in (0, a)}\). Najprej preslikamo ta vodoraven pas v \(F = \setb{z \in \C}{\text{Im}(z) \in (0, \pi)} \) z preslikavo \(f(z) = \frac{\pi z}{a}\). Nato pa ta pas z preslikavo \(f(z) = e^z\) preslikamo v \(\text{Im}_+\).\\ 
+    \emph{Splošno:} Če imamo pas, vzemimo preslikavo \(f(z) = e^z\) in poglejmo njen del \(e^x\), ki nam da meji za \(r\), in del \(e^{iy}\), ki nam da meji za \(\phi\). S tem je slika v polarnih koordinatah natančno določena.
+\end{itemize}
+Opazimo tudi, da pot v sliki gre skozi točko \(\infty\) natanko tedaj, ko gre v prasliki skozi točko, ki slika v točko \(\infty\).
+
+
+\end{multicols*}
+
+\end{document}
