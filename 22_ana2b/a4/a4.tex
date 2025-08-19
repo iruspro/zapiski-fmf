@@ -433,6 +433,22 @@ Naj bo \(\vec{f}: D \subseteq \R^3 \to R^3\).\\
 \textbf{Posl.} \(B(p, 1-p) = \int_{0}^{\infty} \frac{t^{p-1}}{1+t} \, dt\) za \(0<p<1\).\\
 \textbf{Posl.} \(B(p, 1-p) = \frac{\pi}{\sin (p \pi)}\) za \(p \in (0, 1)\).\\
 \textbf{Izr.} \(B(p, q) = \frac{\Gamma(p) \Gamma(q)}{\Gamma(p+q)}\).\\
+%
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+%
+\textbf{\textcolor{red}{Nedoločeni integrali}}\\
+\textbf{Metoda nastavka.} Integriramo \(R(x) = p(x) + \frac{r(x)}{q(x)}\).\\
+\(\frac{1}{(x-a)^k} \leadsto A \ln |x-a|, \frac{1}{(x^2+bx+c)^l} \leadsto B \ln |x^2+bx+c| + C \arctan \frac{2x+b}{\sqrt{4c-b^2}}\) ter \(\frac{\widetilde{r}(x)}{\widetilde{q}(x)}\), kjer polinom $\widetilde{q}$ dobimo iz polinoma $q$ z znižanjem potence vsakega faktorja za ena, polinom $\widetilde{r}$ pa ima stopnji za eno nižjo kot $\widetilde{q}$. Število neznank je enako stopnje polinoma $q$.\\
+\textbf{Trigonometrične funkcije.}\\
+Integrale oblike $\int R \, (\sin x, \cos x) \, dx$ lahko z univerzalno trigonometrično substitucijo $t = \tan \left(\frac{x}{2}\right)$ prevedemo na integral racionalne funkcije spremenljivke $t$. Pri tem: \(dx = \frac{2dt}{1+t^2}\), \(\cos x = \frac{1-t^2}{1+t^2}\) in \(\sin x = \frac{2t}{1+t^2}\).
+\begin{itemize}
+    \item \(\frac{dx}{x^2-a^2} = \frac{1}{2a} \ln \left| \frac{x-a}{x+a} \right|\)
+    \item \(\int \frac{dx}{a^2+b^2 x^2} = \frac{1}{ab} \arctan \left(\frac{bx}{a}\right) + C\)
+    \item \(e^{ax} \sin (bx) \, dx = \frac{e^{ax}}{a^2+b^2}(a  \sin (bx) - b \cos (bx))\)
+    \item \(e^{ax} \cos (bx) \, dx = \frac{e^{ax}}{a^2+b^2}(a  \cos (bx) + b \sin (bx))\)
+\end{itemize}
+
 
 \end{multicols*}
 
