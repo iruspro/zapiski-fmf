@@ -412,6 +412,27 @@ Naj bo \(\vec{f}: D \subseteq \R^3 \to R^3\).\\
     \item Torus: \(V = 2\pi^2 a^2 b\).
 \end{itemize}
 
+\section{Analiza 2a}
+\textbf{\textcolor{red}{Vpeljava novih spremenljivk}}\\
+\textbf{Polarne:} \(x = r\cos \phi,\ y = r \sin \phi,\ |\det JF| = r,\ \phi \in [0, 2 \pi]\).\\
+\textbf{Valjne:} \(x = r\cos \phi,\ y = r \sin \phi,\ z = z,\ |\det JF| = r,\ \phi \in [0, 2 \pi]\).\\
+\textbf{Sferične:} \(x = r \cos \phi \cos \psi,\ y = r \sin\phi \cos\psi, z = r\sin\psi,\\ |\det JF| = r^2 \cos \psi,\ \phi \in [0, 2 \pi], \psi \in [-\frac{\pi}{2}, \frac{\pi}{2}]\).\\
+\textbf{Torusne (\(0 < a < R\)):} \(x = \rho \cos \phi,\ y = \rho \sin \phi,\ z = r\sin \psi, \\ |\det JF| = r \rho,\ \phi, \psi \in [0, 2 \pi],\ r \in [0, a]\), kjer \(\rho = (R + r \cos \psi)\).\\
+%
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+%
+\textbf{\textcolor{red}{Funkciji gama in beta}}\\
+\textbf{Def.} \(\Gamma (s) = \int_{0}^{\infty} x^{s-1}e^{-x} \, dx\).\\
+\textbf{Trd.} \(\Gamma(s+1) = s \Gamma(s)\). Če je \(n \in \N\), potem \(\Gamma(n) = (n-1)!\).\\
+\textbf{Trd.} \(\Gamma(1/2) = \sqrt{\pi}\)\\
+\textbf{Def.} \(B(p,q) = \int_{0}^{1}x^{p-1}(1-x)^{q-1} \, dx\).\\
+\textbf{Trd.} \(\frac{1}{2} B(\frac{\alpha + 1}{2}, \frac{\beta + 1}{2}) = \int_{0}^{\frac{\pi}{2}} \sin^\alpha t \cos^\beta t \, dt\) za \(\alpha, \beta > -1\).\\
+\textbf{Trd.} \(B(p,q) = \int_{0}^{\infty} \frac{t^{p-1}}{(1+t)^{p+q}} \, dt\).\\
+\textbf{Posl.} \(B(p, 1-p) = \int_{0}^{\infty} \frac{t^{p-1}}{1+t} \, dt\) za \(0<p<1\).\\
+\textbf{Posl.} \(B(p, 1-p) = \frac{\pi}{\sin (p \pi)}\) za \(p \in (0, 1)\).\\
+\textbf{Izr.} \(B(p, q) = \frac{\Gamma(p) \Gamma(q)}{\Gamma(p+q)}\).\\
+
 \end{multicols*}
 
 \end{document}
