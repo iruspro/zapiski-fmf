@@ -1,0 +1,491 @@
+\documentclass[a4paper,oneside,8pt,landscape]{extarticle}
+
+\usepackage{tikz}
+\usepackage[skins]{tcolorbox}
+\usepackage{varwidth}
+\usepackage{ragged2e}
+\usepackage{pgfplots}
+\usepackage{relsize}
+
+\usepackage{enumitem}
+\setlist[itemize]{topsep=0pt, partopsep=0pt, itemsep=0pt, parsep=0pt, left=0pt}
+\usepackage{listings}
+
+\usepackage[slovene]{babel}    % slovenian language and hyphenation
+\usepackage[utf8]{inputenc}    % make čšž work on input
+\usepackage[T1]{fontenc}       % make čšž work on output
+\usepackage[reqno]{amsmath}    % basic ams math environments and symbols
+\usepackage{amssymb,amsthm}    % ams symbols and theorems
+\usepackage{mathtools}         % extends ams with arrows and stuff
+\usepackage{url}               % \url and \href for links
+\usepackage{icomma}            % make comma a thousands separator with correct spacing
+\usepackage{units}             % \unit[1]{m} and unitfrac
+\usepackage{enumerate}         % enumerate style
+\usepackage{array}             % mutirow
+\usepackage{graphicx}          % images
+\usepackage[all]{xy}
+\usepackage{enumitem}
+
+\usepackage[bookmarks, colorlinks=true, linkcolor=black, anchorcolor=black,
+  citecolor=black, filecolor=black, menucolor=black, runcolor=black,
+  urlcolor=black, pdfencoding=unicode]{hyperref}  % clickable references, pdf toc
+\usepackage[
+  paper=a4paper,
+  top=0.7cm,
+  bottom=0.7cm,
+  left=0.7cm,
+  right=0.7cm,
+  textwidth=10cm,
+  textheight=18cm,
+]{geometry}  % page geomerty
+
+% basic sets
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\F}{\ensuremath{\mathcal{F}}}
+\newcommand{\PP}{\ensuremath{\mathcal{P}}}
+\newcommand{\TT}{\ensuremath{\mathbb{T}}}
+\newcommand{\V}{\ensuremath{\mathbb{V}}}
+\newcommand{\Mon}{\ensuremath{\textrm{Mon}}}
+
+% linearna orgrinjača
+\newcommand{\LL}{\ensuremath{\mathcal{L}}}
+
+% vectors
+\newcommand{\vv}{\vec{v}}
+\newcommand{\vu}{\vec{u}}
+\newcommand{\vr}{\vec{r}}
+\newcommand{\vn}{\vec{n}}
+\newcommand{\va}{\vec{a}}
+%\newcommand{\vb}{\vec{b}}
+% \newcommand{\vc}{\vec{c}}
+\newcommand{\vt}{\vec{t}}
+\newcommand{\vf}{\vec{f}}
+\newcommand{\vF}{\vec{F}}
+\newcommand{\vE}{\vec{E}}
+\newcommand{\ve}{\vec{e}}
+\newcommand{\vx}{\vec{x}}
+\newcommand{\vi}{\vec{\imath}}
+\newcommand{\vj}{\vec{\jmath}}
+\newcommand{\vS}{\vec{S}}
+\newcommand{\vw}{\vec{w}}
+\newcommand{\vom}{\vec{\omega}}
+\newcommand{\vzeta}{\vec{\zeta}}
+\newcommand{\er}{\vec{e}_r}
+\newcommand{\ef}{\vec{e}_{\varphi}}
+\newcommand{\et}{\vec{e}_{\vartheta}}
+
+% greek letters
+\let\oldphi\phi
+\let\oldtheta\theta
+\newcommand{\eps}{\varepsilon}
+\renewcommand{\phi}{\varphi}
+\renewcommand{\theta}{\vartheta}
+
+% vector operators
+\newcommand{\grad}{\operatorname{grad}}
+\newcommand{\rot}{\operatorname{rot}}
+\renewcommand{\div}{\operatorname{div}}
+\newcommand{\lap}{\Delta}
+
+% transpose
+\newcommand{\T}{\ensuremath{\mathsf{T}}}
+\renewcommand{\sl}{\ensuremath{\operatorname{sl}}}
+
+% partial derivatives
+\newcommand{\dpar}[2]{\ensuremath{\frac{\partial #1}{\partial #2}}}
+\newcommand{\dpr}[1]{\dpar{#1}{r}}
+\newcommand{\dpt}[1]{\dpar{#1}{t}}
+\newcommand{\dpx}[1]{\dpar{#1}{x}}
+\newcommand{\dpy}[1]{\dpar{#1}{y}}
+\newcommand{\dpz}[1]{\dpar{#1}{z}}
+\newcommand{\dpth}[1]{\dpar{#1}{\theta}}
+\newcommand{\dpfi}[1]{\dpar{#1}{\varphi}}
+
+% total derivatives
+\newcommand{\dd}[2]{\ensuremath{\frac{d #1}{d #2}}}
+\newcommand{\ddr}[1]{\dd{#1}{r}}
+\newcommand{\ddt}[1]{\dd{#1}{t}}
+\newcommand{\ddx}[1]{\dd{#1}{x}}
+\newcommand{\ddy}[1]{\dd{#1}{y}}
+\newcommand{\ddz}[1]{\dd{#1}{z}}
+\newcommand{\ddth}[1]{\dd{#1}{\theta}}
+
+% material derivatives
+\newcommand{\D}[1]{\ensuremath{\frac{D#1}{Dt}}}
+\newcommand{\Dn}[2]{\ensuremath{\frac{D^{#1}#2}{Dt^{#1}}}}
+\newcommand{\cor}[1]{\ensuremath{#1^\circ}}
+\newcommand{\con}[1]{\ensuremath{#1^\diamond}}
+
+% lists with less vertical space
+\newenvironment{itemize*}{\vspace{-6pt}\begin{itemize}\setlength{\itemsep}{0pt}\setlength{\parskip}{2pt}}{\end{itemize}}
+\newenvironment{enumerate*}{\vspace{-6pt}\begin{enumerate}\setlength{\itemsep}{0pt}\setlength{\parskip}{2pt}}{\end{enumerate}}
+\newenvironment{description*}{\vspace{-6pt}\begin{description}\setlength{\itemsep}{0pt}\setlength{\parskip}{2pt}}
+{\end{description}}
+
+\newcommand{\Title}{AlG2}
+\newcommand{\Author}{Matej Jelenc}
+\title{\Title}
+\author{\Author}
+\date{\today}
+\hypersetup{pdftitle={\Title}, pdfauthor={\Author}, pdfcreator={\Author}, pdfproducer={\Author}, pdfsubject={}, pdfkeywords={}}  % setup pdf metadata
+
+\pagestyle{empty}              % vse strani prazne
+\setlength{\parindent}{0pt}    % zamik vsakega odstavka
+\setlength{\parskip}{10pt}     % prazen prostor po odstavku
+% \setlength{\overfullrule}{30pt}  % oznaci predlogo vrstico z veliko črnine
+
+\usepackage{titlesec}
+\titlespacing*{\section}{0px}{0px}{-10px}
+\titleformat*{\section}{\Large\bf}
+\titlespacing*{\subsection}{0px}{0px}{-10px}
+\titleformat*{\subsection}{\large\bf}
+\titlespacing*{\subsubsection}{0px}{0px}{-10px}
+
+\newcommand{\lstar}{\overset{*}{\gets}}
+\newcommand{\rstar}{\overset{*}{\to}}
+\newcommand{\istar}{\overset{*}{\leftrightarrow}}
+\newcommand{\red}{\downarrow}
+\newcommand{\st}{\operatorname{st}}
+\newcommand{\rez}{\operatorname{Rez}}
+\newcommand{\vk}{\operatorname{vk}}
+\newcommand{\mst}{\operatorname{mst}}
+\newcommand{\vc}{\operatorname{\text{vč}}}
+\newcommand{\vm}{\operatorname{vm}}
+\usepackage{algpseudocode} 
+\usepackage{algorithm}
+
+\floatname{algorithm}{Algoritem}
+\algnewcommand\algorithmicto{\textbf{to}}
+\algrenewtext{For}[3]{$\algorithmicfor\ #1 \gets #2\ \algorithmicto\ #3\ \algorithmicdo$}
+
+\let\oldtextbf\textbf
+\renewcommand{\textbf}[1]{\oldtextbf{\boldmath #1}}
+
+\usepackage{multicol}  % Za razdeliti stran na pol
+\setlength{\columnseprule}{1pt}
+\def\columnseprulecolor{\color{black}}
+
+% Hiperbolcne funkcije (obstajajo tudi simboli ampak imajo durgacen zapis)
+\DeclareMathOperator\ch{ch}
+\DeclareMathOperator\sh{sh}
+\DeclareMathOperator\Th{th}  % th komanda ze zavzeta z crko thorn (staro angleska crka)
+\DeclareMathOperator\cth{cth}
+\DeclareMathOperator\arsh{arsh}
+\DeclareMathOperator\arth{arth}
+
+% Absolutna vrednost
+\newcommand\abs[1]{\left|#1\right|}
+% Oglati oklepaji 
+\newcommand\ogl[1]{\left[#1\right]}
+% Navadni oklepaji 
+\newcommand\okr[1]{\left(#1\right)}
+
+\newcommand{\defeq}{\vcentcolon=}
+
+\newcommand{\definicija}[1]{\textbf{\underline{Def:} }{#1}\\}
+\newcommand{\trditev}[1]{\textbf{\underline{Trditev:} }{#1}\\}
+\newcommand{\posledica}[1]{\textbf{\underline{Posledica:} }{#1}\\}
+\newcommand{\izrek}[1]{\textbf{\underline{Izrek:} }{#1}\\}
+\newcommand{\bt}[1]{\textbf{#1}}
+\newcommand{\at}[1]{\textbf{(#1)}}
+\usepackage{blindtext}
+
+\begin{document}
+\begin{multicols*}{3}
+\section*{PREDAVANJA}
+\subsection*{Direktne vsote}
+\definicija{Grupa $G$ je \bt{notranji direktni produkt (DP)} svojih podgrup edink $N_1,\dots,N_s$, če velja: \\
+\bt{(i)} $G=N_1\cdots N_s$ \\
+\bt{(ii)} $N_i \cap (N_1\cdots N_{i-1}\cdot N_{i+1}\cdots N_s)=\{1\}$ za $\forall i\in[s]$.}
+\trditev{Naj bodo $N_1,\dots,N_s \triangleleft G$, potem sta naslednji trditvi ekvivalentni: \\
+\bt{(i)} $G$ je DP $N_1, \dots,N_s$ \\
+\bt{(ii)} $\forall a\in G$ lahko na en sam način zapišemo kot $n_1n_2\cdots n_s$ za $n_i\in N_i$.}
+\definicija{\bt{Komutator} elementov $a,b\in G$ je $[a,b]:=aba^{-1}b^{-1}$.}
+\trditev{$M,N\triangleleft G \land M\cap N = \{1\} \implies \forall m\in M,\forall n\in N:mn = nm$.}
+\izrek{$G$ DP $N_1,\dots,N_s \implies G \cong N_1\times \cdots \times N_s$. }
+\definicija{Naj bo $G$ NDP $N_1,\dots,N_s$. Če je $G$ aditivna (Abelova), namesto direktni produkt pravimo \bt{direktna vsota (DV)} in pišemo $G = N_1 \oplus \cdots \oplus N_s$. }
+\trditev{Naj bo $G$ Abelova in $|G| = mn$ za $m\perp n$. Potem za $H:=\{x\in G \ | \ mx=0\}$ in $K:= \{x\in G \ | \ nx = 0\}$ velja $G=H\oplus K$, $|H|=m$ in $|K| = n$.}
+\posledica{$m\perp n\implies \mathbb{Z}_{mn} \cong \mathbb{Z}_m \oplus \mathbb{Z}_n$.}
+\trditev{Naj bo $G$ Abelova in $|G| = p_1^{k_1}\cdots p_s^{k_s}$ kjer $p_i$ različna praštevila. Potem podgrupe $H_i = \{x\in G \ | \ p_i^{k_i}x = 0\}$ za $i\in [s]$ zadoščajo $|H_i| = p_i^{k_i}$ in $G=H_1\oplus\cdots \oplus H_s$.}
+\definicija{Naj bo $p\in \mathbb{P}$ in $G$ grupa reda $p^k$ za $k\geq 0$. Potem je G $p$-\bt{grupa}.}
+\trditev{Naj bo $G$ Abelova netrivialna $p$-grupa. Potem je $G$ ciklična $\iff$ ima samo eno podgrupo redo $p$.}
+\trditev{Naj bo $G$ končna Abelova $p$-grupa in $C$ ciklična podgrupa z največjim redom. Potem $\exists K\leq G: G = C \oplus K$.}
+\izrek{\bt{(osnovni izrek o končnih Abelovih grupah)} $\forall$ končna Abelova grupa $G$ je DV cikličnih $p$-podgrup. Če je $G$ DV $C_1,\cdots,C_n$ in hkrati DV $D_1,\cdots,D_{n'}$, potem je $n=n'$ in $\exists \sigma \in S_n \ \forall i\in [n]: C_i \cong D_{\sigma(i)}.$}
+\definicija{Naj bo $G$ grupa, potem je $T(G) = \{g\in G \ | \ \text{red}(g) < \infty \}$ \bt{torzijska podgrupa} $G$. Če je $T(G) = \{0\}$, pravimo, da je $G$ \bt{brez torzije}.}
+\izrek{Naj bo $G$ končno generirana Abelova grupa. Potem je $G\cong \mathbb{Z}^m \oplus K$, kjer je $K$ končna Abelova grupa.}
+\trditev{Če je $G$ končno generirana Abelova grupa brez torzije, potem je $G\cong \mathbb{Z}^n$, za nek $n\in\mathbb{N}$.}
+\trditev{$\forall$ končno generirana Abelova grupa je DV neke končno generirane Abelove grupe brez torzije in neke končne Abelove grupe.}
+\definicija{Naj bo $K$ kolobar, $e\in K$ je \bt{idempotent}, če $e^2=e$. Če zraven še $ae=ea$ za $\forall a\in K$, je \bt{centralni idempotent}. Idempotenta $e$ in $f$ sta \bt{ortogonalna}, če $ef=fe=0$.}
+\izrek{Naj bodo $I_1,\dots, I_s$ ideali kolobarja $K$, potem sta naslednji trditvi ekvivalentni: \\
+\bt{(i)} $K=I_1\oplus \cdots \oplus I_s$ \\
+\bt{(ii)} $\exists$ paroma ortogonalni centralni idempotenti $e_1,\dots,e_s\in K: e_1 + \cdots +e_s = 1 \land \forall i\in[s]: I_i = e_iK$.}
+\izrek{$K=I_1\oplus \cdots \oplus I_s \implies K \cong I_1\times \cdots \times I_s$.}
+\vspace{-15pt}
+\subsection*{Delovanja grup}
+\izrek{\bt{(Cayleyev izrek)} $\forall$ grupo lahko vložimo v neko simetrično grupo.}
+\definicija{Podgrupi simetrične grupe pravimo \bt{permutacijska grupa.}}
+\posledica{$\forall$ končno grupo lahko vložimo v simetrično grupo $S_n$ za nek $n\in \mathbb{N}$.}
+\definicija{Grupa $G$ \bt{deluje na množici} $X$, če $\exists \phi :G\times X \to X$, $(g,x) \mapsto g \cdot x$, da velja: \\
+\bt{(i)} $\forall a,b\in G \ \forall x\in X: (ab)\cdot x = a\cdot (b\cdot x)$ \\
+\bt{(ii)} $\forall x\in X: 1\cdot x= x$. \\
+Preslikavi $\phi$ pravimo \bt{delovanje grupe} $G$ \bt{na množici} $X$.}
+\definicija{Naj $G$ deluje na $X$. \bt{Orbita} elementa $x\in X$ je $G\cdot x := \{a\cdot x \ | \ a\in G\}$, \bt{stabilizator} elementa $x$ pa je $G_x := \{g\in G \ | \ g\cdot x = x\}$. \bt{Množica fiksnih točk} $g\in G$ je $X^g := \{x\in X \ | \ g \cdot x= x\} = \text{fix}(g)$, \bt{fiksne točke/invariante delovanja} pa je množica $X^G := \underset{g\in G}{\cap}X^g = \text{fix}(G)$.}
+\trditev{Naj $G$ deluje na $X$, potem je $x\sim y \iff \exists a\in G:a\cdot x = y$ ekvivalenčna relacija, $[x] = G\cdot x$ in $G_x \leq G$.}
+\definicija{Kvocientno množico $X/G = \{ G\cdot x \ | \ x\in X\}$ imenujemo \bt{prostor orbit}. Če je $|X/G| = 1$, je delovanje \bt{tranzitivno}.}
+\definicija{Naj bo $G$ grupa in $x\in G$. Potem je njegov \bt{konjugiranostni razred} $\text{Raz}(x) := \{axa^{-1} \ | \ a\in G\}$, \bt{centralizator} pa $C(x) := \{g\in G \ | \ xg = gx\}$.}
+\izrek{\bt{(izrek o orbiti in stabilizatorju) } Naj $G$ deluje na $X$. Potem za $\forall x\in X$ velja $|G\cdot x| = [G:G_x]$ in če $G$ končna $|G| = |G\cdot x| \cdot |G_x|$.}
+\izrek{Naj $G$ deluje netrivialno na končni $X$, potem $\exists x_1,\dots,x_m\in X\backslash X^G$, da je $|X| = |X^G| + \overset{m}{\underset{j=1}{\sum}}[G:G_{x_j}]$.}
+\posledica{Naj končna $p$-grupa $G$ deluje na končni $X$. Potem $p \ | \ |X| - |X^G|$.}
+\izrek{\bt{(Burnsideova lema)} Naj končna grupa $G$ deluje na končni $X$, potem $|X/G|=\frac{1}{|G|} \underset{g\in G}{\sum}|X^g|$.}
+\vspace{-15pt}
+\subsection*{Razredna formula in Cauchyjev izrek}
+\izrek{\bt{(razredna formula)} Naj bo $G$ končna grupa. Če $G$ ni Abelova, potem $\exists x_1,\dots,x_m\in G\backslash Z(G)$, da  je $|G| = |Z(G)| + \overset{m}{\underset{j=1}{\sum}}[G:C(x_j)]$.}
+\posledica{$\forall$ končna netrivialna $p$-grupa ima netrivialen center.}
+\posledica{$|G| = p^2$ za $p\in\mathbb{P} \implies G$ Abelova.}
+\izrek{\bt{(Cauchyjev izrek) } Naj bo $G$ končna grupa. Če praštevilo $p \ | \ |G|$, potem $G$ vsebuje element reda $p$.}
+\posledica{Končna grupa je $p$-grupa $\iff$ red vsakega elementa je potenca $p$.}
+\vspace{-15pt}
+\subsection*{Izreki Sylowa}
+\definicija{Naj bo $H\leq G$, množici $N(H) := \{a\in G\ | \ aHa^{-1} = H\}$ pravimo \bt{normalizator} $H$.}
+\definicija{$H\leq G$ je $p$-\bt{podgrupa Sylowa}, če je $|H|=p^k \land p^{k+1} \nmid |G|$. Z $n_p$  ozn. $\# p$-podgrup Sylowa grupe $G$.}
+\izrek{\bt{(izreki Sylowa)} Naj praštevilo $p$ deli red končne grupe $G$: \\
+\bt{(a)} $p^k \mid |G| \implies $ $G$ vsebuje vsaj eno $p$-podgrupo reda $p^k$. \\
+\bt{(b)} $\forall p$-podgrupa $G$ je vsebovani v kaki $p$-podgrupi Sylowa. \\
+\bt{(c)} $\forall p$-podgrupi Sylowa sta konjugirani. \\
+\bt{(d)} $\# p$-podgrup Sylowa grupe $G$ deli $|G|$. \\
+\bt{(e)} $\#p$-podgrup Sylowa grupe $G$ je $pm+1$ za nek $m\geq 0$.}
+\posledica{$|G|=p^kt \land p\nmid t \implies n_p \mid t$.}
+\posledica{Naj bo $S$ $p$-podgrupa Sylowa v $G$, potem $S\triangleleft G \iff n_p=1$.}
+\vspace{-15pt}
+\subsection*{Končne enostavne grupe}
+\definicija{Grupa $G$ je \bt{enostavna}, če sta njeni edini podgrupi edinki $\{1\}$ in $G$.}
+\definicija{Naj bo $G$ končna netrivialna grupa in podgrupe $M_i\leq G$ take, da velja: $\{1\} = M_s \subseteq M_{s-1} \subseteq\cdots \subseteq M_0 =G$, $M_{i+1}\triangleleft M_i$ in $M_i/M_{i+1}$ enostavne za $i=0,1,\dots,s-1$. Takemu zaporedju pravimo \bt{kompozicijska vrsta} grupe $G$.}
+\izrek{\bt{(Jordan-H\"olderjev izrek)} Če sta $M_0,\dots,M_s$ in $N_0, \dots, N_t$ kompozicijski vrsti $G$, potem $t=s$ in $\exists \sigma\in S_t: N_i/N_{i+1} \cong M_{\sigma(i)}/M_{\sigma(i+1)}$.}
+\izrek{$A_n$ je enostavna za $n\geq 5$.}
+\izrek{\bt{(klasifikacija končnih enostavnih grup)} Če je $G$ lkončna enostavna grupa, potem sodi v eno izmed naslednjih družin: \\
+\bt{(i)} $\mathbb{Z}_p$, $p\in \mathbb{P}$ \\
+\bt{(ii)} $A_n$, $n\geq 5$ \\
+\bt{(iii)} grupe Liejevega tipa \\ 
+\bt{(iv)} 26 Sporadičnih grup.}
+\vspace{-15pt}
+\subsection*{Rešljive grupe}
+\definicija{Grupa $G$ je \bt{rešljiva}, če $\exists N_0,\dots,N_m\triangleleft G$, da velja $\{1\} = N_0\subseteq N_1\subseteq \cdots \subseteq N_m = G$ in $N_{i+1}/N_i$ je Abelova za $i=0,1,\dots,m-1$.}
+\definicija{Naj bo $G$ grupa, z $G'$ ozn. podgrupo generirano z vsemi komutatorji iz $G$ in ji pravimo \bt{komutatorska podgrupa}.}
+\trditev{$N\triangleleft G \implies N'\triangleleft G$.}
+\trditev{Naj bo $N\triangleleft G$. Potem je $G/N$ Abelova $\iff$ $G'\subseteq N$.}
+\izrek{Naj bo $G$ grupa. Ozn. $G^{(0)} = G$ in induktivno $G^{(i+1)} := (G^{(i)})'$ za $i\geq 0$. $G$ je rešljiva $\iff$ $\exists m\in \mathbb{N}: G^{(m)} = \{1\}.$}
+\posledica{Podgrupa rešljive grupe je rešljiva.}
+\posledica{Naj bo $N\triangleleft G$. $G$ je rešljiva $\iff$ $N$ in $G/N$ sta rešljivi.}
+\izrek{\bt{(Feit-Thompsonov izrek)} $\forall$ grupe lihe moči so rešljive.}
+\vspace{-15pt}
+\subsection*{Kolobarji polinomov}
+\trditev{Naj bo $F$ polje, potem je $F[x]$ brez deliteljev niča.}
+\izrek{\bt{(osnovni izrek o deljenju)} Za poljubna $f(x),g(x)\in F[x]$, kjer $g(x)\neq 0$ in $F$ polje, $\exists$ enolična $k(x),r(x)$, da velja $f(x) = k(x)\cdot g(x) + r(x)$, $\text{deg}(r) < \text{deg}(g)$.}
+\posledica{$\forall$ ideal v kolobarju $F[x]$, kjer $F$ polje je glavni ideal.}
+\trditev{Naj bo $F$ polje in $f(x)\in F[x]$. Potem je $a\in F$ ničla $f(x) \iff (x-a) \mid f(x)$.}
+\posledica{Naj bo $F$ polje in $p(x)\neq 0\in F[x]$. Potem je v $F$ kvečjemu $\text{deg}(p)$ ničel $p(x)$.}
+\definicija{Naj bo $F$ polje, $p(x)\in F[x]$, $\text{deg}(p)>0$. Pravimo, da je $p(x)$ \bt{nerazcepen nad} $F$, če iz $p(x)=g(x)\cdot h(x)$ za $g(x),h(x)\in F[x]$ sledi, da je eden od $g,h$ konstanten.}
+\trditev{Naj bo $F$ polje, $p(x)\in F[x]$, $\text{deg}(p)>0$: \\
+\bt{(i)} $\text{deg}(p)=1\implies$ $p(x)$ nerazcepen \\
+\bt{(ii)} $\text{deg}(p)\geq2$ in $p(x)$ nerazcepen $\implies$ nima ničle v $F$ \\
+\bt{(iii)} $\text{deg}(p)\in\{2,3\}\implies (p(x)\text{ nerazcepen } \iff $ nima ničle v $F$.}
+\definicija{$p(x) = a_nx^n+\cdots + a_0\in \mathbb{Z}[x]$ je \bt{primitiven}, če so $a_0,\dots, a_n$ tuja.}
+\izrek{\bt{(Gaussova lema)} Produkt primitivnih polinomov je primitiven polinom.}
+\izrek{Naj bo $f(x)\in \mathbb{Z}[x]$ tak, da ga ne moremo zapisati kot produkt dveh nekonstantnih polinomov v $\mathbb{Z}[x]$, potem je $f(x)$ nerazcepen nad $\mathbb{Q}[x]$.}
+\izrek{\bt{(Eisensteinov kriterij)} Naj bo $f(x) = a_nx^n+\cdots +a_0$ in $\exists p\in\mathbb{P}$, da $p\mid a_i$ za $i<n$, $p\nmid a_n,a_0^2$. Potem je $f(x)$ nerazcepen nad $\mathbb{Q}[x]$.}
+\vspace{-15pt}
+\subsection*{Razširitve polj}
+\definicija{Naj bosta $K,F$ polji in $F\subseteq K$, potem je $K$ \bt{razširitev} polja $F$, ozn. $K/F$.}
+\definicija{Naj bo $K/ F$ razširitev, potem je $a\in K$ \bt{algebraičen} nad $F$, če $\exists p(x)\in F[x]: p(a)=0$. Če je $p(x)$ moničen in minimalne stopnje, pravimo da je $m_a(x):=p(x)$ \bt{minimalni polinom} za $a$ nad $F$ in $a$ stopnje algebraičnosti $\deg(m_a(x))$ nad $F$. Sicer je \bt{transcendentalen} nad $F$. V primeru $F=\mathbb{Q}$ in $K=\mathbb{C}$, pravimo da je $a$ \bt{algebraično/transcendentalno število}.}
+\izrek{$\pi$ je transcendentalno nad $\mathbb{Q}$.}
+\izrek{Naj bo $a\in K$ algebraičen nad $F$ in $p(x)\neq 0\in F[x]:p(a)=0$ moničen. Naslednje trditve so ekvivalentne:\\
+\bt{(i)} $p(x) \textit{ minimalen polinom za a } $ \\
+\bt{(ii)} $p(x) \textit{ nerazcepen }$ \\
+\bt{(iii)} $\forall q(x)\in F[x]:q(a)=0\implies p(x)\vert q(x)$}
+\vspace{-15pt}
+\subsection*{Končne razširitve}
+\definicija{Razširitev $K/F$ je \bt{končna}, če je $K$ končno razsežen vektorski prostor nad $F$ in pišemo $[K:F]:=\dim_F(K)$.}
+\izrek{Naj bosta razširitvi $L/K$ in $K/F$ končni, potem:$[L:F] = [L:K]\cdot [K:F]$.}
+\posledica{Naj bo $K/F$ končna razširitev in $L$ podpolje $K$, ki vsebuje $F$, potem $[L:F]$ deli $ [K:F].$}
+\definicija{Razširitev $K/F$ je \bt{algebraična}, če je $\forall a\in K$ algebraičen nad $F$, sicer je \bt{transcendentalna}.}
+\trditev{Vsaka končna razširitev je algebraična.}
+\definicija{Razširitev $K/F$ je \bt{enostavna/primitivna}, če $\exists a\in K: K = F(a)$. Elementu $a$ pravimo \bt{primitivni element} $K$.}
+\izrek{Naj bo $K/F$ razširitev in $a\in K$ algebraičen nad $F$ stopnje $n$. Potem je $F(a) = F[a] = \{\alpha_0 + \alpha_1a+\dots + \alpha_{n-1}a^{n-1} \ | \ \alpha_i \in F\}$ končna razširitev $F$ in $[F(a):F] = n$.}
+\izrek{Naj bo $K/F$ razširitev in $a_1,\dots,a_n\in K$ algebraični nad $F$. Potem je $F(a_1,\dots,a_n) = F[a_1,\dots,a_n]$ končna razširitev $F$.}
+\posledica{Naj bo $K/F$ razširitev in $L = \{a\in K \ | \ a \text{ algebraičen nad } F\}$. $L$ je podpolje $K$.}
+\vspace{-15pt}
+\subsection*{Konstrukcije z ravnilom in šestilom}
+\definicija{Naj bo $\mathcal{P}\subseteq \mathbb{R}^2$. Točka $ T =(a,b)\in \mathbb{R}^2$ je \bt{konstruktibilna iz $\mathcal{P}$}, če jo lahko skonstruiramo v s končnim številom operacij, kjer smemo: \bt{(i)} narisati premico med točkama iz $\mathcal{P}$, \bt{(ii)} narisati krožnico z središčem v točki iz $\mathcal{P}$ in točka iz $\mathcal{P}$ leži na krožnici, in je $Z$ presek premic/krožnic. Za $\mathcal{P}=\{(0,0),(1,0)\}$ pravimo da je $(a,b)$ \bt{kosntruktibilna točka} in $a,b$ \bt{konstruktibilni števili}.}
+\izrek{Naj bo $\mathcal{P}\subseteq \mathbb{R}^2$ in $F\leq \mathbb{R}$ tako polje, da $\mathcal{P}\subseteq F\times F$. Če je $(a,b)\in \mathbb{R}^2$ konstruktibilna iz $\mathcal{P}$, potem sta $a$ in $b$ algebraični nad $F$ stopnje $2^k$ za $k\geq 0$. }
+\posledica{Podvojitev (volumna) kocke je nemogoča samo z ravnilom in šestilom.}
+\posledica{Trisekcija kota $60^{\circ}$ je nemogoča samo z ravnilom in šestilom.}
+\posledica{Konstrukcija kvadrata s površino danega kroga je nemogoča samo z ravnilom in šestilom.}
+\posledica{Množica konstruktibilnih števil je podpolje v $\mathbb{R}$.}
+\vspace{-15pt}
+\subsection*{Razpadna polja}
+\trditev{Naj bo $K/F$ razširitev in $a\in K$: $\exists f(x)\in F[x]: f(a) = 0 \iff \exists g(x)\in K[x] : f(x) = (x-a)\cdot g(x)$.}
+\definicija{Če je $a\in K$ ničla $f(x)\in F[x]$ in $\exists h(x)\in K[x] : f(x) = (x-a)^k\cdot h(x) \land h(a) \neq 0$, je $a$ \bt{ničla večkratnosti k} za $f(x)$.}
+\izrek{Polinom $f(x)\in F[x]$ stopnje $n$ ima največ $n$ ničel, če je štejemo večkratnost ničel, v katerikoli razširitvi $K\supseteq F$.}
+\izrek{Naj bo $f(x)\in F[x]:\deg(f) > 0$, potem $\exists$ razširitev $F$, v kateri ima $f(x)$ ničlo.}
+\izrek{Naj bo $f(x)\in F[x]: \deg(f) = n >0$, z vodilnim koeficientom $c$, potem $\exists$ razširitev $F$, ki vsebuje take $a_1,\dots , a_n$, da $f(x) =c(x-a_1)\dots (x-a_n)$.}
+\definicija{Naj bo $K/F$ razširitev in $f(x)\in F[x]$. Pravimo da $f(x)$ \bt{razpade} nad $K$, če je enak produktu linearnih polinomov v $K[x]$. Če $\nexists$ pravo podpolje $K$, v katerem $f(x)$ razpade, pravimo da je $K$ \bt{razpadno polje} $f(x)$ nad $F$.}
+\trditev{Naj bo $p(x)\in F[x]$ nerazcepen in $a$ ničla $p(x)$ v neki razširitvi $K/F$. Če je $\phi:F\to F'$ izomorfizem polj in $a'$ ničla $p_{\phi}(x)$ v neki razširitvi $K'/F'$, potem $\exists$ enoličen izomorfizem $\Phi : F(a)\to F'(a')$, ki zadošča $\Phi(a)=a'$.}
+\izrek{Naj bo $f(x)\in F[x]:\deg(f)>0$ in $K$ razpadno polje $f(x)$ nad $F$. Če je $\phi : F\to F'$ izomorfizem polj in $K'$ razpadno polje $f_{\phi}(x)$ nad $F'$, potem lahko $\phi$ razširimo na izomorfizem med $K$ in $K'$.}
+\posledica{Naj bo $f(x)\in F[x]:\deg(f)>0$, potem je njegovo razpadno polje nad $F$ eno samo do izomorfizma natančno.}
+\definicija{Razširitev $K/F$ je \bt{normalna}, če za $\forall p(x)\in K[x]$ velja: $\forall$ ničle $p(x)$ so v $K$ ali nobena ničla $p(x)$ ni v $K$.}
+\izrek{Naj bo $K/F$ končna razširitev, potem je $K/F$ normalna $\iff$ $K$ je razpadno polje nekega polinom iz $F[x]$.}
+\vspace{-15pt}
+\subsection*{Algebraično zaprtje polja}
+\definicija{Pravimo da je polje $A$ \bt{algebraično zaprto}, če za $\forall f(x)\in A[x]\ \deg(f) > 0 \implies  \exists a\in A: f(a) =0$. Polje $\overline{A}$ je \bt{algebraično zaprtje} $A$, če je algebraično zaprto in algebraična razširitev $A$.}
+\trditev{Naj bo $K$ razširitev $L$ in $L$ algebraična razširitev $F$. Če je $a\in K$ algebraičen nad $L$, potem je algebraičen tudi nad $F$.}
+\izrek{Naj bo $F$ podpolje algebraično zaprtega polja $A$. Potem je $\overline{F} = \{ a\in A \  | \ a \text{ algebraičen nad } F\}$ algebraično zaprtje $F$.}
+\posledica{Polje $\forall$ algebraičnih števil je algebraično zaprtje $\mathbb{Q}$.}
+\vspace{-15pt}
+\subsection*{Končna polja}
+\trditev{Naj bo $K$ končno polje in $char(K)=p$, potem je $|K|=p^n$ za nek $n\in \mathbb{N}$. }
+\trditev{Naj bo $K$ polje in $|K| = p^n$, potem je $K$ razpadno polje polinoma $f(x)=x^{p^n}-x$ nad $\mathbb{Z}_p$.}
+\trditev{Naj bo $R$ komutatitven kolobar in $char(R) = p\in\mathbb{P}$, potem je $\phi :R\to R$, $\phi(x) = x^p$ endomorfizem $R$.}
+\trditev{Razpadno polje $\mathbb{F}_{p^n}$ polinoma $f(x)=x^{p^n}-x$ nad $\mathbb{Z}_p$ ima $p^n$ elementov.}
+\izrek{Za $\forall p\in \mathbb{P}$ in $\forall n\in \mathbb{N}$ $\exists$ polje s $p^n$ elementi, ki je do izomorfizma natančno enolično določeno, ozn. s $\mathbb{F}_{p^n}$ ali $GF(p^n)$, ki ga imenujemo  \bt{Galoisovo polje} reda $p^n$.}
+\izrek{\bt{(Wedderburnov izrek)} $\forall$ končen obseg je polje.}
+\trditev{Multiplikativna grupa končnega polja je ciklična.}
+\vspace{-15pt}
+\subsection*{Separabilne razširitve}
+\definicija{$f(x)\in F[x]$ je \bt{separabilen} če so njegove ničle v poljubni razširitvi $F$ enostavne. Algebraična razširitev $K/F$ je \bt{separabilna}, če je za $\forall a\in K$ $m_a(x)$ separabilen. Če je vsaka končna razširitev $F$ separabilna, je $F$ \bt{perfektno}.}
+\definicija{Naj bo $K/F$ razširitev polj, in $L$ podpolje $K$, ki vsebuje $F$. Potem je $L$ \bt{vmesno} polje.}
+\izrek{Naj bo $F$ polje in $char(F)=0$ ter $p(x)\in F[x]$ nerazcepen. Potem so ničle $p(x)$ v poljubni razširitvi $K/F$ enostavne.}
+\posledica{$F$ polje, $char(F)=0 \implies$ $\forall$ algebraična razširitev $F$ je separabilna.}
+\izrek{\bt{(primitivni element)} $\forall$ končna razširitev polja s karakteristiko $0$ je enostavna.}
+\trditev{Končna polja so perfektna.}
+\definicija{Normalnim separabilnim razširitvam pravimo \bt{Galoisove razširitve}.}
+\trditev{Naj bodo $F\subseteq L \subseteq K$ polja: \\
+\bt{(i)} $K/F$ končna $\implies K/L$ končna \\
+\bt{(ii)} $K/F$ normalna $\implies K/L$ normalna \\
+\bt{(iii)} $K/F$ separabilna $\implies K/L$ separabilna.}
+\vspace{-15pt}
+\subsection*{Galoisova grupa razširitve}
+\definicija{Naj bo $K/F$ razširitev in $\alpha : K\to K$ avtomorfizem. Pravimo da je $\alpha$ $F$-\bt{avtomorfizem}, če $\alpha|_F = \text{id}_F$. Množico $\forall$ $F$-avtomorfizmov polja $K$ imenujemo \bt{Galoisova grupa} razširitve $K/F$, ozn. $\text{Gal}(K/F)=\text{Aut}(K/F)$.}
+\izrek{Naj bo $F$ polje, $char(F)=0$, $f(x)\in F[x]:\deg(f)>0$ in $K$ razpadno polje $f(x)$ nad $F$. Če je $\phi:F\to F'$ izomorfizem polj in $K'$ razpadno polje $f_{\phi}(x)$ nad $F'$, potem $\exists$ natanko $[K:F]$ izomorfizmov med $K$ in $K'$, ki razširjajo $\phi$.}
+\trditev{Naj bo $\sigma \in \text{Aut}(K/F)$, $f(x)\in F[x]$, $a\in K:$ $a$ ničla $f(x) \implies $ $\sigma(a)$ ničla $f(x)$.}
+\definicija{Naj bo $K/F$ končna razširitev, $char(F)=0$ in $H\leq \text{Aut}(K/F)$. Vmesnemu polju $K^H := \{x\in K\ | \ \forall\sigma\in H :\sigma(x)=x\}$, pravimo \bt{fiksno polje} od $H$.}
+\trditev{Naj bo $K/F$ končna razširitev, $char(F)=0$, $H\leq \text{Aut}(K/F)$ in $a\in K$, ter $\{a_1,\dots, a_m\} = \{\sigma(a)\ | \ \sigma\in H\}$. Potem je $p(x) = (x-a_1)\cdots (x-a_m)$ minimalni polinom $a$ nad $K^H$.}
+\trditev{Naj bo $K/F$ končna razširitev, $char(F)=0$ in $H\leq \text{Aut}(K/F)$. Potem $|H| = [K:K^H]$ in $[K:F] = |H|\cdot [K^H:F]$.}
+\izrek{Naj bo $K/F$ končna razširitev in $char(F)=0$. Naslednje trditve so ekvivalentne: \\
+\bt{(i)} $|\text{Aut}(K/F)|=[K:F]$ \\
+\bt{(ii)} $K^{\text{Aut}(K/F)} = F$ \\
+\bt{(iii)} $K/F$ je normalna oz. $\forall$ nerazcepen polinom iz $F[x]$ z ničlo v $K$, razpade nad $K$ \\
+\bt{(iv)} $K$ je razpadno polje nekega nerazcepnega polinoma iz $F[x]$ \\
+\bt{(v)} $K$ je razpadno polje nekega polinoma iz $F[x]$.}
+\definicija{Končna razširitev $K/F$, $char(F)=0$, je \bt{Galoisova}, če zadošča pogojem (i)-(v) prejšnjega izreka. V tem primeru grupi $\text{Aut}(K/F)=:\text{Gal}(K/F)$ pravimo \bt{Galoisova grupa} od $K$ nad $F$. Če je $K$ razpadno polje polinoma $f(x)\in F[x]$, ji pravimo tudi Galoisova grupa od $f(x)$ nad $F$.}
+\izrek{\bt{(fundamentalni izrek Galoisove teorije)} Naj bo $K$ Galoisova razširitev $F$, $char(F)=0$. Naj bo $\mathcal{I}$ množica $\forall$ vmesnih polj med $F$ in $K$, ter $\mathcal{G}$ množica $\forall$ podgrup $G:= \text{Aut}(K/F)$. Potem: \\
+\bt{(a)} $\alpha:\mathcal{G}\to \mathcal{I}$, $\alpha(H)=K^H$ je bijekcija in njen inverz je $\beta:\mathcal{I}\to \mathcal{G}$, $\beta(L)=\text{Gal}(K/L)$. \\
+\bt{(b)} Če $H$ sovpada z $L$, t.j. $H=\text{Gal}(K/L)$ oz. $L=K^H$, potem je $|H|=[K:L]$ in $[G:H]=[L:F]$. \\
+\bt{(c)} Če $H$ in $H'$ sovpadata z $L$ in $L'$, potem $H\subseteq H'\iff L \supseteq L'$. \\
+\bt{(d)} Če $H$ sovpada z $L$, potem je $H$ podgruga edinka v $G \iff L$ je Galoisova razširitev $F$. V tem primeru je $G/H \cong \text{Gal}(L/F)$. }
+\vspace{-15pt}
+\subsection*{Rešljivost polinomskih enačb}
+\definicija{Naj bo $F$ polje, $f(x)\in F[x]$ je \bt{rešljiv z radikali} nad $F$, če $\exists a_1,\dots,a_m$ v neki razširitvi $F$, da velja: \\
+\bt{(i)} $f(x)$ razpade nad $F(a_1,\dots,a_m)$ \\
+\bt{(ii)} $\exists n_i\in \mathbb{N}$ za $i=2,\dots,m$ da $a_1^{n_1}\in F \land a_i^{n_i}\in F(a_1,\dots,a_{i-1})$ za $i=2,\dots,m$.}
+\trditev{Naj bo $F$ podpolje $\mathbb{C}$ in $\alpha\in F$, $n\in\mathbb{N}$. Potem je Galoisova grupa polinoma $x^n-\alpha$ rešljiva nad $F$.}
+\izrek{Naj bo $F$ podpolje $\mathbb{C}$ in $f(x)\in F[x]$. Če je $f(x)\in F[x]$ rešljiv z radikali nad $F$, potem je Galoisova grupa od $f(x)$ nad $F$ rešljiva. (Velja tudi obrat)}
+\trditev{Nerazcepen kvintični polinom $p(x)\in\mathbb{Q}[x]$ z natanko 3 ničlami ni rešljiv z radikali nad $\mathbb{Q}$.}
+\izrek{\bt{(Abel-Ruffinijev izrek)} $\exists$ kvintični polinom v $\mathbb{Q}[x]$, ki ni rešljiv z radikali nad $\mathbb{Q}$.}
+\izrek{\bt{(fundamentalni izrek algebre)} $\mathbb{C}$ je algebraično zaprto.}
+\vspace{-15pt}
+\section*{VAJE}
+\subsection*{Grupe}
+\definicija{$S_n$ označuje simetrično grupo množice $[n]$. $\pi \in S_n$ je soda, če je produkt sodo mnogo transpozicij, ozn. $\text{sgn}(\pi)=1$, sicer je liha in $\text{sgn}(\pi)=-1$.}
+\trditev{$(a_1 a_2\dots a_k) = (a_1 a_k)\cdots (a_1 a_2).$}
+\trditev{Naj bo $\sigma \in S_n$. Potem $\sigma \cdot (a_1 \cdots a_k)\cdot \sigma^{-1} = (\sigma(a_1)\cdots \sigma (a_k)).$}
+\definicija{$\pi,\sigma \in S_n$ imata \bt{enako zgradbo disjunktnih ciklov}, če sta oba produkt disjunktnih ciklov dolžin $k_1,\dots,k_s$. Permutaciji sta \bt{konjugirani}, če $\exists\tau\in S_n: \pi = \tau \sigma \tau^{-1}$.}
+\trditev{Permutaciji sta konjugirani $\iff$ imata enako zgradbo disjunktnih ciklov.}
+\trditev{Transpozicije $(i \quad i+1)$ generirajo $S_n$ in $(i \ j) = (i\  i+1)(i+1 \ i+2)\cdots (j-1 \ j)\cdots (i+1 \ i+2)(i\ i+1)$.}
+\definicija{\bt{Diedrska grupa} je $D_{2n} := \{1,r,\dots,r^{n-1}, z, rz,\dots,r^{n-1}z\}$, kjer $r^n =1$, $z^2=1$ in $r^kz=zr^{n-k}$, $r$-rotacija, $z$-zrcaljenje čez os simetrije v pravilnem $n$-kotniku.}
+\trditev{$H\cup K \leq G$, potem $K\subseteq H$ ali $H \subseteq K$.}
+\trditev{$H_1\leq G_1$ in $H_2\leq G_2$ $\implies  H_1\times H_2 \leq G_1 \times G_2$. Obrat ne velja - diagonalna grupa.}
+\definicija{$GL_n(\mathbb{R}) := \{A\in M_n(\mathbb{R}) \ | \ \text{det}(A) \neq 0\}$ je \bt{glavna linearna grupa}, $SL_n(\mathbb{R}) := \{A\in GL_n(\mathbb{R}) \ | \ \text{det}(A) =1\}$ pa \bt{specialna linearna grupa}, ki je podgrupa edinka v $GL_n(\mathbb{R})$.}
+\trditev{$H,K\leq G$ končni, potem $|HK| = \frac{|H|\cdot|K|}{|H\cap K|}$.}
+\trditev{$\mathbb{Z}_n$ ima (eno samo) podgrupo reda $k \iff k \mid n$.}
+\trditev{Podgruda ciklične grupe je ciklična.}
+\trditev{$G$ neskončna $\implies$ $G$ ima neskončno podgrup.}
+\trditev{Naj bo $k\in \mathbb{Z}_n$, red($k$)$=\frac{n}{\text{gcd(k,n)}}$.}
+\trditev{$m\perp n \implies $$\mathbb{Z_m}\times \mathbb{Z}_n$ ciklična.}
+\definicija{$U_n := \{A\in M_n(\mathbb{C}) \ | \ \overline{A^T}A=I\}$ je \bt{unitarna grupa}, $SU_n:=\{A\in U_n \ | \ \text{det}(A) =1\}$ pa \bt{specialna unitarna grupa}.}
+\definicija{$\mathbb{T} := \{z\in\mathbb{C} \mid |z|=1\}$}
+\definicija{Podgrupa $N\leq G$ je \bt{edinka}, če $\forall \phi \in \text{Inn}(G): \phi(N)=N$. $N$ je \bt{karakteristična}, če za $\forall \phi \in$ Aut($G):\phi(N)\subseteq N$.}
+\trditev{$Z(G)$ je karakteristična.}
+\trditev{$H^{\text{kar.}}\leq K$ in $K^{\text{kar.}}\leq G \implies H^{\text{kar.}}\leq G$.}
+\vspace{-15pt}
+\subsection*{Homomorfizmi}
+\trditev{$\phi:G\to H$ homomorfizem, $a\in G \implies $ red($\phi(a)) \mid $ red($a$). Če $\phi$ vložitev, velja enakost.}
+\definicija{Kolobar $K$ je enostaven, če sta edina ideala $\emptyset$ in $K$.}
+\trditev{$D$ obseg $\implies M_n(D)$ enostaven.}
+\trditev{Center enostavnega kolobarja je polje.}
+\trditev{$K_1,K_2$ kolobarja, potem je $\forall $ ideal v $K_1\times K_2$ oblike $I_1\times I_2$, kjer $I_1$ ideal $K_1$ in $I_2$ ideal $K_2$.}
+\trditev{$I,J$ ideala komutativnega kolobarja in $I+J=K$, potem $IJ = I\cap J$.}
+\izrek{\bt{(kitajski izrek o ostankih)} Naj bodo $n_1,\dots,n_s$ tuja cela števila. Za poljubne $a_1\dots,a_s\in \mathbb{Z} \ \  \exists a\in\mathbb{Z}$, da je $\forall i\in[s]:a\equiv_{n_i} a_i$ in če $b\equiv_{n_i} a_i$ za nek $i$, potem $n_1\cdots n_s \mid a-b$.}
+\vspace{-15pt}
+\subsection*{Direktne vsote}
+\trditev{$G$ $p$-grupa, $H$ $q$-grupa, $p\neq q: G,H$ ciklični $\iff G\oplus H$ ciklična.}
+\trditev{Končna Abelova grupa $G$ je ciklična, če za $\forall p\in \mathbb{P}: p\mid |G| \implies $ $G$ vsebuje natanko $p-1$ elementov reda $p$.}
+\trditev{Naj bo $G$ končna Abelova grupa, potem $\forall m: m\mid |G|\implies $ $G$ vsebuje podgrupo reda $m$.}
+\vspace{-15pt}
+\subsection*{Delovanja grup}
+\trditev{Naj bo $\sigma\in A_n$ in $C(\sigma)$ centralizator $\sigma$ v $S_n$, potem: \\
+\bt{(i)} $C(\sigma)\subseteq A_n \implies \text{Raz}(\sigma)$ v $S_n$ razpade na 2 enako velika dela v $A_n$ \\
+\bt{(ii)} $C(\sigma)\nsubseteq A_n \implies \text{Raz}(\sigma)$ v $S_n$ sovpada z Raz($\sigma$) v $A_n$.}
+\trditev{$H\leq G \implies N(H)/C(H) \cong K \leq \text{Aut}(H)$.}
+\trditev{Naj bo $G$ končna in $H<G$, $[G:H] = m: |G|\nmid m! \implies G$ ni enostavna.}
+\trditev{Naj bo $|G| = 2m$, $m$ liho. Potem ima $G$ podgrupo indeksa 2 in ni enostavna.}
+\vspace{-15pt}
+\subsection*{Komutatorske in rešljive grupe}
+\definicija{Naj bo $A,B\leq G$, potem je $[A,B] := \{aba^{-1}b^{-1} \mid a\in A, b\in B\}$. Z $G'$ ozn. \bt{komutatorsko podgrupo} $[G,G]$.}
+\trditev{$G'\triangleleft G$ in $G/G'$ Abelova.}
+\trditev{$H<G: H\triangleleft G \iff [H,G] < H$.}
+\trditev{$H\triangleleft G$ in $G/H$ Abelova $\implies G'\leq H$.}
+\trditev{$|G| = p^k \implies G$ je rešljiva.}
+\vspace{-15pt}
+\subsection*{Polinomi}
+\trditev{Polje $F$ končno $\iff p(x)\neq q(x)\in F[x]$, ki imata enako polinomsko funkcijo.}
+\trditev{Naj bo $F$ polje in $p(x)\in F[x]$ v $n$ različnih elementih doseže enako vrednost, potem deg($p(x))\geq n$.}
+\trditev{$f(x) = x^n+1$ nerazcepen nad $\mathbb{Q} \iff n = 2^k, k\geq 1$.}
+\trditev{Naj bodo $a_0,\dots, a_n \in \mathbb{Z}$ in $p\in\mathbb{P}: p\nmid a_n$. Če $a_nx^n+\cdots a_0$ nerazcepen nad $\mathbb{Q}$, potem je nerazcepen nad $\mathbb{Z}_p$.}
+\trditev{$a,b,c$ liha $\implies ax^4 + bx + c$ nerazcepen nad $\mathbb{Q}$.}
+\trditev{Naj bodo $a_1,\dots, a_n\in \mathbb{Z}$ različna, potem sta $(x-a_1)\cdots (x-a_n)-1$ in $(x-a_1)^2\cdots (x-a_n)^2+1$ nerazcepna nad $\mathbb{Q}$.}
+\trditev{$x^p-x+1$ je nerazcepen in separabilen nad $\mathbb{Z}_p$.}
+\vspace{-15pt}
+\subsection*{Razširitve polj}
+\trditev{Naj bo $[E:F]=p\in\mathbb{P}$, potem je $\forall a\in E\backslash F$ algebraičen stopnje $p$ nad $F$.}
+\trditev{$a,b$ algebraična nad $F$ in $[F(a):F] \perp [F(b):F] \implies [F(a,b):F] = [F(a):F]\cdot [F(b):F]$.}
+\trditev{$F(a^k, a^l) = F(a^d)$ za $d=\gcd(k,l)$.}
+\trditev{$a_1,\dots,a_n$ algebraični nad $F$, potem $[F(a_1,\dots,a_n):F]\leq [F(a_1):F]\cdots [F(a_n):F]$.}
+\trditev{$F$ polje in $f(x)\in F[x]$. Ničle $f(x)$ so v poljubni razširitvi $F$ enostavne $\iff f(x)$ in $f'(x)$ tuja.}
+\trditev{Naj bo $E/F$ razširitev in $char(F)=0$, $a\in E$ je $k$-kratna ničla $f(x)\in F[x] \iff f(a) = f'(a) =\dots = f^{(k)}(a) =0$ in $f^{(k+1)}(a)\neq 0$.}
+\trditev{Naj bo $char(K) =2$ in $M = K(x^2,y^2)$, potem $M$ nima primitivnega elementa.}
+\vspace{-15pt}
+\subsection*{Razpadna polja}
+\trditev{Naj bo $E/F$ razpadno polje polinoma $f(x)\in F[x]$, deg$(f)=n$. Potem: \\
+\bt{(i)} $[E:F] \leq n!$ \\
+\bt{(ii)} $f(x)$ nerazcepen $\implies n\mid [E:F]$ \\
+\bt{(ii)}$E = F(a_1,\dots,a_k)$, $a_i$ ničle in $k\leq n$.}
+\trditev{Naj bo $F$ polje in $a_1,\dots,a_n\in F$, potem $\exists f(x)\in F[x]: f(a_1)=\dots =f(a_n)=1$.}
+\trditev{$F$ je algebraično zaprto $\iff$ $\nexists$ prava končna razširitev $F$.}
+\trditev{Naj bo $[L:K]=2$, potem je $L/K$ normalna.}
+\trditev{Naj bo $f(x) = x^4 + bx^2 + c\in \mathbb{Q}[x]$ in naj bo $G = \text{Gal}_{\mathbb{Q}}(f(x))$. Potem je $G\leq D_8$. Naj bodo $\pm \alpha, \pm \beta$ ničle $f(x)$. Če $\alpha\beta$ ali $\alpha^2\in \mathbb{Q}$, potem je $G\leq K_4$. Če $\sqrt{c(b^2-4c)}\in \mathbb{Q}$, potem $G\leq C_4$.}
+\trditev{Naj bo $f(x) = x^3+ax^2 + bx +c\in\mathbb{Q}[x]$ nerazcepen in $D = ((x_1-x_2)(x_1-x_3)(x_2-x_3))^2$ diskriminanta. Če $\sqrt{D}\in \mathbb{Q}$ potem $ G \cong \mathbb{Z}_3$, sicer $G\cong S_3$.}
+\trditev{Naj bo $f(x)\in\mathbb{Q}[x]$ nerazcepen stopnje 5 z natanko 3 realnimi ničlami, potem Gal$_{\mathbb{Q}}(f(x))\cong S_5$.}
+\definicija{Naj bo $p(x)\in\mathbb{Q}[x]$ in $\deg(p)=n$, kjer $\alpha_1,\dots, \alpha_n$ ničle $p(x)$. Potem je njegova \bt{diskriminanta} $D_f := \underset{i,j\in [n]\land i< j}{\Pi}(\alpha_i -\alpha_j)^2$.}
+\trditev{Naj bo $p(x) = ax^3+bx^2+cx + d\in\mathbb{Q}[x]$. Potem je $D_p = 18abcd -4b^3d+b^2c^2-4ac^3-27a^2d^2$.}
+\izrek{\bt{(Cardanova formula)} Naj bo $p(x)=ax^3+bx^2+cx+d\in\mathbb{Q}[x]$, $a\neq 0$ nerazcepen. Naj bo $p(x)=0$, potem z $x=t-\frac{b}{3a}$ dobimo  $t^3+pt+q = 0$, kjer $p=\frac{3ac-b^2}{3a²}, q =\frac{2b^3-9abc+27a^2d}{27a^3}$. Naredimo substitucijo $t=u+v$ in dobimo $u^3+v^3+(3uv+p)(u+v)=0$. Izberemo $uv=-\frac{p}{3}$ in dobimo $u^3+v^3+q=0$. Potem sta $u^3, v^3$ ničle $y^2+qy - \frac{p^3}{27} = 0$. Naj bo $\Delta = (\frac{q}{2})^2+(\frac{p}{3})^3$ in $u=\sqrt[3]{-\frac{q}{2} + \sqrt{\Delta}}$, $v=\sqrt[3]{-\frac{q}{2} - \sqrt{\Delta}}$. Potem so ničle $t^3+pt+q=0$ enake $t_1 = u+v$, $t_2 = \omega u+\omega^2 v$ in $t_3 = \omega^2 u + \omega v$. Ničle $p(x)$ pa $x_i = t_i -\frac{b}{3a}$, kjer $\omega = e^{2\pi i/3}$.}
+\izrek{\bt{(Galoisova grupa polinomov 4. stopnje)} Naj bo $f(x) = x^4 + a_3x^3+a_2x^2+a_1x +a_0 \in \mathbb{Q}[x]$ nerazcepen. Nastavimo $t = x+\frac{a_3}{4}$ v $f(x)$ in dobimo $ g(t) =t^4+pt^2+qt+r \in \mathbb{Q}[x]$. Naj bodo $\alpha_1,\dots,\alpha_4$ ničle $g(x)$, $\Theta_1 := (\alpha_1+\alpha_2)(\alpha_3+\alpha_4)$, $\Theta_2 := (\alpha_1 + \alpha_3)(\alpha_2 +\alpha_4)$ in $\Theta_3 = (\alpha_1 + \alpha_4)(\alpha_2 + \alpha_3)$, potem je $R(x) := (x-\Theta_1)(x-\Theta_2)(x-\Theta_3) = x^3 -px^2 - 4rx + (4pr-q^2)$ \bt{kubična rezindenta} in $D_g = D_R$. Velja Gal$_{\mathbb{Q}}(f(x))=\begin{cases*}
+    A_4 \ ; \ \sqrt{D_R}\in\mathbb{Q} \\
+    S_4 \ ; \ \sqrt{D_R}\notin \mathbb{Q}
+\end{cases*}$.}
+\trditev{Naj bo $p\in\mathbb{P}$, $p > 2$, potem je Gal$_{\mathbb{Q}}(x^p-1)\cong C_{p-1}.$}
+\end{multicols*}
+\end{document}
