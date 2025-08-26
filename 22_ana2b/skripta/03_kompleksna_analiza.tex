@@ -25,7 +25,7 @@
         \item \textbf{Opomba.} Ali je kompleksni odvod močnejši od običajnega?
         \item \textbf{Posledica.} Ali je kompleksno odvedljiva funkcija v točki \(a \in D\) diferenciabilna? Ali je zvezna?
         \item \textbf{Opomba.} Ali je \(f(z) = \overline{z}\) kompleksno linearna? Ali je linearna? Ali je kompleksno odvedljiva?
-        \item \textbf{Trditev.} Kakšno strukturo ima \(O(D)\)? Pravila za odvajanje.
+        \item \textbf{Trditev.} Kakšno strukturo ima \(\OO(D)\)? Pravila za odvajanje.
         \item \textbf{Trditev.} Kompleksni odvod kompozicije.
     \end{itemize}
 
@@ -33,17 +33,18 @@
     
     Naj bo \(D \subseteq \C\) območje ter \(f: D \to \C\) kompleksna funkcija.
     \begin{itemize}
-        \item \textbf{Izrek.} Cauchy-Riemannove enačbe. 
+        \item \textcolor{red}{(*)} \textbf{Izrek.} Cauchy-Riemannove enačbe. 
+        \begin{proof}
+            Vzemimo \(h \in \R \setminus \set{0}\) in \(h = ik,\ k \in \R \setminus \set{0}\) in upoštevamo definicijo.
+        \end{proof}
         \item \textbf{Opomba.} Kako izračunamo kompleksni odvod?
-        \item \textbf{Zgled.} \todo{Račun odvodov.}
         \item \textbf{Opomba.} Simboli \(\frac{\partial f}{\partial \overline{z}}\) ter \(\frac{\partial f}{\partial z}\)
         \item \textbf{Trditev.} Karakterizacija holomorfnosti \(f\). Cauchy-Riemmanova enačba.
-        \item \textbf{Zgled.} \todo{Račun odvodov.}
         \item \textbf{Opomba.} Kdaj je intuitivno \(f\) holomorfna?
         \item \textbf{Trditev.} Kdaj je \(f\) holomorfna na \(D \subseteq \C\) (diferencial)?
         \item \textbf{Izrek.} Zadosten pogoj, da je \(f\) konstanta.
         \item \textbf{Izrek.} Kaj če je \(f\) holomorfna na območju \(D\) ter \(\img{f}(D) \subseteq \R\)?
-        \item \textbf{Izrek.} Recimo, da je \(f \in O(D)\) ter \(f \in C^2(D)\). Kaj lahko povemo o \(u\) in \(v\)?
+        \item \textbf{Izrek.} Recimo, da je \(f \in \OO(D)\) ter \(f \in C^2(D)\). Kaj lahko povemo o \(u\) in \(v\)?
         \item \textbf{Definicija.} Harmonična konjugiranka.
         \item \textbf{Opomba.} Kaj če imamo eno harmonično konjugiranko? V čim se razlikujeta dve harmonični konjugiranki?
         \item \textbf{Zgled.} Pokaži, da je \(u(x, y) = xy\) harmonična in določi njeno harmonično konjugiranko.  Pokaži, da je \(\log |z|\) harmonična na \(\C \setminus \set{0}\) in na \(\C \setminus \set{0}\) nima harmonične konjugiranke.
@@ -96,15 +97,15 @@
     \item Greenova formula v kompleksnem
     \begin{itemize}
         \item \textbf{Trditev.} Greenova formula v kompleksnem.
-        \item \textbf{Posledica.} Cauchyjev izrek.
-        \item \textbf{Izrek.} Cauchyjeva formula.
+        \item \textcolor{red}{(*)} \textbf{Posledica.} Cauchyjev izrek.
+        \item \textcolor{red}{(*)} \textbf{Izrek.} Cauchyjeva formula.
         \item \textbf{Opomba.} S čim je enolično določena holomorfna funkcija? Cauchyjevo jedro.
         \item \textbf{Posledica.} Lastnost povprečne vrednosti.
         \item \textbf{Opomba.} Ali je potrebna predpostavka, da je \(f \in C^1(\Omega)\)? Kaj pravi posledica?
         \item \textbf{Posledica.} Kaj če \(f \in O(\Omega) \cap C^1(\Omega)\)? Formula za odvod.
         \item \textbf{Izrek.} Morerov (Morera) izrek.
         \item \textbf{Izrek.} Goursatov (Goursat) izrek. 
-        \item \textbf{Trditev.} Princip maksima.
+        \item \textcolor{red}{(*)} \textbf{Trditev.} Princip maksima.
         \item \textbf{Posledica.}  Recimo, da \(f \in C(\overline{\Omega}) \cap O(\Omega)\). Čemu je enak maksimum \(f\)?
         \item \textbf{Trditev.} O funkcijskem zaporedju holomorfnih funkcij.
     \end{itemize}
@@ -113,29 +114,29 @@
     \begin{itemize}
         \item \textbf{Izrek.} Ali lahko vsako holomorfno funkcijo razvijemo v vrsto? Kje konvergira ta vrsta? Kaj je njena vsota?
         \item \textbf{Izrek.} Cauchyjeve ocene.
-        \item \textbf{Izrek.} Liouvilleov (Liouville) izrek.
+        \item \textcolor{red}{(*)} \textbf{Izrek.} Liouvilleov (Liouville) izrek.
         \item \textbf{Posledica.} Zadosten pogoj, da je \(f\) konstanta.
         \item \textbf{Izrek.} Osnovni izrek algebre.
         \item \textbf{Posledica.} Koliko ničel ima vsak nekonstanten polinom stopnje \(n\) v \(\C\)?
         \item \textbf{Trditev.} Razcep funkcije \(f \in O(\triangle (a, r))\). Stopnja ničle.
-        \item \textbf{Izrek.} Princip identičnosti.
+        \item \textcolor{green}{(*)} \textbf{Izrek.} Princip identičnosti.
         \item \textbf{Posledica.} Zadosten pogoj za enakost holomorfnih funkcij.
         \item \textbf{Posledica.} O izoliranih ničlah.
     \end{itemize}
 
     \item Izolirane singularne točke
     \begin{itemize}
-        \item \textbf{Definicija.} Kdaj pravimo, da ima \(f\) v \(a\) izolirno singularno točko? Singularna točka.
-        \item \textbf{Trditev.} Odpravljiva singularna točka.
+        \item \textcolor{red}{(*)} \textbf{Definicija.} Kdaj pravimo, da ima \(f\) v \(a\) izolirno singularno točko? Singularna točka.
+        \item \textcolor{red}{(*)} \textbf{Trditev.} Odpravljiva singularna točka.
         \item \textbf{Izrek.} Punktiran disk. Laurentova vrsta. Koeficienti. Regularni in glavni del vrste.
         \item \textbf{Opomba.} Ali so integrali, ki določajo koeficienti odvisni od izbire \(r\)? Kje konvergira glavni del in kje regularni?
         \item \textbf{Zgled.} \todo{Odpravljiva sungularnost.}
         \item \textbf{Definicija.} Odpravljiva singularnost. Pol stopnje \(n\). Bistvena singularnost.
         \item \textbf{Zgled.} \todo{Tipi singularnosti.}
-        \item \textbf{Trditev.} Karakterizacija odpravljive singularnosti.
-        \item \textbf{Trditev.} Karakterizacija pola.
-        \item \textbf{Posledica.} Karakterizacija pola (limita).
-        \item \textbf{Izrek.} Karakterizacija bistvene singularnosti.
+        \item \textcolor{red}{(*)} \textbf{Trditev.} Karakterizacija odpravljive singularnosti.
+        \item \textcolor{red}{(*)} \textbf{Trditev.} Karakterizacija pola.
+        \item \textcolor{red}{(*)} \textbf{Posledica.} Karakterizacija pola (limita).
+        \item \textcolor{red}{(*)} \textbf{Izrek.} Karakterizacija bistvene singularnosti.
         \item \textbf{Izrek.} Veliki Picardov izrek.
         \item \textbf{Zgled.} \todo{}
         \item \textbf{Posledica.} Mali Picardov izrek.
@@ -148,7 +149,7 @@
         \item \textbf{Definicija.} Residuum.
         \item \textbf{Trditev.} Čemu je enak \(\Res(f, a)\), če ima funkcija \(f\) v \(a\) pol stopnje \(n\).
         \item \textbf{Zgled.} \todo{Izračun \(\Res\).}
-        \item \textbf{Izrek.} Izrek o residuih.
+        \item \textcolor{red}{(*)} \textbf{Izrek.} Izrek o residuih.
         \item \textbf{Zgled.} \todo{Izračun integralov.}
         \item \textbf{Definicija.} Meromorfna funkcija. 
         \item \textbf{Trditev.} Karakterizacija meromorfnih funkcij.
@@ -156,10 +157,10 @@
         \item \textbf{Trditev.} Kaj če množica ničel meromorfne na \(\Omega\) funkcije ima stekališče v \(\Omega\)?
         \item \textbf{Posledica.} Kaj lahko povemo o množice polov meromorfne funkcije?
         \item \textbf{Opomba.} Razširitev meromorfne funkcije do \(f: \Omega \to \C P^1\).
-        \item \textbf{Izrek.} Princip argumenta.
+        \item \textcolor{red}{(*)} \textbf{Izrek.} Princip argumenta.
         \item \textbf{Opomba.} \todo{}
-        \item \textbf{Izrek.} Rouchejev (Rouche) izrek.
-        \item \textbf{Posledica.} Standardna oblika Rouchejeva izreka.
+        \item \textcolor{red}{(*)} \textbf{Izrek.} Rouchejev (Rouche) izrek.
+        \item \textcolor{red}{(*)} \textbf{Posledica.} Standardna oblika Rouchejeva izreka.
         \item \textbf{Zgled.} Koliko ničel ima \(f(z) = z^5 + 3z - 1\) na \(1 \leq |z| \leq 2\)?
         \item \textbf{Posledica.} Naj bo \(\overline{\triangle(a, r)} \leq \Omega\) in \(f \subseteq O(\Omega)\). Zadosten pogoj, da ima \(f\) ničlo na \(\triangle(a, r)\).
         \item \textbf{Opomba.} Ali to sledi tudi iz principa maksima?
@@ -184,7 +185,7 @@
         \item \textbf{Trditev.} Struktura vsake lomljene linearne preslikave (kompozitum).
         \item \textbf{Trditev.} Kam slikajo lomljene linearne preslikave krožnice in premice?
         \item \textbf{Opomba.} \todo{}
-        \item \textbf{Zgled.} Naj bo \(\phi(z) = \frac{z+1}{z-1}\). Kam \(\phi\) preslikava enotsko krožnico?
+        \item \textbf{Zgled.} Naj bo \(\phi(z) = \frac{z+1}{z-1}\). Kam \(\phi\) preslika enotsko krožnico?
         \item \textbf{Trditev.} S čim je enolično določena lomljena preslikava?
         \item \textbf{Posledica.} Ali lahko vsak odprt krog z lomljeno linearno preslikavo preslikamo na drug odprt krog? Ali lahko vsak odprt krog z lomljeno linearno preslikavo preslikamo na vsako odprto polravnino?
     \end{itemize}
@@ -193,21 +194,21 @@
     
     Naj bo \(f: D^\text{odp} \subseteq \C \to \C\).
     \begin{itemize}
-        \item \textbf{Definicija.}  Kdaj pravimo, da \(f\) ohranja kote v točki \(a \in D\)? Konformna preslikava.
+        \item \textcolor{red}{(*)} \textbf{Definicija.}  Kdaj pravimo, da \(f\) ohranja kote v točki \(a \in D\)? Konformna preslikava.
         \item \textbf{Izrek.} Zadosten pogoj za konformnost \(f\). Kaj pa obrat?
-        \item \textbf{Definicija.} Konformno ekvivalentni območji. 
+        \item \textcolor{red}{(*)} \textbf{Definicija.} Konformno ekvivalentni območji. 
         \newpage
         \item \textbf{Opomba.} Biholomorfna preslikava. Ali je konformna ekvivalenca ekvivalenčna relacija?
-        \item \textbf{Izrek.} Riemannov izrek.
+        \item \textcolor{red}{(*)} \textbf{Izrek.} Riemannov reprezentacijski izrek.
         \item \textbf{Opomba.} \todo{}
         \item \textbf{Zgled.} \todo{}
     \end{itemize} 
 
     Koliko je biholomorfnih preslikav med danim enostavno povezanim območjem \(D\) in \(\triangle(0, 1)\)?
     \begin{itemize}
-        \item Množica avtomorfizmov \(\C\).
-        \item Množica avtomorfizmov \(\C P\).
-        \item \textbf{Trditev.} Schwarzova lema.
-        \item \textbf{Izrek.} Množica avtomorfizmov \(\triangle\).
+        \item \textcolor{green}{(*)} Množica avtomorfizmov \(\C\).
+        \item \textcolor{green}{(*)} Množica avtomorfizmov \(\C P\).
+        \item \textcolor{red}{(*)} \textbf{Trditev.} Schwarzova lema.
+        \item \textcolor{red}{(*)} \textbf{Izrek.} Množica avtomorfizmov \(\triangle\).
     \end{itemize}
 \end{enumerate}

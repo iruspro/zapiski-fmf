@@ -14,9 +14,10 @@
         \item \textbf{Definicija.} Smerni odvod skalarnega polja \(u\).
         \item \textbf{Opomba.} Kaj meri smerni odvod? Kaj so smerni odvodi v smeri baznih vektorjev?
         \item \textbf{Opomba.} Kako izračunamo smerni odvod skalarnega polja \(u\) v točki \(p_0\), če je \(u\) diferenciabilno v \(p_0\)? Kaj to pomeni v kartezičnih koordinatih?
+        \item \textbf{Trditev.} V kakšni smeri se najhitreje narašča skalarno polje? V kakšni smeri pa najhitreje pada?
         \item \textbf{Definicija.} Gradient skalarnega polja. 
         \item \textbf{Opomba.} Ali je gradient odvisen od izbire baze? Kaj smo priredili skalarnemu polju?
-        \item \textbf{Trditev.} V kakšni smeri se najhitreje narašča skalarno polje? V kakšni smeri pa najhitreje pada?
+
         \item \textbf{Definicija.} Operator nabla.
         \item \textbf{Opomba.} Kako se z operatorjem nabla izraža gradient skalarnega polja? 
         \item \textbf{Definicija.} Divergenca vektorskega polja.
@@ -30,8 +31,8 @@
         \item \textbf{Opomba.} Zadosten pogoj, da je polje irotacionalno, Zadosten pogoj, da je polje solenoidalno. Kaj pa obrat?
         \item \textbf{Zgled.} Izračunaj rotor polja \(\vec{f}(x,y,z) = \left(-\frac{y}{x^2 + y^2}, \frac{x}{x^2+y^2}, 0\right)\). Ali je polje potencialno?
         \item \textbf{Definicija.} Zvezdasto območje.
-        \item \textbf{Izrek.} Kdaj je nevrtinčno polje potencialno? Kdaj je polje rotor nekega drugega polja?
-        \item \textbf{Zgled.} Ali je polje \(\vec{f}(x,y,z) = (y^2z^3 + 2, 2xyz^3 + 1, 3xe^2z^2)\) potencialno? Čemu je enak \(\rot \vec{f}\)? Ali je polje \(\vec{g}(x,y,z) = (2y-1, -1, 4x - 2xy)\) solenoidalno?
+        \item \textcolor{green}{(*)} \textbf{Izrek.} Kdaj je nevrtinčno polje potencialno? Kdaj je polje rotor nekega drugega polja?
+        \item \textbf{Zgled.} Ali je polje \(\vec{f}(x,y,z) = (y^2z^3 + 2, 2xyz^3 + 1, 3xy^2z^2)\) potencialno? Čemu je enak \(\rot \vec{f}\)? Ali je polje \(\vec{g}(x,y,z) = (2y-1, -1, 4x - 2xy)\) solenoidalno?
         \item \textbf{Opomba.} V kakšni obliki lahko lokalno zapišemo vsako vektorsko polje?
     \end{itemize}
 \end{enumerate}
@@ -66,7 +67,10 @@
         \item \textbf{Trditev.} Kaj če integriramo potencialno polje?
         \item \textbf{Posledica.} Kaj če integriramo potencialno polje po sklenjeni krivulji?
         \item \textbf{Zgled.} Izračunaj integral polja \(\vec{f}(x,y,z) = \left(-\frac{y}{x^2 + y^2}, \frac{x}{x^2+y^2}, 0\right)\) po krožnice.
-        \item \textbf{Izrek.} Karakterizacija potencialnih vektorskih polj.
+        \item \textcolor{red}{(*)} \textbf{Izrek.} Karakterizacija potencialnih vektorskih polj.
+        \begin{proof}
+            Potencial je \(u(T) = \int_{K} \vec{f} \cdot d\vec{r}\), kjer \(K\) krivulja od \(P_0\) do \(T\). Odvod \(u_x\) izračunamo po definiciji.
+        \end{proof}
     \end{itemize}
 
     \item Površina ploskve
@@ -95,6 +99,7 @@
         \item \textbf{Definicija.} Odsekoma gladka ploskev. Orientacija odsekoma gladke ploskve.
     \end{itemize}
 
+    \newpage
     \item Ploskovni integral skalarnega polja
     \begin{itemize}
         \item \textbf{Definicija.} Ploskovni integral skalarnega polja.
@@ -116,19 +121,19 @@
 
     \item Integralski izreki
     \begin{itemize}
-        \item \textbf{Izrek.} Gauss-Ostrogradski.
+        \item \textcolor{red}{(*)} \textbf{Izrek.} Gauss-Ostrogradski.
         \begin{proof}
-            \todo{}
+            Gledamo primer, ko je \(\Omega\) za vsako od treh koordinatnih ravnin leži med dvema grafoma \(C^1\) funkcij na omejeno odprto množico z ploščino.
         \end{proof}
-        \item \textbf{Izrek.} Stokesov izrek.
-        \begin{proof}
-            \todo{}
-        \end{proof}
-        \item \textbf{Izrek.} Greenova formula.
-        \begin{proof}
-            \todo{}
-        \end{proof}
+        \item \textcolor{red}{(*)} \textbf{Izrek.} Stokesov izrek.
+        \item \textcolor{red}{(*)} \textbf{Izrek.} Greenova formula.
         \item \textbf{Zgled.} \todo{Račun integralov.}
+        \item \textbf{Trditev.} Dokaži, da Gaussov izrek (\(n=2\)) implicira Greenovo formulo.
+        \item \textbf{Trditev.} Dokaži, da Stokesov izrek implicira Greenovo formulo.
+        \item \textcolor{red}{(*)} \textbf{Trditev.} Dokaži, da Greenova formula implicira Stokesov izrek.
+        \begin{proof}
+            Omejimo se lahko na primer, ko je \(\Sigma\) graf nad \(D \subseteq \R^2\).
+        \end{proof}
         \item \textbf{Definicija.} Divergenca, ki je neodvisna od izbire koordinatnega sistema.
         \item \textbf{Definicija.} Rotor, ki je neodvisen od izbire koordinatnega sistema.
         \item \textbf{Izrek.} Greenovi identiteti.

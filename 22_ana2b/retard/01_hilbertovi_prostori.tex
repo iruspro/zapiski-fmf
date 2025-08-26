@@ -245,7 +245,7 @@ Očitno, da je \(C([a,b]) \subseteq L^2([a, b])\).
 \end{posledica}
 
 \begin{proof}
-    Pokažemo, da je limita vsakega zaporedja v \(A^\perp\) tudi leži v \(A^\perp\).
+    Pokažemo, da je limita vsakega konvergentnega zaporedja v \(A^\perp\) tudi leži v \(A^\perp\).
 \end{proof}
 
 \begin{opomba}
@@ -359,8 +359,8 @@ Očitno, da je \(C([a,b]) \subseteq L^2([a, b])\).
     \label{trd:obstoj-x}
     Naj bo 
     \begin{itemize}
-        \item \(X\) vektorski prostor s skalarnim produktom;
-        \item \(\sys\) ONS.
+        \item \(X\) Hilbertov prostor;
+        \item \(\sys\) ONS;
         \item \((c_j)_{j=1}^\infty\) zaporedje števil (bodisi \(\R\) bodisi \(\C\));
         \item \(\sum_{j=1}^{\infty} |c_j|^2 < \infty\);
     \end{itemize}
@@ -497,7 +497,7 @@ Iz Besselove neenakosti \ref{trd:besselova-neenakost} sledi
 \end{zgled}
 
 \begin{lema}
-    Naj bo \(f: \R \to \R\) odsekoma zvezna periodična funkcija s periodo \(2\pi\). Tedaj je 
+    Naj bo \(f: \R \to \R\) odsekoma zvezna periodična funkcija s periodo \([2\pi]\). Tedaj je 
     \[
          \all{a \in \R} \int_{a}^{a+p} f(x) \, dx = \int_{0}^{p}  f(x) \, dx.
     \]
@@ -533,11 +533,10 @@ Iz Besselove neenakosti \ref{trd:besselova-neenakost} sledi
 \end{opomba}
 
 \begin{izrek}[Fourierjeva vrsta]
-    Naj bo
+    Naj bo \(f\) \(2\pi\) funkcija s periodo \(2\pi\), ki je:
     \begin{itemize}
-        \item funkcija \(f\) odsekoma zvezna in odsekoma odvedljiva periodična funkcijo s periodo \(2\pi\);
-        \item funkcija \(f\) na vsakem intervalu dolžine \(2\pi\) ima največ končno mnogo točk nezveznosti in v vsaki točki obstaja leva in desna limita;
-        \item funkcija \(f\) ima v vsaki točki levi in desni odvod.
+        \item odsekoma zvezna, tj.\ na vsakem intervalu dolžine \(2\pi\) nezvezna v končno mnogo točkah, v teh pa obstajata leva in desna limita.
+        \item odsekoma odvedljiva, tj.\ na vsakem intervalu dolžine \(2\pi\) neodvedljiva v končno mnogo točkah, v teh pa obstajata levi in desni odvod.
     \end{itemize}
     Tedaj za vsak \(x \in \R\) velja 
     \[
@@ -545,8 +544,12 @@ Iz Besselove neenakosti \ref{trd:besselova-neenakost} sledi
     \]
 \end{izrek}
 
-\begin{proof}
-    \todo{}
+\begin{proof} Naj bo \(x_0 \in \R\)
+    \begin{enumerate}
+        \item Izrazimo \(S_N = \frac{a_0}{2} + \sum_{n=1}^{\infty} a_n \cos(nx_0) + b_n \sin(nx_0)\) z Dirichletovim jedrom.
+        \item Prevedemo integral na \([-\pi, \pi]\) na integral na \([0, \pi]\).
+        \item Poglejmo razliko \(S_N(x_0) - \frac{f(x_0+) + f(x_0-)}{2}\), pri čemer kvocient zapišemo kot integral z Direcheletovim jedrom. Vsak člen obravnavamo posebej. Upoštevamo tudi Riemann-Lebesguevo lemo.
+    \end{enumerate}
 \end{proof}
 
 \begin{zgled}
@@ -595,7 +598,7 @@ Definiramo \textbf{Fourierjevo jedro}
 \end{trditev}
 
 \begin{proof}
-    \todo{}
+    Dovolj z pomočjo trigonometrije dokazati 1.\ formulo. Ostalo sledi.
 \end{proof}
 
 \begin{izrek}
