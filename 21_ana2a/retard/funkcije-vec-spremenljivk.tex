@@ -685,7 +685,7 @@ Diferencial preslikave $F$ je potem enak $(DF)(x,y) = \begin{bmatrix}
 \end{zgled}
 
 \begin{definicija}
-    Naj bo $D^\text{odp} \in \R^n$ in $F: D \to \R^m$ preslikava razreda $C^1$, $a \in D$. 
+    Naj bo $D^\text{odp} \subseteq \R^n$ in $F: D \to \R^m$ preslikava razreda $C^1$, $a \in D$. 
     \begin{enumerate}
         \item \textbf{Rang preslikave $F$ v točki $a$} je~$\rang_aF := \rang (DF)(a)$.
         \item Če je $\rang_aF$ konstanten na $D$, je $F$ tega ranga na $D$, tj.\ $\rang F = \rang_aF$.
@@ -781,9 +781,12 @@ Podmnogoterost je posplošitev pojmov "`krivulja"' in "`ploskev"'.
     \end{itemize}
 \end{zgled}
 
-\begin{opomba}
-    Če $M \cap U = \setb{x \in U}{F_1(x) = \ldots = F_m(x) = 0}$, \(\rang F = m\), rečemo, da je \textbf{mnogoterost podana implicitno}.
-\end{opomba}
+\begin{definicija}
+    Če mnogoterost \(M\) v okolici \(U\) točke \(a \in M\) podana kot 
+    $$M \cap U = \setb{x \in U}{F_1(x) = \ldots = F_m(x) = 0},\ \rang F = m,$$ rečemo, da je \textbf{mnogoterost podana implicitno}.
+\end{definicija}
+
+\subsection{Eksplicitno podajanje mnogoterosti}
 
 \begin{trditev}
     Neprazna podmnožica \(M \subseteq \R^{n+m}\) je podmnogoterost dimenzije \(n\) natanko tedaj, ko za vsako točko \(a \in M\) obstaja odprta okolica \(U \subseteq \R^{n+m}\) točke \(a\) in taka permutacija koordinat \(\sigma\):
@@ -792,7 +795,7 @@ Podmnogoterost je posplošitev pojmov "`krivulja"' in "`ploskev"'.
     \] 
     da je \(M \cap U\) graf neke \(C^1\) preslikave \(\varphi: D^\text{odp} \subseteq \R^n \to \R^m\), tj.\ 
     \[
-        M \cup U = \setb{x \in U}{(x_1, \ldots, x_{n+m}) = (x_{\sigma(1)}, \ldots, x_{\sigma(n)}, \varphi(x_1, \ldots, x_{\sigma(n)}))}.
+        M \cap U = \setb{x \in U}{(x_1, \ldots, x_{n+m}) = (x_{\sigma(1)}, \ldots, x_{\sigma(n)}, \varphi(x_1, \ldots, x_{\sigma(n)}))}.
     \]
 \end{trditev}
 
@@ -800,9 +803,138 @@ Podmnogoterost je posplošitev pojmov "`krivulja"' in "`ploskev"'.
     \todo{}
 \end{proof}
 
-\begin{opomba}
+\begin{definicija}
     Če mnogoterost podajamo kot graf, rečemo, da je \textbf{mnogoterost podana eksplicitno.}
+\end{definicija}
+
+\begin{zgled}
+    Ali je \(M = \setb{(x, x^2)}{x \in \R}\) mnogoterost?
+\end{zgled}
+
+\subsection{Parametrično podajanje mnogoterosti}
+
+\begin{zgled}
+    Ali je parametrizacija $\varphi \mapsto (a \cos \varphi, a \sin \varphi), \ a > 0, \ \varphi \in [0, 2 \pi)$ določa podmnogoterost?
+\end{zgled}
+
+\begin{trditev} \
+    \begin{enumerate}
+        \item  Naj bo \(M \subseteq \R^{n+m}\) podmnogoterost dimenzije \(n\). Potem za vsako točko \(a \in M\) obstaja taka okolica \(U \subseteq \R^{n+m}\) točke \(a\) in taka \(C^1\) preslikava 
+        \[
+            \Phi: D^\text{odp} \subseteq \R^n \to \R^{n+m}
+        \]
+        ranga \(n\), da je 
+        \[
+            \Phi(D) = M \cap U.
+        \]
+        \item Naj bo \(D^\text{odp} \subseteq \R^n\) in \(\Phi: D \subseteq \R^n \to \R^{n+m}\) \(C^1\) preslikava ranga \(n\). Potem za vsako točko \(t_0 \in D\) obstaja okolica \(V \subseteq D\) točke \(t_0\), da je \(\img{\Phi}(V)\) podmnogoterost dimenzije \(n\) v \(\R^{n+m}\).
+    \end{enumerate}
+\end{trditev}
+
+\subsection{Podajanje krivulj in ploskev v \(\R^3\)}
+\textbf{Krivuljo} lahko podamo parametrično z preslikavo \(\Phi: [a, b] \to \R^3\):
+\[
+    \Phi(t) = (x(t),\ y(t),\ z(t)).
+\]
+Pri čemer mora biti preslikava \(\Phi\) maksimalnega ranga:
+\[
+    \all{t \in [a, b] } \rang D\Phi(t) = 1.
+\] 
+Kar lahko tudi karakteriziramo na naslednji način:
+\[
+    \all{t \in [a, b] } \rang D\Phi(t) = 1 \liff \all{t \in [a, b] } \dot{x}^2 + \dot{y}^2 + \dot{z}^2 \neq 0.
+\]
+Parametrizaciji \(\Phi\) rečemo \textbf{regularna parametrizacija}.  
+
+\
+
+\textbf{Ploskev} lahko podamo parametrično z preslikavo \(\Phi: D \subseteq \R^2 \to \R^3\):
+\[
+    \Phi(t,s) = (x(t,s),\ y(t,s),\ z(t, s)).
+\]
+Pri čemer mora biti preslikava \(\Phi\) maksimalnega ranga, kar lahko karakteriziramo na naslednji način:
+\[
+    \all{t \in [a, b] } \rang D\Phi(t) = 2 \liff (X_t,\ Y_t,\ Z_t) \times (X_s,\ Y_s,\ Z_s) \neq \vec{0}.
+\] 
+\begin{trditev}
+    Naj bo \(M \subseteq \R^{n+m}\) podmnogoterost dimenzije \(n\). Za vsako točko \(a \in M\) obstaja taka okolica \(U \subseteq \R^{n+m}\) točke \(a\) in tak \(C^1\) difeomorfizem \(\Phi: U \to W \subseteq \R^{n+m}\), da je 
+    \[
+        \Phi(M \cap U) = D \times \set{0}^n,
+    \] 
+    kjer je \(D\) neka odprta množica v \(\R^n\).
+\end{trditev}
+
+\begin{proof}
+    \todo{}
+\end{proof}
+
+\begin{opomba}
+    Rečemo, da lahko podmnogoterost lokalno izravnavamo.
 \end{opomba}
+
+\begin{opomba}
+    \todo{}
+\end{opomba}
+
+\subsection{Tangentni prostor}
+Naj bo \(\gamma: (\alpha, \beta) \subseteq \R \to \R^n,\ \gamma(t) = (x_1(t), \ldots, x_n(t))\) preslikava razreda \(C^1\) na \((\alpha, \beta)\). Označimo  z \(\dot{\gamma}(t) = (\dot{x_1}(t), \ldots, \dot{x}_n(t))\).
+
+\begin{definicija}
+    Naj bo \(M \subseteq \R^n\) podmnogoterost in \(a \in M\). \textbf{Tangentni prostor} na \(M\) v točki \(a\) je 
+    \[
+        T_aM = \setb{\dot{\gamma}(t_0)}{\gamma: (\alpha, \beta) \subseteq \R \to \R^n,\ \gamma \in C^1(\alpha, \beta),\ \gamma(t_0) = a}.
+    \]
+\end{definicija}
+
+\begin{opomba}
+    Tangentni prostor dobimo tako, da vzemimo vse možne krivulje, ki gredo skozi točko \(a\) in tvorimo množico tangentnih vektorjev na \(M\) v točki \(a\).
+\end{opomba}
+
+\begin{trditev}
+    Naj bo \(M \subseteq \R^n\) podmnogoterost in \(a \in M\). Potem je \(T_aM\) vektorski podprostor dimenzije enake kot mnogoterost \(M\), tj.\ \[\all{a \in M} \dim T_aM = \dim M.\]
+\end{trditev}
+
+Zdaj navedemo kako lahko določimo tangentni prostor, če je mnogoterost podana eksplicitno, implicitno ali parametrično.
+
+\begin{trditev}
+    Naj bo mnogoterost \(M\) lokalno v okolici \(U\) točke \(a\) podana kot graf, tj.\
+    \[
+        M \cap U = \setb{(x', \phi(x'))}{x' \in D^\text{odp} \subseteq \R^d, \ \phi: D \to \R^{n-d},\ \phi \in C^1(D)}.
+    \]
+    Naj bo \(a = (a', \phi(a')) \in M\). Tedaj 
+    \[
+        T_aM = \im \begin{bmatrix}
+            I \\ D \phi(a')
+        \end{bmatrix}.
+    \]
+\end{trditev}
+
+\begin{opomba}
+    \(T_aM\) je graf odvoda \(D \phi(a')\).
+\end{opomba}
+
+\begin{trditev}
+    Naj bo mnogoterost \(M\) lokalno v okolici \(U\) točke \(a\) podana implicitno, tj.\
+    \[
+        M \cap U = \setb{x \in U}{F_1(x) = \ldots F_{n-d}(x)=0,\ \rang(F_1, \ldots, F_{n-d}) = n-d}.
+    \]
+    Tedaj 
+    \[
+        T_aM = \ker DF(a).
+    \]
+\end{trditev}
+
+\begin{trditev}
+    Naj bo \(M \subseteq \R^n\) podmnogoterost dimenzije \(d\). Naj bo \(a \in M\) in naj bo \(\Phi: D^\text{odp} \subseteq \R^d \to \R^n\) \(C^1\) preslikava ranga \(d\) taka, da 
+    \begin{enumerate}
+        \item \(\Phi(t_0) = a, \ t_0 \in D\);
+        \item \(\Phi(D) = M \cap U\) za neko okolico \(U \subseteq \R^n\) točke \(a\).
+    \end{enumerate}
+    Tedaj 
+    \[
+        T_aM = \im D\Phi (t_0).
+    \] 
+\end{trditev}
 
 \newpage
 \subsection{Taylorjeva formula}

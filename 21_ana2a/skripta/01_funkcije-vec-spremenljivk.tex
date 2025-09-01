@@ -1,0 +1,275 @@
+\section{Funckcije več spremenljivk}
+\subsection{Prostor $\R^n$}
+\begin{enumerate}
+    \item Prostor $\R^n$
+    \begin{itemize}
+        \item \textbf{Definicija.} Prostor $\R^n$. Seštevanje in množenje s skalarjem na $\R^n$. Ali je $\R^n$ vektorksi prostor?
+        \item \textbf{Definicija.} Skalarni produkt na $\R^n$. Norma vektorja na $\R^n$. Metrika na $\R^n$.
+        \item \textbf{Definicija.} Zaprt kvader. Odprt kvader.
+        \item \textbf{Opomba.} Ali imata prostori $(\R^n, d_2)$ in $(\R^n, d_\infty)$ isto topologijo?
+        \item \textcolor{blue}{(*)} \textbf{Izrek.} Karakterizacija kompaktnosti množic v $\R^n$.
+    \end{itemize}
+
+    \item Zaporedja v $\R^n$
+    \begin{itemize}
+        \item \textbf{Definicija.} Zaporedje v $\R^n$.
+        \item \textbf{Opomba.} Koliko realnih zaporedij porodi zaporedje v $\R^n$?
+        \item \textbf{Trditev.} Karakterizacija konvergence zaporedij v $\R^n$ (porojene podzaporedja).
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Zveznost preslikav iz $\R^n$ v $\R^m$}
+\begin{enumerate}
+    \item Zveznost preslikav
+    
+    Naj bo $D \subseteq \R^n$, $f: D \to \R^m$ preslikava. 
+    \begin{itemize}
+        \item \textbf{Definicija.} Kadar je $f$ zvezna v točki $a \in D$? Kadar je $f$ zvezna na~$D$?
+        \item \textbf{Trditev.} Karakterizacija zveznosti $f$ v točki $a \in D$ z zaporedji.
+        \item \textbf{Definicija.} Kadar je $f$ enakomerno zvezna na $D$?
+        \item \textcolor{blue}{(*)} \textbf{Trditev.} Kaj lahko povemo o zvezni preslikavi na kompaktu?
+        \item \textbf{Trditev.} Kaj lahko povemo o slike zvezne preslikave na kompaktu?
+        \item \textbf{Definicija.} Kadar je $f$ $C$-Lipschitzova?
+        \item \textbf{Trditev.} V kakšni zvezi so $C$-Lipschitzovost, enakomerna zveznost in zveznost?
+        \item \textbf{Trditev.} Kaj lahko povemo o vsote, razlike, produktu in kvocientu zveznih v točki $a \in D$ funkcij?
+        \item \textbf{Trditev.} Kaj lahko povemo o kompozitume zveznih preslikav?
+        \item \textbf{Zgled.} Ali je projekcija zvezna na $\R^n$? Kaj pa polinomi in racionalne funkcije?
+        \item \textbf{Definicija.} Funkcija $n$-spremenljivk.
+        \item \textbf{Opomba.} Ali je vsaka zožitev zvezne funkcije zvezna funkcija?
+        \item \textbf{Trditev.} Ali je zvezna v točki $a \in D$ funkcija zvezna v točki $a \in D$ kot funkcija posameznih spremenljivk?
+        \item \textbf{Zgled.} Navedi primer funkcije, ki je zvezna kot funkcija posameznih spremenljivk, vendar ni zvezna.
+        \item \textcolor{blue}{(*)} \textbf{Zgled.} Navedi primer funkcije, ki ima zvezne zožitve na premice, vendar ni zvezna.
+    \end{itemize}
+
+    \item Zveznost preslikav iz $\R^n$ v $\R^m$
+    
+    Naj bo $D \subseteq \R^n$ in $F: D \to \R^m$ preslikava. Naj bo $x \in D$, potem $F(x) = (y_1, \ldots, y_m) \in \R^m$.
+
+    Lahko pišemo $F(x) = (f_1(x), \ldots, f_m(x))$. Torej $F$ določa $m$ funkcij $n$-spremenljivk.
+    \begin{itemize}
+        \item \textbf{Trditev.} Karakterizacija zveznosti $F$ v točki $a \in D$ z koordinatnimi funkciji.
+        \item \textcolor{blue}{(*)} \textbf{Zgled.} Kaj pomeni, da so linearne preslikave omejene?
+        \item \textbf{Trditev.} Čemu je ekvivalentna omejenost linearnih preslikav?
+        \item \textbf{Trditev.} Ali so linearne preslikave zvezne? Matrična norma.
+        \item \textbf{Definicija.} Afina preslikava.
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Parcialni odvodi in difrenciabilnost}
+\begin{enumerate}
+    \item Parcialni odvodi
+    
+    Naj bo $D \subseteq \R^n$, $a \in D$ notranja, $f: D \to \R$ funkcija.
+    
+    \begin{itemize}
+        \item \textbf{Definicija.} Kadar je $f$ parcialno odvedljiva po spremenljivke $x_j$ v točki $a \in D$? Kaj je parcialni odvod?
+        \item \textbf{Opomba.} Kaj lahko povemo o parcialne odvedljivosti elementarnih funkcij?
+    \end{itemize}
+
+    \item Diferenciabilnost
+    
+    Naj bo $D \subseteq \R^n$, $a \in D$ notranja, $f: D \to \R$ funkcija.
+    
+    \begin{itemize}
+        \item \textbf{Definicija.} Kadar je $f$ diferenciabilna v točki $a \in D$? Diferencial $f$ v točki $a \in D$.
+        \item \textbf{Opomba.} Ali je diferencial, če obstaja, enolično določen?
+        \item \textbf{Opomba.} Kaj je diferencial v smislu aproksimacije funkcije? Zapis diferenciala v matrične oblike.
+        \item \textcolor{red}{(*)} \textbf{Trditev.} Potrebni pogoji za diferenciabilnost.
+        \item \textbf{Opomba.} Kako lahko izrazimo diferencial z parcialnimi odvodi? Gradient funkcije. Operator nabla.
+        \item \textbf{Zgled.} Ali je $f(x, y) = \begin{cases}
+            \frac{2xy}{x^2+y^2}; &(x, y) \neq (0,0) \\ 0; &(x, y) = (0,0)
+        \end{cases}$ diferenciabilna?
+        \item \textcolor{blue}{(*)} \textbf{Zgled.} Navedi primer funkcije, ki je parcialno odvedljiva na vse spremenljivke, ampak ni diferenciabilna.
+        \item \textcolor{red}{(*)} \textbf{Izrek.} Zadosten pogoj za diferenciabilnost $f$ v točki $a \in D$.
+    \end{itemize}
+
+    \item Višji parcialni odvodi
+    
+    Naj bo $f: D^\text{odp} \subseteq \R^n \to \R$ funkcija. Denimo, da je $f$ parcialno odvedljiva po vseh spremenljivkah na $D$. Parcialni odvodi so tudi funkcije $n$-spremenljivk in morda so tudi te parcialno odvedljive po vseh oz. nekaterih spremenljivkah.
+    
+    \begin{itemize}
+        \item \textcolor{green}{(*)} \textbf{Trditev.} Zadostni pogoj za enakost mešanih odvodov.
+        \item \textbf{Definicija.} Kadar je $f$ razreda $C^k$ na $D$?
+        \item \textbf{Definicija.}  Množica $k$-krat zvezno odvedljivih funkcij. Množica gladkih funkcij. Množica zveznih funkcij.
+        \item \textbf{Opomba.} Kakšno strukturo ima množica $C^k(D)$?
+    \end{itemize}
+
+    \item Diferenciabilnost preslikav
+    
+    Naj bo $D \subseteq \R^n$, $a \in D$ notranja, $F: D \to \R^m$ preslikava.
+    \begin{itemize}
+        \item \textbf{Definicija.} Kadar je $F$ diferenciabilna v točki $a \in D$? Diferencial $F$ v točki $a \in D$.
+        \item \textbf{Opomba.} Ali je diferencial, če obstaja, enolično določen?
+        \item \textbf{Zgled.} Ali sta diferenciabilni $\mc{A}: \R^n \to \R^m$ linearna, $F(x) = \mc{A}x$ in $F: 
+        \R^{n \times n} \to \R^{n \times n}, \ F(X) = X^2$?
+        \item \textbf{Izrek.} Karakterizacija diferenciabilnosti $F$ v točki $a \in D$ s koordinatnimi funkciji. 
+        \item \textbf{Opomba.} Kako se izraža diferencial $F$ v točki $a \in D$ z koordinatnimi funkciji? Jacobijeva matrika.
+        \item \textbf{Posledica.} Zadosten pogoj za diferenciabilnost $F$ v točki $a$.
+        \item \textbf{Definicija.} Kadar je $F$ razreda $C^k$ na $D$?
+        \item \textcolor{red}{(*)} \textbf{Izrek.} Verižno pravilo.
+        \item \textbf{Opomba.} Kako se izraža diferencial kompozituma funkcij z Jacobijevimi matriki?
+        \item \textcolor{blue}{(*)} \textbf{Posledica.} Verižno pravilo za funkcijo $n$-spremenljivk. Odvod funkcije po \(i\)-te spremenljivke.
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Izrek o implicitni funkciji}
+\begin{enumerate}
+    \item Izrek o inverzni preslikavi
+    
+    Naj bo $D, \Omega \subseteq \R^n$ odprti, $\Phi: D \to \Omega$ preslikava razreda $C^1(D)$. Kakšne so zadostni pogoji za (lokalno) obrnljivost preslikave $\Phi$?
+    
+    \begin{itemize}
+        \item \textbf{Definicija.} Kadar rečemo, da je $\Phi$ $C^k$-difeomorfizem?
+        \item \textbf{Zgled.} Ali je $f: \R \to \R, \ f(x) = x^3$ difeomorfizem?        
+        \item \textcolor{blue}{(*)} \textbf{Trditev.} Potreben pogoj, da je $\Phi$ difeomorfizem.
+        \item \textbf{Zgled.} Ali velja obrat? 
+        \item \textbf{Posledica.} Kako izračunamo diferencial inverzne preslikave?
+        \item \textcolor{blue}{(*)} \textbf{Lema.} Lagrangeev izrek za funkcijo več spremenljivk.
+        \item \textbf{Posledica.} Kaj če so vsi parcialno odvodi omejeni (ocena razlike)?
+        \item \textbf{Posledica.} Kaj če so vsi parcialno odvodi omejeni in je \(f\) preslikava (ocena razlike)?
+        \item \textcolor{blue}{(*)} \textbf{Lema.} Pomožna trditev za dokaz izreka o inverzni preslikavi.
+        \item \textbf{Opomba.} Poenostavitev.
+        \item \textcolor{red}{(*)} \textbf{Izrek.} Izrek o inverzni preslikavi. Lokalni difeomorfizem.
+        \item \textbf{Posledica.} Kaj če je $F$ razreda $C^k(D)$?
+        \item \textbf{Definicija.} Kadar rečemo, da je $\Phi$ lokalni $C^k$-difeomorfizem?
+        \item \textbf{Opomba.} Kaj pravi izrek, če je $n = 1$?
+        \item \textbf{Zgled.}  Naj bo $F: \R^{n \times n} \to \R^{n \times n}, \ F(X) = X^2$. Ali je $F$ v okolici točke $I \in \R^{n \times n}$ lokalni difeomorfizem? Kaj to pomeni?
+    \end{itemize}
+    
+
+    \item Osnovna verzija izreka o implicitni preslikavi
+    
+    Naj bo $D \subseteq \R^2$ odprta, $(a, b) \in D$, $f: D \to \R$ funkcija razreda $C^1(D)$.
+    \begin{itemize}
+        \item \textcolor{green}{(*)} \textbf{Izrek.} Osnovna verzija izreka o implicitni funkciji.
+        \item \textbf{Posledica.} Kaj če je $f$ razreda $C^k(D)$?
+        \item \textbf{Zgled.} Kaj če pogoji niso izpolnjeni:
+        \begin{enumerate}
+            \item $f(x,y) = (x-y)^2, \ f(x,y) = 0$ v okolici točke $(0,0)$. Pogoji niso zadostni.
+            \item $f(x,y) = y^3-x, \ f(x,y) = 0$ v okolici točke $(0,0)$. Funkcija ni odvedljiva v \(x = 0\).
+            \item $f(x,y) = y^2-x^2-x^4, \ f(x,y) = 0$ v okolici točke $(0,0)$. Ni enoličnosti.
+            \item $f(x,y) = y^2+x^2+x^4,  \ f(x,y) = 0$ v okolici točke $(0,0)$. Rešitev je točka.
+        \end{enumerate}
+    \end{itemize}
+
+    \item Izrek o implicitni funkciji
+    
+    Imamo $n+m$ spremenljivk $(x,y)$, kjer $x = (x_1, \ldots, x_n), \ y = (y_1, \ldots, y_m)$ in $m$ enačb. Pričakujemo, da bomo lahko $m$ spremenljivk izrazili kot funkcijo $n$ ostalih, tj.\ najdemo preslikavo $\Phi: D \subseteq \R^n \to \R^m$, da velja $y = \Phi(x)$.
+
+    Naj bo $D \subseteq \R^n_x \times \R^m_y$ odprta, $F = (f_1, \ldots, f_m): D \to \R^m$ preslikava razreda $C^1(D)$.
+
+    \begin{itemize}
+        \item \textbf{Definicija.} Parcialni diferencial na prvo spremenljivko. Parcialni diferencial na drugo spremenljivko.
+        \newpage
+        \item \textbf{Opomba.} Kako se izraža parcialna diferenciala z matriko? Kako se izraža diferencial $F$ z parcialnima diferencialoma?  
+        \item \textbf{Opomba.} Kako ta diferencial deluje na vektorju $\begin{bmatrix}
+            h \\ k
+        \end{bmatrix}, \ h \in \R^n, \ k \in \R^m$?
+        \item \textbf{Opomba.} Kako lahko odvajamo izraz \(F(x, \varphi(x)) = 0\) po spremenljivke \(x\)?
+        \item \textcolor{green}{(*)} \textbf{Izrek.} Izrek o implicitni funkciji.
+        \item \textbf{Posledica.} Kaj če je $F$ razreda $C^k(D)$?
+        \item \textbf{Zgled.} Naj bo $F(x,y) = x^2+y^2-1$ in naj rešujemo enačbo $F(x,y) = 0$ v okolici točke $(0,1)$. \\ S pomočjo dokaza izreka o implicitni preslikavi določi $y = \varphi(x)$. 
+        \item \textbf{Zgled.} Naj bosta $f(x,y,z)= y +xy+xz^2$ in $g(x,y,z) = z + zy+x^2$. Dokaži, da sistem enačb $f(x,y,z) = 0$ in $g(x,y,z) = 0$ v okolici točke $(0,0,0)$ enolično določa $C^\infty$ funkciji $y = y(x)$ in $z = z(x)$ in razvij jih v Taylorjevo vrsto do členov reda $2$.
+    \end{itemize}
+
+    \item Rang preslikave
+    
+    Naj bo $D \subseteq \R^n$ odprta, $a \in D$ in $F: D \to \R^m$ preslikava razreda $C^1$.
+    \begin{itemize}
+        \item \textbf{Zgled.} Naj bo $F: \R^3 \to \R$ funkcija. Recimo, da rešujemo enačbo $F(x,y,z) = 0$ in vemo, da $F(a,b,c) = 0$. Kakšen je zadosten pogoj za to, da bi lahko vsaj eno spremenljivko izrazili kot funkcijo ostalih?
+        \item \textbf{Zgled.} Naj bosta $F: \R^3 \to \R$ in $G: \R^3 \to \R$ funkciji. Recimo, da rešujemo sistem enačb $F(x,y,z) = 0$ in $G(x,y,z) = 0$ in vemo, da  $F(a,b,c) = 0$ in  $G(a,b,c) = 0$. Kakšen je zadosten pogoj za to, da bi lahko vsaj dve spremenljivke izrazili kot funkcijo tretje?
+        \item \textbf{Definicija.} Rang preslikave $F$ v točki $a \in D$. Rang $F$. Kadar rečemo, da je $F$ v točki $a \in D$ maksimalnega ranga?
+        \item \textbf{Opomba.} Ali je maksimalnost ranga lokalno stabilna?
+        \item \textbf{Zgled.} Obrnljiva matrika in permutacija koordinat.
+        \item \textbf{Posledica IIF.} Čemu je ekvivalentna enačba $F(x) = 0$, če je $m < n$?
+        \item \textbf{Zgled.} Naj bo $\mc{A}: \R^n \to \R^m$ linearna, $m \leq n$, $\rang \mc{A} = m$. Kakšno dimenzijo ima prostor rešitev enačbe~$\mc{A}x=b$?
+        \item \textbf{Posledica.} Kaj lahko povemo o $F$ v točki $a \in D$, če je $\rang_a F = m$, če $m \leq n$?
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Podmnogoterosti v $\R^n$}
+Podmnogoterosti je posplošitev pojmov "`krivulja"' in "`ploskev"'.
+\begin{enumerate}
+    \item Podmnogoterosti
+    \begin{itemize}
+        \item \textcolor{red}{(*)} \textbf{Definicija.} Gladka podmnogoterost. Lokalne definicijske funkcije.
+        \item \textbf{Opomba.} Kaj je podmnogoterost, če je njena kodimenzija enaka $0$?
+        \item \textbf{Zgled.} Gledamo v $\R^3$. Naj bo $\mc{F}_1, \mc{F}_2, \mc{F}_3: \R^3 \to \R$ linearni. Kaj dobimo, če vzamemo za definiciske funkcije eno, dve ali tri funkcije izmed $\mc{F}_1, \mc{F}_2, \mc{F}_3$? Kadar govorimo o krivuljah in kadar o ploskvah?
+        \item \textbf{Zgled.} Ugotovi, ali je podmnogoterost:
+        \begin{itemize}
+            \item $M = \setb{(x,y,z) \in \R^3}{x^2+y^2+z^2 = 1}$.
+            \item $M = \setb{(x,y,z) \in \R^3}{x^2+y^2+z^2 = 1, \ x+y+z = 0}$.
+            \item $M = (\set{0} \times \R) \cup (\R \times \set{0})$.
+            \item $\GL_n(\R) = \setb{A \in \R^{n \times n}}{\det A \neq 0}$.
+            \item $\SL_n(\R) = \setb{A \in \R^{n \times n}}{\det A = 1}$.
+        \end{itemize}
+        \item \textbf{Definicija.} Kadar rečemo, da je podmnogoterost podana implicitno?
+    \end{itemize}
+
+    \item Eksplicitno podajanje mnogoterosti
+    \begin{itemize}
+        \item \textbf{Trditev.} Karakterizacija podmnogoterosti (ali je lokalno graf?)
+        \item \textbf{Definicija.} Kadar rečemo, da je podmnogoterost podana eksplicitno?
+        \item \textbf{Zgled.} Ali je $M = \setb{(x, x^2)}{x \in \R}$ podmnogoterost?
+    \end{itemize}
+
+    \item Parametrično podajanje mnogoterosti
+    \begin{itemize}
+        \item \textbf{Zgled.} Ali je parametrizacija $\varphi \mapsto (a \cos \varphi, a \sin \varphi), \ a > 0, \ \varphi \in [0, 2 \pi)$ določa podmnogoterost?
+        \item \textbf{Trditev.} Ali lahko vsako mnogoterost parametriziramo? Ali vsaka \(C^1\) preslikava določa mnogoterost?
+    \end{itemize}
+
+    \item Podajanje krivulj in ploskev
+    \begin{itemize}
+        \item Parametrično podajanje krivulj. Regularna parametrizacija.
+        \item Parametrični podajanje ploskev.
+    \end{itemize}
+
+    \item Tangentni prostor
+    \begin{itemize}
+        \item \textcolor{red}{(*)} \textbf{Definicija.} Tangentni prostor.
+        \item \textbf{Trditev.} Ali je tangentni prostor vektorski prostor? Kakšno dimenzijo ima?
+        \item \textcolor{blue}{(*)} \textbf{Trditev.} Kako določimo tangentni prostor, če je mnogoterost podana eksplicitno? 
+        \item \textcolor{red}{(*)} \textbf{Trditev.} Kako določimo tangenti prostor, če je mnogoterost podana implicitno?
+        \item \textcolor{red}{(*)} \textbf{Trditev.} Kako določimo tangenti prostor, če je mnogoterost podana parametrično?
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Ekstremi funkcij več spremenljivk}
+\begin{enumerate}
+    \item Ekstremi funkcij več spremenljivk
+    
+    Naj bo $D \subseteq \R^n, \ a \in D$, $f: D \to \R$ funkcija.
+    
+    \begin{itemize}
+        \item \textbf{Definicija.} Lokalni maksimum/minimum. Strogi lokalni maksimum/minimum. Maksimum/minimum (globalni). Lokalni ekstrem. Globalni ekstrem.
+        \item \textbf{Opomba.} Kaj ima zvezna funkcija na kompaktu?
+        \item \textbf{Definicija.} Stacionarna (oz. kritična) točka $a \in D^\text{odp}$ diferenciabline funkcije $f$.
+        \item \textbf{Trditev.} Kaj če ima diferenciablina funkcija $f$ v točki $a \in D^\text{odp}$ lokalni ekstrem?
+        \item \textbf{Zgled.} Poišči minimum in maksimum $f(x,y) = x^2 - xy + y^2 -3x +4$ na $K = \setb{(x, y) \in \R^2}{x^2+y^2 \leq 3}$.
+    \end{itemize}    
+
+    \item Potrebni in zadostni pogoji na 2. odvodi, da je kritična točka lokalni ekstrem
+    
+    Naj bo $D \subseteq \R^n$ odprta, $f: D \to R$ razreda $C^2$ na $D$.
+    \begin{itemize}
+        \item \textbf{Definicija.} Hessejeva matrika $Hf$ 2.\ odvodov. Hessejeva forma.
+        \item \textbf{Opomba.} Kaj lahko povemo o Hessejeve matrike?
+        \item \textbf{Definicija.} Pozitivno (semi)definitna $Hf$. Negativno (semi)definitna $Hf$.
+        \item \textbf{Opomba.} Karakterizacija pozivne/negativne (semi)definitnosti s lastnimi vrednosti $Hf$.
+        \item \textbf{Trditev.} (Potrebni pogoji). Kaj velja, če ima $f$ v točki $a \in D$ lokalni maksimum/minimum?
+        \item \textbf{Trditev.} (Zadostni pogoji.) Kadar je stacionarna točka $a \in D$ funkcije $f$ lokalni minimum/maksimum? Kadar nič od tega?
+        \item \textbf{Zgled.} Določi $(Hf_i)(0,0)$ za $f_1(x,y) = \frac{1}{2}(x^2+y^2)$, $f_2(x,y) = \frac{1}{2}(-x^2-y^2)$, $f_3(x,y) = \frac{1}{2}(x^2-y^2)$.
+        \item \textbf{Posledica.} Kako zgledajo zadostni pogoji za primer $n = 2$?
+        \item \textbf{Zgled.} Naj bo $f(x,y,z) = x^2+y^2+z^2 + 2xyz$. Klasificiraj vse stacionarne točke funkcije $f$.
+    \end{itemize}
+
+    \item Vezani ekstremi
+    
+    \begin{itemize}
+        \item \textbf{Izrek.}Obstoj Lagrangeevih multiplikatorjev.
+        \item \textbf{Opomba.} Lagrangeeva metoda za iskanja vezanih ekstremov.
+        \item \textbf{Zgled.} Določi stacionarne točke $f(x,y,z)=z$ na $M = \setb{(x,y,z) \in \R^3}{x^2+y^2+z^2=1; \ x+ y + z = 0}$.
+        \item \textbf{Zgled.} Določi stacionarne točke  $f(x,y,z)= x^2 - xy +y^2 - 3x +4$ na robu $x^2 + y^2 = 9$. 
+    \end{itemize}
+\end{enumerate}
