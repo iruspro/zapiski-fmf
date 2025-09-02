@@ -1,0 +1,65 @@
+\section{Integral s parametri}
+Naj bo $f:[a,b]_x \times [c,d]_y \to \R$ funkcija. Gledamo funkcijo $\ds F(y) = \int_{a}^{b}f(x,y) \, dx$, kjer je $y \in [c,d]$ \emph{parameter}.
+
+Zanima nas v kakšni so povezavi lastnosti funkcije $f$ in funkcije $F$.
+
+\begin{enumerate}
+    \item Integral s parametri
+    \begin{itemize}
+        \item \textbf{Definicija.} Lokalno kompaktna podmnožica.
+        \item \textbf{Trditev.} Zadostni pogoj za zveznost funkcije $F(u,v,y) = \int_{u}^{v}f(x,y) \, dx$.
+        \item \textbf{Posledica.} Zadostni pogoj za zveznost funkcije $F(y) = \int_{a}^{b}f(x,y) \, dx$.
+    \end{itemize}
+    \item Odvajanje integrala s parametri
+    \begin{itemize}
+        \item \textbf{Trditev.} Zadostni pogoj, da smemo zamenjati vrstni red odvajanja in integriranja v \(\frac{d}{dy} \int_{a}^{b}f(x,y) \, dx\). \\ Kaj lahko povemo o funckiji $F(y) = \int_{a}^{b}f(x,y) \, dx$?
+        \item \textbf{Posledica.} Čemu je enako \(\frac{d}{dy} \int_{\alpha(y)}^{\beta(y)}f(x,y) \, dx\)? Pri kakšnih zadostnih pogojih?
+        \item \textbf{Posledica.} Naj bo \(y \in D^\text{odp} \subseteq \R^n\). Zadostni pogoj, da smemo zamenjati vrstni red odvajanja in integriranja v \(\podv{}{y_j} \int_{a}^{b}f(x,y) \, dx\) za vse \(j \in \set{1, \ldots, n}\).  Kaj lahko povemo o funckiji $F(y) = \int_{a}^{b}f(x,y) \, dx$?
+    \end{itemize}
+
+    \item Integral integrala s parametri
+    \begin{itemize}
+        \item \textcolor{green}{(*)} \textbf{Trditev.} Zadostni pogoji, da smemo zamenjati vrstni red integriranja v \(\int_{c}^{d} \left(\int_{a}^{b} f(x,y) \,dx \right) \,dy\).
+    \end{itemize}
+
+    \item Posplošeni integral s parametri
+    
+    Naj bo $Y$ neka množica, $a \in \R$, $f: [a, \infty)_x \times Y_y \to \R$ funkcija. Standardni predpostavki:
+    \begin{itemize}
+        \item[] Funkcija $f$ za vsak $y \in Y$ zvezna, tj. $x \mapsto f(x,y)$ zvezna na $[a, \infty)$ za vsak \(y \in Y\).
+        \item[] Za vsak \(y \in Y\) obstaja integral \( \ds F(y)= \int_{a}^{\infty} f(x,y) \,dx \)
+    \end{itemize}
+    \begin{itemize}
+        \item \textbf{Definicija.} Kadar \( F(y) = \int_{a}^{\infty} f(x,y) \, dx\) konvergira enakomerno na \(Y\)?
+        \item \textbf{Trditev.} Zadostni pogoji za zveznost funkcije $F(y) = \int_{a}^{\infty} f(x,y) \, dx$.
+        \item \textbf{Definicija.} Kadar \( F(y) = \int_{a}^{\infty} f(x,y) \, dx\) konvergira lokalno enakomerno na \(Y\)?
+        \item \textbf{Trditev.} Test enakomerne konvergence.
+        \item \textcolor{green}{(*)} \textbf{Trditev.} Zadostni pogoji, da smemo zamenjati vrstni red integriranja v \(\int_{a}^{\infty}\left(\int_{c}^{d} f(x,y) \, dy\right) \, dx\).
+        \item \textcolor{green}{(*)} \textbf{Trditev.} Zadostni pogoji, da smemo zamenjati vrstni red integriranja v \(\int_{a}^{\infty}\left(\int_{c}^{\infty} f(x,y) \, dy\right) \, dx\), če je $f$ nenegativna.
+        \item \textcolor{green}{(*)} \textbf{Trditev.} Zadostni pogoji, da smemo zamenjati vrstni red integriranja v \(\int_{a}^{\infty}\left(\int_{c}^{\infty} |f(x,y)| \, dy\right) \, dx\).
+        \item \textcolor{red}{(*)} \textbf{Trditev.} Zadostni pogoji, da smemo zamenjati vrstni red odvajanja in integriranja v \(\frac{d}{dy} \int_{a}^{\infty}f(x,y) \, dx\).
+        \\ Kaj lahko povemo o funckiji $F(y) = \int_{a}^{\infty}f(x,y) \, dx$?
+        \item \textbf{Posledica.} Naj bo \(y \in D^\text{odp} \subseteq \R^n\). Zadostni pogoj, da smemo zamenjati vrstni red odvajanja in integriranja v \(\podv{}{y_j} \int_{a}^{\infty}f(x,y) \, dx\) za vse \(j \in \set{1, \ldots, n}\).  Kaj lahko povemo o funckiji $F(y) = \int_{a}^{\infty}f(x,y) \, dx$?
+    \end{itemize}
+    \item Eulerjeva funkcija gama
+    \begin{itemize}
+        \item \textbf{Definicija.} Eulerjeva funkcija gama.
+        \item \textbf{Trditev.} Lastnosti Eulerjeve funkcije gama.
+        \item \textbf{Izrek.} S čim je enolično določena Eulerjeva funkcija gama?
+        \item \textbf{Izrek.} Stirlingova formula.
+        \item \textbf{Posledica.} Čemu je enako \(\lim_{n \to \infty} \frac{n!}{n^n \, e^{-n} \, \sqrt{2 \pi n}}\)? Kaj to pomeni?
+    \end{itemize}
+
+    \item Eulerjeva funkcija beta
+    \begin{itemize}
+        \item \textbf{Definicija.} Eulerjeva funkcija beta.
+        \item \textbf{Trditev.} Lastnosti Eulerjeve funkcije beta.
+        \item \textbf{Trditev.} Kaj če v \(B(p,q)\) vpeljamo \(x = \sin^2 t\)?
+        \item \textbf{Trditev.} Kaj če v \(B(p,q)\) vpeljamo \(t = \frac{t}{1+t}\)?
+        \item \textbf{Posledica.} Čemu je enako \(B(p, 1-p)\)?
+        \item \textbf{Posledica.} Čemu je enako \(B(\frac{1}{2}, \frac{1}{2})\)?
+        \item \textbf{Izrek.} Osnovna povezava med \(B\) in \(\Gamma\).
+        \item \textbf{Posledica.} Čemu je enako \(\Gamma(\frac{1}{2})\)?
+    \end{itemize}
+\end{enumerate}
+

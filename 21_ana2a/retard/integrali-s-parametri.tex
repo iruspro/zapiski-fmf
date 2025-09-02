@@ -69,19 +69,18 @@ Zanima nas v kakšni so povezavi lastnosti funkcije $f$ in funkcije $F$.
     Tedaj je 
     \begin{enumerate}
         \item $\ds F(y) = \int_{a}^{b}f(x,y) \, dx$ odvedljiva funkcija na $(c,d)$.
-        \item $\ds F'(y) = \frac{dF}{dy}(y) = \frac{d}{dy} \int_{a}^{b}f(x,y) \, dx = \int_{a}^{b} \podv{f}{y}(x,y) \, dx$, tj. lahko zamenjamo vrstni red odvajanja.
+        \item $\ds F'(y) = \frac{dF}{dy}(y) = \frac{d}{dy} \int_{a}^{b}f(x,y) \, dx = \int_{a}^{b} \podv{f}{y}(x,y) \, dx$, tj.\ lahko zamenjamo vrstni red odvajanja.
     \end{enumerate}    
 \end{trditev}
 
 \begin{proof}
-    Dokazujemo, da je $F$ odvedljiva v točki $y \in (c,d)$. Ocenimo razliko $\ds \left|\frac{F(y+h)-F(y)}{h} - \int_{a}^{b} \podv{f}{y}(x,y) \,dx \right|$
+    Dokazujemo, da je $F$ odvedljiva v točki $y \in (c,d)$. Ocenimo razliko $$\ds \left|\frac{F(y+h)-F(y)}{h} - \int_{a}^{b} \podv{f}{y}(x,y) \,dx \right|$$
     \begin{itemize}
         \item Lagrangeev izrek.
         \item Ustrezni kompakti. \qedhere
     \end{itemize}
 \end{proof}
 
-\newpage
 \begin{posledica}
     Recimo, da velja
     \begin{enumerate}
@@ -419,7 +418,6 @@ Kadar je \(\ds \int_{c}^{\infty}\left(\int_{a}^{\infty} f(x,y) \, dx\right) \, d
     S pomočjo Eulerjeve funkcije beta izračunaj \(\ds \int_{0}^{\frac{\pi}{2}} \sin^8x \cos^6x \, dx\).
 \end{primer}
 
-\newpage
 \begin{izrek}[Stirlingova formula]
     \[\lim_{s \to \infty} \frac{\Gamma(s+1)}{s^s \, e^{-s} \, \sqrt{2 \pi s}} = 1.\]
 \end{izrek}

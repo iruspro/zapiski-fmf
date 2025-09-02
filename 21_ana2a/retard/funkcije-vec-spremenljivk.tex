@@ -482,7 +482,7 @@ Naj bo $\Phi: D^\text{odp} \subseteq \R^n \to \R^n$ preslikava, $\Phi \in C^1(D)
     \begin{itemize}
         \item množica $D \subseteq \R^n$ odprta;
         \item preslikava $F: D \to \R^n$ razreda $C^1$ ter
-        \item \(F(0) = 0\) in \(DF(0) = I\).
+        \item \(DF(0) = I\).
     \end{itemize}
     Definiramo \(H(x) := F(x) - x\). Tedaj 
     \[\some{r > 0} \all{x_1, x_2 \in \overline{K(0, r)}} \norm{H(x_1) - H(x_2)} \leq \frac{1}{2} \norm{x_1 - x_2}.\]
@@ -882,7 +882,7 @@ Naj bo \(\gamma: (\alpha, \beta) \subseteq \R \to \R^n,\ \gamma(t) = (x_1(t), \l
 \begin{definicija}
     Naj bo \(M \subseteq \R^n\) podmnogoterost in \(a \in M\). \textbf{Tangentni prostor} na \(M\) v točki \(a\) je 
     \[
-        T_aM = \setb{\dot{\gamma}(t_0)}{\gamma: (\alpha, \beta) \subseteq \R \to \R^n,\ \gamma \in C^1(\alpha, \beta),\ \gamma(t_0) = a}.
+        T_aM = \setb{\dot{\gamma}(t_0)}{\gamma: (\alpha, \beta) \subseteq \R \to M,\ \gamma \in C^1(\alpha, \beta),\ \gamma(t_0) = a}.
     \]
 \end{definicija}
 
@@ -1119,7 +1119,6 @@ $\left\langle (Hf)h, h\right\rangle$ je \textbf{Hessejeva forma} (kvadratna form
     \textcolor{red}{TODO}
 \end{proof}
 
-\newpage
 \begin{izrek}[Zadostni pogoji]
     Recimo, da velja
     \begin{enumerate}
