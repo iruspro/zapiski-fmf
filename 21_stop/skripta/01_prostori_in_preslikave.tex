@@ -93,13 +93,13 @@
 
 \subsection{Baze in predbaze}
 \begin{enumerate}
-    \item Baze in predbaze
+    \item Baza
     
     Naj bo \((X, \T)\) topološki prostor.
     \begin{itemize}
-        \item \textbf{Definicija.} Lokalna baza okolic.
+        \item \textcolor{blue}{(*)} \textbf{Definicija.} Lokalna baza okolic.
         \item \textbf{Zgled.} Lokalna baza \(x \in X\) v metričnem prostoru \((X, d)\).
-        \item \textbf{Definicija.} Baza topologije \(\T\).
+        \item \textcolor{blue}{(*)} \textbf{Definicija.} Baza topologije \(\T\).
         \item \textbf{Zgled.} \ 
         \begin{itemize}
             \item Kaj je baza metričnega prostora?
@@ -109,15 +109,69 @@
         \item \textbf{Trditev.} Kako iz baze pridemo do lokalne baze okolic za neko točko \(x \in X\)? Kako pa obrat?
         \item \textbf{Trditev.} Kaj lahko preverimo na bazi?
         \item \textbf{Zgled.} Ali je $f: S^1 \to S^1 \subseteq \C \text{ (enotska kompleksna števila)}, \ f(z) = z^2$ odprta?
-    \end{itemize}
-
-    \item Topologija, generirana z bazo
-    \begin{itemize}
-        \item \textbf{Trditev.} Topologija, generirana z bazo.
-        \item \textbf{Definicija.} Produktna topologija.
+        \item \textcolor{blue}{(*)} \textbf{Trditev.} Topologija, generirana z bazo.
+        \item  \textcolor{blue}{(*)} \textbf{Definicija.} Produktna topologija.
         \item \textbf{Opomba.} Ali družina produktov baznih množic tudi generira produktno topologijo?
         \item \textbf{Trditev.} O projekcijah na produktne topologije.
         \item \textbf{Zgled.} Ali je projekcija zaprta? 
+    \end{itemize}
+
+    \item Predbaza
+    
+    Naj bo \(\mathcal{P} \subseteq \mathcal{P}(X)\).
+    \begin{itemize}
+        \item \textcolor{blue}{(*)} \textbf{Trditev.} Predbaza.
+        \item \textbf{Zgled.} Predbaza produktne topologije.
+        \item \textbf{Trditev.} Kaj lahko testiramo na predbazi?
+        \item \textbf{Trditev.} Kdaj je \(f: X \to X_1 \times \ldots \times X_n\) zvezna?
+        \item \textbf{Definicija.} Kdaj je prostor 1-števen?
+        \item \textbf{Zgled.} Ali so metrični prostori 1-števni?
+        \item \textbf{Definicija.} Kdaj je prostor 2-števen?
+        \item \textbf{Zgled.} Ali je \(\R^n\) 2-števen?
+        \item \textbf{Opomba.} Ali je vsak 2-števen prostor tudi 1-števen? Ali je vsak 1-števen prostor tudi 2-števen?
+        \item \textcolor{blue}{(*)} \textbf{Definicija.} Povsod gosta podmnožica. Separabilni prostor.
+        \item \textcolor{blue}{(*)} \textbf{Trditev.} Ali 2-števnost implicira separabilnost?
+        \item \textcolor{red}{(*)} \textbf{Izrek.} Kdaj je metrični prostor 2-števen?
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Podprostori}
+\begin{enumerate}
+    \item Podprostori
+    \begin{itemize}
+        \item \textbf{Definicija.} Inducirana topologija. Podprostor.
+        \item \textbf{Zgled.} Kakšno topologijo podeduje \(\N \subseteq \R\)? Ali je topologija na \(\Q \subseteq \R\) diskretna? Kaj so podprostori prostorov z diskretno in s trivialno topologijo?
+        \item \textbf{Trditev}.
+        \begin{enumerate}
+            \item Kako dobimo bazo/predbazo podprostora?
+            \item Kaj so zaprti množici v podprostoru?
+        \end{enumerate}
+        \item \textbf{Trditev.} Kdaj je odprta/zaprta množica v podprostoru odprta tudi v celotnem prostoru?
+        \item \textbf{Definicija.} Dedna lastnost.
+        \item \textbf{Zgled.} Ali je metrizabilnost dedna? Ali je separabilnost dedna?
+    \end{itemize}
+
+    \item Preslikavi na pokritjih
+    
+    Naj bo \(\set{X_\lambda}\) pokritje \(X\).
+    \begin{itemize}
+        \item \textbf{Definicija.} Usklajena družina preslikav \((f_\lambda: X_\lambda \to Y)_\lambda\).
+        \item \textcolor{blue}{(*)} \textbf{Lema.} Recimo, da je \(\set{X_\lambda}\) odprto pokritje. Kdaj je \(A \subseteq X\) odprta?
+        \item \textbf{Definicija.} LOkalno končno pokritje.
+        \item \textcolor{blue}{(*)} \textbf{Lema.} Recimo, da je \(\set{X_\lambda}\) zaprto pokritje. Kdaj je \(A \subseteq X\) zaprto?
+        \item \textcolor{blue}{(*)} \textbf{Izrek.} Kako dobimo zvezno preslikavo iz družine preslikav na nekem pokritju?
+        \item \textcolor{blue}{(*)} \textbf{Posledica.} Kako lahko preverimo zveznost \(f: X \to Y\) z pokritji?
+    \end{itemize}
+
+    \item Vložitve
+    \begin{itemize}
+        \item \textbf{Zgled.} Ali imata \(\N\) in \(\img{f}(\N) \subseteq \R\) isto topologijo, če
+        \begin{itemize}
+            \item \(f(n) = n\);
+            \item \(f(0) = 0,\ f(n) = \frac{1}{n}\).
+        \end{itemize}
+        \item \textbf{Definicija.} Vložitev.
+        \item \textcolor{blue}{(*)} \textbf{Trditev.} Naj bo \(f: X \to Y\) injektivna. Kdaj je \(f\) vložitev?
     \end{itemize}
 \end{enumerate}
 
