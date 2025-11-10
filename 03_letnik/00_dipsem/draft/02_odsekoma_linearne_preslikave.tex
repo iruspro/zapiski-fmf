@@ -1,0 +1,117 @@
+\section{Odsekoma linearne preslikave}
+
+\begin{itemize}
+    \item Odsekoma linearne preslikave \emph{(piecewise linear functions)}
+    \begin{itemize}
+        \item Razdelimo domeno na kosi;
+        \item Na vsakem kosu imamo linearni izraz \emph{(linear expression)};
+        \item Preslikava ni nujno zvezna;
+        \item Osnovna domena je \([0,1]^n\).
+    \end{itemize}
+    \item Pogojni linearni izrazi \emph{(conditioned linear expression)}
+    \begin{itemize}
+        \item Racionalni linearni izrazi;
+        \item Pogojni linearni izrazi.
+    \end{itemize}
+    \item Teorija linearne aritmetike prvega reda
+    \item Lokalni algoritem
+\end{itemize}
+
+\subsection{Pogojni linearni izrazi}
+\begin{definicija}
+    \emph{Linearni izraz} v spremenljivkah \(x_1, x_2, \ldots, x_n\) je izraz
+    \[
+        q_0 + q_1x_1 + q_2x_2 + \ldots + q_nx_n,
+    \]
+    kjer so \(q_0, \ldots, q_n \in \R\). Pravimo, da je linearni izraz \emph{racionalni}, če so \(q_0, \ldots, q_n \in \Q\).
+\end{definicija}
+
+\paragraph{Oznake:}
+\begin{itemize}
+    \item \(e(x_1, \ldots, x_n) := q_0 + q_1x_1 + q_2x_2 + \ldots + q_nx_n\);
+    \item \(e(\vec{r}) := q_0 + q_1r_1 + q_2r_2 + \ldots + q_nr_n\), kjer \(\vec{r} = (r_1, \ldots, r_n) \in \R^n\).
+\end{itemize}
+
+Linearni izrazi so zaprti za nadomestitev, torej za podan linearni izraz \(e(x_1, \ldots, x_n)\) in linearni izrazi \(e_1(y_1, \ldots, y_m), \ldots, e_n(y_1, \ldots, y_m)\), pišemo \(e(e_1, \ldots, e_n)\) za nadomestni linearni izraz v spremenljivkah \(y_1, \ldots, y_m\), dobljeni z nadomeščanjem spremenljivke \(x_1\) z izrazom \(e_1(y_1, \ldots, y_m)\), spremenljivke \(x_2\) z izrazom \(\) \(e_2(y_1, \ldots, y_m)\) in tako naprej.
+
+\begin{definicija}
+    \emph{Pogojni linearni izraz} je par \(C \vdash e\), kjer je \(e\) linearni izraz in \(C\) končna množica neenačb med linearni izrazi, torej vsak element množice \(C\) je ene izmed oblik
+    \[
+        e_1 \leq e_2, \quad e_1 < e_2.
+    \]
+\end{definicija}
+
+Za \(\vec{r} \in \R^n\) z \(C(\vec{r})\) označimo konjunkcijo neenačb, kjer nadomestimo spremenljivke v \(C\) z števili \(r_1, \ldots, r_n\). Z pomočjo pogojnega linearnega izraza lahko opišemo en kos odsekoma linearne preslikave:
+\begin{itemize}
+    \item Domena kosa je \(\setb{\vec{r} \in \R^n}{C(\vec{r})}\), tj.\ množica vseh vektorjev, ki ustrezajo vsem neenačbam;
+    \item Linearni izraz \(e\) podaja linearno preslikavo nad domeno.
+\end{itemize}
+
+\begin{opomba} \
+    \begin{itemize}
+        \item Domena ni nujno odprta ali zaprta;
+        \item Domena lahko prazna;
+        \item Zaprtje domene je konveksni mnogokotnik (\(\approx B^n\)). 
+    \end{itemize}
+\end{opomba}
+
+\begin{definicija}
+    Pravimo, da je preslikava \(f: [0,1]^n \to [0,1]\) \emph{odsekoma linearna}, če obstaja končna množica \(\mc{F}\) pogojnih linearnih izrazov v spremenljivkah \(x_1, \ldots, x_n\), da velja:
+    \begin{enumerate}
+        \item \(\all{\vec{r} \in [0,1]^n} \some{(C \vdash e) \in \mc F} C(\vec{r})\) in
+        \item \(\all{\vec{r} \in [0,1]^n} \all{(C \vdash e) \in \mc F} C(\vec{r}) \lthen f(\vec{r}) = e(\vec{r})\).
+    \end{enumerate}
+    Pravimo, da \(\mc{F}\) \emph{predstavlja} preslikavo \(f\).
+\end{definicija}
+
+\begin{opomba}
+    Dva pogojna linearna izraza ni nujno bosta imela disjunktno domeno. V tem primeru, morajo se linearna izraza \(e_1\) in \(e_2\) ujemati na preseku.
+\end{opomba}
+
+\subsection{Teorija linearne aritmetike prvega reda}
+\begin{itemize}
+    \item Linearni izrazi kot logični izrazi (\emph{terms});
+    \item Atomarne formule so neenačbe med linearni izrazi;
+    \item Enakost \(e_1 = e_2\) pišemo kot \((e_1 \leq e_2) \land (e_1 \geq e_2)\);
+    \item Negacijo \(\lnot (e_1 \leq e_2)\) pišemo kot \((e_1 > e_2)\);
+    \item Ima lastnost \emph{eliminacije kvantifikatorjev}, tj.\ vsaka formula ima ekvivalentno obliko brez kvantifikatorjev;
+    \item Vsako formulo lahko zapišemo v disjunktni normalni formi, torej kot disjunkcijo konjukcij atomarnih formul.
+\end{itemize}
+
+\begin{trditev}
+    Preslikava \(f: [0,1]^n \to [0,1]\) je odsekoma linearna natanko tedaj, ko njen graf \(\setb{(\vec{x}, y) \in [0,1]^{n+1}}{f(\vec{x}) = y}\) lahko definiramo z formulo \(F(x_1, \ldots, x_n, y)\) v teoriji linearne aritmetike prvega reda.
+\end{trditev}
+
+\begin{izrek}
+    Naj bo  \(f: [0,1]^{n+1} \to [0,1]\) odsekoma linearna preslikava, ki je monotona v zadnji spremenljivki \(x_{n+1}\), tj.
+    \[
+        \all{t, s \in [0,1]} t \leq s \lthen \all{x_1, \ldots, x_n \in [0,1]} f(x_1, \ldots, x_n, t) \leq f(x_1, \ldots, x_n, s).
+    \]
+    Tedaj sta
+    \[
+        \mfix{x_{n+1}} f(x_1, \ldots, x_n, x_{n+1}) \quad \text{in} \quad \Mfix{x_{n+1}} f(x_1, \ldots, x_n, x_{n+1})
+    \]
+    odsekoma linearni preslikavi iz \([0,1]^n\) v \([0,1]\).
+\end{izrek}
+
+\begin{opomba} 
+    Zahtevamo monotonost, da smo prepričani, da najmanjša in največja fiksni točki obstajata, kar sledi iz izreka Knaster-Tarski.
+\end{opomba}
+
+\subsection{Lokalni algoritem}
+Za izračun odsekoma linearne preslikave dovolj, da imamo algoritem, ki za podan vektor \(\vec{r}\) vrača vrednost \(f(\vec{r})\). Za bolj kompleksne manipulacije, kot so izračun preslikave, ki poišče negibno točko izvorne preslikave \(\mfix{x_{n+1}} f(\ldots)\), potrebujemo več informacije. Ena možnost je -- sprehajanje po množice \(\mc{F}\), vendar ta je lahko zelo velika. Zato bomo uporabljali manj eksplicitno predstavitev preslikave \(f\), ki jo imenujemo \emph{lokalni algoritem}. Ta algoritem za podano točko v domeni \(\vec{r}\) vrača ustrezni pogojni linearni izraz.
+
+\begin{definicija}
+    \emph{Lokalni algoritem} za odsekomo linearno preslikavo \(f: [0,1]^{n} \to [0,1]\), je algoritem, ki za podano točko \(\vec{r} \in [0,1]^n\) vrača pogojni linearni izraz \(C \vdash e\), da velja
+    \begin{enumerate}
+        \item \(C(\vec{r})\) drži;
+        \item \(\all{\vec{s} \in [0,1]^n} C(\vec{s}) \lthen f(\vec{s}) = e(\vec{s})\).
+    \end{enumerate}
+    Tudi le končno mnogo različnih \(C \vdash e\) lahko dobimo.
+\end{definicija}
+
+\begin{opomba}
+    Vsako eksplicitno predstavitev \(\mc{F}\) lahko enostavno konvertiramo v lokalni algoritem, z katerim lahko enostavno izračunamo vrednost preslikave \(f\) v podani točki.
+\end{opomba}
+
+Za izračun preslikave, ki poišče negibno točko izvorne preslikave \(\mfix{x_{n+1}} f(\ldots)\) bomo potrebovali le predstavitev izvorne preslikave \(f\) z lokalnim algoritmom. Rezultat dela tega algoritma bo lokalni algoritem za preslikavo \(\mfix{x_{n+1}} f(\ldots)\).

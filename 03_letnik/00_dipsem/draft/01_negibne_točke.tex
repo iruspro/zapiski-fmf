@@ -1,0 +1,106 @@
+\section{Polne mreže, negibne točke in izrek Knaster-Tarskega}
+\begin{itemize}
+    \item Polne mreže;
+    \item Monotone preslikave med polni mreži;
+    \item Najmanjša in največja negibni točki monotonih preslikav;
+\end{itemize}
+\subsection{Polne mreže}
+\begin{itemize}
+    \item \((E, \leq)\) je delno urejena množica, kjer je \(\leq\) delna urejenost, tj.\ relacija, ki je refleksivna, antisimetrična in tranzitivna;
+    \item Spodnja in zgornja meja množice \(X \subseteq E\);
+    \item Najmanjša zgornja \(\bigvee X\) (največja spodnja \(\bigwedge X\)) meja množice \(X \subseteq E\);
+    \item Simetrija med \(\inf\) in \(\sup\);
+\end{itemize}
+
+\begin{definicija}
+    Naj bo \((E, \leq)\) delno urejena množica:
+    \begin{itemize}
+        \item \((E, \leq)\) je \emph{mreža}, če za poljubna elementa \(x, y \in E\), ima množica \(\set{x, y}\) najmanjšo zgornjo mejo \(x \lor y\) in največjo spodnjo mejo \(x \land y\). 
+        \item \((E, \leq)\) je \emph{polna mreža}, če vsaka podmnožica \(X \subseteq E\) ima  najmanjšo zgornjo mejo \(\bigvee X\) in največjo spodnjo mejo \(\bigwedge X\). 
+    \end{itemize}
+\end{definicija}
+
+\begin{trditev}
+    Naj bosta \(E, F\) polni mreži. Definiramo \emph{(produktna urejenost)}
+    \[
+        \all{(x, y), (x', y') \in E \times F} (x, y) \leq (x', y') \liff x \leq_E x' \land y \leq_F y'.
+    \]
+    Tedaj je \((E \times F, \leq)\) polna mreža.
+\end{trditev}
+
+\begin{opomba}
+    Trditev lahko posplošimo na produkt \(n\) polnih mrež.
+\end{opomba}
+
+\subsection{Monotone preslikave in negibne točke}
+\begin{definicija}
+    Naj bosta \((E, \leq_E)\) in \((F, \leq_F)\) delno urejeni množici. Preslikava \(f: E \to F\) je \emph{monotona}, če
+    \[
+        \all{x, y \in E} x \leq_E y \lthen f(x) \leq_F f(y).
+    \]
+\end{definicija}
+
+\begin{opomba}
+    Monotona preslikava v tem kontekstu je isto kot naraščajoča preslikava.
+\end{opomba}
+
+\begin{definicija}
+    Naj bo \(E\) poljubna množica in \(f: E \to E\) preslikava. \emph{Negibna točka} preslikave \(f\) je element \(x \in E\), da velja \(f(x) = x\). Množico vseh negibnih točk preslikave \(f\) označimo z \(\Fix(f)\).
+\end{definicija}
+
+\begin{opomba}
+    Če je \(E\) delno urejena množica, potem tudi \(\Fix(f)\) delno urejena množica, ki je lahko prazna.
+\end{opomba}
+
+\subsection{Izrek Knaster-Tarskega}
+\begin{izrek}[Knaster-Tarski]
+    Naj bo \((E, \leq)\) polna mreža in \(f: E \to E\) monotona preslikava. Tedaj \(\bigvee \Fix(f)\) in \(\bigwedge \Fix(f)\) sta elementi \(\Fix(f)\).
+\end{izrek}
+
+Dokaz izreka nam da na način, kako lahko dokažemo, da je podan element najmanjša ali največja negibna točka monotone preslikave \(f\).
+
+\begin{posledica}
+    Naj bo \(E\) polna mreža in \(f: E \to E\) monotona preslikava. Tedaj je \(e \in E\) najmanjša negibna točka preslikave \(f\) natanko tedaj, ko 
+    \begin{enumerate}
+        \item \(\all{x \in E} f(x) \leq x \lthen e \leq x\) in 
+        \item \(f(e) \leq e\).
+    \end{enumerate}
+    Podobno za največjo negibno točko.
+\end{posledica}
+
+\subsection{Lastnosti negibnih točk in vloženih negibnih točk}
+\paragraph{Oznake:}
+\begin{itemize}
+    \item Najmanjša negibna točka preslikave \(f\):
+    \begin{itemize}
+        \item \(\mfix{x}f(x)\);
+        \item \(f^+(x)\).
+    \end{itemize}
+    \item Največja negibna točka preslikave \(f\):
+    \begin{itemize}
+        \item \(\Mfix{x}f(x)\).
+    \end{itemize}
+    \item Naj bodo \(E\) polna mreža, \(F\) delno urejena množica in \(f: E \times F \to E\) monotona preslikava v vsaki spremenljivki, tj.
+    \begin{align*}
+        &\all{x \in E} \all{s, t \in F} s \leq t \lthen f(x, s) \leq f(x, t) \leq f(x, s), \\
+        &\all{y \in F} \all{u, v \in E} u \leq v \lthen f(u, y) \leq f(v, y).
+    \end{align*}
+    Za vsak \(y \in F\) definiramo preslikavo \(f_y: E \to E, \ f_y(x):=f(x, y)\).
+    Označimo z \(\mfix{x}f(x, y)\) preslikavo \(\mfix{x}f(x, y): F \to E\) s predpisom \(\mfix{x}f(x, y)(y) := \mfix{x}f_y(x)\).  
+\end{itemize}
+
+\begin{trditev}
+    Naj bo \(E\) polna mreža in \(F\) delno urejena množica. Če je preslikava \(f: E \times F \to E\) monotona v obeh spremenljivkah, tedaj sta \(\mfix{x}f(x,y)\) in \(\Mfix{x}f(x,y)\) monotoni preslikavi iz \(F\) v \(E\).
+\end{trditev}
+
+\begin{lema}[Zlata lema \(\mu\)-računa]
+    Naj bo \(E\) polna mreža in \(f: E \times E \to E\) monotona preslikava v obeh spremenljivkah. Tedaj
+    \[
+        \mfix{x}\mfix{y}f(x, y) = \mfix{x}f(x, x) = \mfix{y}\mfix{x}f(x, y)
+    \]
+    in
+    \[
+        \Mfix{x}\Mfix{y}f(x, y) = \Mfix{x}f(x, x) = \Mfix{y}\Mfix{x}f(x, y).
+    \]
+\end{lema}
+
