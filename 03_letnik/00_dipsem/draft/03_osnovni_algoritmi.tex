@@ -1,0 +1,165 @@
+\section{Osnovni algoritmi}
+
+Naj bosta \(X\) in \(Y\) končni polni mreži.
+
+\subsection{Dagger \(f\)}
+
+Naj bo \(f: X \times Y \to Y\) naraščajoča preslikava. Želimo opisati algoritem \(f^\dagger: X \to Y\), kjer je \[\all{x \in X} f^\dagger(x) = \mfix{y}f(x, y).\]
+
+\begin{algorithm}    
+    \DontPrintSemicolon
+
+    \label{dagger-f}
+    \caption{Dagger \(f\)}
+
+    \KwData{\(f \in Y^{X \times Y},\ x \in X\)}
+    \KwResult{\(\mfix{y}f(x, y)\)}
+
+    \(a \gets 0\) \Comment*[r]{\(0\) je najmanjši element \(Y\)}
+    \Repeat{\(a \neq prev\)}{
+        \(prev \gets a\)\;
+        \(a \gets f(x, prev)\)\;
+    }
+    \Return{a}\;
+\end{algorithm}
+
+Od zdaj naprej s terminom \emph{časovna zahtevnost} bomo mislili število aproksimacij.
+
+\begin{trditev}
+    Algoritem se ustavi.
+\end{trditev}
+
+\begin{trditev}
+    Algoritem izračuna najmanjšo negibno točko.
+\end{trditev}
+
+\begin{trditev}
+    Časovna zahtevnost algoritma je \(O(\height(Y))\), kjer je \(\height(Y)\) dolžina največje verige v \(Y\).
+\end{trditev}
+
+\subsection{Skupne negibne točke}
+Naj bo \(F: X \times Y \times \cdots \times Y \to  Y \times \cdots \times Y,\ F = (f_1, \ldots, f_n)\) naraščajoča, kjer so \(f_i: X \times Y \times \cdots \times Y \to  Y\). Želimo opisati algoritem \(F^\dagger: X \to  Y \times \cdots \times Y\), kjer je 
+\[\all{x \in X} F^\dagger(x) = \mfix{\vec{y}}F(x, \vec{y}).\]
+
+Lahko bi modificirali algoritem \ref{dagger-f}.
+
+\begin{algorithm}
+    \DontPrintSemicolon
+    \caption{Dagger \(F\)}
+
+    \KwData{\(F \in (Y^n)^{X \times Y^n},\ x \in X\)}
+    \KwResult{\(\mfix{\vec{y}}F(x, \vec{y})\)}
+
+    new array \(A[n] \gets [0, \ldots, 0]\) \Comment*[r]{\([0, \ldots, 0]\) je najmanjši element \(Y^n\)}
+    \Repeat{\(A \neq prev\)}{
+        \(prev \gets A\)\;
+        \(A \gets F(x, prev)\)\;
+    }
+    \Return{\(A\)}\;
+\end{algorithm}
+
+\begin{trditev}
+    Algoritem se ustavi.
+\end{trditev}
+
+\begin{trditev}
+    Algoritem izračuna najmanjšo negibno točko.
+\end{trditev}
+
+\begin{trditev}
+    Časovna zahtevnost algoritma je \(O(n\height(Y))\).
+\end{trditev}
+
+\begin{opomba}
+    Tukaj se pojavi prvi odprt problem. Ne vemo, kako lahko posplošimo algoritem na odsekoma linearne funkcije.
+\end{opomba}
+
+\subsubsection{Bekičev izrek}
+Naslednja dva algoritma slonijo na Bekičevem izreku. 
+
+Naj bo \(F: X \times Y^n \to  Y^n,\ F = (f_0, \ldots, f_{n-1})\) naraščajoča, kjer so \(f_i: X \times Y^n \to  Y\). Poskušamo rešiti sistem 
+\begin{align*}
+    y_0 &= f_0 (x, y_0, \ldots, y_{n-1}) \\
+    \vdots \\
+    y_{n-1} &= f_{n-1} (x, y_0, \ldots, y_{n-1}) \\
+\end{align*}
+
+z uporabo algoritma \(\ref{dagger-f}\) za vsako posamezno spremenljivko \(y_0, \ldots, y_{n-1}\).
+
+\begin{algorithm}
+    \DontPrintSemicolon
+    \caption{Skupne negibne točke \(f_0, \ldots, f_{n-1}\)}
+
+    \KwData{\(f_0, \ldots, f_{n-1} \in Y^{X \times Y^n}\), \(x \in X\)}
+    \KwResult{\(y_0, \ldots, y_{n-1}\)}
+
+    new array \(A[n] \gets [0, \ldots, 0]\) \Comment*[r]{\([0, \ldots, 0]\) je najmanjši element \(Y^n\)}
+    \(i \gets 0\) \;
+    \Repeat{\(i < n\)}{
+        \(prev \gets A[i]\) \;
+        \(A[i] \gets f_i(x, A)\) \;
+        \eIf{\(A[i] = prev\)}{
+            \(i \gets i + 1\)
+        }{
+            \(j \gets 0\) \;
+            \While{\(j < i\)}{
+                \(A[j] \gets 0\)
+            }
+            \(i \gets 0\)
+        }
+
+    }
+    \Return{\(A\)} \;
+\end{algorithm}
+
+\begin{trditev}
+    Algoritem se ustavi.
+\end{trditev}
+
+\begin{trditev}
+    Algoritem izračuna najmanjšo negibno točko.
+\end{trditev}
+
+\begin{trditev}
+    Časovna zahtevnost algoritma je \(O(\height(Y)^n)\).
+\end{trditev}
+
+\begin{opomba}
+    Težava tega algoritma je časovna zahtevnost. Plus pa je, da ga lahko posplošimo na odsekoma linearne funkcije.
+\end{opomba}
+
+Ideja novega algoritma je v tem, da pozabimo na notranjo \verb|while| zanko, tj.
+
+\begin{algorithm}[H]
+    \DontPrintSemicolon
+    \caption{Skupne negibne točke \(f_0, \ldots, f_{n-1}\) (nov algoritem)}
+
+    \KwData{\(f_0, \ldots, f_{n-1} \in Y^{X \times Y^n}\), \(x \in X\)}
+    \KwResult{\(y_0, \ldots, y_{n-1}\)}
+
+    new array \(A[n] \gets [0, \ldots, 0]\) \Comment*[r]{\([0, \ldots, 0]\) je najmanjši element \(Y^n\)}
+    \(i \gets 0\) \;
+    \Repeat{\(i < n\)}{
+        \(prev \gets A[i]\) \;
+        \(A[i] \gets f_i(x, A)\) \;
+        \eIf{\(A[i] = prev\)}{
+            \(i \gets i + 1\)
+        }{
+            \(i \gets 0\)
+        }
+
+    }
+    \Return{\(A\)} \;
+\end{algorithm}
+
+\begin{trditev}
+    Algoritem se ustavi.
+\end{trditev}
+
+\begin{trditev}
+    Algoritem izračuna najmanjšo negibno točko.
+\end{trditev}
+
+\begin{trditev}
+    Časovna zahtevnost algoritma je \(O(n\height(Y))\).
+\end{trditev}

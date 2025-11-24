@@ -1,0 +1,246 @@
+\documentclass[10pt]{beamer}
+% Možne velikosti pisav so: 8pt, 9pt, 10pt, 11pt, 12pt, 14pt, 17pt, 20pt
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[slovene]{babel}
+
+% To potrebujemo, da bomo lahko delali zapiske za predavatelja
+\usepackage{pgfpages}
+
+% Izberemo, ali bomo naredili samo prosojnice, samo zapiske ali oboje
+
+% \setbeameroption{hide notes}                        % samo prosojnice
+%\setbeameroption{show only notes}                   % samo zapiski
+\setbeameroption{show notes on second screen=right}  % oboje
+
+% Minimalistični still
+\mode<presentation>
+% \usetheme{Goettingen}
+% \usecolortheme{rose}
+
+% Malo manj dolgočasna pisava
+\usepackage{palatino}
+\usefonttheme{serif}
+
+% Izklopimo navigacijske simbole, ker so neuporabni
+\setbeamertemplate{navigation symbols}{}
+
+% Aktiviramo oštevilčenje strani
+\setbeamertemplate{footline}[frame number]{}
+
+% Stil za zapiske
+\setbeamertemplate{note page}{\pagecolor{yellow!5}\insertnote}
+
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bbold}
+
+\input{../../../00_common/environments.tex}
+
+\input{../../../00_common/macroses/00_common_macroses.tex}
+\input{../../../00_common/macroses/02_math_operators.tex}
+\input{../../../00_common/macroses/03_shortcuts.tex}
+
+% Graphics
+\usepackage{pgfplots}
+\pgfplotsset{width=8cm,compat=1.9}
+
+\begin{document}
+
+\title{Izračun skupnih negibnih točk odsekoma linearnih funkcij}
+\author{Ruslan Urazbakhtin}
+\date{24.\ november 2025}
+
+\begin{frame}
+    \titlepage
+
+    \note{
+        Dober dan. Moja diplomska tema je ">Izračun skupnih negibnih točk odsekoma linearnih funkcij."<
+        Danes bi rad na kratko predstavil, kaj sploh so odsekoma linearne funkcije, katere med njimi imajo negibne točke in zakaj, ter s kakšnimi težavami se srečamo pri njihovem izračunu.
+    }
+\end{frame}
+
+\begin{frame}
+    \frametitle{Odsekoma linearne funkcije}
+
+    \only<1>{\note{
+        Preden se lotimo uradne definicije, si oglejmo preprost primer odsekoma linearne funkcije, ki preslika interval \([0,1]\) vase. Vidimo, da ta funkcija ni zvezna, vendar je linearna (afina) na vsakem posameznem kosu domene. Da bi takšno funkcijo natančno opisali, je dovolj, da podamo njen predpis, kar najlažje naredimo po posameznih kosih.
+        \begin{figure}
+        \centering
+            \begin{tikzpicture}
+            \begin{axis}[
+                width=6cm, height=6cm,
+                xmin=0, xmax=1.1, ymin=0, ymax=1.1,
+                axis lines=center,
+                % xlabel={\(x\)}, ylabel=\(f(x)\),
+                xtick={0,1}, ytick={0, 1},
+                grid=none,
+                clip=false
+            ]
+                \addplot[
+                    domain=0:0.5,
+                    color=blue
+                    ]
+                {0.5*x + 0.25};
+
+                \draw[->, color=blue] (axis cs:0.5,0.5) -- ++(0.05,0.025);
+
+                % \addplot[
+                %     domain=0.5:0.75,
+                %     color=blue
+                % ]
+                % {0.8};
+
+                % \draw[->, color=blue] (axis cs:0.75,0.8) -- ++(0.05,0.00);
+
+                \addplot[
+                    domain=0.5:1,
+                    color=blue
+                ]
+                {0.5*x + 0.5};
+
+                \addplot[
+                    only marks,
+                    mark=*,
+                ] coordinates {(0.5,0)} node[below] {$a$};
+
+                % \addplot[
+                %     domain=0:1,
+                %     color=red
+                % ]
+                % {x};
+            \end{axis}
+            \end{tikzpicture}
+        \end{figure}    
+
+        \[
+            f(x) = \begin{cases}
+                q_0 + q_1 x; &0 \leq x,\ x < a; \\
+                q_0' + q_1' x; &a \leq x,\ x \leq 1.
+            \end{cases}
+        \]
+    }}
+
+    \only<2>{\begin{definicija}
+        \emph{Linearni izraz} v spremenljivkah \(x_1, x_2, \ldots, x_n\) je izraz
+        \[
+            q_0 + q_1x_1 + q_2x_2 + \ldots + q_nx_n,
+        \]
+        kjer so \(q_0, \ldots, q_n \in \R\).
+    \end{definicija}
+    
+    \begin{definicija}
+        \emph{Pogojni linearni izraz} je par \(C \vdash e\), kjer je \(e\) linearni izraz in \(C\) končna množica neenačb med linearni izrazi, torej vsak element množice \(C\) je ene izmed oblik
+        \[
+            e_1 \leq e_2, \quad e_1 < e_2.
+        \]
+        Za vsak \(\vec{r} \in \R^n\) z \(C(\vec{r})\) označimo konjunkcijo neenačb, kjer nadomestimo spremenljivke v \(C\) z števili \(r_1, \ldots, r_n\).
+    \end{definicija}
+    
+    \note{\begin{itemize}
+            \item Označi vse nove termine v primeru.
+            \item Z pomočjo pogojnega linearnega izraza lahko opišemo en kos funkcije:
+            \begin{itemize}
+                \item Domena kosa je \(\setb{\vec{r} \in \R^n}{C(\vec{r}) = \top}\);
+                \item Linearni izraz \(e\) podaja linearno funkcijo nad domeno.
+            \end{itemize}
+        \end{itemize}}
+    }
+
+    \only<3>{\begin{definicija}
+        Pravimo, da je funkcija \(f: [0,1]^n \to [0,1]\) \emph{odsekoma linearna}, če obstaja končna množica \(\mc{F}\) pogojnih linearnih izrazov v spremenljivkah \(x_1, \ldots, x_n\), da velja:
+        \begin{enumerate}
+            \item \(\all{\vec{r} \in [0,1]^n} \some{(C \vdash e) \in \mc F} C(\vec{r}) = \top\) in
+            \item \(\all{\vec{r} \in [0,1]^n} \all{(C \vdash e) \in \mc F} C(\vec{r}) = \top \lthen f(\vec{r}) = e(\vec{r})\).
+        \end{enumerate}
+        Pravimo, da množica \(\mc{F}\) \emph{predstavlja} funkcijo \(f\).
+    \end{definicija}
+    \note{1.\ točka pomeni celovitost, 2.\ točka pa enoličnost. \\
+            \textbf{Vprašanje:} Kakšni so zadostni pogoji za funkcijo \(f\), da ima negibno točko?}
+    }
+\end{frame}
+
+\begin{frame}
+    \frametitle{Izrek Knaster-Tarskega}
+
+    \only<1>{\note{Če bi bila funkcija \(f\) zvezna, bi lahko uporabili Brouwerjev izrek o negibni točki. Vendar pa so odsekoma linearne funkcije v splošnem nezvezne, zato potrebujemo drug pristop. Na srečo obstaja ustrezen izrek v teoriji delno urejenih množic in mrež, ki nam bo v pomoč.}}
+
+    % \only<2>{
+    %     \framesubtitle{Delna urejenost}
+    %     \begin{definicija}
+    %         Naj bo \(E\) neka množica. Relacija \(\leq\) na množici \(E\) je \emph{delna urejenost}, če je refleksivna, antisimetrična in tranzitivna. Pravimo, da je \(E\) \emph{delno urejena} množica z relacijo \(\leq\).            
+    %     \end{definicija}
+
+    %     \note{
+    %         \begin{itemize}
+    %             \item \textbf{Primer} (delna urejenost): Relacija \(\subseteq\) na \(P(E)\).
+    %             \item Naj bo \(X \subseteq E\). Označimo z \(\bigwedge X\) največjo spodnjo mejo (infimum) množice \(X\) ter z \(\bigvee X\) najmanjšo zgornjo mejo (supremum) množice \(X\), če ti obstajata.
+    %         \end{itemize}
+    %     }
+    % }
+    
+    % \only<3>{
+    %     \framesubtitle{Monotone preslikave}
+    %     \begin{definicija}
+    %         Preslikava \(f: E \to F\) med delno urejenima množicama \((E, \leq_E)\) in \((F, \leq_F)\) je \emph{monotona} (ali \emph{naraščajoča}), ko velja 
+    %         \[
+    %             \all{x, y \in E} x \leq_E y \lthen f(x) \leq_F f(y).
+    %         \]
+    %     \end{definicija}
+    % }
+
+    % \only<4>{
+    %     \framesubtitle{Mreže}
+    %     \begin{definicija}
+    %         Naj bo \((E, \leq)\) delno urejena množica. Množica \(E\) je \emph{polna mreža}, če vsaka podmnožica \(X \subseteq E\) ima največjo spodnjo mejo \(\bigwedge X\) in najmanjšo zgornjo mejo \(\bigvee X\).
+    %     \end{definicija}
+
+    %     \note{\textbf{Primer} (polne mreže):
+    %     \begin{itemize}
+    %         \item Potenčna množica \(P(E)\) urejena z relacijo \(\subseteq\).
+    %         \item Interval \([0,1]\) urejeni z relacijo \(\leq\).
+    %         \item Produkt polnih mrež je polna mreža, če za relacijo na produkte vzamemo produktno urejenost.
+    %     \end{itemize}        
+    %     }
+    % }
+
+    \only<2>{
+        \begin{definicija}
+            Naj bo \(S\) poljubna množica in \(f: S \to S\) preslikava. \emph{Negibna točka} preslikave \(f\) je element \(x \in S\), da velja \(f(x) = x\). Množico vseh negibnih točk preslikave \(f\) označimo z \(\Fix(f)\).
+        \end{definicija}
+
+        \begin{izrek}[Knaster-Tarski]
+            Naj bo \((S, \leq)\) polna mreža in \(f: S \to S\) monotona preslikava. Tedaj sta \(\inf (\Fix(f))\) in \(\sup (\Fix(f))\) elementi \(\Fix(f)\).
+        \end{izrek}
+
+        \note{
+            \begin{itemize}
+                \item Se spomni vse definicije.
+                \item Povej, da je \([0, 1]\) polna mreža in da je monotonost zadostni pogoj za preslikavo \(f\), da ima negibno točko.
+                \item Postavi problem v algoritmični obliki.
+            \end{itemize}
+        }
+    }
+\end{frame}
+
+% \begin{frame}
+%     \frametitle{Algoritmi}
+%     \only<1-2>{
+%         \framesubtitle{Izačun ene negibne točke}
+
+%         Naj bo \(Y\) polna mreža in naj bo \[f: X \times Y \to Y\] monotona preslikava. Želimo določiti preslikavo \[f^\dagger: X \to Y.\]
+
+%         \pause
+
+%         Za končni \(X\) in \(Y\) imamo učinkovit algoritem. Ta algoritem lahko posplošimo tudi na naš primer, kjer je \(Y = [0, 1]\) in je \(f\) odsekoma linearna funkcija.
+%     }
+
+%     \only<3>{
+%         \framesubtitle{Izračun skupnih negibnih točk}
+%         Naj bodo \(Y_1, \ldots, Y_n\) polne mreže in naj bo \[F: X \times Y_1 \times \cdots \times Y_n \to Y_1 \times \cdots \times Y_n\]
+%         monotona preslikava. Želimo določiti preslikavo \[F^\dagger: X \to Y_1 \times \cdots \times Y_n.\]
+%     }    
+% \end{frame}
+\end{document}
