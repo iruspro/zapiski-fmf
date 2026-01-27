@@ -1,0 +1,47 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage{../../../00_common/base}
+\usepackage{../../../00_common/settings}
+\usepackage{../../../00_common/environments}
+
+\usepackage{../../../00_common/macroses/common}
+\usepackage{../../../00_common/macroses/31_unm}
+
+% Commutative diagrams
+\usepackage{tikz-cd}
+
+% Algorithms
+\usepackage[ruled]{algorithm2e}
+\SetKwComment{Comment}{/* }{ */}
+
+\title{Uvod v numerične metode}
+\author{Ruslan Urazbakhtin}
+
+\begin{document}
+\maketitle
+
+\newpage
+\tableofcontents
+\newpage
+
+\input{00_uvod.tex} 
+
+\newpage
+\input{01_nelinearne enačbe.tex}
+
+\newpage
+\input{02_sistemi_linearnih_enacb.tex}
+
+\newpage
+\input{03_sistemi_nelinearnih_enacb.tex}
+
+\newpage
+\input{04_linearni_problemi_najmanjsih_kvadratov.tex}
+
+\newpage
+\input{05_problemi_lastnih_vrednosti.tex}
+
+\newpage
+\input{06_polinomska_interpolacija.tex}
+
+\end{document}

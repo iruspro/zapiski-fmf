@@ -1,0 +1,732 @@
+\section{Sistemi linearnih enačb}
+Naj bo \(\F \in \set{\R, \C}\).
+
+\subsection{Uvod}
+Rešujemo sistem linearnih enačb 
+\begin{align*}
+    a_{11}x_1 + \cdots + a_{1n}x_n &= b_1 \\
+    \vdots \\
+    a_{m1}x_1 + \cdots + a_{mn}x_n &= b_n,
+\end{align*}
+ki ga pišemo v obliki
+\[Ax = b,\]
+kjer 
+\[
+    A = \begin{bmatrix}
+        a_{11} & \ldots & a_{1n} \\
+        \vdots & & \vdots \\
+        a_{m1} & \ldots & a_{mn} \\
+    \end{bmatrix}, \quad 
+    x = \begin{bmatrix}
+        x_1 \\ \vdots \\ x_n
+    \end{bmatrix}, \quad
+    b = \begin{bmatrix}
+        b_1 \\ \vdots \\ b_m
+    \end{bmatrix}.
+\]
+
+\
+
+Označimo z \(a_i\) \(i\)-ti stolpec matrike \(A\) in z \(\alpha_j^T\) \(j\)-to vrstico matrike \(A\). Naj bo 
+\[
+    e_i = [0\ \ldots\ 0\ 1_i\ 0\ \ldots\ 0]^T.
+\]
+Tedaj velja
+\[
+A e_i = a_i, \quad e_j^T A = \alpha_j^T \quad \text{in} \quad e_i^T A e_k = a_{ik}.
+\]
+
+\
+
+Naj bo \(x, y \in \F^n\). Standardni skalarni produkt je 
+\[
+    \langle x, y \rangle = \sum_{i=1}^{n} x_i \overline{y_i} = y^H x,
+\]
+kjer je 
+\[
+    A^H = \overline{A^T}
+\] 
+hermitsko transponiranje.
+
+\
+
+Če imamo sistem \(y = Ax,\ A \in \R^{n \times n},\ x, y \in \R^n\), si to lahko predstavljamo:
+\begin{enumerate}
+    \item Po elementih, tj.\
+    \[
+        y_i = \sum_{k=1}^{n} a_{ik} x_k = \alpha_i^T X.
+    \]
+    \item Kot linearno kombinacijo stolpcev, tj.\ 
+    \[
+        y = \sum_{i=1}^{n} x_i a_i \lthen e_i^T y = \sum_{i=1}^{n} x_ke_i^T a_i.
+    \]
+\end{enumerate}
+
+\newpage
+Če imamo produkt \(C = A \cdot B\), kjer so \(A, B, C \in \R^n\), si to lahko predstavljamo:
+\begin{enumerate}
+    \item Po elementih, tj.\
+    \[
+        c_{ik} = \sum_{l=1}^{n} a_{il} b_{lk} = \alpha_i^T b_k.
+    \]
+    \item Po stolpcih, tj.\
+    \[
+        A \cdot [b_1\ \ldots\ b_n] = [A \cdot b_1\ \ldots\ A \cdot b_n] \lthen c_i = A \cdot b_i.
+    \]
+    \item Po vrsticah, tj.\
+    \[
+        \begin{bmatrix}
+            \alpha_1^T \\ \vdots \\ \alpha_n^T
+        \end{bmatrix} \cdot B = 
+        \begin{bmatrix}
+            \alpha_1^T \cdot B\\ \vdots \\ \alpha_n^T \cdot B
+        \end{bmatrix} \lthen \gamma_i^T = \alpha_i^T \cdot B.
+    \]
+    \item Kot vsoto \(n\) matrik ranga \(1\) (diade), tj.\
+    \[
+        C = \sum_{l=1}^{n} a_l \beta_l^T.
+    \]
+
+    Vemo, da če \(x, y \in \R^n,\ x, y \neq 0\), potem \(xy^T\) matrika ranga 1.
+\end{enumerate}
+
+\
+
+Spomnimo se nekaj osnovnih definicij in trditev. Naj bo \(A \in \F^{n \times n}\).
+\begin{trditev}
+    Naj bo \(A \in \F^{n \times n}\). NTSE:
+    \begin{enumerate}
+        \item \(A \in \F^{n \times n}\) je \emph{nesingularna}.
+        \item \(\some{A^{-1}} A \cdot A^{-1} = A^{-1} \cdot A = I\).
+        \item \(\det A \neq 0\).
+        \item \(\mathop{rang} A = n\).
+        \item \(\ker A = \set{0}\).
+        \item Vse lastne vrednosti so neničelne.
+    \end{enumerate}
+\end{trditev}
+
+\begin{definicija} Naj bo \(A \in \F^{n \times n}\).
+    \begin{itemize}
+        \item \(\lambda \in \F\) je \emph{lastna vrednost} matrike \(A\), če
+        \[
+            \some{x \in \F^n \setminus \set{0}} Ax = \lambda x.
+        \]
+        \item Matrika \(A\) je \emph{simetrična}, če 
+        \[
+            A^T = A,
+        \]
+        \emph{hermitska}, če
+        \[
+            A^H = A.
+        \]
+        \item Matrika \(A\) je \emph{simetrična pozitivno definitna}, če
+        \[
+            A = A^T \quad \text{in} \quad \all{x \in \F^n \setminus \set{0}} x^T A x > 0,
+        \]
+        \emph{simetrična pozitivno semidefinitna}, če
+        \[
+            A = A^T \quad \text{in} \quad \all{x \in \F^n \setminus \set{0}} x^T A x \geq 0,
+        \]
+        \emph{hermitska pozitivno semidefinitna}, če
+        \[
+            A = A^H \quad \text{in} \quad \all{x \in \F^n \setminus \set{0}} x^H A x > 0,
+        \]
+        \emph{hermitska pozitivno semidefinitna}, če
+        \[
+            A = A^H \quad \text{in} \quad \all{x \in \F^n \setminus \set{0}} x^H A x \geq 0,
+        \]
+    \end{itemize}
+\end{definicija}
+
+\subsection{Vektorske in matrične norme}
+\begin{definicija}
+    \emph{Vektorska norma} je preslikava \(\norm{\cdot}: \C^n \to \R\), za katero velja:
+    \begin{enumerate}
+        \item Pozitivna definitnost, tj.\ \(\all{x \in \C^n} \norm{x} \geq 0 \land \norm{x} = 0 \liff x = 0\).
+        \item Homogenost, tj.\ \(\all{\lambda \in \C} \all{x \in \C} \norm{\lambda x} = |\lambda| \cdot \norm{x}\).
+        \item Trikotniška neenakost, tj.\ \(\all{x, y \in \C^n} \norm{x + y} \leq \norm{x} + \norm{y}\).
+    \end{enumerate}
+\end{definicija}
+
+Najbolj znane norme so 
+\begin{align*}
+    \norm{x}_1 &= \sum_{i=1}^{n} |x_i| \\
+    \norm{x}_2 &= (\sum_{i=1}^{n} |x_i|^2)^{1/2} \\
+    \norm{x}_\infty &= \max \setb{|x_i|}{i \in \set{1, \ldots, n}} \\
+\end{align*}
+
+Vse vektorske norme so ekvivalentne, tj.\
+\[
+    \all{\norm{\cdot}_a, \norm{\cdot}_b \in \R^{\C^n}} \all{x \in \C^n} \some{c_1, c_2 > 0} c_1 \norm{x}_a \leq \norm{x}_b \leq c_2 \norm{x}_a.
+\]
+
+Za \(\norm{\cdot}_1, \norm{\cdot}_2, \norm{\cdot}_\infty\) velja:
+\begin{align*}
+    \norm{x}_2 &\leq \norm{x}_1 \leq \sqrt{n} \cdot \norm{x}_2 \\
+    \norm{x}_\infty &\leq \norm{x}_2 \leq \sqrt{n} \cdot \norm{x}_\infty \\
+    \norm{x}_\infty &\leq \norm{x}_1 \leq n \cdot \norm{x}_\infty \\
+\end{align*}
+
+\begin{definicija}
+    \emph{Matrična norma} je preslikava \(\norm{\cdot}: \C^{n \times n} \to \R\), za katero velja:
+    \begin{enumerate}
+        \item Pozitivna definitnost.
+        \item Homogenost.
+        \item Trikotniška neenakost.
+        \item Submultiplikativnost, tj.\ \(\all{A, B \in \C^{n \times n}} \norm{A \cdot B} \leq \norm{A} \cdot \norm{B}\).
+    \end{enumerate}
+\end{definicija}
+
+\begin{definicija}
+    \emph{Vektorizacija} matrike \(A \in \F^{n \times n}\) je preslikava 
+    \begin{align*}
+        \text{vec:}\ &\C^{n \times n} \to C^{n^2} \\
+        &A \mapsto [a_{11}\ \ldots\ a_{1n}\ a_{21}\ \ldots\ a_{nn}]^T
+    \end{align*}
+\end{definicija}
+Sedaj lahko definiramo vektorske norme 
+\begin{align*}
+    N_1(A) &= \norm{\text{vec}(A)}_1 = \sum_{i, j = 1}^{n} |a_{ij}| \\ 
+    N_2(A) &= \norm{\text{vec}(A)}_2 = (\sum_{i, j = 1}^{n} |a_{ij}|^2)^{1/2} \\ 
+    N_\infty(A) &= \norm{\text{vec}(A)}_\infty = \max \setb{|x_i|}{i \in \set{1, \ldots, n}} \\ 
+\end{align*}
+
+\begin{trditev}
+    Normi \(N_1\) in \(N_2\) sta matrični normi. Norma \(N_\infty\) ni matrična norma.
+\end{trditev}
+
+\begin{proof}
+    \todo
+\end{proof}
+
+\begin{definicija}
+    Matrična norma \(N_2\) je \emph{Frobeniusova norma}: 
+    \[
+        \norm{A}_F = \left(\sum_{i, j = 1}^{n} |a_{ij}|^2\right)^{1/2}.
+    \]
+\end{definicija}
+
+\begin{lema}
+    Naj bo \(\norm{\cdot}_v\) vektorska norma na \(\C^n\). Tedaj je 
+    \[
+        \norm{A}_v := \max_{x \neq 0} \frac{\norm{Ax}_v}{\norm{x}_v}
+    \]
+    matrična norma. Rečemo ji \emph{operatorska norma}.
+\end{lema}
+
+\begin{proof}
+    \todo
+\end{proof}
+
+Sedaj lahko definiramo \emph{operatorsko \(p\)-normo}:
+\[
+    \norm{A}_p := \max_{x \neq 0} \frac{\norm{Ax}_p}{\norm{x}_p}\ \text{za} \ p \in \set{1, 2, \ldots, \infty}.
+\]
+
+\begin{lema}
+    Naj bo \(A \in \C^{n \times n}\). Tedaj 
+    \[
+        \norm{A}_1 = \max \setb{\sum_{i=1}^{n} |a_{ij}|}{j \in \set{1, \ldots, n}} = \max \setb{\norm{a_j}_1}{j \in \set{1, \ldots, n}}.
+    \]
+\end{lema}
+
+\begin{proof}
+    \todo
+\end{proof}
+
+\begin{lema}
+    Naj bo \(A \in \C^{n \times n}\). Tedaj 
+    \[
+        \norm{A}_\infty = \max \setb{\sum_{j=1}^{n} |a_{ij}|}{i \in \set{1, \ldots, n}} = \max \setb{\norm{\alpha_i^T}_1}{i \in \set{1, \ldots, n}}.
+    \]
+\end{lema}
+
+\ 
+
+Naj bo \(A \in \C^{n \times n}\). Matrika \(B = A^HA\) je hermitska in pozitivno semidefinitna, saj
+\begin{enumerate}
+    \item \(B^H = (A^HA)^H = A^H(A^H)^H = A^HA = B\) in 
+    \item \(x^H B x = x^H A^H A x = (Ax)^H Ax = \norm{Ax}_2^2 \geq 0\).
+\end{enumerate}
+
+Vemo, da so torej vse njene lastne vrednosti nenegativne, zato jih lahko pišemo in uredimo kot 
+\[
+    \sigma_1^2 \geq \sigma_2^2 \geq \ldots \geq \sigma_n^2 \geq 0.
+\]
+
+Vrednostim \(\sigma_1^2, \sigma_2^2, \ldots, \sigma_n^2\) pravimo \emph{singularne vrednosti} matrike \(A\).
+
+\begin{lema}
+    Naj bo \(A \in \C^{n \times n}\). Tedaj 
+    \[
+        \norm{A}_2 = \sigma_1(A) = \sqrt{\lambda_{\max} (A^HA)}
+    \]
+\end{lema}
+
+\begin{proof}
+    \todo
+\end{proof}
+
+\begin{definicija}
+    Norma \(\norm{\cdot}\) je \emph{spektralna norma}.
+\end{definicija}
+
+\begin{opomba}
+    Vsako matriko \(A \in \C^{n \times n}\) lahko zapišemo v obliki
+    \[
+        A = U \Sigma V^T,
+    \]
+    kjer sta \(U, V\) ortogonalni matriki in 
+    \[
+        \Sigma = \begin{bmatrix}
+            \sigma_1 \\
+            & \ddots \\
+            & & \sigma_n
+        \end{bmatrix}.
+    \]
+    To je \emph{singularni razcep} matrike \(A\).
+\end{opomba} 
+
+\begin{opomba}
+    Frobeniusova norma ni operatorska norma, saj je \(\norm{I}_F = \sqrt{n}\). Za operatorske norma pa velja, da je \(\norm{I} = 1\).
+\end{opomba}
+
+Tudi vse matrične norme so ekvivalentne. Velja:
+\begin{align*}
+    \frac{1}{\sqrt{n}} \cdot \norm{A}_F &\leq \norm{A}_2 \leq \norm{A}_F \\
+    \frac{1}{\sqrt{n}} \cdot \norm{A}_1 &\leq \norm{A}_2 \leq \sqrt{n} \cdot \norm{A}_1 \\
+    \frac{1}{\sqrt{n}} \cdot \norm{A}_\infty &\leq \norm{A}_2 \leq \sqrt{n} \cdot \norm{A}_\infty \\
+\end{align*}
+
+Poleg tega velja še:
+\begin{align*}
+    N_\infty(A) &\leq \norm{A}_2 \leq n \cdot N_\infty(A) \\
+    \norm{A}_2 &\leq \sqrt{\norm{A}_1 \cdot \norm{A}_\infty} \\
+    \all{i \in \set{1, \ldots, n}} \norm{a_i}_2, \norm{\alpha_i^T}_2 &\leq \norm{A}_2.
+\end{align*}
+
+\
+
+Naj bo \(\norm{\cdot}_m\) operatorska norma z vektorsko normo \(\norm{\cdot}_v\). Tedaj
+\[
+    \all{A \in \C^{n \times n}} \all{x \in \C^n} \norm{Ax}_v \leq \norm{A}_m \cdot \norm{x}_v.
+\]
+
+\begin{definicija}
+    Če za matrično normo \(\norm{\cdot}_m\) in vektorsko normo \(\norm{\cdot}_v\) za vsak par \(A \in C^{n \times n},\ x \in \C^n\) velja:
+    \[
+        \norm{Ax}_v \leq \norm{A}_m \cdot \norm{x}_v,
+    \]
+    pravimo, da sta normi \emph{usklajeni}.
+\end{definicija}
+
+\begin{lema}
+Za vsako matrično normo \(\norm{\cdot}_m\) obstaja usklajena vektorska norma \(\norm{\cdot}_v\).
+\end{lema}
+
+\begin{proof}
+    \todo
+\end{proof}
+
+\begin{lema}
+    Naj bo \(\lambda \in \C\) lastna vrednost matrike \(A \in \C^{n \times n}\). Potem za poljubno matrično normo \(\norm{\cdot}_m\) velja:
+    \[
+        |\lambda| \leq  \norm{A}_m.
+    \]
+\end{lema}
+
+\begin{proof}
+    \todo
+\end{proof}
+
+\
+
+Vse norme \(\norm{\cdot}_1, \norm{\cdot}_2, \norm{\cdot}_\infty, \norm{\cdot}_F\) se enostavno razširijo na pravokotne matrike \(A \in \C^{m \times n}\). Če sta \(A, B\) ustreznih velikosti, da obstaja produkt \(A \cdot B\), potem velja tudi submultiplikativnost. Ne veljajo pa vse prejšnje ocene za norme.
+
+Velja pa 
+\begin{align*}
+    \norm{A}_2 &= \norm{A^H}_2 \\
+    \norm{A}_F &= \norm{A^H}_F \\
+    \norm{A}_1 &= \norm{A^H}_\infty
+\end{align*}
+
+\
+
+Matrika \(U \in \C^{n \times n}\) je \emph{unitarna}, če \(U \cdot U^H = U^HU = I\).
+
+\begin{lema}
+    Normi \(\norm{\cdot}_2\) in \(\norm{\cdot}_F\) sta invariantni na množenje z unitarno matriko.
+\end{lema}
+
+\begin{proof}
+    \todo
+\end{proof}
+
+\begin{lema}
+    Naj za \(X\) velja \(\norm{X} < 1\). Tedaj 
+    \begin{enumerate}
+        \item Matrika \(I - X\) je obrnljiva.
+        \item \((I-X)^{-1} = \sum_{k=0}^{\infty} X^k\).
+        \item Če je \(\norm{I} = 1\), potem \(\norm{(I - X)^{-1}} \leq \frac{1}{1 - \norm{X}}\).
+    \end{enumerate}
+\end{lema}
+
+\begin{proof}
+    \todo
+\end{proof}
+
+\subsection{Občutljivost sistemov linearnih enačb}
+\begin{definicija}
+    Naj bo \(A \in \C^{n \times n}\). \emph{Občutljivost} ali \emph{pogojnostno število} matrike \(A\) je 
+    \[
+        \kappa(A) := \norm{A} \cdot \norm{A^{-1}}.
+    \]
+\end{definicija} 
+
+\begin{opomba}
+    Velja ocena:
+    \[
+    \all{A \in \C^{n \times n}} \norm{I} = \norm{A \cdot A^{-1}} \leq \norm{A} \cdot \norm{A^{-1}} = \kappa(A).
+    \]
+\end{opomba}
+
+\begin{izrek}
+    Naj bo \(A \in \C^{n \times n}\) nesingularna matrika in \(Ax = b\). Če \(A\) zmotimo v \(A + \Delta A\) in \(b\) v \(b + \Delta b\), kjer velja 
+    \[
+        \norm{\Delta A} \leq \frac{1}{\norm{A^{-1}}},
+    \]
+    potem za rešitev zmotenega sistema \((A + \Delta A)(x + \Delta x) = b + \Delta b\) velja
+    \[
+        \frac{\norm{\Delta x}}{\norm{x}} \leq \frac{\kappa(A)}{1 - \kappa(A) \cdot \frac{\norm{\Delta A}}{\norm{A}}} \left( \frac{\norm{\Delta A}}{\norm{A}} + \frac{\norm{\Delta b}}{\norm{b}} \right),
+    \]
+    kjer za \(\norm{\cdot}\) velja \(\norm{I} = 1\).
+\end{izrek}
+
+\begin{opomba}
+    Velja:
+    \[
+        \kappa_2(A) = \frac{\sigma_1(A)}{\sigma_n(A)}.
+    \]
+\end{opomba}
+
+\begin{opomba}
+    Edine matrike z občutljivostjo \(1\) v \(\norm{\cdot}_2\) so s skalarjem pomnožene unitarne matrike.
+\end{opomba}
+
+\begin{definicija}
+    Hilbertova matrika \(H \in \R^{n \times n}\) je matrika z elementi 
+    \[
+        h_{ij} = \frac{1}{i+j-1}.
+    \]
+\end{definicija}
+
+\begin{opomba}
+    Hilbertove matrike so zelo občutljive.
+\end{opomba}
+
+\todo
+
+\subsection{LU razcep}
+
+Želimo rešiti sistem linearnih enačb 
+\[
+    Ax = b,\ A \in \C^{n \times n},\ x, b \in \C^n,\ \det A \neq 0.
+\]
+
+Kakšni metodi so na voljo?
+
+Naj bo 
+\[
+    A = \begin{bmatrix}
+        \textcolor{blue}{a_{11}} & a_{12} & \ldots & a_{1n} \\
+        a_{21} & a_{22} & \ldots & a_{2n} \\
+        \vdots & \vdots & & \vdots \\
+        a_{n1} & a_{n2} & \ldots & a_{nn} \\
+    \end{bmatrix}, \quad
+    a_{11} \neq 0. 
+\]
+
+Definiramo 
+\[
+L_1 = \begin{bmatrix}
+    1 & \\
+    -l_{21} & 1 \\
+    -l_{31} & & \ddots \\
+    \vdots && & \ddots \\
+    -l_{n1} & & & & 1
+\end{bmatrix}, \quad
+l_{j1} = \frac{a_{j1}}{a_{11}},\ j \in \set{2, \ldots, n}.
+\]
+
+Potem 
+\[
+    L_1 A = \begin{bmatrix}
+        a_{11} & a_{12} & \ldots & a_{1n} \\
+        0 & \textcolor{blue}{a_{22}^{(1)}} & \ldots & a_{2n}^{(1)} \\
+        0 & a_{32}^{(1)} & \ldots & a_{3n}^{(1)} \\
+        \vdots & \vdots & & \vdots \\
+        0 & a_{n2}^{(1)} & \ldots & a_{nn}^{(1)} \\        
+    \end{bmatrix}, \quad
+    a_{22} \neq 0. 
+\]
+
+Nadaljujemo in dobimo
+\[
+    L_i = \begin{bmatrix}
+        1 & \\
+        & \ddots \\
+        & & 1 \\
+        & & -l_{i+1, i} & 1 \\
+        & & \vdots && & \ddots \\
+        & & -l_{n,i} & & & & 1
+    \end{bmatrix}, \quad
+    l_{ji} = \frac{a_{ji}^{(i-1)}}{a_{ii}^{(i-1)}},\ j \in \set{i+1, \ldots, n}
+\]
+ter 
+\[
+    A^{(i-1)} = \begin{bmatrix}
+        0 \\
+        & \ddots \\
+        & & 0 \\
+        & & & a_{ii}^{(i-1)} & \ldots \\
+        & & & \vdots \\
+        & & & a_{ni}^{(i-1)} & \ldots
+    \end{bmatrix}
+\]
+
+V končnem
+\[
+    L_{n-1} \cdots L_2L_1 A = \begin{bmatrix}
+        a_{11} & a_{12} & a_{13} & \ldots & a_{1n} \\
+        & a_{22}^{(1)} & a_{23}^{(1)} & \ldots & a_{2n}^{(1)} \\
+        & & a_{33}^{(2)} & \ldots & a_{3n}^{(1)} \\
+        & & & & a_{nn}^{(n-1)}
+    \end{bmatrix}
+\]
+
+Definiramo \(L_{n-1} \cdots L_2L_1 A =: U\). Tedaj 
+\[
+    A = \underbrace{L_1^{-1}L_2^{-2} \cdots L_{n-1}^{-1}}_L U = LU.
+\]
+
+Kako dobimo matriko \(L\)?
+\begin{align*}
+    L_j &= I - l_je_j^T\ \text{je eliminacisjka matrika} \\ 
+    &\lthen L_j^{-1} = I + l_j e_j^T,\ \text{kjer} \\
+    l_j &= [0\ \ldots\ 0\ l_{j+1, j}\ \ldots\ l_{n, j}]^T \\
+    &\lthen L = \begin{bmatrix}
+        1 \\
+        l_{21} & 1 \\
+        l_{31} & l_{32} & 1 \\
+        \vdots & \vdots & & \ddots \\
+        l_{n1} & l_{n2} & \ldots & l_{n, n-1} & 1
+    \end{bmatrix}
+\end{align*}
+
+S tem dobimo \emph{LU razcep brez pivotiranja}, kjer je \(L\) spodnje trikotna z \(1\) na diagonali in \(U\) zgornje trikotna matrika.
+
+\begin{algorithm}
+    \DontPrintSemicolon
+
+    \label{lu-not-pivot}
+    \caption{LU razcep}
+    
+    \KwData{\(A \in \C^{n \times n}\)}
+    \KwResult{\(L \in \C^{n \times n},\ U \in \C^{n \times n}\)}
+
+    \For{\(i = 1, \ldots, n-1\)}{
+        \For{\(j = i+1, \ldots, n\)}{
+            \(l_{ji} \gets a_{ji} / a_{ii}\) \;
+            \For{\(k = i+1, \ldots, n\)}{
+                \(a_{jk} \gets a_{jk} - l_{ji} a_{ik}\) \;
+            }
+        }
+    }
+
+    \(U \gets A\) \;
+\end{algorithm}
+
+Kako zdaj rešimo sistem \(Ax = b\)?
+\[
+    Ax = b \liff L\underbrace{Ux}_y = b.
+\]
+\paragraph{Postopek.}\ 
+\begin{enumerate}
+    \item \(A = LU\),
+    \item Reši \(Ly = b\),
+    \item Reši \(Ux = y\).
+\end{enumerate}
+
+Sistem \(Ly = b\) rešimo s \emph{premo substitucijo} (od zgoraj navzdol), tj. 
+\[
+    l_{j1} y_1 + \ldots + l_{j, j-1}y_{j-1} + y_i = b_j.
+\]
+
+\begin{algorithm}
+    \DontPrintSemicolon
+
+    \label{prema-sub}
+    \caption{Prema substitucija}  
+    
+    \KwData{\(L \in \C^{n \times n},\ b \in \C^n\)}
+    \KwResult{\(y \in \C^n\)}
+
+    \For{\(j = 1, \ldots, n\)}{
+        \(y_i \gets b_j - \sum_{k=1}^{j-1} l_{jk}y_k\) \;
+    }
+\end{algorithm}
+
+Sistem \(Ux = y\) rešimo s \emph{obratno substitucijo} (od zgoraj navzdol), tj. 
+\[
+    u_{jj} x_j + \ldots + u_{j, n}x_{n} = y_j.
+\]
+
+\begin{algorithm}
+    \DontPrintSemicolon
+
+    \label{obratna-sub}
+    \caption{Obratna substitucija}  
+    
+    \KwData{\(U \in \C^{n \times n},\ y \in \C^n\)}
+    \KwResult{\(x \in \C^n\)}
+
+    \For{\(j = n, n-1, \ldots, 1\)}{
+        \(x_j \gets (1 / u_{jj}) \cdot (y_j - \sum_{k=j+1}^{n} u_{jk} x_k)\) \;
+    }
+\end{algorithm}
+
+Elementom \(a_{11}, a_{22}^{(1)}, \ldots, a_{n-1, n-1}^{(n-2)}\), s katerimi delimo, pravimo \emph{pivotni elementi}.
+
+\begin{izrek}
+    Za \(A \in \C^{n \times n}\) NTSE:
+    \begin{enumerate}
+        \item Obstaja enoličen LU razcep \(A = LU\), kjer je \(L\) spodnje trikotna z 1 na diagonali in \(U\) nesingularna zgornje trikotna.
+        \item \(\det(A_k) \neq 0\) za vse \(A_k = A(1:k, 1:k),\ k \in \set{1, \ldots, n}\).
+        \item Vse vodilne podmatrike \(A\) so nesingularne.
+    \end{enumerate}
+\end{izrek}
+
+\begin{zgled}
+    Pri numeričnem računanju so težave lahko tudi zaradi pivotov, ki so sicer neničelni, a blizu \(0\). \todo
+\end{zgled}
+
+Rešitev za težave s (skoraj) ničelnimi pivoti je pivotiranje, kjer dopuščamo:
+\begin{enumerate}
+    \item Menjave vrstic - \emph{delno pivotiranje}.
+    \item Menjave vrstic in stolpcev - \emph{kompletno pivotiranje}. 
+\end{enumerate}
+
+\subsubsection*{Delno pivotrianje}
+V koraku \(i\) poiščemo največjega izmed elementov \(|a_{ij}|, |a_{i+1}, j|, \ldots, |a_{ni}|\) in zamenjamo ustrezni vrstici.
+
+\begin{algorithm}
+    \DontPrintSemicolon
+
+    \label{lu-delni-pivot}
+    \caption{LU razcep z delnim pivotiranjem}
+    
+    \KwData{\(A \in \C^{n \times n}\)}
+    \KwResult{\(L \in \C^{n \times n},\ U \in \C^{n \times n}\)}    
+
+    \For{\(i = 1, \ldots, n\)}{
+        find \(p \in \set{i, \ldots, n}\), da \(|a_{pi}| = \max_{l \in \set{i, \ldots, n}} |a_{li}|\) \;
+        swap the \(i\)-th and \(j\)-th rows \;
+        \For{\(j = i+1, \ldots, n\)}{
+            \(l_{ji} \gets a_{ji} / a_{ii}\) \;
+            \For{\(k = i+1, \ldots, n\)}{
+                \(a_{jk} \gets a_{jk} - l_{ji} a_{ik}\) \;
+            }
+        }
+    }
+\end{algorithm}
+
+Dobimo razcep \(PA = LU\), kjer je \(P\) permutacijska matrika, ki ustreza zamenjavi vrstic.
+
+Kako zdaj rešimo sistem?
+\[
+    Ax = b \lthen PAx = Pb \lthen LUx = Pb
+\]
+\paragraph{Postopek.}\ 
+\begin{enumerate}
+    \item \(PA = LU\),
+    \item Reši \(Ly = Pb\),
+    \item Reši \(Ux = y\).
+\end{enumerate}
+
+\begin{izrek}
+    Če je \(A\) nesingularna, potem obstaja taka permutacijska matrika \(P\), da za \(PA\) obstaja \(LU\) razcep brez pivotiranja.
+\end{izrek}
+
+\begin{proof}
+    \todo
+\end{proof}
+
+\subsubsection*{Kompletno pivotiranje}
+Poiščemo največji element bloka in zamenjamo ustrezni vrstici in stolpca. Dobimo sistem 
+\[
+    \underbrace{PAQ}_{LU}\underbrace{Q^T x}_{\widetilde{x}} = Pb
+\]
+
+\paragraph{Postopek.} \
+\begin{enumerate}
+    \item \(PAQ = LU\),
+    \item Reši \(Ly = Pb\),
+    \item Reši \(U \widetilde{x} = y\),
+    \item \(x = Q\widetilde{x}\).
+\end{enumerate}
+
+\subsection{Analiza zaokrožitvenih napak pri LU razcepu}
+\begin{definicija}
+    \emph{Pivotna rast} je 
+    \[
+        g(A) := \frac{\max_{i, j \in \set{1, \ldots, n}} |u_{ij}|}{\max_{i, j \in \set{1, \ldots, n}} |a_{ij}|}
+    \]
+\end{definicija}
+\todo
+
+\subsection{Sistemi posebne oblike}
+Recimo, da rešujemo sistem \(Ax = b\), kjer ima \(A\) posebno obliko, npr.\ diagonalna, trikotna itn.
+
+\subsubsection*{Simetrična pozitivno definitna matrika}
+\begin{izrek}
+    Naj bo \(A \in \R^{n \times n}\). Tedaj 
+    \begin{enumerate}
+        \item Če je \(A\) s.p.d., so vse vodilne podmatrike \(A_k = A(1:k, 1:k)\) tudi s.p.d.
+        \item Če je \(A\) s.p.d., obstaja enoličen LU razcep \(A = LU\), kjer je \(u_{ii} > 0\) za \(i \in [n]\).
+        \item \(A\) je s.p.d. natanko tedaj, ko obstaja enolična spodnja trikotna matrika \(V,\ v_{ii} > 0\) za \(i \in [n]\), da je 
+        \[
+            A = V \cdot V^T.
+        \]
+        To je \emph{razcep Choleskega}. Matriko \(V\) pa imenujemo \emph{faktor Choleskega}.
+    \end{enumerate}
+\end{izrek}
+
+\begin{proof}
+    \todo
+\end{proof}
+
+Kako rešimo sistem s pomočjo razcepa Choleskega?
+\paragraph{Postopek.}\
+\begin{enumerate}
+    \item \(A = V V^T\),
+    \item \(Vy = b\),
+    \item \(V^Tx = y\).
+\end{enumerate}
+
+\begin{algorithm}
+    \DontPrintSemicolon
+
+    \label{cholsky}
+    \caption{Razcep Choleskega}
+    
+    \KwData{\(A \in \C^{n \times n}\)}
+    \KwResult{\(V \in \C^{n \times n}\)}    
+
+    \For{\(i = 1, \ldots, n\)}{
+        \(v_{ii} \gets (a_{ii} = \sum_{k=1}^{i-1} v_{ik}^2)^{1/2}\) \;
+        \For{\(j = i+1, \ldots, n\)}{
+            \(v_{ji} \gets (1/v_{ii}) \cdot (a_{ij} - \sum_{k=1}^{i-1} v_{ik}v_{jk})\) \;            
+        }
+    }
+\end{algorithm}
+

@@ -1,0 +1,162 @@
+\section{Polinomska interpolacija}
+\subsection{Uvod}
+Dane so točke \((x_0, y_0), \ldots, (x_n, y_n)\), kjer so \(x_0, \ldots, x_n\) paroma različne. Iščemo funkcijo \(f\), ki \emph{interpolira} te točke, torej 
+\[
+    \all{i \in \set{0, 1, \ldots, n}} f(x_i) = y_i.
+\] 
+
+\subsection{Lagrangeva interpolacija}
+Pri polinomski interpolaciji iščemo polinom stopnje največ \(n\), za katerega velja \(p(x_i) = y_i\) za vse \(i \in \set{0, 1, \ldots, n}\). Tak polinom je \emph{interpolacijski polinom} v točkah \((x_i, y_i)\). Točke \(x_0, x_1, \ldots, x_n\) so imenujemo \emph{vozli}.
+
+\ 
+
+Če tak polinom iščemo v standardni bazi \(1, x, x^2, \ldots, x^n\), potem iščemo koeficiente kot rešitve sistema:
+\[
+    \begin{bmatrix}
+        1 & x_0 & x_0^2 & \ldots & x_0^n \\
+        1 & x_1 & x_1^2 & \ldots & x_1^n \\
+        \vdots \\
+        1 & x_0n& x_n^2 & \ldots & x_n^n
+    \end{bmatrix} \cdot 
+    \begin{bmatrix}
+        a_0 \\ a_1 \\ \vdots \\ a_n
+    \end{bmatrix} = 
+    \begin{bmatrix}
+        y_0 \\ y_1 \\ \vdots \\ y_n
+    \end{bmatrix}.
+\]
+%
+To je \emph{Vandermondova matrika}, ki je nesingularna za paroma različne točke \(x_0, x_1, \ldots, x_n\). Njena determinanta je \(\prod_{0 \leq i < j \leq n} (x_j - x_i)\). Torej obstaja enolična rešitev, torej je interpolacijski polinom enoličen.
+
+\begin{izrek}
+    Za paroma različne točke \(x_0, x_1, \ldots, x_n\) in vrednosti \(y_0, y_1, \ldots, y_n\) obstaja na\-tanko en polinom \(p\) stopnje največ \(n\), za katerega velja \(p(x_i) = y_i\) za vse \(i \in \set{0, 1, \ldots, n}\).
+\end{izrek}
+
+\emph{Lagrangeevi bazni polinomi} so polinomi:
+\[
+    l_{n, i} = \prod_{j = 0, i \neq j}^{n} \frac{x - x_j}{x_i = x_j}.
+\]
+Te polinomi tvorijo razčlenitev enote in bazo za vse polinome stopnje \(n\) ali manj. Ker velja 
+\[
+    l_{n, i}(x_j) = \delta_{ij},
+\]
+interpolacijski polinom lahko definiramo na naslednji način:
+\[
+    p_n(x) := \sum_{k=0}^{n}y_k l_{n, k}(x).
+\]
+
+\ 
+
+\begin{izrek}
+    Naj bo \(f\) \(n+1\)-krat zvezno odvedljiva. Če so \(x_0, \ldots, x_n\) paroma različne točke in je \(p\) interpolacijski polinom za \(f\) na \(x_0, x_1, \ldots, x_n\), potem velja:
+    \[
+        f(x) = p(x) + \frac{f^{(n+1)}(\xi)}{(n+1)!} \omega(x),
+    \]
+    kjer je 
+    \[
+        \omega(x) = (x-x_0)(x-x_1) \cdots (x-x_n) \quad \text{in} \quad \min \set{x_0, x_1, \ldots, x_n} < \xi < \max \set{x_0, x_1, \ldots, x_n}
+    \]
+\end{izrek}
+
+\subsection{Deljene diference}
+\begin{definicija}
+    Za paroma različne točke \(x_0, x_1, \ldots, x_k\) in funkcijo \(f\) je \emph{delna diferenca} \([x_0, x_1, \ldots, x_n] f\) vodilni koeficient \(m x^k\) interpolacijskega polinoma za \(f\) na točkah \(x_0, x_1, \ldots, x_k\).
+\end{definicija}
+
+\begin{izrek}
+    Za paroma različne točke \(x_0, x_1, \ldots, x_n\) lahko interpolacijski polinom za \(f\) zapišemo v obliki:
+    \begin{multline*}
+        p(x) = [x_0] f + (x-x_0)[x_0, x_1]f + (x-x_0)(x-x_1)[x_0, x_1, x_2] f + \\ + \cdots + (x-x_0)(x-x_1) \cdots (x- x_{n-1})[x_0, x_1, \ldots, x_n]
+    \end{multline*}
+\end{izrek}
+
+Uporabimo bazo \(1, (x-x_0), (x-x_0)(x-x_1), \ldots, (x-x_0)(x-x_1) \cdots (x-x_{n-1})\). Tej obliki pravimo \emph{Newtonova oblika interpolacijskega polinoma}.
+
+\begin{lema}
+    Naj bodo \(x_0, x_1, \ldots, x_n\) paroma različne točke. potem velja:
+    \begin{enumerate}
+        \item \([x_0, x_1, \ldots, x_n]f\) je simetrična funkcija glede na točke \(x_0, x_1, \ldots, x_n\), tj.\ vrstni red \(x_0, x_1, \ldots, x_n\) ni pomemben.
+        \item Deljena diferenca je linearni funkcional, tj.
+        \[
+            [x_0, x_1, \ldots, x_n](\alpha f + \beta g) = \alpha [x_0, x_1, \ldots, x_n]f + \beta [x_0, x_1, \ldots, x_n] g.
+        \]
+        \item \([x_0, x_1, \ldots, x_k]f = \frac{[x_0, x_1, \ldots, x_k]f - [x_0, x_1, \ldots, x_{k-1}]f}{x_k - x_0}\) za \(k > 0\), \([x_0]f = f(x_0)\).
+    \end{enumerate}
+\end{lema}
+
+Zdaj lahko izračunamo deljene diference po trikotni shemi:
+\begin{table}[ht!]
+    \centering
+    \begin{tabular}{c|ccc}
+        \(x_i\) & \([x_i]f\) & \([\cdot, \cdot]f\) & \([\cdot, \cdot, \cdot]f\) \\
+        \hline
+        \(x_0\) & \(F(x_0)\) \\ 
+        & & \([x_0, x_1]f\) \\
+        \(x_1\) & \(F(x_1)\) & & \([x_0, x_1, x_2]f\) \\ 
+        & & \([x_0, x_2]f\) \\
+        \(x_2\) & \(F(x_2)\)
+
+    \end{tabular}
+\end{table}
+
+\begin{opomba}
+    Velja:
+    \begin{itemize}
+        \item \([x_0] f = f(x_0)\);
+        \item \([x_0, x_1]f = \frac{[x_1]f - [x_0]f}{x_1 - x_0} = \frac{f(x_1) - f(x_0)}{x_1 - x_0}\). To je smerni koeficient premice skozi \((x_0, f(x_0))\) in \(x_1, f(x_1)\).
+    \end{itemize}
+\end{opomba}
+
+Opazimo, če je \(f\) zvezno odvedljiva, je 
+\[
+    \lim_{x_1 \to x_0} [x_0, x_1] f = f'(x_0).
+\]
+Interpolacijski polinom \(F(x_0) + \frac{F(x_1) - f(x_0)}{x_1 - x_0} (x-x_0)\) (sekanta) v limiti \(x_1 \to x_0\) postane tangenta \(f(x_0) + f'(x_0)(x-x_0)\).
+
+\ 
+
+Z uporabo limit lahko definicijo interpolacijskega polinoma razširimo na primere z večkratnimi točkami. Če se točka \(x_i\) pojavi \(m\)-krat, potem se moreta polinom in \(f\) ujemati v \(x_i\) in še v prvih \(m-1\) odvodih:
+\[
+    p(x_i) = f(x_i),\ p'(x_i) = f'(x_i), \ldots, p^{(m-1)}(x_i) = f^{(m-1)}(x_i).
+\]  
+Če dopuščamo tudi ponavljanje točk, za deljene diference velja rekurzivna zveza:
+\[
+    [x_0, x_1, \ldots, x_k] f = \begin{cases}
+        \frac{f^{(k)}(x_0)}{k!}, &x_0 = x_1 = \cdots = x_k,\\
+        \frac{[x_0, x_1, \ldots, x_k]f - [x_0, x_1, \ldots, x_{k-1}]f}{x_k - x_0}, &\text{sicer.}
+    \end{cases}
+\]
+
+\begin{izrek}
+    Za \(k\)-krat zvezno odvedljivo funkcijo \(f\) velja:
+    \[
+        [x_0, x_1, \ldots, x_k] f = \int_{0}^{1}dt_1 \int_{0}^{t_1} dt_2 \cdots \int_{0}^{t_{k+1}} f^{(k)} (\xi_k) \, dt_k,
+    \]
+    kjer je 
+    \[
+        \xi_k = t_k(x_k - x_{k-1}) + t_{k-1}(x_{k-1} - x_{k-2}) + \cdots + t_1(x_1 - x_0) + x_0.
+    \]
+\end{izrek}
+
+\begin{posledica}
+    Za \(k\)-krat zvezno odvedljivo funkcijo \(f\) velja:
+    \[
+        [x_0, x_1, \ldots, x_k]f = \frac{f^{(k)}(\xi)}{k!},
+    \]
+    ze nek \(\min \set{x_0, x_1, \ldots, x_k} \leq \xi \leq \max \set{x_0, x_1, \ldots, x_k}\).
+\end{posledica}
+
+\begin{lema}
+    Za funkcijo \(f\) in točke \(x_0, x_1, \ldots, x_n\) in interpolacijski polinom \(p\) za \(f\) na teh točkah velja:
+    \[
+        f(x) = p(x) + [x_0, \ldots, x_n, x] f \cdot (x-x_0) \cdots (x-x_n).
+    \]
+\end{lema}
+
+\begin{posledica}
+    Če \(p\) interpolira \((n+1)\)-krat zvezno odvedljivo funkcijo \(f\) na točkah \(x_0, x_1, \ldots, x_n\), potem velja:
+    \[
+        f(x) = p(x) = \frac{f^{(n+1)}\xi}{(n+1)!} \cdot \omega(x),
+    \]
+    za neki \(\min \set{x_0, x_1, \ldots, x_k} \leq \xi \leq \max \set{x_0, x_1, \ldots, x_k}\). Pri tem je \(\xi\) odvisen od \(x\).
+\end{posledica}

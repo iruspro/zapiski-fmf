@@ -1,0 +1,361 @@
+\section{Nelinearne enačbe}
+\subsection{Uvod}
+Iščemo rešitve (ničle) enačbe \(f(x) = 0\), kjer je \(f: \R \to \R\) ali \(f: 
+\C \to \C\). Lahko imamo eno ničlo, več ničel, neskončno ničel ali nič ničel.
+
+\
+
+Naj bo \(f\) zvezno odvedljiva funkcija v okolici \(\alpha\) in \(f(\alpha) = 0\).
+\begin{itemize}
+    \item Če je \(f'(\alpha) \neq 0\), je \(\alpha\) \emph{enostavna ničla}.
+    \item Če je \(f'(\alpha) = 0\), je \(\alpha\) \emph{večkratna ničla}.
+    \begin{itemize}
+        \item Če je \(f \in C^m\) v okolici \(\alpha\) in \(f'(\alpha) = \ldots = f^{(m-1)}(\alpha) = 0,\ f^{(m)}(\alpha) \neq 0\), je  \(\alpha\) \emph{\(m\)-kratna ničla}.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection*{Občutljivost ničel}
+Naj bo \(x\) približek za ničlo \(\alpha\) in \(|f(x)| \leq \eps\). Naj bo \(\alpha\) enostavna ničla funkcije \(f \in C^1\). Vemo, da je \(f'(\alpha) \neq 0\).  Po Lagrangeovem izreku:
+\begin{align*}
+    |f(x) - f(\alpha)| &= |f'(c)| |x - \alpha| \approx |f'(\alpha)||x - \alpha| \\
+    &\lthen |x-\alpha| \lesssim \frac{\eps}{|f'(\alpha)|} \\
+    &\lthen \frac{1}{|f'(\alpha)|} \ \text{je občutljivost ničle}\ \alpha.
+\end{align*}
+
+Po drugi strani, vemo, da je občutljivost izračuna funkcije enaka absolutne vrednosti odvoda, tj.
+\[
+    \alpha = f^{-1}(0) \lthen |(f^{-1})'(0)| = \frac{1}{|f'(\alpha)|}.
+\]
+
+\
+
+Naj bo zdaj \(\alpha\) dvojna ničla, torej \(f(\alpha) = f'(\alpha) = 0,\ f''(\alpha) \neq 0\). Tedaj 
+\begin{align*}
+    f(x) &= f(\alpha) + f'(\alpha)(x - \alpha) + \frac{f''(c)}{2}(x - \alpha)^2 \\
+    &\lthen |x - \alpha| \lesssim \sqrt{\frac{2\eps}{|f''(\alpha)|}} = O(\eps^{1/2}). 
+\end{align*}
+Torej potrebujemo manjši \(\eps\), da dobimo dobro aproksimacijo.
+
+\subsection{Bisekcija}
+\begin{izrek}[o bisekciji]
+    Naj bo \(f: [a, b] \to \R\) zvezna in \(f(a) \cdot f(b) \leq 0\). Tedaj obstaja \(c \in (a, b)\), da je \(f(c) = 0.\)
+\end{izrek}
+
+\begin{algorithm}[H]
+    \DontPrintSemicolon
+
+    \label{Bisekcija}
+    \caption{Bisekcija}
+
+    \KwData{\(a,b \in \R,\ f \in C[a, b],\ \eps \in (0, \infty)\)}
+    \KwResult{\(c \in (a,b), \ \text{da je}\ f(c) \approx 0\)}
+
+    \(e \gets b - a\) \;
+    \While{\(e > \eps\) \Comment*{\(b-a > \eps\)}}{  
+        \(e \gets e / 2\) \;
+        \(c \gets a + e\) \;
+        \eIf{\(\sgn(f(a)) = \sgn(f(c))\)}{
+            \(a \gets c\) \;
+        }{
+            \(b \gets c\) \;
+        }
+    }
+\end{algorithm}
+
+\begin{opomba} \
+    \begin{itemize}
+        \item Ne preverjamo, če je \(f(c) = 0\), saj je to zelo redek dogodek.
+        \item Uporabljamo \(e = e / 2\) namesto \(c = (a+b) / 2\), da smo gotovi, da se postopek ustavi.
+    \end{itemize}
+\end{opomba}
+
+\paragraph{Analiza števila korakov.} Program se ustavi, ko 
+\[
+    (b - a) \cdot 2^{-k} < \eps.
+\]
+Sledi, da
+\[
+    k = \left\lceil \log_2 \left(\frac{b-a}{\epsilon}\right) \right\rceil.
+\]
+
+Torej je število korakov odvisno le od \(\epsilon\) in začetne širine intervala.
+
+\
+
+Opazimo, da se napaka v vsakem koraku razpolovi, kar je tipičen primer linearne konvergence.
+
+\subsection{Navadna iteracija}
+Iščemo rešitve enačbe \(f(x) = 0\). Enačbo predelamo v ekvivalentno obliko \(g(x) = x\), tj.
+\[
+    f(x) = 0\ (x\ \text{je ničla}\ f) \liff x = g(x) \ (x\ \text{je negibna točka}\ g).
+\]
+
+\begin{zgled}
+    Naj bo \(f: D \subseteq \R \to \R\) funkcija. Lahko definiramo
+    \begin{itemize}
+        \item \(g(x) := f(x) - x\).
+        \item \(g(x) := x - c \cdot f(x),\ c \neq 0\).
+        \item \(g(x) := x - h(x) \cdot f(x),\ h(x) \neq 0\).
+    \end{itemize}
+\end{zgled}
+
+\paragraph{Postopek.} Izberimo začetni približek \(x_0\) in računamo 
+\[
+    x_{r+1} = g(x_r),\ r = 0, 1, \ldots
+\]
+
+To je \emph{navadna iteracija} in \(g\) je \emph{iteracijska funkcija}.
+
+Ob ustrezno izbrani iteracijske funkcije \(g\) in dobrem začetnem približku je \(\lim_{r \to \infty} x_r = \alpha\), kjer je 
+\[
+    \alpha = g(\alpha) \quad \text{oz.} \quad f(\alpha) = 0.
+\]
+
+Da navadna iteracija deluje za ničlo \(\alpha\), mora biti \(g\) skrčitev na neki okolici \(\alpha\), tj. 
+\[
+    |g(x) - g(y)| \leq m |x -y|,\ m < 1.
+\]
+
+\begin{izrek}
+    Naj bo \(\alpha = g(\alpha)\) in naj bo \(\alpha\) na \(I = [\alpha - \delta, \alpha + \delta]\) za nek \(\delta > 0\) zadošča Lipschitzovem pogoju, tj.
+    \[
+        |g(x) - g(y)| \leq m|x - y|\ \text{za}\ 0 \leq m < 1\ \text{za vse}\ x, y \in I. 
+    \]
+    Tedaj za vsak \(x_0 \in I\) zaporedje \(x_{r+1} = g(x_r)\) za \(r = 0, 1, \ldots\) konvergira k \(\alpha\) in velja:
+    \begin{enumerate}
+        \item \(|x_r - \alpha| \leq m^r|x_o - \alpha|\);
+        \item \(|x_{r+1} - \alpha| \leq \frac{m}{1 - m} |x_{r+1} - x_r|\).
+    \end{enumerate}
+\end{izrek}
+
+\begin{proof}
+    \todo
+\end{proof}
+
+\begin{opomba}
+    Ocena \(|x_{r+1} - \alpha| \leq \frac{m}{1 - m} |x_{r+1} - x_r|\) nam pove, kako daleč smo od negibne točke.
+\end{opomba}
+
+\begin{posledica}
+    Naj bo \(\alpha = g(\alpha)\). Naj bo \(g\) zvezno odvedljiva v okolici \(\alpha\) in \(|g'(\alpha)| < 1\). Tedaj obstaja \(\delta > 0\), da za vsak \(x_o \in I = [\alpha - \delta, \alpha + \delta]\) zaporedje \(x_{r+1} = g(x_r)\) za \(r = 0, 1, \ldots\) konvergira k \(\alpha\).
+\end{posledica}
+
+\begin{proof}
+    \todo
+\end{proof}
+
+Naj bo \(\alpha = g(\alpha)\). Naj bo \(g\) zvezno odvedljiva v okolici \(\alpha\) in \(|g'(\alpha)| < 1\):
+\begin{itemize}
+    \item Če je \(|g'(\alpha)| < 1\), potem je \(\alpha\) \emph{privlačna} negibna točka.
+    \item Če je \(|g'(\alpha)| > 1\), potem je \(\alpha\) \emph{odbojna} negibna točka.
+\end{itemize}
+
+\begin{definicija}
+    Recimo, da je \(\alpha = \lim_{r \to \infty} x _r\) in obstaja 
+    \[
+        \lim_{r \to \infty} \frac{|x_{r+1} - \alpha|}{|x_r - \alpha|^p} = c > 0.
+    \]
+    Tedaj zaporedje \(x_r\) konvergira k \(\alpha\) z \emph{redom} \(p\).
+    \begin{itemize}
+        \item Če je \(p = 1\), konvergenca \emph{linearna},
+        \item Če je \(p = 2\), konvergenca \emph{kvadratična},
+        \item Če je \(p = 3\), konvergenca \emph{kubična},
+        \item Če je \(1 < p < 2\), konvergenca \emph{superlinearna},
+        \item Če je \(2 < p < 3\), konvergenca \emph{superkvadratična}.
+    \end{itemize}
+\end{definicija}
+
+\begin{izrek}
+    Naj bo \(\alpha = g(\alpha)\). Naj bo \(g\) \(p\)-krat zvezno odvedljiva funkcija v okolici \(\alpha\) in 
+    \[
+        g'(\alpha) = \ldots = g^{(p-1)}(\alpha) = 0\ \text{in}\ g^{(p)}(\alpha) \neq 0.
+    \]
+    Tedaj je v bližini \(\alpha\) red konvergence \(x_{r+1} = g(x_r)\) enak \(p\).
+
+    V primeru \(p=1\), mora veljati še, da je \(|g'(\alpha)| < 1\).
+\end{izrek}
+
+\begin{proof}
+    \todo
+\end{proof}
+
+\paragraph{Praktičen način.} \ 
+\begin{itemize}
+    \item Pri linearni konvergenci se število točnih decimalk povečuje linearno (ni nujno za celo število).
+    \item Pri kvadratnični konvergenci se število točnih decimalk iz koraka v korak približno podvoji.
+\end{itemize}
+
+\subsection{Tangentna metoda}
+Naj bo \(f\) dvakrat zvezna odvedljiva funkcija v okolici \(\alpha\) in \(f(\alpha)=0\). Naj bo \(x_r\) približek za ničlo \(\alpha\). Iščemo popravek \(\Delta x_r\), da bo \(f(x_r + \Delta x_r) = 0\).
+
+\paragraph{Ideja.} Razvijemo \(f(x_r + \Delta x_r)\) v Taylorjevo vrsto:
+\begin{align*}
+    0 &= f(x_r + \Delta x_r) = f(x_r) + f'(x_r) \cdot \Delta x_r + \underbrace{\frac{f''(c_r)}{2} \cdot \Delta x_r^2}_\text{zanemarimo} \\
+    &\lthen \Delta x_r \approx -\frac{f(x_r)}{f'(x_r)}.
+\end{align*}
+
+Za novi približek vzamemo 
+\[
+    x_{r+1} = x_r - \frac{f(x_r)}{f'(x_r)}.
+\]
+
+To je \emph{tangentna metoda}.
+
+\begin{opomba}
+    Tangentna metoda je poseben primer navadne iteracije za 
+    \[
+        g(x) = x - \frac{f(x)}{f'(x)}.
+    \]
+\end{opomba}
+
+\subsubsection*{Geometrijska interpretacija}
+\todo
+
+\subsubsection*{Analiza reda konvergence}
+\todo
+
+\subsubsection*{Konvergenca tangentne metode}
+Definiramo z \(e_r := x_r - \alpha\) napako \(i\)-tega približka. 
+Naj bo \(f \in C^2\) in \(\alpha\) enostavna ničla. Tedaj 
+\begin{align*}
+    0 &= f(\alpha) = f(x_r) + f'(x_r)(\alpha - x_r) + \frac{f''(c_r)}{2}(\alpha - x_r)^2 \\
+    &\lthen 0 = \frac{f(x_r)}{f'(x_r)} + \alpha - x_r + \frac{f''(c_r)}{2f'(x_r)}(\alpha - x_r)^2 \\
+    &\lthen e_{r+1} = \frac{f''(c_r)}{2f'(x_r)}e_r^2.
+\end{align*}
+
+V bližini \(\alpha\) torej velja:
+\[
+    e_{r+1} \approx Ce_r^2, \quad C = \frac{f''(\alpha)}{2f'(\alpha)}.
+\]
+
+Torej za dvakrat zvezno odvedljivo funkcijo \(f\) imamo zagotovljeno lokalno konvergenco tangentne metode.
+
+\ 
+
+V določenih primerih imamo tudi globalno konvergenco.
+\begin{izrek}
+    Naj bo \(f\) na \(I = [a, \infty)\) dvakrat zvezno odvedljiva funkcija, ki ima ničlo \(\alpha \in I\). Naj bo \(f\) naraščajoča in konveksna. Tedaj je \(\alpha\) edina ničla na \(I\) in za vsak \(x_0 \in I\) tangentna metoda konvergira k \(\alpha\).
+\end{izrek}
+
+\begin{proof}
+    \todo
+\end{proof}
+
+\subsection{Metode brez računanja odvoda}
+\subsubsection*{Sekantna metoda}
+Namesto tangente uporabimo sekanto skozi \((x_r, f(x_r)),\ (x_{r-1}, f(x_{r-1}))\). To je ekvivalentno temu, da v tangentni metodi \(f'(x_r)\) aproksimiramo z 
+\(
+    \frac{f(x_r) - f(x_{r-1})}{x_r - x_{r-1}}
+\). Torej 
+\[
+    x_{r+1} = x_r - \frac{f(x_r)(x_r - x_{r-1})}{f(x_r) - f(x_{r-1})}.
+\]
+
+V vsakem koraku potrebujemo en nov izračun funkcije \(f\), razen na začetku \(2\). Na začetku še potrebujemo sve začetni vrednosti \(x_0,\ x_1\), ni pa kakšnih dodatnih omejitev, kot pri bisekciji.
+
+\begin{opomba}
+    Pričakujemo, da se sekantna metoda obnaša podobno kot tangentna metoda.
+\end{opomba}
+
+Za sekantno metodo se da pokazati zvezo 
+\[
+    e_{r+1} \approx C e_r e_{r-1}.
+\]
+
+Sekantna metoda ima red konvergence \(p \approx 1.62\), če je \(\alpha\) enostavna ničla in \(f''(\alpha) \neq 0\).
+
+\begin{opomba}
+    Sekantna metoda ni primer navadne iteracije, saj je \(x_{r+1}\) odvisen od dveh prejšnjih členov: \(x_r\) in \(x_{r-1}\).
+\end{opomba}
+
+\subsubsection*{Mullerjeva metoda}
+Skozi točke \((x_r, f(x_r)),\ (x_{r-1}, f(x_{r-1})),\ (x_{r-2}, f(x_{r-2}))\) potegnemo kvadratni polinom in za naslednji približek vzamemo tisto izmed njegovih dveh ničel, ki je bližja \(x_r\).
+
+Potrebujemo tri začetne približke \(x_0, x_1, x_2\). V vsakem koraku moramo izračuni eno vrednost funkcije, razen na začetku tri.
+
+\
+
+Velja zveza
+\[
+    |e_{r+1}| \approx C \cdot |e_{r}| \cdot |e_{r-1}| \cdot |e_{r-2}|.
+\]
+
+Mullerjeva metoda ima red konvergence \(p \approx 1.84\).
+
+\subsubsection*{Inverzna interpolacija}
+Zamenjamo vlogi \(x\) in \(y\) in čez točki \((f(x_{r}), x_{r}),\ (f(x_{r-1}), x_{r-1}),\ (f(x_{r-2}), x_{r-2})\) napeljemo kvadratni polinom. Ta kvadratni polinom aproksimira inverzno funkcijo. Vzamemo 
+\[
+    x_{r+1} = p(0).
+\]
+Inverzna interpolacija ima red konvergence \(p \approx 1.84\).
+
+\subsubsection*{Kombinirane metode}
+Kombiniramo več metod in s tem zagotovimo robustnost, kot pri bisekciji, s hitrejšo konvergenco, kot npr.\ pri inverzni interpolaciji.
+
+\
+
+Imamo interval \([a, b]\), kjer je \(f(a) \cdot f(b) < 0\). Naslednji potencialni približek \(c\) izračunamo npr.\ s sekantno metodo ali inverzno interpolacijo. Če je \(c\) izven intervala \([a, b]\) namesto tega izberemo \(c = \frac{a+b}{2}\). Nadaljujemo podobno kot pri bisekciji.
+
+\begin{primer}
+    Brantova metoda (fzero) kombinira bisekcijo, sekantno metodo in inverzno interpolacijo.
+\end{primer}
+
+\subsection{Ničle polinomov}
+Imamo polinom \(p(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots + a_1x + a_0\), ki ima ničle \(\alpha_1, \ldots \alpha_n\). Možnosti za izračun ničel so:
+
+\begin{enumerate}
+    \item Ničle računamo eno po eno (ali dve po dve, če imamo konjugirane pare).
+    
+    Če je \(\alpha_1\) enostavna ničla, je 
+    \[
+        p(x) = (x - \alpha_1) q(x), \quad \text{st}\, q(x) = n-1.
+    \]
+    Nadaljujemo z iskanjem ničel polinoma \(q(x)\).
+    \begin{primer}
+        Laguerreova metoda, Bairstow-Hitchcode.
+    \end{primer}
+    \item Problem prevedemo na računanje lastnih vrednosti matrike 
+    \[
+        C_p = \begin{bmatrix}
+            0 & 1 \\
+            & 0 & 1 \\
+            & & \ddots & \ddots \\
+            & & & 0 & 1 \\
+            -\frac{a_n}{a_0} & -\frac{a_{n-1}}{a_0} & \cdots & -\frac{a_2}{a_0} & -\frac{a_1}{a_0}
+        \end{bmatrix}
+    \]
+    \(C_p\) je spremljevalna matrika polinoma \(p(x)\). Njen karakteristični polinom je s skalarjem pomnožen \(p(x)\). Lastne vrednosti \(C_p\) so ničle \(p(x)\).
+    \begin{primer}
+        Funkcija \verb|roots| v MatLab.
+    \end{primer}
+    \item Metode, ki vzporedno računajo vse ničle polinoma.
+    \begin{primer}
+        Ehrlich-Abertborva metoda, Durand-Kernerjeva metoda.
+    \end{primer}
+\end{enumerate}
+
+\begin{primer}[Durand-Kernerjeva metoda]
+    Naj bo \(p\) polinom stopnje \(n\) z vodilnim koeficientom \(1\). Potem ima \(p\) ničle \(\alpha_1, \ldots, \alpha_n\) in je \(p(x) = (x-\alpha_1)\cdots(x - \alpha_n)\).
+
+    \
+
+    Naj bo \(x_1, \ldots, x_n\) paroma različni približki za \(\alpha_1, \ldots \alpha_n\). Iščemo popravke \(\Delta x_1, \ldots, \Delta x_n\), da bodo \(x_1 + \Delta x_1, \ldots, x_n + \Delta x_n\) točne ničle \(p\). Tedaj
+
+    \begin{align*}
+        p(x) &= (x - (x_1 + \Delta x_1)) \cdots (x - (x_n + \Delta x_n)) \\
+        &= \prod_{j=1}^{n}(x - x_j) - \sum_{j=1}^{n} \Delta x_j \prod_{k = 1, k \neq j}^{n} (x - x_k) \\
+        &+ \underbrace{\sum_{j,k=1, j<k}^{n} \Delta x_j \Delta x_i \prod_{l = 1, l \neq j, k}^{n} (x-x_l) + \ldots}_\text{zanemarimo}
+    \end{align*}
+
+    Vstavimo \(x = x_i\), dobimo
+    \begin{align*}
+        p(x_i) &= -\Delta x_i \prod_{k=1, k \neq i}^{n}(x_i - x_k) \\
+        &\lthen \Delta x_i = -\frac{p(x_i)}{\prod_{k=1, k \neq i}^{n}(x_i - x_k)}
+    \end{align*}
+
+    Definiramo
+    \begin{align*}
+        x^{(0)} &= [x_1^{(0)}, \ldots, x_n^{(0)}] \\
+        &\lthen x_i^{(r+1)} = x_i^{(r)} - \frac{p(x_i^{(r)})}{\prod_{k=1, k \neq i}^{n}(x_i^{(r)} - x_k^{(r)})},\ r = 0, 1, \ldots, \quad i = 1, \ldots, n.
+    \end{align*}
+\end{primer}

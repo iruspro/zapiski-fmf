@@ -1,0 +1,189 @@
+\section{Uvod}
+\emph{Numerična metoda} je postopek, ki iz danih numeričnih podatkov s končnim številom elementarnih operacij: \(+, -, /, *, \sqrt{}\), izračuna numerični rezultat.
+
+\subsection{Absolutna in relativna napaka}
+\begin{definicija}
+    \emph{Napaka približka} je razlika med približkom \(\hat{x}\) in točno vrednostjo \(x\).
+    \begin{itemize}
+        \item \emph{Absolutna napaka} je \(d_a = \hat{x} - x\).
+        \item \emph{Relativna napaka} je \(d_r = \frac{\hat{x} - x}{x}\).
+    \end{itemize}
+\end{definicija}
+
+\subsection{Predstavljiva števila}
+V računalniku so \emph{predstavljiva} števila zapisana v premični piki kot 
+\[
+    x = \pm m \cdot b^e,
+\]
+kjer je \(m = 0.c_1c_2\ldots c_t\) \emph{mantisa} in
+\begin{itemize}
+    \item \(b\): \emph{baza} (običajno 2 ali 10),
+    \item \(t\): \emph{dolžina mantise},
+    \item \(e\): \emph{eksponent} v mejah \(L \leq e \leq U\),
+    \item \(c_i\): \emph{števke} v mejah od 0 do \(b-1\).
+\end{itemize}
+Če je \(c_1 \neq 0\), potem je število \emph{normalizirano}, sicer pa \emph{subnormalizirano}. Zahtevamo, da lahko \(c_1 = 0\), samo če \(e = L\).
+%
+Zapis označimo s \(P(b, t, L, U)\).
+
+\begin{zgled}
+    Naj bo \(x \in P(b, t, L, U)\). Tedaj 
+    \[
+        x = \pm(c_1b^{-1} + c_2b^{-2} + \cdots + c_tb^{-t}) \cdot b^e.
+    \]
+    Na primer
+    \[
+        0.1101_2 \cdot 2^2 = (2^{-1} + 2^{-2} + 2^{-4}) \cdot 2^2 = 3.25.
+    \]
+\end{zgled}
+
+\subsubsection*{Standard IEEE}
+\begin{itemize}
+    \item \emph{single:} \(P(2, 24, -125, 128)\).
+    \item \emph{double:} \(P(2, 53, -1021, 1023)\).
+\end{itemize}
+
+\subsubsection*{Zaokrožanje}
+Naj bo \(x\) pozitivno število z neskončnim zapisom
+\[
+    x = 0.d_1d_2\ldots d_t d_{t+1} \ldots \cdot b^e.
+\]
+Kandidata za predstavljiv približek, ki ga označimo s \(\fl(x)\), sta najbližji predstavljivi števili z leve in z desne
+\begin{align*}
+    x_- &= 0.d_1d_2\ldots d_t \cdot b^e, \\
+    x_+ &= (0.d_1d_2\ldots d_t + b^{-t}) \cdot b^e.
+\end{align*}
+Pri standardu IEEE uporabimo \emph{zaokrožanje} in za \(\fl(x)\) izberemo predstavljivo število, ki je najbližje \(x\).
+
+\subsubsection*{Osnovna zaokrožitvena napaka}
+\begin{izrek}
+    Če za število \(x\) velja, da \(|x|\) leži na intervalu med najmanjšim in največjim pozitivnim predstavljivim normaliziranim številom, potem velja
+    \[
+        \frac{|\fl(x) - x|}{|x|} \leq u,
+    \]
+    kjer je \(u = \frac{1}{2}b^{1-t}\) \emph{osnovna zaokrožitvena napaka}.
+\end{izrek}
+
+\begin{proof}
+    \todo
+\end{proof}
+
+Velja 
+\[
+    \fl(x) = x(1 + \delta) \ \text{za} \ |\delta| \leq u
+\]
+\begin{itemize}
+    \item single: \(u = 2^{-24} \approx 6 \cdot 10^{-8}\),
+    \item double: \(u = 2^{-53} \approx 1 \cdot 10^{-16}\).
+\end{itemize}
+
+\subsubsection*{Računanje po standardu IEEE}
+Velja \emph{pravilo korektnega zaokroževanja}: Če na dveh predstavljivih številih izvedemo osnovno računsko operacijo in je rezultat spet v intervalu predstavljivih števil, dobimo isto, kot če bi zaokrožili točen rezultat.
+
+\
+
+Če sta \(x, y\) predstavljivi števili in je rezultat znotraj normaliziranih predstavljivih števil, potem velja:
+\begin{itemize}
+    \item \(\fl(x \oplus y) = (x \oplus y)(1 + \delta),\ |\delta| \leq u\),
+    \item \(\fl(\sqrt{x}) = \sqrt{x}(1 + \delta),\ |\delta| \leq u\).
+\end{itemize}
+
+Izjeme so:
+\begin{itemize}
+    \item če pride do \emph{prekoračitve} (overflow) obsega predstavljivih števil, dobimo \(\pm \infty\),
+    \item če pride do \emph{podkoračitve} (underflow) obsega predstavljivih števil, dobimo 0,
+    \item če dopuščamo subnormalizirana števila in je \(\fl(x \oplus y)\) subnormalizirano število, lahko \(|\delta|\) naraste v najslabšem primeru do \(\frac{1}{2}\). 
+\end{itemize}
+
+\subsection{Občutljivost problema}
+Če se rezultat pri majhni spremembi argumentov (motnji oz.\ perturbaciji) ne spremeni veliko, je problem \emph{neobčutljiv}, sicer pa je \emph{občutljiv}.
+
+\subsubsection*{Stopnja občutljivosti}
+Občutljivost merimo s supremumom razmerja med spremembo rezultata in spremembo podatkov, ko gre sprememba podatkov proti 0.
+
+\begin{zgled}
+    Naj bo \(f: \R \to \R\) odvedljiva funkcija. Zanima nas razlika med \(f(x)\) in \(f(x + \delta x)\), kjer je \(\delta x\) majhna motnja.
+
+    Velja (diferencial)
+    \[
+        |f(x + \delta x) - f(x)| \approx |f'(x)| \cdot |\delta x|,
+    \]
+    torej je \(|f'(x)|\) \emph{absolutna občutljivost} \(f\) v točki \(x\).
+
+    Za oceno relativne napake dobimo
+    \[
+        \frac{|f(x+\delta x) - f(x)|}{|f(x)|} \approx \frac{|f'(x)|\cdot|x|}{|f(x)|} \cdot \frac{|\delta x|}{|x|},
+    \]
+    torej je \(\displaystyle \frac{|f'(x)|\cdot|x|}{|f(x)|}\) \emph{relativna občutljivost} \(f\) v točki \(x\).
+\end{zgled}
+
+\subsection{Vrste napak pri numeričnem računanju}
+Imamo tri vrste napak:
+\begin{itemize}
+    \item \emph{Neodstranljiva napaka}: ker začetni podatki niso točni.
+    \begin{itemize}
+        \item Namesto z \(x\) računamo s približkom \(\overline{x}\) in zato namesto \(y = f(x)\) izračunamo \(\overline{y} = f(\overline{x})\). Neodstranljiva napaka je \[D_n = y - \overline{y}.\]
+    \end{itemize}
+    \item \emph{Napaka metode}: ker metoda s katero računamo, ni točna.
+    \begin{itemize}
+        \item Namesto \(f\) računamo vrednost funkcije \(g\), ki jo lahko izračunamo s končnim številom operacij. Namesto \(\overline{y} = f(\overline{x})\) tako izračunamo \(\widetilde{y} = g(\overline{x})\). Napaka metode je \[D_m = \overline{y} - \widetilde{y}.\]
+    \end{itemize}
+    \item \emph{Zaokrožitvena napaka}: ker pri vseh vmesnih izračunih zaokrožujemo.
+    \begin{itemize}
+        \item Pri računanju \(\widetilde{y} = g(\overline{x})\) se pri vsaki računski operaciji pojavi zaokrožitvena napaka, tako da namesto \(\widetilde{y}\) izračunamo \(\hat{y}\). Zaokrožitvena napaka je 
+        \[
+            D_z = \widetilde{y} - \hat{y}.
+        \]
+    \end{itemize}
+\end{itemize}
+
+\emph{Celotna napaka} je 
+\[
+    D = D_n + D_m + D_z.
+\]
+Velja
+\[
+    |D| \leq |D_n| + |D_m| + |D_z|.
+\]
+
+\subsection{Stabilnost numerične metode}
+Numerična metoda iz \(x\) namesto \(y = f(x)\) izračuna \(\hat{y}\).
+
+\[
+    \shorthandoff{"}
+    \begin{tikzcd}
+        x &&&& {y = f(x)} \\
+        \\
+        & {x + \Delta x} \\
+        &&&&& {\hat{y} = f(x+\Delta x)}
+        \arrow["{\text{točno}}", no head, from=1-1, to=1-5]
+        \arrow["{\text{obratna napaka}}"', no head, from=1-1, to=3-2]
+        \arrow["{\text{numerično}}", dashed, no head, from=1-1, to=4-6]
+        \arrow["{\text{direktna napaka}}", no head, from=1-5, to=4-6]
+        \arrow["{\text{točno}}"', no head, from=3-2, to=4-6]
+    \end{tikzcd}
+\]
+
+Metoda je \emph{natančna}, če je za vsak \(x\) direktna napaka majhna. Torej vedno dobimo bližnji odgovor.
+
+\
+
+Če za vsak \(x\) obstaja tak \(\hat{x} = x + \Delta x\) blizu \(x\) (absolutno oz.\ relativno), da je \(f(\hat{x}) = \hat{y}\), je metoda \emph{obratno stabilna} (absolutno oz.\ relativno). Obratno stabilna metoda vedno vrne točen odgovor na bližnje vprašanje.
+
+\subsubsection*{Povezava med občutljivostjo, direktno in obratno napako}
+Velja 
+\[
+    |\text{direktna napaka}| \leq \text{občutljivost} \cdot |\text{obratna napaka}|
+\]
+
+Torej, če je metoda obratno stabilna, je direktna napaka omejena s produktom občutljivosti in nekaj majhnega.
+
+\
+
+Če je za vsak \(x\) direktna napaka omejena s produktom občutljivosti in nekaj majhnega, je metoda \emph{direktno stabilna}.
+
+Obratno stabilna metoda je tudi direktno stabilna, obratno pa ni nujno res.
+
+\
+
+Metoda je \emph{stabilna}, če je obratno ali direktno stabilna.

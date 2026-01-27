@@ -1,0 +1,199 @@
+\section{Linearni problemi najmanjših kvadratov}
+\subsection{Uvod}
+Imamo matriko \(A \in \R^{m \times n},\ m > n,\ b \in \R^m\). Iščemo \(x \in \R^n\), ki minimizira \(\norm{Ax - b}_2\).
+
+\  
+
+Če je \(m > n\), je sistem \(Ax = b\) \emph{predoločen} (več enačb kot neznank). Razen izjemoma (če je \(b \in \text{im} A\)) tak sistem nima rešitve.
+
+\begin{izrek}
+    Če je \(A \in \R^{m \times n},\ m \geq n,\ \text{rang} A = n\), potem je \(x \in \R^n\), ki za dani \(b \in \R^m \) minimizira \(\norm{Ax - b}_2\), rešitev \emph{normalnega sistema} \(A^TAx = A^Tb\).
+\end{izrek}
+
+Matrika \(A^TA\) je \emph{Grammova matrika}.
+
+Predoločen sistem lahko rešimo:
+\begin{enumerate}
+    \item \(B = A^T A,\ c = A^T b\),
+    \item \(B = VV^T\),
+    \item \(Vy = c\)
+    \item \(V^T x = y\)
+\end{enumerate}
+
+Matrika \[
+    \begin{bmatrix}
+        1 & x_1 & \ldots & x_1^{n-1} \\ 
+        \vdots \\
+        1 & x_n & \ldots & x_n^{n-1}
+    \end{bmatrix}
+\]
+je \emph{Vandermondova matrika}.
+
+\subsection{QR razcep}
+\begin{izrek}
+    Naj bo \(A \in \R^{m \times n},\ m \geq n,\ \text{rang} A = n\). Potem obstaja enoličen razcep \(A = QR\), kjer je \(Q \in \R^{m \times n}\) matrika z ortonormiranimi stolpci \((Q^T Q = I_n)\) in \(R \in \R^{n \times n}\) zgornja trikotna matrika s pozitivnimi diagonalnimi elementi (\(r_{ii} > 0\)) za \(i \in [n]\).
+\end{izrek}
+
+\begin{algorithm}
+    \DontPrintSemicolon
+
+    \label{qr-razcep}
+    \caption{QR razcep}
+    
+    \KwData{\(A \in \R^{m \times n}\)}
+    \KwResult{\(Q \in \R^{m \times n},\ R \in \R^{n \times n}\)}
+
+    \For{\(k=1:n\)}{
+        \(q_k \gets a_k\) \;
+        \For{\(i=1:k-1\)}{
+            \(r_{ik} \gets q_i^T a_k\) \;
+            \(q_k \gets q_k - r_{ik} q_i\) \;
+        }
+        \(r_{kk} \gets \norm{q_k}_2\) \;
+        \(q_k \gets q_k / r_{kk}\)
+    }
+\end{algorithm}
+
+To je \emph{klasična Gram-Schmidtova ortogonalizacija}. 
+
+\newpage
+Obstaja tudi \emph{modificirana Gram-Schmidtova ortogonalizacija}:
+
+\begin{algorithm}
+    \DontPrintSemicolon
+
+    \label{qr-razcep-mod}
+    \caption{QR razcep (MGS)}
+    
+    \KwData{\(A \in \R^{m \times n}\)}
+    \KwResult{\(Q \in \R^{m \times n},\ R \in \R^{n \times n}\)}
+
+    \For{\(k=1:n\)}{
+        \(q_k \gets a_k\) \;
+        \For{\(i=1:k-1\)}{
+            \(r_{ik} \gets q_i^T q_k\) \;
+            \(q_k \gets q_k - r_{ik} q_i\) \;
+        }
+        \(r_{kk} \gets \norm{q_k}_2\) \;
+        \(q_k \gets q_k / r_{kk}\)
+    }
+\end{algorithm}
+
+Preprost način reševanja:
+\begin{enumerate}
+    \item \([Q, R] = \text{mgs} (A)\);
+    \item Reši \(Rx = Q^T b\).
+\end{enumerate}
+
+Boljši način reševanja:
+\begin{enumerate}
+    \item Izračunamo QR razcep matrike \(\begin{bmatrix}
+        A & b
+    \end{bmatrix}\):
+    \[
+        \begin{bmatrix}
+        A & b
+    \end{bmatrix} = \begin{bmatrix}
+        Q & q_{m+1} 
+    \end{bmatrix} \cdot \begin{bmatrix}
+        R & z \\
+        0 & \rho
+    \end{bmatrix};
+    \]
+    \item Reši \(Rx = z\).
+\end{enumerate}
+
+\subsection{Givensove rotacije}
+Naj bo \(A \in \R^{m \times n},\ m \geq n,\ \text{rang} A = n\). Vemo, da obstaja QR razcep \(A = QR\). 
+
+\ 
+
+Poznamo tudi razširjeni QR razcep: \(A = \widetilde{Q} \widetilde{R}\), kjer je \(\widetilde{Q} \in \R^{m \times m}\) ortogonalna, \(\widetilde{R} \in \R^{m \times n}\) zgornja trapezna (vsi elementi pod glavno diagonalo so enaki 0). 
+
+Prvih \(n\) stolpcev matrike \(\widetilde{Q}\) in zgornji kvadrat matrike \(\widetilde{R}\) tvori QR razcep matrike \(A\). Minimum bo dosežen, ko \(Rx = Q^T b\).
+
+\
+
+Navadno rotacijo v ravnini posplošimo na rotacijo v ravnini \((i, k)\) v \(R^n\).
+Označimo z \(c = \cos \phi\) in \(s = \sin \phi\). Dobimo ortogonalno matriko, ki je enaka identiteti povsod razen v \(i\)-ti in \(k\)ti vrstici, kjer je 
+\[
+    R_{ik}^T([i\ k], [i\ k]) = \begin{bmatrix}
+        c & s \\ -s & c
+    \end{bmatrix}.
+\]
+Matriko \(R_{ik}^T\) imenujemo \emph{Givensova rotacija}.
+
+\ 
+
+Algoritem za splošno matriko velikosti \(m \times n,\ m \geq n\), je zapisan v algoritmu \ref{givensove-rotacije}. Če QR razcep računamo zato, da bomo rešili predoločen sistem \(Ax = b\), matrike \(Q\) ni potrebno izračunati. Namesto tega v vsakem koraku z rotacijo \(R_{jk}^T\) pomnožimo vektor \(b\), na koncu iz produkta \(\widetilde{Q}^T b\) poberemo prvih \(n\) elementov in rešimo sistem \(Rx = Q^T b\).
+
+\begin{opomba}
+    Algoritem \ref{givensove-rotacije} matriko \(A\) prepiše v matriko \(\widetilde{R}\).
+\end{opomba}
+
+\begin{algorithm}
+    \DontPrintSemicolon
+
+    \label{givensove-rotacije}
+    \caption{QR razcep (Givensove rotacije)}
+    
+    \KwData{\(A \in \R^{m \times n}\)}
+    \KwResult{\(\widetilde{Q} \in \R^{m \times m},\ \widetilde{R} \in \R^{n \times n}\)}
+
+    \(\widetilde{Q} \gets I_m\) \Comment*{če potrebujemo matriko \(\widetilde{Q}\)}
+
+    \For{\(j=1:n\)}{
+        \For{\(k=j+1:m\)}{
+            \(r \gets \sqrt{a_{jj}^2 + a_{kj}^2}\) \;
+            \If{\(r > 0\)}{
+                \(c \gets a_{jj} / r\) \; 
+                \(s \gets a_{kj} / r\) \;
+                \(A([j\ k], j:n) \gets \begin{bmatrix}
+                    c & s \\ -s & c
+                \end{bmatrix} A([j\ k], j:n) \) \;
+                \(b([j\ k]) \gets \begin{bmatrix}
+                    c & s \\ -s & c
+                \end{bmatrix} b([j\ k])\) \Comment*{če rešujemo sistem \(Ax = b\)}
+                \(\widetilde{Q}(1:m, [j\ k]) \gets \widetilde{Q}(1:m, [j\ k]) \begin{bmatrix}
+                    c & -s \\ s & c
+                \end{bmatrix}\) \Comment*{če potrebujemo \(\widetilde{Q}\)}
+            }
+        }
+    }
+\end{algorithm}
+
+\newpage
+\subsection{Householderjeva zrcaljenja}
+Za neničelen vektor \(w \in \R^n\) definiramo matriko 
+\[
+    P = I - \frac{2}{w^Tw} w w^T.
+\]
+
+Matriko \(P\) imenujemo \emph{Householderjevo zrcaljenje}.
+
+\ 
+
+Množenje vektorja \(x\) z zrcaljenjem \(P\) lahko izvedemo tako, da izračunamo 
+\[
+    Px = x - \frac{1}{\mu} (w^T x) w,
+\]
+kjer je \(\mu = \frac{1}{2} \norm{w}_2^2\).
+
+\begin{algorithm}
+    \DontPrintSemicolon
+
+    \label{householder}
+    \caption{QR razcep (Householderjeva zrcaljenja)}
+    
+    \KwData{\(A \in \R^{m \times n}\)}
+    \KwResult{\(\widetilde{Q} \in \R^{m \times m},\ \widetilde{R} \in \R^{n \times n}\)}
+
+    \(\widetilde{Q} \gets I_m\) \Comment*{če potrebujemo matriko \(\widetilde{Q}\)}
+
+    \For{\(i=1:\min(n, m-1)\)}{
+        določi \(w_i \in \R^{m-i+1}\), ki prezrcali \(A(i:m, i)\) v \(\pm ke_1 \in \R^{m-i+1}\) \;
+        \(A(i:m,i:n) \gets P_i A(i:m, i:n)\) \;
+        \(b(i:m) \gets P_i b(i:m)\) \Comment*{če rešujemo sistem \(Ax = b\)}
+        \(\widetilde{Q}(1:m, i:m) = \widetilde{Q}(1:m, i:m) P_i\) \Comment*{če potrebujemo matriko \(\widetilde{Q}\)}
+    }
+\end{algorithm}

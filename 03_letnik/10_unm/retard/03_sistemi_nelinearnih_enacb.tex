@@ -1,0 +1,166 @@
+\section{Sistemi nelinearnih enačb}
+
+Naj bo \(F: \R^n \to \R^n\) oz.\ \(F: \C^n \to \C^n\) preslikava. Iščemo vektorji \(x \in \R^n\), ki rešijo sistem \[F(x) = 0.\]
+
+Podobno kot pri \(n = 1\) lahko uporabimo navadno iteracijo:
+\begin{enumerate}
+    \item Prepišemo enačbo \(F(x) = 0\) v obliko \(x = G(x)\).
+    \item Izberimo \(x^{(0)} \in \R^n\).
+    \item Računamo rekurzivno: \(x^{(r+1)} = G(x^{(r)})\).
+\end{enumerate}
+Za konvergenco potrebujemo, da je \(G\) skrčitev na nekem zaprtem območju \(\Omega \subseteq \R^n\), tj.\
+\begin{itemize}
+    \item \(\all{x \in \Omega} G(x) \in \Omega\) in
+    \item \(\some{m \in [0, 1)} \all{x, y \in \Omega} \norm{G(x) - G(y)} \leq m \cdot \norm{x - y}\).
+\end{itemize}
+
+\begin{izrek}
+    Naj bo \(G: \R^n \to R^n\) zvezno odvedljiva na zaprtem območju \(\Omega \subseteq \R^n\). Recimo, da velja
+    \begin{itemize}
+        \item \(\all{x \in \Omega} G(x) \in \Omega\) in
+        \item \(\some{m \in [0, 1)} \all{x \in \Omega} \rho(J_G(x)) \leq m\),
+    \end{itemize}
+    kjer 
+    \begin{align*}
+        &J_G = \begin{bmatrix}
+            \frac{\partial g_1}{\partial x_1} & \ldots & \frac{\partial g_1}{\partial x_n} \\
+            \vdots & & \vdots \\ 
+            \frac{\partial g_n}{\partial x_1} & \ldots & \frac{\partial g_n}{\partial x_n}
+        \end{bmatrix}
+        \ \text{je Jacobijeva matrika preslikave}\ G, \\
+        &\rho(A) = \max \setb{|\lambda|}{\lambda\ \text{je lastna vrednost}\ A} \ \text{je spektralni radij}.
+    \end{align*}
+    Potem za vsak \(x^{(0)} \in \Omega\) zaporedje \(x^{(r+1)} = G(x^{(r)})\) konvergira k negibni točki funkcije \(G\), ki je edina negibna točka \(G\) na \(\Omega\).
+\end{izrek}
+
+\begin{opomba}
+    \todo\ Za vsak \(\eps > 0\) obstaja matrična norma (za dano matriko \(A\)), da je 
+    \[
+        \rho(A) \leq A \leq \rho(A) + \eps.
+    \]
+\end{opomba}
+
+Če je \(\alpha = G(\alpha)\) in \(\rho(J_G(\alpha)) < 1\), je \(\alpha\) privlačna negibna točka. Posledično za \(x^{(0)}\) dovolj blizu \(\alpha\) bo \(\lim_{r \to \infty} x^{(r)} = \alpha\) za \(x^{(r+1)} = G(x^{(r)})\).
+
+\subsection{Newtonova metoda}
+\paragraph{Ideja.} Naj bo \(F: \R^n \to \R^n\) dvakrat zvezno odvedljiva v okolici \(\alpha\), kjer \(F(\alpha) = 0\). Naj bo \(x^{(r)}\) približek za \(\alpha\). Iščemo popravek \(\Delta x^{(r)}\), da bo 
+\[
+    F(x^{(r)} + \Delta x^{(r)}) = 0.
+\]
+
+Računamo
+\begin{align*}
+    0 &= F(x^{(r)} + \Delta x^{(r)}) = F(x^{(r)}) + J_F(x^{(r)}) \cdot \Delta x^{(r)} + \underbrace{o(\norm{\Delta x^{(r)}}^2)}_\text{zanemarimo} \\
+    &\lthen J_F(x^{(r)}) \Delta x^{(r)} \approx -F(x^{(r)}) \\
+    &\lthen x^{(r+1)} = x^{(r)} - J_F^{-1}(x^{(r)}) \cdot F(x^{(r)})
+\end{align*}
+
+Torej iteracijska funkcija je \(G(x) = x - J_F^{-1}(x^{(r)}) \cdot F(x^{(r)})\).
+
+\begin{opomba}
+    Če je \(\alpha\) enostavna ničla, je \(\det (J_F(\alpha)) \neq 0\).
+\end{opomba}
+
+\begin{algorithm}[H]
+    \DontPrintSemicolon
+
+    \label{newton}
+    \caption{Newtonova metoda}
+
+    \KwData{\(F: \Omega \subseteq \R^n \to \R^n,\ x_0 \in \Omega,\)}
+    \KwResult{\(c \in \Omega,\ F(c) = 0\)}
+
+    \For{\(r = 1\ \text{to}\ \infty\)}{
+        solve \(J_F(x^{(r)}) \cdot \Delta x^{(r)} = -F(x^{(r)})\) \;
+        \(x^{(r+1)} \gets x^{(r)} + \Delta x^{(r)}\) \;
+    }
+\end{algorithm}
+
+\begin{opomba}\
+    \begin{itemize}
+        \item Ne množimo z inverzom, ampak rešimo sistem linearnih enačb.
+        \item Metoda ima kvadratično konvergenco v bližini enostavnih ničel.
+    \end{itemize}    
+\end{opomba}
+
+Težava z Newtonovo metodo je, da lahko zelo zahtevna, saj
+\begin{itemize}
+    \item V vsakem korak potrebujemo \(n \times n\) matriko \(J_F(x^{(r)})\) in
+    \item vsakič nov LU razcep za \(J_F(x^{(r)})\).
+\end{itemize}
+
+\subsection{Kvazi Newtonove metode}
+\paragraph{Ideja.} Namesto matrike \(J_F(x^{(r)})\) uporabimo njen približek.
+
+\begin{algorithm}
+    \DontPrintSemicolon
+
+    \label{kvazi-newton}
+    \caption{Kvazi Newtonova metoda}
+    
+    \KwData{\(F: \Omega \subseteq \R^n \to \R^n,\ B_0 \in \R^{n \times n},\ x_0 \in \Omega\)}
+    \KwResult{\(c \in \Omega,\ F(c) = 0\)}
+
+    \For{\(r = 1\ \text{to}\ \infty\)}{
+        solve \(B_r \cdot \Delta x^{(r)} = -F(x^{(r)})\) \;
+        \(x^{(r + 1)} \gets x^{(r)} + \Delta x^{(r)}\) \;
+        update \(B_r\) to \(B_{r+1}\) \;
+    }
+\end{algorithm}
+
+\subsubsection*{Broydenova metoda}
+Najbolj znana je \emph{Broydenova metoda}. Pri tej metodi določimo \(B_{r+1}\) tako, da zadošča, t.i.\ \emph{sekantnemu pogoju}: 
+\[
+    B_{r+1} \left(x^{(r + 1)} - x^{(r)}\right) = F\left(x^{(r + 1)}\right) - F\left(x^{(r)}\right).
+\]
+Pri čemer je \(B_{r+1} = B_r + \Delta B_r\) in ima med vsemi možnimi \(\Delta B_r\) minimalno normo \(\norm{\Delta B_r}_2\).
+\begin{opomba}
+    Še bolj pomembno je, da ima \(\Delta B_r\) minimalen rang 1.
+\end{opomba}
+
+Dobimo, da 
+\begin{align*}
+    (B_r + \Delta B_r) \Delta x^{(r)} &= F(x^{(r + 1)}) - F(x^{(r)}),\ B_r \Delta x^{(r)} = -F(x^{(r)}) \\
+    &\lthen \Delta B_r \Delta x^{(r)} = F(x^{(r+1)}). 
+\end{align*}
+
+\begin{lema}
+    Za dana neničelna vektorja \(u, v \in \R^n\) je matrika \(A\) z minimalno normo \(\norm{\cdot}_2\), za katero velja \(Au = v\), enaka 
+    \[
+        A = \frac{vu^T}{\norm{u}_2^2}.
+    \]
+\end{lema}
+
+\begin{proof}
+    \todo
+\end{proof}
+
+\begin{algorithm}
+    \DontPrintSemicolon
+
+    \label{broyden}
+    \caption{Broydenova metoda}
+    
+    \KwData{\(F: \Omega \subseteq \R^n \to \R^n,\ x_0 \in \Omega\)}
+    \KwResult{\(c \in \Omega,\ F(c) = 0\)}
+
+    \(B_0 \gets J_F(x^{(0)})\)
+
+    \For{\(r = 1\ \text{to}\ \infty\)}{
+        solve \(B_r \cdot \Delta x^{(r)} = -F(x^{(r)})\) \;
+        \(x^{(r + 1)} \gets x^{(r)} + \Delta x^{(r)}\) \;
+        \(B_{r+1} = B_r + \frac{F(x^{(r+1)}) \cdot (\Delta x^{(r)})^T}{\norm{\Delta x^{(r)}}_2^2}\) \;
+    }
+\end{algorithm}
+
+\begin{trditev}[Sherman-Morrisonova formula] 
+    \todo
+    \[
+        (A + uv^T)^{-1} = A^{1} - \frac{(A^{-1}u) (v^T A^{-1})}{1 + v^T A^{-1} u}
+    \]
+\end{trditev}
+
+\begin{opomba}
+    Sistem \(B_r \cdot \Delta x^{(r)} = -F(x^{(r)})\) lahko rešimo v \(O(n^2)\) z uporabo Sherman-Morrisonove formule. Sicer ta ni numerično stabilna.
+\end{opomba}
+

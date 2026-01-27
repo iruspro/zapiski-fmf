@@ -1,0 +1,318 @@
+\section{Problemi lastnih vrednosti}
+Naj bo \(A \in \R^{n \times n}\). Iščemo lastne vrednosti in lastne vektorje.
+
+\begin{izrek}
+    Za vsako matriko \(A \in \R^{n \times n}\) obstajata unitarna matrika \(U \in \C^{n \times n}\) in zgornja trikotna \(S \in \C^{n \times n}\), da je 
+    \[
+        A = USU^H.
+    \]
+\end{izrek}
+To je \emph{Schurova forma}.
+
+\begin{izrek}
+    Če je \(A \in \R^{n \times n}\), obstajata ortogonalna matrika \(Q \in \R^{n \times n}\) in kvazi zgornje trikotna (na diagonali so lahko \(2 \times 2\) bloki) matrika \(R \in \R^{n \times n}\), da je \(A = Q R Q^T\). 
+\end{izrek}
+
+\subsection{Potenčna metoda}
+Naj bo \(A \in \C^{n \times n},\ z_0 \in \C^n\). Definiramo zaporedje
+\begin{equation}
+    \label{potencna-metoda}
+    z_{k+1} = \frac{A z_k}{\norm{A z_k}}.
+\end{equation}
+
+\begin{izrek}
+    Naj bo \(\lambda_1\) \emph{dominantna} lastna vrednost matrike \(A \in \C^{n \times n}\), torej 
+    \[
+        |\lambda_1| > |\lambda_2| \geq |\lambda_3| \geq \cdots \geq |\lambda_n|.
+    \]
+    Za naključno izbran normiran vektor \(z_0 \in \C^n\) zaporedje vektorjev \(z_k\) izračunanih po predpisu \ref{potencna-metoda} po smeri konvergira proti lastnemu vektorju za \(\lambda_1\).
+\end{izrek}
+
+Kaj je ustrezen zaustavitveni kriterij?
+
+Denimo, da imamo približek \(x\) za lastni vektor in iščemo lastno vrednost. Najboljši približek je \(\lambda \in \C\), ki minimizira 
+\[
+    \norm{Ax - \lambda x}_2.
+\]
+Rešitev je (iščemo rešitev predoločenega sistema \(x \lambda = Ax\) za \(\lambda\)) \emph{Rayleighov} kvocient
+\[
+    \rho(x, A) := \frac{x^H A x}{x^H x},
+\]
+ki je definiran za \(x \neq 0\).
+
+Primeren zaustavitveni kriterij za potenčno metodo je 
+\[
+    \norm{A z_k -  \rho(z_k, A) z_k}_2 < \epsilon.
+\]
+
+Denimo, da smo s potenčno metodo izračunali lastno vrednost \(\lambda_1\) s pripadajočim normiranim lastnim vektorjem \(x_1\). Za izračun drugih lastnih parov lahko uporabimo potenčno metodo na reducirani matriki. Dve možnosti redukciji sta:
+
+\begin{enumerate}
+    \item \emph{Householderjeva redukcija}. Z uporabo Householderjeva zrcaljenja poiščemo unitarno matriko \(U\), da je \(x_1 = Ue_1\). Potem ima matrika \(B = U^H A U\) obliko 
+    \[
+        B = \begin{bmatrix}
+            \lambda_1 & b^T \\ 0 & C
+        \end{bmatrix}.
+    \]
+    Preostale lastne vrednosti matrike A se ujemajo z lastnimi vrednostmi matrike \(C\).
+    \begin{opomba}
+        V potenčni metodi dovolj, da znamo izračunati produkt \(Cw\) za vektor \(w \in \C^{n-1}\). Pri tem si pomagamo z zvezo
+        \[
+            U^H A U \begin{bmatrix}
+                0 \\ w
+            \end{bmatrix} = \begin{bmatrix}
+                b^T w \\ C w
+            \end{bmatrix}
+        \]
+    \end{opomba}
+    \item \emph{Hotellingova redukcija} v primeru simetrične matrike \(A\). Definiramo 
+    \[
+        B = A - \lambda_1 x_1 x_1^T.
+    \]
+    Če uporabimo potenčno metodo na matriki \(B\), dobimo drugo dominanto lastno vrednost matrike \(A\).
+    \begin{opomba}
+        Matriko \(B\) ni potrebno eksplicitno izračunati. Dovolj, da uporabimo zvezo 
+        \[
+            B z = Az - \lambda_1 (x_1^T z) x_1.
+        \]
+    \end{opomba}
+\end{enumerate}
+
+\begin{algorithm}
+    \DontPrintSemicolon
+
+    \label{potencna-metoda-alg}
+    \caption{Potenčna metoda}
+    
+    \KwData{\(A \in \C^{n \times n},\ z_0 \in \C^n,\ |z_0| = 1,\ \eps > 0\)}
+    \KwResult{\(\lambda_1\)}
+
+    \(y_1 \gets A z_0\) \;
+    \(\rho_0 \gets z_0^H y_1\) \;
+    \(k \gets 0\) \;
+    \While{\(\norm{y_{k+1} - \rho_k z_k}_2 \geq \eps\)}{
+        \(k \gets k + 1\) \;
+        \(z_k \gets y_k / \norm{y_k}_2\) \;
+        \(y_{k+1} \gets Az_k\) \;
+        \(\rho_k \gets z_k^H y_{k+1}\)
+    }
+\end{algorithm}
+
+Če iščemo po absolutni vrednosti najmanjšo lastno vrednost nesingularne matrike \(A\), uporabimo potenčno metodo na \(A^{-1}\). V algoritmu namesto produkta \(y_{k+1} = A^{-1} z_k\) rešimo sistem \(Ay_{k+1} = z_k\).
+
+\begin{opomba}
+    Sistem \(Ay_{k+1} = z_k\) lahko rešimo s pomočjo LU razcepa, ki ga dovolj izračunati le enkrat.
+\end{opomba}
+
+\newpage
+\subsection{Inverzna iteracija}
+Denimo, da smo izračunali približek za lastno vrednost in potrebujemo še lastni vektor. Tu si lahko pomagamo z \emph{inverzno iteracijo}:
+
+\begin{algorithm}
+    \DontPrintSemicolon
+
+    \label{potencna-metoda-alg}
+    \caption{Potenčna metoda}
+    
+    \KwData{\(A \in \C^{n \times n}\), približek za lastno vrednost \(\sigma\), \(z_0 \in \C^n,\ |z_0| = 1\)}
+    \KwResult{\(z \in \C^n,\ A z \approx \sigma z\)}
+
+    \For{\(k=0:\infty\)}{
+        reši sistem \((A - \sigma I) y_{k+1} = z_k\) \;
+        \(z_{k+1} = y_{k+1} / \norm{y_{k+1}}\)
+    }    
+\end{algorithm}
+
+\begin{opomba}\ 
+    \begin{itemize}
+        \item Inverzna iteracija je potenčna metoda za matriko \((A - \sigma I)^{-1}\).
+        \item V praksi potrebujemo le en do dva koraka inverzne iteracije, da iz poljubnega začetnega vektorja izračunamo pripadajoči lastni vektor.
+    \end{itemize}
+\end{opomba}
+
+\subsection{Ortogonalna iteracija}
+\begin{definicija}
+    Podprostor \(U \leq \C^n\) je invarianten za matriko \(A \in \C^{n \times n}\), če je 
+    \[
+        \all{x \in U} Ax \in U.
+    \]
+\end{definicija}
+
+Naj bo \(X = \begin{bmatrix}
+    X_1 & X_2
+\end{bmatrix}\)
+nesingularna in \(B = X^{-1} A X = \begin{bmatrix}
+    B_{11} & B_{12} \\ B_{21} & B_{22}
+\end{bmatrix}\).
+
+Stolpci \(X\) razpenjajo invariantni podprostor za \(A \liff B_{21} = 0\). Lastne vrednosti \(A\) so unija lastnih vrednosti \(B_{11}\) in \(B_{22}\).
+
+\ 
+
+Naj za lastne vrednosti \(A\) velja:
+\begin{equation}
+    \label{dominantni-lv}
+    |\lambda_1| \geq \cdots \geq |\lambda_p| \textcolor{red}{>} |\lambda_{p+1}| \geq \cdots \geq |\lambda_n|.
+\end{equation}
+
+Invariantni podprostor \(X_1\) dimenzije \(p\), ki ustreza lastnim vrednostim \(\lambda_1, \ldots, \lambda_p\), ke potem \emph{dominanti} invariantni podprostor dimenzije \(p\).
+
+\begin{algorithm}
+    \DontPrintSemicolon
+
+    \label{ortogonalna-iteracija}
+    \caption{Ortogonalna iteracija}
+    
+    \KwData{\(A \in \C^{n \times n}\), \(Z_0 \in \C^{n \times p},\ p \leq n\) z ON stolpci}
+    \KwResult{\(Z \in \C^{n \times p}\)}
+
+    \For{\(k=0:\infty\)}{
+        \(Y_{k+1} \gets AZ_k\) \;
+        izračunaj QR razcep \(Y_{k+1} = Q_{k+1} R_{k+1}\) \;
+        \(Z_{k+1} \gets Q_{k+1}\)
+    }    
+\end{algorithm}
+
+Z uporabo algoritma \ref{ortogonalna-iteracija} na diagonali matrike \(Z\) dobimo \(p\) največjih lastnih vrednosti.
+
+\begin{lema}
+    Če velja \ref{dominantni-lv}, potem stolpci \(Z_k\) za naključno izbrano matriko \(Z_0\) z ON stolpci konvergirajo proti ortogonalni bazi za dominanti invariantni podprostor dimenzije \(p\).
+\end{lema}
+
+Če velja še \(|\lambda_r| > |\lambda_{r+1}|\) za neka \(r < p\), potem prvih \(r\) stoplcev \(Z_k\) konvergira proti ONB za dominantni invariantni podprostor dimenzije \(r\).
+
+\begin{posledica}
+    Če za lastne vrednosti matrike \(A \in \C^{n \times n}\) velja 
+    \[
+        |\lambda_1| > |\lambda_2| > \cdots > |\lambda_n|,
+    \]
+    potem za naključno matriko \(Z_0 \in \C^{n \times n}\) z ON stolpci matrika \(Z_k^T A Z_k\) iz ortogonalne iteracije konvergira k Schurovi formi.
+\end{posledica}
+
+\subsection{QR iteracija}
+\begin{algorithm}
+    \DontPrintSemicolon
+
+    \label{qr-iteracija}
+    \caption{Osnovna verzija QR iteracije}
+    
+    \KwData{\(A \in \C^{n \times n}\)}
+    \KwResult{Lastne vrednosti matrike \(A\)}
+
+    \(A_0 \gets A\) \;
+    \For{\(k=0:\infty\)}{
+        izračunaj QR razcep \(A_{k} = Q_{k} R_{k}\) \;
+        \(A_{k+1} \gets R_k Q_k\)
+    }    
+\end{algorithm}
+
+\begin{izrek}
+    Matrika \(A_k\) iz QR iteracije je enaka matrike \(Z_k^T A Z_k\), kjer je \(Z_k\) matrika iz ortogonalne iteracije za \(A\), kjer vzamemo \(Z_0 = I\).
+\end{izrek}
+
+Zahtevnost enega koraka zmanjšamo s predhodno redukcijo na zgornjo Hessenbergovo matriko.
+
+\subsubsection{Redukcija na Hessenbergovo obliko}
+Vsak korak osnovne QR iteracije zahteva \(O(n^3)\) operacij. Zahtevnost zmanjšamo, če matriko na začetku preoblikujemo v zgornjo Hessenbergovo obliko.
+
+\begin{definicija}
+    Matrika \(A\) je \emph{zgornja Hessenbergova}, če je \(a_{ij} = 0\) za \(i > j+1\).
+\end{definicija}
+
+\begin{trditev}
+    Če je \(A\) zgornja Hessenbergova matrika, se njena oblika med QR iteracijo ohranja.
+\end{trditev}
+
+Realno matriko \(A\) lahko z ortogonalno podobnostno transformacijo \(Q^T A Q = H\) preoblikujemo v zgornjo Hessenbergovo matriko. Za splošno matriko uporabimo Householderjeva zrcaljenja.
+
+\newpage
+\begin{algorithm}
+    \DontPrintSemicolon
+
+    \label{redukcija-hessenber}
+    \caption{Redukcija na zgornjo Hessenbergovo obliko z uporabo zrcaljenj}
+    
+    \KwData{\(A \in \C^{n \times n}\)}
+    \KwResult{Ortogonalna matrika \(Q\), Hessenbergova matrika \(H\), da \(A = Q^T H Q\)}
+
+    \(Q \gets I\) \Comment*{če potrebujemo matriko \(Q\)}
+    \For{\(i=0:n-2\)}{
+        določi \(w_i \in \R^{n-i}\) za H.\ zrcaljenje \(P_i\), ki prezrcali \(A(i+1:n, i)\) v \(\pm ke_1\) \;
+        \(A(i+1:n, i:n) \gets P_i A(i+1:n, i:n)\) \;
+        \(A(1:n, i+1:n) \gets A(1:n, i+1:n) P_i\) \;
+        \(Q(i+1:n, 1:n) \gets P_i Q(i+1:n, 1:n)\) \Comment*{če potrebujemo matriko \(Q\)}
+    }    
+\end{algorithm}
+
+\begin{definicija}
+    Zgornja Hessenbergova matrika \(H\) velikosti \(n \times n\) je \emph{nerazcepna}, če so vsi njeni poddiagonalni elementi \(h_{i+1, i}\) za \(i=1, \ldots, n-1\) neničelni.
+\end{definicija}
+
+Če je \(H\) razcepna, potem problem lastnih vrednosti razpade na dva ali več ločenih problemov. Zato lahko predpostavimo, da je \(H\) nerazcepna.
+
+V praksi proglasimo \(h_{i+1, i}\) za dovolj majhnega, ko je 
+\[
+    |h_{i, i-1}| < \eps (|h_{i-1, i -1}| + |h_{ii}|).
+\]
+
+\subsubsection{Premiki}
+Konvergenco lahko pospešimo z vpeljavo premikov, kot predstavljeno v algoritmu \ref{alg:premiki}
+
+\begin{algorithm}
+    \DontPrintSemicolon
+
+    \label{alg:premiki}
+    \caption{QR iteracija s premiki}
+    
+    \KwData{\(A \in \C^{n \times n}\)}
+    \KwResult{Premaknjena matrika \(A\)}
+
+    \(A_0 \gets A\) \;
+    \For{\(k=0:\infty\)}{
+        izberi premik \(\sigma_k\) \;
+        izračunaj QR razcep \(A_k - \sigma_kI \gets Q_k R_k\) \;
+        \(A_{k+1} \gets R_k Q_k + \sigma_kI\)
+    }
+\end{algorithm}
+
+\begin{lema}
+    Matriki \(A_k\) in \(A_{k+1}\) pri QR iteraciji s premiki sta ortogonalno podobni.
+\end{lema}
+
+Za hitro konvergenco moramo za premik \(\sigma_k\) izbrati čim boljši prebližek za lastno vrednost. Kaj če izberemo točno lastno vrednost?
+
+\begin{lema}
+    Naj bo \(\sigma\) lastna vrednost nerazcepne zgornje Hessenbegove matrike \(A\). Če je QR razcep \(A - \sigma I = QR\) in \(B = RQ + \sigma I\), potem je \(b_{n, n-1} = 0\) in \(b_{nn} = \sigma\).
+\end{lema}
+
+Za premik izberemo čim boljši približek za lastno vrednost matrike \(A\). Uporabljata se naslednji izbiri:
+
+\begin{enumerate}
+    \item \emph{Enojni premik:} za \(\sigma_k\) izberemo \(a_{nn}^(k) = \rho(e_n, A_k)\). Primeren le za matrike z realnimi lastnimi vrednostmi.
+    \item \emph{Dvojni} oz.\ \emph{Francisov premik}: vzamemo podmatriko
+    \[
+        A_k(n-1:n, n-1:n) = \begin{bmatrix}
+            a_{n-1, n-1}^{(k)} &  a_{n-1, n}^{(k)} \\
+            a_{n, n-1}^{(k)} & a_{nn}^{(k)}
+        \end{bmatrix},
+    \]
+    ki ima lastni vrednosti \(\sigma_1^{(k)}\) in \(\sigma_2^{(k)}\). Sedaj naredimo dva premika v enem koraku:
+    
+    \begin{algorithm}
+    \DontPrintSemicolon
+
+    \label{alg:premiki-dvojni}
+    \caption{QR iteracija z dvojni premiki}
+    
+    \KwData{\(A \in \C^{n \times n}\)}
+    \KwResult{Premaknjena matrika \(A\)}
+
+    \(A_0 \gets A\) \;
+    \For{\(k=0:\infty\)}{
+        izračunaj QR razcep \(A_k - \sigma_1^{(k)} I \gets Q_k R_k\) \;
+        \(A_{k}' \gets R_k Q_k + \sigma_1^{(k)} I\) \;
+        izračunaj QR razcep \(A_k' - \sigma_2^{(k)} I = Q_k'R_k'\) \;
+        \(A_{k+1} = R_k' Q_k' + \sigma_2^{(k)} I\)
+    }
+\end{algorithm}
+\end{enumerate}
