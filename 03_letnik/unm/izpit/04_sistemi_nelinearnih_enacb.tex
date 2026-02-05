@@ -1,0 +1,13 @@
+\section{Sistemi nelinearnih enačb}
+Rešujemo sistem enačb \(F(x) = 0\), kjer je \(f: \R^n \to \R^n\).\\
+\s{Jacobijeva iteracija}\\
+Sistem \(F(x) = 0\) zapišemo v obliki \(x = G(x)\), izberimo \(x^{(0)}\) in tvorimo zaporedje \(x^{(r+1)} = G(x^{(r)})\) (posplošitev navadne iteracije).\\
+\textbf{Izr.} \(\norm{J_G(\alpha)} < 1 \lthen (x_r)_r \to \alpha\).\\
+\textbf{Izr.} \(\alpha\ \text{je privlačna} \liff \rho(J_G(\alpha)) < 1\).\\
+\textbf{Seidel:} Zamenjamo v \(x_1^{(r)}, \ldots, x_{i-1}^{(r)}\) z \(x_1^{(r+1)}, \ldots, x_{i-1}^{(r+1)}\).\\
+\s{Newtonova metoda}\\
+\textbf{Zaporedje:} \(x^{(r+1)} = x^{(r)} - J_F(x^{(r)})^{-1}F(x^{(r)})\)\\
+Namesto inverza rešimo sistem: \(J_F(x^{(r)}) \textcolor{red}{\Delta x^{(r)}} = - F(x^{(r)})\).\\
+\s{Broydenova metoda}\\
+Naj bo \(B_r \approx J_F(x^{(r)})\) približek za Jacobijevo matriko.\\
+\textbf{Reševanje:} 1.\ \(B_r \textcolor{red}{\Delta x^{(r)}} = -F(x^{(r)})\), 2.\ \(x^{(r+1)} = x^{(r)} + \Delta x^{(r)}\),\\ 3. \(B_{r+1} = B_r + \frac{F(x^{(r+1)}) (\Delta x^{(r)})^T}{\norm{\Delta x^{(r)}}_2^2}\).

@@ -1,0 +1,32 @@
+\usepackage[
+  paper=a4paper,
+  top=0.7cm,
+  bottom=0.7cm,
+  left=0.7cm,
+  right=0.7cm,
+  textwidth=10cm,
+  textheight=18cm,
+]{geometry}
+
+\usepackage{enumitem}
+\setlist[itemize]{topsep=-10pt, partopsep=0pt, itemsep=0pt, parsep=0pt, left=0pt}
+\setlist[enumerate]{topsep=-10pt, partopsep=0pt, itemsep=0pt, parsep=0pt, left=0pt}
+
+% lists with less vertical space
+\newenvironment{itemize*}{\vspace{-6pt}\begin{itemize}\setlength{\itemsep}{0pt}\setlength{\parskip}{2pt}}{\end{itemize}}
+\newenvironment{enumerate*}{\vspace{-6pt}\begin{enumerate}\setlength{\itemsep}{0pt}\setlength{\parskip}{2pt}}{\end{enumerate}}
+\newenvironment{description*}{\vspace{-6pt}\begin{description}\setlength{\itemsep}{0pt}\setlength{\parskip}{2pt}}
+{\end{description}}
+
+\usepackage{multicol}
+\setlength{\columnseprule}{1pt}
+\def\columnseprulecolor{\color{black}}
+
+\pagestyle{empty}              % vse strani prazne
+\setlength{\parindent}{0pt}    % zamik vsakega odstavka
+\setlength{\parskip}{10pt}     % prazen prostor po odstavku
+% \setlength{\overfullrule}{30pt}  % oznaci predlogo vrstico z veliko črnine
+
+\usepackage{titlesec} % Отступ от заголовков
+\titlespacing*{\section}{0px}{0px}{-5px} 
+\titlespacing*{\subsection}{0px}{0px}{-5px}

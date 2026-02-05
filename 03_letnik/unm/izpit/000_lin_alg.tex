@@ -1,0 +1,44 @@
+\section{Linearna algebra}
+\s{Število potrebnih operacij}
+\begin{itemize}
+  \item \(a, b \in \R^n,\ c =a \cdot b\). Zahtevnost: \(2n\) operacij.
+  \item \(A \in \R^{n\times n},\ b \in \R^n,\ c = Ab\). Zahtevnost: \(2n^2\) operacij.
+  \item \(A, B \in \R^{n\times n},\ C = AB\). Zahtevnost: \(2n^3\) operacij.
+\end{itemize}
+\s{Matrike posebne oblike}\\
+\textbf{Def.} Matrika \(A \in \F^{n \times n}\) je \emph{normalna}, če \(AA^H = A^HA\).
+\begin{itemize}
+  \item Če je \(\F = \C\) lahko \(A\) diagonaliziramo v ONB.
+  \item Če je \(\F = \R\) in so l.\ vr.\ realne, lahko \(A\) diagonaliziramo v ONB.
+\end{itemize}
+%
+\textbf{Def.} Realna matrika \(A\) je \emph{simetrična}, če \(A = A^T\). Kompleksna matrika \(A\) je \emph{hermitska}, če \(A=A^H\).
+\begin{itemize}
+  \item Vse lastne vrednosti so realne.
+\end{itemize}
+\textbf{Def.} Matrika \(A\) je \emph{pozitivno definitna}, če \(\all{x \neq 0} x^H A x > 0\).\\ Ekv.: vse lastne vrednosti so pozitivne. Podobno def.\ semidefinitnost.
+\begin{itemize}
+  \item Za vse \(A \in \C^{n \times n}\) je \(B=A^HA\) hermitska in pozitivno semidefinitna. Kvadratne korene \(\sigma_1 \geq \cdots \geq \sigma_n \geq 0\) lastnih vrednosti matrike \(A^HA\) imenujemo \emph{singularne vrednosti} matrike \(A\).
+\end{itemize}
+%
+\textbf{Def.} Realna matrika \(Q\) je \emph{ortogonalna}, če je \(Q^{-1} = Q^T\). Kompleksna matrika \(U\) je \emph{unitarna}, če je \(U^{-1}=U^H\).
+\begin{itemize}
+  \item Ortogonalne/unitarne matrike so izometrije, tj.\ \(\norm{Ux} = \norm{x}\).
+  \item \(A \in \F^{n \times n}\) je ortogonalna/unitarna \(\liff\) stolpci \(A\) tvorijo ONB za \(\F^n\).
+  \item Lastne vrednosti imajo absolutno vrednost 1.
+\end{itemize}
+%
+\textbf{Def.} \emph{Spektralni radij} \(A \in \F^{n \times n}\) je \(\rho(A) := \max_{i \in [n]} \set{|\lambda_i(A)|}\).\\
+\s{Invarianti}
+\begin{itemize}
+  \item \(\tr (A B) = \tr(BA)\).
+  \item Če je \(A\) podobna \(B\), tedaj \(\tr A = \tr B\).
+\end{itemize}
+\s{Uporabno}
+\[
+  \begin{bmatrix}
+    a & b \\ c & d
+  \end{bmatrix}^{-1} = \frac{1}{ad-bc} \begin{bmatrix}
+    d & -b \\ -c & a
+  \end{bmatrix}
+\]

@@ -1,0 +1,38 @@
+\section{Numerično računanje}
+\s{Predstavljiva števila}
+\begin{itemize}
+  \item \(x \in P(b, t, L, U) \lthen x = \pm m \cdot b^e\), kjer je \(b \in \N\) \emph{baza}, \(e \in \Z,\ L \leq e \leq U\) \emph{eksponent} za \(L, U \in \Z\) in  \(m = 0.c_1c_2 \ldots c_t,\ 0 \leq c_i \leq b - 1\)
+  \emph{mantisa} dolžine \(t\). Zahtevamo, da \(c_1 = 0 \lthen e = L\) (\emph{denormalizirano} število).
+  \item Enojna natančnost: \(P(2, 24, -125, 128)\), \(u \approx 6 \cdot 10^{-8}\).
+  \item Dvojna natančnost: \(P(2, 53, -1021, 1023)\), \(u \approx 1 \cdot 10^{-16}\).
+\end{itemize}
+\textbf{Zaporedna števila}\\
+Naj bosta \(x, y \in P(b, t, L, U)\) zaporedni pozitivni normalizirani števili.
+Zapišemo \(x\) v obliki \(x = 0.c_1\ldots c_t \cdot b^e\). Tedaj
+\begin{itemize}
+  \item \(y > x \lthen y = x + b^{e-t}\) (z polno mantiso dobimo nov eksponent)
+  \item \(y < x \land x = 0.10\ldots0 \cdot b^e \lthen y = x - b^{e-t-1}\) (mantisa je na začetku)
+  \item \(y < x \lthen y = x - b^{e-t}\) (mantisa ni na začetku)
+\end{itemize}
+\textbf{Prevod v dvojiški sistem števila \(n_0.n_1\ldots_{(10)} = c_k\ldots c_{0}.d_1\ldots_{(2)}\)}\\
+Celi del: \(n_0 = n_1 \cdot 2 + c_0,\ n_1 = n_2 \cdot 2 + c_1, \ldots,\ n_{k} = 0 \cdot 2 + c_k\)\\
+Drobni del: \(0.n_1\ldots \cdot 2 = 0.n_1'\ldots +  d_1,\ 0.n_1'\ldots \cdot 2 = 0.n_1'' + d_2, \ldots\)\\
+%
+\s{Napake pri računanju}\\
+\textbf{Def.} \emph{Absolutna nap.}\ je \(d_a = \hat{x} - x\). \emph{Relativna nap.}\ je \(d_r = (\hat{x} - x) / x\).\\
+%
+\textbf{Def.} \emph{Osnovna zaokrožitvena napaka} je \(u = \frac{1}{2}b^{1-t}\).
+\begin{itemize}
+  \item Pri zaokroževanju vzamemo najbližje predstavljivo število ali število s \underline{sodo} zadnjo števko, če je kandidatov več.
+  \item Napako primerjamo z osnovno.
+\end{itemize}
+%
+\s{Nasveti}
+\begin{itemize}
+  \item Zapišemo \(x \in \R\) v obliki \(x = (0.c_1\ldots c_t + 0.0\ldots0 c_{t+1}\ldots) \cdot b^e\). 
+  
+  K končnemu delu lahko preštejemo \(b^{-t}\), če smo zaokrožili \(x\) navzgor v \(P(b,t, L, U)\).
+  \item Včasih je treba sešteti geometrijsko vrsto (tudi končno).
+  \item Število \(x \in P(b, t, L, U)\) vidimo kot \(x = (c_1 b^{-1} + \ldots c_t b^{-t}) b^e\). 
+  \item Koeficienti \(c_{i}\) v bazi \(b\) lahko vidimo v bazi \(b'\).
+\end{itemize}

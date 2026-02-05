@@ -1,0 +1,66 @@
+\section{Sistemi linearnih enačb}
+\s{Vekotrske in matrične norme}\\
+\textbf{Def.} \emph{Vektorska norma} je preslikava, za katero velja pozitivnost, homogenost in trikotniška neenakost.\\
+\textbf{Osnovne norme:} \(\norm{x}_p := \sqrt[1/p]{\sum_{i=1}^{n}|x_i|^p},\ \norm{x}_\infty := \max_{i \in [n]} |x_i|\).\\
+\textbf{Def.} \emph{Matrična norma} je preslikava, za katero velja isto kot za vektorsko normo in submultiplikativnost, tj.\ \(\norm{AB} \leq \norm{A} \cdot \norm{B}\).\\
+\textbf{Def.} \emph{Operatorska} norma: \(\norm{A} := \max_{x \neq 0} \frac{\norm{Ax}}{\norm{x}} = \max_{\norm{x}=1}\norm{Ax}\).\\
+\textbf{Osnovne matrične norme:}
+\begin{itemize}
+  \item Frobenius: \(\norm{A}_F := \sqrt{\sum_{i,j=1}^{n}|a_{ij}|^2}\);
+  \item \(\norm{A}_1 = \max_{j \in [n]} \left(\sum_{i=1}^{n}|a_{ij}|\right)\) (največja abs.\ vsota v stolpcu);
+  \item \(\norm{A}_2 = \sigma_1(A) = \max_{i \in [n]} \sqrt{\lambda_i(A^HA)}\) (koren največje lastne vr.);
+  \item \(\norm{A}_\infty = \max_{i \in [n]} \left(\sum_{j=1}^{n}|a_{ij}|\right)\) (največja abs.\ vsota v vrstici).
+\end{itemize}
+\textbf{Trd.} Če je \(A^H = A\), potem \(\norm{A}_2 = \rho(A)\).\\
+\textbf{Izr.} Za vse matrične norme: \(\all{\lambda \in \lambda(A)} |\lambda| \leq \norm{A}\).\\
+\textbf{Izr.} Množenje z unitarno matriko ohranja \(\norm{.}_F\) in \(\norm{.}_2\).\\
+\s{Občutljivost sistemov linearnih enačb}\\
+Število \(\kappa(A):= \norm{A^{-1}} \cdot \norm{A}\) imenujemo \emph{občutljivost} matrike \(A\). Če je matrika \(A\) nesingularna, je \(\norm{A^{-1}}_2 = \frac{1}{\sigma_n(A)}\). Število \(\kappa_2(A):= \frac{\sigma_1(A)}{\sigma_n(A)}\) imenujemo \emph{spektralna občutljivost} matrike \(A\).\\
+\s{Nasveti}
+\begin{itemize}
+  \item Poračunamo normo po definicije (vzamemo enotski vektor).
+\end{itemize}
+\s{LU razcep}\\
+Denimo, da imamo vektor \(x \in \R^n\), kjer je \(x_k \neq 0\). Želimo z nesingularno matriko \(L_k\) uničiti elementi \(x_{k+1}, \ldots, x_n\). Ustrezna matrika je \(L_k = I - l_ke_k^T\), kjer je \(l_k = \begin{bmatrix}
+  0 & \cdots & 0 & l_{k+1, k} & \cdots & l_{nk}
+\end{bmatrix}^T\) in \(l_{jk} = \frac{x_j}{x_k}\). Velja: \(L_k^{-1} = I + l_ke_k^T\) ter \(L_1^{-1}\cdots L_{n-1}^{-1} = I + \sum_{i=1}^{n-1} l_ie_i^T\).\\
+\textbf{Izr.} Obstaja enoličen razcep \(A = LU\) (\(L\) sp.\ tr.\ z 1 na diag., \(U\) zg.\ tr.\, \(\det U \neq 0\))\ \(\liff\) Vse vodilne podmatrike \(A(1:k, 1:k)\) so nesingularne.\\
+\boxedalgorithm{
+  \For{\(j=1, \ldots, n-1\)}{
+    \For{\(i=j+1, \ldots, n\)}{
+      \(l_{ij} \gets a_{ij}/a_{jj}\) \Comment*{Shranimo v sp.\ tr.\ matrike \(A\)}
+      \For{\(k=j+1, \ldots, n\)}{
+        \(a_{ik} \gets a_{ik}-l_{ij}a_{jk}\)
+      }
+    }
+  }
+}
+\\\\\\
+\textbf{Reševanje:} 1.\ \(A = LU\), 2.\ \(Ly = b\), 3.\ \(Ux = y\).\\
+\\
+\s{Delno pivotiranje}\\
+Pred eliminacijo v \(j\)-tem stolpcu primerjamo po velikosti elemente \(a_{jj}, \ldots, a_{nj}\) in nato zamenjamo \(j\)-to vrstico s tisto, ki vsebuje element z največjo absolutno vrednostjo. Dobimo \(PA = LU\).\\
+\textbf{Izr.} Če \(\det A \neq 0\), potem \(\some{P} PA = LU\).\\
+\textbf{Izračun:} \(P = I\). Vsakič, ko zamenjamo vrstici, to naredimo tudi v \(P\).\\
+\textbf{Reševanje:} 1.\ \(PA = LU\), 2.\ \(Ly = Pb\), 3.\ \(Ux = y\).\\
+\s{Kompletno pivotiranje}\\
+V \(j\)-tem stolpcu pivotni element izbiramo iz podmatrike \(A(j:n, j:n)\) in nato izvedemo zamenjamo vrstic in stolpcev. Dobimo \(PAQ = LU\).\\
+\textbf{Izračun:} \(P = Q = I\). Vsakič zamenjamo vrstice/stolpci tudi v \(P\)/\(Q\).\\
+\textbf{Reševanje:} 1.\ \(PAQ = LU\), 2.\ \(Ly = Pb\), 3.\ \(Ux' = y\), 4.\ \(x = Qx'\).\\
+\s{Simetrične matrike. Razcep Choleskega}\\
+\textbf{Izr.} Vodilne podmatrike s.p.d.\ matrike so s.p.d.\\
+\textbf{Izr.} Če je \(A^T = A\) in \(A > 0\), potem \(\exists A = LU\) brez pivotiranja in diagonalni elementi \(U\) so strogo pozitivni.\\
+\textbf{Izr.} \(A^T = A\) in \(A > 0 \liff\) \(\exists {V}\) sp.\ tr.\ s poz.\ el.\ na diag.\, da je \(A = VV^T\).
+\boxedalgorithm{
+  \For{\(k=1, \ldots, n\)}{
+    \(v_{kk} \gets \sqrt{a_{kk} - \sum_{i=1}^{k-1}v_{ki}^2}\)\;
+    \For{\(j=k+1, \ldots, n\)}{
+      \(v_{jk} = (a_{jk} - \sum_{i=1}^{k-1}v_{ji}v_{ki}) / v_{kk}\)
+    }
+  }
+}
+\\\\
+\begin{itemize}
+  \item To je najcenejši test za ugotavljanje pozitivne definitnosti.
+\end{itemize}
+\textbf{Reševanje:} 1.\ \(A = VV^T\), 2.\ \(Vy = b\), 3.\ \(V^Tx = y\).

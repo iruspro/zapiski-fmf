@@ -1,0 +1,59 @@
+\section{Linearni problemi najmanjših kvadratov}
+Problem je podan z matriko \(A \in \R^{m \times n},\ m \geq n,\ \text{rang}A =n\) in vektorjem \(b \in \R^m\). Iščemo \(x \in \R^n\), ki minimizira \(\norm{Ax - b}_2\).\\
+\s{Normalni sistem}\\
+Iščemo najboljšo aproksimacijo \(y = Ax \in \im A \subseteq \R^m\) vektorja \(b \in \R^m\). To je ravno pravokotna projekcija: \(y = P_{\im A}(b) \liff b - Ax \in \im A^\perp\). Ker stolpci \(A\) tvorijo bazo prostora \(\im A\), mora veljati \(A^T(b-Ax) = 0\). Dobili smo \emph{normalni sistem}: \(A^TAx = A^Tb\).\\
+\textbf{Izr.} Rešitev normalnega sistema \(A^TAx = A^Tb\) je rešitev predoločenega sistema \(Ax = b\) po metodi najmanjših kvadratov.\\
+\textbf{Rešitev:} 1.\ \(B=A^TA,\ c = A^Tb\), 2.\ \(B = VV^T\), 3.\ \(Vy = c\), 4.\ \(V^Tx = y\).
+\begin{itemize}
+  \item Ni najbolj stabilen.
+\end{itemize}
+
+\columnbreak
+\s{QR razcep}\\
+Denimo, da poznamo razcep \(A = QR\), kjer je \(Q \in \R^{m \times n}\) z ON stolpci in \(R \in \R^{n \times n}\) zg.\ tr. Iz normalnega sistema, rešitev po metodi najmanjših kvadratov dobimo, če rešimo sistem \(Rx = Q^Tb\).\\
+\textbf{Izr.} Za matriko \(A\) obstaja enoličen QR razcep.\\
+\boxedalgorithm{
+  \For{\(k=1, \ldots, n\)}{
+    \(q_k \gets a_k\) \Comment*{\(k\)-ti stolpci}
+    \For{\(i=1, \ldots, k-1\)}{
+      \(r_{ik} \gets q_i^T a_k\) \Comment*{CGS, MGS: \(r_{ik} = q_i^Tq_k\)}
+      \(q_k = q_k - r_{ik}q_i\)
+    }
+    \(r_{kk} \gets \norm{q_k}_2\) \;
+    \(q_k \gets q_k / r_{kk}\)
+  }
+}
+\\\\\\
+Namesto QR razcepa za \(A\) izračunamo QR razcep za razširjeno matriko \(\begin{bmatrix}
+  A & b
+\end{bmatrix} = \begin{bmatrix}
+  Q & q_{n+1}
+\end{bmatrix} \begin{bmatrix}
+  R & z \\ & \rho
+\end{bmatrix}\).\\
+\textbf{Rešitev:} Rešimo \(Rx = z\). Minimum \(\min \norm{Ax-b}_2 = \norm{\rho q_{n+1}}_2\)\\
+\textbf{Razširjeni QR razcep:} \(A = \widetilde{Q} \widetilde{R}\), kjer je \(\widetilde{Q} = \begin{bmatrix}
+  Q & Q_1
+\end{bmatrix},\ \widetilde{R} = \begin{bmatrix}
+  R \\ 0
+\end{bmatrix}\) in \(A = QR\), kjer je \(Q \in \R^{m \times m}\) ortogonalna in \(R \in \R^{m \times n}\) zg.\ trap.\\
+\textbf{Rešitev:} Rešimo \(Rx = Q^Tb\). Minimum \(\min \norm{Ax-b}_2 = \norm{Q_1^Tb}_2\)\\
+\s{Givensonovi rotacije}\\
+\emph{Givensonova rotacija} je ortogonalna matrika \(R_{ik}^T\), ki je enaka identiteti povsod razen \(R_{ik}^T([i, k], [i,k]) = \begin{bmatrix}
+  c & s \\ -s & c
+\end{bmatrix}\), kjer je \(r = \sqrt{x_i^2 + x_k^2}\), \(c = x_i / r\), \(s = x_k / r\) (če želimo \(x_k = 0\)).
+\begin{itemize}
+  \item Z rotacijami \(R_{ik}^T\) uničimo vse elemente pod diagonalo \(\to \widetilde{R}\);
+  \item \(\widetilde{Q} := R_{12} R_{13} \cdots R_{m-1, m}\)
+\end{itemize}
+Za rešitev sistema na vsakem koraku množimo \(b\) z \(R_{jk}^T\).\\
+\s{Householderjeva zrcaljenja}\\
+Naj bo \(w \in \R^n \setminus \set{0}\). Definiramo \(P = I - \frac{2}{w^T w} w w^T\): \(P = P^T, {P^2 = I}\). \(P\) je zrcaljenje preko hiperravnine, ki je pravokotna na vektor \(w\).\\ Velja: \(Px = x - \frac{1}{\mu}(w^Tx)w\), kjer je \(\mu = \frac{1}{2}\norm{w}_2^2\). Želimo uničiti \(x_2, \ldots x_n\). 
+Izberimo \(w = (x_1 + \sgn(x_1)\norm{x}_2, x_2, \ldots, x_n)\). Definiramo \(\widetilde{P}_1 = P\) in \[
+  \widetilde{P}_{i+1} = \begin{bmatrix}
+    I_i & 0 \\ 0 & P_{i+1}
+  \end{bmatrix}.
+\]
+Na koncu iz \(\widetilde{Q}^T = \widetilde{P}_{\min (n, m-1)}\cdots \widetilde{P}_1\) dobimo \(\widetilde{Q} = \widetilde{P}_1\cdots \widetilde{P}_{\min (n, m-1)}\).\\
+Za rešitev sistema na vsakem koraku množimo \(b\) z \(\widetilde{P}_i\).
+

@@ -1,0 +1,56 @@
+\documentclass[a4paper,oneside,8pt,landscape]{extarticle}
+
+\usepackage{../../../00_common/base}
+\usepackage{../../../00_common/settings_a4}
+\usepackage{../../../00_common/environments}
+
+\usepackage{../../../00_common/macroses/common}
+\usepackage{../../../00_common/macroses/31_unm}
+
+% Commutative diagrams
+\usepackage{tikz-cd}
+
+% Algorithms
+\usepackage[ruled]{algorithm2e}
+\SetKwComment{Comment}{/* }{ */}
+\RestyleAlgo{plain}
+\DontPrintSemicolon
+
+\newcommand{\boxedalgorithm}[2][0.95\linewidth]{%
+\vspace{-\baselineskip}
+\fbox{%
+\begin{minipage}{#1}
+\vspace{-0.6\baselineskip}
+\begin{algorithm}[H]
+\SetAlgoNoEnd
+\SetAlgoNoLine
+#2
+\end{algorithm}
+\vspace{-0.6\baselineskip}
+\end{minipage}
+}%
+% \vspace{-\baselineskip}
+}
+
+% Style
+\newcommand{\s}[1]{\textbf{\textcolor{red}{#1}}}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\im}{im}
+
+
+\begin{document}
+
+\begin{multicols*}{3}
+\input{01_numericno_racunanje.tex}
+\input{02_nelinearne_enacbe.tex}
+\input{03_sistemi_linearnih_enacb.tex}
+\input{04_sistemi_nelinearnih_enacb.tex}
+\input{05_linearni_problemi_najmanjsih_kvadratov.tex}
+\input{06_lastne_vrednosti.tex}
+\input{07_interpolacija.tex}
+\input{08_integriranje.tex}
+\input{000_lin_alg.tex}
+\input{00_todo.tex} 
+\end{multicols*}
+
+\end{document}

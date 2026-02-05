@@ -1,6 +1,10 @@
 \section{Uvod}
 \emph{Numerična metoda} je postopek, ki iz danih numeričnih podatkov s končnim številom elementarnih operacij: \(+, -, /, *, \sqrt{}\), izračuna numerični rezultat.
 
+\ 
+
+Numerična metoda je \emph{direktna}, če s točnim računanjem izračuna točno rešitev s končnim številom osnovnih operacij. Druga možnost so \emph{iterativne metode}, kjer je rešitev limita nekega konvergentnega zaporedja.
+
 \subsection{Absolutna in relativna napaka}
 \begin{definicija}
     \emph{Napaka približka} je razlika med približkom \(\hat{x}\) in točno vrednostjo \(x\).
@@ -24,7 +28,7 @@ kjer je \(m = 0.c_1c_2\ldots c_t\) \emph{mantisa} in
 \end{itemize}
 Če je \(c_1 \neq 0\), potem je število \emph{normalizirano}, sicer pa \emph{subnormalizirano}. Zahtevamo, da lahko \(c_1 = 0\), samo če \(e = L\).
 %
-Zapis označimo s \(P(b, t, L, U)\).
+Množico vseh predstavljivih števil označimo s \(P(b, t, L, U)\).
 
 \begin{zgled}
     Naj bo \(x \in P(b, t, L, U)\). Tedaj 
@@ -53,7 +57,7 @@ Kandidata za predstavljiv približek, ki ga označimo s \(\fl(x)\), sta najbliž
     x_- &= 0.d_1d_2\ldots d_t \cdot b^e, \\
     x_+ &= (0.d_1d_2\ldots d_t + b^{-t}) \cdot b^e.
 \end{align*}
-Pri standardu IEEE uporabimo \emph{zaokrožanje} in za \(\fl(x)\) izberemo predstavljivo število, ki je najbližje \(x\).
+Pri standardu IEEE uporabimo \emph{zaokrožanje} in za \(\fl(x)\) izberemo predstavljivo število, ki je najbližje \(x\). Če pa \(x\) ravno na sredine, vzamemo tisto število, ki ima sodo zadnjo števko.
 
 \subsubsection*{Osnovna zaokrožitvena napaka}
 \begin{izrek}
@@ -65,7 +69,11 @@ Pri standardu IEEE uporabimo \emph{zaokrožanje} in za \(\fl(x)\) izberemo preds
 \end{izrek}
 
 \begin{proof}
-    \todo
+    Zapišemo število \(x\) v obliki 
+    \[
+        x = 0.d_1\ldots d_t + 0.0\ldots0d_{t+1}d_{t+2}\ldots
+    \]
+    in število \(\fl(x)\) v premični piki. Ocenimo napako pri zaokroževanju navzdol in navzgor.
 \end{proof}
 
 Velja 
@@ -95,34 +103,16 @@ Izjeme so:
     \item če dopuščamo subnormalizirana števila in je \(\fl(x \oplus y)\) subnormalizirano število, lahko \(|\delta|\) naraste v najslabšem primeru do \(\frac{1}{2}\). 
 \end{itemize}
 
-\subsection{Občutljivost problema}
-Če se rezultat pri majhni spremembi argumentov (motnji oz.\ perturbaciji) ne spremeni veliko, je problem \emph{neobčutljiv}, sicer pa je \emph{občutljiv}.
-
-\subsubsection*{Stopnja občutljivosti}
-Občutljivost merimo s supremumom razmerja med spremembo rezultata in spremembo podatkov, ko gre sprememba podatkov proti 0.
-
-\begin{zgled}
-    Naj bo \(f: \R \to \R\) odvedljiva funkcija. Zanima nas razlika med \(f(x)\) in \(f(x + \delta x)\), kjer je \(\delta x\) majhna motnja.
-
-    Velja (diferencial)
-    \[
-        |f(x + \delta x) - f(x)| \approx |f'(x)| \cdot |\delta x|,
-    \]
-    torej je \(|f'(x)|\) \emph{absolutna občutljivost} \(f\) v točki \(x\).
-
-    Za oceno relativne napake dobimo
-    \[
-        \frac{|f(x+\delta x) - f(x)|}{|f(x)|} \approx \frac{|f'(x)|\cdot|x|}{|f(x)|} \cdot \frac{|\delta x|}{|x|},
-    \]
-    torej je \(\displaystyle \frac{|f'(x)|\cdot|x|}{|f(x)|}\) \emph{relativna občutljivost} \(f\) v točki \(x\).
-\end{zgled}
-
 \subsection{Vrste napak pri numeričnem računanju}
 Imamo tri vrste napak:
 \begin{itemize}
     \item \emph{Neodstranljiva napaka}: ker začetni podatki niso točni.
     \begin{itemize}
         \item Namesto z \(x\) računamo s približkom \(\overline{x}\) in zato namesto \(y = f(x)\) izračunamo \(\overline{y} = f(\overline{x})\). Neodstranljiva napaka je \[D_n = y - \overline{y}.\]
+        \item Če je funkcija \(f\) odvedljiva v točki \(x\), potem je 
+        \[
+            |D_n| \approx |f'(x)||x - \overline{x}|.
+        \]
     \end{itemize}
     \item \emph{Napaka metode}: ker metoda s katero računamo, ni točna.
     \begin{itemize}
@@ -145,8 +135,39 @@ Velja
 \[
     |D| \leq |D_n| + |D_m| + |D_z|.
 \]
+Najbolje je, kadar so vse tri napake približno enakega velikostnega razreda.
+
+\subsection{Občutljivost problema}
+Če se rezultat pri majhni spremembi argumentov (motnji oz.\ perturbaciji) ne spremeni veliko, je problem \emph{neobčutljiv}, sicer pa je \emph{občutljiv}. Občutljivost je povezana s samim problemom in neodvisna od numerične metode.
+
+\subsubsection*{Stopnja občutljivosti}
+Občutljivost merimo s supremumom razmerja med spremembo rezultata in spremembo podatkov, ko gre sprememba podatkov proti 0.
+
+\begin{zgled}
+    Naj bo \(f: \R \to \R\) odvedljiva funkcija. Zanima nas razlika med \(f(x)\) in \(f(x + \delta x)\), kjer je \(\delta x\) majhna motnja.
+
+    Velja (diferencial)
+    \[
+        |f(x + \delta x) - f(x)| \approx |f'(x)| \cdot |\delta x|,
+    \]
+    torej je \(|f'(x)|\) \emph{absolutna občutljivost} \(f\) v točki \(x\).
+
+    Za oceno relativne napake dobimo
+    \[
+        \frac{|f(x+\delta x) - f(x)|}{|f(x)|} \approx \frac{|f'(x)|\cdot|x|}{|f(x)|} \cdot \frac{|\delta x|}{|x|},
+    \]
+    torej je \(\displaystyle \frac{|f'(x)|\cdot|x|}{|f(x)|}\) \emph{relativna občutljivost} \(f\) v točki \(x\).
+\end{zgled}
+
+\begin{zgled}[Wilkinson]
+    \todo
+\end{zgled}
 
 \subsection{Stabilnost numerične metode}
+Stabilnost se navezuje na numerično metodo. Glavno orodje za preverjanje stabilnosti je \emph{analiza zaokrožitvenih napak}.
+
+\ 
+
 Numerična metoda iz \(x\) namesto \(y = f(x)\) izračuna \(\hat{y}\).
 
 \[
@@ -180,10 +201,11 @@ Torej, če je metoda obratno stabilna, je direktna napaka omejena s produktom ob
 
 \
 
-Če je za vsak \(x\) direktna napaka omejena s produktom občutljivosti in nekaj majhnega, je metoda \emph{direktno stabilna}.
-
-Obratno stabilna metoda je tudi direktno stabilna, obratno pa ni nujno res.
+Če je za vsak \(x\) direktna napaka omejena s produktom občutljivosti in nekaj majhnega, je metoda \emph{direktno stabilna}. Obratno stabilna metoda je tudi direktno stabilna, obratno pa ni nujno res.
 
 \
 
 Metoda je \emph{stabilna}, če je obratno ali direktno stabilna.
+
+\subsection{Analiza zaokrožitvenih napak}
+\todo

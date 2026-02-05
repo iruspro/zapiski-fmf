@@ -1,0 +1,52 @@
+\section{Nelinearne enačbe}
+\s{Bisekcija}\\
+\textbf{Izr.} \(\forall f \in C([a,b]) \land f(a) \cdot f(b) < 0 \lthen \some{c \in (a,b)} f(c) = 0\).
+
+\boxedalgorithm{
+  \(s \gets b - a\) \;
+    \While{\(|s| > \eps\)}{  
+        \(s \gets s / 2\) \;
+        \(c \gets a + s\) \;
+        \eIf{\(\sgn(f(a)) = \sgn(f(c))\)}{
+            \(a \gets c\) \;
+        }{
+            \(b \gets c\) \;
+        }
+    }
+}
+\begin{itemize}
+  \item Ne računa ničel sode stopnje ali kompleksne ničle.
+  \item Lahko izračuna lihi pol. Da se izognemo težavam s poli, lahko definiramo novo funkcijo, ki ima enake ničle, vendar nima polov.
+\end{itemize}
+\s{Navadna iteracija}\\
+Enačbo \(f(x) = 0\) prepišemo v ekvivalentno obliko \(g(x) = x\). Funkcijo \(g\) imenujemo \emph{iteracijska} funkcija, saj rešitev iščemo z iteracijo \[x_{r+1} = g(x_r),\ r = 0, 1, \ldots\]
+Če je \(g\) na določenem intervalu. ki vsebuje \(x_0\) skrčitev, zaporedje \((x_r)_r\) konvergira k negibni točki \(g\), ki ustreza ničli funkcije \(f\).
+\begin{itemize}
+    \item Konvergenco preverjamo z odvodom: \((x_r)_r \to \alpha \liff |g'(\alpha)| < 1\). 
+    \item Zaporedje \((x_r)_r \to \alpha\) z redom \(p\), če \(g^{(p)}(\alpha) \neq 0,\ g^{(i)}(\alpha) = 0,\ i < p\). V primeru \(p = 1\) mora veljati še \(|g'(\alpha)| < 1\).
+\end{itemize}
+\textbf{Ocena konvergence:} \(|x_{r+1} - \alpha| \leq \frac{q}{1-q}|x_{r+1}-x_r|\)
+\columnbreak
+
+\s{Tangentna metoda}\\
+Je poseben primer navadne iteracije:
+\(
+    g(x) = x - \frac{f(x)}{f'(x)}.
+\)
+\begin{itemize}
+    \item Naj bo \(f \in C^2\). Tedaj vse enostavne ničle so privlačne.
+    \item \(\forall f \in C^2([a, \infty)) \land f' > 0 \land f'' > 0 \lthen \all{x_0 \in [a, \infty)} x_r \to \alpha\).
+    \item \(\forall f \in C^2([a, \infty)) \land f' < 0 \land f'' < 0 \lthen \all{x_0 \in [a, \infty)} x_r \to \alpha\).
+\end{itemize}
+\textbf{Red konvergence} ugotovimo z odvodom. Prvi je \(g'(x) = \frac{f(x)f''(x)}{f'^2(x)}\).\\
+\begin{itemize}
+    \item Če je \(f'(\alpha) \neq 0\), konvergenca vsaj kvadratična in \(g''(\alpha) = \frac{f''(\alpha)}{f'(\alpha)}\).
+    \item Če je \(f'(\alpha) = 0\), konvergenca linearna.
+\end{itemize}
+\s{Sekantna metoda}\\
+Približki računamo z rekurzivno formulo: \(x_{r+1} = x_r - \frac{f(x_r)(x_r-x_{r-1})}{f(x_r)-f(x_{r-1})}\).
+\s{Nasveti}
+\begin{itemize}
+    \item Pri računanju koeficientov treba paziti, da je \(\alpha\) res negibna točka.
+    \item Poglejmo, če po \(k\) korakih pridemo v območje konvergence.
+\end{itemize}

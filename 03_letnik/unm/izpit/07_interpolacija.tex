@@ -1,0 +1,28 @@
+\section{Interpolacija}
+Dane vrednosti funkcije \(f\) v \(n+1\) paroma različnih točkah \(x_0, \ldots, x_n\) in iščemo \emph{interpolacijsko funkcijo} \(g\), da \(g(x_i) = f(x_i)\) za \(i = 0, \ldots, n\).\\
+\s{Interpolacijski polinom}\\
+Iščemo polinom \(p_n, \deg p_n \leq n\), da \(p_n(x_i) = y_i\) za \(i = 0, \ldots, n\).
+\begin{itemize}
+  \item V st.\ bazi dobimo sistem z Vandermondovo matriko (zelo občutljiv).
+\end{itemize}
+\textbf{Izr.} Polinom \(p_n\) obstaja in enoličen.\\
+\textbf{Ocena na \([a, b]\):} \(\all{x \in [a, b]}\some{\xi \in (a, b)} f(x) - p_n(x) = \frac{f^{(n+1)}(\xi)}{(n+1)!}\omega(x)\), kjer \(\omega(x) := (x-x_0) \cdots (x-x_n)\).\\
+\s{Lagrangeevi bazni polinomi}\\
+Za \(i \in [n]\) def.\ \(l_{n,i}(x) := \prod_{k=0, k\neq i}^{n} \frac{x - x_k}{x_i - x_k}\). Velja: \(l_{n, i}(x_j) = \delta_{ij}\).\\
+\textbf{Polinom:} \(p_n(x) := \sum_{k=0}^{n} y_k l_{n,k}(x)\).
+\begin{itemize}
+  \item Moramo že na začetku določiti stopnjo.
+\end{itemize}
+\s{Deljene diference}\\
+\textbf{Def.} Naj bojo \(x_0, \ldots, x_k\) paroma različni. \emph{Deljena diferenca} \([x_0, \ldots, x_k]f\) je vodilni koeficient interpolacijskega polinoma za \(f\).\\
+\textbf{Newtonova oblika.} \(p_n(x) = [x_0]f + (x-x_0)[x_0, x_1]f + \ldots\)\\
+\(\text{ } \qquad \qquad \qquad \qquad \qquad + (x-x_0) \cdots (x-x_{n-1})[x_0, x_1, \ldots, x_n]f\).\\
+\textbf{Izr.} Deljena diferenca je simetrična funkcija svojih argumentov.\\
+Če dopuščamo ponavljanje točk (ujemanje v odvodih), velja zveza:
+\[
+  [x_0, x_1, \ldots, x_k]f = \begin{cases}
+    \frac{f^{(k)}(x_0)}{k!}, &x_0=x_1=\cdots=x_k \\
+    \frac{[x_1, \ldots, x_k]f - [x_0, \ldots, x_{k-1}]f}{x_k - x_0}, &\text{sicer.}
+  \end{cases}
+\]
+Deljene diference računamo v trikotni shemi. Koeficienti preberemo iz zgornje diagonale.

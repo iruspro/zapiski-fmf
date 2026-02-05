@@ -1,0 +1,21 @@
+\section{Lastne vrednosti}
+\s{Schurova forma}\\
+\textbf{Schur.} Za vsako matriko \(A \in \F^{n \times n}\) obstajata unitarna matrika \(U\) in zg.\ tr.\ matrika \(T\), da je \(U^HAU = T\). \(T\) je \emph{Schurova forma}.\\
+\s{Potenčna metoda}\\
+Naj bo \(z_0 \in \C^n,\ \norm{z_0} = 1\). Tvorimo \(z_{k+1} = Az_k = A^{k+1} z_0\). Dober zaustavitveni kriterij je \(\norm{Az_k - \rho_kz_k}_2 < \eps\), kjer je \(\rho_k := \frac{z_k^HAz_k}{z_k^Hz_k}\).\\
+\textbf{Izr.} \((z_k)_k \to \lambda_1,\ |\lambda_1| > |\lambda_2| \geq |\lambda_3| \geq \cdots \geq |\lambda_n|\) (dominantna l.\ vr.)\\
+\textbf{Redukcija.} Vzemimo H.\ zrcaljenje za \(w = \vec{e}_1 - \vec{x}_1\), kjer je \(x_1\) normiran lastni vektor (želimo \(x_1 = Ue_1\)). Definiramo \(B = U^HAU\). Matrika \(C = B(2:n, 2:n)\) vsebuje ostale lastne vrednosti.\\
+
+\columnbreak
+\s{QR iteracija}\\
+\boxedalgorithm{
+  \(A_0 \gets A\)\;
+  \For{\(k=0,1,\ldots\)}{
+    \(A_k \gets Q_k R_k\) \Comment*{Izračunaj QR razcep}
+    \(A_{k+1} \gets R_k Q_k\)
+  }
+}
+\\\\\\
+Zaporedje matrik \(A_k\) konvergira proti Schurovi formi.\\
+\textbf{Def.} Matrika \(A\) je \emph{zgornja Hessenbergova}, če je \(a_{ij} = 0\) za \(i >j+1\).\\
+Najprej poiščemo Householderjevo zrcaljenje, ki uniči elementi pod poddiagonalo. Za \(x\) vzamemo vektor pod diagonalo. Nato definiramo \(A' = PAP^T\). Če ima Hessenbergova matrika ničlo na poddiagonali, porblem se razpade na dva.

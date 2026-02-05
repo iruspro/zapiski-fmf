@@ -8,6 +8,9 @@ Iščemo rešitve (ničle) enačbe \(f(x) = 0\), kjer je \(f: \R \to \R\) ali \(
 Naj bo \(f\) zvezno odvedljiva funkcija v okolici \(\alpha\) in \(f(\alpha) = 0\).
 \begin{itemize}
     \item Če je \(f'(\alpha) \neq 0\), je \(\alpha\) \emph{enostavna ničla}.
+    \begin{opomba}
+        Po izreku o inverzni preslikavi obstaja okolica \(U\) točke \(\alpha\), da v \(U\) razen \(\alpha\) ni nobene druge ničle.
+    \end{opomba}
     \item Če je \(f'(\alpha) = 0\), je \(\alpha\) \emph{večkratna ničla}.
     \begin{itemize}
         \item Če je \(f \in C^m\) v okolici \(\alpha\) in \(f'(\alpha) = \ldots = f^{(m-1)}(\alpha) = 0,\ f^{(m)}(\alpha) \neq 0\), je  \(\alpha\) \emph{\(m\)-kratna ničla}.
@@ -34,11 +37,11 @@ Naj bo zdaj \(\alpha\) dvojna ničla, torej \(f(\alpha) = f'(\alpha) = 0,\ f''(\
     f(x) &= f(\alpha) + f'(\alpha)(x - \alpha) + \frac{f''(c)}{2}(x - \alpha)^2 \\
     &\lthen |x - \alpha| \lesssim \sqrt{\frac{2\eps}{|f''(\alpha)|}} = O(\eps^{1/2}). 
 \end{align*}
-Torej potrebujemo manjši \(\eps\), da dobimo dobro aproksimacijo.
+Torej potrebujemo manjši \(\eps\), da dobimo dobro aproksimacijo. Podobno \(m\)-kratno ničlo lahko izračunamo le z natančnostjo \(O(\eps^{1/m})\).
 
 \subsection{Bisekcija}
 \begin{izrek}[o bisekciji]
-    Naj bo \(f: [a, b] \to \R\) zvezna in \(f(a) \cdot f(b) \leq 0\). Tedaj obstaja \(c \in (a, b)\), da je \(f(c) = 0.\)
+    Naj bo \(f: [a, b] \to \R\) zvezna in \(f(a) \cdot f(b) < 0\). Tedaj obstaja \(c \in (a, b)\), da je \(f(c) = 0.\)
 \end{izrek}
 
 \begin{algorithm}[H]
@@ -62,10 +65,18 @@ Torej potrebujemo manjši \(\eps\), da dobimo dobro aproksimacijo.
     }
 \end{algorithm}
 
-\begin{opomba} \
+\begin{opomba}\
+    \todo 
     \begin{itemize}
         \item Ne preverjamo, če je \(f(c) = 0\), saj je to zelo redek dogodek.
         \item Uporabljamo \(e = e / 2\) namesto \(c = (a+b) / 2\), da smo gotovi, da se postopek ustavi.
+    \end{itemize}
+\end{opomba}
+
+\begin{opomba}\ 
+    \begin{itemize}
+        \item S bisekcijo ne moremo računati ničel sode večkratnosti ali kompleksnih ničel.
+        \item Bisekcijo lahko uporabimo za računanje polov lihe stopnje.
     \end{itemize}
 \end{opomba}
 
@@ -251,7 +262,7 @@ Namesto tangente uporabimo sekanto skozi \((x_r, f(x_r)),\ (x_{r-1}, f(x_{r-1}))
     x_{r+1} = x_r - \frac{f(x_r)(x_r - x_{r-1})}{f(x_r) - f(x_{r-1})}.
 \]
 
-V vsakem koraku potrebujemo en nov izračun funkcije \(f\), razen na začetku \(2\). Na začetku še potrebujemo sve začetni vrednosti \(x_0,\ x_1\), ni pa kakšnih dodatnih omejitev, kot pri bisekciji.
+V vsakem koraku potrebujemo en nov izračun funkcije \(f\), razen na začetku \(2\). Na začetku še potrebujemo dve začetni vrednosti \(x_0,\ x_1\), ni pa kakšnih dodatnih omejitev, kot pri bisekciji.
 
 \begin{opomba}
     Pričakujemo, da se sekantna metoda obnaša podobno kot tangentna metoda.
