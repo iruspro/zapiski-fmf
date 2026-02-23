@@ -1,18 +1,98 @@
 \section{Kriptografija}
 \subsection{Šifriranje}
 \begin{definicija}
-    \emph{Kriptosistem} (oz.\ \emph{šifra}) je peterka \((\mathcal{B}, \mathcal{C}, \mathcal{K}, \mathcal{E}, \mathcal{D})\), kjer
+    \emph{Kriptosistem} (oz.\ \emph{šifra}) je peterka \((\B, \CC, \K, \E, \D)\), kjer
     \begin{itemize}
-        \item \(\mathcal{B}\) je končna množica besedil;
-        \item \(\mathcal{C}\) je množica kriptogramov (angl.\ ciphertext);
-        \item \(\mathcal{K}\) je množica ključev;
-        \item \(\mathcal{E} = \setb{\mathcal{E}_k: \mathcal{B} \to \mathcal{C}}{k \in \mathcal{K}}\) je množica \emph{šifrirnih} funkcij razreda \(\mathcal{O}(n^p)\);
-        \item \(\mathcal{D} = \setb{\mathcal{D}_k: \mathcal{C} \to \mathcal{B}}{k \in \mathcal{K}}\) je množica \emph{dešifrirnih} funkcij razreda \(\mathcal{O}(n^p)\).
+        \item \(\B\) je končna množica besedil;
+        \item \(\CC\) je množica kriptogramov (angl.\ ciphertext);
+        \item \(\K\) je množica ključev;
+        \item \(\E = \setb{E_k: \B \to \CC}{k \in \K}\) je množica \emph{šifrirnih} funkcij razreda \(\mathcal{O}(n^p)\);
+        \item \(\D = \setb{D_k: \CC \to \B}{k \in \K}\) je množica \emph{dešifrirnih} funkcij razreda \(\mathcal{O}(n^p)\).
     \end{itemize}
     Pri tem za kriptosistem mora veljati \emph{pravilnost}, tj.\
     \[
-        \all{m \in \mathcal{B}} \all{k \in \mathcal{K}} \some{k' \in \mathcal{K}} \mathcal{D}_{k'}(\mathcal{E}_k(m)) = m.
+        \all{m \in \B} \all{k \in \K} \some{k' \in \K} D_{k'}(E_k(m)) = m.
     \]
-
-
 \end{definicija}
+%
+\begin{opomba} 
+    Za vse \(k \in \K\) je funkcija \(E_k\) injektivna \textcolor{red}{(zakaj?)}, sledi da \(|\B| \leq |C|\).
+\end{opomba}
+
+\subsubsection{Varnost}
+\textbf{Kerckhoffovo načelo.} Kriptosistem naj bo varen, če tudi napadalec pozna sistem, ne pa skrivnega ključa.
+
+\subsection{Popolna tajnost}
+Označimo z 
+\begin{itemize}
+    \item \(X_\B\) slučajno spremenljivko izbire besedila;
+    \item \(X_\CC\) slučajno spremenljivko izbire kriptograma.
+\end{itemize}
+Predpostavimo, da je \(\all{c \in \CC} P(X_\CC = c) > 0\).
+
+\begin{definicija}
+    Kriptosistem \emph{ima lastnost popolne tajnosti (LPT)}, če 
+    \[
+        \all{m \in \B} \all{c \in \CC} P(X_\B = m\, |\, X_\CC = c) = P(X_\B = m).
+    \]
+\end{definicija}
+
+\begin{lema}
+    Kriptosistem ima LPT \(\liff P(X_\CC = c\, |\, X_\B = m) = P(X_\CC = c)\)
+\end{lema}
+
+\begin{proof}
+    \todo
+\end{proof}
+
+\begin{opomba}
+    Če kriptosistem ima LPT, potem
+    \[
+        \all{m_1, m_2 \in \B} \all{c \in \CC} P_{k \leftarrow K}(E_k(m_1) = c) = P_{k \leftarrow K}(E_k(m_2) = c)
+    \]
+\end{opomba}
+
+\subsubsection{Vernamova šifra (OTP: one-time pad)}
+Naj bodo \(\B = \CC = \K = \set{0, 1}^\lambda,\ \lambda > 0\). Ključi izbiramo enakomerno naključno. Definiramo 
+\begin{itemize}
+    \item \(E_k(m) = m \oplus k\); 
+    \item \(D_k(c) = c \oplus k\).
+\end{itemize}
+
+\begin{trditev}
+    Vernamova šifra je pravilna in ima LPT.
+\end{trditev}
+
+\begin{proof}
+    \todo
+\end{proof}
+
+Vernamova šifra ima LPT, ampak tudi slabosti:
+\begin{itemize}
+    \item Ključ lahko uporabimo samo enkrat:
+    \[
+        E_k(m_1) = m_1 \oplus k,\ E_k(m_2) = m_2 \oplus k \lthen m_1 \oplus m_2 \oplus (k \oplus k) = m_1 \oplus m_2.
+    \]
+    Iz \(m_1 \oplus m_2\) ponavadi se da dobiti neko informacijo.
+    \item Ključi so enako dolgi kot besedilo, kar povzroči \(2x\) porabo prostora.
+\end{itemize}
+
+\
+
+Izkaže se, da vsak kriptosistem, ki ima LPT, ima dolge ključe, saj
+\begin{trditev}
+    Če ima kriptosistem LPT, potem
+    \[
+        |\B| \leq |\CC| \leq |\K|.
+    \]
+\end{trditev}
+
+\begin{proof}
+    \todo
+\end{proof}
+
+\begin{opomba}
+    Recimo, da \(\B = \set{0, 1}^\lambda\) ter \(\K = \set{0, 1}^t\). Tedaj \(|\B| = 2^\lambda\) in \(|\K| = 2^t\). Če ima kriptosistem LPT, potem \(|\B| \leq |\K| \lthen \lambda \leq t\). Torej vsak ključ je dolg vsaj \(\lambda\).
+\end{opomba}
+
+\subsection{Tokovne šifre}
