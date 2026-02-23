@@ -1,0 +1,18 @@
+\section{Kriptografija}
+\subsection{Šifriranje}
+\begin{definicija}
+    \emph{Kriptosistem} (oz.\ \emph{šifra}) je peterka \((\mathcal{B}, \mathcal{C}, \mathcal{K}, \mathcal{E}, \mathcal{D})\), kjer
+    \begin{itemize}
+        \item \(\mathcal{B}\) je končna množica besedil;
+        \item \(\mathcal{C}\) je množica kriptogramov (angl.\ ciphertext);
+        \item \(\mathcal{K}\) je množica ključev;
+        \item \(\mathcal{E} = \setb{\mathcal{E}_k: \mathcal{B} \to \mathcal{C}}{k \in \mathcal{K}}\) je množica \emph{šifrirnih} funkcij razreda \(\mathcal{O}(n^p)\);
+        \item \(\mathcal{D} = \setb{\mathcal{D}_k: \mathcal{C} \to \mathcal{B}}{k \in \mathcal{K}}\) je množica \emph{dešifrirnih} funkcij razreda \(\mathcal{O}(n^p)\).
+    \end{itemize}
+    Pri tem za kriptosistem mora veljati \emph{pravilnost}, tj.\
+    \[
+        \all{m \in \mathcal{B}} \all{k \in \mathcal{K}} \some{k' \in \mathcal{K}} \mathcal{D}_{k'}(\mathcal{E}_k(m)) = m.
+    \]
+
+
+\end{definicija}
