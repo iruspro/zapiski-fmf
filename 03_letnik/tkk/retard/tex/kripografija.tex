@@ -11,16 +11,15 @@
     \end{itemize}
     Pri tem za kriptosistem mora veljati \emph{pravilnost}, tj.\
     \[
-        \all{m \in \B} \all{k \in \K} \some{k' \in \K} D_{k'}(E_k(m)) = m.
+       \all{k \in \K} \some{k' \in \K} \all{m \in \B} D_{k'}(E_k(m)) = m
     \]
+    ter \emph{varnost} (Kerckhoffovo načelo).
 \end{definicija}
 %
-\begin{opomba} 
-    Za vse \(k \in \K\) je funkcija \(E_k\) injektivna \textcolor{red}{(zakaj?)}, sledi da \(|\B| \leq |C|\).
-\end{opomba}
-
-\subsubsection{Varnost}
 \textbf{Kerckhoffovo načelo.} Kriptosistem naj bo varen, če tudi napadalec pozna sistem, ne pa skrivnega ključa.
+\begin{opomba} 
+    Za vse \(k \in \K\) je funkcija \(E_k\) injektivna, sledi da \(|\B| \leq |C|\).
+\end{opomba}
 
 \subsection{Popolna tajnost}
 Označimo z 
