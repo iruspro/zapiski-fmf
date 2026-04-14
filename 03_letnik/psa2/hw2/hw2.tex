@@ -1,0 +1,189 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[slovene]{babel}
+\usepackage{lmodern}
+
+\usepackage{xcolor}
+\usepackage{bbold}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\input{../../../common/environments.tex}
+\input{../../../common/settings.tex}
+
+\input{../../../common/macroses/00_common_macroses.tex}
+\input{../../../common/macroses/02_math_operators.tex}
+\input{../../../common/macroses/03_shortcuts.tex}
+
+\begin{document}
+
+\title{Podatkovne strukture in algoritmi 2 -- Domača naloga 2}
+\author{Ruslan Urazbakhtin}
+\maketitle
+
+\newpage
+
+\section*{Hitra Fourierova transformacija}
+\paragraph{1.\ naloga.} Dana sta niza \(t\) (dolžine \(n\)) in \(p\) (dolžine \(m\)). Poiščite vse indekse \(i\), za katere velja \(t[i : i + m] = p\).
+%
+\paragraph{Rešitev.} Naj bo \(\Gamma\) dana abeceda. Za začetek recimo, da je \(\Gamma = \set{a, b}\). Najprej transformiramo abecedo na naslednji način
+\[
+    a \mapsto 1, \qquad b \mapsto -1.
+\]
+Priredimo nizu \(t\) polinom \(t(X)\) na naslednji način:
+\[
+    t(X)[j] = t[j].
+\]
+Priredimo nizu \(p\) polinom \(p(X)\) na naslednji način:
+\[
+    p(X)[j] = p[m - 1 - j],
+\]
+torej obrnemo niz. Oglejmo si splošni koeficient pri \(X^k\) v produktu \(q(X) = t(X) \cdot p(X)\):
+\[
+    q[k] = t_0p_{m-1-k} + t_1p_{m-k} + \cdots + t_kp_{m-1} = \sum_{j=0}^{k} t_j p_{m-1-k + j},
+\]
+kjer je \(p_j = 0\), če \(j < 0\) ali \(j \geq m\).
+%
+Zdaj pa pogledamo konkretne vrednosti \(k\):
+%
+\begin{align*}
+    &k = m - 1 \lthen q[k] = \sum_{j=0}^{m-1} t_jp_j = t[0 : m] \cdot p \\
+    &k = m \lthen q[k] = \sum_{j=0}^{m} t_j p_{j - 1} = \sum_{j=0}^{m-1} t_{j+1}p_j =  t[1 : m + 1] \cdot p\\
+    &\vdots\\
+    &k = m - 1 + i \lthen q[k] = \sum_{j=0}^{m-1+i} t_j p_{j - i} = \sum_{j=0}^{m-1} t_{j+i}p_j =  t[i : m + i] \cdot p,
+\end{align*}
+kjer \(t[i : m + i] \cdot p\) označuje skalarni produkt vektorjev \(t[i : m + i]\) in \(p\). Vidimo, da za \(i \in \set{0, \ldots, n - m}\) pri potenci \(X^{m - 1 + i}\) dobivamo ravno skalarne produkte vektorjev \(t[i : m + i]\) in \(p\). Preden zapišemo algoritem, dokažemo trditev.
+
+\begin{trditev}
+    \label{proof-1}
+    Naj bosta \(\vec{a}, \vec{b} \in \set{-1, 1}^n\). Tedaj 
+    \[
+        \vec{a} = \vec{b} \liff \vec{a} \cdot \vec{b} = n.
+    \]
+\end{trditev}
+
+\begin{proof}
+    \((\Rightarrow)\) Recimo, da je \(\vec{a} = \vec{b}\). Sledi, da 
+    \[
+        \vec{a} \cdot \vec{b} = \vec{a} \cdot \vec{a} = \norm{\vec{a}}^2 = n.
+    \]
+    \((\Leftarrow)\) Recimo, da je \(\vec{a} \cdot \vec{b} = n\). Sledi, da 
+    \[
+        n = \sum_{j=1}^{n}a_jb_j = k - l,
+    \]
+    kjer je \(k = |\setb{j \in [n]}{a_jb_j = 1}|\) in \(l = |\setb{j \in [n]}{a_jb_j = -1}|\). Ker je \(k \leq n\), enakost je dosežena le v primeru, ko \(k = n\) in \(l = 0\) oziroma, ko 
+    \[
+        \all{j \in [n]} a_j b_j = 1 \liff \all{j \in [n]} a_j = b_j. \qedhere
+    \]
+\end{proof}
+\noindent
+Torej, dovolj je poiskati vse indekse \(i \in \set{0, \ldots, n - m}\), da \(t(X)[i : m + i] \cdot p(X) = m\).
+
+\paragraph{Algoritem.}
+\begin{enumerate}
+    \item Priredi nizoma \(t\) in \(p\) polinoma \(t(X)\) in \(p(X)\). Časovna zahtevnost je \(O(n)\).
+    \item Izračunaj \(q(X) = \text{IFFT}(\text{FFT}(t(X)) \cdot \text{FFT}(p(X)))\). Časovna zahtevnost je \(O(n \log n)\).
+    \item Poišči \(i \in \set{0, \ldots, n - m}\), da \(q[m - 1 + i] = m\). Časovna zahtevnost je \(O(n)\).
+\end{enumerate}
+\
+\\
+Za splošno abecedo \(\Gamma = \set{a_0, \ldots, a_{N - 1}}\) pa naredimo transformacijo 
+\[
+    \all{k \in \set{0, 1, \ldots, N-1}} a_k \mapsto e^{\frac{2 \pi i}{N} k}.
+\]
+Priredimo nizu \(t\) polinom \(t(X)\) na naslednji način:
+\[
+    t(X)[j] = t[j].
+\]
+Priredimo nizu \(p\) polinom \(p(X)\) na naslednji način:
+\[
+    p(X)[j] = \overline{p[m - 1 - j]},
+\]
+torej obrnemo niz in transponiramo njegove vrednosti. Spet za \(i \in \set{0, \ldots, n - m}\) pri potenci \(X^{m - 1 + i}\) dobivamo ravno skalarne produkte vektorjev \(t[i : m + i]\) in \(p\). Uporabimo isti algoritem kot prej, ki je pravilen tudi v splošnem primeru, saj velja
+
+\begin{lema}
+    Naj bosta \(\vec{a}, \vec{b} \in \C^n\) in \(\all{j \in [n]} |a_j| = |b_j| = 1\). Tedaj
+    \[
+        \vec{a} = \vec{b} \liff  \all{j \in [n]} a_j \overline{b_j} = 1.
+    \] 
+\end{lema}
+
+\begin{proof}
+    \((\Rightarrow)\) Recimo, da je \(\vec{a} = \vec{b}\). Naj bo \(j \in [n]\). Velja
+    \[
+        a_j\overline{b_j} = a_j \overline{a_j} = |a_j|^2 = 1.
+    \]
+    \((\Leftarrow)\) Recimo, da je \(\all{j \in [n]} a_j \overline{b_j} = 1\). Naj bo \(j \in [n]\). Označimo \(a_j = e^{i\phi_j}\) in \(b_j = e^{i \psi_j}\). Sledi, da
+    \[
+        1 = a_j \overline{b_j} = e^{i\phi_j}e^{-i \psi_j} = e^{i (\phi_j - \psi_j)} \lthen \phi_j - \psi_j = 2 \pi k \lthen \phi_j = \psi_j + 2 \pi k.
+    \]
+    Torej 
+    \[
+        a_j = e^{i\phi_j} = e^{i(\psi_j + 2 \pi k)} = e^{i\psi_j}e^{i2 \pi k} = e^{i\psi_j} = b_j. \qedhere
+    \]
+\end{proof}
+
+\begin{trditev}
+    Naj bosta \(\vec{a}, \vec{b} \in \C^n\) in \(\all{j \in [n]} |a_j| = |b_j| = 1\). Tedaj 
+    \[
+        \vec{a} = \vec{b} \liff \vec{a} \cdot \vec{b} = n.
+    \]
+\end{trditev}
+
+\begin{proof}
+    \((\Rightarrow)\) Recimo, da je \(\vec{a} = \vec{b}\). Tedaj 
+    \[
+        \vec{a} \cdot \vec{b} = \vec{a} \cdot \vec{a} = \sum_{j=1}^{n} a_j \overline{a_j} = \sum_{j=1}^{n} |a_j|^2 = \sum_{j=1}^{n} 1 = n.
+    \]
+    \((\Leftarrow)\) Recimo, da je \(\vec{a} \cdot \vec{b} = n\). Označimo 
+    \[
+        \all{j \in [n]} a_j = \cos \phi_j + i \sin \phi_j \quad \text{in} \quad \all{j \in [n]} b_j = \cos \psi_j + i \sin \psi_j.
+    \]
+    Tedaj 
+    \begin{multline*}
+        n = \vec{a} \cdot \vec{b} = \sum_{j=1}^{n} a_j \overline{b_j} = \sum_{j=1}^{n} (\cos \phi_j + i \sin \phi_j)(\cos \psi_j - i \sin \psi_j) = \\ = \sum_{j=1}^{n} (\cos (\phi_j - \psi_j) + i \sin (\phi_j - \psi_j)).
+    \end{multline*}
+    Torej 
+    \[
+        n = \sum_{j=1}^{n} \cos (\phi_j - \psi_j) \lthen \all{j \in [n]} \cos(\phi_j - \psi_j) = 1 \lthen \all{j \in [n]} \phi_j = \psi_j + 2 \pi k.
+    \]
+    Torej 
+    \[
+        \all{j \in [n]} a_j\overline{b_j} = 1 \lthen \vec{a} = \vec{b}. \qedhere
+    \]
+\end{proof}
+%
+\paragraph{2.\ naloga.} Zapišite algoritem za množenje dveh dolgih števil, ki ju predstavimo kot seznama števk (dolžine \(m\) in dolžine \(n\)), ki naj ima kompleksnost \(O((m+n) \log(m+n))\).
+%
+\paragraph{Rešitev.} Vsako število lahko predstavimo v obliki 
+\[
+    a = a_0 + a_1 X + \ldots + a_{m - 1} X^{m - 1}, \qquad b = b_0 + b_1 X + \ldots + b_{n - 1} X^{n - 1},
+\]
+kjer je \(X\) neka izbrana baza, npr.\ \(10\). Priredimo vsakemu številu polinom 
+\[
+    \all{j \in [n + m]} p(X)[j] = p[j],
+\]
+pri čemer manjkajoče indekse štejemo za 0. Tako dobimo polinoma \(a(X)\) in \(b(X)\). Tedaj množenje števil \(a\) in \(b\) ustreza množenju ustreznih polinomov ter prenosu prepolnjenih razredov.
+
+\paragraph{Algoritem.}
+\begin{enumerate}
+    \item Priredi številoma \(a\) in \(b\) polinoma \(a(X)\) in \(b(X)\). Časovna zahtevnost je \(O(n + m)\).
+    \item Izračunaj \(c(X) = \text{IFFT}(\text{FFT}(a(X)) \cdot \text{FFT}(b(X)))\).\\ Časovna zahtevnost je \(O((m+n) \log (m+n))\).
+    \item Normaliziruj \(c(X)\), tj.
+    \begin{enumerate}
+        \item \(\text{carry := 0}\)
+        \item Za vsak \(i \in \set{0, 1, \ldots, n + m - 1}\) ponavljaj
+        \begin{enumerate}
+            \item \(c(X)[i] = c(X)[i] + \text{carry}\);
+            \item \(\text{carry} = c(X)[i]\, /\, 10\);
+            \item \(c(X)[i] = c(X)[i] \mod 10\).
+        \end{enumerate}
+        \item Če \(\text{carry} \neq 0\), \(c(X)[m+n] = \text{carry}\).
+        \item Pobriši vodilne ničle.
+    \end{enumerate}
+    Časovna zahtevnost je \(O(n + m)\).
+\end{enumerate}
+
+\end{document}
