@@ -1,0 +1,82 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[slovene]{babel}
+\usepackage{amsfonts, amssymb, amsmath, amsthm}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+% bibliography
+\usepackage[
+    backend=biber,
+    sorting=nty,
+]{biblatex}
+\addbibresource{references.bib}
+
+
+\usepackage{bbold}
+% default sets
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\OO}{\mathcal{O}}
+
+%%% Množice
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\setb}[2]{\set{#1 \ | \  #2}}
+
+\newcommand{\eps}{\varepsilon}
+% Implikacija
+\newcommand{\lthen}{\implies}
+\newcommand{\liff}{\iff}
+
+%%% Quantifiers
+\newcommand{\all}[1]{\forall #1 \,.\,}
+\newcommand{\some}[1]{\exists #1 \,.\,}
+\newcommand{\exactlyone}[1]{\exists! #1 \,.\,}
+\DeclareMathOperator{\Fix}{Fix}
+\newcommand{\one}{\mathbb{1}}
+
+\def\qed{$\hfill\Box$}   % konec dokaza
+\def\qedm{\qquad\Box}   % konec dokaza v matematičnem načinu
+\newtheorem{izrek}{Izrek}[section]
+\newtheorem{trditev}[izrek]{Trditev}
+\newtheorem{posledica}[izrek]{Posledica}
+\newtheorem{lema}[izrek]{Lema}
+\newtheorem{opomba}[izrek]{Opomba}
+\newtheorem{definicija}[izrek]{Definicija}
+\newtheorem{zgled}[izrek]{Zgled}
+
+\title{Izračun negibnih točk vektorja odsekoma linearnih funkcij \\ 
+\Large Osnutek dela diplomskega seminarja}
+\author{Ruslan Urazbakhtin \\
+Mentor: prof.\ dr.\ Alexander Keith Simpson \\
+Fakulteta za matematiko in fiziko \\
+Oddelek za matematiko}
+\date{}
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\maketitle
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{01_odsekoma_linearne_funkcije.tex}
+\input{02_negibne_tocke.tex}
+\input{03_algoritmi.tex}
+
+\printbibliography
+
+\end{document}
+
+\section*{Angleško-slovenski slovar strokovnih izrazov}

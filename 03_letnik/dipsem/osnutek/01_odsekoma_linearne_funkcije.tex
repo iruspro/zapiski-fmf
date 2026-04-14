@@ -1,0 +1,106 @@
+\section{Odsekoma linearne funkcije}
+Osnovni pojem, s katerim se bomo ukvarjali v diplomski nalogi, so \emph{odsekoma linearne funkcije}. Preden jih formalno definiramo, si oglejmo preprosta zgleda.
+
+\begin{zgled}
+  \label{zgl:olf-simple}
+  Naj bo funkcija \(f \colon \R \to \R\) podana po kosih:
+  \[
+    f(x) = \begin{cases}
+      x; &x<0;\\
+      x+1; &x \geq 0.
+    \end{cases}
+  \]
+  Vidimo, da je funkcija \(f\) nezvezna v točki \(0\), medtem ko je na posamez\-nih intervalih podana z \emph{linearnim izrazom} oblike \(q_1 x + q_0\).
+\end{zgled}
+
+Bolj splošno lahko obravnavamo funkcije \(n\) spremenljivk \(f \colon \R^n \to \R\).
+
+\begin{zgled}
+  \label{zgl:olf-ndim}
+  Naj bo funkcija \(f \colon \R^n \to \R\) podana s predpisom
+  \[
+    f(x_1, \ldots, x_n) = \left|\setb{i \in [n]}{x_i \geq 0}\right|.
+  \]
+  Domeno \(\R^n\) razbijemo glede na predznake koordinat.
+  Za vsak izbor predznakov \((\varepsilon_1, \ldots, \varepsilon_n)\), kjer je \(\varepsilon_i \in \{-1,1\}\), dobimo množico oblike
+    \[
+      \{(x_1,\ldots,x_n)\in\R^n \mid (\eps_i \geq 0 \lthen x_i \geq 0) \land (\eps_i < 0 \lthen x_i < 0),\ i \in [n]\}.
+    \]
+  Te množice so ortanti v \(\R^n\) in skupaj tvorijo razbitje domene na \(2^n\) delov. Na posameznem ortantu funkcija \(f \) je podana s linearnim izrazom oblike
+  \[
+    q_n x_n + \cdots + q_1 x_1 + q_0,
+  \]
+  kjer velja \(q_n = \cdots = q_1 = 0\), medtem ko je konstanta \(q_0\) enaka številu indeksov \(i\), za katere je \(x_i \geq 0\). Očitno je, da je funkcija \(f\) nezvezna. 
+\end{zgled}
+
+
+
+Sedaj podajmo še formalno definicijo, ki jo povzemamo po \cite{zbMATH06805750}.
+\begin{definicija}
+  \emph{Linearni izraz} v spremenljivkah \(x_1, \ldots, x_n\) je izraz
+  \[
+    q_nx_n + \ldots + q_1 x_1 + q_0,
+  \]
+kjer so \(q_0, q_1 \ldots, q_n \in \R\). \emph{Pogojni linearni izraz} je par \(C \vdash e\), kjer je \(e\) linearni izraz in \(C\) končna množica neenačb med linearni izrazi, torej vsak element množice \(C\) je ene izmed oblik
+    \[
+        e_1 \leq e_2, \quad e_1 < e_2.
+    \]
+\end{definicija}
+
+Za \(\vec{r} = (r_1, \ldots, r_n) \in \R^n\) z \(C(\vec{r})\) označimo konjunkcijo neenačb, ki nastane iz \(C\) z nadomestitvijo spremenljivk z vrednostmi \(r_1, \ldots, r_n\).
+
+\begin{opomba}
+  Z pomočjo pogojnega linearnega izraza \(C \vdash e\) lahko opišemo en kos funkcije:
+  \begin{itemize}
+      \item Domena kosa je \(\setb{\vec{r} \in \R^n}{C(\vec{r}) = \top}\).
+      \item Linearni izraz \(e\) podaja linearno funkcijo nad domeno.
+  \end{itemize}
+\end{opomba}
+
+\begin{definicija}
+  \label{def:odsekoma-linearna-funkcija}
+    Pravimo, da je funkcija \(f \colon D \subseteq \R^n \to \R\) \emph{odsekoma linearna}, če obstaja končna množica (oz.\ sistem) \(\mathcal{F}\) pogojnih linearnih izrazov v spremenljivkah \(x_1, \ldots, x_n\), da velja:
+    \begin{enumerate}
+        \item \(\all{\vec{r} \in D} \some{(C \vdash e) \in \mathcal F} C(\vec{r}) = \top\) in
+        \item \(\all{\vec{r} \in D} \all{(C \vdash e) \in \mathcal F} C(\vec{r}) = \top \lthen f(\vec{r}) = e(\vec{r})\).
+    \end{enumerate}
+    Pravimo tudi, da \(\mathcal{F}\) \emph{predstavlja} funkcijo \(f\).
+\end{definicija}
+
+\begin{zgled}
+  V smislu definicije \ref{def:odsekoma-linearna-funkcija} sta funkciji, podani v zgledih \ref{zgl:olf-simple} in \ref{zgl:olf-ndim}, očitno odsekoma linearni. Izraz "`odsekoma"' se nanaša na dejstvo, da je funkcija v splošnem nezvezna.
+\end{zgled}
+
+V nadaljevanju se bomo ukvarjali z algoritmi, ki računajo negibne točke odseko\-ma linearnih funkcij. Ti algoritmi morajo poznati ne le vrednost funkcije v dani točki, temveč tudi pogojni linearni izraz, s katerim lahko opišemo okolico te točke. Zato je smiselno razmisliti, kako lahko odsekoma linearne funkcije učinkovito predstavimo v kodi.
+
+\subsection{Lokalni algoritem}
+Ponovno se vrnimo k funkciji iz zgleda \ref{zgl:olf-ndim}. Izkazuje se, da je domena, podana s pogojnim linearnim izrazom \(C \vdash e\), konveksna množica. Zato za opis funkcije po definiciji \ref{def:odsekoma-linearna-funkcija} potrebujemo vsaj \(2^n\) ortantov. To pomeni, da bo pri predstavitvi odsekoma linearne funkcije s sistemom \(\mathcal{F}\) operacija iskanja okolice dane točke zahtevala \(\mathcal{O}(2^n)\) časa. 
+
+Zato je smiselno vpeljati pojem \emph{lokalnega algoritma}, ki je bil implicitno podan v \cite{zbMATH06805750} in eksplicitno predstavljen v \cite{Petkovic2017}.
+
+\begin{definicija}
+    \emph{Lokalni algoritem} za odsekoma linearno funkcijo \(f \colon D \subseteq \R^{n} \to \R\), je algoritem, ki za podano točko \(\vec{r} \in D\) vrača pogojni linearni izraz \(C_{\vec{r}} \vdash e_{\vec{r}}\), da velja
+    \begin{enumerate}
+        \item \(C_{\vec{r}}(\vec{r}) = \top\);
+        \item \(\all{\vec{s} \in D} C_{\vec{r}}(\vec{s}) = \top \lthen f(\vec{s}) = e_{\vec{r}}(\vec{s})\).
+    \end{enumerate}
+    Pri tem je množica \(\setb{C_{\vec{r}} \vdash e_{\vec{r}}}{\vec{r} \in D}\) končna.
+\end{definicija}
+
+\begin{zgled}
+  Naj bo funkcija \(f\) ista kot v zgledu \ref{zgl:olf-ndim}. Lokalni algoritem za funkcijo \(f\) definiramo na naslednji način. Naj bo \(\vec{r} \in \R^n\). Definiramo pogojni linearni izraz \(C_{\vec{r}} \vdash e_{\vec{r}}\) kot
+  \[
+    C_{\vec{r}} := \set{x_i \geq 0}_{r_i \geq 0} \cup \set{x_i < 0}_{r_i < 0}.
+  \]
+  in
+  \[
+    e_{\vec{r}} := \left|\setb{i \in [n]}{r_i \geq 0}\right|.
+  \]
+  %
+  Jasno je, da je število različnih pogojnih linearnih izrazov oblike \(C_{\vec{r}} \vdash e_{\vec{r}}\), ko \(\vec{r}\) preteče \(\R^n\), enako \(2^n\). S tem smo dejansko podali lokalni algoritem.
+
+  Prednost takšne predstavitve funkcije \(f\) je v tem, da operacija iskanja okolice dane točke sedaj zahteva le \(\mathcal{O}(n)\) časa.
+\end{zgled}
+
+Omenimo še, da lahko vsako eksplicitno predstavitev funkcije \(f\) s sistemom \(\mathcal{F}\) enostavno pretvorimo v lokalni algoritem. Obratna pretvorba pa je v splošnem zahtevna.
+

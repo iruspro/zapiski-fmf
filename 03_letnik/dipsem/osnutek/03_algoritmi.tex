@@ -1,0 +1,65 @@
+\section{Algoritmi}
+V tem razdelku bomo vzpostavili algoritmični problem izračuna negibnih točk odse\-koma linearnih funkcij in ga rešili z ustreznimi algoritmi, katerih koda bo tudi javno dostopna. Zanimali nas bosta le najmanjša in največja negibna točka, saj sta pomembni za relevantne probleme, v katerih želimo učinkovito izračunati ti vrednosti. Pojma najmanjše in največje negibne točke sta hkrati dualna: če imamo algoritem za izračun najmanjše negibne točke, lahko s pomočjo njega in ustreznih manipulacij s preslikavo izračunamo tudi največjo negibno točko. Obenem bomo zastavili vprašanja, na katera odgovor še ni znan, in poskušali poiskati ustrezne rešitve.  
+
+\subsection{Formulacija problema}
+Naj bo \(E\) polna mreža. Na množici monotonih preslikav v drugi spremenljivki \(E^{X \times E}\) definiramo operator 
+\[
+  \dagger_c: E^{X \times E} \to E^X, \quad f \mapsto f^{\dagger_c},
+\] 
+kjer je 
+\[
+  \all{x \in X} f^{\dagger_c}(x) = c(\Fix(y \mapsto f(x, y) \colon E \to E))
+\]
+in je \(c\) neka funkcija izbire elementa iz množice.
+
+\begin{zgled}
+  Naj bo \(c = \bigwedge\). Tedaj operator \(\dagger_c\) za dano monotono preslikavo v drugi spremenljivki \[f \colon X \times E \to E\] 
+  vrne preslikavo 
+  \[
+    f^{\dagger_c} \colon X \to E,
+  \] 
+  ki za vsak \(x \in X\) izračuna najmanjšo negibno točko preslikave 
+  \[
+    f_x \colon E \to E, \quad f_x(y) = f(x, y). \qedhere
+  \]
+\end{zgled}
+
+Zanimali nas bodo algoritmi, ki predstavljajo operator \(\dagger_c\) na množici odsekoma linearnih funkcij, monotonih v drugi spremenljivki (oziroma vektorjev takih funkcij), \(E^{X \times E}\), za različne izbire množic \(X\) in \(E\) ter funkcije \(c\). Oglejmo si nekaj možnih izbir.
+
+Najenostavnejša izbira je \(X = \one\) in \(E = [0,1]\). Tako dobimo množico funkcij
+\[
+  [0,1]^{\one \times [0,1]}.
+\]
+Operator \(\dagger_c\) tedaj vrne funkcijo na množici \(\one\), pri čemer lahko vrednost \(f^{\dagger_c}\) razumemo kot negibno točko (izbrano s pomočjo funkcije \(c\)) funkcije
+\[
+  f \colon [0,1] \to [0,1].
+\]
+
+Prejšnji primer lahko z izbiro \(X = [0,1]^n\) posplošimo na funkcije več spremenljivk
+\[
+  f \colon [0,1]^n \times [0,1] \to [0,1].
+\]
+Operator \(\dagger_c\) tedaj vrne funkcijo na množici \([0,1]^n\):
+\[
+  f^{\dagger_c} \colon [0,1]^n \to [0,1].
+\]
+Izkaže se, da je tudi funkcija \(f^{\dagger_c}\) odsekoma linearna. Ob dodatni predpostavki, da je monotona v zadnji spremenljivki, lahko ponovno uporabimo operator \(\dagger_c\) (ki zdaj deluje na množici \([0,1]^{[0,1]^n}\)) in tako dobimo funkcijo
+\[
+  f^{\dagger_c \dagger_c} \colon [0,1]^{n-1} \to [0,1].
+\]
+
+Ob ustreznih predpostavkah o monotonosti lahko ta postopek nadaljujemo. Izka\-že se, da je to smiselno, vendar algoritem, predstavljen v \cite{zbMATH06805750} in posodobljen v \cite{Petkovic2017}, povzroča eksponentno časovno zahtevnost ter pri večjem številu spremenljivk hitro postane neuporaben.
+
+Zato bomo problem poskusili rešiti z izbiro množic \(X = [0,1]^m\) in \(E = [0,1]^n\), oziroma ga bomo posplošili na vektor odsekoma linearnih funkcij
+\[
+  F = (f_1, \ldots, f_n) \colon [0,1]^m \times [0,1]^n \to [0,1]^n,
+  \quad
+  f_i \colon [0,1]^m \times [0,1]^n \to [0,1].
+\]
+Operator \(\dagger_c\) v tem primeru vrne preslikavo na množici \([0,1]^m\):
+\[
+  F^{\dagger_c} \colon [0,1]^m \to [0,1]^n.
+\]
+
+\subsection{Preizkusi časovne zahtevnosti}
+Vse različice algoritma bomo testirali na skrbno izbranih primerih, zasnovanih tako, da poudarijo njihove časovne lastnosti. Pričakujemo, da bo posplošitev na vektorski primer prinesla občuten izboljšek zmogljivosti v primerjavi z iterativno uporabo skalarne različice.

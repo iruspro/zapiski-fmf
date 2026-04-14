@@ -1,0 +1,48 @@
+\section{Polne mreže, negibne točke in izrek Knaster-Tarskega}
+
+Naslednje vprašanje je, kakšni so zadostni pogoji za odsekoma linearno funkcijo, da ima negibno točko. Nedvoumno je, da to ne drži za vse odsekoma linearne preslikave. Preprost protiprimer je funkcija 
+\[
+f \colon \R \to \R,\quad f(x) = x + 1.
+\]
+%
+Obenem znana izreka o negibnih točkah, kot sta Banachovo skrčitveno načelo in Brouwerjev izrek o negibni točki, tu ne pomagata, saj so odsekoma linearne funkcije v splošnem nezvezne. Odgovor na naše vprašanje bomo našli z uporabo teorije urejenosti.
+
+Preden formuliramo osnovni izrek, navedemo osnovni definiciji. Vsebino tega razdelka povzemamo po \cite[1.\ poglavje]{zbMATH01576861}.
+
+\begin{definicija}
+    Naj bo \((E, \leq)\) delno urejena množica:
+    \begin{itemize}
+        \item \((E, \leq)\) je \emph{mreža}, če za poljubna elementa \(x, y \in E\), ima množica \(\set{x, y}\) največjo spodnjo mejo \(x \land y\) in najmanjšo zgornjo mejo \(x \lor y\). 
+        \item \((E, \leq)\) je \emph{polna mreža}, če vsaka podmnožica \(X \subseteq E\) ima  največjo spodnjo mejo \(\bigwedge X\) in najmanjšo zgornjo mejo \(\bigvee X\). 
+    \end{itemize}
+\end{definicija}
+
+\begin{definicija}
+    Naj bosta \((E, \leq_E)\) in \((F, \leq_F)\) delno urejeni množici. Preslikava \(f \colon E \to F\) je \emph{monotona}, če
+    \[
+        \all{x, y \in E} x \leq_E y \lthen f(x) \leq_F f(y).
+    \]
+\end{definicija}
+
+\begin{opomba}
+  Beseda "`monotonost"' v tem delu ima enak pomen kot beseda "`naraš\-čajočost"'.
+\end{opomba}
+
+Sedaj lahko podamo osnovni izrek, ki bo dal odgovor na zastavljeno vprašanje.
+\begin{izrek}[Knaster-Tarski]
+  \label{izr:knaster-tarski}
+  Naj bo \((E, \leq)\) polna mreža in \(f \colon E \to E\) monotona preslikava. Tedaj \(\bigwedge \Fix(f)\) in  \(\bigvee \Fix(f)\) sta elementi \(\Fix(f)\), kjer je 
+  \[
+    \Fix(f) = \setb{x \in E}{f(x) = x}.
+  \]
+\end{izrek}
+
+Vidimo, da bo za monotono odsekoma linearno funkcijo 
+\[
+  f \colon E \subseteq \R \to E,
+\]
+kjer je \(E\) polna mreža, množica \(\Fix(f)\) neprazna in bo vsebovala minimum ter maksimum (torej najmanjšo in največjo negibno točko).  
+
+Ustrezna izbira za množico \(E\) je na primer zaprt interval \([0,1]\), ki je očitno polna mreža, saj \(\R\) izpolnjuje Dedekindov aksiom.
+
+Ko vemo, za kateri odsekoma linearni funkciji lahko izračunamo njene negibne točke, lahko problem formuliramo tudi v algoritmični obliki.
