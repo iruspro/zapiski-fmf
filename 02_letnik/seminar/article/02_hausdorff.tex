@@ -420,58 +420,58 @@ Ta rezultat pokaže, kako lahko Hausdorffova dimenzija vpliva na topološke last
 \subsection{Primeri računanja Hausdorffove dimenzije}
 V tem razdelku bomo obravnavali primere izračuna Hausdorffove dimenzije za bolj zapletene množice. Običajno postopamo tako, da z geometrijskim premislekom podamo spodnjo in zgornjo oceno za dimenzijo ter upamo, da se ti meji ujemata. V tem primeru lahko sklepamo, da smo našli točno dimenzijo.
 
-% \subsubsection{Cantorjev prah}
-% Izračunamo dimenzijo Cantorjevega praha (slika \ref{fig:cantor-dust}). Cantorjev prah je fraktal, ki ga dobimo na naslednji način:
+\subsubsection{Cantorjev prah}
+Izračunamo dimenzijo Cantorjevega praha (slika \ref{fig:cantor-dust}). Cantorjev prah je fraktal, ki ga dobimo na naslednji način:
 
-% \begin{enumerate}
-%     \item Naj bo \(E_0\) kvadrat s stranico dolžine \(1\).
-%     \item Kvadrat \(E_0\) razdelimo na \(16\) enakih manjših kvadratov tako, da vsako stranico razdelimo na 4 enake dele.
-%     \item V vsaki vrstici izberemo en kvadrat (po določenem pravilu), ostale kvadrate pa odstranimo. Tako dobimo množico \(E_1\), ki je unija 4 kvadratov z dolžino stranice \(4^{-1}\).
-%     \item Recimo, da imamo množico \(E_n\), ki jo sestavlja \(4^n\) kvadratov z dolžino stranice \(4^{-n}\). Za generacijo \(E_{n+1}\) vsak kvadrat iz \(E_n\) razdelimo na 16 manjših kvadratov in iz vsake vrstice izberemo po en kvadrat po istem pravilu kot prej, ostale odstranimo.
-%     \item Postopek nadaljujemo induktivno.
-% \end{enumerate}
+\begin{enumerate}
+    \item Naj bo \(E_0\) kvadrat s stranico dolžine \(1\).
+    \item Kvadrat \(E_0\) razdelimo na \(16\) enakih manjših kvadratov tako, da vsako stranico razdelimo na 4 enake dele.
+    \item V vsaki vrstici izberemo en kvadrat (po določenem pravilu), ostale kvadrate pa odstranimo. Tako dobimo množico \(E_1\), ki je unija 4 kvadratov z dolžino stranice \(4^{-1}\).
+    \item Recimo, da imamo množico \(E_n\), ki jo sestavlja \(4^n\) kvadratov z dolžino stranice \(4^{-n}\). Za generacijo \(E_{n+1}\) vsak kvadrat iz \(E_n\) razdelimo na 16 manjših kvadratov in iz vsake vrstice izberemo po en kvadrat po istem pravilu kot prej, ostale odstranimo.
+    \item Postopek nadaljujemo induktivno.
+\end{enumerate}
 
-% \begin{figure}[ht]
-%     \centering
-%     \includegraphics[width=\textwidth]{img/cantor_dust.pdf}
-%     \caption{Cantorjev prah (Cantor dust).}
-%     \label{fig:cantor-dust}
-% \end{figure}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{img/cantor_dust.pdf}
+    \caption{Cantorjev prah (Cantor dust).}
+    \label{fig:cantor-dust}
+\end{figure}
 
-% \begin{definicija}
-%     \emph{Cantorjev prah} je množica
-%     \[
-%     E = \bigcap_{i \in \N_0} E_i.
-%     \]
-% \end{definicija}
+\begin{definicija}
+    \emph{Cantorjev prah} je množica
+    \[
+    E = \bigcap_{i \in \N_0} E_i.
+    \]
+\end{definicija}
 
-% \begin{trditev}
-%     Hausdorffova dimenzija Cantorjeva praha je
-%     \[\dim_H E = 1.\]
-% \end{trditev}
+\begin{trditev}
+    Hausdorffova dimenzija Cantorjeva praha je
+    \[\dim_H E = 1.\]
+\end{trditev}
 
-% \begin{proof}
-%     Naj bo \(E_k\) \(k\)-ta generacija konstrukcije. Tedaj \(E_k\) vsebuje \(4^k\) kvadratov s stranico \(4^{-k}\) in premerom največ \(4^{-k} \sqrt{2}\).
+\begin{proof}
+    Naj bo \(E_k\) \(k\)-ta generacija konstrukcije. Tedaj \(E_k\) vsebuje \(4^k\) kvadratov s stranico \(4^{-k}\) in premerom največ \(4^{-k} \sqrt{2}\).
 
-%     Naj bo \(\delta > 0\). Potem obstaja \(k \in \N\), da velja \(4^{-k} \sqrt{2} \leq \delta\). Kvadrati iz \(E_k\) tvorijo \(\delta\)-pokritje množice \(E\), zato dobimo oceno
-%     \[H^1_\delta \leq 4^k 4^{-k}\sqrt{2} = \sqrt{2}.\]
-%     V limiti \(\delta \to 0\) sledi
-%     \[\mc{H}^1(E) \leq \sqrt{2},\]
-%     torej 
-%     \[\dim_H E \leq 1.\]
+    Naj bo \(\delta > 0\). Potem obstaja \(k \in \N\), da velja \(4^{-k} \sqrt{2} \leq \delta\). Kvadrati iz \(E_k\) tvorijo \(\delta\)-pokritje množice \(E\), zato dobimo oceno
+    \[H^1_\delta \leq 4^k 4^{-k}\sqrt{2} = \sqrt{2}.\]
+    V limiti \(\delta \to 0\) sledi
+    \[\mc{H}^1(E) \leq \sqrt{2},\]
+    torej 
+    \[\dim_H E \leq 1.\]
 
-%     Naj bo zdaj \(\pi_x: E \to [0,1]\) projekcija na \(x\)-os, podana s predpisom
-%     \[
-%         \pi_x(x, y) = x.
-%     \]
-%     Po konstrukciji množice \(E\) je \(\pi_x(E) = [0,1]\), torej je preslikava surjektivna. Poleg tega je \(\pi_x\) Lipschitzeva, saj
-%     \begin{multline*}
-%         |(x_1, y_1) - (x_2, y_2)| = |(x_1 - x_2, y_1 - y_2)| = \sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2} \geq \\ \sqrt{(x_1 - x_2)^2} = |x_1 - x_2| = |\pi_x(x_1, y_1) - \pi_x(x_2, y_2)|.
-%     \end{multline*}
-%     Po posledici \ref{dim-lips} sledi
-%     \[1 = \dim_H \pi_x (E) \leq \dim_H E.\]
-%     Skupaj s prvo neenakostjo sledi enakost.
-% \end{proof}
+    Naj bo zdaj \(\pi_x: E \to [0,1]\) projekcija na \(x\)-os, podana s predpisom
+    \[
+        \pi_x(x, y) = x.
+    \]
+    Po konstrukciji množice \(E\) je \(\pi_x(E) = [0,1]\), torej je preslikava surjektivna. Poleg tega je \(\pi_x\) Lipschitzeva, saj
+    \begin{multline*}
+        |(x_1, y_1) - (x_2, y_2)| = |(x_1 - x_2, y_1 - y_2)| = \sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2} \geq \\ \sqrt{(x_1 - x_2)^2} = |x_1 - x_2| = |\pi_x(x_1, y_1) - \pi_x(x_2, y_2)|.
+    \end{multline*}
+    Po posledici \ref{dim-lips} sledi
+    \[1 = \dim_H \pi_x (E) \leq \dim_H E.\]
+    Skupaj s prvo neenakostjo sledi enakost.
+\end{proof}
 
 \subsubsection{Cantorjeva množica}
 Izračunamo dimenzijo Cantorjeve množice (slika \ref{fig:cantor-set}).
