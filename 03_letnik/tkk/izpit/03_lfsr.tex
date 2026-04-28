@@ -1,0 +1,38 @@
+\section{Linearna rekurzivna šifra (LFSR)}
+Naj bo \(k = (k_0, k_1, \ldots, k_{m-1}) \in \Z_2^m\). Izberemo \(c_1, \ldots, c_m \in \Z_2\). Nastavimo \((z_0, z_1, \ldots, z_{m-1}) = k\) ter rekurzivno računamo
+\[
+    z_i = c_1 z_{i-1} + c_2 z_{i-2} + \cdots + c_mz_{i-m} \in \Z_2.
+\]
+\textbf{Def.} Perioda je dolžina ponavljajočih se bitov.\\
+\textbf{Trd.} Perioda je lahko največ \(2^m - 1\).\\
+\textbf{Def.} \emph{Karakteristični polinom} LFSR je 
+\[
+    c(X) = \sum_{i=0}^{m} c_i X^i \in \Z_2[X],\ c_0 = 1.
+\]
+\emph{Red} \(c(X)\) je najmanjši \(t\), za katerega velja 
+\[
+    c(X)\,|\, 1 - X^t.
+\]
+\textbf{Izr.} Naj ima LFSR karakteristični polinom \(c(X)\), ki je nerazcepen. Tedaj ima LFSR periodo enako redu \(c(X)\).\\
+\s{Nerazcepnost}
+\begin{itemize}
+    \item Preverimo, ali je \(0\) ali \(1\) ničli \(c(X) \lthen c(X)\) ima linearni faktorji.
+    \item Nastavimo linearni sistem za kvadratni faktorji itn.
+\end{itemize}
+\s{Razbitje z znanim parom \((x, y)\)}\\
+LFSR: \(y_i = x_i + z_i\), kjer je \(z_i\) psevdonaključni bit. Torej \(z_i = x_i + y_i\). Zdaj ko imamo izhodne bite iz LFSR potrebno je rešiti sistem 
+\[
+    \begin{bmatrix}
+        z_{m+1} \\ z_{m+2} \\ \vdots \\ z_{m+m - 1}
+    \end{bmatrix} = 
+    \begin{bmatrix}
+        z_1 & z_2 & \ldots & z_m \\
+        z_2 & z_3 & \ldots & z_{m+1} \\
+        \vdots \\
+        z_m & z_{m+1} & \ldots & z_{m+m - 1} 
+    \end{bmatrix}
+    \begin{bmatrix}
+        c_{m} \\ c_{m-1} \\ \vdots \\ c_{1}
+    \end{bmatrix}
+\]
+Naj bo \(n\) dolžina prestreženega kriptograma \(y\). Tedaj lahko sestavimo \(n - m\) enačb \(z_{i+m} = c_1 z_{i+m-1} + \cdots + c_m z_i\) za \(m\) neznank \(c_1, \ldots, c_m\).

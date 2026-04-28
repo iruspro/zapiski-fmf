@@ -1,0 +1,22 @@
+\section{Evklidov algoritem}
+\s{Največji skupni delitelj}\\
+Naj bo \(a, b \in \Z\) in \(|a| \geq |b|\). Z deljenjem poiščemo \(s_1, s_2, \ldots\) in \(r_1, r_2, \ldots\), da \(a = s_1 b + r_1,\ b = s_2 r_1 + r_2,\ r_k = s_{k+2}r_{k+1} + r_{k+2}\) za \(k \geq 1\). Algoritem se ustavi, ko \(r_{k+2} = 0\). Tedaj \(\gcd(a, b) = r_{k+1}\).
+\begin{itemize}
+    \item Velja: \(\all{k \in \N} r_k < r_{k-2} / 2\).
+\end{itemize}
+\s{Inverz}\\
+S pomočjo EA lahko poiščemo taki celi števili \(x\) in \(y\), da je 
+\[
+    x \cdot a + y \cdot b = \gcd(a, b).
+\]
+Iz 1.\ enakosti EA, dobimo \(r_1 = a - s_1 b\);\\
+Iz 2.\ dobimo \(r_2 = b - s_2 r_1 = b - s_2(a - s_1b) = -s_2 a + (1+s_1s_2)b\);
+Nadaljujemo z ustavljanjem \(r_2\) v \(r_3\), itn., dokler iz predzadnje enakosti ne dobimo želene zveze. \\
+Pri izračunu \(b^{-1} \mod a\) potrebno je preveriti če \(\gcd(a, b) = 1\). Tedaj
+\[
+    x \cdot a + y \cdot b = 1 \lthen b^{-1} \mod a = y.
+\]
+\s{Eulerjeva funkcija}
+\begin{itemize}
+    \item Velja \(|\Z_n^*| = \phi(n) = n \prod_{p | n} (1 - 1/p)\).
+\end{itemize}

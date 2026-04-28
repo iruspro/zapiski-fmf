@@ -1,0 +1,53 @@
+\section{Asimetrične šifre}
+\s{RSA shema}\\
+Generiramo slučajni \(\lambda\)-bitni praštevili \(p\) in \(q\). Definiramo \(n = pq\) in izračunamo \(\phi(n) = (p - 1)(q-1)\).\\
+Izberimo \(e, d \in \Z_{\phi(n)^*}\), da \(ed = 1 \mod \phi(n)\). Definiramo 
+\begin{itemize}
+    \item \(\text{secret key} = (n, d)\);
+    \item \(\text{public key} = (n, e)\).
+\end{itemize}
+Zdaj definiramo 
+\begin{itemize}
+    \item \(F(\text{pk}, x) = x^e \mod n \colon \Z_n^* \to \Z_n^*\);
+    \item \(I(\text{sk}, y) = y^d \mod n \colon \Z_n^* \to \Z_n^*\).
+\end{itemize}
+To je primer scheme enosmerne funkcije z povratnimi vrati. Mora veljati
+\[
+    \all{(\text{sk}, \text{pk}) \leftarrow G(1^\lambda)} \all{x \in X} I(\text{sk}, F(\text{pk}, x)) = x.
+\]
+\begin{itemize}
+    \item Če \(\gcd(e_1, e_2) = 1\) in sporočilo \(b\) zašifriramo z obema javnima ključema in prestrežemo \(c_1\) in \(c_2\), potem lahko dešifriramo besedilo z uporabo REA: \[\alpha e_1 + \beta e_2 = 1.\]
+\end{itemize}
+\s{Grupe \(\Z_p^*\)} \\
+Naj bo \(p\) praštevilo. Tedaj je \(\Z_p^* = \langle \alpha \rangle = \setb{\alpha^i}{i \in \Z}\), tj.\ \(\Z_p^*\) je ciklična.
+\begin{itemize}
+    \item \(\langle x \rangle = \Z_p^* \liff \text{red}(x) = p - 1\).
+    \item \(\langle x \rangle = \Z_p^* \liff x^{\frac{p-1}{p_i}} \neq 1 \mod p\) za vse \(i\), kjer je \(p - 1 = p_1^{k_1} \cdots p_l^{k_l}\).
+    \item Če je \(\langle \alpha \rangle = \Z_p^* \), potem \(\text{red}(\alpha^i) = \frac{p - 1}{\gcd(i, p - 1)}\).
+    \item Naj bo \(\langle \alpha \rangle = \Z_p^*\). Tedaj \(\alpha^{\frac{p-1}{2}} = p - 1 \mod p\).
+    \item Naj bo \(\beta = \alpha^x \mod p\). Tedaj
+    \begin{itemize}
+        \item če je \(\beta^{\frac{p-1}{2}} = 1\), potem je \(x\) sodo število;
+        \item če je \(\beta^{\frac{p-1}{2}} = -1\), potem je \(x\) liho število.
+    \end{itemize}
+\end{itemize}
+\s{Diffie-Hellmanov protokol}\\
+Naj bo \(G\) grupa, \(G = \langle g \rangle, \ |G| = q\) in diskretni logaritem v \(G\) težek.
+\begin{enumerate}
+    \item A izbere naključen \(x \in Z_q\), B izbere naključen \(y \in \Z_q\);
+    \item A pošlje B \(g^x\), B pošlje A \(g^y\);
+    \item Skupni ključ je \(g^{xy} = (g^x)^y = (g^y)^x\).
+\end{enumerate}
+\s{ElGamalov kriptosistem}\\
+Izberimo grupo \(G = \langle g \rangle,\ |G| = q\), da je odločitveni Diffie-Hellmanov problem težek v \(G\). Izberimo \(x \in \Z_q\). Definiramo 
+\begin{itemize}
+    \item \(\text{secret key} = x\);
+    \item \(\text{public key} = g^x\).
+\end{itemize}
+Zdaj definiramo 
+\begin{itemize}
+    \item \(E(\text{pk}, m): y \leftarrow \Z_q,\ c = (c_0, c_1) = (g^y, m \cdot \text{pk}^y)\);
+    \item \(D(\text{sk}, c) = c_1 \cdot c_0^{-\text{sk}}\).
+\end{itemize}
+\newpage
+

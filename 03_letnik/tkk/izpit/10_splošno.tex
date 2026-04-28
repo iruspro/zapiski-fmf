@@ -1,0 +1,49 @@
+\section{Splošno}
+\s{Kitajski izrek ob ostankih}\\
+Naj bo \(0 \leq x < N = n_1n_2 \cdots n_k\) in 
+\begin{align*}
+    x &= a_1 \mod n_1 \\
+    x &= a_2 \mod n_2 \\
+    &\vdots \\
+    x &= a_k \mod n_k.
+\end{align*}
+Obstaja natanko en \(x \in \set{0, 1, ..., N - 1}\), ki hkrati zadošča vsem kongruencam. Izračunamo ga lahko po formuli
+\[
+    x = \sum_{i=1}^{k} a_i M_i N_i \mod N,
+\]
+kjer je \(N_i = N / n_i\) in \(M_i N_i = 1 \mod n_i\).\\
+\textbf{Trd.} Če \(n = pq,\ p,q \in \mathbb{P}\), potem \((\Z_n, +, \cdot) \approx (\Z_p, +, \cdot) \times (\Z_q, +, \cdot)\).
+\begin{itemize}
+    \item Formula za izračun pogojne verjetnosti:
+    \[
+    P(A \mid B) = \frac{P(B \mid A) \cdot P(A)}{P(B)}, \quad P(B) > 0
+    \]
+    \item Formula za inverz matrike (2x2):
+    \[
+    A =
+    \begin{pmatrix}
+    a & b \\
+    c & d
+    \end{pmatrix}, \quad
+    A^{-1} = \frac{1}{ad - bc}
+    \begin{pmatrix}
+    d & -b \\
+    -c & a
+    \end{pmatrix}
+    \]
+
+    \item Formula popolne verjetnosti:
+    \[
+    P(A) = \sum_{i=1}^{n} P(A \mid B_i)\, P(B_i)
+    \]
+
+    \item Formula za razcep polinoma:
+    \[
+    1 - x^l = (1 - x)(1 + x + x^2 + \cdots + x^{l-1})
+    \]
+
+    \item Mali Fermatov izrek:
+    \[
+    a^{p-1} \equiv 1 \pmod{p}, \quad \text{če } p \text{ praštevilo in } p \nmid a
+    \]
+\end{itemize}

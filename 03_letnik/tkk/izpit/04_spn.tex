@@ -1,0 +1,31 @@
+\section{SPN, DES, AES}
+\s{SPN}\\
+SPN je ponavljanje določenega števila krogov (\(N\)) zaporedja
+\[
+    \text{XOR} \to S\text{-box} \to P\text{-box}.
+\]
+\begin{enumerate}
+    \item Prištejemo ključ \(K_i\);
+    \item Razdelimo besedilo na zloge dolžine \(l\);
+    \item Vsak zlog prevedemo v desetiško število in uporabimo \(\pi_S\);
+    \item Permutiramo biti s \(\pi_P\).
+\end{enumerate}
+V zadnjem krogu ponavadi ne naredimo permutacije, saj jo lahko vključimo v ključ \(K_N\).\\
+\s{DES}
+\begin{itemize}
+    \item Velja: \((m_1 + k) - (m_2 + k) \mod n = m_1 - m_2 \mod n\).
+    \item DES uporablja \(56\)-bitni ključ: \(c = \text{DES(k, m)}\).
+\end{itemize}
+\s{AES. Obseg \(\text{GF}(2^8) = \langle x^8 + x^4 + x^3 + x + 1 \rangle\)}\\
+Vemo, da se elementi \(\text{GF}(2^8)\) lahko zapišemo kot polinom 
+\[
+    b_7x^7 + b_6x^6 + b_5x^5 +b_4x^4 +b_3x^3 +b_2x^2 +b_1x + b_0,
+\]
+kjer so \(b_i \in \Z_2\). Elementi \(\text{GF}(2^8)\) lahko identificiramo z zlogi od 8 bitov. Zlog zapišemo kot par šestnajstiških številk. Na primer
+\[
+1A = 00011010 = x^4 + x^3 + x
+\]
+\begin{itemize}
+    \item Inverz polinoma poiščemo z razširjenim EA.
+    \item Operacije z \(b = 16\): Seštevamo po bitih, množimo polinomi.
+\end{itemize}

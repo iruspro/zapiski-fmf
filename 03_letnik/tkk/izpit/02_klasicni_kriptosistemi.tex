@@ -1,0 +1,44 @@
+\section{Klasični kriptosistemi, LPT}
+\textbf{Def.}
+\emph{Kriptosistem} je peterka \((\B, \CC, \K, \E, \D)\), kjer
+\begin{itemize}
+    \item \(\B\) je končna množica besedil;
+    \item \(\CC\) je množica kriptogramov (angl.\ ciphertext);
+    \item \(\K\) je množica ključev;
+    \item \(\E = \setb{E_k: \B \to \CC}{k \in \K}\) je množica \emph{šifrirnih} polinomskih funkcij;
+    \item \(\D = \setb{D_k: \CC \to \B}{k \in \K}\) je množica \emph{dešifrirnih} polinom.\ funkcij.
+\end{itemize}
+Pri tem za kriptosistem mora veljati \emph{pravilnost}, tj.\
+\[
+    \all{k \in \K} \some{k' \in \K} \all{m \in \B} D_{k'}(E_k(m)) = m.
+\]
+%
+\s{Popolna tajnost}\\
+\textbf{Def.} Kriptosistem \emph{ima lastnost popolne tajnosti (LPT)}, če 
+    \[
+        \all{m \in \B} \all{c \in \CC} P(X_\B = m\, |\, X_\CC = c) = P(X_\B = m).
+    \]
+\textbf{Lema.} Kriptosistem ima LPT \(\liff P(X_\CC = c\, |\, X_\B = m) = P(X_\CC = c)\).\\
+\textbf{Trd.} Če ima kriptosistem LPT, potem \(|\B| \leq |\CC| \leq |\K|\).\\
+\begin{itemize}
+    \item \(P(X_\CC = c) = \sum_{b \in \B}P(X_\CC = c \,|\, X_\B = b) \cdot P(X_\B = b)\)
+\end{itemize}
+\s{Vernamova šifra (OTP)}\\
+Naj bodo \(\B = \CC = \K = \set{0, 1}^\lambda,\ \lambda > 0\). Ključi izbiramo enakomerno naključno. Definiramo 
+\begin{itemize}
+    \item \(E_k(m) = m \oplus k\); 
+    \item \(D_k(c) = c \oplus k\).
+\end{itemize}
+\s{Afina šifra}\\
+Naj bodo \(\B = \CC = \Z_m\) in \(\K = \Z_m^* \times \Z_m\). Definiramo
+\begin{itemize}
+    \item \(E_{(a, b)}(x) = (ax + b) \mod m\);
+    \item \(D_{(a, b)}(y) = a^{-1}(y - b) \mod m\).
+\end{itemize}
+\s{Hillova šifra}\\
+Naj bodo \(\B = \CC = \Z_m^n\) in \(\K = \setb{A \in \Z_m^{n \times n}}{\det A \in \Z_m^*}\). Definiramo
+\begin{itemize}
+    \item \(E_K(B) = K \cdot B \mod m\);
+    \item \(D_K(C) = K^{-1} \cdot C \mod m\).
+\end{itemize}
+Če ne poznamo dolžino bloka jo poskusimo uganiti \((2, 3, \ldots)\). Za razbitje v splošnem potrebujemo \(n\) parov (besedilo/kriptogram).

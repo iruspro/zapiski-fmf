@@ -1,0 +1,51 @@
+\section{Algoritmi, napadi, problemi}
+\s{Kvadriraj in množi}\\
+\boxedalgorithm{
+    \KwData{\(a, b, n \in \N\)}
+    \KwResult{\(a^b \mod n\)}
+    \(p \gets 1\) \Comment*{potenca}
+    \(s \gets a\) \Comment*{kvadrat}
+    \While{\(b \geq 1\)}{
+        \(c \gets b \mod 2\) \Comment*{bit}
+        \If{\(c = 1\)}{
+            \(p \gets p \cdot s \mod n\) \;
+        }
+        \(s \gets s \cdot s \mod n\) \;
+        \(b \gets b / 2\) \;
+    }
+    \Return{\(p\)}
+}
+\\
+\\
+\\
+\s{Miller-Rabinov test}\\
+Naj bo \(n\) liho število in zapišimo \(n - 1 = 2^s d\), kjer je \(d\) liho število. Naj bo \(a \in \Z\) tuj z \(n\). Potem
+\begin{itemize}
+    \item \(a^d = 1 \mod n\), ali
+    \item \(\some{r \in {0, 1, \ldots, s-1}}\), da je \(a^{2^rd} = -1 \mod n\).
+\end{itemize}
+Če ena od zgornjih enakosti velja, potem je \(n\) po veliki verjetnosti praštevilo. Verjetnost, da število ni praštevilo, vsakič, ko opravi Miller-Rabinov test, je enaka \(1/4\). Če število opravi \(k\) testov, je verjetnost, da ni praštevilo, \(4^{-k}\).\\
+%
+\s{Shanksov algoritem (mali korak -- veliki korak)}\\
+Shanksov algoritem rešuje \(\alpha^x = \beta\) v \(\Z_p^*\).
+\begin{enumerate}
+    \item  \(m = \lceil \sqrt{p - 1} \rceil\);
+    \item (veliki korak) za \(j = 0, 1, \ldots, m - 1\) izračunaj \((j, \alpha^{mj}) \to L_1\);
+    \item (mali korak) za \(i = 0, 1, \ldots, m - 1\) če je \(\beta \alpha^{-i}\) v \(L_1\), izračunaj \[x = mj + i;\]
+    \item vrni \(x\).
+\end{enumerate}
+\s{Napad z znanim besedilom}\\
+Poznamo par \((b, c)\). Zanima nas ključ \(k\).\\
+\s{Napad \emph{meet in the middle}}\\
+Recimo, da poznamo par \((m, c)\) in \(c = E(k_2, E(k_1, m))\). Shranimo v tabelo vsi vrednosti \(E(k_1, m)\) in \(E^{-1}(k_2, c)\). Izberimo par \((k_1, k_2)\), za kateri je \(E(k_1, m) = E^{-1}(k_2, c)\).\\
+\s{Splošni napadi}
+\begin{itemize}
+    \item Ponavadi pri napadih seštevamo, množimo, računamo inverzi itn. Torej uporabljamo matematične lastnosti sistema.
+\end{itemize}
+\s{Problem RSA-faktorizacija}\\
+Za \(\lambda > 0\) naj bosta \(p\) in \(q\) slučajni \(\lambda\)-bitni praštevili in \(n = pq\). Izračunaj \(p\) in \(q\), če poznaš \(n\).\\
+\s{Problem RSA-inverz}\\
+Za \(\lambda > 0\) naj bosta \(p\) in \(q\) slučajni \(\lambda\)-bitni praštevili in \(n = pq\). Naj bo \(e \in \Z_{\phi(n)}^* \setminus \set{1}\). Izračunaj \(e^{-1}\) v \(\Z_{\phi(n)}^*\), če poznaš \(n\) (ne pa \(p\) in \(q\)).
+\s{Problem diskretnega logaritma}\\
+Naj bo \(G\) ciklična grupa reda \(n\), \(G = \langle g \rangle\). Za poljuben \(x \in \Z_n\) naj bo \(g^x = h\). Za dana \(g, h \in G\) poišči \(x\).
+\newcolumn

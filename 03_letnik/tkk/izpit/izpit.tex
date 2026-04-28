@@ -1,0 +1,48 @@
+\documentclass[a4paper,oneside,8pt,landscape]{extarticle}
+
+\usepackage{../../../common/base}
+\usepackage{../../../common/settings_a4}
+\usepackage{../../../common/environments}
+
+\usepackage{../../../common/macroses/common}
+\usepackage{../../../common/macroses/tkk}
+
+% Algorithms
+\usepackage[ruled]{algorithm2e}
+\SetKwComment{Comment}{/* }{ */}
+\RestyleAlgo{plain}
+\DontPrintSemicolon
+
+\newcommand{\boxedalgorithm}[2][0.95\linewidth]{%
+\vspace{-\baselineskip}
+\fbox{%
+\begin{minipage}{#1}
+\vspace{-0.6\baselineskip}
+\begin{algorithm}[H]
+\SetAlgoNoEnd
+\SetAlgoNoLine
+#2
+\end{algorithm}
+\vspace{-0.6\baselineskip}
+\end{minipage}
+}%
+% \vspace{-\baselineskip}
+}
+
+% Style
+\newcommand{\s}[1]{\textbf{\textcolor{red}{#1}}}
+
+\begin{document}
+
+\begin{multicols*}{3}
+\input{01_evklid.tex}
+\input{02_klasicni_kriptosistemi.tex}
+\input{03_lfsr.tex}
+\input{04_spn.tex}
+\input{05_rsa.tex}
+\input{10_algoritmi.tex}
+\input{10_splošno.tex}
+% \input{10_todo.tex}
+\end{multicols*}
+
+\end{document}
